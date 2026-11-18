@@ -1,0 +1,51 @@
+name: Reproduce UIMSD repeated-label group comparison defect
+
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-group-comparison-repro.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Require the retained regression to fail on the uncorrected implementation
+        run: |
+          set +e
+          ./gradlew :core:test --tests com.shatteredpixel.shatteredpixeldungeon.apd.report.GroupComparisonRepeatedLabelTest
+          status=$?
+          set -e
+          test "$status" -ne 0
+          python3 - <<'PY'
+          import pathlib, xml.etree.ElementTree as E
+          reports=list(pathlib.Path('core/build/test-results/test').glob('TEST-*GroupComparisonRepeatedLabelTest.xml'))
+          assert len(reports)==1,reports
+          root=E.parse(reports[0]).getroot()
+          assert int(root.get('tests','0'))==1
+          assert int(root.get('failures','0'))==1
+          assert int(root.get('errors','0'))==0
+          failure=next(root.iter('failure'))
+          text=(failure.get('message','') or '')+(failure.text or '')
+          assert 'expected:<20> but was:<200>' in text,text
+          print('Confirmed baseline: the first repeated Average row borrowed the second value from group B.')
+          PY
+      - name: Retain the exact baseline failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uimsd-group-comparison-baseline
+          path: |
+            core/build/test-results/test/
+            core/build/reports/tests/test/
+          if-no-files-found: error
+          retention-days: 7

@@ -1,0 +1,6 @@
+APD source verification request, 2026-11-11
+Parent cutoff: 57720443ec56d9d6776afb663ca4c821fab76956
+Scope: correct seed-history classification for available unfinished/crash-interrupted records. Count exact supported logical attempts, expose unfinished status, and use only canonical observed main-dungeon depth for an unfinished identity. Preserve the existing search changes, every score, save field, seed generation path and active-save restriction.
+Fresh local result: 3,247 tests across 468 suites, zero failures/errors/skips. Three new methods reproduce four failures against frozen APD445 and pass after correction.
+The extended real seed-entry device fixture retains its six original capture stages and adds seed-history-unfinished-record.png. Require actual desktop and Android debug/release/instrumentation compilation.
+This source-only request assembles no APK. APD445 remains frozen, unaccepted and undelivered; APD444 remains the last accepted delivered game.

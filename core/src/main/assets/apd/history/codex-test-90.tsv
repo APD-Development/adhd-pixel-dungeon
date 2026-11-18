@@ -1,0 +1,4 @@
+Bug Fixes	ICON_DATA	Saved empty-text filters	Saved queries now retain an empty text value instead of losing that filter operand.
+Testing	ICON_INFO	Saved-query compatibility checks	Added checks for empty and escaped values, legacy filters, invalid counts and saved-view file round trips.
+Development	ICON_INFO	Verified delivery records	Recorded TEST89's actual APK publication and the next saved-query integrity checks.
+Developer Commentary	V074_SHPX	Developer Commentary	I found an ambiguity when saving a filter with an empty text value. The fix keeps that value distinct while preserving older saved queries.

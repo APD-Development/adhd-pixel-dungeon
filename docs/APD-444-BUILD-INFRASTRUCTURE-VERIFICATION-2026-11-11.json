@@ -1,0 +1,354 @@
+{
+  "schema": 1,
+  "number": 444,
+  "recorded_utc": "2026-11-11T16:22:14.037875+00:00",
+  "status": "reviewed_for_single_candidate_request",
+  "accepted_baseline_commit": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+  "source_ci_commit": "43c078b75b73626625369ed21d1cbf2f013e6f31",
+  "source_ci_run": 43056607040,
+  "source_ci_result": "success",
+  "core_tests": 3214,
+  "core_suites": 466,
+  "all_required_source_compilation_passed": true,
+  "source_ci_receipt_path": "docs/APD-444-ARCANE-VISION-SOURCE-CI-VERIFICATION-2026-11-11.json",
+  "source_ci_receipt_sha256": "6b3ec8ce983df69fa611f2a025b6cae85c0ef7b56092d0b773e9a28c8f2464aa",
+  "infrastructure_sha256": {
+    "tools/apd_candidate444.py": "c0fa2e4d92ccef7c69612c764fa26f9acc889989b727250bbec1f63af01acf9c",
+    ".github/workflows/apd-candidate-444.yml": "43c28f6a6b76576aa04d1d31c68ae1b1e3f60b494cbdc84347005ab0bb189ad5",
+    "docs/APD-444-BUILD-PLAN.json": "cf881bb33504fa9d80deae2915185cff62701a1205634aa8f5011f4b07d4bf6a"
+  },
+  "ready_verification_sha256": "e492774eeba127cf4479c049a2e561bd116124d745aff0466f1e751ab6d287c4",
+  "ready_verification": {
+    "schema": 1,
+    "number": 444,
+    "recorded_utc": "2026-11-11T16:20:43.185533+00:00",
+    "status": "ready plan verified offline; root source-CI confirmation and independent review remain separate prerequisites to request creation",
+    "baseline": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+    "baseline_tree_reported_verified_by_root": "16093719e18f89e8976b541cb0926c13ef8dbf55",
+    "receipt_sha256": {
+      "docs/APD-443-DELIVERY-2026-11-11.json": "beb0fbdd894e67316e31fef5e8d439b0fb6d36b8e7abb4210395060d7be93080",
+      "docs/APD-443-MANUAL-VISUAL-REVIEW-2026-11-11.json": "b0f4d62a03abff8cdadd2d83918b90688679c8e5b7aad9f925d96d669275f664",
+      "docs/APD-443-INDEPENDENT-ACCEPTANCE-2026-11-11.json": "6421be6c5715a64501077e8c71d0ba959efc1ab14508d4f5c6b4c6c113b7ff9f"
+    },
+    "predecessor_acceptance_function_passed_offline": true,
+    "strict_cached_receipts_and_metadata_only": true,
+    "self_test_rejections": 45,
+    "actual_record_corruption_rejections": 8,
+    "premature_operational_stages_rejected": 24,
+    "scope": {
+      "core_tests": 3214,
+      "core_suites": 466,
+      "application_paths": [
+        "core/src/main/assets/messages/actors/actors.properties"
+      ],
+      "changes": [
+        "Empowered Strike description",
+        "Arcane Vision description"
+      ],
+      "affected_images": 29
+    },
+    "helper_change_limit": "Only acceptance comment, BASELINE assignment and two receipt digest values differ from before-ready. No operational function changed.",
+    "workflow_unchanged": true,
+    "before_ready_preserved": "/workspace/scratch/db82734c9c44/recovery/apd444-build-draft/before-ready",
+    "files_sha256": {
+      "tools/apd_candidate444.py": "c0fa2e4d92ccef7c69612c764fa26f9acc889989b727250bbec1f63af01acf9c",
+      ".github/workflows/apd-candidate-444.yml": "43c28f6a6b76576aa04d1d31c68ae1b1e3f60b494cbdc84347005ab0bb189ad5",
+      "docs/APD-444-BUILD-PLAN.json": "cf881bb33504fa9d80deae2915185cff62701a1205634aa8f5011f4b07d4bf6a",
+      "validate_draft.py": "c86b1158cbf94b0962a2e31de181c91087a52f40e35e3b5501679bcf4edfd389",
+      "draft-validation.json": "7b4ca78c9bf154600f60da73fdfe7b38ae1e4b0e5297dd5713914ccc792694ec",
+      "supplied-evidence.json": "85733d93b148a1ffe0731735ca5544b5bb3c609c1895982638e9af984f77639d",
+      "README.md": "842d30eb28f68fb1b1bdddc08e074b5c9070e247a22c5129c2aa1b8f9434b2d8"
+    },
+    "request_absent": true,
+    "source_ci_at_parent_handoff": {
+      "run": 43056607040,
+      "source_prefix": "43c078b",
+      "status": "running",
+      "success_claimed": false
+    },
+    "limits": [
+      "No live API or git operation, repository mutation, remote mutation, build request, dispatch, source scan, APK assembly or native run.",
+      "Actual local receipt bytes were independently hashed; root supplied the verified committed Git identity.",
+      "The existing full3214/466 source results were reparsed earlier; no test rerun was made in this readiness step.",
+      "A ready metadata plan is not a claim that source CI or an APD444 APK has completed."
+    ]
+  },
+  "validation_sha256": "7b4ca78c9bf154600f60da73fdfe7b38ae1e4b0e5297dd5713914ccc792694ec",
+  "validation": {
+    "schema": 1,
+    "number": 444,
+    "status": "ready_plan_verified_offline_pending_root_source_ci_and_review",
+    "recorded_at_utc": "2026-11-11T16:19:47.226124+00:00",
+    "baseline_sha256": {
+      "tools/apd_candidate443.py": "538fbfea974b1c47f2863cc2714cad1097cf30f466202d7574a63e95cf4af535",
+      ".github/workflows/apd-candidate-443.yml": "50582db80b7dbecefaff7a7b33cda1049191faab3eef161685e6bba4fb3ceee1",
+      "docs/APD-443-BUILD-PLAN.json": "e06a9fd91cbe796a7df74012e460766781d008aab7e054d7fc32c8baf0b40781"
+    },
+    "self_test_rejections": 45,
+    "blocked_operational_stage_checks": [
+      {
+        "state": "unfinished-draft-status",
+        "stage": "history",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "core",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "freeze",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "fetch",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "source-scan",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "fetch-scan",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "native",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "unfinished-draft-status",
+        "stage": "finalize",
+        "reason": "APD444 is a draft; finalize the actual tested scope before requesting a build"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "history",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "core",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "freeze",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "fetch",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "source-scan",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "fetch-scan",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "native",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-baseline",
+        "stage": "finalize",
+        "reason": "The accepted APD443 baseline commit is still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "history",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "core",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "freeze",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "fetch",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "source-scan",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "fetch-scan",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "native",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      },
+      {
+        "state": "ready-but-missing-receipt-digests",
+        "stage": "finalize",
+        "reason": "APD443 acceptance receipt digests are still pending"
+      }
+    ],
+    "actual_previous_acceptance": {
+      "actual_acceptance_function_passed": true,
+      "accepted_baseline": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+      "receipt_sha256": {
+        "docs/APD-443-DELIVERY-2026-11-11.json": "beb0fbdd894e67316e31fef5e8d439b0fb6d36b8e7abb4210395060d7be93080",
+        "docs/APD-443-MANUAL-VISUAL-REVIEW-2026-11-11.json": "b0f4d62a03abff8cdadd2d83918b90688679c8e5b7aad9f925d96d669275f664"
+      },
+      "independent_receipt_sha256": "6421be6c5715a64501077e8c71d0ba959efc1ab14508d4f5c6b4c6c113b7ff9f",
+      "metadata_snapshot": "/workspace/scratch/db82734c9c44/recovery/apd443-build/snapshot-2026-11-11T16-08-51-348Z.json",
+      "metadata_snapshot_sha256": "551abcfc74b87a01eba511ef5ba3087ebfa6a33da085f4cc41a6d9c8188a3830",
+      "changed_record_rejections": [
+        {
+          "case": "delivery-bytes",
+          "reason": "Previous acceptance receipt changed"
+        },
+        {
+          "case": "manual-bytes",
+          "reason": "Previous acceptance receipt changed"
+        },
+        {
+          "case": "delivery-readback",
+          "reason": "Previous 443 acceptance is incomplete"
+        },
+        {
+          "case": "delivery-manual-completion",
+          "reason": "Previous 443 acceptance is incomplete"
+        },
+        {
+          "case": "producer-conclusion",
+          "reason": "Previous 443 producer differs"
+        },
+        {
+          "case": "missing-job",
+          "reason": "Previous 443 gates incomplete"
+        },
+        {
+          "case": "owner-digest",
+          "reason": "APD443 artifact identity differs"
+        },
+        {
+          "case": "scan-source",
+          "reason": "APD443 artifact identity differs"
+        }
+      ],
+      "limits": "Receipt bytes come from current repo copies matching root-provided committed hashes. Git-show and API responses are strict cached adapters; no live Git/API request was made.",
+      "cached_git_requests": [
+        [
+          "git",
+          "show",
+          "69801dff65bc10b6fb45720c88f3d0cd5f7dd281:docs/APD-443-DELIVERY-2026-11-11.json"
+        ],
+        [
+          "git",
+          "show",
+          "69801dff65bc10b6fb45720c88f3d0cd5f7dd281:docs/APD-443-MANUAL-VISUAL-REVIEW-2026-11-11.json"
+        ]
+      ],
+      "cached_metadata_requests": [
+        "actions/runs/43051129325",
+        "actions/runs/43051129325/jobs?per_page=100",
+        "actions/artifacts/13869069224",
+        "actions/artifacts/13869653810",
+        "actions/runs/43051129325",
+        "actions/artifacts/13870400724"
+      ]
+    },
+    "workflow_is_exact_numeric_adaptation": true,
+    "workflow_permissions": {
+      "contents": "read",
+      "actions": "read"
+    },
+    "predecessor_expected_jobs": 5,
+    "predecessor_expected_tests": 3210,
+    "predecessor_expected_suites": 465,
+    "new_expected_tests": 3214,
+    "new_expected_suites": 466,
+    "retained_affected_images": [
+      "qol-counter-ability-normal-bottom.png",
+      "qol-counter-ability-normal.png",
+      "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+      "qol-ordinary-talent-LINGERING_MAGIC.png",
+      "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+      "qol-ordinary-talent-LIQUID_AGILITY.png",
+      "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+      "qol-ordinary-talent-PROVOKED_ANGER.png",
+      "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+      "qol-ordinary-talent-SPEEDY_STEALTH.png",
+      "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+      "qol-ordinary-talent-VETERANS_INTUITION.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+      "trap-discovery-liquid-agility-excluded-strength-after.png",
+      "trap-discovery-liquid-agility-excluded-strength-before.png",
+      "trap-discovery-liquid-agility-rank1-after.png",
+      "trap-discovery-liquid-agility-rank1-before.png",
+      "trap-discovery-liquid-agility-rank2-after.png",
+      "trap-discovery-liquid-agility-rank2-before.png",
+      "trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "trap-discovery-seer-shot-side-branch-before.png",
+      "trap-discovery-seer-shot-side-branch-revealed.png"
+    ],
+    "additional_required_images": [
+      "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+      "qol-ordinary-talent-ARCANE_VISION.png",
+      "qol-ordinary-talent-ARCANE_VISION-bottom.png"
+    ],
+    "total_required_affected_images": 29,
+    "shared_legacy_image_checks_unchanged": true,
+    "known_owner_artifact": {
+      "id": 13869653810,
+      "sha256": "e5762b6fa148678fd83d8a3405b2ad90f1f4c0e897f2d310a4b30879186c226c"
+    },
+    "acceptance_baseline_and_receipt_digests_bound_to_actual_committed_records": true,
+    "source_ci_at_parent_handoff": {
+      "run": 43056607040,
+      "status": "running",
+      "success_claimed": false
+    },
+    "request_absent": true,
+    "scope_status": "ready_for_build",
+    "source_scanner_script_sha256_unchanged": "436dcfc230412e39e53b95e7301a7a8c78228ebb63a7db5f1afca070026c7734",
+    "files_sha256": {
+      "tools/apd_candidate444.py": "c0fa2e4d92ccef7c69612c764fa26f9acc889989b727250bbec1f63af01acf9c",
+      ".github/workflows/apd-candidate-444.yml": "43c28f6a6b76576aa04d1d31c68ae1b1e3f60b494cbdc84347005ab0bb189ad5",
+      "docs/APD-444-BUILD-PLAN.json": "cf881bb33504fa9d80deae2915185cff62701a1205634aa8f5011f4b07d4bf6a"
+    },
+    "read_existing_core_results_only": true,
+    "no_api_build_core_rerun_native_scan_repository_write_or_remote_mutation": true
+  },
+  "independent_review_path": "docs/APD-444-BUILD-INDEPENDENT-REVIEW-2026-11-11.json",
+  "independent_review_sha256": "3a86f75d89dee24535f202df3a8533d8c52f3d7072fc21c6658fc05995d5799c",
+  "root_current_application_and_instrumentation_hashes_match_reviewed_cutoff": true,
+  "retained_affected_images": 25,
+  "new_affected_images": 4,
+  "application_apk_built_at_request_recording": false,
+  "native_tests_run_for444_at_request_recording": false,
+  "limits": [
+    "Ready metadata is not APK completion. Workflow must still run the exact core, compile, ABI, signer, history, source-scan and native gates on one frozen pair.",
+    "Manual affected-image review and saved-file readback remain required before immediate delivery.",
+    "Existing APKs and signing identity remain preserved; no release publication is requested."
+  ]
+}

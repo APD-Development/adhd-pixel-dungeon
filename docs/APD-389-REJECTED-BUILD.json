@@ -1,0 +1,11 @@
+{
+  "source": "be8ea9856711d82fabd7cf4cf7ba20aa56f19c26",
+  "run": 42550674646,
+  "published": false,
+  "core_tests": 3047,
+  "android_verified": false,
+  "cause": "Three unhandled checked exceptions in added NPC/Catalyst Android-test find() assertions; fixed wrappers preserve assertions.",
+  "partial_apk_preservation_limitation": "Original workflow assembled Developer APK before instrumentation compilation failed, but did not upload raw output path. Those unpublished partial APK bytes cannot be recovered from its artifact. Producing source/full logs retained in private389 draft; future workflow compiles instrumentation first and archives raw output.",
+  "failure_evidence": "APD-389-Rejected-Build-Evidence.zip",
+  "latest_published": 388
+}

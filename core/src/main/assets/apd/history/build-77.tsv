@@ -1,0 +1,16 @@
+Testing	ICON_CHECKED	Privacy And Hero Back Device Test	Updated Android checks and fixtures for privacy and hero back device. These are development checks, not a gameplay feature.
+Infrastructure	ICON_DATA	Data Policy	Added checked account and vote request handling through the existing offline queue.
+Infrastructure	ICON_DATA	Http Gateway	Refused redirects so queued data cannot be sent to an unconfigured destination.
+Infrastructure	ICON_DATA	Vote Messages	Added what a server sends to open a vote: the round (options, how many may be picked, when it opens and closes) and a one-line title.
+Infrastructure	ICON_DATA	Account Actions	Added the player asking the server for a copy of their account data, or to delete the account.
+Infrastructure	ICON_DATA	Vote Actions	Added votes the server has opened for this player, and casting a ballot.
+Quality of Life	ICON_STATS	Statistics Options	Added account export/deletion request controls that require a valid session.
+Testing	ICON_DATA	Http Gateway Test	Updated automated checks and fixtures for http gateway. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Account Actions Test	Added a test covering requests Need A Session Name The Sessions Player And Are Queued Once. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Vote Actions Test 1	Added a test covering rounds Round Trip And Bad Ones Are Refused. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Vote Actions Test 2	Added a test covering a Ballot Is Checked On The Device Queued And Replaced Before It Is Sent. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Vote Actions Test 3	Added a test covering a Not Yet Open Round Refuses The Ballot. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test	Updated automated checks and fixtures for combat telemetry. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Updated apd-backend accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added account export/deletion request controls that require a valid session.

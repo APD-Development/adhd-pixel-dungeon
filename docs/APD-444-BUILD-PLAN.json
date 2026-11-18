@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "number": 444,
+  "base_head": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+  "status": "ready_for_build",
+  "date": "2026-11-11",
+  "core_tests": 3214,
+  "core_suites": 466,
+  "application_paths": [
+    "core/src/main/assets/messages/actors/actors.properties"
+  ],
+  "additional_required_images": [
+    "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+    "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+    "qol-ordinary-talent-ARCANE_VISION.png",
+    "qol-ordinary-talent-ARCANE_VISION-bottom.png"
+  ],
+  "changes": [
+    {
+      "category": "Bug Fixes",
+      "sprite": "ICON_PREFS",
+      "title": "Empowered Strike description",
+      "text": "Empowered Strike's ordinary description now states that its readied bonus lasts 10 turns and another staff zap refreshes it. Its damage and wand-effect factors are unchanged."
+    },
+    {
+      "category": "Bug Fixes",
+      "sprite": "ICON_PREFS",
+      "title": "Arcane Vision description",
+      "text": "Arcane Vision's ordinary description now includes Transfusion targeting allies and wards hitting surviving targets, and explains that Frost does not trigger it against an already-frozen target. Its effects and duration are unchanged."
+    }
+  ],
+  "pending_scope_items": []
+}

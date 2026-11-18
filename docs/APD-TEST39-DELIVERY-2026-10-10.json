@@ -1,0 +1,58 @@
+{
+  "test": 39,
+  "source": "475c80c22285978bf9eefb682f7a19bd32d994e5",
+  "delivery_commit": "a49323934f9514da07efe067b42ca9a3653a08c6",
+  "source_run": 38101578800,
+  "delivery_run": 38102394178,
+  "published_at": "2026-10-11T01:37:04Z",
+  "core": {
+    "tests": 1033,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "apk_sha256": "fdba6ccb7ec634e86ec64414e6e92a6bfeff3584fd4931cc59066326a5e7e7ee",
+  "signer_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC39-TEST",
+  "rollback": 36,
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-39.apk",
+      "digest": "sha256:fdba6ccb7ec634e86ec64414e6e92a6bfeff3584fd4931cc59066326a5e7e7ee",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-39/ADHD-Pixel-Dungeon-CODEX-TEST-39.apk"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-39.apk.sha256",
+      "digest": "sha256:1e9924c82d6aa9f5770cd463667f59059f619b451f0b34fc21634fbe48b3c548",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-39/ADHD-Pixel-Dungeon-CODEX-TEST-39.apk.sha256"
+    },
+    {
+      "name": "APD-Bug-Fixes-2026-10-10-TEST39.pdf",
+      "digest": "sha256:d03f9985aafc0cd8e3eec5bfd658a1e4e7230f07d2252032ef54eb36c1526574",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-39/APD-Bug-Fixes-2026-10-10-TEST39.pdf"
+    },
+    {
+      "name": "TEST39-Verification.json",
+      "digest": "sha256:ac99d1e5878ee5d2e1468b641bc61f5e5eaa4965911d4d8aa5caa2d2664e58b1",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-39/TEST39-Verification.json"
+    }
+  ],
+  "physical_phone_verified": false,
+  "bluetooth_accessory": "Pixel Buds Pro 2 confirmed after PDF generation",
+  "bluetooth_root_cause": "unconfirmed",
+  "explicit_ci_wait_seconds": 215,
+  "explicit_delivery_wait_seconds": 75,
+  "active_idle_totals": "not independently metered",
+  "failures": [
+    "TEST37 native canceled for urgent navigation fix",
+    "TEST38 Android compile API mismatch, corrected",
+    "First TEST39 publication asset filename mismatch, corrected; same tested APK reused"
+  ]
+}

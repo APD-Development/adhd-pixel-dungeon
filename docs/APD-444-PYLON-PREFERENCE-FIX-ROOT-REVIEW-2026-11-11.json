@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-11T17:00:12.240065+00:00",
+  "status": "accepted_for_actual_Android_compile_and_native_reverification",
+  "parent_source": "b2be6a4be9a2b899fa14e807a3b467068d2c19d9",
+  "prior_test_source": "fbe701cea9dbb30020fcf2f436aa2075489baf0d",
+  "prior_run": 43061442841,
+  "original_game_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "old_fixture_sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+  "corrected_fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+  "root_review": [
+    "The pre-launch fallback-capable SPDSettings.intro read is removed. A non-null Gdx.app assertion and uncaught public contains lookup precede the read on the launched render thread.",
+    "A nullable captured value prevents any preference access in cleanup if initialization or launch failed before capture. The restored value is asserted before its log marker.",
+    "Existing disposable slot and global selection cleanup remain in a nested finally if restoration raises.",
+    "All Probe logic, five targeting states, assertions and image names remain byte-identical to the first native run.",
+    "Public KEY_INTRO/contains APIs were verified in the unchanged production sources.",
+    "Three real-preference guards passed and whole-fixture Java types were checked using explicit Android stand-ins; actual SDK compilation/native execution still required."
+  ],
+  "plan_sha256": "c448aae4a688c98703bd7e3f27b3169812a41f2c86f43010c7859b0dda2a56a0",
+  "request_sha256": "78b9412630c2aa0026da9dbac3596bb3459b65d1f8e7156534a73cfaab549c53",
+  "local_verification_sha256": "cb2cad5af80471741721d53407873669c7f519bc934fbaff6e612c9bf19859e4",
+  "application_source_changed": false,
+  "original_game_or_instrumentation_overwritten": false,
+  "actual_corrected_android_compile_complete": false,
+  "actual_corrected_native_complete": false,
+  "retained_first_run_targeting_pass_with_caught_setup_issue": true
+}

@@ -1,0 +1,9 @@
+Infrastructure	ICON_INFO	codex-pdf-report	Added the codex-pdf-report development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-PDF-UPDATE	Added apd-pdf-update accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-TEST-OUTPUT-2026-10-09	Updated apd-sprint-test-output-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added the codex-pdf-report development workflow; it is not gameplay content. Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.

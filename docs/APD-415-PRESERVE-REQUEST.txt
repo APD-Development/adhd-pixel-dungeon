@@ -1,0 +1,1 @@
+Preserve failed415 exact original pair/raw evidence in private draft only. Source a52bd33a8868875eb24fa2d0162ba41bdd099b0c run42625074280. Developer emulator transport disconnected; no successful full-grid claim.

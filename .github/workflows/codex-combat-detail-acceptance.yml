@@ -1,0 +1,72 @@
+name: APD malformed combat-detail resilience checks
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-combat-detail-acceptance.yml]
+permissions:
+  contents: read
+concurrency:
+  group: apd-combat-detail-acceptance
+  cancel-in-progress: false
+jobs:
+  reproduce-and-check-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 7ca81c536318d3748190bd592a5f44ff5d2e6490
+          path: original-application
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK for Gradle project configuration
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reproduce public-combat loss in unchanged parent production
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,xml.etree.ElementTree as E,json
+          base=pathlib.Path('original-application')
+          fixture=pathlib.Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CombatDetailPairingTest.java')
+          (base/fixture).write_bytes(fixture.read_bytes())
+          names={'malformedHiddenDetailsCannotEraseReadablePublicCombat','malformedHiddenHealDetailCannotEraseReadablePublicHeal'}
+          command=['./gradlew',':core:test']
+          for name in sorted(names): command+=['--tests','*.CombatDetailPairingTest.'+name]
+          result=subprocess.run(command,cwd=base)
+          roots=[E.parse(p).getroot() for p in (base/'core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          failures={c.get('name') for c in cases if c.find('failure') is not None}
+          assert len(cases)==2 and result.returncode!=0 and failures==names,(len(cases),result.returncode,failures)
+          pathlib.Path('original-combat-detail-result.json').write_text(json.dumps({'source':'7ca81c536318d3748190bd592a5f44ff5d2e6490','tests':2,'expected_failures':sorted(failures),'original_production_changed':False},indent=2))
+          PY
+      - name: Run the complete corrected core suite
+        run: |
+          ./gradlew :core:test
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as E,json,os
+          roots=[E.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']==len(cases)==len({(c.get('classname'),c.get('name')) for c in cases})==1693,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0
+          assert sum(c.get('classname','').endswith('.CombatDetailPairingTest') for c in cases)==6
+          pathlib.Path('corrected-combat-detail-result.json').write_text(json.dumps({'source':os.environ['GITHUB_SHA'],'counts':totals,'retained_pairing_methods':5,'application_built':False,'android_verified':False,'published':False},indent=2))
+          PY
+      - name: Retain original and corrected evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-combat-detail-before-after
+          path: |
+            original-combat-detail-result.json
+            corrected-combat-detail-result.json
+            original-application/core/build/test-results/test/
+            core/build/test-results/test/
+            core/build/reports/tests/test/
+          retention-days: 7
+          if-no-files-found: warn

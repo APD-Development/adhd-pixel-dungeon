@@ -1,0 +1,27 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Added the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-simulator-check	Added the codex-simulator-check development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Changes	ICON_PREFS	Saved settings	Allowed the player’s Adult/Clean choice when age verification is unavailable; verified adults default to Adult and can choose Clean.
+Quality of Life	ICON_PREFS	APD Settings Pane	Allowed the player’s Adult/Clean choice when age verification is unavailable; verified adults default to Adult and can choose Clean.
+Testing	ICON_CHECKED	Age Eligibility Test	Updated automated checks and fixtures for age eligibility. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Reckless Warrior Policy	Added automated checks and fixtures for reckless warrior policy. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment	Added automated checks and fixtures for warrior healing experiment. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 1	Added a test covering heals Only When Next Hit Could Kill And A Potion Is Held. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 2	Added a test covering counts Held Potion Need Before Fly Drop But Not After And Always Closes Session. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 3	Added a test covering stuck And Limited Scenarios Are Incomplete Rather Than Reported As Successful Runs. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 4	Added a test covering batch Retains Every Seed And Action Trace Without Claiming Real Game Evidence. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 5	Added a test covering terminal State After The Last Allowed Action Still Counts As Completed. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 6	Added a test covering failed Healing Does Not Count As A Consumed Survival Potion. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 7	Added a test covering adapter Failure Is Recorded And Does Not Stop Later Seeds. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Warrior Healing Experiment Test 8	Added a test covering cleanup Failure Prevents Reporting An Experiment As Successfully Completed. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test	Updated automated checks and fixtures for statistics gate. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Statistics Settings Persistence Test	Updated automated checks and fixtures for statistics settings persistence. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-HUMOR-CORRECTION-2026-10-10	Added apd-humor-correction-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-TEST22-REPORT-2026-10-10	Added apd-test22-report-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	apd bug report pdf	Updated the apd bug report pdf development tool.
+Infrastructure	ICON_INFO	apd existing build evidence	Added the apd existing build evidence development tool.
+Infrastructure	ICON_INFO	test apd existing build evidence	Added the test apd existing build evidence development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Allowed the player’s Adult/Clean choice when age verification is unavailable; verified adults default to Adult and can choose Clean. Allowed the player’s Adult/Clean choice when age verification is unavailable; verified adults default to Adult and can choose Clean.

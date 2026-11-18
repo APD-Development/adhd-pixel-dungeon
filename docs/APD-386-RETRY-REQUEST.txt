@@ -1,0 +1,1 @@
+Expand real backpack-owned action-bar inspection on exact original386 pair. Compile instrumentation only with reviewed test-only patch; no game APK rebuild, unchanged assertions, preserve original12case result and add2repeatedQol evidence. Stage only supplemental proof/captures in private draft after both expanded Qol and original gates pass.

@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-11T16:38:10.030612+00:00",
+  "reviewer": "root",
+  "scope": "Independent source/API/control review of the isolated Android pylon targeting fixture. No Android compile or native execution.",
+  "fixture_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+  "fixture_sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+  "result": "accepted_for_test_only_android_verification",
+  "initial_issue": {
+    "kind": "outer-wrapper protected/private access",
+    "detail": "The first draft referenced protected PixelScene.Fader and private INSTANCE directly. The extracted Probe type check intentionally excluded that method. Static source review found the access violation before CI.",
+    "resolved": "Uses the already established Class.forName/declared-field reflection pattern, retaining the first draft."
+  },
+  "reviewed_actual_sources": [
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/PixelScene.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Pylon.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/DM300.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/AttackIndicator.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/QuickSlotButton.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/TargetHealthIndicator.java",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TopScoresDeviceTest.java"
+  ],
+  "reviewed_behavior": [
+    "Concrete mobs and real linked sprites, existing public Pylon.activate, actual Dungeon.observe and hero.checkVisibleMobs, actual AttackIndicator.target/updateState. No overridden targeting or damage handler.",
+    "Actual ranged, inventory and health targets are asserted independently from the melee indicator and portrait class.",
+    "Terrain walls establish hidden-target exclusion; the real FOV is read and recomputed rather than supplied as the expected value.",
+    "The same real current hero actor, world/hero clocks and all HP values are checked before and after capture; no input action or attack is performed.",
+    "Map setup clears discarded floor objects and marks the newly opened floor as discoverable. It is a disposable synthetic arena, not a natural boss-floor encounter.",
+    "Only an initially empty class save slot is used and later deleted. Title is requested even when fixture cleanup throws; RNG/settings/selection flags are restored."
+  ],
+  "expected_images": [
+    "pylon-native-inactive-visible.png",
+    "pylon-native-active-visible.png",
+    "pylon-native-manual-rat-preserved.png",
+    "pylon-native-ranged-pylon-melee-boss.png",
+    "pylon-native-hidden-excluded.png"
+  ],
+  "production_source_changed": false,
+  "existing_six_native_cases_changed": false,
+  "full_android_compile_verified": false,
+  "native_execution_verified": false,
+  "limitations": [
+    "Five selection states in one method; no full boss fight, actual touch dispatch, attack, projectile flight, damage, natural phase transition or physical-device result.",
+    "Existing six headless call-site regressions remain separate. The new native fixture does not cover the vulnerable-boss or visible-but-blocked/mind-vision controls.",
+    "Review validates the intended assertions and API access; the Android compiler and emulator must establish actual viability."
+  ],
+  "reviewed_source_sha256": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/PixelScene.java": "07fc6ad69deb815b1739cebebbeab9c993f89a42f9e8c8379690ca1562f71dd7",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java": "b9cc70a15c3b4128e2df83a18bba09b03f0c968f7fbb7d3a886d0a306de0224a",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Pylon.java": "d0f0bb8fa3f4ca25dcf714e26ea8655f74bae9482727b9ce346566f0d39caee9",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/DM300.java": "834a0ca138f060fa5f93a33aa53ab2e32d848ba38c388ad2264e960320608316",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/AttackIndicator.java": "51980e057e855d46d1ac69d2c9487833edeed2a3751cc1aa0ee3c2af3a09a676",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/QuickSlotButton.java": "63742e729690ff482ce3720581615799104e1f68c7547a4a46031918de864159",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/TargetHealthIndicator.java": "19f17803cb779d9b809220863d9b3aaea273f564fab4ba6b1dc2f9c39332d7b6",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TopScoresDeviceTest.java": "79b24e60d3c2e64db823cf5ec03f05aefc24b19cb74510054837bd309dab1505"
+  }
+}

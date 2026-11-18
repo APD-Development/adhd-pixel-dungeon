@@ -1,0 +1,5 @@
+Development	ICON_INFO	Custom combat effects	Implemented maximum-health, accuracy and evasion factors from locked custom settings, with startup health separated from healing.
+Development	ITEM_SCROLL_GYFU	Custom upgrade supply	Implemented whole-scroll dungeon allocations from 1 to 60; 15 keeps original generation, and Forbidden Runes retains its existing reduction.
+Testing	ICON_CHECKED	Custom slider regressions	Added combat, health save/load and all-count dungeon-generation tests, including Forbidden Runes and neutral random-number checks.
+Development	ICON_INFO	Verification and alpha records	Documented the failed startup-health and changelog-sprite checks, their corrections and remaining custom-slider work.
+Developer Commentary	V074_SHPX	Developer Commentary	I added the initial custom combat factors and configurable upgrade supply, then corrected verification failures. The remaining sliders and native controls are still in development.

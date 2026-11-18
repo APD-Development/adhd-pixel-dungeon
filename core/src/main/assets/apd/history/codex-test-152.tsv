@@ -1,0 +1,9 @@
+Changes	V061_BUGFIX	Fire	Reject invalid fire mixtures before changing the field and retain their explicit source.
+Changes	V061_BUGFIX	CellDamageOrigins	Share the existing source-mixture validation before field creation.
+Changes	V061_BUGFIX	InfernalBrew	Use the actual throw or explosion trigger for Infernal Brew fire.
+Changes	V061_BUGFIX	InfernoDamageProvenanceTest	Verify brew and Censer wiring against their actual captured effect context.
+Changes	V061_BUGFIX	InfernoSourceSafetyTest	Test malformed mixtures, stale users, actual brew triggers and saved Censer ownership.
+Changes	V061_BUGFIX	APD-INFERNO-SOURCE-SAFETY-PREPARED-2026-10-14	Record independent source-safety reproduction and regression evidence.
+Changes	V061_BUGFIX	HANDOFF	Record tested source corrections and the next verification checkpoint.
+Changes	V061_BUGFIX	APD-CODEX-BUILD-REQUEST	Require full current-source tests, Android checks, debug assembly and compiled history.
+Changes	V061_BUGFIX	APD-NEXT-BUILD-HISTORY	Review changes against the immediately preceding produced APK.

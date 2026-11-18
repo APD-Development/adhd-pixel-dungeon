@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "number": 444,
+  "recorded_utc": "2026-11-11T16:14:51.141068+00:00",
+  "phase": "Root-adopted Arcane Vision text/test/native-capture source, verified locally; next source CI pending.",
+  "parent_source_commit": "c12a24360ed6d5b7d5cad5d98ccd7d9f9ea9626c",
+  "frozen_APD443_source": "a2960688e02468817914f006ff4c563b844c80c5",
+  "scope": "One remaining ordinary Arcane Vision activation facet. No gameplay, eligibility, damage, duration, save, signing or detailed-panel change.",
+  "production_gameplay_changed": false,
+  "production_main_java_hashes_unchanged": true,
+  "changed_application_text_only": "core/src/main/assets/messages/actors/actors.properties",
+  "final_ordinary_description": "_+1:_ Qualifying wand effects let the Mage track affected creatures with mind vision for _10 turns_.\\n\\n_+2:_ Qualifying wand effects let the Mage track affected creatures with mind vision for _15 turns_.\\n\\nThis also works when Transfusion targets allies and when wards hit surviving targets. Frost does not trigger this against a target that is already frozen.",
+  "actual_handler_coverage": [
+    "Concrete WandOfFrost.onZap at ranks 0/1/2, both non-Frozen and already-Frozen targets. Real damage/Chill occur only on the qualifying path; moved target awareness/FOV appears only with rank and a qualifying effect.",
+    "Concrete WandOfTransfusion.onZap on an allied Rat at ranks 0/1/2. Actual ally healing and caster HP cost execute unchanged. After the ally moves beyond ordinary sight, actual Level.updateFieldOfView reveals its 3x3 footprint only with Arcane Vision.",
+    "Ward subclass exposes only controlled enemy selection and calls super.canAttack/super.doAttack. Actual animation request is observed, then actual Ward.onZapComplete performs damage, surviving-target wandProc, totalZaps increment and its next call. Hero time is unchanged. The pre-attack negative FOV check includes intrinsic ward shared sight, avoiding a false positive."
+  ],
+  "new_test_class": "com.shatteredpixel.shatteredpixeldungeon.apd.ArcaneVisionActivationTest",
+  "new_test_methods": [
+    "autonomousWardAttackTracksASurvivorWithoutAnotherHeroZap",
+    "frostImpactRequiresANonFrozenTargetToGrantActualAwareness",
+    "transfusionHealingTracksAnAllyBeyondOrdinarySight"
+  ],
+  "new_targeted_totals": {
+    "tests": 3,
+    "suites": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "scenario_count": 12
+  },
+  "preserved_attempts": [
+    {
+      "attempt": 1,
+      "source": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-1/ArcaneVisionActivationTest.java",
+      "compile_exit": 1,
+      "reason": "Fixture assertEquals(int,Integer) was ambiguous; corrected by explicit Integer.intValue. No runtime result.",
+      "evidence": {
+        "input-provenance.json": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-1/input-provenance.json",
+          "sha256": "473b8da48954d47cd1dfae00039cb0b39a523968e00b0b4f2e40ce43d9776e76",
+          "bytes": 1883
+        },
+        "compile.log": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-1/compile.log",
+          "sha256": "f091e15cbd3c8589725f37ccfe4f3323308d442b51c3a6c34bbc6efb4d71d2ec",
+          "bytes": 430
+        }
+      },
+      "raw_xml": [],
+      "runtime_xml_present": false
+    },
+    {
+      "attempt": 2,
+      "compile_exit": 0,
+      "tests": 3,
+      "failures": 0,
+      "errors": 2,
+      "skipped": 0,
+      "reason": "Fixture lacked a CellSelector for actual Hero.interrupt and failed to supply the ordinary Ward animation completion. Frost method passed; corrected only input/drawing scaffolding.",
+      "evidence": {
+        "input-provenance.json": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-2/input-provenance.json",
+          "sha256": "2391fa25d4c6c0320decf0ea31a4d43b8ed6566984336720250e80838f0b7b1a",
+          "bytes": 2061
+        },
+        "compile.log": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-2/compile.log",
+          "sha256": "1ea034f4dc1fb08054e9217ce3b9ab05ef1793f931ad7346e38747537c84a63a",
+          "bytes": 88
+        },
+        "run.log": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-2/run.log",
+          "sha256": "7f73ac9651e91226e06d22925e93683da31f4f2cd30135e47ee9c9d8930bb6a9",
+          "bytes": 6722
+        }
+      },
+      "raw_xml": [
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-2/results/TEST-com.shatteredpixel.shatteredpixeldungeon.apd.ArcaneVisionActivationTest.xml",
+          "sha256": "b7fa109aab2427812c8dc52379937c6a3dfea24709d4380a07b88477816c252f",
+          "bytes": 7742
+        }
+      ],
+      "runtime_xml_present": true,
+      "raw_xml_totals": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 2,
+        "skipped": 0
+      },
+      "errored_methods": [
+        {
+          "method": "autonomousWardAttackTracksASurvivorWithoutAnotherHeroZap",
+          "message": "java.lang.NullPointerException: Cannot read field \"pos\" because \"this.ch\" is null"
+        },
+        {
+          "method": "transfusionHealingTracksAnAllyBeyondOrdinarySight",
+          "message": "java.lang.NullPointerException: Cannot invoke \"com.shatteredpixel.shatteredpixeldungeon.scenes.CellSelector.resetKeyHold()\" because \"com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene.cellSelector\" is null"
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "compile_exit": 0,
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "evidence": {
+        "input-provenance.json": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-3/input-provenance.json",
+          "sha256": "3e0fc00441ffd971136740882057102d478fb4c405c6aa161dbefc01fe485bff",
+          "bytes": 2061
+        },
+        "compile.log": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-3/compile.log",
+          "sha256": "1ea034f4dc1fb08054e9217ce3b9ab05ef1793f931ad7346e38747537c84a63a",
+          "bytes": 88
+        },
+        "run.log": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-3/run.log",
+          "sha256": "302c4219a183633abdc0aea64b4c288e5b800087b1ccd44e9c0ead7dae77f77d",
+          "bytes": 247
+        }
+      },
+      "raw_xml": [
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/attempt-3/results/TEST-com.shatteredpixel.shatteredpixeldungeon.apd.ArcaneVisionActivationTest.xml",
+          "sha256": "dae1c9af6a290075ff69d84e1ea7e3cc9f9c4bb30a88755626686a181d674116",
+          "bytes": 769
+        }
+      ],
+      "runtime_xml_present": true,
+      "raw_xml_totals": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "errored_methods": []
+    }
+  ],
+  "wording_review": {
+    "initial_clause_not_adopted": "A zap that has no effect, such as Frost against an already-frozen target, does not trigger it.",
+    "reason_for_narrowing": "Only the concrete Frost early-return case is established. WandOfTransfusion.onZap invokes wandProc for every Mob before its ally/charmed/enemy effect selection, so awareness is not globally conditioned on another wand effect. A neutral, uncharmed, non-Mimic Mob follows that order without the later heal/charm/damage branches.",
+    "final_specific_exception": "Frost does not trigger this against a target that is already frozen.",
+    "final_positive_paths": "This also works when Transfusion targets allies and when wards hit surviving targets.",
+    "root_reason": "Do not imply that actual HP healing is necessary: the same unconditional wandProc precedes ally healing/shielding and custom-healing-zero outcomes. This sentence describes targeting, without changing any effect.",
+    "test_source_unchanged_during_wording_only_revisions": true
+  },
+  "independent_review": {
+    "reviewer": "/root/apd_lineage",
+    "result": "no_concrete_false_positive_or_cleanup_blocker_found",
+    "findings": [
+      {
+        "topic": "Real handlers and negative controls",
+        "finding": "Frost uses the actual onZap early return on an already-frozen target, checks HP/Frost/Chill, and verifies exact target awareness and a nine-cell FOV footprint after moving beyond normal sight. Rank0 and frozen controls prevent intrinsic sight from passing as Arcane Vision."
+      },
+      {
+        "topic": "Ally healing",
+        "finding": "The exact Transfusion handler must increase ally HP and reduce caster HP while preserving alignment. The target is moved beyond ordinary sight; target-specific awareness and actual Level.updateFieldOfView then require the talent at ranks1/2 and reject it at rank0."
+      },
+      {
+        "topic": "Autonomous ward",
+        "finding": "The wrapper only selects the target and exposes actual canAttack/doAttack. The test checks the real animation request, invokes actual onZapComplete, verifies damage/totalZaps and unchanged hero cooldown, then checks actual awareness/FOV. The pre-attack assertion includes the ward shared FOV with shortened vision, so the later visibility cannot pass merely because a ward is present."
+      },
+      {
+        "topic": "State restoration",
+        "finding": "The fixture replaces the Actor registries and clock rather than mutating the saved objects. It restores those fields, Item.curUser, Dungeon hero/level/depth/branch/challenges/custom rules, GameScene scene/cell selector, the prior level PathFinder size and the pushed RNG generator. Temporary emitters/sprites omit only drawing. The tests do not run Actor.process or change its thread-alive flag."
+      }
+    ],
+    "receipt": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/independent-review.json",
+      "sha256": "907358d79b35c5d1cf6efff386d5e7ab9bdd918055afdec4bcb59c4aed4b8a22",
+      "bytes": 5607
+    }
+  },
+  "source_sha256": {
+    "core/src/main/assets/messages/actors/actors.properties": "5a5e626e82b8ea163959fdc9cc33b66459db38bcc4e099123534b3cc816de10c",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/ArcaneVisionActivationTest.java": "5be2d1a330619330561a8287346ae288568cd94bf917775a049fae736902a33a",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java": "edc08e7720d5eadf5de4b0315ddae3999b8fd5c3bff288813f95bb41f477674e"
+  },
+  "existing_detailed_panel_sha256_unchanged": "c5799a8965e825105bcb97a2046e2768d3b1bc6b9eb978b6697c4d6ff36b4a12",
+  "native_scope": {
+    "helper": "ordinaryTalentWindowRenders",
+    "new_test_methods": 0,
+    "expected_captures": [
+      "qol-ordinary-talent-ARCANE_VISION.png",
+      "qol-ordinary-talent-ARCANE_VISION-bottom.png"
+    ],
+    "source_integrated": true,
+    "android_compilation_complete_for_this_cutoff": false,
+    "native_execution_complete": false,
+    "manual_capture_review_complete": false
+  },
+  "fresh_integrated_local_full": {
+    "suites": 466,
+    "tests": 3214,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "independent_receipt_sha256": "c98b2f8c99518cf25357ae65a6e569d4fbe9e2eb8598696dbfba5a0960e4a300",
+    "repo_local_verification_document": "docs/APD-444-ARCANE-VISION-LOCAL-SOURCE-VERIFICATION-2026-11-11.json"
+  },
+  "preserved_draft_evidence": {
+    "verification-receipt.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/verification-receipt.json",
+      "sha256": "4d49103e62856cd1e998b72e43a954ad955f780b8d14beeaa2e5277fdef04c60",
+      "bytes": 9140
+    },
+    "independent-review.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/independent-review.json",
+      "sha256": "907358d79b35c5d1cf6efff386d5e7ab9bdd918055afdec4bcb59c4aed4b8a22",
+      "bytes": 5607
+    },
+    "review.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/review.json",
+      "sha256": "21ced12b04d97eddb45bbdfcba78fa7d24642b8e75c2a0bc9347c9654d1ef137",
+      "bytes": 7400
+    },
+    "arcane-vision-activation.patch": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/arcane-vision-activation.patch",
+      "sha256": "ffe2b0ffe93de0d210ea8de163635cf2c628c1a7d2aadaa36b9f278fa113d3d4",
+      "bytes": 16809
+    },
+    "arcane-vision-activation.initial-wording.patch": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/arcane-vision-activation.initial-wording.patch",
+      "sha256": "9629676644daad00235e40f7ac63fc29d2922b20bfcde7147f810effd7f0c2cf",
+      "bytes": 16857
+    },
+    "arcane-vision-activation.peer-wording.patch": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/arcane-vision-activation.peer-wording.patch",
+      "sha256": "3ca2de3b66ad8dc8243acbb9fa64e0829c0437f78efe6f5e15ae0bec7b7e4296",
+      "bytes": 16815
+    },
+    "verification-receipt.initial-wording.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/verification-receipt.initial-wording.json",
+      "sha256": "5cb59302f4e32090db9f960cb6654227b1aee4e094dfd3140e0a0ae43b4697fc",
+      "bytes": 7544
+    },
+    "verification-receipt.peer-wording.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/verification-receipt.peer-wording.json",
+      "sha256": "c0e55c94ccaccc68276c7e1c10d3db61bf201145cbf46314c3c1eac293e6533d",
+      "bytes": 8277
+    }
+  },
+  "limits": [
+    "Quiet sprite/particle implementations omit texture construction, particle creation, animation and status drawing only. Gameplay damage, healing, awareness attachment and FOV are not overridden.",
+    "The real CellSelector.resetKeyHold runs on an instance allocated without its tilemap-rendering constructor so real Hero.interrupt remains exercised during Transfusion self-damage.",
+    "Wand impact callbacks are invoked directly after a real Ballistica; this is not item selection, charge spending, projectile animation, or an Android run.",
+    "The Ward target is controlled and its production completion callback is invoked after the animation request; AI enemy selection and a full actor scheduler turn are not claimed.",
+    "No new expiry clock or factor sweep was performed. The completed 10/15-turn duration review is reused.",
+    "Cursed Wand and other owner-decision scopes were not opened.",
+    "The integrated full local suite passed; source CI, Android compilation and exact later APK native/manual acceptance remain separate pending gates.",
+    "The earlier isolated receipt records its original unintegrated status and is preserved unchanged rather than rewritten."
+  ],
+  "application_apk_assembled_by_this_work": false,
+  "github_mutations_by_verifier": false
+}

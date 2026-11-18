@@ -1,0 +1,7 @@
+{
+  "developer_max_per_new_york_day": 3,
+  "alpha_testers_max_per_new_york_day": 3,
+  "combined_max_per_new_york_day": 6,
+  "owner_authorized": true,
+  "request": "Build and privately deliver missing Alpha-Testers 350 companion from exact released Developer350 source, without another developer build."
+}

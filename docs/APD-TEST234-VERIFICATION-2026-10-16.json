@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "label": "Codex TEST 234",
+  "status": "verified_ci_candidate_not_published",
+  "application_source_commit": "7f957d75614c48bbb7f98999bfecacfcc2aaede1",
+  "immediate_previous_produced": {
+    "label": "Codex TEST 233",
+    "application_source_commit": "c6bed1f12f017d3f2fa92adf2c29d793f5e004ab",
+    "verification_run_id": 38847041245,
+    "privately_delivered": false
+  },
+  "targeted_regression": {
+    "run_id": 38852153982,
+    "started_at_utc": "2026-10-16T04:44:19Z",
+    "completed_at_utc": "2026-10-16T04:46:58Z",
+    "artifact_id": 12025063149,
+    "artifact_zip_sha256": "0e08088a382c97466c90a100135877467a1f0df92a986f2432d0d13ad589b8c6",
+    "original_source_expected_failures": 2,
+    "original_source_failure_methods": [
+      "malformedRunEndCannotExportHiddenCurrentRunData",
+      "malformedRunEndCannotMarkRunFinished"
+    ],
+    "original_source_changed": false,
+    "corrected_source_passed": true
+  },
+  "full_gate": {
+    "run_id": 38852153894,
+    "started_at_utc": "2026-10-16T04:44:19Z",
+    "completed_at_utc": "2026-10-16T04:58:39Z",
+    "conclusion": "success",
+    "core": {
+      "methods": 1697,
+      "suites": 335,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12025693310,
+      "artifact_zip_sha256": "9d75588a7dd84bce37be09ee0dff908e080531f748263850e4c432babc018777"
+    },
+    "android_api34": {
+      "methods": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "emulator_only": true,
+      "artifact_id": 12026191555,
+      "artifact_zip_sha256": "d18e84ba4ee21a8991cbee91620c3a513f7f426f88739cac4d4441d48d43208d"
+    },
+    "visual": {
+      "png_count": 42,
+      "dimensions": "320x640",
+      "complete_contact_sheet_reviewed": true,
+      "full_resolution_views_reviewed": [
+        "uimsd-home.png",
+        "uimsd-text-values.png",
+        "custom-rules-touch-gestures.png"
+      ],
+      "observed_result": "no crash, blank window, malformed image, or obvious clipping regression"
+    },
+    "debug_assembly_passed": true,
+    "complete_immediate_previous_history_passed": true
+  },
+  "apk": {
+    "artifact_id": 12025638490,
+    "artifact_zip_sha256": "3aad301f4b15f7be3940f02033c95aaec21c4716229017e0c07ef2a1eb9a83b0",
+    "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-234.apk",
+    "size_bytes": 38586764,
+    "sha256": "aea1221cb6143c4e3b2b0cf88701c72f9a3fa3a8de3ee8eac5879e20ece8e202",
+    "manifest_version": "4.0.8-apd-INDEV-bC234-TEST",
+    "application_id_check": {
+      "status": "matches_immediate_previous_compiled_apk",
+      "value": "com.charltonchris29.adhdpixeldungeon.indev"
+    },
+    "signing_certificate_check": {
+      "status": "matches_immediate_previous_compiled_apk",
+      "sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "subject": "CN=ADHD Pixel Dungeon Debug,O=APD"
+    }
+  },
+  "publication": {
+    "published": false,
+    "tester_distribution": false,
+    "physical_phone_tested": false,
+    "owner_install_over_save_acceptance": false
+  },
+  "latest_privately_delivered_fallback": "Codex TEST 231",
+  "notes": [
+    "A malformed typed run-end remains in raw history but does not authorize finished-run visibility or unredacted export.",
+    "Existing raw histories are not rewritten.",
+    "Saves, scores, gameplay, all 18 rules, turns, RNG, lore and opt-out behavior were unchanged.",
+    "Unmeasured durations remain unknown; workflow wall time is not developer-active time.",
+    "The evidence-only documentation commit must not be treated as new application source or trigger an unchanged rebuild."
+  ]
+}

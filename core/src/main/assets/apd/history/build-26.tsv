@@ -1,0 +1,19 @@
+Testing	ICON_STATS	Apd Stats Device Test	Updated Android checks and fixtures for apd stats device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Demo Data	Added iNDEV-ONLY synthetic demo data for UIMSD: a made-up history so the screen can be tested without playing for hours.
+Changes	ICON_INFO	Demo Generator	Added writes the INDEV-ONLY demo history (see DemoData) through the real log writer, so the demo logs go through exactly the same reading, row building, merging and hidden-information masking as real ones.
+Changes	ICON_INFO	Demo Log	Added writes realistic run logs for the INDEV-only demo data, through the real writer (see DemoData).
+Statistics / UIMSD	ICON_STATS	Dataset Store	Kept fictional demo logs and real recorded/imported history in separate stores.
+Quality of Life	ICON_STATS	Statistics screen	Added clearly marked demo viewing without changing real history.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added private-test demo generation, removal and real/demo switching controls.
+Testing	ICON_STATS	Demo Data Test 1	Added a test covering the Demo History Is Large And Varied. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 2	Added a test covering every Demo Record Says It Is Made Up. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 3	Added a test covering generating And Removing Never Change Real History. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 4	Added a test covering demo Data Lives Beside Real History Never Inside It. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 5	Added a test covering removal Only Deletes Real Demo Folders. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 6	Added a test covering generation Refuses A Folder That Is Not Demo Data. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 7	Added a test covering real And Demo Views Are Isolated. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 8	Added a test covering demo Data Can Never Become Legitimate History. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 9	Added a test covering only Development Builds Offer Demo Data. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test 10	Added a test covering unfinished Demo Runs Never Reveal Hidden Information Even With It Switched On. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-UIMSD	Updated apd-stats-uimsd accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added iNDEV-ONLY synthetic demo data for UIMSD: a made-up history so the screen can be tested without playing for hours. Added writes the INDEV-ONLY demo history (see DemoData) through the real log writer, so the demo logs go through exactly the same reading, row building, merging and hidden-information masking as real ones.

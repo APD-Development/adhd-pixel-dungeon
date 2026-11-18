@@ -1,0 +1,28 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Changes	ICON_BACKPACK	items	Updated items resources bundled with this APK.
+Changes	ICON_INFO	Arcana Info Display	Added hide for any unknown ring, so suppression itself cannot reveal its type.
+Changes	ICON_BACKPACK	Armor	Displayed Arcana effects only for identified equipped rings, using the actual existing enchantment and glyph calculations.
+Testing	ICON_CHECKED	Arcana Info Display Test 1	Added a test covering absent And Backpack Rings Show Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 2	Added a test covering unknown Identity Level Or Curse Never Shows Values. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 3	Added a test covering unknown Second Ring Suppresses Combined Totals. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 4	Added a test covering unknown Other Ring Cannot Be Distinguished From Unknown Arcana. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 5	Added a test covering inactive Passive Glyph Does Not Claim A Boost. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 6	Added a test covering identified Ring Shows Calculated Chance And Movement Effect. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 7	Added a test covering combined And Enhanced Rings Use Their Known Effective Levels. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 8	Added a test covering unknown Equipment Upgrades Do Not Leak. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 9	Added a test covering descriptions Are Wired For Melee Missile And Armor. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 10	Added a test covering magic Immunity And Missing Enchantments Show Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 11	Added a test covering descriptions Leave Rng Combat Buffs And Resources Untouched. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 12	Added a test covering high Power Chances Saturate But Kinetic Still Shows Scaling. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 13	Added a test covering passive And Hp Dependent Descriptions Stay Compact And Qualified. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 14	Added a test covering every Built In Enchantment Glyph And Curse Has Resolvable Text. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 15	Added a test covering identified Arcana In Misc Slot Also Works. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Arcana Info Display Test 16	Added a test covering armor And Weapon Description Work Across Save Round Trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test	Updated automated checks and fixtures for query engine. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-TEST44-DELIVERY-2026-10-11	Added apd-test44-delivery-2026-10-11 accompanying this build.
+Development	ICON_INFO	APD-TEST44-REPORT-2026-10-11	Added apd-test44-report-2026-10-11 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	apd source line counts	Added the apd source line counts development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated items resources bundled with this APK. Added hide for any unknown ring, so suppression itself cannot reveal its type.

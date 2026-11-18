@@ -1,0 +1,62 @@
+{
+  "title": "APD TEST273 Developer and Player private labeled pair receipt",
+  "observed_at": "2026-10-17T21:44:24Z",
+  "status": "private_pair_packaged",
+  "application_source": "df0c9be3b3d52bb9b82e6453491bbfdac7d90e69",
+  "packaging_commit": "32a8e86382ee45187ba56d365e6764cd1fd7778a",
+  "shared_feature": {
+    "settings_label": "Auto-enter Stairs on Arrival",
+    "default_enabled": false,
+    "present_in_both_apks": true,
+    "routing_class": "StairNavigation"
+  },
+  "developer": {
+    "filename": "APD-Developer-TEST273.apk",
+    "raw_sha256": "3955b271e8ce76d01c315eb104c73b0bea7fa45dfcb2472d7349abd6b2ebdb54",
+    "source_run": 39068952497,
+    "source_artifact_id": 12114014694,
+    "full_gate": {
+      "core_methods": 1786,
+      "api34_methods": 38,
+      "required_pngs": 57,
+      "debug": true,
+      "history": true,
+      "conclusion": "success"
+    },
+    "developer_feature_marker": true,
+    "note": "Byte-for-byte renamed from ADHD-Pixel-Dungeon-CODEX-TEST-273.apk; not rebuilt."
+  },
+  "player": {
+    "filename": "APD-Player-TEST273.apk",
+    "raw_sha256": "56c586c894490398dacdfc2f4eab2c12161af4f00148a95da8ef47c00a9fbb60",
+    "source_run": 39070791688,
+    "source_artifact_id": 12114853625,
+    "core_and_debug_conclusion": "success",
+    "developer_feature_marker": false,
+    "compiled_history_matches_developer": true,
+    "android_emulator_interaction_suite": "not_run_for_separate_player_apk"
+  },
+  "pair": {
+    "run": 39072183908,
+    "job": 117511897341,
+    "artifact_id": 12116105059,
+    "artifact_name": "apd-test273-developer-and-player",
+    "artifact_size_bytes": 72219347,
+    "artifact_zip_digest": "sha256:1b12d9020699695e785fab87bdb3820c35cb57682c33ef73117e4b889ded2751",
+    "artifact_expires_at": "2026-10-24T21:44:19Z",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "coexist": false,
+    "shared_save_line": true,
+    "rebuilt": false
+  },
+  "boundaries": {
+    "published": false,
+    "staged": false,
+    "distributed": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false,
+    "executable_build_request_edited": false,
+    "latest_actually_published_owner_apk": "TEST262"
+  }
+}

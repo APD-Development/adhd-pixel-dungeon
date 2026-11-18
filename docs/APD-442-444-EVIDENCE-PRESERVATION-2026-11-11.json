@@ -1,0 +1,30 @@
+{
+  "path": "/workspace/scratch/db82734c9c44/recovery/APD-Verification-Evidence-442-444-2026-11-11.zip",
+  "bytes": 344983318,
+  "sha256": "27c59c6baa148d4ea1d47cf8d15852d34ef56927c0d33409d4386ac645217ef3",
+  "files": 5858,
+  "manifest_sha256": "6f5390b59051495afa3b6985fe56c3bcc915990c722173a78749f215522e243d",
+  "all_archived_members_read_back_and_verified": true,
+  "created_utc": "2026-11-11T17:13:39.375374+00:00",
+  "source_head_at_preservation": "5f47737726836fa219b9142ea24f588e050e3579",
+  "saved_archive_download_readback_sha256_verified": true,
+  "readback_verified_utc": "2026-11-11T17:15:23.163279+00:00",
+  "readback_path": "/workspace/scratch/db82734c9c44/recovery/apd442-444-evidence-saved-readback/APD-Verification-Evidence-442-444-2026-11-11.zip",
+  "file_name": "APD-Verification-Evidence-442-444-2026-11-11.zip",
+  "file_id": "file_00000000b97481f6bacf31789d91eefd",
+  "library_file_id": "libfile_fde3_f-908f0743d8dc81919f12ac9f52117132_4aba2690a1e48191a771a2e43a4a6278",
+  "original_apk_source_deliveries_unchanged": true,
+  "completed_builds": [
+    442,
+    443,
+    444
+  ],
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "snapshot_note": "This immutable archive preserves the raw evidence and checkpoint snapshot at 5f47737726836fa219b9142ea24f588e050e3579. This later preservation receipt, its saved-file identities and readback check are not inside the archive, avoiding circular content/hash claims. Original game APKs and matching source bundles remain saved separately.",
+  "previous_evidence_archive_unchanged": {
+    "file_name": "APD-Verification-Evidence-2026-11-11.zip",
+    "sha256": "9264785bb88e17518879816ef6b3aabc3d1e8d233800ca785dddaff969d4e331"
+  },
+  "no_new_application_build_or_core_test_run_claimed": true
+}

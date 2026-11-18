@@ -1,0 +1,179 @@
+name: APD simulator regression verification
+
+# Approved simulator verification; disposable emulator, no publication.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-simulator-check.yml
+      - android/build.gradle
+      - android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/WarriorSimulationDeviceTest.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/simulation/**
+      - tools/run-warrior-simulation.sh
+      - tools/test-warrior-instrumentation.py
+      - tools/test-warrior-trace-recovery.py
+
+concurrency:
+  group: apd-real-simulator-verification-${{ github.sha }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  simulator-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify trace-recovery regression cases
+        run: |
+          python3 tools/test-warrior-trace-recovery.py
+          python3 tools/test-warrior-instrumentation.py
+          python3 tools/test-warrior-experiment-summary.py
+      - name: Verify the complete core suite including simulation and normal-drop identification
+        run: tools/run-core-tests.sh
+      - name: Preserve native dependency for local real-game tests
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+          candidates = list((Path.home() / '.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-platform/1.14.0').rglob('*natives-desktop.jar'))
+          assert len(candidates) == 1, candidates
+          Path('native-dependency').mkdir()
+          shutil.copy2(candidates[0], 'native-dependency/')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-test-desktop-native
+          path: native-dependency/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-simulator-tests
+          path: core/build/test-results/test/
+          retention-days: 7
+      - name: Preserve real image assets for local headless game tests
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          root = Path('core/src/main/assets')
+          with zipfile.ZipFile('apd-test-image-assets.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+              for path in sorted(root.rglob('*.png')):
+                  archive.write(path, path.relative_to(root))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-test-image-assets
+          path: apd-test-image-assets.zip
+          retention-days: 7
+
+  real-game-adapter:
+    needs: simulator-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile simulator APKs before starting the emulator
+        run: ./gradlew :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=SIM
+      - name: Stage source-pinned compiled simulator binaries for verification
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, shutil
+          from pathlib import Path
+          root = Path('simulator-binaries')
+          root.mkdir()
+          files = [
+              Path('android/build/outputs/apk/debug/android-debug.apk'),
+              Path('android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk')
+          ]
+          hashes = {}
+          for source in files:
+              if not source.is_file() or source.stat().st_size == 0:
+                  raise SystemExit(f'Missing built simulator APK: {source}')
+              target = root / source.name
+              shutil.copy2(source, target)
+              hashes[str(target)] = hashlib.sha256(target.read_bytes()).hexdigest()
+          (root / 'SHA256SUMS').write_text(''.join(f'{digest}  {path}\n' for path, digest in hashes.items()))
+          (root / 'manifest.json').write_text(json.dumps({
+              'sourceCommit': os.environ['GITHUB_SHA'],
+              'verificationRunId': os.environ['GITHUB_RUN_ID'],
+              'sha256': hashes,
+              'purpose': 'Disposable-emulator simulation candidate; reusable artifact is retained only after successful native verification'
+          }, indent=2) + '\n')
+          PY
+
+      - name: Reclaim disposable Gradle build outputs before emulator boot
+        run: |
+          ./gradlew clean
+          test -s simulator-binaries/android-debug.apk
+          test -s simulator-binaries/android-debug-androidTest.apk
+          sha256sum --check simulator-binaries/SHA256SUMS
+          df -h .
+
+      - name: Free unused hosted-runner SDKs and require enough space for the actual image
+        run: |
+          # API34's base userdata image has a minimum larger than disk-size4096M.
+          # These unused SDKs belong to this disposable GitHub VM, not the repository.
+          sudo rm -rf -- /usr/share/dotnet /usr/local/.ghcup
+          df -h "$HOME"
+          python3 - <<'PY'
+          import os, shutil
+          free=shutil.disk_usage(os.environ['HOME']).free
+          if free < 9*1024**3:
+              raise SystemExit(f'Insufficient emulator disk space after cleanup: {free} bytes; refusing another boot timeout')
+          PY
+      - name: Verify five real normal-play episodes before the 100-seed batch
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          APD_SIMULATION_SOURCE: ${{ github.sha }}
+          APD_SIMULATION_SEED: '1000007'
+          APD_SIMULATION_COUNT: '5'
+          APD_SIMULATION_SEEDS: '1000007,1000035,1000042,1000060,1000089'
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disk-size: 4096M
+          disable-animations: true
+          script: bash tools/run-warrior-instrumentation.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-real-warrior-simulation
+          path: |
+            simulation-results.jsonl
+            simulation-attempts.jsonl
+            simulator-logcat.txt
+            simulation-instrumentation.txt
+            simulator-binaries/manifest.json
+            android/build/outputs/androidTest-results/
+          retention-days: 7
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-reusable-warrior-simulator
+          path: simulator-binaries/
+          if-no-files-found: error
+          retention-days: 7

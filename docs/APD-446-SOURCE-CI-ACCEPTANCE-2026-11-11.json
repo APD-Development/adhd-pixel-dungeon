@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "status": "source_only_ci_independently_verified",
+  "verified_utc": "2026-11-11T18:19:36.046986+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "source_commit": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+  "source_tree": "ab5aa5891f26106dd39097b17974d902f1f05d73",
+  "workflow": ".github/workflows/apd-qol-source-check.yml",
+  "run_id": 43075480141,
+  "run_attempt": 1,
+  "run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43075480141",
+  "job_id": 130714051219,
+  "job_started_at": "2026-11-11T18:12:12Z",
+  "job_completed_at": "2026-11-11T18:15:43Z",
+  "job_and_all_steps_success": true,
+  "actual_checkout_output": [
+    "2026-11-11T18:12:29.7636605Z 245310c4d2a820bd7f220de6e7c3278cd5b119e7"
+  ],
+  "actual_gradle_targets": [
+    {
+      "task": ":core:test",
+      "actual_log_lines": [
+        "2026-11-11T18:13:54.0436711Z > Task :core:test",
+        "2026-11-11T18:13:58.4390967Z > Task :core:test"
+      ]
+    },
+    {
+      "task": ":desktop:classes",
+      "actual_log_lines": [
+        "2026-11-11T18:13:42.2390772Z > Task :desktop:classes"
+      ]
+    },
+    {
+      "task": ":android:compileDebugJavaWithJavac",
+      "actual_log_lines": [
+        "2026-11-11T18:13:50.4410655Z > Task :android:compileDebugJavaWithJavac"
+      ]
+    },
+    {
+      "task": ":android:compileReleaseJavaWithJavac",
+      "actual_log_lines": [
+        "2026-11-11T18:13:51.7370338Z > Task :android:compileReleaseJavaWithJavac"
+      ]
+    },
+    {
+      "task": ":android:compileDebugAndroidTestJavaWithJavac",
+      "actual_log_lines": [
+        "2026-11-11T18:13:58.1330490Z > Task :android:compileDebugAndroidTestJavaWithJavac"
+      ]
+    }
+  ],
+  "gradle_build_success_log": [
+    "2026-11-11T18:15:34.6480457Z BUILD SUCCESSFUL in 2m 47s"
+  ],
+  "artifact": {
+    "id": 13880168842,
+    "name": "apd-qol-source-verification",
+    "size_in_bytes": 553005,
+    "sha256": "f501d10b68264598eea25ad856ff5afa4ce6523fbe48e9cddac8f00c8a378396",
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/apd446-source-artifact-artifact-13880168842.zip",
+    "extracted_root": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/apd446-source-artifact",
+    "extracted_files": 471
+  },
+  "artifact_upload_log": [
+    "2026-11-11T18:15:37.2124782Z SHA256 digest of uploaded artifact zip is f501d10b68264598eea25ad856ff5afa4ce6523fbe48e9cddac8f00c8a378396",
+    "2026-11-11T18:15:37.6283707Z Artifact apd-qol-source-verification.zip successfully finalized. Artifact ID 13880168842",
+    "2026-11-11T18:15:37.6285710Z Artifact apd-qol-source-verification has been successfully uploaded! Final size is 553005 bytes. Artifact ID is 13880168842"
+  ],
+  "same_attempt_binding": "Exact artifact ID/digest/size appear in the successful job log. Job metadata binds run43075480141 attempt1 and source245310c4; artifact workflow_run binds that run/source.",
+  "raw_junit_totals": {
+    "suites": 468,
+    "tests": 3247,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "actual_testcase_elements": 3247,
+  "per_suite_counts_match_local_fresh_full_run": true,
+  "scoped_seed_methods": 13,
+  "scoped_search_methods": 20,
+  "evidence": {
+    "terminal-run.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/terminal-run.json",
+      "sha256": "8d2dcf833fdfc4ce15226c69022b11fed7ecae65ff343e96ddb87e9f3c5f312a"
+    },
+    "terminal-jobs.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/terminal-jobs.json",
+      "sha256": "dfa623fb4ea17158a7da2b8267ac45947d43e10cb72f33dba76b61b7a44b182f"
+    },
+    "terminal-artifacts.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/terminal-artifacts.json",
+      "sha256": "a701395f18d4be4e29d67d6dce06b59e4be42638eff86029b89a5a79b82bb540"
+    },
+    "artifact-13880168842-metadata.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/artifact-13880168842-metadata.json",
+      "sha256": "da1b365b99f3ecffe40eea7c84c3cdf8e2e224a47ddd26c4b5c224ce474b7dc6"
+    },
+    "artifact-13880168842-download-verification.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/artifact-13880168842-download-verification.json",
+      "sha256": "2880c9ee92d4ed894c32128fc7f26adb1f6d8abd000b049aa3519368a43ba065"
+    },
+    "artifact-13880168842-extracted-manifest.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/artifact-13880168842-extracted-manifest.json",
+      "sha256": "072d4c71f001230c4d1f6c752d3299f9b2a2b829801523151fc6ef454ad25ef6"
+    },
+    "source-check-job-130714051219.log": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/source-check-job-130714051219.log",
+      "sha256": "eee9815e0ba6518e39ebe72dcef688a462b37283cb9b4bb8879e5c07a77253f9"
+    },
+    "qol-verification.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/apd446-source-artifact/qol-verification.json",
+      "sha256": "213c65f24a054fb96f6f76acfd82fcc033d12f7f0bca8206a84727e74119a297"
+    },
+    "ci-raw-xml-manifest.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/ci-raw-xml-manifest.json",
+      "sha256": "2431ef0e417973c8f58cab79662be9805832c8938e3f6d394cbdc2ad5df047e3"
+    },
+    "local-source-checkpoint-verification.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/local-source-checkpoint-verification.json",
+      "sha256": "83c79f12a581f10f3acefc1fe0deb37b8e07bc32cb1d4cbf40aaf4f69caa0eac"
+    },
+    "verification-attempt-1-wrapper-error.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/verification-attempt-1-wrapper-error.json",
+      "sha256": "bbdea07a15b73629f7f5900a8482d4b7c27a23aa062247830d592088728129db"
+    },
+    "verify_completed_source_ci.py": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/verify_completed_source_ci.py",
+      "sha256": "f83bdfcc9a25ecd8b10dbdb50c95414fa554bea1b54b6cee826193b404b5a104"
+    }
+  },
+  "log_preservation": {
+    "connector_returned_utf8_bytes": 753148,
+    "connector_returned_utf16_code_units": 753144,
+    "saved_bytes": 753148,
+    "notes": "Decoded connector log saved at its exact returned UTF-8 length. One patch-added terminal LF removed before hashing; no content filtering."
+  },
+  "verification_method": "Independent read-only metadata/byte/digest checks and raw XML parsing. No tests rerun locally.",
+  "limits": [
+    "All five requested Gradle targets completed in actual SDK CI. The earlier local Android-stub check is no longer the only instrumentation compilation evidence.",
+    "No APK assembly, native/device test, physical-phone test, screenshot acceptance or publication is claimed by this source-only verification.",
+    "APD445 remains frozen and unaccepted. Its separately observed native seed-fixture derived-cache assertion failure is outside this source-only compile/core result and still requires resolution.",
+    "Full local source binding is separately retained and linked. Remote push/readback was performed by parent and is not claimed as repeated here.",
+    "The first local wrapper attempt incorrectly treated resource packaging as APK packaging. That assertion failure is preserved; exact task-boundary correction required no CI or test rerun."
+  ]
+}

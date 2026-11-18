@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-29",
+  "application_source": "35e1c85fcea93381a4f107cafd4f89f5264af391",
+  "publication_source": "40ab74bf5ca32613193447ac21d4725c8422bd6f",
+  "workflow_run": 40907547967,
+  "pdf_publication_utc": "2026-10-29T16:02:30Z",
+  "apk_publication_utc": "2026-10-29T16:02:45Z",
+  "downloads_verified": true,
+  "link_sent_in_commentary": true,
+  "clock_check_preceding_link_message_utc": "2026-10-29T16:03:44Z",
+  "exact_chat_link_timestamp": "not exposed",
+  "pdf_on_time": false,
+  "apk_on_time": false,
+  "physical_phone_verified": false,
+  "apk_rebuilt": false,
+  "developer_sha256": "3e38b1164169e404c6606d2baa6d23f61fdb4e1625bb1be53c1424ba41c20842",
+  "player_sha256": "7cb850696d46ba5fe3d0c8c7185d783615f4d9e790d0795978fc9116ff57bcdf",
+  "pdf_sha256": "f7f92d42a99856b4374c53c8a44f4ef3ff09b46d78909b7c0ccb7a99f55d6f87",
+  "pending": [
+    "Gathering icon",
+    "UIMSD opening speed on phone",
+    "regular Settings selection speed"
+  ]
+}

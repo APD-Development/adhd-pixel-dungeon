@@ -1,0 +1,65 @@
+{
+  "recorded_at": "2026-10-17T23:48:13.280Z",
+  "scope": "Complete current DatasetStore production-source review plus valid same-time segment boundary regression",
+  "production_source": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetStore.java",
+    "sha": "b96b39de60d1e72fb93245d2f71a0b616e851fa7",
+    "lines": 438,
+    "changed": false,
+    "confirmed_defects": 0
+  },
+  "retained_failed_attempt": {
+    "test_commit": "6b009b952f0f98d9692725ec99c999fd47cc5abf",
+    "run_id": 39079891341,
+    "job_id": 117534515212,
+    "conclusion": "failure",
+    "tests": 1796,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "failed_method": "DatasetBuildersTest.equalTimestampExtremeSegmentNumbersUseNumericOrderWithoutOverflow",
+    "failure": "both segments are one run expected 1 but was 2",
+    "root_cause": "Integer.MIN_VALUE is outside the legitimate nonnegative segment range, so each malformed log became an unreadable record before DatasetStore sorting",
+    "artifact_id": 12117434829,
+    "artifact_bytes": 841078,
+    "artifact_digest": "sha256:adf6f534d5414a8620eccc5c983f0b18669a2daf3c1ad9261cc4a1b5d2c7911d"
+  },
+  "corrected_evidence": {
+    "test_commit": "15e323e81de2ae0913269c8906d867916885ddc9",
+    "run_id": 39080136757,
+    "job_id": 117535235352,
+    "conclusion": "success",
+    "tests": 1796,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_method": "DatasetBuildersTest.equalTimestampBoundarySegmentNumbersUseNumericOrder",
+    "boundary_values": [
+      0,
+      2147483647
+    ],
+    "assertion": "one merged unfinished run with both level entries; highest valid segment is newest",
+    "junit_xml_verified": true,
+    "artifact_id": 12118647092,
+    "artifact_bytes": 837687,
+    "artifact_digest": "sha256:ef14367fdd32d79a93ad63cb5c19190e8d6029af7323546ec9246ae219c8bb65"
+  },
+  "impact": {
+    "application_source_changed": false,
+    "raw_history_changed": false,
+    "saves_changed": false,
+    "scoring_changed": false,
+    "gameplay_or_rng_changed": false,
+    "apk_rebuilt": false,
+    "build_request_edited": false,
+    "staged": false,
+    "published": false,
+    "physical_phone_tested": false
+  },
+  "current_candidates": {
+    "latest_fully_gated_private": "TEST275",
+    "latest_owner_publication": "TEST262",
+    "private_fallback": "TEST273 Developer/Player pair"
+  },
+  "next_safe_step": "Review the next unreviewed UIMSD production blob and continue bounded QueryEngine filter/sort/group/export stress; do not rebuild an APK for test-only changes."
+}

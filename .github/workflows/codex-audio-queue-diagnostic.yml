@@ -1,0 +1,82 @@
+name: Controlled inherited Android audio queue diagnosis
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-audio-queue-diagnostic.yml]
+permissions: {contents: read, actions: read}
+jobs:
+  controlled-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reuse actual TEST259 producer without another application build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess,time,pathlib,zipfile,hashlib,sys
+          repo=os.environ['GITHUB_REPOSITORY'];source='8d9381e5116678f51fb2f2d70b23a681102a85bd';run_id=38973264847
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          end=time.monotonic()+1200
+          while True:
+              run=api(f'repos/{repo}/actions/runs/{run_id}');assert run['head_sha']==source
+              jobs=api(f'repos/{repo}/actions/runs/{run_id}/jobs')['jobs']
+              job=next((j for j in jobs if j['name']=='verify-and-build'),None)
+              if job and job['status']=='completed':
+                  assert job['conclusion']=='success','No verified producer; leave audio diagnosis pending'
+                  break
+              assert time.monotonic()<end,'Producer still pending'
+              time.sleep(15)
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1')for s in [source,os.environ['GITHUB_SHA']]]
+          assert all(not t.get('truncated')for t in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          items=api(f'repos/{repo}/actions/runs/{run_id}/artifacts')['artifacts']
+          a=next(a for a in items if a['name']=='apd-codex-private-test-apk' and not a['expired'])
+          with open('application.zip','wb')as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{a["id"]}/zip'],stdout=out,check=True)
+          assert hashlib.sha256(pathlib.Path('application.zip').read_bytes()).hexdigest()==a['digest'].removeprefix('sha256:')
+          zipfile.ZipFile('application.zip').extractall('application')
+          p=next(pathlib.Path('application').glob('*.apk'));digest=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert next(pathlib.Path('application').glob('*.apk.sha256')).read_text().split()[0]==digest
+          pathlib.Path('audio-source.json').write_text(json.dumps({'application_source':source,'application_run':run_id,'apk_sha256':digest,'application_rebuilt':False,'audible_reproduction':False,'physical_device':False,'test_source':os.environ['GITHUB_SHA']},indent=2))
+          PY
+      - name: Build only instrumentation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C259
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Diagnose the actual inherited queue with a controlled fake sound endpoint
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb install -r application/*.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/*-androidTest.apk
+            adb logcat -c
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.AudioSchedulingDiagnosticDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > audio-instrumentation.txt 2>&1
+            cat audio-instrumentation.txt
+            adb logcat -d -v time > audio-logcat.txt
+            python3 -c "import pathlib; s=pathlib.Path('audio-instrumentation.txt').read_text(); assert 'OK (1 test)' in s and 'FAILURES' not in s, s"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-controlled-audio-queue-diagnostic
+          path: |
+            audio-source.json
+            audio-instrumentation.txt
+            audio-logcat.txt
+          retention-days: 7

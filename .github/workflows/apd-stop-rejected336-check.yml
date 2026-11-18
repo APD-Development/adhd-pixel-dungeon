@@ -1,0 +1,36 @@
+name: Stop rejected TEST336 acceptance after its APK and failure were preserved
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-stop-rejected336-check.yml]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  stop-rejected-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Retain rejected APK and unblock corrected next candidate
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert repo=='APD-Development/ShieldingShouldHaveWorked'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          old=api(f'repos/{repo}/actions/runs/40949692381')
+          assert old['head_sha']=='47cffd4ba9dd409907da5e9f506a215b0a15d00f' and old['run_number']==336
+          jobs=api(f'repos/{repo}/actions/runs/40949692381/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          assets=api(f'repos/{repo}/actions/runs/40949692381/artifacts')['artifacts']
+          assert any(a['name']=='apd-codex-private-test-apk' and not a['expired'] for a in assets)
+          failed=api(f'repos/{repo}/actions/jobs/123721327631')
+          assert failed['conclusion']=='failure'
+          fix=api(f'repos/{repo}/actions/runs/40952886585')
+          assert fix['head_sha']=='5e8f4ecddc20e199496ebe78b1f8b90e47397417'
+          if old['status']!='completed':
+              subprocess.run(['gh','api','--method','POST',f'repos/{repo}/actions/runs/40949692381/cancel'],check=True)
+              print('Cancellation requested for rejected336 native run. Actual APK/core/failure retained. Corrected next candidate must run all checks.')
+          else: print('Rejected336 already stopped',old['conclusion'])
+          PY

@@ -1,0 +1,7 @@
+Local UIMSD series decoder allocation improvement, not yet committed or Android-verified.
+
+FactEvents.readColumn held an encoded-step buffer and allocated a second equally sized reconstructed-value buffer. Reconstruction only reads the current step, so it can replace each consumed step in its existing buffer. Both existing column encodings, modulo signed-long delta arithmetic, raw bytes, row counts and reader limits remain unchanged. No statistics/query limits or format changes introduced.
+
+Six existing actual writer/reader codec regressions passed0.088s. Added a permanent signed-long extremes/delta-overflow roundtrip case; all seven pass0.105s. A warmed actual RunLogWriter/RunLogReader/FactEvents.decode fixture of10000rows/four value columns plus clock,25 decodes produces the same complete-output hash6829161947948921984. Measured host thread allocation decreases54758264 to44756264 bytes:10002000bytes less,400080bytes perdecode (five eliminated10000-long arrays plus headers). One timing sample61.524ms to45.007ms is not evidence of a reliable Android/CPU speedup. This reduces transient arrays, not all returned observations or peak memory risks for huge compressed payloads.
+
+Initial standalone probe created an existing empty temporary filename, and RunLogWriter correctly refused to overwrite it. The probe now removes only its own empty fixture before writer creation. No player files used. Full core/API34/build checks pending. Broader UIMSD audit incomplete.

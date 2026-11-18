@@ -1,0 +1,5 @@
+Bug Fixes	ICON_DATA	Detect damaged statistics fact caches	Changed text, numbers or trailing bytes in a temporary fact cache now trigger recovery from the original run logs.
+Changes	ICON_RANKINGS	Safe fact-cache refresh	Older fact caches rebuild once with an integrity check; original history, saved games and statistics calculations stay unchanged.
+Testing	ICON_INFO	Fact-cache corruption and migration checks	Added regressions for text and number damage, trailing data, unchanged raw history, old-cache migration and large Unicode caches.
+Development	ICON_INFO	Verified delivery and audit records	Recorded TEST86's actual publication and the fact-cache failure, tests, timing and remaining audit limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I found that damaged cache data could still look like valid text or numbers. The cache now checks its integrity and rebuilds from original logs when needed.

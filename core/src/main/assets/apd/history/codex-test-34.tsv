@@ -1,0 +1,10 @@
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_STATS	Aggregate	Generated stable aggregate identifiers regardless of the device locale.
+Quality of Life	ICON_STATS	Statistics screen	Restored locked-tour warnings and tour choices without starting or repeating a tour.
+Testing	ICON_STATS	Query Locale Regression Test	Updated automated checks and fixtures for query locale regression. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-HEADLESS-SIMULATOR-2026-10-10	Updated apd-headless-simulator-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Generated stable aggregate identifiers regardless of the device locale. Restored locked-tour warnings and tour choices without starting or repeating a tour.

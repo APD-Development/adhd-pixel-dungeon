@@ -1,0 +1,10 @@
+Changes	V060_GREATAXE	Tomahawk	Prepared tomahawk bleed attribution without scaling its attack-derived damage again.
+Changes	V060_GREATAXE	Ripper Demon	Prepared ripper leap attribution for independently generated bleeding.
+Changes	V060_GREATAXE	Amplitude Damage Origins	Prepared saved cause shares for amplitude-based effects, scaling each contribution once.
+Changes	V060_GREATAXE	Albino	Prepared albino attack attribution for independently generated bleeding.
+Changes	V060_GREATAXE	Thorns	Prepared thorns bleed attribution to the defender that produces it.
+Changes	V060_GREATAXE	Mnemonic Prayer	Prepared caster attribution for added bleeding and poison contributions.
+Changes	V060_GREATAXE	Bleeding	Prepared source-aware bleeding ticks while preserving random decay, original death sources and neutral damage.
+Changes	V060_GREATAXE	Elemental Strike	Prepared hero attribution for independent Vorpal and Sacrificial Elemental Strike bleeding.
+Changes	V061_BUGFIX	Attributed Bleeding Integration Test	Added actual bleeding tick, mixed cause, save/load, legacy, neutral RNG and no-double-scaling regressions.
+Changes	V061_PAGE	Poison verification and bleeding checks	Recorded successful poison build evidence and the required bleeding integration checks.

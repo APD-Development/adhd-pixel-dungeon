@@ -1,0 +1,90 @@
+name: APD alpha all-control touchscreen acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-alpha-controls-acceptance.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: codex-alpha-controls-acceptance
+  cancel-in-progress: false
+jobs:
+  existing-apk-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Reuse the exact verified TEST217 application
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,zipfile
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          source='d2c28cb076d9918632d313e5a4f9655d36c9433b'
+          run_id='38795254303'
+          run=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id]))
+          assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==source
+          subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True)
+          protected=['core/src/main','SPD-classes/src/main','services/src/main','android/src/main','android/build.gradle','core/build.gradle','SPD-classes/build.gradle','services/build.gradle','build.gradle','settings.gradle','gradle.properties','gradle','android/debug.keystore']
+          subprocess.run(['git','diff','--exit-code',source,'HEAD','--']+protected,check=True)
+          artifacts=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/artifacts']))['artifacts']
+          apk_assets=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert len(apk_assets)==1
+          with open('existing-application.zip','wb') as output:
+              subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(apk_assets[0]['id'])+'/zip'],stdout=output,check=True)
+          with zipfile.ZipFile('existing-application.zip') as archive:
+              names=[n for n in archive.namelist() if n.endswith('.apk')]
+              assert len(names)==1
+              apk=archive.read(names[0])
+          digest=hashlib.sha256(apk).hexdigest()
+          assert digest=='4db6d38ad6ff0a6a5e375c43fadfa990b52172b2b14aac4bb2dafce9d9e6a6e9'
+          pathlib.Path('existing-test217.apk').write_bytes(apk)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':int(run_id),'application_sha256':digest,'test_source':os.environ['GITHUB_SHA'],'application_reused':True,'published':False,'physical_device':False},indent=2))
+          PY
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile the updated instrumentation APK
+        run: ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C217
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise every control through native Android touch
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb install -r existing-test217.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb logcat -c
+            timeout 420 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest#allEighteenControlsAcceptNativeTouchSaveAndReopenWithoutChangingActiveRun com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > all-controls-instrumentation.txt 2>&1
+            adb logcat -d -v time > all-controls-logcat.txt
+            python3 -c "import json,pathlib,re; s=pathlib.Path('all-controls-instrumentation.txt').read_text(); print(s); assert re.search(r'OK \(1 test\)',s), 'Missing successful one-method instrumentation result'; assert not any(x in s for x in ['FAILURES!!!','INSTRUMENTATION_FAILED','Process crashed.']); pathlib.Path('all-controls-result.json').write_text(json.dumps({'tests':1,'passed':1,'failures':0,'errors':0,'skipped':0,'controls':18,'boundaries':'minimum and maximum','native_touch':True,'save_and_reopen':True,'active_rules_unchanged':True,'scores_unchanged':True,'physical_device':False},indent=2))"
+      - name: Preserve acceptance evidence even if a check fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-alpha-all-controls-acceptance
+          path: |
+            acceptance-source.json
+            all-controls-result.json
+            all-controls-instrumentation.txt
+            all-controls-logcat.txt
+            android/build/reports/
+          if-no-files-found: warn
+          retention-days: 7
+

@@ -1,0 +1,5 @@
+Quality of Life	V22_PICKAXE	See Blacksmith reward upgrades	Blacksmith reward choices now show each actual upgrade level before selection, without identifying its curse or deferred enchantment.
+Changes	V30_SHARED_UPGRADES	Explicit zero-level rewards	Blacksmith reward slots use the native upgrade font and colors and show +0 explicitly; other inventory slots keep their existing display.
+Testing	ICON_INFO	Reward identity and native selection checks	Added tests for hidden properties, unchanged rewards and RNG, save persistence, visible levels and selecting the exact offered item on Android.
+Development	ICON_INFO	Verified build and private delivery records	Recorded the preceding build's real Android results and prepared private artifact reuse with signing and checksum checks.
+Developer Commentary	V074_SHPX	Developer Commentary	I made the Blacksmith's offered upgrade levels visible using the same disclosure as the Sad Ghost. The rewards themselves are unchanged.

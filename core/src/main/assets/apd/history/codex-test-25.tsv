@@ -1,0 +1,11 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Changes	ICON_INFO	Community Preview	Removed private creator restrictions and hidden-content references from Community previews.
+Testing	ICON_CHECKED	Community Preview Test	Updated automated checks and fixtures for community preview. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-DAILY-PREPARATION-2026-10-10	Added apd-daily-preparation-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-TEST24-REPORT-2026-10-10	Added apd-test24-report-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-UNATTENDED-PROBE-2026-10-10	Added apd-unattended-probe-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	apd existing build evidence	Updated the apd existing build evidence development tool.
+Infrastructure	ICON_INFO	test apd existing build evidence	Updated the test apd existing build evidence development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Removed private creator restrictions and hidden-content references from Community previews.

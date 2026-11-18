@@ -1,0 +1,158 @@
+{
+  "reviewed_utc": "2026-11-09T18:39:34.642780+00:00",
+  "source_commit": "75809609745851368fe81f2dced1b69eb63cdfdf",
+  "build": 425,
+  "accepted": true,
+  "selected_full_frames": 37,
+  "scope": "37 selected new full-frame screenshots: two Elemental Strike detail effects,15 spell contexts in expanded/bottom views and SharedUpgrades normal/expanded/bottom. Corrected16.67% renders; controls/scroll readable. Native plain-state viewport checks passed, but separate normal spell/ability screenshots were not captured by this source version. Not full-app or physical-phone review.",
+  "frames": [
+    {
+      "name": "qol-elemental-strike-reviewed-Crystal-bottom.png",
+      "sha256": "d802afec85167a0de925c21f380a3343dd10d59b5f043c83d0fcfb19b43d403e"
+    },
+    {
+      "name": "qol-elemental-strike-reviewed-Crystal.png",
+      "sha256": "f6487f93f5f28e1fb8c989da600188f6d5e189d756c290b6d5d841f5117f2511"
+    },
+    {
+      "name": "qol-elemental-strike-reviewed-Sacrificial-bottom.png",
+      "sha256": "db3573d9ebc292e5354c3225d1e7b78efe0163def24b583f00f02166ff395121"
+    },
+    {
+      "name": "qol-elemental-strike-reviewed-Sacrificial.png",
+      "sha256": "c4e2fd392636e51ebc069d5f2feca1416c90a3033eba27c0724acbaf82ffe4af"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Bless-bottom.png",
+      "sha256": "af1222c95c9f678aabe4c1a134e8b4059375e1c3bedfbe52e537f9d386493e93"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Bless.png",
+      "sha256": "82feb1aba2d1177fb8f0ad8b694086aacf6504c68faca2f80bc40e8e363b0042"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BodyForm-bottom.png",
+      "sha256": "870a991b45add6f43cb3b2cc36aa52bc4a0031fd8228ad0a0a3b38a9851ee3ef"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BodyForm.png",
+      "sha256": "cbc07df0e56dcc08061be101851cdc22679b998352e93695b8cb95bcb66c00ec"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Cleanse-bottom.png",
+      "sha256": "7272698ea702d3157d79b74c22f5bf865b6e5010912fb16e80e2b5f266a20bed"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Cleanse.png",
+      "sha256": "0106577ddb600a28defa1bcbd42dfa44ec8d7f4a95a5ee7190f978f0799784c3"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineIntervention-bottom.png",
+      "sha256": "0950f909e982460bbffd7c99d5b96808296abac7ba63cfcd2cb51eb8d9996e1d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineIntervention.png",
+      "sha256": "fc113ef081127b6f92a4660a7d63e509850a4685eb6c95388a005767bd5cd96f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Flash-bottom.png",
+      "sha256": "9ce6ead2213ac138a55ed0414af4cfc4fb5ebb56bf3c897a13c4b26e5d671767"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Flash.png",
+      "sha256": "f17b5b52e2e17ea5354b5cb2da6d136f147eb7d06a8a44a63fe0cbe39617d180"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-Priest-bottom.png",
+      "sha256": "c60b81f4cd86f3db5f021e98e33ab32e34512f18b1f06f0e24a2e46ee2e0621a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-Priest.png",
+      "sha256": "c60b81f4cd86f3db5f021e98e33ab32e34512f18b1f06f0e24a2e46ee2e0621a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-bottom.png",
+      "sha256": "bdb978950b1fbd4557b7342734eecc6b958aca1179a3ab33d7d20c98a087ab26"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight.png",
+      "sha256": "5a3219d03d7f272ae6e526ea0babfb2fe88bcf30a2bb6b71587c75e649ace87c"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyIntuition-bottom.png",
+      "sha256": "7e920800788b99a0b82be31473989dd9e4d4221bbd4b3b65db9b3e0bbed9bfdd"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyIntuition.png",
+      "sha256": "81678649a778baefa49d1723d5c4cca5df58bc6c2a323ce5f8e88a60392beaaa"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LayOnHands-bottom.png",
+      "sha256": "fad804aebef59f0b7368f54d05803eb096221ee5b0701ea2a73488ab728773c1"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LayOnHands.png",
+      "sha256": "a11c95758bd90c951dc5b09c5e78cfaf89f8973dd372a034894f768542a479d2"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MindForm-bottom.png",
+      "sha256": "6a6ad0774507c3bceb06bfeb0fab0ed02a394f07a7b8f831688357650ffdd495"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MindForm.png",
+      "sha256": "a372fa14fc05a2c0b6db75e7a3380d4eed03e68aee5639afc05e50837f34f2b8"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Radiance-bottom.png",
+      "sha256": "1b78d69b266d68a3ff6a3a4435760e1def53e9df0d076ec5a8a38b3e3d38fa2d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Radiance.png",
+      "sha256": "d0983897c5ff93a505eff0c73221bef6333b8911571a821cfe5c6245b79ca7c9"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-RecallInscription-bottom.png",
+      "sha256": "da2c35641c7c83a67880335e8c89414b889b73fea593350202b1983bfa398771"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-RecallInscription.png",
+      "sha256": "92fa200eee0d9e12c5d6ed06ec6fbb8095792b7a3a1b61dff12eace9ae43cd4a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight-bottom.png",
+      "sha256": "b4517e8bf730d6ca00ada80eeab810510b57855549743173874743add8b1f05e"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight.png",
+      "sha256": "32584ef364b60311cbe8e734ccca0871321266721d74ee90acf535d6ca0c61af"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-SpiritForm-bottom.png",
+      "sha256": "a7e740d0c673b8187995c5c730439d6381880e3d8892ae2068b9f5516d81d998"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-SpiritForm.png",
+      "sha256": "306d85d55b04084645ab5bf8c7a903a963f81eb128602b6c4000c3e5beeddce1"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Sunray-bottom.png",
+      "sha256": "01bbcfe76ed8e34dadb7c4cd6fceef0028e0040ed6a6f18f041cd85e459e96cf"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Sunray.png",
+      "sha256": "56efef46f4747eac5bab24e492412e1fba11822e595d1c08abbc15208356d311"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_UPGRADES-bottom.png",
+      "sha256": "4f79d300a11fb3f59ed01ef055053975c85c4e2daae3e80d9784ced685decf98"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_UPGRADES-normal.png",
+      "sha256": "1fcbea341b8b3e2634fb60bf740dac5a66ee22d504d46ba929816eb491cea094"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_UPGRADES.png",
+      "sha256": "6b9ea506a19a6eb4ba04c15cbeef6a138b5a8f91024145df34e1f98c6fe0b850"
+    }
+  ]
+}

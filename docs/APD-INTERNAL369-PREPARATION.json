@@ -1,0 +1,62 @@
+{
+  "source": "b8283598a43e13a2259d65cae69bf0529b7a65e2",
+  "expected_number": 369,
+  "owner_exception": "Owner replied Yes to one additional Developer/Alpha pair on2026-11-06 after daily limit. No further pair authorized.",
+  "status": "published_download_verified_owner_links_sent",
+  "previous_verified_local_pair": 368,
+  "whole_semantic_audit_complete": false,
+  "physical_phone_tested": false,
+  "github_release_delivery_complete": true,
+  "owner_daily_limit_update": "Owner explicitly said go to10; interpreted10 total APKs/day, five Developer and five Alpha. Keep369 fixed unless real application fix requires another pair.",
+  "runs": {
+    "developer": 42279158656,
+    "alpha": 42279158734,
+    "display": 42279158774
+  },
+  "core_tests": 2856,
+  "core_suites": 446,
+  "core_artifact": 13533569900,
+  "core_artifact_sha256": "5476c0276a15f550b752def34146c7515841ced59c1ad950d209dd1a831f389f",
+  "developer_artifact": 13533739670,
+  "developer_artifact_sha256": "940320215a8dc50cbf76cd820bb3708fc3fcb533f7d9b74690590d1cc58c1a7f",
+  "developer_apk_sha256": "88671a8624d53f61705d1b6e3c40d1ca6badc37780bac577a0f824e2f8c3d972",
+  "developer_apk_bytes": 39156942,
+  "version_code": 920,
+  "retained_panel_fixture_failure": {
+    "run": 42279534057,
+    "job": 128104568023,
+    "cause": "Fixture wrongly assumed921; exact369 source/app code920. Failed before native tests; test-only correction checks source value and369 name. No new APK."
+  },
+  "test_source": "0546ef74e2fdef80afce7107c48d3cca403be047",
+  "release_blocker": "RESOLVED by existing-tag-only documented request; no credentials/scopes/ref changes",
+  "release_id": 436914231,
+  "published_at": "2026-11-06T19:42:57Z",
+  "delivery_workflow": 42281805076,
+  "delivery_job": 128112409898,
+  "native_tests": 72,
+  "native_single_successful_invocation": true,
+  "native_artifact": 13534239598,
+  "native_artifact_sha256": "0b88a7331cc7e203e6f6285e5bd98960e64b29022c56e53c355b67d6a5edafa2",
+  "alpha_tests": 4,
+  "panels_tests": 3,
+  "display_tests": 11,
+  "display_profiles": 6,
+  "source_sha256": "8c10e7f41e7c4d9282a390df2e776510bb40d3363c2368bcffd51827265e5e8c",
+  "alpha_apk_sha256": "c53b722e5d0634fcbb3cff1c88ea648ea62c750f9552e19a648119061301dde8",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "reopen_heap_bytes": {
+    "used": 35986304,
+    "limit": 201326592
+  },
+  "owner_link_message": {
+    "channel": "commentary",
+    "sent": true,
+    "utc_window_start": "2026-11-06T19:45:39Z",
+    "utc_window_end_observed": "2026-11-06T19:45:49Z",
+    "before_3pm_America_New_York": true
+  },
+  "actual_downloaded_files": "/workspace/apd369-published-download",
+  "delivery_package_artifact": 13535986684,
+  "delivery_package_artifact_sha256": "9df66713fa4246bc3bedb860aadb1cc56f640b277e38cb99d1943012c73064d1"
+}

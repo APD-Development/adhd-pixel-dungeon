@@ -1,0 +1,45 @@
+name: Read-only TEST100 embedded history evidence
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-test100-history-evidence.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  extract-existing-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          run-id: '38344486604'
+          github-token: ${{ github.token }}
+          path: original
+      - name: Preserve exact embedded histories and source metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import pathlib, zipfile, hashlib, json, subprocess, os
+          apks=list(pathlib.Path('original').rglob('*.apk'))
+          assert len(apks)==1
+          apk=apks[0]
+          target=pathlib.Path('test100-history-evidence');target.mkdir()
+          run=json.loads(subprocess.check_output(['gh','api','repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/38344486604']))
+          assert run['head_sha']=='624f6991bae64c3f9437be6a5e6e16535cff374d' and run['conclusion']=='success'
+          entries=[]
+          with zipfile.ZipFile(apk) as archive:
+              for name in archive.namelist():
+                  if name.startswith('assets/apd/history/') and (name.endswith('codex-test-100.tsv') or name.endswith('index.tsv')):
+                      data=archive.read(name);path=target/pathlib.PurePosixPath(name).name
+                      path.write_bytes(data);entries.append({'entry':name,'sha256':hashlib.sha256(data).hexdigest()})
+          assert any(e['entry'].endswith('codex-test-100.tsv') for e in entries)
+          (target/'evidence.json').write_text(json.dumps({'source':run['head_sha'],'run':run['id'],'started_at':run['run_started_at'],'updated_at':run['updated_at'],'apk_name':apk.name,'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),'entries':entries,'scope':'Read-only extraction; no build, publication or APK signing claim.'},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test100-history-evidence
+          path: test100-history-evidence/
+          retention-days: 7

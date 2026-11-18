@@ -1,0 +1,4 @@
+Quality of Life	ITEM_CRYSTAL_KEY	Game-item icons	News and change entries can show familiar item sprites; the crystal-path fix now uses a crystal key.
+Testing	ICON_INFO	Native sprite checks	Added sprite-reference checks and strengthened Android menu checks for item icons and safe fallbacks.
+Development	ICON_DATA	Verified source comparison	Measured source additions and removals from APD's confirmed starting commit without rebuilding the game.
+Developer Commentary	V074_SHPX	Developer Commentary	I added native game-item sprites to the news and change-history system. Existing entries, popup descriptions and build attribution are preserved.

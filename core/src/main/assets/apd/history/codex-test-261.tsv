@@ -1,0 +1,8 @@
+Quality of Life	ICON_INFO	Uninterrupted boss-key pickup	Goo's Worn Key uses normal key pickup without opening an inherited donation prompt.
+Quality of Life	ICON_CHALLENGE_COLOR	Victory without promotions	The victory message keeps its normal information and Close button without a donation appeal.
+Changes	ICON_INFO	Legacy links retain credits	Old support-screen routes lead to ordinary credits instead of donation pages; upstream attribution and licenses remain.
+Changes	ICON_INFO	Localized promotion cleanup	Remove unused inherited support appeals from all23 scene and window language bundles.
+Testing	ICON_CHECKED	Boss reward and victory checks	Check normal key quantity and turn cost, retained credits, every retained message's language safety, and Android pickup/victory screens.
+Testing	ICON_INFO	Controlled Android audio diagnosis	A separate fake-endpoint diagnostic checks the inherited sound worker's queue without changing or claiming to fix audible playback.
+Infrastructure	ICON_CHANGES	Exact build and tester evidence	Retain exact preceding APK history, tester report, release notes and honest pending verification status.
+Infrastructure	ICON_INFO	Complete display-check provenance	Display verification now records and checks the actual application receipt, asserts effective display size and dismisses Android's first-use full-screen notice.

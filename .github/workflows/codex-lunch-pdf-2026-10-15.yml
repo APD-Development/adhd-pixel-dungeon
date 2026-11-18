@@ -1,0 +1,70 @@
+name: Publish private October 15 lunch PDF
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-lunch-pdf-2026-10-15.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-lunch-pdf-2026-10-15
+  cancel-in-progress: false
+jobs:
+  publish-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-test206-evidence
+          run-id: 38761060611
+          github-token: ${{ github.token }}
+          path: evidence
+      - name: Verify private staging evidence and publication time
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,json,os,subprocess
+          from pathlib import Path
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path): return json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          assert datetime.datetime.now(datetime.timezone.utc)>=datetime.datetime(2026,10,15,15,55,tzinfo=datetime.timezone.utc), 'Not before 11:55 EDT'
+          run=api('repos/'+repo+'/actions/runs/38761060611')
+          assert run['status']=='completed' and run['conclusion']=='success'
+          v=json.loads(Path('evidence/TEST206-Verification.json').read_text())
+          assert v['source']=='f33591d364598f75b07d62394f5a47bf6ba6432e'
+          assert str(v['run'])=='38754451109'
+          assert v['apk_sha256']=='566e29174c17c19f9a19f7429410d872a097c09c2aa4a1e4835548617a6c809c'
+          assert v['certificate_sha256']==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          for kind,count in [('core',1636),('android',28)]:
+              assert v[kind]['tests']==count
+              assert all(v[kind][k]==0 for k in ('failures','errors','skipped'))
+          PY
+      - name: Render and check current factual report
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0
+          python3 -m unittest discover -s tools -p test_apd_bug_report_pdf.py
+          python3 tools/apd_bug_report_pdf.py docs/APD-LUNCH-REPORT-PUBLICATION-2026-10-15.md APD-Development-2026-10-15-TEST206.pdf --verification evidence/verification.txt
+          python3 - <<'PY'
+          from pypdf import PdfReader
+          p=PdfReader('APD-Development-2026-10-15-TEST206.pdf')
+          text=''.join(page.extract_text() for page in p.pages)
+          assert len(p.pages)>0 and 'f33591d364598f75b07d62394f5a47bf6ba6432e' in text
+          assert '11:55' in text and 'LOCAL ONLY' in text and '1636' in text
+          print('Validated PDF pages:',len(p.pages))
+          PY
+          sha256sum APD-Development-2026-10-15-TEST206.pdf > APD-Development-2026-10-15-TEST206.pdf.sha256
+      - name: Publish only PDF and evidence without replacing assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-lunch-report-2026-10-15'
+          exists=subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True)
+          assert exists.returncode!=0, 'Existing release preserved; refuse overwrite'
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD private lunch development report — October 15, 2026','--notes','Current report for verified lunch candidate TEST206. PDF only; APK delivery is separate. Source, completed checks and pending work are distinguished inside.','APD-Development-2026-10-15-TEST206.pdf','APD-Development-2026-10-15-TEST206.pdf.sha256','evidence/TEST206-Verification.json'],check=True)
+          PY

@@ -1,0 +1,53 @@
+{
+  "source": "b5d562ca37fff9ac628af3f4ade731e9fa7d83f1",
+  "publication_commit": "4e00c48ff3e2c9b73a44927278d600e3a4e5960c",
+  "publication_app_tree_matches_source": true,
+  "run": "38894980574",
+  "apk_sha256": "99ca269dbebcd19266dbf4e27aca798252ed3d3b021f97b730915cbbea52b7f4",
+  "certificate_sha256": [
+    "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e"
+  ],
+  "package": [
+    "com.charltonchris29.adhdpixeldungeon.indev",
+    "920",
+    "4.0.8-apd-INDEV-bC241-TEST"
+  ],
+  "build_started_utc": "2026-10-16T11:37:18Z",
+  "build_completed_utc": "2026-10-16T11:50:47Z",
+  "core_tests": 1716,
+  "android_tests": 33,
+  "pdf_pages": 7,
+  "pdf_size": 20382,
+  "pdf_sha256": "56a13e2a4e823d639180843e3ab547ef1f9d11fbcf877f0edacdcaf20dc1b87a",
+  "source_zip_sha256": "7ee00690114432093be13ceed6230242fbb1b64ced2d4bf2223cc894d45037b7",
+  "private_staging_complete": true,
+  "published": false,
+  "physical_phone_tested": false,
+  "stage_run": 38895319271,
+  "stage_source": "4e00c48ff3e2c9b73a44927278d600e3a4e5960c",
+  "staged_full_artifact": 12043559007,
+  "staged_full_zip_sha256": "41fcc894448ec71617378bbef5c5ed82b9d1fbe1fdfd4ca0500d69c68c9d9924",
+  "staged_evidence_artifact": 12043828065,
+  "staged_evidence_zip_sha256": "55176b3aeb734d39ffa413fbd32f5837b56700078840db77068b78c3c1a5c6e6",
+  "screenshots_reviewed": 42,
+  "screenshot_dimensions": [
+    320,
+    640
+  ],
+  "source_archive_contains_interval_and_legacy_repair": true,
+  "rollback": "Published TEST231, signature/appID/version/checksum compared directly",
+  "before_after": {
+    "run": 38894980632,
+    "artifact": 12042934563,
+    "original_cases": 5,
+    "expected_original_failures": 4,
+    "healthy_control": 1,
+    "current_core_cases": 1716
+  },
+  "unrelated_changes_avoided": [
+    "Different room patterns",
+    "Other hazard-room balancing",
+    "Loot probabilities"
+  ],
+  "lunch_publication": "Pending separate 11:55 PDF and noon APK tasks; do not publish early"
+}

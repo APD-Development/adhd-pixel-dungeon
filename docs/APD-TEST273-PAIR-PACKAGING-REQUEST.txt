@@ -1,0 +1,6 @@
+APD TEST273 private labeled pair packaging request (2026-10-17)
+
+Owner wants the two already-produced APK choices labeled clearly as Developer and Player, and wants the one-tap discovered-stair travel/transition feature in both.
+Do not rebuild application code. Reuse exact verified Developer artifact from run 39068952497 (raw APK SHA-256 3955b271e8ce76d01c315eb104c73b0bea7fa45dfcb2472d7349abd6b2ebdb54) and exact Player artifact from run 39070791688 (raw APK SHA-256 56c586c894490398dacdfc2f4eab2c12161af4f00148a95da8ef47c00a9fbb60).
+Prove both contain the shared stair feature, Developer alone has the experimental feature marker, histories match, both retain the known signing certificate, and relabeling does not change APK bytes. Upload one private bundle only.
+Do not publish, stage, distribute, change application ID, change saves, edit the executable APK build request, or claim physical-device acceptance.

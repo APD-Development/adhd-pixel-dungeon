@@ -1,0 +1,18 @@
+ADHD Pixel Dungeon (APD)
+Copyright (C) 2026 Chris Charlton (APD modifications)
+
+APD is a modified version of Shattered Pixel Dungeon by Evan Debenham,
+based on Pixel Dungeon by Oleg Dolya (Watabou).
+APD modification dates in the audited Git history: 2026-10-05 onward.
+Upstream: Copyright (C) 2014-2026 Evan Debenham;
+Pixel Dungeon: Copyright (C) 2012-2015 Oleg Dolya.
+Existing contributor notices and separately licensed third-party components remain applicable.
+
+APD is free software under the GNU General Public License, version 3 or,
+at your option, any later version, as specified by SPD's source headers.
+See LICENSE.txt for the unchanged license terms. There is no warranty.
+
+APD is not affiliated with or endorsed by Evan Debenham or Shattered Pixel.
+Development source: https://github.com/APD-Development/ShieldingShouldHaveWorked
+Matching-build source must be supplied to every binary recipient; a private
+repository link alone is insufficient for recipients without access.

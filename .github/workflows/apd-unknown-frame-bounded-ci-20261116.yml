@@ -1,0 +1,65 @@
+name: APD bounded unknown history frames exact-source CI
+on:
+  push:
+    branches: [chatgpt/apd-unknown-frame-bounded-20261116-0800]
+    paths:
+      - .github/workflows/apd-unknown-frame-bounded-ci-20261116.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogReader.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogStreamingReadTest.java
+permissions: {contents: read}
+concurrency:
+  group: apd-unknown-frame-bounded-20261116
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Validate unknown-frame no-copy semantics and existing CRC checks
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogReader.java').read_text()
+          tests=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogStreamingReadTest.java').read_text()
+          assert 'result.skippedScratch = new byte[8192]' in src
+          assert 'crc.update(result.skippedScratch, 0, n);' in src
+          assert 'if (crc.getValue() != stored)' in src
+          assert 'int payloadLength = (int) len;' in src
+          assert 'f.streamEnd = pos + 1 + 1 + lengthBytes + payloadLength + 4;' in src
+          assert 'largeUnknownFramesPreserveKnownEventsAndStreamedOffsets' in tests
+          assert 'unknownFramesStillRejectCorruptCrcAndTruncatedPayloadOrChecksum' in tests
+          PY
+      - name: Complete core suite and desktop/Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require complete clean JUnit results and new regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          suites=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert suites, 'missing JUnit'
+          totals={k:sum(int(s.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3528, totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0, totals
+          names={t.get('name') for s in suites for t in s.findall('testcase')}
+          required=('largeUnknownFramesPreserveKnownEventsAndStreamedOffsets',
+                    'unknownFramesStillRejectCorruptCrcAndTruncatedPayloadOrChecksum',
+                    'streamedHeaderExactLengthsMatchBufferedReaderUpToMaximum',
+                    'streamingFrameResultReuseKeepsEveryEventPayloadIndependent',
+                    'streamedFrameLengthVarintBoundariesMatchBufferedReader')
+          for name in required: assert name in names, name
+          print(totals, 'suites', len(suites))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-unknown-frame-bounded-junit-20261116
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

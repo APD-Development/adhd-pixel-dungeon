@@ -1,0 +1,46 @@
+Quality of Life	ICON_INFO	See equipped ring contributions	Affected equipment descriptions show known ring contributions, including thrown-weapon damage before and after Sharpshooting, weapon accuracy and attack speed, strength, defensive multipliers and supported recharge rates. Combined rings and current conditions are reflected without revealing unidentified ring properties.
+Quality of Life	ICON_INFO	Remember searched walls	Walls covered by a deliberate Search receive a subtle check mark, remembered when saving or revisiting that floor. Examine a marked wall to confirm it was searched. Automatic searching does not add marks, and secret discovery rules are unchanged.
+Quality of Life	ICON_INFO	Automatic grass dew pickup	Dew produced by grass beneath you can be collected automatically while your Waterskin has room. Collection uses its own normal pickup turn after moving. Visible enemies stop automatic collection by default; choose Dew pickup settings in Options to allow it or turn automatic collection off. Full or missing Waterskins leave the dew on the ground.
+New Content	ITEM_SCROLL_KAUNAN	Gather surplus loot	Scrolls of Gathering gather loose floor loot beside the downstairs. Scrolls of Forwarding send it outside the next region's shop, or back to the floor-20 Imp shop when used later. Both are identified from the start for every class. Keys, quest items and unopened containers stay put.
+Quality of Life	ICON_INFO	Export a bug report	Create a local support report from APD Settings with your build, device and recent loading, input, memory and error observations. Choose where to save it and share it when reporting a problem; saved games and raw run histories are not included.
+Bug Fixes	ICON_INFO	Prevent stale menu input	Old queued touches are discarded across pause, resume and engine recreation. Back pressed behind a menu tap waits for the requested screen rather than reaching the departing menu.
+Quality of Life	ICON_STATS	Search UIMSD offline	Find tables, categories and public statistic fields with a native searchable menu. Unicode and common multilingual terms work offline; results open existing UIMSD tables without revealing hidden details.
+Quality of Life	ICON_INFO	On-screen damage effects	An expandable dungeon HUD shows current damage-over-time effects, tracked HP and shielding losses, conditional future damage and scheduled ticks. Original effect popups can be restored in APD Settings.\n
+Quality of Life	ICON_INFO	Wandmaker reward levels	Both offered wands reveal their actual upgrade level before selection, like Sad Ghost and Blacksmith rewards, without identifying hidden curse information.\n
+Bug Fixes	ICON_INFO	Blacksmith hammering cadence	Faster visual playback no longer accelerates the ambient hammer strike sound; game speed remains unchanged.\n
+Quality of Life	ICON_STATS	Browse turns of a run	Open a recorded UIMSD run and inspect events turn by turn with Previous and Next, 1, 10, 100, 1000 or custom steps, and a turn jump. Unrecorded turns stay empty.\n
+Quality of Life	ICON_INFO	Examine every item in a pile	Inspect every item in an open floor pile, top item first, with its existing visible icon, name and stack quantity. Scroll large piles and tap an item for its normal description; examining never picks anything up or reveals unidentified properties.
+New Content	ICON_CHALLENGE_COLOR	Custom Dungeon Rules	Customize combat, survival, enemy spawning and loot with 18 experimental controls; your selected rules stay fixed for each run.
+New Content	ITEM_SCROLL_KAUNAN	Choose your upgrades	Choose 1–60 dungeon Scrolls of Upgrade; the normal setting remains 15.
+Statistics / UIMSD	ICON_STATS	Your dungeon history	Explore recorded runs, combat events and individual item histories in UIMSD.
+Statistics / UIMSD	ICON_RANKINGS	Filters and comparisons	Filter records, ask custom questions and compare runs without replacing your original history.
+Statistics / UIMSD	ICON_INFO	Rules recorded with runs	Inspect the Custom Dungeon Rules recorded for each run in details, comparisons and exports; unknown historical settings remain unknown.
+Statistics / UIMSD	ICON_CHANGES	Reliable statistics views	Older background results no longer replace a newer statistics view or seed replay.
+Statistics / UIMSD	ICON_STATS	Clearer numbers	Statistics display fixed-point values and mixed-scale percentages in player units, and preserve lower-bound warnings for incomplete records.
+Quality of Life	ITEM_ARMOR_LEATHER	Blacksmith rewards	See the upgrade level of each offered Blacksmith reward before choosing.
+Quality of Life	ITEM_ARTIFACT_CHALICE1	Chalice damage preview	Inspect the next Chalice prick's damage and possible HP loss before deciding whether to proceed.
+Quality of Life	ICON_PREFS	Healing conversion setting	The Healing-to-Shielding setting affects only generated Potions of Healing; other potion and scroll conversions keep their normal behavior.
+Quality of Life	ICON_INFO	Adult Humor preference	The About screen and reviewed authored dialogue use clean alternatives when Adult Humor is off.
+Quality of Life	ICON_CHALLENGE_COLOR	Scoring notice	Custom Dungeon Rules use provisional experimental scoring multipliers for new runs; original scores remain available.
+Bug Fixes	ICON_ENTER	Saved entrance repair	Older affected first-floor saves can recover their entrance doorway without revealing unrelated secret doors.
+Statistics / UIMSD	ICON_COPY	Consistent shared histories	Quickly resumed runs now use the correct finished or unfinished state when deciding what their shared history can reveal.
+Statistics / UIMSD	ICON_WARNING	Incomplete export warnings	Exports of damaged or unreadable history retain an incomplete-data warning instead of presenting surviving statistics as complete.
+Statistics / UIMSD	ICON_WARNING	Incomplete table totals	Item and enemy tables retain incomplete-data warnings when a recorded event cannot be read.
+Bug Fixes	ICON_WARNING	Rotating vault sentry	The circular Imp-vault sentry uses the normal two-turn scan interval; existing affected floors retain their saved position and scan phase.
+Developer Commentary	ICON_INFO	Developer Commentary	I'm bringing APD's statistics and difficulty customization together for the early-alpha preview. New runs use provisional experimental scoring multipliers, with original scores preserved separately.
+Gameplay	ICON_CHALLENGE_COLOR	Provisional custom scoring	New runs use the selected Custom Rules multipliers, with original scores preserved separately.
+Quality of Life	ICON_CHALLENGE_COLOR	Live score previews	Every difficulty slider shows its multiplier, and the combined multiplier updates while you drag.
+Statistics / UIMSD	ICON_STATS	Unreadable score records	Invalid adjusted scores remain unknown without preventing access to the original run history.
+Quality of Life	ICON_INFO	My scoring plans	Read an optional explanation of future scoring ideas, separate from the unchanged provisional slider multipliers.
+Bug Fixes	ICON_RANKINGS	Daily earned scores	Daily history shows the recorded earned Custom Rules score, preserves original scores and keeps large values readable.
+Bug Fixes	ICON_PREFS	Narrow toolbar	Quickslot paging stays accessible without covering Inventory on narrow screens.
+Bug Fixes	ICON_INFO	Clear dungeon messages	Messages remain readable above the page switch on narrow screens.
+Statistics / UIMSD	ICON_STATS	Accurate group comparisons	Repeated statistic labels keep their own values when two groups are compared.
+Bug Fixes	ICON_CHANGES	Responsive main menu	Hide UI and the menu buttons stay separate on short, resized and virtual Android displays.
+Quality of Life	ITEM_WATERSKIN	Confirm Waterskin use	A default-on confirmation protects stored dew from accidental drinking; change it independently in Options.
+Quality of Life	ICON_WARNING	Known-trap warnings	A default-on confirmation stops intentional walking before a visible armed trap; Cancel spends no turn.
+Bug Fixes	ICON_STATS	Literal report text	Markdown table exports preserve backslashes in column headings and recorded values.
+Quality of Life	ICON_INFO	Uninterrupted boss rewards	Boss-key pickup and victory no longer display inherited donation promotions; original contributor credits remain in About.
+
+Bug Fixes	ICON_CHECKED	Already available characters	Already-playable characters no longer announce their old unlock requirements; character availability and earned progression are preserved.
+Bug Fixes	ICON_PREFS	Interactive Grudge settings	The Grudge frequency, location switches and history confirmation now receive touches instead of being intercepted by their scroll pane.

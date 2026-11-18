@@ -1,0 +1,10 @@
+{
+  "run_id": 42644420369,
+  "source_commit": "8c2d5ca9f33154af69b782d6aa83ac181bd3c21d",
+  "number": 418,
+  "require_all_native_cases": true,
+  "publish": false,
+  "manual_review_required": true,
+  "original_failed_run_id": 42642508263,
+  "test_only_fixture_patch": "MindVision expected default2tiles instead of1; original application APKs unchanged"
+}

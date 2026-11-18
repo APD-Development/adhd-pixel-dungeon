@@ -1,0 +1,150 @@
+{
+  "pdf": "/workspace/artifacts/APD-Friday-Alpha-Remaining-Work-2026-10-13.pdf",
+  "deadline": "2026-10-16 (America/New_York; exact hour unspecified)",
+  "alpha_active_hours_low": 33,
+  "alpha_active_hours_high": 62,
+  "alpha_tasks": [
+    {
+      "id": "A1",
+      "task": "Repair TEST122 verification",
+      "estimate": "1\u20133 hours",
+      "details": "Fix three failed core checks: restore canonical identification/provenance hook wiring and establish a neutral generation baseline against the complete current source. Re-run full checks; do not replace expected results with the failing candidate\u2019s output."
+    },
+    {
+      "id": "A2",
+      "task": "Player offensive damage",
+      "estimate": "4\u20137 hours",
+      "details": "Wire Player Damage for direct attacks, spells, abilities, player-owned summons and attributable explosions. Scale once and preserve the original source, defenses, immunities and neutral RNG. Includes source-level regressions."
+    },
+    {
+      "id": "A3",
+      "task": "Enemy and boss offensive damage",
+      "estimate": "3\u20135 hours",
+      "details": "Wire Enemy/Boss Damage for direct and ranged attacks and boss-owned summons/delayed attacks. Boss replaces Enemy, never multiplies both. Preserve existing difficulty/challenge behavior and boss progression. Builds on A2 rather than counting shared architecture twice."
+    },
+    {
+      "id": "A4",
+      "task": "Delayed and overlapping offensive effects",
+      "estimate": "6\u201312 hours",
+      "details": "Preserve attribution for poison, burning, corrosion, other damage-over-time and overlapping explosions/blob cells through save/load. Prevent double scaling of shared or derived damage. Leave unowned traps, environment, starvation and Chalice self-damage unchanged. Highest implementation uncertainty."
+    },
+    {
+      "id": "A5",
+      "task": "Permanent custom-rules recording",
+      "estimate": "4\u20137 hours",
+      "details": "Record all 18 values, 1\u201360 selected upgrade count and equivalent percentage, actual generated counts, difficulty/balance revision, nine challenges, class, seed and exact ruleset identity. Preserve historical unknowns and raw history; finish additive save compatibility."
+    },
+    {
+      "id": "A6",
+      "task": "UIMSD visibility, filters and exports",
+      "estimate": "3\u20135 hours",
+      "details": "Expose the exact run configuration and scoring status in run details, filters, comparisons, statistics and exports. Verify custom and standard runs remain distinguishable. This is mandatory integration; the wider UIMSD redesign stays deferred."
+    },
+    {
+      "id": "A7",
+      "task": "Score integration architecture and presentation",
+      "estimate": "2\u20134 hours",
+      "details": "Show Custom Rules Multiplier directly below Challenge Multiplier; neutral is 1.00\u00d7. Preserve original earned scores while calibration is unapproved; show non-neutral multiplier/adjusted score as unavailable or provisional, never as an awarded competitive bonus. Store formula/version/status fields when available."
+    },
+    {
+      "id": "A8",
+      "task": "Locked rules and save/recovery integration",
+      "estimate": "2\u20134 hours",
+      "details": "Verify unchanged active-run settings across preference changes, restart, load, restoration and rollback. Test legacy saves, invalid/incomplete metadata, healing fractions, new generation counts and owner attribution. No uninstall, clear-data or raw-history deletion."
+    },
+    {
+      "id": "A9",
+      "task": "Combined gameplay, classes, challenges and bosses",
+      "estimate": "4\u20138 hours",
+      "details": "Exercise the approved hard/easy combinations, all six classes, Difficulty 1\u20135 and the nine challenges. Verify Goo, Tengu, DM-300, Dwarf King and Yog phases/objectives. Check spawn XP/drop interactions, extreme defense/HP/healing and low upgrades. Report interactions; do not automatically nerf them."
+    },
+    {
+      "id": "A10",
+      "task": "Android interaction and layout acceptance",
+      "estimate": "3\u20135 hours",
+      "details": "Touch and save every implemented control; inspect active-run rules and score breakdown. Verify small screens, scrolling, warning text, save/resume and HUD compatibility. Capture/review screenshots. Finish equipment interaction checks and perform applicable instrumentation; emulator evidence is distinct from phone acceptance."
+    },
+    {
+      "id": "A11",
+      "task": "Private alpha candidate and delivery gate",
+      "estimate": "1\u20132 hours",
+      "details": "Run required core/Android/build checks on the final source; include accurate build history. Verify APK checksum, signing compatibility, application ID and install-over version against the last delivered APK. Stage APK and report privately. Owner approval precedes distribution to about 10 testers."
+    }
+  ],
+  "backlog": [
+    {
+      "id": "B1",
+      "task": "Remaining UIMSD reliability/storage audit",
+      "estimate": "12\u201324 active hours",
+      "details": "Continue the documented component checkpoint; do not restart reviewed components. Resolve confirmed history/cache/query/save defects in tested batches. Exact remaining component inventory must be reconciled before claiming the audit complete. This can become an alpha blocker if a crash or data-loss defect is reproduced."
+    },
+    {
+      "id": "B2",
+      "task": "Complete native UIMSD visual overhaul",
+      "estimate": "8\u201316 active hours",
+      "details": "Finish the screen/functionality checklist, compact native presentation, navigation state, tables, filters, reports and guide access without removing capabilities. Wider redesign is paused until critical slider work is finished."
+    },
+    {
+      "id": "B3",
+      "task": "Full historical APK attribution",
+      "estimate": "4\u201312 active hours for available evidence",
+      "details": "Re-audit exact APK/source/release differences for every build through the current build, retaining all verified details and marking only genuinely unverifiable history. Missing artifacts cannot be reconstructed on a guaranteed clock; do not invent entries."
+    },
+    {
+      "id": "B4",
+      "task": "News/About/history UI completion check",
+      "estimate": "1\u20133 active hours",
+      "details": "Verify native cards, popups, credits/licensing, navigation and high-entry-count history. Reuse working implementation; do not redo completed screens. Address confirmed defects only."
+    },
+    {
+      "id": "B5",
+      "task": "Stairs and enhanced tiles acceptance",
+      "estimate": "1\u20133 active hours",
+      "details": "Verify discoverable controls, detected-hazard stops, damage/enemy/manual interruption, no automatic floor transition, zoom/fog/targeting and saved preferences. Features already have source/tests; this is remaining acceptance, not a fresh implementation."
+    },
+    {
+      "id": "B6",
+      "task": "Sentry timing investigation",
+      "estimate": "3\u20136 active hours",
+      "details": "Compare actual turn/attack/rotation scheduling with upstream and reproduce the avoidance failure. No arbitrary animation halving. A confirmed gameplay-timing defect is promoted ahead of noncritical polish."
+    },
+    {
+      "id": "B7",
+      "task": "Armor accessibility / affected TEST79 run",
+      "estimate": "2\u20134 active hours once run evidence is available",
+      "details": "Preserve the completed 100,000-seed finding of no global generation regression. Investigate shops, access, exploration, difficulty and the actual seed/save. Exact playthrough reproduction remains blocked if seed/save/route evidence is unavailable."
+    },
+    {
+      "id": "B8",
+      "task": "Save-specific TEST50 pickup report",
+      "estimate": "1\u20133 active hours once affected state is available",
+      "details": "Confirm Lost Inventory/backpack recovery versus capacity/bag handling from the actual affected state. Do not assume full inventory or alter capacity. Reproduce any unresolved defect, protect items/save and add a targeted regression."
+    },
+    {
+      "id": "B9",
+      "task": "Upstream delayed-audio investigation",
+      "estimate": "2\u20135 active hours for initial investigation",
+      "details": "Compare triggering/loading/scheduling and attempt measured reproduction. RedMagic/Android16 speakers: Prison and Tengu are confirmed observations, not boundaries. APD inheritance is unconfirmed. A reliable acoustic fix cannot be promised without reproduction."
+    },
+    {
+      "id": "B10",
+      "task": "Community Hub remaining scope",
+      "estimate": "1\u20133 active hours for offline acceptance; online work not estimable yet",
+      "details": "Preserve existing offline previews and navigation. Unfinished online voting/submissions/reviews/mod delivery must not be activated. Provider/scope/authorization decisions are needed before an online implementation estimate."
+    },
+    {
+      "id": "B11",
+      "task": "Scoring research review and calibration",
+      "estimate": "2\u20134 active hours for supplied-report review; calibration time unknown",
+      "details": "Review the actual Phase 3/4 scoring reports, incorporating other phases when supplied. The objective log-probability candidate is research, not a calibrated production reward. No new coefficients, duplicated extensive research or awarded multipliers without creator approval."
+    },
+    {
+      "id": "B12",
+      "task": "New bugs found during alpha",
+      "estimate": "Not responsibly estimable before reproduction",
+      "details": "Triage crashes, save loss and blocked progression first. Every confirmed correction gets targeted regression and applicable Android/build verification. Do not invent a bug count or claim this open-ended work is complete."
+    }
+  ],
+  "sha256": "2a7e82c4464481f21878f1608f1d978ccab67e056030574b441d2bbe360a044d",
+  "size": 13419
+}

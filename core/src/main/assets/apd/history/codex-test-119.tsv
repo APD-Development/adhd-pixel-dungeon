@@ -1,0 +1,4 @@
+Changes	ICON_INFO	Experimental custom-rules warning	Custom rules now explain that slider limits may evolve and earned scores are unchanged, with the warning above the scrolling controls.
+Testing	ICON_CHECKED	Warning layout and data protection	Updated Android checks for the full warning, scrolling access, draft cancellation and unchanged active rules and scores.
+Development	ICON_INFO	Experimental warning verification	Recorded the exact warning scope and pending Android verification without changing slider limits or historical runs.
+Developer Commentary	V074_SHPX	Developer Commentary	I clarified that custom rules will continue evolving throughout APD's lifetime. The warning stays after scoring is implemented; only its scoring paragraph will change.

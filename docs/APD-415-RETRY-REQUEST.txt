@@ -1,0 +1,1 @@
+Retry all12 native cases using exact original415 pair and instrumentation after Developer emulator transport failure. No application/test source or binary changes. Original source a52bd33a8868875eb24fa2d0162ba41bdd099b0c run42625074280; preserve failure branch and evidence. Do not publish without complete acceptance and manual review.

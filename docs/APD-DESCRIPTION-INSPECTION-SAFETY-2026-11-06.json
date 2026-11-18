@@ -1,0 +1,46 @@
+{
+  "scope": "Headless inspection safety; not full semantic completion or native application acceptance",
+  "baseline": {
+    "spirit_tooltip_mutations": [
+      "ring7 to1",
+      "artifact0 to8"
+    ],
+    "indirect_spirit_cache_mutations": {
+      "catalog_items": 289,
+      "failed": 74,
+      "log": "/workspace/apd-catalog-spirit-before.log"
+    }
+  },
+  "after": {
+    "inventory_item_types": 289,
+    "unidentified_equipment_types": 85,
+    "equipped_with_ready_benefits": 69,
+    "wild_magic_wand_types": 13,
+    "active_spirit_item_types": 289,
+    "legacy_ring_math_combinations": 960,
+    "failures": 0,
+    "targeted_log": "/workspace/apd-spirit-passive-purity.log"
+  },
+  "core": {
+    "suites": 446,
+    "tests": 2743,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "log": "/workspace/apd-catalog-spirit-full.log"
+  },
+  "evidence_status_helper_tests": {
+    "tests": 5,
+    "failures": 0,
+    "scope": "CI status states, exact source/count, failed/cancelled/stale evidence rejection"
+  },
+  "fixtures": [
+    "Non-rendering Game context restored after each case for Dried Rose catalog description",
+    "Escape Crystal receives the transfer Bundle that actual vault construction supplies",
+    "Items temporarily placed in backpack without pickup mechanics",
+    "Equipped ring/artifact passives activated; actual ready attack benefits and full hero serialization compared"
+  ],
+  "application_assembled": false,
+  "physical_phone_tested": false,
+  "semantic_audit_complete": false
+}

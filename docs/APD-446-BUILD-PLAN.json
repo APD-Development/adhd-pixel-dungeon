@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "number": 446,
+  "base_head": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "status": "ready_for_build",
+  "date": "2026-11-11",
+  "core_tests": 3247,
+  "core_suites": 468,
+  "application_paths": [
+    "core/src/main/assets/messages/scenes/scenes.properties",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java"
+  ],
+  "additional_required_images": [
+    "seed-history-unfinished-record.png"
+  ],
+  "changes": [
+    {
+      "category": "Quality of Life",
+      "sprite": "ICON_PREFS",
+      "title": "Unfinished seed history",
+      "text": "The seed-history lookup now includes valid unfinished attempts and their recorded floor observations. It distinguishes unfinished records from completed results and avoids labelling a known local seed as an unknown import. Existing scores and saves are unchanged."
+    }
+  ],
+  "pending_scope_items": []
+}

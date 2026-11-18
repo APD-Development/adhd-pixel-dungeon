@@ -1,0 +1,6 @@
+APD442 build and private owner delivery request 2026-11-11T15:06:59.505127+00:00
+Verified source: 69532e7422d852237fe4681a4873473c4bb8f218
+Source verification run: 43044196109; full core3197/464, all required Android/desktop compilation passed.
+Scope: docs/APD-442-BUILD-PLAN.json. Exactly one Developer/Alpha pair, preserve APD441 compiled history and original signing identity.
+Require complete core/ABI/signature/history gates, all12 native cases, 11 added screenshots plus retained images, exact source scan and affected-image review.
+Deliver each verified APK immediately after saved-file readback; do not rebuild frozen applications for verification recovery.

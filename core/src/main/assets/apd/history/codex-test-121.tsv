@@ -1,0 +1,32 @@
+Changes	V023_POTION_CRIMSON	Well healing	Well HP recovery follows Healing Effectiveness while cleansing and other well effects remain unchanged.
+Changes	V023_POTION_CRIMSON	Healing effects	Potion and delayed healing ticks follow the run's Healing Effectiveness.
+Changes	ICON_INFO	Restorative sleep	Sleep recovery follows Healing Effectiveness; zero healing cannot leave restorative sleep permanently locked.
+Changes	V092_CHALICE	Natural regeneration	Natural HP recovery follows Healing Effectiveness without adding random rolls.
+Changes	V060_RATION	Well-fed recovery	Well-fed HP recovery follows Healing Effectiveness.
+Changes	V023_POTION_CRIMSON	Healing fractions	Fractional recovery survives saves without banking overhealing; starting health, maximum-health gains and revival remain unchanged.
+Changes	V060_RATION	Meal talents	Hearty Meal's HP recovery follows Healing Effectiveness.
+Changes	ICON_INFO	Challenge recovery	Duelist Challenge's HP recovery follows Healing Effectiveness.
+Changes	ICON_INFO	Elemental Strike recovery	Vampiric Elemental Strike's HP recovery follows Healing Effectiveness.
+Changes	PD_RAT	Soul Siphon recovery	Soul Siphon's player healing follows Healing Effectiveness.
+Changes	V061_DEW_VIAL	Dew recovery	Immediate dew recovery follows Healing Effectiveness before the final HP cap; shielding stays separate.
+Changes	ICON_INFO	Metabolism recovery	Metabolism's HP recovery follows Healing Effectiveness without changing its hunger cost.
+Changes	V092_CHALICE	Chalice recovery	Chalice regeneration follows Healing Effectiveness; prick damage is unchanged.
+Changes	V060_RATION	Frozen carpaccio recovery	Frozen carpaccio's HP recovery follows Healing Effectiveness.
+Changes	V060_RATION	Pasty recovery	Pasty healing and its displayed recovered HP follow Healing Effectiveness.
+Changes	V060_RATION	Phantom meat recovery	Phantom meat's HP recovery follows Healing Effectiveness.
+Changes	V060_RATION	Supply ration recovery	Supply ration's HP recovery follows Healing Effectiveness.
+Changes	V023_POTION_CRIMSON	Aquatic recovery	Aquatic rejuvenation follows Healing Effectiveness while retaining its existing recovery budget and random rolls.
+Changes	ICON_INFO	Escape recovery	Escape crystal HP recovery follows Healing Effectiveness; escape behavior is unchanged.
+Changes	ICON_INFO	Torn page recovery	Torn page HP recovery follows Healing Effectiveness.
+Changes	ICON_INFO	Cursed wand recovery	Cursed-wand player HP recovery follows Healing Effectiveness; other targets retain original healing.
+Changes	ICON_INFO	Transfusion recovery	Transfusion player HP recovery follows Healing Effectiveness while ally healing and shielding remain unchanged.
+Changes	ICON_INFO	Vampiric recovery	Vampiric player HP recovery follows Healing Effectiveness before the final HP cap.
+Changes	ICON_INFO	City recovery	City full-recovery effects follow Healing Effectiveness.
+Changes	V061_DEW_VIAL	Sungrass recovery	Sungrass player HP recovery follows Healing Effectiveness while retaining its healing budget.
+Development	V023_POTION_CRIMSON	Healing Effectiveness	Enabled the Healing Effectiveness slider with shared player-recovery calculations; other characters and shielding retain their existing behavior.
+Testing	ICON_CHECKED	Healing regressions	Added seven checks for healing boundaries, all six classes, recovery sources, fractional saves, revival and zero-healing sleep safety.
+Testing	ICON_INFO	Narrow scoring notice capture	Corrected the narrow-screen test's scroll target so its screenshot shows the scoring notice rather than the bottom sliders.
+Changes	V30_CLERIC_CLOTH	Cleric lore curation	Reduced the stored Cleric collection to 50 distinct entries while keeping the feature disabled for this alpha.
+Testing	ICON_CHECKED	Lore regressions	Added count, uniqueness, trigger and history-preservation checks; updated content expectations for the approved 50-entry collection.
+Development	ICON_INFO	Verification records	Recorded healing verification, the complete lore curation and remaining alpha limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I enabled healing customization while protecting revival and preventing zero-healing sleep from locking a run. Damage attribution, equipment supply and permanent statistics integration remain unfinished; custom settings still do not change earned scores.

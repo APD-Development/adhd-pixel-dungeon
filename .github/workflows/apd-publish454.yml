@@ -1,0 +1,91 @@
+name: Publish verified APD454 Developer and Alpha APKs
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-publish454.yml]
+permissions: {contents: write, actions: read}
+concurrency: {group: apd454-one-time-publish, cancel-in-progress: false}
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for exact source build and six successful frozen-APK Android checks
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,time
+          repo='APD-Development/ShieldingShouldHaveWorked'
+          expectations=[
+            (43127122366,'59724091fc3c7cb40d849c646b25e8af26433efb'),
+            (43127308514,'789ce9481d244f9d4c93d734ef1912aab76b052a'),
+            (43127452700,'7556d54b90466f6c18fb066bdee7e0393bf7f68a')]
+          for run_id,sha in expectations:
+            for attempt in range(240):
+              r=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run_id}']))
+              assert r['head_sha']==sha,(run_id,r['head_sha'],sha)
+              if r['status']=='completed':
+                assert r['conclusion']=='success',(run_id,r['conclusion'])
+                break
+              time.sleep(10)
+            else: raise RuntimeError(f'Timeout waiting for {run_id}')
+          jobs=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/43127452700/jobs?per_page=100']))['jobs']
+          assert len(jobs)==6 and all(j['conclusion']=='success' for j in jobs),[(j['name'],j['conclusion']) for j in jobs]
+          arts=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/43127452700/artifacts?per_page=100']))['artifacts']
+          expected={f'apd454-native-{variant}-{case}' for variant in ('Developer','Alpha-Testers')
+                    for case in ('WallGeometryDeviceTest','SearchContextDeviceTest','SeedHistoryDeviceTest')}
+          assert {a['name'] for a in arts}==expected,[(a['name'],a['expired']) for a in arts]
+          assert all(not a['expired'] for a in arts)
+          PY
+          if gh release view apd-454 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'APD454 release already exists. Refusing to overwrite known-good assets.' >&2
+            exit 1
+          fi
+      - name: Download exactly verified and signed original APK artifacts
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          gh run download 43127308514 --repo "$GITHUB_REPOSITORY" --name apd454-unaccepted-gated-room-candidate --dir candidate454
+          python3 - <<'PY'
+          import json,hashlib,pathlib
+          p=pathlib.Path('candidate454')
+          r=json.loads((p/'receipt.json').read_text())
+          assert r['build']==454 and r['source']=='59724091fc3c7cb40d849c646b25e8af26433efb'
+          assert set(r['files'])=={'Developer','Alpha-Testers','Instrumentation'}
+          for kind,info in r['files'].items():
+            name='APD-Instrumentation-454.apk' if kind=='Instrumentation' else f'APD-{kind}-454.apk'
+            f=p/name
+            assert f.stat().st_size==info['bytes']
+            assert hashlib.sha256(f.read_bytes()).hexdigest()==info['sha256'],name
+          source=p/'APD-Source-454.zip'
+          assert source.is_file() and source.stat().st_size>100000
+          print('Verified frozen artifacts for APD454',r['files'])
+          PY
+      - name: Publish prerelease with direct APK downloads
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          gh release create apd-454 candidate454/APD-Developer-454.apk candidate454/APD-Alpha-Testers-454.apk candidate454/APD-Source-454.zip \
+            --repo "$GITHUB_REPOSITORY" --target 59724091fc3c7cb40d849c646b25e8af26433efb \
+            --title 'APD454: real local seed-reuse scoring and ranking deduction' \
+            --notes 'Verified Developer and Alpha-Testers APKs on the same signed APD454 source. Applies recorded seed-reuse deductions to ranking earned scores using prior local attempts and deepest floor, and shows the actual penalty in Score Breakdown. Previously approved adaptive Search and Copy Seed fixes are preserved. Core/Android compilation and six isolated Android emulator cases must pass before publication. Existing game save compatibility and signer are retained. Physical-phone installation has not been verified.' \
+            --prerelease --latest=false
+      - name: Read back published APKs and verify exact digests
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          mkdir -p release-readback
+          gh release download apd-454 --repo "$GITHUB_REPOSITORY" --dir release-readback
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          r=json.loads(pathlib.Path('candidate454/receipt.json').read_text())
+          for kind in ('Developer','Alpha-Testers'):
+            name=f'APD-{kind}-454.apk'
+            p=pathlib.Path('release-readback')/name
+            assert p.stat().st_size==r['files'][kind]['bytes']
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==r['files'][kind]['sha256']
+          assert hashlib.sha256(pathlib.Path('release-readback/APD-Source-454.zip').read_bytes()).hexdigest()==hashlib.sha256(pathlib.Path('candidate454/APD-Source-454.zip').read_bytes()).hexdigest()
+          print('All three public APD454 release assets verified against frozen originals.')
+          PY

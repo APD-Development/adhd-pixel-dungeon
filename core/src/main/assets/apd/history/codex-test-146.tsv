@@ -1,0 +1,11 @@
+Changes	V063_MAGICMISSILE	TimedDamageOrigins	Represent merged fire ownership as the same mixed cause sample on every Burning tick.
+Changes	V063_MAGICMISSILE	CellDamageOrigins	Carry combined side-neighbour ownership into spread fire and snapshot it for timed damage.
+Changes	V063_MAGICMISSILE	Fire	Preserve mixed offensive ownership through fire seeding, decay, spread, clearing and saves.
+Bug Fixes	V061_BUGFIX	Burning	Apply merged fire ownership exactly once per original Burning event.
+Changes	V063_MAGICMISSILE	Player fire fields	Mark Liquid Flame and Fireblast fields with their actual player creator.
+Bug Fixes	V061_BUGFIX	Chained bombs	Let unowned heap-triggered bombs inherit the actual causal explosion or fire owner while saved owners remain unchanged.
+Changes	V061_BUGFIX	Damage provenance regressions	Retain fire role/mix/spread/save/legacy/clear checks and causal multi-bomb chain checks.
+Changes	V061_BUGFIX	Fire and chained-bomb evidence	Record reproduction, local checks, TEST145 fixture evidence and remaining gaps.
+Changes	V061_BUGFIX	Handoff and ledger	Record exact commits, runs, failures, preserved evidence and next safe step.
+Changes	V061_BUGFIX	Build request	Request one exact-current-source TEST146 verification without publication.
+Changes	V061_BUGFIX	Exact build history	Compare every reviewed path against the immediately preceding produced TEST144 APK.

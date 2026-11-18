@@ -1,0 +1,73 @@
+{
+  "recorded_utc": "2026-11-09T16:59:42.310Z",
+  "build": 421,
+  "disposition": "held",
+  "reason": "Embedded APD418 instead of immediate previous compiled APD420 in APK history.",
+  "source_commit": "0411dbb9e6dada3c91c9de930bfcc4708e3028cf",
+  "workflow_run": 42656324353,
+  "completed_utc": "2026-11-09T16:55:30Z",
+  "automated_results": {
+    "core_tests": 3144,
+    "suites": 457,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "android_targeted_cases": 12,
+    "developer_native": "success",
+    "alpha_native": "success",
+    "prepare": "success"
+  },
+  "identity": {
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e"
+  },
+  "apk_sha256": {
+    "Developer": "adf6f2dc95e1c909c0b5773c81f32e4311026c8603e9d996bd062ff3706a85cb",
+    "Alpha-Testers": "099af68d1bb3a6b48030443f627fbc766183736e3a7318688c58cf346975d263"
+  },
+  "source_sha256": "54d6db046feec38a324c19493d4271f2da75248e27c64cec3acee006080e639e",
+  "artifacts": {
+    "built_pair": {
+      "id": 13692341853,
+      "size": 112355646,
+      "sha256": "fb7418c40bdba19654cd214ef3509dc8516b8e004a2aa216f9ac6dbdf2bc143a"
+    },
+    "native_Developer": {
+      "id": 13692144543,
+      "size": 40734452,
+      "sha256": "982e96f52b0ab00c9bea18b9bfca667023d74b751f5246c465f0aceb04846116"
+    },
+    "native_Alpha_Testers": {
+      "id": 13693278652,
+      "size": 39879863,
+      "sha256": "15807a87ae544218e827c5259ebbac8335bc8047413370684322467c1828c85c"
+    },
+    "prepared_owner_pair": {
+      "id": 13694065867,
+      "size": 174411671,
+      "sha256": "83e20096008bb916dc4961223f2905b3dc640bcea6e37408840212cb023a909f"
+    },
+    "source_and_native_evidence": {
+      "id": 13692634379,
+      "size": 80307031,
+      "sha256": "0f48e1f0cd3e301d832016a01dcd12cdb29597f6c4d95fd69554b7df6afbf8bb"
+    }
+  },
+  "manual_visual_review": false,
+  "physical_phone_verified": false,
+  "published": false,
+  "latest_published_build": 418,
+  "correction_candidate": {
+    "number": 422,
+    "previous_compiled_release_id": 439341328,
+    "previous_compiled_asset_id": 728202768,
+    "previous_compiled_source": "55d8e9adfb05756e4b6a854e43d2b836748772fd",
+    "previous_compiled_developer_sha256": "1acebe7f2cecae471ccb0b2810fc31be74ca92ecf339e22edbd2145b1a240f33",
+    "require_history_labels": [
+      "Codex TEST 422",
+      "Codex TEST 420"
+    ],
+    "reject_history_label": "Codex TEST 421"
+  }
+}

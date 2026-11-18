@@ -1,0 +1,76 @@
+name: Build and privately deliver Alpha-Testers 350 from exact Developer source
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-PLAYER350-DELIVERY-REQUEST.json]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-player350-owner-delivery
+  cancel-in-progress: false
+jobs:
+  verify-player-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Recover exact verified source and runtime history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_player350_delivery.py prepare
+      - name: Build only the Alpha-Testers variant and its instrumentation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          cp android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolStableCaptureDeviceTest.java application-source/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/
+          cd application-source
+          ./gradlew :core:test :android:assembleDebug :android:assembleDebugAndroidTest -PapdBuild=P350
+      - name: Verify signing compatibility, shared assets and exact production inputs
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_player350_delivery.py verify
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Test actual Alpha-Testers APK controls, searches, lifecycle and playable save/load
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          profile: pixel_7
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: |
+            adb shell settings put global hide_error_dialogs 1
+            adb shell settings put secure immersive_mode_confirmations confirmed
+            adb shell wm size 320x640
+            adb shell wm density 160
+            adb logcat -c
+            adb logcat -v time > player350-logcat.txt &
+            adb install -r owner-delivery/APD-Alpha-Testers-350.apk
+            adb install -r application-source/android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.QolStableCaptureDeviceTest,com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest#aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > player350-instrumentation.txt
+            cat player350-instrumentation.txt
+            python3 -c "import pathlib; assert 'OK (2 tests)' in pathlib.Path('player350-instrumentation.txt').read_text()"
+            mkdir -p player350-visuals
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. player350-visuals/
+            python3 tools/validate_android_visuals.py player350-visuals qol-dew-settings.png qol-force-weapon.png qol-sharpshooting-weapon.png qol-searched-wall.png qol-offline-license.png
+      - name: Privately upload tester APK, verify download and preserve every existing asset
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_player350_delivery.py publish
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-player350-delivery
+          path: |
+            owner-delivery/
+            player350-instrumentation.txt
+            player350-logcat.txt
+            player350-visuals/
+            application-source/core/build/test-results/test/
+          retention-days: 30

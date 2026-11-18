@@ -1,0 +1,3 @@
+Statistics / UIMSD	ICON_CHECKED	Name median in the UIMSD question guide	The Asking a question guide now names median alongside every already-implemented question measure. Query behavior, recorded data, saves, gameplay and scoring are unchanged.
+Testing	ICON_CHECKED	Retain guide and geometry boundaries	A focused guide regression first reproduced the median omission and then passed after the wording correction. The existing test-only geometry boundary coverage remains included.
+Developer Commentary	ICON_CHECKED	Preserve TEST280 and exact audit evidence	Record TEST280 verification, the geometry review, the guide reproduction/correction, and every current handoff/history input. Publication remains separate.

@@ -1,0 +1,275 @@
+Testing	ICON_STATS	Apd Stats Device Test	Updated Android checks and fixtures for apd stats device. These are development checks, not a gameplay feature.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Statistics / UIMSD	ICON_STATS	Agg Value	Added the result of one aggregate for one group, with how many values it is made of.
+Statistics / UIMSD	ICON_STATS	Aggregate	Added a number computed for each group.
+Statistics / UIMSD	ICON_STATS	Catalog	Added everything UIMSD can show right now: the datasets with their rows, and the views onto them.
+Statistics / UIMSD	ICON_STATS	Cell Formatter	Added turns cells and aggregates into text.
+Statistics / UIMSD	ICON_STATS	Cell Text	Added how one cell is shown: its text and what kind of knowledge it is.
+Statistics / UIMSD	ICON_STATS	Column Def	Added one column of a dataset: what it is called, what kind of value it holds, who may see it and how values of several log segments of one run combine.
+Statistics / UIMSD	ICON_STATS	Dataset	Added a dataset's schema together with its rows, ready to be queried.
+Statistics / UIMSD	ICON_STATS	Dataset Def	Added the schema of a dataset.
+Statistics / UIMSD	ICON_STATS	Dataset Store	Added builds the Catalog from the raw logs: runs/*.apdlog (recorded runs) and legacy/*.apdlog (imported ranking records).
+Statistics / UIMSD	ICON_STATS	Datasets	Added the shipped datasets and views.
+Statistics / UIMSD	ICON_STATS	Filter	Added one condition on one column.
+Statistics / UIMSD	ICON_STATS	Group By	Added group the rows by the values of some columns and compute aggregates for each group.
+Statistics / UIMSD	ICON_STATS	Group Row	Added one group of a grouped result.
+Statistics / UIMSD	ICON_STATS	Link Def	Added a way to move from a row of one dataset to the matching rows of another: "Items in this run" is a link from the Runs dataset to the Items dataset where the Items column "item.run" equals the Runs column "run.id".
+Statistics / UIMSD	ICON_STATS	Log Meta	Added what the assembly of datasets needs to know about one log (or import file) besides its rows.
+Statistics / UIMSD	ICON_STATS	Log Rows	Added everything one log contributes: its meta and the rows of each dataset.
+Statistics / UIMSD	ICON_STATS	Op	Added what a filter does with its column.
+Statistics / UIMSD	ICON_STATS	Query	Added everything that decides what a UIMSD screen shows, as plain immutable data: which dataset, which scope, which filters, how it is sorted, which columns, whether it is grouped, and whether hidden information of FINISHED runs may be shown.
+Statistics / UIMSD	ICON_STATS	Query Codec	Added a query as text and back.
+Statistics / UIMSD	ICON_STATS	Query Engine	Added runs a Query over a Dataset.
+Statistics / UIMSD	ICON_STATS	Query Result	Added what a query produced, with everything needed to show it honestly: how many rows there were, what the scope and each filter cost, and how much of each column is actually known.
+Statistics / UIMSD	ICON_STATS	Result Table	Added a QueryResult laid out as a table of text, for any screen to draw: headers (what to call each column, whether tapping it sorts, how much of it is known) and lines of CellText.
+Statistics / UIMSD	ICON_STATS	Row	Added one row of a dataset.
+Statistics / UIMSD	ICON_STATS	Row Builders	Added turns one raw log into the rows of every dataset.
+Statistics / UIMSD	ICON_STATS	Row Codec	Added the compact binary form of one log's rows, for the row cache.
+Statistics / UIMSD	ICON_STATS	Run segment totals	Added combines the rows that one logical run recorded in several log segments into one row, column by column, following each column's Merge rule.
+Statistics / UIMSD	ICON_STATS	Scope	Added which rows are in play before any filter.
+Statistics / UIMSD	ICON_STATS	Sort	Added order by a column (or, in a grouped result, by an aggregate's id).
+Statistics / UIMSD	ICON_STATS	Status Text	Added the lines of the status strip above a UIMSD table: how many rows there are, what the scope and the filters left out, and how much of the data is actually known.
+Statistics / UIMSD	ICON_STATS	Table Geometry	Added where the columns and rows of a ResultTable go, in screen units.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Added everything a UIMSD screen is, apart from the pixels: which view is open, the query being edited, the result, the page, and the moves between them (open a view, add a filter, click a header, follow a link, go back).
+Statistics / UIMSD	ICON_STATS	Statistics Self Test	Added the device self-test for UIMSD: writes a small made-up history, builds the datasets from it twice (from the logs, then from the row cache), queries them (including a hidden-information check) and times it on this device.
+Statistics / UIMSD	ICON_STATS	View Def	Added a named way into a dataset: the dataset plus a starting query.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Exposed flush-for-reading support to the new statistics screen.
+Statistics / UIMSD	ICON_STATS	Self Test	Extended self-checks to the statistics-query system.
+Quality of Life	ICON_STATS	Statistics screen	Added uIMSD, the Ultimate Infinite Mega Statistics Database.
+Quality of Life	ICON_STATS	Statistics Table	Added the table of a UIMSD screen.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added access to the first usable UIMSD tables and query controls.
+Quality of Life	ICON_STATS	Statistics Columns	Added which columns the table shows.
+Quality of Life	ICON_STATS	Statistics Filter	Added adding and editing a UIMSD filter, step by step: column, operator, value.
+Quality of Life	ICON_STATS	Statistics List	Added the one list window all the UIMSD pickers use (columns, operators, values, views, options and so on).
+Quality of Life	ICON_STATS	Statistics Options	Added the options of a UIMSD screen: hidden information, which rulesets and which runs are in scope, the minimum sample size, grouping, and the explanations of coverage and markers.
+Quality of Life	ICON_STATS	Statistics Row	Added everything about one row (or one group) of a UIMSD table, value by value, with what kind of knowledge each value is, and the links to the matching rows of other datasets.
+Quality of Life	ICON_STATS	Statistics Sort	Added the sort keys of a UIMSD table (up to three).
+Quality of Life	ICON_STATS	Statistics Status	Added every line of the status strip in full.
+Quality of Life	ICON_STATS	Statistics Text	Added a title and a scrolling block of text, for the UIMSD explanations (coverage, what the markers mean).
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test 1	Added a test covering the Title Screen Is Exactly As Approved And Frozen. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test 2	Added a test covering uimsd Is Opened From Apd Settings And The Scene Returns To Where It Came From. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test 3	Added a test covering the Screen And Its Windows Never Name A Shipped Dataset Or Column. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test 4	Added a test covering the Screen Never Touches The Game State Or The Recorder Beyond Reading. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Cell Formatter Test 1	Added a test covering unknown Is A Question Mark And Zero Is Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Cell Formatter Test 2	Added a test covering lower Bounds Inferred And Imported Values Are Marked. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Cell Formatter Test 3	Added a test covering dates And Fixed Point Numbers Format Without Locale Surprises. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Cell Formatter Test 4	Added a test covering rates Show The Counts They Are Made Of. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 1	Added a test covering a Run Becomes One Row With Its Facts. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 2	Added a test covering what An Older Telemetry Version Could Not Record Is Unknown Not Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 3	Added a test covering the Segments Of One Run Are Merged And A Total From An Older Segment Is A Lower Bound. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 4	Added a test covering a Run Whose Newest Segment Is Still Open Is Not Finished. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 5	Added a test covering a Ruleset Change During A Run Makes It Mixed Not Current. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 6	Added a test covering a Log That Cannot Be Read Still Gives A Row That Says So. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 7	Added a test covering items Keep What The Player Knew And Separate What They Did Not. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 8	Added a test covering time Equipped In A Run Still Going Is A Lower Bound. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 9	Added a test covering a Hidden Event Later Than Anything Visible Never Moves A Public Number. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 10	Added a test covering rows Are Listed In The Order The Player Met Them Not The Order The Generator Made Them. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 11	Added a test covering a Known Level Is Kept And Never Revealed Afterwards. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 12	Added a test covering telemetry That Predates Items Gives No Item Rows And The Run Is Not Counted As Covered. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 13	Added a test covering the Same Item In Two Segments Is One Row With Merged Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 14	Added a test covering enemies Are Counted From What The Player Saw And Their True Class Stays Hidden. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 15	Added a test covering enemy Rows Do Not Exist For Runs Recorded Before Combat. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 16	Added a test covering deaths Record Each Death And Which One Ended The Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 17	Added a test covering a Run That Ended In Death Before Death Events Exist Still Has A Death Row With What Is Known. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 18	Added a test covering a Won Or Abandoned Run Has No Death Row. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 19	Added a test covering imported Records Keep Unknown Fields Unknown And Have An Unknown Ruleset. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 20	Added a test covering an Imported Record That Is The Same Run As A Recorded One Is Not Counted Twice. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 21	Added a test covering two Identical Looking Runs Make A Record Ambiguous So It Is Not Linked. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 22	Added a test covering the Cache Is Used While Current And Gives Identical Rows. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 23	Added a test covering a Deleted Or Damaged Cache Is Rebuilt Identically. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 24	Added a test covering a Log That Grew Is The Only One Rebuilt. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 25	Added a test covering deleting The Raw Log Loses The Rows Even Though The Cache Remains. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 26	Added a test covering every Shipped View Runs Without Problems On Real Rows. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 27	Added a test covering weapons Is An Items View And Characters Is A Runs Grouping. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 28	Added a test covering the Challenges View Reads All Rulesets But Groups By What Makes A Ruleset. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test 29	Added a test covering an Empty History Gives Empty Datasets. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Disclosure Test 1	Added a test covering with Hidden Information Off Internal Columns Are Not Offered Or Usable. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Disclosure Test 2	Added a test covering rows That Exist Only As Hidden Information Are Counted Only For Finished Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Disclosure Test 3	Added a test covering turning Hidden Information On Shows Finished Runs But Never The Unfinished One. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Disclosure Test 4	Added a test covering masked Values Cannot Be Filtered Sorted Grouped Or Aggregated. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Disclosure Test 5	Added a test covering nothing Observable Depends On An Unfinished Runs Hidden Information. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Disclosure Test 6	Added a test covering once The Run Is Finished Its Hidden Information Can Be Read. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 1	Added a test covering every Operator Filters And An Unknown Value Never Matches. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 2	Added a test covering a Filter Reports What It Cost Because Of Unknown Values. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 3	Added a test covering repeated Filters Combine With And. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 4	Added a test covering unknown Values Sort Last Whichever Way And Are Never Ranked As Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 5	Added a test covering sorting With Several Keys Is Stable. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 6	Added a test covering clicking A Header Cycles Ascending Descending Off. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 7	Added a test covering a Lower Bound Is Never Treated As Exact. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 8	Added a test covering scope Keeps Rulesets Unfinished Runs And Duplicates Apart And Counts What It Leaves Out. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 9	Added a test covering the Current Ruleset Being Unknown Matches Nothing Rather Than Everything. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 10	Added a test covering runs Covered Counts The Runs A Dataset Can Know About. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 11	Added a test covering coverage Says How Many Cells Are Known Lower Bounds And Inferred. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 12	Added a test covering grouping Counts Aggregates And Says How Many Values Went Into Each. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 13	Added a test covering an Aggregate Over Nothing Known Is Unknown Not Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 14	Added a test covering lower Bound And Inferred Values Make Aggregates Lower Bound And Inferred. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 15	Added a test covering small Groups Are Listed As Hidden Not Dropped. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 16	Added a test covering groups Sort By Key Or By An Aggregate. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 17	Added a test covering parts Of A Query That Cannot Be Applied Are Reported Not Ignored Silently. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Engine Test 18	Added a test covering the Query Round Trips Through Text. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Support	Added automated checks and fixtures for query support. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 1	Added a test covering sums Add Up When Every Segment Knows And Stay Exact. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 2	Added a test covering a Segment That Could Not Record Makes The Total A Lower Bound. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 3	Added a test covering a Part That Was Already An Estimate Keeps The Total An Estimate. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 4	Added a test covering same And Last Take The Right Segment. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 5	Added a test covering last Never Borrows From An Earlier Segment. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 6	Added a test covering any Is True If Any Segment Says So And False Only When Everyone Knows. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 7	Added a test covering merge All Keeps Unkeyed Rows And Merges The Rest. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Merger Test 8	Added a test covering a Merged Row Is Public If Any Part Is. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Synthetic Log	Added automated checks and fixtures for synthetic log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test 1	Added a test covering column Widths Stay Within The Limits And The First Column Is Kept Apart. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test 2	Added a test covering something Besides The Frozen Column Fits On A Portrait Screen. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test 3	Added a test covering tapping Finds The Right Column And Row. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test 4	Added a test covering long Text Is Cut To The Column Not Left To Spill Over. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test 5	Added a test covering an Empty Table Has No Geometry To Break. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test 6	Added a test covering the Header Has Room For The Label And The Coverage Line. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 1	Added a test covering the Model Opens The First View And Lays Out A Page. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 2	Added a test covering paging Never Runs Off The End. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 3	Added a test covering header Clicks Cycle The Sort And The Header Says So. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 4	Added a test covering filters Can Be Added Edited And Removed And The Status Says What They Cost. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 5	Added a test covering columns Can Be Toggled But Never Emptied. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 6	Added a test covering hidden Columns Are Only Offered When Hidden Information Is On And Go When It Is Turned Off. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 7	Added a test covering switching Views Keeps Only The Hidden Information Choice. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 8	Added a test covering a Link Opens The Matching Rows Of Another Dataset With The Rows Own Scope. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 9	Added a test covering a Link From An Unfinished Row Widens The Scope So It Is Not Empty. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 10	Added a test covering status Actions Turn The Scope Switches On. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 11	Added a test covering grouped Views List Small Groups As Hidden And The Status Line Can Show Them. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 12	Added a test covering the Header Shows How Much Of A Column Is Known. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 13	Added a test covering the Status Strip Explains Everything That Was Left Out. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 14	Added a test covering the Model Can Be Loaded From An Empty History On A Thread. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test 15	Added a test covering the Generic Parts Of Uimsd Never Name A Shipped Dataset Or Column. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Performance Test 1	Added a test covering querying Fifty Thousand Item Rows Is Fast. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Performance Test 2	Added a test covering building And Reloading A History Of Many Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Safety Test 1	Added a test covering nothing Observable Depends On The Hidden Information Of A Run That Is Not Finished. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Safety Test 2	Added a test covering the Unfinished Runs Hidden Items And Enemies Are Never Listed Nor Counted. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Safety Test 3	Added a test covering once A Run Is Finished Its Hidden Information Can Be Read. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Safety Test 4	Added a test covering reading The History Never Changes The Raw Logs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Safety Test 5	Added a test covering the Combat Names In Enemy Rows Are Only What The Player Saw. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Self Test Test 1	Added a test covering the Uimsd Self Test Passes And Cleans Up After Itself. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Self Test Test 2	Added a test covering it Fails Loudly If It Cannot Write. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Contract Tests	Updated automated checks and fixtures for contract tests. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Development	ICON_STATS	APD-STATS-UIMSD	Added apd-stats-uimsd accompanying this build.
+Statistics / UIMSD	ICON_STATS	Run id	Added the Run id statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Started	Added the Started statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Class	Added the Class statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Outcome	Added the Outcome statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Deepest	Added the Deepest statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Level	Added the Level statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Score	Added the Score statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Turns	Added the Turns statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ended on floor	Added the Ended on floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ended by	Added the Ended by statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Source	Added the Source statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Status	Added the Status statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Log segments	Added the Log segments statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Challenges	Added the Challenges statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Exotic %	Added the Exotic % statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ruleset	Added the Ruleset statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Daily	Added the Daily statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	APD version	Added the APD version statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Telemetry	Added the Telemetry statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Game version code	Added the Game version code statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Game version	Added the Game version statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Started mid-run	Added the Started mid-run statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Rolled-back events	Added the Rolled-back events statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Rollbacks	Added the Rollbacks statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ascended	Added the Ascended statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Levels entered	Added the Levels entered statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Deepest entered	Added the Deepest entered statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Final level	Added the Final level statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Final max HP	Added the Final max HP statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Final strength	Added the Final strength statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Final gold	Added the Final gold statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Subclass	Added the Subclass statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero attacks	Added the Hero attacks statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero hits	Added the Hero hits statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Attacks on hero	Added the Attacks on hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hits on hero	Added the Hits on hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage dealt	Added the Damage dealt statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage taken	Added the Damage taken statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero kills	Added the Hero kills statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Enemy deaths	Added the Enemy deaths statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	XP gained	Added the XP gained statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Level ups	Added the Level ups statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Healed (inferred)	Added the Healed (inferred) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero deaths	Added the Hero deaths statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Revivals	Added the Revivals statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items acquired	Added the Items acquired statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items equipped	Added the Items equipped statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Equip actions	Added the Equip actions statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items in the run (all)	Added the Items in the run (all) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Levels generated	Added the Levels generated statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items generated	Added the Items generated statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Enemies generated	Added the Enemies generated statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Seed	Added the Seed statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Custom seed	Added the Custom seed statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Duration (turns)	Added the Duration (turns) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Amulet obtained	Added the Amulet obtained statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Game won	Added the Game won statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ascended (stats)	Added the Ascended (stats) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run	Added the Run statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Item	Added the Item statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Kind	Added the Kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	What happened	Added the What happened statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	First seen on floor	Added the First seen on floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Acquired on floor	Added the Acquired on floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Acquired at turn	Added the Acquired at turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Times equipped	Added the Times equipped statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Turns equipped	Added the Turns equipped statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Floors equipped on	Added the Floors equipped on statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ever seen	Added the Ever seen statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ever acquired	Added the Ever acquired statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ever equipped	Added the Ever equipped statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Level (as known)	Added the Level (as known) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Identified	Added the Identified statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True kind	Added the True kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True level	Added the True level statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Truly cursed	Added the Truly cursed statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True enchantment	Added the True enchantment statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Origin	Added the Origin statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Generated on floor	Added the Generated on floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Placed in	Added the Placed in statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Room	Added the Room statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	How it was drawn	Added the How it was drawn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Category asked for	Added the Category asked for statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Enemy	Added the Enemy statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero attacks on it	Added the Hero attacks on it statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero hits on it	Added the Hero hits on it statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage to hero	Added the Damage to hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage from hero	Added the Damage from hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Killed by hero	Added the Killed by hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Seen dying	Added the Seen dying statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Times it killed the hero	Added the Times it killed the hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Generated (all)	Added the Generated (all) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	XP value	Added the XP value statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Floor	Added the Floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Turn	Added the Turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Killed by	Added the Killed by statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Cause kind	Added the Cause kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Revived	Added the Revived statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Ended the run	Added the Ended the run statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero level	Added the Hero level statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Runs view	Added the Runs statistics view.
+Statistics / UIMSD	ICON_STATS	Items view	Added the Items statistics view.
+Statistics / UIMSD	ICON_STATS	Enemies view	Added the Enemies statistics view.
+Statistics / UIMSD	ICON_STATS	Deaths view	Added the Deaths statistics view.
+Statistics / UIMSD	ICON_STATS	Characters view	Added the Characters statistics view.
+Statistics / UIMSD	ICON_STATS	Challenges view	Added the Challenges statistics view.
+Statistics / UIMSD	ICON_STATS	M	Added the M statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	T	Added the T statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Name	Added the Name statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Secret	Added the Secret statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Depth	Added the Depth statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Note	Added the Note statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Flag	Added the Flag statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Thing	Added the Thing statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Weight	Added the Weight statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hidden weight	Added the Hidden weight statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	All things view	Added the All things statistics view.
+Statistics / UIMSD	ICON_STATS	By kind view	Added the By kind statistics view.
+Statistics / UIMSD	ICON_STATS	Parts view	Added the Parts statistics view.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

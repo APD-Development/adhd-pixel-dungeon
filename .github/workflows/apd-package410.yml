@@ -1,0 +1,65 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+# GPL-3.0-or-later; original attribution retained.
+name: Package verified unchanged410 apps after exact scanner false-positive review
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-410-SCAN-RECOVERY-REQUEST.json]
+permissions: {contents: read, actions: read}
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Require all original-APK build cases actually passed
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PY'
+          import json,subprocess
+          d=json.loads(subprocess.check_output(['gh','run','view','42608369809','--repo','APD-Development/ShieldingShouldHaveWorked','--json','jobs,headSha,conclusion']))
+          jobs={j['name']:j['conclusion'] for j in d['jobs']}
+          assert d['headSha']=='ccfbb85b69c96f00a4e6ae5e3d6c3aca81a10053'
+          assert jobs['build']=='success' and jobs['native (Developer)']=='success' and jobs['native (Alpha-Testers)']=='success'
+          assert jobs['prepare']=='failure' and d['conclusion']=='failure'
+          PY
+          gh run download 42608369809 --repo "$GITHUB_REPOSITORY" --name apd410-prepared-owner-pair --dir owner-delivery
+          gh run download 42608369809 --repo "$GITHUB_REPOSITORY" --name apd410-source-and-native-evidence --dir complete-evidence
+      - name: Verify unchanged original APKs and each completed native case
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,hashlib,subprocess
+          p=pathlib.Path('owner-delivery/APD-Preview-410-Verification.json');d=json.loads(p.read_text());assert d['source_commit']=='ccfbb85b69c96f00a4e6ae5e3d6c3aca81a10053' and d['core_tests']==3131 and d['android_tests']==12
+          for label,digest in d['apk_hashes'].items():assert hashlib.sha256(pathlib.Path('owner-delivery/APD-'+label+'-410.apk').read_bytes()).hexdigest()==digest
+          assert hashlib.sha256(pathlib.Path('owner-delivery/APD-Source-410.zip').read_bytes()).hexdigest()==d['source_sha256']
+          cases={'qol':'grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively','wall':'observedGeometryAndRetainedMarksUseTheActualAndroidLayer','seed':'a_controlWritesEnabledPreference','restart':'b_freshProcessReadsEnabledAndCanDisable','gameplay':'c_runtimeDiscoveryRouteAndActualTrapEffect','freeze':'cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending'}
+          for label in ['developer','alpha']:
+            for case,method in cases.items():
+              cls={'qol':'QolItemFeedbackDeviceTest','wall':'WallGeometryDeviceTest','freeze':'RemovedActorStallDeviceTest'}.get(case,'TrapDiscoveryDeviceTest')
+              subprocess.run(['python3','tools/apd_check_single_instrumentation.py',str(pathlib.Path('complete-evidence/evidence')/(label+'-'+case+'.txt')),method,'com.shatteredpixel.shatteredpixeldungeon.android.'+cls],check=True)
+          PY
+      - name: Scan exact source and full history with reviewed full-line classification
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          if ! curl --connect-timeout 20 -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz; then
+            gh api repos/gitleaks/gitleaks/releases/assets/378332058 -H 'Accept: application/octet-stream' > /tmp/apd-gitleaks.tar.gz
+          fi
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+          python3 - <<'PY'
+          import pathlib,json,os,shutil
+          p=pathlib.Path('owner-delivery/APD-Preview-410-Verification.json');d=json.loads(p.read_text());d['packaging_recovery_run']=os.environ['GITHUB_RUN_ID'];d['scan_review_commit']=os.environ['GITHUB_SHA'];d['packaging_new_application_apks_created']=0;p.write_text(json.dumps(d,indent=2)+'\n')
+          target=pathlib.Path('complete-evidence/evidence/scan-recovery');target.mkdir(parents=True,exist_ok=True)
+          shutil.copy('docs/APD-410-SCAN-RECOVERY-REQUEST.json',target/'exact-line-review.json');shutil.copy('docs/evidence/APD-410-scan-failure-review.zip',target/'initial-scan-failure-review.zip');shutil.copy('tools/apd_qol_source_scan.py',target/'scanner-classifier.py')
+          with pathlib.Path('owner-delivery/release-notes.md').open('a') as f:f.write('\nPackaging recovery: all12 native cases passed on original410APKs. Scanner falsely flagged the409review document quoting a boolean test assignment; exact original full-line SHA256 reviewed and pinned, no path/rule blanket exclusion. Exact source and full history rescanned. Original scan failure and review preserved. No app APK rebuilt.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: apd410-prepared-owner-pair, path: owner-delivery/, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: apd410-source-and-native-evidence, path: complete-evidence/, retention-days: 14}

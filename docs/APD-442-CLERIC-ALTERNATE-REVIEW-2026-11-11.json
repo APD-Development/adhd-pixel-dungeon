@@ -1,0 +1,103 @@
+{
+  "recorded_at_utc": "2026-11-11T15:05:32.642394+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "parent_verified_source_commit": "69532e7422d852237fe4681a4873473c4bb8f218",
+  "scope": "Three ordinary alternate-hero Cleric talent activation/duration facets, compared read-only with current real call sites. No Cleric spell, ability, meal or Searing Light re-review. This is not whole-talent completion.",
+  "inventory_selection": {
+    "initially_considered_then_excluded": "Divine Sense alternate use/FOV timer is explicitly complete under the SpellExplanation review notes and the existing divineSenseDescriptionsMatchActualClassRangesAndArtifactTrigger test. It was excluded before re-running or adding any checks.",
+    "completed_exclusions": [
+      "All reviewed Cleric spell/ability branches and mappings",
+      "Satiated Spells and Enlightening Meal",
+      "Searing Light",
+      "Shield of Light and Bless alternate contest/blocking reviews",
+      "Prior Warrior/Mage and Necromancers Minions bounded records"
+    ],
+    "selection_result": "The three selected alternate activation/duration facets have no individually recorded completion in the examined current inventory notes."
+  },
+  "ordinary_copy": {
+    "holy_intuition": {
+      "line": 1259,
+      "text": "_If this talent is gained by a different hero_ it will instead let the hero identify the curse status on a cursed item just before equipping it, 15% of the time at +1 or 25% of the time at +2."
+    },
+    "sunray": {
+      "line": 1276,
+      "text": "_If this talent is gained by a different hero_ it will instead cause wands and artifacts to blind enemies for 4 turns, 15% of the time at +1 or 25% of the time at +2."
+    },
+    "cleanse": {
+      "line": 1286,
+      "text": "_If this talent is gained by a different hero_ it will instead cleanse negative status effects on the hero after using a wand or artifact, 10/20/30% of the time at +1/+2/+3."
+    }
+  },
+  "facets": [
+    {
+      "talent": "SUNRAY",
+      "facet": "Alternate wand/artifact effect applies base four-turn blindness at the stated rank probabilities.",
+      "status": "checked_correct_from_source",
+      "actual_conditions": "Hero must not be a Cleric, talent must be present, target alignment must not be ALLY, and the existing per-target effect proc must run.",
+      "actual_trigger": "Random.Int(20) < 1 + 2 * rank gives 3/20 and 5/20 at ranks 1 and 2.",
+      "actual_duration": "Both real procs use Buff.prolong(target, Blindness.class, 4f). This is the base duration subject to existing buff resistance/immunity behavior; it is not a promise of four additional player input actions.",
+      "call_sites": [
+        "items/wands/Wand.java:244-250, in wandProc",
+        "items/artifacts/Artifact.java:168-174, in artifactProc",
+        "items/artifacts/EtherealChains.java:208 calls artifactProc after a successful pull",
+        "items/artifacts/SandalsOfNature.java:359-360 calls artifactProc when its target cell still contains a character",
+        "items/artifacts/TimekeepersHourglass.java:133-135 calls artifactProc for visible monsters in the freeze path"
+      ],
+      "limits": "This check covers the shared alternate proc and representative real artifact callers. It does not close every wand/artifact target, neutral-character or immunity interaction and does not re-review the Cleric Sunray spell."
+    },
+    {
+      "talent": "CLEANSE",
+      "facet": "Alternate use-triggered chance to remove negative statuses from the hero.",
+      "status": "checked_correct_from_source",
+      "actual_conditions": "Hero must not be a Cleric and talent must be present. Wand.wandUsed and Talent.onArtifactUsed use Random.Int(10) < rank, giving 10/20/30 percent.",
+      "actual_effect": "On a successful roll, both paths detach existing NEGATIVE buffs except LostInventory. The hook does not grant the Cleric spell shield or timed immunity.",
+      "call_sites": [
+        "items/wands/Wand.java:590-602, within the real wandUsed cleanup before its normal time spend",
+        "actors/hero/Talent.java:817-833, in onArtifactUsed",
+        "items/artifacts/EtherealChains.java:200, after a successful target pull",
+        "items/artifacts/SandalsOfNature.java:364, after a valid seed effect and charge deduction",
+        "items/artifacts/TimekeepersHourglass.java:128 and 145, on its supported activation paths"
+      ],
+      "limits": "The ordinary copy states cleanse negative effects rather than promising that every status is removable. LostInventory remains an explicit runtime exception. This is not a re-review of Cleric Cleanse, which has separately tested shield/immunity and conversion exceptions."
+    },
+    {
+      "talent": "HOLY_INTUITION",
+      "facet": "Alternate curse discovery occurs before an unknown cursed item is equipped.",
+      "status": "checked_correct_from_source",
+      "actual_conditions": "Hero must not be a Cleric, talent must be present, item must be cursed, and cursedKnown must be false.",
+      "actual_trigger": "Each checked equipment path rolls Random.Int(20) < 1 + 2 * rank, giving 15/25 percent at ranks 1 and 2.",
+      "actual_effect": "A successful check sets cursedKnown, prints the existing discovery message and returns false before the equipment assignment/time spend. It reveals curse status, not the hidden item level; the equip attempt is stopped.",
+      "call_sites": [
+        "items/KindOfWeapon.java:116-123, before detachment and weapon assignment",
+        "items/armor/Armor.java:237-244, before detachment and armor assignment",
+        "items/KindofMisc.java:137-144, before ring/artifact slot assignment in the available-slot path"
+      ],
+      "limits": "This checks the shared equipment activation paths and chance/knowledge outcome. It does not close every full-slot chooser/cancellation/Swift Equip interaction or re-review the Cleric Holy Intuition spell."
+    }
+  ],
+  "tests_and_changes": {
+    "production_edits": [],
+    "test_edits": [],
+    "tests_run_for_this_record": [],
+    "github_mutations": [],
+    "new_builds_or_native_claims": [],
+    "coverage_note": "Existing named Cleanse and Holy Intuition tests found in MechanicsExplanationTest cover the separately completed Cleric spell paths. They are not counted as new regression evidence for these alternate hooks. No dedicated alternate proc regression was found by the bounded constant/call-site search."
+  },
+  "outcome": "No concrete copy-versus-handler discrepancy found within the three checked activation/duration facets. No change proposed; APD442 remains frozen.",
+  "source_file_sha256": {
+    "core/src/main/assets/messages/actors/actors.properties": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java": "44bc553d264d7ed28e36bbb4d5f0d44117bbfeb3dd3d2d2d8430e1439a0f9a34",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/mechanics/TalentExplanation.java": "c5799a8965e825105bcb97a2046e2768d3b1bc6b9eb978b6697c4d6ff36b4a12",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/Wand.java": "eafe9854b9c6e6fb4e79875516856f5575d390d6e8812aba83a55189009f1ccd",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/Artifact.java": "1cbb8564cdc61263e5274929f70e8df5f5663ff69afc0a9f7e61688274fae13e",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/KindOfWeapon.java": "c71abbabb2fc4f0297055d82f0e3047b941f792158f22c7903cf58f2345be639",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/KindofMisc.java": "bce90c78637d44bb081695acf8b92754a0194eef362272593c3c62e3e5b8e514",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/armor/Armor.java": "071416bf430630f529fbae28a7a6cf03ad0aabd10b4af055f28832f89063425a",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/EtherealChains.java": "4132242fed0dc6f836556b33ff0b2228b9e6a93dc14847ad87a19a209c6e09f8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/SandalsOfNature.java": "9ce65761ca1db81d8f5a4edba13201eac73a1585f22534cd8ec9ed09909a3fc2",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/TimekeepersHourglass.java": "2dfcbcb3b8bdc3b0e19dbeb0269c902e91ffdfaa8cc4e3dd22b544ae71885390",
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT.json": "4bf84524437db995b36f055027c7e4af847942f8881343ae07dba2d6a0187540",
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT-PROGRESS.md": "e2f3ab18d558326aec7fd45823e56772b8fd65f980f5a15a3ac02c21610dc4f1",
+    "docs/APD-MECHANICS-DESCRIPTIONS-2026-11-06.md": "689dedbda30087d2d98fb71f3e9d10498eb644d8fa82513d1dd5539d5d339fad"
+  }
+}

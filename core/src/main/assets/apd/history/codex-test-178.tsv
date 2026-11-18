@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Tipped-dart bonus ownership	Apply the actual attacker factor once to Shocking Dart electrical burst and Holy Dart anti-undead/demonic bonus damage.
+Testing	V061_PAGE	Tipped-dart provenance coverage	Cover every factor and creator role, contradictory settings, source identity, neutral RNG and exact Shocking/Holy production wiring.
+Changes	V061_PAGE	TEST177 evidence and TEST178 handoff	Preserve verified weapon spell-bonus evidence and record the pending tipped-dart checkpoint.

@@ -1,0 +1,30 @@
+{
+  "release": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-381",
+  "published_at": "2026-11-08T23:13:16Z",
+  "build_run": 42532444319,
+  "stage_run": 42532556500,
+  "verification": {
+    "source_commit": "6b1f6f569f826002031c411b011fb884c6504430",
+    "number": 381,
+    "tag": "apd-alpha-preview-381",
+    "core_tests": 3031,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "d35ae5fb36e6bd3a3d84ecde9fb907d45ac5db7d18d0dca8b69ea16052eb4639",
+      "Alpha-Testers": "7c4abcfec51f6b96456dc74e572afb0dfeb074f79ef71ff491c0dbe69ba221af"
+    },
+    "source_sha256": "a258521f29a98ae7ded164c2d022ba323f72c158793fb3834abb1340cde1f398",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-08T23:00:33.616675+00:00",
+    "workflow_run": "42532444319",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "visual_review": "Developer current healing2HP; Alpha zero healing0HP and concise Prison lore inspected. Both APK hashes/sidecars and source scan checked. No phone verification; full audit incomplete."
+}

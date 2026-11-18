@@ -1,0 +1,8 @@
+Changes	V061_BUGFIX	Remaining armor ability provenance	Apply Player Damage once to Heroic Leap, Shockwave and enemy telefrag while preserving manual armor and self-cost boundaries.
+Changes	V061_BUGFIX	Armor ability regression	Retain all-percentage, neutral, ordering, delayed-capture, self-cost and delegate coverage.
+Changes	V061_BUGFIX	TEST159 evidence	Record bounded implementation and pending verification.
+Changes	V061_BUGFIX	Verified TEST158 evidence	Preserve the reviewed TEST158 verification record in compiled history.
+Changes	V061_BUGFIX	Handoff	Record the candidate and remaining acceptance work.
+Changes	V061_BUGFIX	Completed ledger	Record exact bounded work and pending checks.
+Changes	V061_BUGFIX	Build request	Require exact-source core, Android, debug and history verification.
+Changes	V061_BUGFIX	History manifest	Compare every reviewed path against the immediate previous TEST158 APK.

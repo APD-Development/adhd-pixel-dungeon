@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "label": "Codex TEST 233",
+  "status": "verified_ci_candidate_not_published",
+  "application_source_commit": "c6bed1f12f017d3f2fa92adf2c29d793f5e004ab",
+  "immediate_previous_produced": {
+    "label": "Codex TEST 232",
+    "application_source_commit": "96772420c7ccdcbc294e8eae33d68b27d71abfaa",
+    "verification_run_id": 38841967217,
+    "privately_delivered": false
+  },
+  "targeted_regression": {
+    "run_id": 38847041242,
+    "started_at_utc": "2026-10-16T03:44:46Z",
+    "completed_at_utc": "2026-10-16T03:47:59Z",
+    "artifact_id": 12024096254,
+    "artifact_zip_sha256": "267e93ae3d6d015f825871cc664c6cecb68c9d1f68ac4ae1aa82a01932568c1d",
+    "original_source_expected_failures": 1,
+    "original_source_failure_method": "aLongIdleGapAddsNoActivePlayTime",
+    "original_expected_millis": 0,
+    "original_actual_millis": 30000,
+    "corrected_source_passed": true
+  },
+  "full_gate": {
+    "run_id": 38847041245,
+    "started_at_utc": "2026-10-16T03:44:46Z",
+    "completed_at_utc": "2026-10-16T03:59:24Z",
+    "conclusion": "success",
+    "core": {
+      "methods": 1695,
+      "suites": 334,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12023821414,
+      "artifact_zip_sha256": "a9937a457cbc83b1ccdbf588eb0ac09cef52a18576125152ef5defc04480486b"
+    },
+    "android_api34": {
+      "methods": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "emulator_only": true,
+      "artifact_id": 12024197452,
+      "artifact_zip_sha256": "ebe142a6f183383b6ce2b832c9a7b6a91b7e8c5b67e6dbb8e411fe40a9b7f317"
+    },
+    "visual": {
+      "png_count": 42,
+      "dimensions": "320x640",
+      "complete_contact_sheet_reviewed": true,
+      "full_resolution_views_reviewed": [
+        "uimsd-home.png",
+        "custom-rules-touch-gestures.png"
+      ]
+    },
+    "debug_assembly_passed": true,
+    "complete_immediate_previous_history_passed": true
+  },
+  "apk": {
+    "artifact_id": 12023681745,
+    "artifact_zip_sha256": "5c3b319a0efec8d5be9145cf80de2c93de5b908da7c9de97fb1e1c6043606626",
+    "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-233.apk",
+    "size_bytes": 38586337,
+    "sha256": "f3db3e79262ae45de213a34681df270f0b9ef662bb53eef1d84c2dc8e5f477af",
+    "ui_version_observed": "4.0.8-apd-INDEV-bC233-TEST",
+    "application_id_check": {
+      "status": "not_independently_rechecked_this_run",
+      "expected_from_unchanged_configuration": "com.charltonchris29.adhdpixeldungeon.indev"
+    },
+    "signing_certificate_check": {
+      "status": "not_independently_rechecked_this_run",
+      "expected_previous_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e"
+    }
+  },
+  "publication": {
+    "published": false,
+    "tester_distribution": false,
+    "physical_phone_tested": false,
+    "owner_install_over_save_acceptance": false
+  },
+  "latest_privately_delivered_fallback": "Codex TEST 231",
+  "notes": [
+    "Already-recorded raw history is not rewritten.",
+    "Saves, scores, gameplay, all 18 rules, turns, RNG, lore and opt-out behavior were unchanged.",
+    "Unmeasured durations remain unknown; workflow wall time is not developer-active time.",
+    "The evidence-only documentation commit must not be treated as new application source or trigger an unchanged rebuild."
+  ]
+}

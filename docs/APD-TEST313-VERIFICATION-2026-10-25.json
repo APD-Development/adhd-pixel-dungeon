@@ -1,0 +1,171 @@
+{
+  "date": "2026-10-25",
+  "timestamp": "2026-10-25T15:23:12Z",
+  "status": "accepted_emulator_verified",
+  "application_source": "eb0053283be631c0286bda7d0efbeb3c13590a11",
+  "verification_source": "26b64089734a42ca96e042df779dbb1d87ff6efa",
+  "change_scope": "Native UIMSD Death-context row presentation and API34 acceptance. Later commits only make the display harness wait on actual state, keep native touches away from OS screen edges, and select the supported software-rendering backend; they do not rebuild or change the TEST313 application APK.",
+  "developer": {
+    "workflow_run": 40201003446,
+    "build_number": 313,
+    "verify_job": 121191974219,
+    "android_job": 121192839052,
+    "artifact_id": 12600983589,
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-313.apk",
+    "bytes": 38760507,
+    "sha256": "a8db05478ba292822954987a008982697a60104cf33267fa8465e31d660ac0f8"
+  },
+  "player": {
+    "workflow_run": 40201003498,
+    "job": 121191974273,
+    "artifact_id": 12602200593,
+    "file": "APD-Player-TEST313.apk",
+    "bytes": 38760334,
+    "sha256": "47a2b2a4f4dd4b11c628aa78895ee99795dcd6349647209475c6cb2238c15b1e",
+    "methods": 2073,
+    "suites": 402,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "signer_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signer_and_application_id_match": true,
+    "developer_only_features_disabled": true,
+    "history_matches_developer": true
+  },
+  "core": {
+    "artifact_id": 12601743037,
+    "artifact_bytes": 978326,
+    "artifact_digest": "sha256:0343ea7fc39fe3be448c506b13fa096f06f8ceada68cf12ba62670ebdf9d64cd",
+    "suites": 402,
+    "methods": 2073,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "debug_assembly": true,
+    "focused_cases": "All four WndDeathContextTest methods executed and passed."
+  },
+  "api34": {
+    "job": 121192839052,
+    "artifact_id": 12602740314,
+    "artifact_bytes": 7600743,
+    "artifact_digest": "sha256:94e3d5ef79c9d69972c90f1625833cbf867381c2156840a3b4199958831d552a",
+    "methods": 55,
+    "passed": 55,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pngs": 81,
+    "visual_review": "All 81 retained images decoded and were reviewed in contact sheets; no blank, corrupt or obvious clipping regression.",
+    "accepted_case": "recordedDeathContextShowsFinalAndRevivedEvidenceFromRealHistory passed in 4.021 seconds.",
+    "new_screen": {
+      "file": "uimsd-death-context.png",
+      "width": 320,
+      "height": 640,
+      "sha256": "458038bb (prefix recorded during inspection)",
+      "visible_evidence": [
+        "Death at turn 15 (window 6–15)",
+        "Killed by: fire",
+        "Outcome: This death ended the run",
+        "Non-causation and incomplete-record caveat"
+      ]
+    }
+  },
+  "supplemental": {
+    "display": {
+      "workflow_run": 40205712754,
+      "run_attempt": 2,
+      "status": "success on all five profiles",
+      "application_source": "eb0053283be631c0286bda7d0efbeb3c13590a11",
+      "application_run": 40201003446,
+      "application_sha256": "a8db05478ba292822954987a008982697a60104cf33267fa8465e31d660ac0f8",
+      "test_source": "26b64089734a42ca96e042df779dbb1d87ff6efa",
+      "protected_application_inputs_identical": true,
+      "application_rebuilt": false,
+      "emulator_renderer": "software",
+      "profiles": [
+        "1080x2408",
+        "360x560",
+        "320x480",
+        "720x720",
+        "960x320"
+      ],
+      "methods_per_profile": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pngs_per_profile": 5,
+      "visual_review": "All 25 retained PNGs decoded and were reviewed; title layout, hide, restore, expanded footer target and Options confirmation controls are visible without clipping.",
+      "retained_failed_runs": [
+        {
+          "workflow_run": 40203520291,
+          "test_source": "184bfed36ec37089290e81abee9817bf8b9344a1",
+          "reason": "960x320 emulator GL/input failure after the original fixed-wait correction; raw failure retained."
+        },
+        {
+          "workflow_run": 40204548390,
+          "test_source": "95a76733c0f8b88095806fbefd3cd0b6c9d4b44b",
+          "reason": "Mixed emulator GL/input failures; successful profiles and raw failed jobs retained."
+        },
+        {
+          "workflow_run": 40205712754,
+          "attempt": 1,
+          "reason": "720x720 emulator dropped one outside-icon native tap after GL error; failed job rerun on identical source passed."
+        }
+      ]
+    },
+    "hotbar_restart": {
+      "workflow_run": 40201003365,
+      "status": "success",
+      "application_data_cleared": false,
+      "new_save_cold_restart_passed": true,
+      "upgrade_and_player_settings_passed": true
+    },
+    "death_order": {
+      "workflow_run": 40201003408,
+      "artifact_id": 12602545072,
+      "artifact_digest": "sha256:4218ca5c (prefix recorded during inspection)",
+      "corrected_exact_apk_passed": true
+    },
+    "staging": {
+      "workflow_run": 40201003397,
+      "status": "failed closed before staging or release upload",
+      "reason": "Raced before the exact successful producer was available.",
+      "github_release_uploaded": false,
+      "distributed": false
+    }
+  },
+  "history": {
+    "indexed_records": 340,
+    "tsv_assets_including_index": 341,
+    "immediate_previous_compiled_candidate": "TEST312",
+    "predecessor_records_compared": 339,
+    "predecessor_records_changed": 0,
+    "developer_player_bytes_identical": true,
+    "added": [
+      "assets/apd/history/codex-test-313.tsv"
+    ],
+    "comparison": "Compared directly with TEST312 APK artifact 12563596708; only the TEST313 record and its first index line were added."
+  },
+  "acceptance": {
+    "accepted": true,
+    "latest_emulator_verified_pair": "TEST313",
+    "verified_fallback": "TEST312",
+    "latest_apk_uploaded_to_github_as_release": "TEST262",
+    "latest_release_tag": "apd-alpha-preview-262",
+    "latest_release_published_at": "2026-10-16T23:14:03Z",
+    "test313_stored_as_github_actions_artifacts": true,
+    "test313_uploaded_to_github_as_release": false,
+    "physical_phone_verified": false,
+    "tester_distribution": false
+  },
+  "build_request": {
+    "path": "docs/APD-CODEX-BUILD-REQUEST.txt",
+    "blob_sha": "bf0d2b412db8000a8619974acbd63363fdecc2ba",
+    "changed_for_verification": false
+  },
+  "unresolved": [
+    "Physical-phone Back-latency diagnosis remains pending; no lag fix is claimed.",
+    "Collect APD-BACK timing for at least 20 real edge gestures including a slow occurrence before changing navigation semantics."
+  ],
+  "next_safe_step": "Retain TEST313 as the newest emulator-verified pair and TEST312 as fallback. Continue the next documented approved backlog slice without rebuilding unchanged TEST313 source."
+}

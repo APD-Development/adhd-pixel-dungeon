@@ -1,0 +1,10 @@
+Changes	V011_ANKH	Save file utilities 1	Preserved the existing save when a bundle write fails.
+Changes	V011_ANKH	Save file utilities 2	Recovered temporary saves correctly in nested folders.
+Changes	V011_ANKH	Save file utilities 3	Closed owned file streams when a save read fails.
+Testing	V011_ANKH	File Utils Save Safety Test 1	Added a test covering nested Temporary Save Is Skipped By Recursive Cleanup. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	File Utils Save Safety Test 2	Added a test covering failed Temp Write Can Replace An Existing Valid Save With Empty Bytes. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	File Utils Save Safety Test 3	Added a test covering failed Bundle Read Leaves Its Owned Input Stream Open. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	File Utils Save Safety Test 4	Added a test covering successful Save And Replacement Remain Readable. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Preserved the existing save when a bundle write fails. Recovered temporary saves correctly in nested folders.

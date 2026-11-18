@@ -1,0 +1,80 @@
+{
+  "recorded_at": "2026-10-18T00:49:26.692Z",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryEngine.java",
+    "blob": "9c072008cf5364f8be285feb66ff1aee710c3881",
+    "lines": 539,
+    "complete": true,
+    "new_production_defect_confirmed": false
+  },
+  "false_reproductions": [
+    {
+      "commit": "d2a64433abb984fb05cc38ff411d59f1cbe61e9e",
+      "run": 39083369571,
+      "tests": 1796,
+      "failures": 1,
+      "artifact_id": 12119897301,
+      "artifact_bytes": 838493,
+      "artifact_digest": "sha256:6907c53ea837030308c701f6371292252dd7654b5c12f52c8c2ec0e00d1cb682",
+      "failure": "expected [exact] but was [lb, exact]",
+      "actual_reason": "Filter.num(..., Op.IN, ...) is invalid by design; QueryEngine reported and skipped the filter"
+    },
+    {
+      "commit": "669110bc696144a346f31d6229a415b45134d6ed",
+      "run": 39083564199,
+      "tests": 1796,
+      "failures": 1,
+      "artifact_id": 12118939549,
+      "artifact_bytes": 840957,
+      "artifact_digest": "sha256:8f55ee62c050667d3fe3de9763020c7cb832af1547522054502aa347ab3083b7",
+      "actual_reason": "The evaluator change was unreachable because validation rejects numeric IN; production edit and invalid assertions were fully reverted"
+    }
+  ],
+  "retained_stress": {
+    "commit": "70493689e6261c9d71f605fa9f27a277ae05c10a",
+    "run": 39083890978,
+    "job": 117546313251,
+    "tests": 1798,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12119948081,
+    "artifact_bytes": 839372,
+    "artifact_digest": "sha256:dde746242c2b33d54eb4cea66f4571bdb09c94d10dc3a8dff34debfd5274e49b",
+    "methods": [
+      {
+        "name": "tenThousandRowsFilterSortAndCoverageMatchIndependentModel",
+        "rows": 10000,
+        "time_seconds": 0.078
+      },
+      {
+        "name": "tenThousandRowsGroupedAggregatesMatchIndependentModel",
+        "rows": 10000,
+        "time_seconds": 0.051
+      }
+    ],
+    "coverage": [
+      "valid numeric range filters",
+      "enum IN filter",
+      "stable score/name sorting",
+      "column coverage",
+      "source-dataset immutability",
+      "grouping",
+      "count",
+      "sum",
+      "average",
+      "minimum",
+      "maximum"
+    ],
+    "limitations": [
+      "synthetic deterministic rows, not completed gameplay runs",
+      "no UI, export, emulator or physical-phone execution"
+    ]
+  },
+  "final_application_source_changed": false,
+  "executable_build_request_changed": false,
+  "apk_built": false,
+  "latest_verified_private_candidate": 275,
+  "latest_published_owner_build": 262,
+  "next_safe_step": "Review the next unreviewed UIMSD production blob or add bounded export-path stress; do not rebuild an APK for this test-only batch."
+}

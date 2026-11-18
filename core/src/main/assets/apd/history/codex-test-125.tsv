@@ -1,0 +1,14 @@
+Changes	V060_GREATAXE	Pre-armor attack scaling	Prepared player, enemy, boss and owned-summon attack scaling before armor; the pending damage controls remain disabled.
+Changes	V063_MAGICMISSILE	Explicit offensive boundaries	Prepared caster-based damage scaling with a neutral identity path and unchanged source objects for defenses.
+Changes	V061_SPELLBOOK	Wand light bonus	Prepared hero-attributed Guiding Light bonus damage in wand procs.
+Changes	V063_MAGICMISSILE	Magic missile damage	Prepared caster-attributed Magic Missile damage scaling.
+Changes	V082_FROST	Frost damage	Prepared caster-attributed Frost damage while retaining chill and freeze behavior.
+Changes	V030_DISINTEGRATION	Lightning damage	Prepared caster-attributed Lightning damage including its existing self-hit reduction.
+Changes	V030_DISINTEGRATION	Disintegration damage	Prepared caster-attributed Disintegration damage while retaining pierce bonuses.
+Changes	V070_TRANSFUSION	Transfusion damage	Prepared offensive Transfusion scaling while preserving its unscaled health cost.
+Changes	V074_WARDING	Ward damage ownership	New wards retain their creator identity and use it for their prepared offensive damage path.
+Changes	V061_BUGFIX	Real attack regressions	Added engine checks for pre-armor scaling, all six starting classes, boss substitution, source preservation and neutral RNG.
+Changes	V061_BUGFIX	Real wand regressions	Added real missile/frost cast, immunity, resistance, neutral RNG and unchanged Transfusion health-cost checks.
+Changes	V061_PAGE	Ownership verification evidence	Recorded the successful preceding core and Android ownership-foundation checks.
+Changes	V061_PAGE	Partial damage integration report	Recorded integrated attack/wand paths and the remaining spell, delayed-effect and statistics work.
+Changes	V061_PAGE	Exact build attribution	Updated required checks and previous-APK attribution for this integration package.

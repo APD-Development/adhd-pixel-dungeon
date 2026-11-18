@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "number": 443,
+  "status": "ready_infrastructure_verified",
+  "completed_utc": "2026-11-11T15:42:11.687750+00:00",
+  "self_test_rejections": 34,
+  "scope_status": "ready_for_build",
+  "missing_predecessor_pin_rejection": null,
+  "request_absent": true,
+  "known_previous_artifact_metadata_matches": true,
+  "previous_owner_archive_rehashed": "99b7186089c94c2942137bd183876d8b36f06d0ddd279fcd9c2b4a4863ee1276",
+  "previous_apk_bytes_rehashed": {
+    "Developer": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+    "Alpha-Testers": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed"
+  },
+  "previous_source_zip_rehashed": "967a55fa95e42d7ce8b51c8a5f556fde2ae628f3653b9be649a497c57fdc4ae4",
+  "previous_all_five_jobs_succeeded": true,
+  "previous_native_manual_receipts_checked": {
+    "Developer": "1262f7bc8b955459e8bf2861fca0ca2203f8954518d1c2699f1d6dc73f41cbf0",
+    "Alpha-Testers": "836c9ea7dfcd81ce24b62993b0eb7440803631bd5c83fb82e3c7c9065063781c"
+  },
+  "previous_history_files_preserved": 447,
+  "one_new_history_record_and_index_row_verified": true,
+  "fresh_core_raw_xml_totals": {
+    "suites": 465,
+    "tests": 3210,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_tests_rerun": false,
+  "core_source_hashes_match_fresh_verification": true,
+  "reviewed_native_extension_sha256": "1ec6de5e38ffb5e335ecfd2c816de850f304d5a32359fb26ff1142c35a9229ba",
+  "reviewed_native_extension_receipt_sha256": "c5c664190922da507e487deeac42d245b6e20354e6723b8f9b5afbbc921e85c3",
+  "required_additional_images": [
+    "qol-ordinary-talent-LIQUID_AGILITY.png",
+    "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+    "trap-discovery-liquid-agility-rank1-before.png",
+    "trap-discovery-liquid-agility-rank1-after.png",
+    "trap-discovery-liquid-agility-rank2-before.png",
+    "trap-discovery-liquid-agility-rank2-after.png",
+    "trap-discovery-liquid-agility-excluded-strength-before.png",
+    "trap-discovery-liquid-agility-excluded-strength-after.png"
+  ],
+  "retained_affected_image_count": 17,
+  "pending_scope_items": [],
+  "files": {
+    ".github/workflows/apd-candidate-443.yml": {
+      "sha256": "50582db80b7dbecefaff7a7b33cda1049191faab3eef161685e6bba4fb3ceee1",
+      "bytes": 6923
+    },
+    "README.md": {
+      "sha256": "acf5b4b10e9a90a842f4a9eb083a410e07194c12e7c5e3cf661bd9c3e0477295",
+      "bytes": 6795
+    },
+    "docs/APD-443-BUILD-PLAN.json": {
+      "sha256": "e06a9fd91cbe796a7df74012e460766781d008aab7e054d7fc32c8baf0b40781",
+      "bytes": 1598
+    },
+    "tools/apd_candidate443.py": {
+      "sha256": "538fbfea974b1c47f2863cc2714cad1097cf30f466202d7574a63e95cf4af535",
+      "bytes": 32640
+    }
+  },
+  "no_app_compile_build_native_scan_or_remote_mutation_performed": true,
+  "accepted_baseline_head": "b912f2b083f70de5d81f2351d32c24a0d5ac129e",
+  "accepted_receipt_sha256": {
+    "docs/APD-442-DELIVERY-2026-11-11.json": "6e585729b408fe1ca8ca78dadcbe08e5ae6d0719dc1cbf30c997eefe22f9b619",
+    "docs/APD-442-MANUAL-VISUAL-REVIEW-2026-11-11.json": "46042841be2caa15613d51c4f669f34649be14c3e0372641bc1e82a15d08d545"
+  },
+  "full_predecessor_gate": {
+    "accepted_actual_records": true,
+    "git_reads": "Strict cached pinned-file bytes checked against supplied committed receipt digests; no live Git operation",
+    "api_reads": "Retained actual GitHub run/jobs/artifact metadata; no live API request",
+    "negative_records_rejected": [
+      "previous producer failure",
+      "previous source changed",
+      "previous native job failed",
+      "owner digest changed",
+      "scan artifact expired",
+      "built artifact source changed",
+      "changed receipt: docs/APD-442-DELIVERY-2026-11-11.json",
+      "changed receipt: docs/APD-442-MANUAL-VISUAL-REVIEW-2026-11-11.json"
+    ]
+  },
+  "android_compilation": "Required upcoming workflow gate before assembly; not claimed complete for this native source"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "corrected_unexecuted_launch_instructions",
+  "utc": "2026-11-11T19:16:43.734842+00:00",
+  "supersedes_launch_cwd_and_argv_only_in": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/terminal-run-and-artifacts.json",
+  "exact_error": "The proposed workspace-root cwd would make candidate.plan() resolve docs/APD-446-BUILD-PLAN.json outside the repository.",
+  "correct_cwd": "/workspace/scratch/db82734c9c44/apd",
+  "correct_argv": [
+    "python",
+    "/workspace/scratch/db82734c9c44/recovery/apd446-recovered-delivery-check.py",
+    "--recovery-snapshot",
+    "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/snapshot-2026-11-11T19-15-26-662Z.json",
+    "--recovery-source",
+    "8d4ca1029fabe43df3a21e2362be59200d02839f",
+    "--recovery-run",
+    "43084695484",
+    "--recovery-native",
+    "/workspace/scratch/db82734c9c44/recovery/apd446-recovery-native-Developer",
+    "--recovery-native-archive",
+    "/workspace/scratch/db82734c9c44/recovery/apd446-recovery-native-Developer-artifact-13885533674.zip",
+    "--owner",
+    "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review",
+    "--owner-archive",
+    "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review-artifact-13886086653.zip"
+  ],
+  "checker_unchanged_sha256": "f32cf18eab70225772886b9f1593393c570224ea35b86afb61fc3a4d4101f0e2",
+  "incorrect_proposal_executed_by_this_agent": false,
+  "root_reported_starting_corrected_invocation": true,
+  "checker_outcome_not_claimed_here": true
+}

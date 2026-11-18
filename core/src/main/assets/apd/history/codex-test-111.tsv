@@ -1,0 +1,5 @@
+Statistics / UIMSD	ICON_DATA	Quest boss records	The Bosses table now includes recorded Crystal Spire, Gnoll Geomancer, Fungal Core and Vault Elemental encounters from finished runs.
+Statistics / UIMSD	ICON_DATA	Existing boss statistics	Rebuilt obsolete derived row caches so previously recorded quest bosses receive the corrected classification without changing original history.
+Testing	ICON_CHECKED	Quest boss regressions	Added actual boss-property, recorded encounter, unfinished privacy, RNG preservation and old-cache recovery checks.
+Development	ICON_INFO	Audit checkpoint	Recorded further component reviews and verified regression findings while keeping the comprehensive audit explicitly incomplete.
+Developer Commentary	V074_SHPX	Developer Commentary	I restored missing quest bosses to their statistics category and made existing cached records rebuild correctly. Enemy behavior, gameplay and original player data are unchanged.

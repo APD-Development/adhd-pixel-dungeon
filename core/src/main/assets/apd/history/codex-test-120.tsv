@@ -1,0 +1,7 @@
+Development	PD_RAT	Custom boss health	Boss health now follows its own locked setting instead of ordinary enemy health.
+Changes	V24_RAT_SKULL	Boss phase protection	Custom boss health preserves Yog's phase boundaries and Dwarf King's shield objectives, including fractional remainders across saves.
+Development	V060_RATION	Custom food supply	Food supply follows the selected percentage;25%provides a standard ration in each region and100%retains original generation.
+Testing	ICON_CHECKED	Boss and food regressions	Added boss-phase/save and regional-food checks, and included minimum food in the combined custom-generation fixture.
+Testing	ICON_INFO	Narrow warning access	Added a scrolled narrow-screen capture to check access to the experimental warning's scoring paragraph.
+Development	ICON_INFO	Verification and investigation records	Recorded verified warning checks, custom boss/food evidence and the unconfirmed upstream audio report.
+Developer Commentary	V074_SHPX	Developer Commentary	I added boss health and regional food settings while protecting boss progression. Offensive damage attribution, healing, equipment supply and permanent statistics integration still need work.

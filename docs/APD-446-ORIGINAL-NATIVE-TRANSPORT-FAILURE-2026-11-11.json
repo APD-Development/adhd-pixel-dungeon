@@ -1,0 +1,456 @@
+{
+  "status": "alpha_native_complete_developer_transfer_incomplete_no_owner_acceptance",
+  "verified_at_utc": "2026-11-11T18:56:20.560907+00:00",
+  "source_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "run_id": 43077773970,
+  "run_attempt": 1,
+  "terminal_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/snapshot-2026-11-11T18-54-23-054Z.json",
+    "bytes": 38896,
+    "sha256": "e985fd73af3d2d86f418ca8f2bb3a0c016d472eec0ca66a95329cd123cd78b68"
+  },
+  "built_provenance": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/evidence/candidate-provenance.json",
+    "bytes": 905,
+    "sha256": "318fa66468aa05fe828965f10e0b3dad5084474dc696a471a097fe5fdab567c6"
+  },
+  "variants": {
+    "Developer": {
+      "artifact_id": 13884437545,
+      "job_id": 130724789146,
+      "archive": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer-artifact-13884437545.zip",
+        "bytes": 53797333,
+        "sha256": "230b565e0193b9aca9638abf713a9e69ae5a19ad9a2ecf915a70e4167689d334"
+      },
+      "transport_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/artifact-13884437545-download-verification.json",
+        "bytes": 1327,
+        "sha256": "ab6181d0f900784456e8d3daef86b578cf3fa7af2e8744cb0b69c254b3fa6db8"
+      },
+      "terminal_job_log": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/native-Developer-job-130724789146.log",
+        "bytes": 44118,
+        "sha256": "5cc7055b902e230a4b2ea08c1055c4e1d20df36d8fc2fb50d40e9ccd2ec1adae"
+      },
+      "native_logcat": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/native-logcat.txt",
+        "bytes": 6375350,
+        "sha256": "c9c67033d702583338ad9b1bf2aa99af6faf3093b627b88d9adb6f8961203488"
+      },
+      "device_after": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/device-after.txt",
+        "bytes": 148,
+        "sha256": "e1089350c3b7069b7375b7e3a5469568dcd00ccd01d4541362ea4a15ccfd1c84"
+      },
+      "cases": [
+        {
+          "case": "qol",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/qol.txt",
+            "bytes": 1093,
+            "sha256": "6cb9a071fde03ea5598e95d76e261ee23ea1ccbfdc6b4ff8731fd2112c86833a"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/qol-transfer.json",
+            "bytes": 166840,
+            "sha256": "247ccc2804a7687254bfed12162a0efdb5cee49134893016c1bdd991567b8f8b"
+          },
+          "device_verified_images": 1419,
+          "started": "2026-11-11T18:33:17.522145+00:00",
+          "completed": "2026-11-11T18:50:33.762561+00:00"
+        },
+        {
+          "case": "wall",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/wall.txt",
+            "bytes": 1047,
+            "sha256": "f903ce2a71edd1a19048daa6fa87cb0d51b3c15b0d6f50def78e5b809fd26c50"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/wall-transfer.json",
+            "bytes": 167415,
+            "sha256": "f4509e4444daa6e0b83db6aa0e6ebf1fb952f71364ea10424075143719afcd75"
+          },
+          "device_verified_images": 1424,
+          "started": "2026-11-11T18:50:33.795728+00:00",
+          "completed": "2026-11-11T18:50:52.008826+00:00"
+        },
+        {
+          "case": "seed",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/seed.txt",
+            "bytes": 1001,
+            "sha256": "b1705c878869c1ee00012261d393aadb92c4ef66719048537c3e77a466a0215d"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/seed-transfer.json",
+            "bytes": 167520,
+            "sha256": "b93ee2138a6d56f2d58a28405f56fb52e3bf4050ac17384f6e3af24e20748f37"
+          },
+          "device_verified_images": 1425,
+          "started": "2026-11-11T18:50:52.043439+00:00",
+          "completed": "2026-11-11T18:50:59.969447+00:00"
+        },
+        {
+          "case": "restart",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/restart.txt",
+            "bytes": 1015,
+            "sha256": "e3f9de89485749661b0fb348935778b57641ca088ab40a18ee8e7e663d464bcc"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/restart-transfer.json",
+            "bytes": 167738,
+            "sha256": "20189208f76fc3c110b7c6fcdf42b4ceaf214b435c90104f3bfee170630c346e"
+          },
+          "device_verified_images": 1427,
+          "started": "2026-11-11T18:51:00.002492+00:00",
+          "completed": "2026-11-11T18:51:09.094838+00:00"
+        },
+        {
+          "case": "gameplay",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/gameplay.txt",
+            "bytes": 1022,
+            "sha256": "d03ff538ee97accba54d423a151a63b871c84b6810e3de2ec05ae0e522363855"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/gameplay-transfer.json",
+            "bytes": 168979,
+            "sha256": "27b095a91e2e0669a0a5676b367d932cafabaff1f6d71bbca7d67dc2da6101eb"
+          },
+          "device_verified_images": 1437,
+          "started": "2026-11-11T18:51:09.127977+00:00",
+          "completed": "2026-11-11T18:51:22.704240+00:00"
+        },
+        {
+          "case": "freeze",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/freeze.txt",
+            "bytes": 910,
+            "sha256": "a670de5ba3ebe7deff80220ebe135057b0945fa79e247b53e66bf75be6f779c0"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/freeze-transfer.json",
+            "bytes": 168979,
+            "sha256": "0be6a9ef1e712ad2a7aa8f4c97ba1a61d5f13b66d42edd13e3318dbcaa841ec2"
+          },
+          "device_verified_images": 1437,
+          "started": "2026-11-11T18:51:22.737316+00:00",
+          "completed": "2026-11-11T18:51:27.462255+00:00"
+        },
+        {
+          "case": "search-context",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/search-context.txt",
+            "bytes": 1058,
+            "sha256": "17fa9c84d1f9d30fc64b343f0ff15616018744269416f6a6d48c33599c615bc2"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/search-context-transfer.json",
+            "bytes": 171212,
+            "sha256": "c6b6ac2d18acff019b52eabe6a54acf627f5cdb96dba618141c8937f40c7b8c9"
+          },
+          "device_verified_images": 1457,
+          "started": "2026-11-11T18:51:27.495319+00:00",
+          "completed": "2026-11-11T18:52:11.653354+00:00"
+        },
+        {
+          "case": "seed-history",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/seed-history.txt",
+            "bytes": 1014,
+            "sha256": "74c86f9378dea41c7a52970186ee6e911cbbdebe29a7a74960d15ed6e13ebd06"
+          },
+          "complete_transfer": false
+        },
+        {
+          "case": "pylon",
+          "raw_result": "not_run",
+          "complete_transfer": false
+        }
+      ],
+      "raw_pass_count": 8,
+      "complete_case_transfer_count": 7,
+      "retained_png_count": 1463,
+      "last_complete_transfer_image_count": 1457,
+      "partial_images_not_in_complete_transfer": {
+        "seed-history-matching-records.png": "390971f5b9705ae12963051db39dca1328b72a7df8703c6fde6820c8b5f5a5fa",
+        "seed-history-ranking-copy-result.png": "b62f917c73756e1d09cba51ce36ec2f6152cb9d5859621c264383b86e47e96e0",
+        "seed-history-latest-unknown-selection.png": "5cd63f092b1fb9be5ae5383add82281c8d911ac12c1fcb5da4e35bb9972c31ab",
+        "seed-history-cleared-generated-selection.png": "5e78a4a33d71485faee665dd9db52a5c969832e91402897e13c0402d224a1fca",
+        "seed-history-entry.png": "bf73b34c54cdd62da94757e4c2003c36bc60f366a75cfd0121f12b2398445727",
+        "seed-history-ranking-copy-confirm.png": "37f0665b13aa0d10ab180d76d061e10e7394147e07768fd3d622d397ce5724e3"
+      },
+      "native_verification": null,
+      "completed_native_gate": false,
+      "restoration_and_seed_scope_markers": [
+        "11-11 18:52:08.495 I/System.out( 5890): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true",
+        "11-11 18:52:27.227 I/System.out( 6306): APD445_SEED_HISTORY callbacks=hero-select-set,clear,ranking-copy logical_attempts=2 raw_logs=3 deepest=12 latest_queued_selection_only=true rankings_unchanged=true",
+        "11-11 18:52:28.861 I/System.out( 6306): APD446_SEED_HISTORY unfinished_exact_seed=true total_attempts=1 finished_attempts=0 unfinished_attempts=1 observed_main_depth=9 clean_unsealed=true no_terminal_record=true rankings_unchanged=true",
+        "11-11 18:52:29.036 I/System.out( 6306): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true"
+      ],
+      "manual_visual_review_complete": false
+    },
+    "Alpha-Testers": {
+      "artifact_id": 13885126623,
+      "job_id": 130724789308,
+      "archive": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers-artifact-13885126623.zip",
+        "bytes": 54416927,
+        "sha256": "41fbb9c0be6f2e689761de883785f31b7f463e34baa4c8ba7d96d970a07c45a8"
+      },
+      "transport_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/artifact-13885126623-download-verification.json",
+        "bytes": 1339,
+        "sha256": "22a762e2dfd73f5c89bf9b7ed154d90fb859e90e01a6cfc47b3e7da7cc681573"
+      },
+      "terminal_job_log": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/native-Alpha-Testers-job-130724789308.log",
+        "bytes": 42890,
+        "sha256": "ba7eaec9def511e2e043c1b419e4de7acd915c3b95686f6a2fbaf4369605998a"
+      },
+      "native_logcat": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/native-logcat.txt",
+        "bytes": 6827742,
+        "sha256": "da9abfa7c33f8e4dbe1ad139a6c8acfb6efbe7d43672213fbe4ab91e666da8d3"
+      },
+      "device_after": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/device-after.txt",
+        "bytes": 147,
+        "sha256": "4aae72420c5badb886153454cff5605c5fd6d455313a05e771ed2013188c626e"
+      },
+      "cases": [
+        {
+          "case": "qol",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/qol.txt",
+            "bytes": 1093,
+            "sha256": "117a20c2c6f9443a86ad5aa9e6768459e5d598ef443c67564b49c4d6ed8cf7cc"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/qol-transfer.json",
+            "bytes": 166840,
+            "sha256": "2bc6cd555bfa9692631ba6e602a1c88cfbbb7897d9470e8b880f5fc00a49ba5b"
+          },
+          "device_verified_images": 1419,
+          "started": "2026-11-11T18:33:19.565281+00:00",
+          "completed": "2026-11-11T18:50:56.399027+00:00"
+        },
+        {
+          "case": "wall",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/wall.txt",
+            "bytes": 1047,
+            "sha256": "915d7262a71dd4a2c8bade1dc81f0700e78844a114b7ed0c776126e86b3ab528"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/wall-transfer.json",
+            "bytes": 167415,
+            "sha256": "9939ada7aa451d14c7e8aace12e7eb60a71ee50428f090b6c8c73dd89b9acb90"
+          },
+          "device_verified_images": 1424,
+          "started": "2026-11-11T18:50:56.432496+00:00",
+          "completed": "2026-11-11T18:51:14.706190+00:00"
+        },
+        {
+          "case": "seed",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed.txt",
+            "bytes": 1001,
+            "sha256": "21bd330a326b2ab3e357d201a2f125d76fc56e1a061f666893e28c5abe4f9ee1"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed-transfer.json",
+            "bytes": 167520,
+            "sha256": "e2bd3efd7dabe976a319b5bb3bc948d6f7747657fc7ab8109f0f6471a5365630"
+          },
+          "device_verified_images": 1425,
+          "started": "2026-11-11T18:51:14.741708+00:00",
+          "completed": "2026-11-11T18:51:22.081859+00:00"
+        },
+        {
+          "case": "restart",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/restart.txt",
+            "bytes": 1015,
+            "sha256": "dcd07fc2bc807319c1e4d911e1df7aa38eba81974ea9085ca1b4ab70021c37b3"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/restart-transfer.json",
+            "bytes": 167738,
+            "sha256": "06e530433c46986bda95cabee4de493e287b6c8fa493ceaa62463add5423e312"
+          },
+          "device_verified_images": 1427,
+          "started": "2026-11-11T18:51:22.115859+00:00",
+          "completed": "2026-11-11T18:51:31.119381+00:00"
+        },
+        {
+          "case": "gameplay",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/gameplay.txt",
+            "bytes": 1021,
+            "sha256": "cad99d5cea34e06ba12ebc9db6796494b024e98f5cce40b1f226b8bd8f3db078"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/gameplay-transfer.json",
+            "bytes": 168979,
+            "sha256": "ef2a914569ac04daeb503c8c0fa800e3af50a0b1dff2ee0f51b775455e5324e4"
+          },
+          "device_verified_images": 1437,
+          "started": "2026-11-11T18:51:31.152720+00:00",
+          "completed": "2026-11-11T18:51:46.158177+00:00"
+        },
+        {
+          "case": "freeze",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/freeze.txt",
+            "bytes": 910,
+            "sha256": "02440111312aafc9f6ff6b4aa1ab547b663344c91899c02b80bec366e2ccf96d"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/freeze-transfer.json",
+            "bytes": 168979,
+            "sha256": "ffe74b9d0ae412ffcb666a37e2049d9a10aa73473f5f3a0b4a463993cff5d01e"
+          },
+          "device_verified_images": 1437,
+          "started": "2026-11-11T18:51:46.191460+00:00",
+          "completed": "2026-11-11T18:51:50.960231+00:00"
+        },
+        {
+          "case": "search-context",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/search-context.txt",
+            "bytes": 1057,
+            "sha256": "9a33ea359caf9a8d129a48aba7df4e57616da896bfd7741f470931b4e02b2e4d"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/search-context-transfer.json",
+            "bytes": 171212,
+            "sha256": "6cdbfb6b348951ff2b5e6cff2d61b27e60a36bbed03d5fb1826cab658ed6bbc3"
+          },
+          "device_verified_images": 1457,
+          "started": "2026-11-11T18:51:50.993706+00:00",
+          "completed": "2026-11-11T18:52:35.450134+00:00"
+        },
+        {
+          "case": "seed-history",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed-history.txt",
+            "bytes": 1014,
+            "sha256": "d9f04c17bd98273a144a00b5ee7a95b7e61cbbce2425956d9c4bcfcd8b032548"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed-history-transfer.json",
+            "bytes": 171991,
+            "sha256": "dc4be95c05a0db9adfcd5fe0c252226f7be673227185b5ddebcfeb4739a1c9db"
+          },
+          "device_verified_images": 1464,
+          "started": "2026-11-11T18:52:35.485319+00:00",
+          "completed": "2026-11-11T18:52:55.835513+00:00"
+        },
+        {
+          "case": "pylon",
+          "raw_result": "passed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/pylon.txt",
+            "bytes": 1090,
+            "sha256": "fe6d4f2601293f6ec9db73a1694c8f4e235b35b3011edb5646dfda76ac6cd881"
+          },
+          "complete_transfer": true,
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/pylon-transfer.json",
+            "bytes": 172544,
+            "sha256": "9045d2577633fb67ed6f42868eace3ac9826ff9e30cb511b69c57cbf7e48a92b"
+          },
+          "device_verified_images": 1469,
+          "started": "2026-11-11T18:52:55.870061+00:00",
+          "completed": "2026-11-11T18:53:08.289754+00:00"
+        }
+      ],
+      "raw_pass_count": 9,
+      "complete_case_transfer_count": 9,
+      "retained_png_count": 1469,
+      "last_complete_transfer_image_count": 1469,
+      "partial_images_not_in_complete_transfer": {},
+      "native_verification": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/native-verification.json",
+        "bytes": 173122,
+        "sha256": "2e969ea4b8b302c0c7e4b298a94dca4626032d861a1f3adbab3e57384f25c4f2"
+      },
+      "completed_native_gate": true,
+      "restoration_and_seed_scope_markers": [
+        "11-11 18:52:32.539 I/System.out( 5832): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true",
+        "11-11 18:52:51.330 I/System.out( 6256): APD445_SEED_HISTORY callbacks=hero-select-set,clear,ranking-copy logical_attempts=2 raw_logs=3 deepest=12 latest_queued_selection_only=true rankings_unchanged=true",
+        "11-11 18:52:52.850 I/System.out( 6256): APD446_SEED_HISTORY unfinished_exact_seed=true total_attempts=1 finished_attempts=0 unfinished_attempts=1 observed_main_depth=9 clean_unsealed=true no_terminal_record=true rankings_unchanged=true",
+        "11-11 18:52:53.039 I/System.out( 6256): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true"
+      ],
+      "manual_visual_review_complete": false
+    }
+  },
+  "totals": {
+    "required_cases": 18,
+    "passed_raw_reports": 17,
+    "failed_test_reports": 0,
+    "not_run": 1,
+    "complete_case_transfer_receipts": 16
+  },
+  "developer_failure": {
+    "phase": "Mandatory complete screenshot manifest synchronization after the passing seed-history case",
+    "command": "adb shell cd /sdcard/Pictures/APD-Test-Visuals && sha256sum -- *.png",
+    "observed_error": "adb error: closed; subprocess.CalledProcessError; emulator listed offline; subsequent port5554 termination connection refused",
+    "raw_seed_case_duration_seconds": 17.178,
+    "last_complete_transfer_case": "search-context",
+    "missing_final_seed_image": "seed-history-unfinished-record.png",
+    "missing_remaining_case": "pylon",
+    "underlying_emulator_exit_cause": "Not established by retained logs; no OOM, game assertion or production defect is inferred."
+  },
+  "owner_review_job": "skipped",
+  "owner_artifact_exists": false,
+  "manual_review_scope": "Not performed by this mechanical receipt. Alpha can be reviewed as an independently complete variant; pair acceptance remains blocked.",
+  "png_decoding": "Hashes and manifest equality checked here. No duplicate exhaustive PNG decoding or game/test execution by this inspector.",
+  "recovery_option_for_root_review": "Retain exact built/scan/Alpha evidence and the seven complete Developer cases. Run seed-history and pylon on a fresh emulator with the same original APK and instrumentation, then require a strict composite nine-case receipt and all image hashes. No reassembly is needed.",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "workflow_retried": false,
+  "source_modified": false,
+  "remote_mutation": false,
+  "publication_or_delivery_performed": false,
+  "inspection_script": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/inspect_terminal_native.py",
+    "bytes": 8836,
+    "sha256": "7e2061f85ab493d8f82b7f40909fac142e43ae7c061c60c87d8c933026111018"
+  }
+}

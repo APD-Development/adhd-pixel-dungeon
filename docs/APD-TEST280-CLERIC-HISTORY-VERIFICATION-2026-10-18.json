@@ -1,0 +1,99 @@
+{
+  "recorded_at": "2026-10-18T14:20:06.641Z",
+  "status": "verified_private_candidate_not_published",
+  "application_source": "64beb4867feb73eb03257f6cbe1a32648e84ae10",
+  "request_commit": "6a4924376df646ab8d609696553220dbd008ca2b",
+  "run_id": 39134124945,
+  "completed_at": "2026-10-18T14:15:45Z",
+  "target": "Require a recorded outcome before counting a finished Cleric history row",
+  "core": {
+    "tests": 1832,
+    "suites": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12139377093,
+    "artifact_bytes": 853874,
+    "artifact_digest": "sha256:616dad63403a1cea8b31c091a60310d6140334e989f3143b484531bba2e82f20"
+  },
+  "android": {
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12138529673,
+    "artifact_bytes": 4897516,
+    "artifact_digest": "sha256:8eb9b4f9c0ae0b242a54789b124cf512fee35b7e7539d72d6fde318308f0df64"
+  },
+  "visuals": {
+    "required_pngs": 57,
+    "dimensions": "320x640",
+    "review": "All decoded; three contact sheets manually inspected with no blank, corrupt or obvious clipping regression."
+  },
+  "apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-280.apk",
+    "bytes": 38616605,
+    "sha256": "634d3ef1826be93ac6af73421257dae09fd2f87940c17a9f81910cde6849c410",
+    "artifact_id": 12139257314,
+    "artifact_bytes": 36118534,
+    "artifact_digest": "sha256:07dcf9e31cc8974d8c291dd6466dd60abbad4460b45dd15acdd15f6de1acfd8e"
+  },
+  "history": {
+    "previous_label": "Codex TEST 279",
+    "previous_source": "3b1f29b87d5658bdaf1b7ecc1b019a48955a49d6",
+    "previous_run": 39131918637,
+    "strict_validation_passed": true
+  },
+  "supplemental_display": {
+    "run_id": 39134124928,
+    "attempt_1": {
+      "passed": [
+        "compact-virtual",
+        "m53-representative",
+        "square-virtual"
+      ],
+      "failed": [
+        "short-landscape",
+        "small-virtual"
+      ],
+      "failure": "Native title condition did not become true; original failures retained."
+    },
+    "attempt_2": {
+      "scope": "failed jobs only against unchanged TEST280 APK",
+      "passed": [
+        "small-virtual"
+      ],
+      "failed": [
+        "short-landscape"
+      ],
+      "failure": "Short-landscape retained the native title condition failure on the single permitted retry."
+    },
+    "accepted_profiles": [
+      "compact-virtual",
+      "small-virtual",
+      "m53-representative",
+      "square-virtual"
+    ],
+    "unresolved_profiles": [
+      "short-landscape"
+    ]
+  },
+  "staging": {
+    "run_id": 39134124948,
+    "conclusion": "failure",
+    "failure": "Publication commit changes application/build inputs",
+    "staged": false
+  },
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "latest_actual_owner_publication": {
+    "test": 262,
+    "receipt": "docs/APD-TEST262-OWNER-DELIVERY-2026-10-16.json"
+  },
+  "fallbacks": [
+    "TEST279 verified private candidate",
+    "TEST262 latest owner publication"
+  ]
+}

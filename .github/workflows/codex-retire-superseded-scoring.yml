@@ -1,0 +1,52 @@
+name: Retire superseded provisional-scoring verification
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-retire-superseded-scoring.yml]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  retire-only-pinned-stale-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Retire obsolete candidate without losing produced-APK provenance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,subprocess,time
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path):
+              return json.loads(subprocess.check_output(['gh','api',f'repos/{repo}'+('/'+path if path else '')]))
+          assert api('')['private']
+          def cancel(run_id,source):
+              run=api(f'actions/runs/{run_id}')
+              assert run['head_sha']==source and run['head_branch']=='codex/apd-phone-fixes-2026-10-09'
+              if run['status']!='completed':
+                  subprocess.run(['gh','api','--method','POST',f'repos/{repo}/actions/runs/{run_id}/cancel'],check=True)
+          stale='835bf2ba6d25898e2612900d90258b7b1dcf9a6d'
+          latest='2a61c0f3b0fd70d1736e40e9b85fdaf84f9fce98'
+          cancel(38913947375,stale)
+          cancel(38913947244,stale)
+          deadline=time.monotonic()+180
+          while api('actions/runs/38913947244')['status']!='completed':
+              assert time.monotonic()<deadline,'Cancellation remains pending; do not assume provenance'
+              time.sleep(2)
+          apks=[a for a in api('actions/runs/38913947244/artifacts')['artifacts'] if a['name']=='apd-codex-private-test-apk']
+          if apks:
+              cancel(38914114000,latest)
+              cancel(38914113933,latest)
+          result={'superseded_run':38913947244,'superseded_apk_produced':bool(apks),'apk_artifacts':[a['id'] for a in apks],
+                  'corrected_run':38914113933,'corrected_run_cancelled_for_predecessor_update':bool(apks),
+                  'no_publication':True,'no_application_or_save_change':True}
+          pathlib.Path('scoring-retirement.json').write_text(json.dumps(result,indent=2))
+          print(json.dumps(result))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scoring-retirement-evidence
+          path: scoring-retirement.json
+          retention-days: 7

@@ -1,0 +1,26 @@
+{
+  "source_commit": "5362acb17a4dc34cc36c48e450564a44c04822b4",
+  "suites": 429,
+  "tests": 2279,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "apk_assembled": false,
+  "physical_phone_tested": false,
+  "workflow_run": 41516969763,
+  "job": 125522885517,
+  "artifact_id": 13176191303,
+  "artifact_sha256": "5f807ab8e70b3a2bf8cff2a55534dfb9965d9745ca7ac6a382cde09d79b81d37",
+  "xml_independently_parsed": true,
+  "new_suites": {
+    "com.shatteredpixel.shatteredpixeldungeon.apd.qol.GrassDewPickupTest": 18,
+    "com.shatteredpixel.shatteredpixeldungeon.apd.qol.RingItemEffectsTest": 18,
+    "com.shatteredpixel.shatteredpixeldungeon.apd.qol.SearchedWallSaveTest": 2,
+    "com.shatteredpixel.shatteredpixeldungeon.apd.qol.SearchedWallsTest": 9
+  },
+  "android_debug_java": "PASSED",
+  "android_release_java": "PASSED",
+  "desktop_classes": "PASSED",
+  "native_emulator_feature_acceptance": "NOT RUN",
+  "released_apk_contains_features": false
+}

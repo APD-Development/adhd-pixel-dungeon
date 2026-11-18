@@ -1,0 +1,41 @@
+name: Privately publish exact verified prepared pair without rebuilding
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-PREPARED-PAIR-DELIVERY.json]
+permissions: {contents: write, actions: read}
+concurrency: {group: apd-corrective-pair-delivery, cancel-in-progress: false}
+env:
+  APD_DELIVERY_SPEC: docs/APD-PREPARED-PAIR-DELIVERY.json
+jobs:
+  reuse-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce recorded owner APK delivery hold
+        run: python3 tools/apd_owner_delivery_policy.py
+      - name: Verify safe API denial capture
+        run: |
+          python3 -m unittest discover -s tools -p test_apd_github_response.py -v
+          python3 -m unittest discover -s tools -p test_apd_reuse_prepared.py -v
+      - name: Verify exact original prepared artifact and preserved evidence
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_reuse_prepared.py
+      - name: Recheck key-free exact source and reachable history
+        run: |
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - name: Publish with original permissions and bounded denial evidence
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_qol_publish_prepared.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-prepared-private-delivery
+          path: owner-delivery/
+          retention-days: 30

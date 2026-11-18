@@ -1,0 +1,2 @@
+Testing	V061_PAGE	Isolate UIMSD Back fixture	Enter the already-authorized UIMSD scene directly in the Android Back regression so the private build's intentional demo-unlock gate does not divert a scene-navigation test before its tour assertions.
+Changes	V061_PAGE	TEST188 failure and TEST189 handoff	Record 1,603 passing core tests, 26 of 27 passing API34 methods, the exact pre-tour fixture failure, retained 35-image evidence, and the required corrected verification request.

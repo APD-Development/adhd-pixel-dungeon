@@ -1,0 +1,348 @@
+name: Publish verified TEST254 early-alpha owner APK
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-alpha-final-owner254.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-owner-draft254
+  cancel-in-progress: false
+jobs:
+  publish-existing-private-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Resolve only successful exact-source evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          for run_id,source in [(38949555542,'832c1a5679a8cd216e8c57638f1bc0fe2442fdfe'),(38949555538,'832c1a5679a8cd216e8c57638f1bc0fe2442fdfe'),(38951417636,'668ae0dec9d9ef3f815c699b6ce76e1834a460f6'),(38956379747,'8de706972875af7cbccbef6c9a775585ec81aeb4')]:
+              run=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run_id}']))
+              assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==source
+          roster=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/38950078074/jobs']))['jobs']
+          assert any(j['name']=='reuse-and-check (34)' and j['conclusion']=='success' for j in roster)
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: staged-alpha-preview254
+          run-id: '38949555538'
+          github-token: ${{ github.token }}
+          path: delivery
+      - name: Recheck compatibility, source and payload before private publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download apd-alpha-preview-250 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-Alpha-Preview-250.apk --dir rollback
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs,certificates
+          repo=os.environ['GITHUB_REPOSITORY'];root=pathlib.Path('delivery')
+          evidence=json.loads((root/'TEST254-Verification.json').read_text())
+          source='832c1a5679a8cd216e8c57638f1bc0fe2442fdfe';expected=evidence['apk_sha256']
+          assert expected=='131d205b17a2c118abd794cf49631c21b52166cb3b4586fb2545cbbab3e53a72'
+          assert evidence['source']==source and evidence['apk_sha256']==expected
+          for name,count in [('core',1736),('android',36)]:
+              data=evidence[name];assert data['tests']==len(data['cases'])==len({(c['classname'],c['name']) for c in data['cases']})==count
+              assert data['failures']==data['errors']==data['skipped']==0
+          assert any(c['name']=='liveMultipliersMatchEveryPositionAndUpdateDuringNativeDragBeforeRelease' for c in evidence['android']['cases'])
+          trees=[]
+          for sha in (source,os.environ['GITHUB_SHA']):
+              tree=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/git/trees/{sha}?recursive=1']))
+              assert not tree.get('truncated',False);trees.append(application_inputs(tree['tree']))
+          assert trees[0]==trees[1], 'Publication wrapper changed application inputs'
+          apk=root/'ADHD-Pixel-Dungeon-CODEX-TEST-254.apk';old=pathlib.Path('rollback/ADHD-Pixel-Dungeon-Alpha-Preview-250.apk')
+          assert hashlib.sha256(apk.read_bytes()).hexdigest()==expected
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=='06531de071cbe89a5b0c3260f5c5fb6e6368fbfdf388f8f18bb0fcd983532535'
+          tools=pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools';signer=sorted(tools.glob('*/apksigner'))[-1];aapt=signer.parent/'aapt'
+          cert=[certificates(subprocess.check_output([str(signer),'verify','--print-certs',str(path)],text=True)) for path in (apk,old)]
+          assert cert[0]==cert[1]==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          package=[re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']+)'",subprocess.check_output([str(aapt),'dump','badging',str(path)],text=True)).groups() for path in (apk,old)]
+          assert package[0][0]==package[1][0]=='com.charltonchris29.adhdpixeldungeon.indev' and int(package[0][1])>=int(package[1][1])
+          assert package[0][2]=='4.0.8-apd-INDEV-bC254-TEST'
+          pdf=root/'APD-Alpha-Preview-254.pdf';assert pdf.read_bytes().startswith(b'%PDF-')
+          download=root/'ADHD-Pixel-Dungeon-Alpha-Preview-254.apk';apk.rename(download)
+          pathlib.Path(str(download)+'.sha256').write_text(expected+'  '+download.name+'\n')
+          receipt={'application_source':source,'application_build_run':38949555542,'original_primary_run_conclusion':'success','android_retest_run':38951417636,'android_retest_source':'668ae0dec9d9ef3f815c699b6ce76e1834a460f6','staging_run':38949555538,'publication_commit':os.environ['GITHUB_SHA'],'publication_application_tree_matches_source':True,'download_name':download.name,'original_internal_name':apk.name,'apk_sha256':expected,'certificate_sha256':cert[0],'package':package[0],'core_methods':1736,'main_api34_methods':36,'physical_device_tested':False,'tester_distribution_approved':False,'application_rebuilt':False}
+          (root/'APD-Preview-Delivery.json').write_text(json.dumps(receipt,indent=2))
+          notes="Private owner early-alpha test; no automatic tester distribution.\n\nSince TEST250: optional scoring-vision popup; saved daily earned-score display; narrow-screen quickslot paging and message-log spacing. All 357 multipliers, scoring formula, original scores, challenges and slider gameplay remain unchanged.\n\nVerification: 1,736 core tests, 36 Android 14 methods, six-class save/continue acceptance, and eight repeated Android 16 methods plus two targeted native checks passed. 49 primary and 22 supplemental captures were reviewed. Emulator evidence only: physical-phone install-over and full human boss playthroughs remain pending. TEST253 was rejected after screenshot review found message overlap; TEST254 corrects it. Earlier failed checks and remaining backlog are documented in the PDF.\n\nSource: "+source+". Existing signed APK reused; no publication rebuild. Install over APD; never uninstall or clear data. SHA-256: "+expected+".\n"
+          (root/'owner-release-notes.txt').write_text(notes)
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api34
+          run-id: '38950078074'
+          github-token: ${{ github.token }}
+          path: supplemental/api34
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38951417636'
+          github-token: ${{ github.token }}
+          path: supplemental/api36
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38956379747'
+          github-token: ${{ github.token }}
+          path: supplemental/native-proof
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          run-id: '38949555542'
+          github-token: ${{ github.token }}
+          path: primary-evidence/core
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          run-id: '38949555542'
+          github-token: ${{ github.token }}
+          path: primary-evidence/android
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38950078074'
+          github-token: ${{ github.token }}
+          path: supplemental/failed-first-gesture
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38952725527'
+          github-token: ${{ github.token }}
+          path: supplemental/failed-pager-repeat
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38953589679'
+          github-token: ${{ github.token }}
+          path: supplemental/failed-system-ui
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38954130127'
+          github-token: ${{ github.token }}
+          path: supplemental/failed-acknowledged-pager
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38955341493'
+          github-token: ${{ github.token }}
+          path: supplemental/failed-destroyed-preview-fixture
+      - name: Prepare current factual PDF and preserve supplemental evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,re,shutil,subprocess,zipfile
+          from pypdf import PdfReader
+          root=pathlib.Path('delivery');evidence={}
+          main=json.loads((root/'TEST254-Verification.json').read_text())
+          import sys
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import xml_summary
+          for kind,count in [('core',1736),('android',36)]:
+              original=xml_summary('primary-evidence/'+kind)
+              assert original['tests']==count
+              assert {(c['classname'],c['name']) for c in original['cases']}=={(c['classname'],c['name']) for c in main[kind]['cases']}
+          source=main['source'];expected=main['apk_sha256']
+          assert source=='832c1a5679a8cd216e8c57638f1bc0fe2442fdfe'
+          primary_cases={(c['classname'],c['name']) for c in main['android']['cases']}
+          for api,count in [(34,1),(36,8)]:
+              folder=pathlib.Path('supplemental')/('api'+str(api))
+              origin=json.loads((folder/'acceptance-source.json').read_text())
+              result=json.loads((folder/'device-acceptance-result.json').read_text())
+              assert origin['application_source']==source and origin['application_sha256']==expected
+              assert origin['protected_application_inputs_identical'] and not origin['application_rebuilt']
+              assert result['instrumented_methods']==count and result['api_level']==api
+              assert result['failures']==result['errors']==result['skipped']==0 and not result['physical_device']
+              assert len(result['images'])==(6 if api==34 else 13)
+              assert all(v==([320,640] if api==34 else [540,960]) for v in result['images'].values())
+              text=(folder/'instrumentation.txt').read_text()
+              assert re.search(r'OK \('+str(count)+r' tests?\)',text) and 'FAILURES!!!' not in text
+              if api==36:
+                  tested=set(re.findall(r'INSTRUMENTATION_STATUS: test=([^\r\n]+)',text))
+                  assert len(tested)==8 and tested<={name for _,name in primary_cases}
+              evidence['api'+str(api)]={'source':origin,'device':result}
+          folder=pathlib.Path('supplemental/native-proof')
+          visible_origin=json.loads((folder/'acceptance-source.json').read_text())
+          visible_result=json.loads((folder/'device-acceptance-result.json').read_text())
+          assert visible_origin['application_source']==source and visible_origin['application_sha256']==expected and not visible_origin['application_rebuilt']
+          assert visible_result['instrumented_methods']==2 and visible_result['failures']==visible_result['errors']==visible_result['skipped']==0 and len(visible_result['images'])==3
+          assert all(v==[540,960] for v in visible_result['images'].values())
+          assert re.search(r'OK \(2 tests\)',(folder/'instrumentation.txt').read_text())
+          evidence['native_proof']={'source':visible_origin,'device':visible_result}
+          boss=[c for c in main['core']['cases'] if c['classname'].endswith('.BossProgressionAcceptanceTest')]
+          assert len(boss)==2
+          api=lambda path:json.loads(subprocess.check_output(['gh','api',path]))
+          workflow=api('repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/38949555542')
+          supplemental=api('repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/38951417636')
+          assert workflow['conclusion']==supplemental['conclusion']=='success'
+          prepared=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          failures=[
+              {'run':38938832573,'executed':0,'cause':'Emulator disk space insufficient for Android16 userdata; setup corrected'},
+              {'run':38941029689,'executed':7,'passed':5,'failed':2,'cause':'Calendar test cleanup and narrow toolbar overlap'},
+              {'run':38942484475,'executed':0,'cause':'Diagnostic heredoc split into shell commands; runner corrected'},
+              {'run':38943230165,'executed':7,'passed':6,'failed':1,'cause':'Confirmed 2.5 logical-pixel quickslot/Inventory overlap'},
+              {'run':38943900747,'executed':36,'passed':35,'failed':1,'cause':'Test-owned empty-category modal blocked new native pager check'},
+              {'run':38946476567,'api34_executed':36,'api34_passed':31,'api34_failed':5,'api36_executed':8,'api36_passed':7,'api36_failed':1,'cause':'Per-method cold starts invalidated existing fixture initialization; live-drag acknowledgement missing'},
+              {'run':38950078074,'api36_executed':8,'api36_passed':7,'api36_failed':1,'cause':'Vertical swipe test saw unchanged scroll; fixture now waits for realized camera and actual native DOWN, preserving all gesture assertions; Android16-only rerun uses same APK'},
+              {'run':38951417636,'api36_executed':8,'api36_passed':8,'cause':'All assertions passed; later live-preview checks strengthen actual caption visibility and screenshot presentation'},
+              {'run':38954130127,'api36_executed':2,'api36_passed':1,'api36_failed':1,'cause':'Live individual and combined captions verified while held; acknowledged OS pager tap still failed with GMS ANRs present. No production root cause established.'},
+              {'run':38953589679,'api36_executed':1,'api36_passed':0,'api36_failed':1,'cause':'SystemUI ANR dialog covered APD; InputManager rejected targeted touch as directed at a non-APD window. Diagnostic screenshot and SystemUI/GMS ANR logs retained.'},
+              {'run':38952725527,'api36_executed':8,'api36_passed':7,'api36_failed':1,'cause':'Preview caption/held-pointer assertions passed; repeated native pager tap did not change page. Timing cause unconfirmed. Final fixture samples the presented camera and acknowledges actual button DOWN before release.'},
+              {'run':38948655465,'api34_passed':36,'api36_passed':8,'release_rejected':True,'cause':'Corrected native suite passed on TEST253; manual screenshot review still found raised pager covering message text. TEST254 fixes message baseline.'}]
+          failures.append({'run':38955341493,'api36_executed':2,'api36_passed':1,'api36_failed':1,'cause':'Actual pager/play/save/continue/end passed, but startup destroyed the preview test window, causing Collection.toArray NullPointerException. Final fixture now requires a new settled Title before attaching the window; no application changes.'})
+          status={'application_source':source,'application_sha256':expected,'main_core_methods':1736,'main_api34_methods':36,'main_reviewed_screenshots':49,'supplemental':evidence,'unique_android_methods':37,'android_method_executions':47,'all_test254_android_executions_including_prior_attempts':68,'all_test254_android_passed_including_prior_attempts':63,'all_test254_android_failed_including_prior_attempts':5,'supplemental_screenshots':22,'boss_matrix_methods_in_full_core':boss,'tengu_matrix_cases':1200,'dm300_matrix_cases':1200,'boss_visual_callbacks_isolated':True,'native_toolbar_matrix_cases':72,'physical_phone_verified':False,'full_human_boss_playthroughs_verified':False,'all_357_values_unchanged':True,'scoring_formula_unchanged':True,'future_class_scoring_implemented':False,'prior_unsuccessful_checks':failures,'application_workflow':{k:workflow[k] for k in ('id','head_sha','created_at','run_started_at','updated_at','conclusion')},'supplemental_workflow':{k:supplemental[k] for k in ('id','head_sha','created_at','run_started_at','updated_at','conclusion')},'report_prepared_at':prepared,'tester_distribution':False,'application_rebuilt':False}
+          (root/'APD-Final-Alpha-Status-254.json').write_text(json.dumps(status,indent=2))
+          pdf=root/'APD-Alpha-Preview-254.pdf'
+          shutil.copyfile(pdf,'supplemental/original-staged-report.pdf')
+          verification=f"TEST254 source: {source}. APK SHA-256: {expected}.\n\nComplete core suite: 1,736 unique tests, zero failures, errors or skips. Primary Android14: 36 methods, zero failures, errors or skips;49 screenshots reviewed. Supplemental Android14: one six-class save/continue method and 6 screenshots. Android16: eight repeated targeted methods and 13 screenshots. Total 37 distinct Android methods across 47 selected acceptance executions;71 captures, including the final visible-caption and pager checks. These are automated emulators, not physical phones.\n\nApplication workflow started {workflow['run_started_at']}; completed/update {workflow['updated_at']}. Supplemental workflow started {supplemental['run_started_at']}; completed/update {supplemental['updated_at']}. Report prepared {prepared}. These timestamps are not a measure of continuous developer-active time. Publication, verified download and sending the chat links are separate events recorded afterward."
+          (root/'final-verification.txt').write_text(verification)
+          report="""# APD current development report — October 16, 2026
+
+          ## Actual changes since delivered TEST250
+          TEST251 added a compact Experimental scoring information button above the Custom Dungeon Rules controls. Its native, scrollable popup explains my future vision for interacting rules, classes, subclasses, crown choices and progression without rewarding random-loot luck. The currently active provisional 357-value scoring system remains unchanged. No future dynamic or class-specific scoring was implemented.
+
+          TEST252 corrected the daily calendar's earned-score display and persistence. A reproduced real daily submission stored original 133 and earned 266, but the calendar read the old integer map and displayed 133. Additive optional long-score metadata now retains the frozen earned value while preserving original historical integer scores. The latest older daily can be recovered if its frozen score exists; unknown older adjusted scores are not invented. Large values wrap below dates.
+
+          TEST253 fixed quickslot paging on very narrow screens. Three quickslot frames, the original action controls and pager require 140 logical pixels; at 135 pixels, the original centering shifted a slot 2.5 pixels into Inventory. The pager now moves above the slots only when the row cannot fit. Although corrected native tests passed, manual screenshot review found that this raised pager covered message text, so TEST253 was rejected and never delivered as verified.
+
+          TEST254 reserves the message baseline above the raised pager, with a two-pixel logical gap. Wider layouts keep their existing baseline. Runtime toolbar layout changes also refresh the message placement. The permanent Android matrix checks both the message baseline and rendered text bounds, as well as actual pager touch interaction. No movement, combat, scoring, RNG, save format or slider mechanics changed in this HUD correction.
+
+          ## Files and systems changed
+          Production files since delivered 250: core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Rankings.java; windows/WndDailies.java; apd/difficulty/CustomRulesPresentation.java; windows/WndCustomDungeonRules.java; ui/Toolbar.java; scenes/GameScene.java; and core/src/main/assets/apd/releases/apd-alpha-preview.tsv. Paths after the first Java file are relative to the same game package.
+
+          New permanent core regressions are DailyEarnedScoreHistoryTest and BossProgressionAcceptanceTest. Android changes are in CustomRulesNoticeDeviceTest, CustomScoreDeviceTest and PlayRunDeviceTest; existing EarlyAlphaRosterDeviceTest is reused. Workflow, build-history ledger, preparation profile, report and handoff changes retain source/build evidence. Delivery-only commits do not rebuild the application.
+
+          ## Tests added and completed
+          Five permanent daily-score core methods cover submission/save/load, long scores, legacy records, latest-frozen recovery and malformed optional arrays. Two boss phase/save methods cover 1,200 Tengu and 1,200 DM-300 configurations across six class identities, five difficulties, twenty boss-HP settings and both stronger-boss states. Real phase, damage and save logic is exercised with visual callbacks isolated. These matrices do not establish that every human avoidance strategy or all five bosses were fully played.
+
+          The primary Android suite includes the scoring-vision popup and daily-calendar tests. Existing real-run coverage now exercises 72 combinations of viewport width, toolbar layout, side and page, checks overlap and message bounds, and taps the visible pager using Android touchscreen events. Gesture tests cover directional locking. All 357 slider positions are compared against shared scoring logic, with a real native drag checked before finger release.
+
+          Supplemental acceptance uses the exact same signed TEST254 APK without rebuilding it. All six classes start a generated dungeon, save and continue with locked extreme rules while next-run preferences change independently. Android16 checks all 18 controls, live previews, gesture handling, scoring explanations, daily layout, score popups, scene restoration and actual play/save/continue/end behavior. XML identities are deduplicated; repeated OS checks are not counted as new tests.
+
+          ## Failures retained honestly
+          The first Android16 attempt ran 0 tests because its userdata needed 7372.80 MB and the runner had 7036.54 MB free. Unused disposable-runner toolchains were removed. Another diagnostic ran 0 tests because a heredoc was split by the emulator action; it was replaced with a script file. These were setup failures, not passing application checks.
+
+          Later252 checks passed 5/7 and then 6/7: they exposed the narrow Inventory overlap and a calendar fixture that waited for cleanup after Back had destroyed its activity. The fixture now establishes a fresh TitleScene without changing game Back behavior.
+
+          TEST253's first primary Android run passed 35/36 because a test-created empty-hotbar message window remained over the HUD. Cleanup now closes only windows created by that setup. A per-method cold-process rerun passed 31/36 on Android14 and 7/8 on Android16; the isolated runner violated existing initialization assumptions, and the live-drag fixture needed to wait for actual pointer acknowledgement. The normal complete-suite runner with those fixture corrections passed 36/36 and 8/8 on the unchanged 253 APK. Manual image review still rejected that build for the message overlap, leading to 254. None of these rejected checks is represented as a successful254 test.
+
+          The first TEST254 Android16 run 38950078074 passed 7/8; the vertical-swipe assertion saw unchanged scroll. The fixture now samples the realized camera and waits for actual native DOWN before moving, retaining every gesture assertion. Retry 38951417636 passed 8/8 on the unchanged application. A stronger caption/presentation rerun 38952725527 passed 7/8: its live-preview checks passed, but the native pager tap did not change page. This intermittent timing result does not establish a production root cause and is not presented as a successful run.
+
+          The pager fixture now samples its presented camera after layout/capture, requires actual button DOWN and click readiness, releases immediately, then requires the real page change. No click callback or value is substituted. Run 38954130127 verified the visible live multiplier captions, but the acknowledged pager tap still failed (1/2 passing), with Google Play services ANRs logged. Resource-isolated run 38955341493 stops the unused Gradle daemon and disables only the repeatedly crashing Google Play services package on the disposable emulator. It preserves System UI and every APD touch assertion, without hiding dialogs or changing the APK. This isolates emulator background services; it is not a claim of a production input fix or physical-phone verification. That run passed real pager/play/save/continue/end, but the preview fixture accessed a destroyed startup window and failed with Collection.toArray NullPointerException (1/2 passing). Final native-proof run 38956379747 requires a fresh settled Title before attaching the preview and passes both original native methods on the unchanged APK. This is a fixture correction, not a confirmed production crash or input fix. The final gate covers visible live multipliers while touch is held and complete play/save/continue/end with pager interaction. The Enemy HP caption must be inside the actual scroll viewport; presentation is captured before release. Separate run 38953589679 failed before native preview capture: an actual System UI ANR dialog covered APD, and InputManager rejected injection as targeting another UID. Its screenshot and logs confirm ANRs in com.android.systemui and com.google.android.gms.persistent. The pager-repeat run also logs Google Play services ANRs, but that does not prove the exact pager failure cause. These are retained as failed setup/evidence, not successful previews. Across current 254 attempts there are 68 Android method executions: 63 passes and 5 failures; selected release acceptance contains 47 passing executions of 37 distinct methods. Earlier failed attempts remain separate from the latest entirely passing acceptance. Their timing cause is not claimed proven, and physical-phone behavior remains pending.
+
+          During local daily implementation, two legacy null-array cases failed and were corrected before 252. One manual source-inspection test command omitted its required source-root property; correcting that invocation restored all 17 targeted passes. Those repeated focused checks are not added to the 1,736 total.
+
+          ## Regressions, compatibility and remaining work
+          The narrow pager occupies space above quickslots; message placement is now checked against its actual position. Daily-score metadata is additive and keeps original integer scores. All 357 values, ordinary multiplication, original SPD scoring and nine challenge factors are preserved. Exact run rules remain frozen independently from editable next-run drafts.
+
+          Physical-phone install-over, the owner's active-save continuity, physical touch acceptance and full human-played class/boss strategies remain unverified. No phone is attached. This is a verified emulator-tested owner candidate, not a claim that every backlog item or all game-breaking risks are eliminated.
+
+          The broader UIMSD audit and storage research, reproduction of the owner's armor-availability experience, and upstream delayed-audio investigation remain open. Existing findings are retained; no raw history was removed and no production storage migration was performed. Historical build gaps are not declared reconstructed by these tests.
+
+          ## Source, timing and delivery
+          Application sources:251 435d945d421a2a2a7dc8bb6b3df12d5e6fce9b31;252 fa39ad824347a67624a93efbb4a3fb358c7477fe;253 6d9162f5946311728b1723a3b02d688072a8da79;254 832c1a5679a8cd216e8c57638f1bc0fe2442fdfe. The 254 primary run is 38949555542, staging 38949555538 and six-class acceptance 38950078074 and Android16 acceptance 38951417636 plus final settled native-proof 38956379747. Publication wrappers are checked for identical application inputs and reuse the signed artifact.
+
+          The earlier lunch PDF was published11:55:49EDT and the TEST250 APK12:01:23EDT. They were49 and83 seconds late respectively. This later owner delivery does not retroactively satisfy exact lunch timing. Workflow timestamps alone do not prove scheduled causation, developer-active hours or chat delivery.
+
+          Before publication, the APK signature, application ID, version and checksum are checked against delivered 250. The published APK and PDF are downloaded and rehashed afterward. Actual asset publication and download timestamps are recorded separately from this report's preparation time. Chat-link delivery occurs only when links are sent.
+
+          Install over existing APD. Never uninstall or clear app data. Existing 250 and 231 assets remain preserved. This private owner prerelease does not authorize automatic distribution to testers. No public release, paid service or unfinished online feature is enabled.
+          """
+          report='\n'.join(line[10:] if line.startswith('          ') else line for line in report.splitlines())
+          (root/'final-report.md').write_text(report)
+          subprocess.run(['python3','tools/apd_bug_report_pdf.py',str(root/'final-report.md'),str(pdf),'--verification',str(root/'final-verification.txt')],check=True)
+          reader=PdfReader(pdf);text='\n'.join(page.extract_text() for page in reader.pages)
+          assert 1<=len(reader.pages)<=12
+          for token in ('TEST254','1,736',source,'physical','357'):assert token in text,token
+          receipt=json.loads((root/'APD-Preview-Delivery.json').read_text())
+          receipt.update({'current_report_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'report_prepared_at':prepared,'roster_run':38950078074,'supplemental_run':38951417636,'native_proof_run':38956379747,'physical_device_tested':False,'screenshots_reviewed_by_agent':True})
+          (root/'APD-Preview-Delivery.json').write_text(json.dumps(receipt,indent=2))
+          with zipfile.ZipFile(root/'APD-Supplemental-Acceptance-254.zip','w',zipfile.ZIP_DEFLATED) as archive:
+              for folder in ('supplemental','primary-evidence'):
+                  for path in sorted(pathlib.Path(folder).rglob('*')):
+                      if path.is_file():archive.write(path,str(path))
+              archive.write(root/'Android-Screenshot-Checksums.sha256','primary-evidence/Android-Screenshot-Checksums.sha256')
+              for path in ['core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/BossProgressionAcceptanceTest.java','android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/EarlyAlphaRosterDeviceTest.java','android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/PlayRunDeviceTest.java','.github/workflows/codex-final-alpha-acceptance.yml']:
+                  archive.write(path,'test-source/'+path)
+          print('Current report pages:',len(reader.pages))
+          PY
+      - name: Publish the already verified private owner APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,subprocess
+          assert datetime.datetime.now(datetime.timezone.utc)>=datetime.datetime(2026,10,16,16,0,tzinfo=datetime.timezone.utc), 'No early APK publication'
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-alpha-preview-254';root=pathlib.Path('delivery')
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          names=['ADHD-Pixel-Dungeon-Alpha-Preview-254.apk','ADHD-Pixel-Dungeon-Alpha-Preview-254.apk.sha256','TEST254-Verification.json','APD-Preview-Delivery.json','APD-Verified-Source.zip','APD-Verified-Source.zip.sha256','APD-Alpha-Preview-254.pdf','APD-Final-Alpha-Status-254.json','APD-Supplemental-Acceptance-254.zip']
+          releases=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100']))
+          matches=[release for release in releases if release['tag_name']==tag]
+          assert len(matches)<=1,'Preserve unique release and assets'
+          already_published=bool(matches)
+          if not matches:
+              subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD Alpha Preview 254 — scoring explanation and reliable controls','--notes-file',str(root/'owner-release-notes.txt')]+[str(root/name) for name in names],check=True)
+              releases=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100']))
+              matches=[release for release in releases if release['tag_name']==tag]
+          assert len(matches)==1
+          release=matches[0]
+          assert release['prerelease'] and not release['draft'] and release['published_at'] is not None
+          assert release['target_commitish']=='51bdf6b18b1abb3c861ee80186f67def72e17df5', 'Release tag must point to its exact publication wrapper; artifact application source remains checked separately'
+          for name in names:
+              found=[a for a in release['assets'] if a['name']==name];assert len(found)==1
+              assert found[0]['size']>0 and found[0]['digest'].startswith('sha256:')
+              if not already_published or name in (names[0],names[1],names[2],names[4],names[5]):
+                  assert found[0]['size']==(root/name).stat().st_size
+                  assert found[0]['digest']=='sha256:'+hashlib.sha256((root/name).read_bytes()).hexdigest()
+          actual=[a for a in release['assets'] if a['name']==names[0]];assert len(actual)==1
+          expected=json.loads((root/'APD-Preview-Delivery.json').read_text())['apk_sha256']
+          assert actual[0]['digest']=='sha256:'+expected and actual[0]['size']==(root/names[0]).stat().st_size
+          target=pathlib.Path('published-download');target.mkdir(exist_ok=True)
+          subprocess.run(['gh','release','download',tag,'--repo',repo,'--pattern',names[0],'--dir',str(target)],check=True)
+          assert hashlib.sha256((target/names[0]).read_bytes()).hexdigest()==expected
+          verified_at=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          for name in ['APD-Alpha-Preview-254.pdf','APD-Preview-Delivery.json','APD-Final-Alpha-Status-254.json']:
+              subprocess.run(['gh','release','download',tag,'--repo',repo,'--pattern',name,'--dir',str(target)],check=True)
+              asset=next(a for a in release['assets'] if a['name']==name)
+              assert hashlib.sha256((target/name).read_bytes()).hexdigest()==asset['digest'].removeprefix('sha256:')
+          receipt=json.loads((target/'APD-Preview-Delivery.json').read_text())
+          assert receipt['application_source']=='832c1a5679a8cd216e8c57638f1bc0fe2442fdfe' and receipt['apk_sha256']==expected and not receipt['physical_device_tested']
+          assert hashlib.sha256((target/'APD-Alpha-Preview-254.pdf').read_bytes()).hexdigest()==receipt['current_report_sha256']
+          status=json.loads((target/'APD-Final-Alpha-Status-254.json').read_text())
+          assert status['application_source']=='832c1a5679a8cd216e8c57638f1bc0fe2442fdfe' and status['application_sha256']==expected
+          assert status['main_core_methods']==1736 and status['main_api34_methods']==36 and not status['physical_phone_verified']
+          for api,count in [('api34',1),('api36',8)]:
+              item=status['supplemental'][api]['device'];assert item['instrumented_methods']==count and item['failures']==item['errors']==item['skipped']==0
+          print('Actual published APK download verified at '+verified_at)
+          pdf=next(a for a in release['assets'] if a['name']=='APD-Alpha-Preview-254.pdf')
+          pathlib.Path('publication-result.json').write_text(json.dumps({'release_url':release['html_url'],'published_at':release['published_at'],'download_verified_at':verified_at,'draft':False,'apk_url':actual[0]['browser_download_url'],'pdf_url':pdf['browser_download_url'],'apk_sha256':expected,'application_source':'832c1a5679a8cd216e8c57638f1bc0fe2442fdfe','private_repository':True,'public_release':False,'tester_distribution':False,'application_rebuilt':False,'chat_link_sent':False},indent=2))
+          print(pathlib.Path('publication-result.json').read_text())
+          PY
+      - name: Retain publication receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-alpha-preview254-publication
+          path: |
+            publication-result.json
+            delivery/APD-Preview-Delivery.json
+            delivery/owner-release-notes.txt
+          if-no-files-found: warn
+          retention-days: 7
+
+
+

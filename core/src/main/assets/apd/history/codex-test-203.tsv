@@ -1,0 +1,4 @@
+Changes	V061_BUGFIX	Restore Cleric lore in private tests	Enable the existing 50-entry lore system and first-Cleric-run message in private builds.
+Testing	ICON_CHECKED	Protect first-run lore and collection history	Verify private activation, all 50 entries, opt-out and first-message persistence.
+Testing	ICON_CHECKED	Check Cleric popup on Android	Verify the actual popup appears, Back continues once, and the collected message does not repeat.
+Development	V061_PAGE	Retain collection guide and corrected owner decision	Document every lore collection condition and remove the superseded instruction to disable private lore.

@@ -1,0 +1,122 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Retry Alpha emulator on original378 APKs and prepare verified pair without rebuilding
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-378-RETRY-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd378-alpha-retry, cancel-in-progress: false}
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: apd378-built-pair, run-id: 42509916901, github-token: '${{ github.token }}'}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Verify actual APK without rebuilding
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > evidence/${{ matrix.variant }}-native-logcat.txt &
+            adb install -r owner-delivery/APD-${{ matrix.variant }}-378.apk
+            adb install -r evidence/instrumentation.apk
+            if test '${{ matrix.variant }}' = Developer; then echo developer > case-label.txt; else echo alpha > case-label.txt; fi
+            timeout 420 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-qol.txt
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-wall.txt
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#a_controlWritesEnabledPreference com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-seed.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-seed.txt a_controlWritesEnabledPreference
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#b_freshProcessReadsEnabledAndCanDisable com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-restart.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-restart.txt b_freshProcessReadsEnabledAndCanDisable
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#c_runtimeDiscoveryRouteAndActualTrapEffect com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-gameplay.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-gameplay.txt c_runtimeDiscoveryRouteAndActualTrapEffect
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-freeze.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-freeze.txt cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd378-native-${{ matrix.variant }}-retry
+          path: evidence/
+          retention-days: 14
+  prepare:
+    needs: native
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: apd378-built-pair, run-id: 42509916901, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {artifact-ids: 13628947277, run-id: 42509916901, github-token: '${{ github.token }}', path: evidence, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: apd378-native-Alpha-Testers-retry, path: evidence}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify exact identities, completed tests and corresponding source
+        env: {GH_TOKEN: '${{ github.token }}', APD_SOURCE_SHA: '5c225bdf7c6a181f7a4d0ee16b1edbdbae2a3e4d'}
+        run: |
+          python3 tools/apd_prepare378.py
+          python3 - <<'PY'
+          import pathlib,json,os,subprocess
+          p=pathlib.Path('owner-delivery/APD-Preview-378-Verification.json');d=json.loads(p.read_text());d['original_apk_build_run']=42509916901;d['native_developer_artifact_id']=13628947277;d['native_alpha_retry_run']=os.environ['GITHUB_RUN_ID'];d['first_alpha_attempt']='Partial native run: adb error closed during wall test; emulator TCP5554 then refused connection. Initial artifact13629825028 preserved. Original APK and instrumentation reused without rebuilding.';d['verification_harness_source']=os.environ['GITHUB_SHA'];changed=subprocess.check_output(['git','diff','--name-only',d['source_commit'],os.environ['GITHUB_SHA']],text=True).splitlines();assert not any(x.startswith(('core/src/main/','android/src/main/','android/src/androidTest/','SPD-classes/src/main/')) for x in changed);p.write_text(json.dumps(d,indent=2)+'\n')
+          with pathlib.Path('owner-delivery/release-notes.md').open('a') as f:f.write('\nPreparation retry: original Alpha emulator connection closed during the wall case; incomplete attempt preserved, not counted as passed. Same Alpha APK and instrumentation were tested again on a fresh emulator. Developer completed evidence was reused by exact artifact ID. No new game APKs or instrumentation rebuilt.\n')
+          PY
+      - name: Scan key-free source and full reachable history
+        run: |
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd378-prepared-owner-pair
+          path: owner-delivery/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd378-source-and-native-evidence
+          path: |
+            evidence/
+            core/build/test-results/test/
+            docs/APD-378-DELIVERY-SPEC.json
+          retention-days: 14

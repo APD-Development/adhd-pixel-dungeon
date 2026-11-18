@@ -1,0 +1,81 @@
+{
+  "checked_utc": "2026-10-29T20:24:06Z",
+  "status": "TEST334 requested; source core-verified, APK evidence pending",
+  "application_source": "b109930fef15afd8512aca8357eeae1585f8334b",
+  "parent_compiled_candidate": {
+    "test": 333,
+    "application_source": "07e6fbd4e7ca5d643883efdcd71d99e97ccc469d",
+    "producer_head": "3dfd3d3b51cab4794e921da579e6856d68da0758",
+    "run_id": 40941203300,
+    "developer_sha256": "fe33e93eebf752ffb41411877a9962ded10e640c0d9d17cbad6e8d85100ca87c",
+    "player_sha256": "47df127a4c9fc44e596de46ec3738f35a0bbab1e423d1038b8bd4556866e70f3",
+    "accepted": false,
+    "published": false
+  },
+  "core": {
+    "run_id": 40947969436,
+    "job_id": 123708228034,
+    "tests": 2207,
+    "suites": 423,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12929583852,
+    "artifact_digest": "sha256:f89684c013686a50d5c75b4c6ec625887c24bd21ef6154050f40f9e42985bacb",
+    "run_turn_window_methods": 6
+  },
+  "prebuild_display_reuse": {
+    "run_id": 40947969421,
+    "classification": "failed closed before emulator because application inputs changed",
+    "evidence": false
+  },
+  "required_history_paths": [
+    ".github/workflows/apd-existing333-full-native.yml",
+    ".github/workflows/apd-existing333-resource-tooltips.yml",
+    ".github/workflows/apd-owner333-delivery.yml",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/ProgressionTooltipsDeviceTest.java",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TitleMenuLayoutDeviceTest.java",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/UimsdColumnsModalDeviceTest.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/UimsdScene.java",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/UimsdWiringTest.java",
+    "docs/APD-CODEX-BUILD-REQUEST.txt",
+    "docs/APD-CODEX-CORE-TEST-REQUEST.txt",
+    "docs/APD-NEXT-BUILD-HISTORY.json",
+    "docs/APD-TEST333-STATUS-2026-10-29.json",
+    "docs/APD-TEST334-CANDIDATE-2026-10-29.json",
+    "docs/HANDOFF.md",
+    "docs/WORK-COMPLETED-LEDGER.md",
+    "tools/apd_publish_owner333.py",
+    "tools/run-exact333-full-native.sh",
+    "tools/run-resource333-tooltips.sh"
+  ],
+  "required_acceptance": {
+    "api34_methods": 66,
+    "display_profiles": 6,
+    "uimsd_openings": 2,
+    "uimsd_budget_ms": 250,
+    "exact_ready_model_identity": true,
+    "reviewed_images": true,
+    "paired_variants": true
+  },
+  "latest_published_fallback": {
+    "test": 330,
+    "published_at": "2026-10-29T16:02:45Z",
+    "developer_sha256": "3e38b1164169e404c6606d2baa6d23f61fdb4e1625bb1be53c1424ba41c20842",
+    "player_sha256": "7cb850696d46ba5fe3d0c8c7185d783615f4d9e790d0795978fc9116ff57bcdf"
+  },
+  "accepted": false,
+  "published": false,
+  "tester_distribution": false,
+  "physical_phone_verified": false,
+  "preflight_failures": [
+    {
+      "run_id": 40948584819,
+      "job_id": 123710343595,
+      "phase": "history validation before compilation",
+      "reason": "APD-NEXT-BUILD-HISTORY referenced TEST332 and omitted 12 reviewed post-TEST333 paths",
+      "apk_produced": false
+    }
+  ],
+  "retry_reason": "Executable history reconciled to immediate compiled TEST333; same source and acceptance thresholds."
+}

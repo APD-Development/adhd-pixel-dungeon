@@ -1,0 +1,154 @@
+{
+  "recorded_at": "2026-10-22T22:32:53Z",
+  "status": "verified_private_candidate_not_published",
+  "test": 309,
+  "target": "Corrected complete above-default upgrade-scroll scoring curve: count15 1.0x, count59 0.2171939182010963x, count60 0.20x",
+  "application_checkpoint": "45fa82f7836ce96cfc3d2b53bc0d63e39c7811eb",
+  "request_commit": "a2ef125b28928bf557c3f2bf3ace4e8972330172",
+  "scoring_authorities": {
+    "active": "apd-experimental-v2.6R-scroll16-60-20pct-v3",
+    "original_frozen": "apd-experimental-v2.6R-isolated-product-v1",
+    "endpoint_only_frozen": "apd-experimental-v2.6R-scroll60-20pct-v2",
+    "historical_repricing": false
+  },
+  "verification": {
+    "core_only": {
+      "run_id": 39862190948,
+      "source": "45fa82f7836ce96cfc3d2b53bc0d63e39c7811eb",
+      "core_tests": 2050,
+      "core_suites": 397,
+      "core_failures": 0,
+      "core_errors": 0,
+      "core_skipped": 0,
+      "artifact_id": 12461339710,
+      "artifact_bytes": 963980
+    },
+    "main_run": {
+      "id": 39862826219,
+      "started_at": "2026-10-22T22:09:22Z",
+      "completed_at": "2026-10-22T22:28:48Z",
+      "core_tests": 2050,
+      "core_suites": 397,
+      "core_failures": 0,
+      "core_errors": 0,
+      "core_skipped": 0,
+      "android_tests": 53,
+      "android_failures": 0,
+      "android_errors": 0,
+      "android_skipped": 0,
+      "decoded_pngs": 79,
+      "visual_review": "All 79 PNGs reviewed in four contact sheets; no blank, corrupt, or obvious clipping regression. Current-score count60 displays 0.2000x.",
+      "core_artifact": {
+        "id": 12462229320,
+        "bytes": 965885,
+        "digest": "sha256:bc75fedb62bb29be2f396b8d018f877e3a7bc3848edcea95ba212e16982b6b10"
+      },
+      "android_artifact": {
+        "id": 12462649195,
+        "bytes": 7344302,
+        "digest": "sha256:79b3bd8956ddb6ee2bf12bbbfff43e01184e3e68342c35ec9ffc4334cab98d7c"
+      }
+    },
+    "developer_apk": {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-309.apk",
+      "bytes": 38739359,
+      "sha256": "1ad6c5e492d633186848e3c0e7cdca9ec983631bc2d020b25da779f59988c91e",
+      "artifact_id": 12462971337,
+      "artifact_bytes": 36240651,
+      "artifact_digest": "sha256:3823cc2f590a3accc37137c051826579f32674ec1e0153f7af8a536d485990f0"
+    },
+    "player_apk": {
+      "name": "APD-Player-TEST309.apk",
+      "bytes": 38739186,
+      "sha256": "3226c0b80ac9bfc83ca603bdf1de0d1b6dbfbcc12d059930e932c79f1c67456a",
+      "run_id": 39862826225,
+      "artifact_id": 12462373133,
+      "artifact_bytes": 36644330,
+      "artifact_digest": "sha256:4192caa6f7abceec87db977ae74d4d0ffd013619c04daa915936e4148e052369",
+      "private_feature_asset_absent": true,
+      "separate_player_emulator_run": false
+    },
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_and_application_id_workflow_guards_passed": true,
+    "player_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "history": {
+      "previous_test": 308,
+      "previous_source": "ed6c938cf02547f6fbeb23e3f46176415d3ac100",
+      "previous_apk_sha256": "37a10eec2ee8be136d5472ed2a463b3b5592b12decd7b8171643fbb67e2d8f32",
+      "predecessor_record_files_byte_identical": 335,
+      "new_record": "codex-test-309.tsv",
+      "indexed_records": 336,
+      "history_tsv_assets_including_index": 337,
+      "developer_player_history_identical": true,
+      "strict_validation_passed": true,
+      "reviewed_meaningful_paths": 11
+    },
+    "supplemental_display": {
+      "run_id": 39862826324,
+      "run_attempt": 2,
+      "application_source_reused": "a2ef125b28928bf557c3f2bf3ace4e8972330172",
+      "profiles": [
+        "compact-virtual",
+        "small-virtual",
+        "short-landscape",
+        "square-virtual",
+        "m53-representative"
+      ],
+      "methods_per_profile": 1,
+      "failures_after_retry": 0,
+      "initial_short_landscape_failure": "Existing native title-menu restore tap assertion failed once; raw failure artifact 12462428540 retained.",
+      "retry_scope": "Only the failed short-landscape job reran on the identical commit.",
+      "retry_artifact": {
+        "id": 12461939451,
+        "bytes": 727380,
+        "digest": "sha256:2d80b518c4500d48c4713d6bdd097c3c9934fe3786f5659a5f7bb536c86235d9"
+      },
+      "short_landscape_images_reviewed": 5,
+      "short_landscape_dimensions": "960x320",
+      "application_rebuilt": false
+    },
+    "hotbar_cold_restart": {
+      "run_id": 39862826291,
+      "artifact_id": 12461919478,
+      "artifact_bytes": 881923,
+      "artifact_digest": "sha256:8a630fe8fa42624d8f0bdaa2ed329d1fbf329ffa32b96bb30d8001a1f00a5452",
+      "conclusion": "success",
+      "application_data_cleared": false,
+      "physical_phone_verified": false
+    },
+    "death_cleanup": {
+      "run_id": 39862826221,
+      "artifact_id": 12462498858,
+      "artifact_bytes": 153902,
+      "artifact_digest": "sha256:9a63f5394f7ed458752a2ee93f3c6748c510c90aa456cac34031b6f16218fbd4",
+      "before_test287_expected_failure": "death cleanup awaits the final ranking",
+      "after_corrected_apk_passed": 1,
+      "physical_phone_verified": false
+    },
+    "staging": {
+      "run_id": 39862826183,
+      "conclusion": "failure",
+      "failure": "Publication commit changes application/build inputs",
+      "staged": false
+    }
+  },
+  "latest_actual_owner_publication": {
+    "test": 262,
+    "receipt": "docs/APD-TEST262-OWNER-DELIVERY-2026-10-16.json",
+    "published_at": "2026-10-16T23:14:03Z",
+    "apk_sha256": "5ad5beb717673a51a10a646c28b887ed54a4f78f8d25ee351834a39a29ecf8d2"
+  },
+  "fallbacks": [
+    306,
+    304,
+    303,
+    262
+  ],
+  "build_request_unchanged_by_verification_commit": true,
+  "staged": false,
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "next_safe_step": "Retain TEST309 as the verified private candidate; obtain owner physical install-over confirmation when available, otherwise reconcile the branch and continue the documented UIMSD reliability backlog without rebuilding unchanged application source."
+}

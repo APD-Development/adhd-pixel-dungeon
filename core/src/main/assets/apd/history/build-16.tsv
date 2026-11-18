@@ -1,0 +1,68 @@
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Run state	Saved and restored persistent identities for items belonging to a run.
+Changes	ICON_INFO	Hero actions	Recorded acquired items and equipment changes.
+Statistics / UIMSD	ICON_BACKPACK	Apd Items	Added the game's entry points for item identity.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected the run recorder to item identities and lifecycle events.
+Statistics / UIMSD	ICON_BACKPACK	Item Facts	Added read-only facts about an Item, split into what the PLAYER can see and what is TRUE.
+Statistics / UIMSD	ICON_BACKPACK	Item Tracker	Added item identity and lifecycle tracking for one run.
+Statistics / UIMSD	ICON_STATS	Event Types	Registered the item identity and lineage event types with stable recording identifiers.
+Statistics / UIMSD	ICON_BACKPACK	Item Events	Added encoders and decoders for the item identity and lineage events of telemetry 1.2.
+Statistics / UIMSD	ICON_BACKPACK	Item History	Added item histories DERIVED from the raw log.
+Statistics / UIMSD	ICON_STATS	Self Test	Extended on-device self-checks for item identity and lineage recording.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.2.
+Changes	ICON_BACKPACK	Item lifecycle	Tracked identities through item saving, copying, splitting, merging and collection.
+Changes	ICON_BACKPACK	Class Armor	Linked class-armor transformations to the original armor.
+Changes	ICON_BACKPACK	Potion	Recorded potion identification and potion transformations.
+Changes	ICON_BACKPACK	Ring	Recorded newly revealed ring information without exposing unknown properties.
+Changes	ICON_BACKPACK	Scroll	Recorded scroll identification and transmutation lineage.
+Quality of Life	ICON_INFO	Alchemy Scene	Linked crafting ingredients to the resulting item.
+Quality of Life	ICON_BACKPACK	Trade Item	Recorded sales separately from ordinary item loss.
+Testing	ICON_BACKPACK	Item Hook Wiring Test 1	Added a test covering item Keeps Its Identity Hooks And Clears It On Copies. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Hook Wiring Test 2	Added a test covering the Game Loop And Saves Are Connected. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Hook Wiring Test 3	Added a test covering transformations Crafting And Discoveries Are Connected. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 1	Added a test covering the Start Kit Gets Unique Identities And Is Recorded As The Start Kit. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 2	Added a test covering hundreds Of Observed Items All Get Different Identities. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 3	Added a test covering identity Is Saved With The Item And Survives An App Restart. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 4	Added a test covering a Save From Before Item Identity Loads And Its Items Get Identities Without Invented History. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 5	Added a test covering a Split Piece Is A New Item Linked To Its Parent. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 6	Added a test covering merging A Piece Back Keeps The Survivors Identity And Retires The Other. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 7	Added a test covering a Duplicate Is A Different Identity And Preview Copies Never Become Items. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 8	Added a test covering identity Of Items On The Floor Survives Saving And Loading The Level. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 9	Added a test covering stacking On The Floor Is A Merge And Keeps The First Items Identity. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Identity Test 10	Added a test covering the Source Of An Acquisition Is Recorded Once Then Forgotten. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 1	Added a test covering an Unidentified Ring On The Floor Is Seen As An Unidentified Ring. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 2	Added a test covering items The Player Cannot See Are Not Seen. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 3	Added a test covering only The Top Of A Pile Is Seen Until It Is Uncovered. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 4	Added a test covering an Item Is Seen Once Not Every Turn. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 5	Added a test covering identifying A Ring Later Never Rewrites What Was Known On The Floor. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 6	Added a test covering no Public Event Leaks What The Item Truly Is. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 7	Added a test covering a Change In The True Level The Player Does Not Know Is Recorded As Internal Truth Only. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 8	Added a test covering every Equip Interval Is Kept Across Repeated Cycles. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 9	Added a test covering equipping Can Reveal A Curse And The Event Shows What Was Known Afterwards. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 10	Added a test covering a Thrown Piece Is Split Off Leaves As Thrown And Is Seen Where It Lands. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 11	Added a test covering drop Use And Sell Are Told Apart By What The Game Was Doing. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 12	Added a test covering moving An Item Into An Equipment Slot Is Not Leaving. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 13	Added a test covering class Armor Upgrade Is A Transformation Linked To The Old Armor. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 14	Added a test covering crafting Links Every Ingredient To The Product. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Lifecycle Test 15	Added a test covering two Objects Carrying One Identity Are Separated Into An Original And A Copy. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 1	Added a test covering item Events After The Loaded Save Become An Abandoned Branch That Is Kept But Normally Excluded. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 2	Added a test covering a Clean Restart Does Not Invent Equipment Intervals. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 3	Added a test covering derived Histories Are Rebuilt From The Raw Events And Always Agree. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 4	Added a test covering a Failing Recorder Never Stops Items From Working. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 5	Added a test covering a Null Or Odd Item Never Throws Out Of A Hook. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 6	Added a test covering item Tracking Never Consumes The Games Random Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Rollback And Safety Test 7	Added a test covering identities Are Generated Without The Games Generator. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Test Support	Added automated checks and fixtures for item test support. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Never Affects The Game Test	Updated automated checks and fixtures for recorder never affects the game. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test 1	Added a test covering every Item Event Round Trips. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test 2	Added a test covering the Encoder Itself Refuses To Write An Unknown Level Or Curse. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test 3	Added a test covering every Event Type Has An Explicit Visibility. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test 4	Added a test covering the Knowledge Key Changes When What The Player Knows Changes. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_BACKPACK	APD-STATS-ITEMS	Added apd-stats-items accompanying this build.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Development	ICON_INFO	APD-TITLE-SCREEN	Updated apd-title-screen accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

@@ -1,0 +1,53 @@
+{
+  "accepted_for_publication": false,
+  "published": false,
+  "automated_acceptance": true,
+  "verification": {
+    "source_commit": "cf9b41a21c6d38e47e90baf8e26bd330cbc4884e",
+    "number": 406,
+    "tag": "apd-alpha-preview-406",
+    "core_tests": 3113,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "20a98eff947c557927dfeb9105ae87333d3a8456dd55a4aea53eb69b48d3a3c9",
+      "Alpha-Testers": "b71c0ee8e1cb46f8f2fd5b20a78032f28407c82e28943aad27f113602cca65b5"
+    },
+    "source_sha256": "13d9673146121614c01ea0ac95209908e0ae003dc351ef94980f731f1d36e809",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-09T09:24:56.854107+00:00",
+    "workflow_run": "42591183228",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "independent_checks": {
+    "number": 406,
+    "source_commit": "cf9b41a21c6d38e47e90baf8e26bd330cbc4884e",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4463,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": false
+  },
+  "manual_new_buff_captures_reviewed": [
+    "evidence/Developer-visuals/qol-plain-defensive-buff-ArcaneArmor.png",
+    "evidence/Developer-visuals/qol-plain-defensive-buff-Barkskin.png",
+    "evidence/Developer-visuals/qol-plain-defensive-buff-Bless.png",
+    "evidence/Developer-visuals/qol-plain-defensive-buff-Daze.png",
+    "evidence/Developer-visuals/qol-plain-defensive-buff-Hex.png",
+    "evidence/Alpha-Testers-visuals/qol-plain-defensive-buff-ArcaneArmor.png",
+    "evidence/Alpha-Testers-visuals/qol-plain-defensive-buff-Barkskin.png",
+    "evidence/Alpha-Testers-visuals/qol-plain-defensive-buff-Bless.png",
+    "evidence/Alpha-Testers-visuals/qol-plain-defensive-buff-Daze.png",
+    "evidence/Alpha-Testers-visuals/qol-plain-defensive-buff-Hex.png"
+  ],
+  "new_buff_windows_readable": true,
+  "reason": "Identical Tenacity provider to405failed manualcontentreview on zero-value cursed ring. Corrected source has3115corepass but no correctedAPK/nativeUI verification.",
+  "latest_published": 403,
+  "original_build_run": 42591183228,
+  "stage_run": 42591256254
+}

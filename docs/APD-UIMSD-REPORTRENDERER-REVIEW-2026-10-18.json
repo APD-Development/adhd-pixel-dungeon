@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-18T03:53:31Z",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportRenderer.java",
+    "blob": "b4894f23a91fc23cc879c6a72cd900198c390bd2",
+    "lines": 332,
+    "complete": true,
+    "new_production_defect_confirmed": true
+  },
+  "defect": "CSV cells neutralized only formulas beginning at character zero; a spreadsheet that trims leading whitespace could expose tab/space-prefixed formula markers.",
+  "correction": {
+    "source_commit": "10df853e6d505ea080abaecde98c793f76397e12",
+    "test_blob": "90bb7c5d57d780eb4ca8801197c147882a3bbfb2",
+    "behavior": "scan past leading Java whitespace, neutralize =,+,-,@ only when the trimmed cell is not numeric"
+  },
+  "core_only": {
+    "run_id": 39094097064,
+    "tests": 1806,
+    "suites": 356,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12123668362,
+    "artifact_bytes": 840952,
+    "artifact_digest": "sha256:01626ac50b8d8250d3380ff1245b41460ca1340a9d8a33d7d03edaa6fad271b7"
+  },
+  "full_gate": {
+    "request_commit": "ec373bc8d52f682d12799b0b7e1d78afa83deead",
+    "run_id": 39094336421,
+    "tests": 1806,
+    "suites": 356,
+    "android_tests": 38,
+    "required_pngs": 57,
+    "apk_bytes": 38614452,
+    "apk_sha256": "a11ebf7ac40d71afaa5b1f0ea83726501e6c108931cb9a09ac9a7e0455e2b554"
+  },
+  "supplemental_display": {
+    "run_id": 39094336426,
+    "passed": [
+      "m53-representative",
+      "square-virtual"
+    ],
+    "failed": [
+      "compact-virtual",
+      "small-virtual",
+      "short-landscape"
+    ]
+  },
+  "latest_verified_private_candidate": 277,
+  "latest_published_owner_build": 262,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

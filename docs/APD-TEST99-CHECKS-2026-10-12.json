@@ -1,0 +1,13 @@
+{
+  "source": "91db176d323ae465ab04bb10d693f2696dfd51cd",
+  "run": 38343013108,
+  "core": 1265,
+  "android": 21,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "archived_screenshots": 18,
+  "required_screenshots": 20,
+  "delivered": false,
+  "limitation": "New native healing screenshots omitted by collector's fixed list; actual healing assertions executed and passed."
+}

@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Record verified TEST233 evidence	Retain the exact TEST233 targeted, core, Android, visual and APK evidence without rebuilding or publishing unchanged application source.
+Statistics	ICON_WARNING	Reject malformed run-end completion	A checksum-valid but unreadable run-end payload no longer marks a run finished or authorizes an unredacted current-run history export.

@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Record verified TEST238 evidence	Retain the exact TEST238 targeted, core, Android, visual, APK, application-ID and signature evidence without rebuilding or publishing unchanged source.
+Statistics	ICON_WARNING	Remove hidden aggregate dependencies	Turning hidden information off now removes aggregates whose value, denominator, condition or distinct-by column is hidden, preventing silent table omissions.

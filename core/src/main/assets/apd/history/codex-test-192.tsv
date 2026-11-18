@@ -1,0 +1,2 @@
+Changes	V061_PAGE	Retain TEST191 verification evidence	Carry forward reviewed TEST191 core, debug, APK-history, API34 and visual evidence.
+Changes	V061_PAGE	Bound ordinary run-log file reads	Stream normal file reads one validated frame at a time; retain random-access buffering only for explicit recovery scans.

@@ -1,0 +1,71 @@
+{
+  "recorded_utc": "2026-11-11T16:59:03.689710+00:00",
+  "status": "released isolated correction for root-reviewed Android compilation and separate native execution",
+  "fixture": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+    "sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034"
+  },
+  "patch": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/preference-capture-correction.patch",
+    "sha256": "a3941f9fb3d45d9cd1802ee77fb9f1a817ad403595db06605106e96dce8db8c9"
+  },
+  "baseline": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/BossPylonTargetingDeviceTest.baseline.java",
+    "sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+    "instrumentation_source": "fbe701cea9dbb30020fcf2f436aa2075489baf0d",
+    "instrumentation_run": 43061442841,
+    "actual_tests": 2,
+    "raw_test_failures": 0,
+    "caught_prelaunch_preference_exceptions": 2,
+    "first_run_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/supplemental-native-independent-acceptance.json",
+    "first_run_receipt_sha256": "3c3d5fcc07d0ba7d84705758d80fe9f21f2d273192a056938553c762ee06ee2b"
+  },
+  "change": [
+    "Replace pre-launch old-intro read with an initially null AtomicReference.",
+    "After the launched scene and UI camera are ready, capture on the render thread after a non-null Gdx.app assertion and a real uncaught public SPDSettings.contains(KEY_INTRO) lookup.",
+    "Restore only an actually captured value, assert that its effective value was restored, and log capture and restore.",
+    "Retain slot and selected-state cleanup in a finally even when the preference restoration assertion fails."
+  ],
+  "unchanged": [
+    "Actual Probe, actor/HP/clock assertions, five targeting stages, all five image filenames, sprite and indicator behavior.",
+    "Existing disposable game selection, normal scene startup, scene exit and actor removal behavior.",
+    "Frozen original APD444 game APKs, application code, mechanics, balance, signing and original instrumentation."
+  ],
+  "local_check": {
+    "receipt": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/receipt.json",
+    "sha256": "ac266ba04b11294248f8ca4a60017037ea6cb68dcb229880a1544e082c58d8e1",
+    "whole_fixture_java_typecheck_exit": 0,
+    "android_types_stubbed_for_typecheck": true,
+    "actual_preferences_guards": 3,
+    "guard_exit": 0,
+    "raw_result": "OK (3 tests)",
+    "guard_log": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/guards.log",
+    "guard_log_sha256": "ed6e5b21037040b344ecd1ee9766e0658d85f0f791196e46364d4d14f432aded",
+    "cases": [
+      "Persisted false survives capture, temporary opposite value, restoration and preference reload.",
+      "Default true survives capture, temporary false, restoration and preference reload.",
+      "No capture means no preference access even with Gdx.app and preference cache null."
+    ],
+    "production_source_hashes_matched": 1718,
+    "dependency_jars_matched": 9
+  },
+  "retained_first_draft": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/first-draft-private-get-rejected-before-compilation",
+    "reason": "The first isolated draft used private GameSettings.get(). This was caught by source inspection before any compilation, repository edit or CI run, then replaced with public SPDSettings.contains(KEY_INTRO)."
+  },
+  "next_native_acceptance": [
+    "Compile the corrected test APK in actual Android CI and bind its new binary hash separately.",
+    "Run the same single fixture on each unchanged original APD444 application and retain all five original captures per variant.",
+    "Require matching capture/restore preference markers and inspect absence of the previous pre-launch null-application preference exception.",
+    "Keep original first-run APK, native artifacts, logs, screenshots and disclosed limitation; do not overwrite them."
+  ],
+  "limits": [
+    "The local whole-file typecheck is not Android SDK compilation.",
+    "The three guards run real SPDSettings/GameSettings and temporary HeadlessPreferences but do not run ActivityScenario, graphical rendering or native targeting.",
+    "No corrected APK build or corrected native result is claimed yet."
+  ],
+  "mutations": {
+    "repository": false,
+    "remote": false
+  }
+}

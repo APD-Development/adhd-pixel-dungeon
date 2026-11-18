@@ -1,0 +1,7 @@
+# Custom rules alpha groundwork — October 13, 2026
+
+Local compiled configuration and allocation tests: 7 methods passed, 0 failures, 0 skips, 0.028 seconds. Immutable 18-setting schema uses provisional alpha bounds; upgrade scroll count 1–60, default15, step1. Every valid slider value survives Bundle object roundtrip; missing historical records remain unknown; malformed/future versions reject instead of substituting defaults. All60 scroll allocations sum exactly and balance five regions. Neutral planner explicitly requires unchanged vanilla generation.
+
+Not yet wired into active gameplay, settings UI, Dungeon save/load, permanent UIMSD, scoring display, or replay. Bundle-object tests are not actual saved-game tests. Allocation tests are not dungeon-generation/accessibility tests. No APK or full Android verification for this groundwork. Existing TEST112 remains delivered build. Forbidden Runes retains its existing every-second-scroll removal; selected and actual counts must be recorded separately.
+
+Scoring reports supplied separately by owner are not yet available. Do not substitute telemetry phases. Phase4 probability candidate is research only; no coefficients or earned-score changes authorized. Review actual reports before proposing numerical rewards. Keep original scores, exact run snapshot and historical unknowns. FridayOct16 private early alpha target; no automatic tester distribution.

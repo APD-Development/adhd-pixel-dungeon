@@ -1,0 +1,59 @@
+Testing	ICON_STATS	Statistics Screens Device Test	Added a device test covering every Uimsd Screen And Dialog Can Be Built. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Statistics / UIMSD	ICON_STATS	Cell Formatter	Used readable labels for item, class and disclosure values.
+Statistics / UIMSD	ICON_STATS	Dataset Def	Added readable singular and plural row labels.
+Statistics / UIMSD	ICON_STATS	Datasets	Organized view descriptions and statistics labels in player-facing sections.
+Statistics / UIMSD	ICON_STATS	Op	Added readable descriptions for every filter operator.
+Statistics / UIMSD	ICON_STAIRS	Seed Floors	Clarified incomplete reconstruction and recorded/canonical labels.
+Statistics / UIMSD	ICON_STATS	Status Text	Replaced technical status wording with concise explanations of omitted or uncertain values.
+Statistics / UIMSD	ICON_STATS	Table Geometry	Adjusted table sizing cues for the denser statistics interface.
+Statistics / UIMSD	ICON_STATS	Statistics Guide	Added Guide sections, a glossary and detailed query explanations.
+Statistics / UIMSD	ICON_STATS	Statistics Home	Added first-run guidance and an optional tour entry.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Added readable state and action messages for statistics navigation.
+Statistics / UIMSD	ICON_STATS	Statistics Tutorial	Updated the tour to match the revised native controls and wording.
+Statistics / UIMSD	ICON_STATS	View Def	Added descriptive metadata for grouped statistics navigation.
+Statistics / UIMSD	ICON_INFO	Report Builder	Used readable provenance and rules descriptions in reports.
+Statistics / UIMSD	ICON_INFO	Report Renderer	Rendered the revised player-facing report labels.
+Quality of Life	ICON_STATS	Statistics screen	Organized statistics controls, empty states and navigation in compact sections.
+Quality of Life	ICON_STATS	Statistics Home Pane	Matched Home rows and summaries to the shared statistics style.
+Quality of Life	ICON_STATS	Statistics Style	Added the look of UIMSD, in one place.
+Quality of Life	ICON_STATS	Statistics Table	Added full headings, selection cues and horizontal-column guidance.
+Quality of Life	ICON_STATS	Statistics Text	Added lays out a block of explanatory text for the UIMSD windows with a little structure, so a long explanation is easy to scan: "# Title"       a section heading (gold, with a rule) "!.
+Quality of Life	ICON_STATS	Statistics Columns	Grouped column choices with readable descriptions.
+Quality of Life	ICON_STATS	Statistics Filter	Added guided column/operator/value selection while retaining all operators.
+Quality of Life	ICON_STATS	Statistics Guide	Organized Guide choices into sections.
+Quality of Life	ICON_STATS	Statistics List	Added grouped picker rows with descriptions and current-choice markers.
+Quality of Life	ICON_STATS	Statistics Options	Organized statistics options into native menu sections.
+Quality of Life	ICON_STATS	Statistics Report	Matched report choices to the shared native menu presentation.
+Quality of Life	ICON_STATS	Statistics Row	Improved run and group sheets with compact readable rows.
+Quality of Life	ICON_STATS	Statistics Sort	Grouped sortable choices and clarified direction labels.
+Quality of Life	ICON_STATS	Statistics Status	Presented data warnings and explanations in readable sections.
+Quality of Life	ICON_STATS	Statistics Text	Used shared sizing for scrollable statistics explanations.
+Quality of Life	ICON_STATS	Statistics Topic	Matched Guide topic windows to the shared presentation.
+Testing	ICON_STATS	Aggregate First Views Test	Updated automated checks and fixtures for aggregate first views. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Report Table Test	Updated automated checks and fixtures for report table. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Table Geometry Test	Updated automated checks and fixtures for table geometry. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test	Updated automated checks and fixtures for statistics home tour. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test	Updated automated checks and fixtures for statistics model. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wording Test	Updated automated checks and fixtures for statistics wording. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test	Updated automated checks and fixtures for report. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_STATS	APD-UIMSD-UI	Added apd-uimsd-ui accompanying this build.
+Statistics / UIMSD	ICON_STATS	Recording parts	Renamed the Log segments statistics field to Recording parts.
+Statistics / UIMSD	ICON_STATS	Exotic chance %	Renamed the Exotic % statistics field to Exotic chance %.
+Statistics / UIMSD	ICON_STATS	Rules code	Renamed the Ruleset statistics field to Rules code.
+Statistics / UIMSD	ICON_STATS	Recording version	Renamed the Telemetry statistics field to Recording version.
+Statistics / UIMSD	ICON_STATS	Game build number	Renamed the Game version code statistics field to Game build number.
+Statistics / UIMSD	ICON_STATS	Healed (worked-out part)	Renamed the Healed (guessed part) statistics field to Healed (worked-out part).
+Statistics / UIMSD	ICON_STATS	All items in the run	Renamed the Items in the run (all) statistics field to All items in the run.
+Statistics / UIMSD	ICON_STATS	Level (as you knew it)	Renamed the Level (as known) statistics field to Level (as you knew it).
+Statistics / UIMSD	ICON_STATS	Generated in total	Renamed the Generated (all) statistics field to Generated in total.
+Statistics / UIMSD	ICON_STATS	Runs view	Updated the Runs statistics view.
+Statistics / UIMSD	ICON_STATS	Enemies view	Updated the Enemies statistics view.
+Statistics / UIMSD	ICON_STATS	Challenges view	Updated the Challenges statistics view.
+Statistics / UIMSD	ICON_STATS	Difficulty view	Updated the Difficulty statistics view.
+Statistics / UIMSD	ICON_STATS	Level when generated	Renamed the True level statistics field to Level when generated.
+Statistics / UIMSD	ICON_STATS	Cursed when generated	Renamed the Truly cursed statistics field to Cursed when generated.
+Statistics / UIMSD	ICON_STATS	Enchantment when generated	Renamed the Enchantment statistics field to Enchantment when generated.
+Statistics / UIMSD	ICON_STATS	All view	Added the All statistics view.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Used readable labels for item, class and disclosure values.

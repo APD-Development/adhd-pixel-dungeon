@@ -1,0 +1,3 @@
+Changes	V061_BUGFIX	Retire stale seed replay workers	Use an in-memory generation so an older replay cannot replace newer READY catalogue, navigation or notice state.
+Testing	ICON_CHECKED	Force the stale replay handoff	Block the old provider, install a newer catalogue, then release and join the worker to verify it installs and notifies nothing.
+Development	V061_PAGE	Record TEST216 evidence and exact TEST217 gate	Preserve verified TEST216 evidence and request one full gate for the bounded seed-replay lifecycle correction.

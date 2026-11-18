@@ -1,0 +1,333 @@
+{
+  "number": 432,
+  "source_commit": "a3d08081eea0b03475c9093423da60e84fc509be",
+  "original_build_run": 42862026382,
+  "accepted": true,
+  "reviewed_utc": "2026-11-10T17:39:08.116671+00:00",
+  "scope": "80 original API34 native captures: 20 talent/class contexts, Developer normal/expanded/bottom and Alpha-Testers bottom. All 16 contact sheets were actually viewed. Includes all 16 talents changed since APD430 and the three corrected singular charge/damage strings. Existing scrolling and normal/expanded controls remain; no new UI.",
+  "physical_phone_verified": false,
+  "acoustic_verified": false,
+  "whole_semantic_audit_complete": false,
+  "reviewed_images": [
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SHIELDING_DEW-normal.png",
+      "sha256": "418ae49dcf2a409bad323e49de982874fdae8627dfadf19d426f8e4f18bac957"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SEARING_LIGHT-normal.png",
+      "sha256": "40bccbf9a535efdebb5e7fb240b4df19dc18a69a84ae0894029cea7065b1d1d6"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-AGGRESSIVE_BARRIER-normal.png",
+      "sha256": "64ed75592a2b3a03635ded2d25413240407f079dc7b472faf5a7dea8db321e9a"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SWIFT_EQUIP-normal.png",
+      "sha256": "170dfa9ef5b6ea2f4a98f67510c1b898ddd78c9c18e042399c36166fa85ad160"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-VARIED_CHARGE-normal.png",
+      "sha256": "4733c1a3cd89d10e1332766a3973404c7aa6cbc4f3d8ad01c7a4058d55142642"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-WEAPON_RECHARGING-duelist-normal.png",
+      "sha256": "a4c5d35fd8320721ca30a6bb97410578d07f29380732d8f4fab497fa31bb5612"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-weapon-recharging-existing-panel-clear-normal.png",
+      "sha256": "37931f0f18a21b017f325cde218faf7a9df0d9b1bee63586b217f9718b43a1e5"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-twin-upgrades-existing-panel-clear-normal.png",
+      "sha256": "15bc194f38c4bf27367beb9260d21e4d7ae24bf690edc7797f38af18dc6c342f"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENERGIZING_MEAL-native-normal.png",
+      "sha256": "e49b838ec1dde72bb58f814bec6e10698a8658ec09674d87b949ffe9ee32acbe"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-MYSTICAL_MEAL-native-normal.png",
+      "sha256": "080eb69596972c3d37ef45b84b27e45de65b534d54a23ec73973956148781059"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-INVIGORATING_MEAL-native-normal.png",
+      "sha256": "34d49ce0a2ec031066410c2d6cc86188b002dcd877ebf2d554653ff5a56ad648"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-native-normal.png",
+      "sha256": "80fa3ed5dd02c071de23e1daffbb8c4f6f54eabbe12d525a4a1391f33dc95746"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-native-normal.png",
+      "sha256": "06a5b7f422c5baa3fec34aa7ef360fcafc26d4bf4018b5f11ca9b0e535c4cc64"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-native-normal.png",
+      "sha256": "93b5d0abe066f4f2b7b1db96e4815b3dbc5e65beddcef2babac39f7c4696cdbe"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-EMPOWERING_MEAL-native-normal.png",
+      "sha256": "108dc07e4181a5e029c7333aa344a194979e940a515568bcb915316352934be1"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-STRENGTHENING_MEAL-native-normal.png",
+      "sha256": "7f631dae361631ed1d4d160fbcc8c03ce963e6a031dc2f362f5e93b2a5204e09"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-COMBINED_LETHALITY-native-normal.png",
+      "sha256": "507349b1590cc8682d6ea495eaea60a5ae8467c73c353548e283741538e9d3f7"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-alternate-normal.png",
+      "sha256": "1025c61d358474288122ee58278169959e928bf7a06996eff3a71d7d2ee5e09e"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-alternate-normal.png",
+      "sha256": "a267487628061c6eba563a9530e1bfc17025a64dd27926702ffdc5083a1959c7"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-alternate-normal.png",
+      "sha256": "6591589137ce57fc2c87568c18a726cfa418a90ad332827001818a211dc150a1"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SHIELDING_DEW.png",
+      "sha256": "8aee8aabdce794e17a5cdd7bb803393d9bb356ca869407d11b81468b4b7ffaec"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SEARING_LIGHT.png",
+      "sha256": "b949baf7cc48b82f12e912cc0339b2fbf2abfb5ab3d891c7ff93dba47a265e91"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-AGGRESSIVE_BARRIER.png",
+      "sha256": "9315bca96209f486a0a1276cba01c6f72957df3c79922257e6e7625a1454ad35"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SWIFT_EQUIP.png",
+      "sha256": "0e7e54810206728952b0c639500c7b99e4212fe6840f200057ce59c028ddece1"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-VARIED_CHARGE.png",
+      "sha256": "e6cac4e68758d57c6bfcdc6cf8aa4e055076fba3a0e28f0ca23418d3dce1f8c1"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-WEAPON_RECHARGING-duelist.png",
+      "sha256": "d865fcbdeb6acaa98aadb36055c4a16265069984d038c38b38b8f53c9f47833c"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-weapon-recharging-existing-panel-clear.png",
+      "sha256": "582f7493b17da7a232395308230fe51de20e3943219fe051a8ade30483737bba"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-twin-upgrades-existing-panel-clear.png",
+      "sha256": "a5ed6e136987d27a25135dd7ac0e832355041bb10ca9e841d5c5f30a95f3418d"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENERGIZING_MEAL-native.png",
+      "sha256": "05da2b89715780c6d49fc7dd04fc499d3810f29a37a8dbf59abe636a6943f8f0"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-MYSTICAL_MEAL-native.png",
+      "sha256": "79ab62ba8166040308b39d4f6d1fea107cbf08ce7634a9346e0184d875e30a90"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-INVIGORATING_MEAL-native.png",
+      "sha256": "8224588cd1cf0502cf51797cd51dd8bc6cf4029137d90b99d901779c27540123"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-native.png",
+      "sha256": "41206f8354c98762fc1cf966edf34804bc589c242ce94af4c0ed4beddf1e9593"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-native.png",
+      "sha256": "649d7a207ebd5a849f8a30ad301a83473b5e24083dc2cedd67f0dd94905f668c"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-native.png",
+      "sha256": "027d7e36310a7e20def34b6c7a444b51e88a50e0bbb1b58e5c1f9543d0447627"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-EMPOWERING_MEAL-native.png",
+      "sha256": "400dbc9c0bf8893a66114badca11537872199c7ed3be81148d7379e706a8e375"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-STRENGTHENING_MEAL-native.png",
+      "sha256": "a424f16d82ea347f24cbe608f398d4e68324a63ad4dbc989b200fba1834df9f4"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-COMBINED_LETHALITY-native.png",
+      "sha256": "222d74b42b3e6bbf6526836520c3f29c15dc9285387ffea46bbd01136e7bc3d5"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-alternate.png",
+      "sha256": "709ea5dadc6da8533f96999845658758339f805bb5af676c621b82dc84fc41e2"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-alternate.png",
+      "sha256": "72f7243f325a8d03c778d7b555bb4a6a60355074eb2f7fdf120b7761ba8247ad"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-alternate.png",
+      "sha256": "542925634015e539de0ba0bbd3f55b0b77d626ffedbb00dad97f65ca32a9a993"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SHIELDING_DEW-bottom.png",
+      "sha256": "036aebeac9510b616a7392fa24671bb24525ec9d8e599c48f818c48cbc9d1228"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SEARING_LIGHT-bottom.png",
+      "sha256": "e3563f77152df1febbce5f5cdd4f8d865115ae1361d3b364b5ae1df71a3c59d4"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-AGGRESSIVE_BARRIER-bottom.png",
+      "sha256": "e365c50d21334fbe1d53f5e8ddf005fe750e90944a91b4d9f02987be97e48b02"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SWIFT_EQUIP-bottom.png",
+      "sha256": "f879afed3b7d6388d8b7fbeae5ecca7dc94ea6bb17b9c12613037046b9500db9"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-VARIED_CHARGE-bottom.png",
+      "sha256": "361c8f4d8af898417339154b671a2db51a96ce5d1acc553907ac819b803d11e0"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-WEAPON_RECHARGING-duelist-bottom.png",
+      "sha256": "d006bd4baeff9e01cae6a43eff904fe06d5b29ddbdae3f705a3e363d0da7573e"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-weapon-recharging-existing-panel-clear-bottom.png",
+      "sha256": "e8fea4d631c1d51e622c680dca1585e6bfd2d0128d0443d7fe785750f308e1a1"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-twin-upgrades-existing-panel-clear-bottom.png",
+      "sha256": "4b1d21bcec63b00e652a41fbaf25b735ee394da096f5c90330b69f76f6f00b85"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENERGIZING_MEAL-native-bottom.png",
+      "sha256": "f0e42feed1037c032a6260020068d3ad7edfdb6b2b0c26a4802e3a60bd1a953d"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-MYSTICAL_MEAL-native-bottom.png",
+      "sha256": "c1b9d7e122ef105ac34e66bf8364ef977be4b3307d9a1012030a2e1856a6b772"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-INVIGORATING_MEAL-native-bottom.png",
+      "sha256": "2905e7ccb16551a8ebdf4051c0534ab18f2b649956b3cd2cef4ed71913b70fdc"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-native-bottom.png",
+      "sha256": "91216c1fb7cd34a7910070d8368e1342ffb3dd0b3d06edbca3336c6c55083ed0"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-native-bottom.png",
+      "sha256": "649d7a207ebd5a849f8a30ad301a83473b5e24083dc2cedd67f0dd94905f668c"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-native-bottom.png",
+      "sha256": "027d7e36310a7e20def34b6c7a444b51e88a50e0bbb1b58e5c1f9543d0447627"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-EMPOWERING_MEAL-native-bottom.png",
+      "sha256": "d804a97adf57ae8b02a44a197f51729e7fbb4b49ad0d2c48cc2c93d51c41ac76"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-STRENGTHENING_MEAL-native-bottom.png",
+      "sha256": "5f3dfceb54cb97cedb3297c4c76c86d3da11fc30c5b89fed077276c1f31d147a"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-COMBINED_LETHALITY-native-bottom.png",
+      "sha256": "273af17dbd63fe83a3217ff6594d9f8a61f0404e691e942d90a0ff6a5fe36860"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-alternate-bottom.png",
+      "sha256": "dcef10777f0b758488f5a8bd22856dc403f3bc3cc8a79c7fc9f8b66941dabdfc"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-alternate-bottom.png",
+      "sha256": "d1c93e5a0c6d62c04cb6912ab62e7eec5f9eae022f2c0ca8d08ced0c4f98096b"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-alternate-bottom.png",
+      "sha256": "3ad949f933ca748ce82b5e79646977db8db7838100f6152aeffdf32ab5764d81"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-SHIELDING_DEW-bottom.png",
+      "sha256": "37aa9bfefcb4451d9af293a336100fc18f5d944a8436c805229ad9b3d0e0da81"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-SEARING_LIGHT-bottom.png",
+      "sha256": "42ce6bf7c63e4744724aa52f4f28cbb205f9528c28f1d06ec84f19c54fab1fde"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-AGGRESSIVE_BARRIER-bottom.png",
+      "sha256": "a9a6f8d04474938d6975ffbcd1617b851169b44c457e5f963b3001349b7e061d"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-SWIFT_EQUIP-bottom.png",
+      "sha256": "3c5365884ca1bd5f7136276fcfd2280c2f056e158b426066076c90c80dcc1569"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-VARIED_CHARGE-bottom.png",
+      "sha256": "4ac1c0aeac6a795f028637ff2d688059cc35d93c26cc2d94fdc6b7e6a9bddc9d"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-WEAPON_RECHARGING-duelist-bottom.png",
+      "sha256": "debc3f0a3ad190a2021d53a3a961a95d745b10d148ce3289beae61750cf84291"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-weapon-recharging-existing-panel-clear-bottom.png",
+      "sha256": "9464825ebdc4f84f7a6fb84b3b82522ed9bb0d64f1ebbc297134365196c7e6eb"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-twin-upgrades-existing-panel-clear-bottom.png",
+      "sha256": "56aa9df785f7e09a9f097ee11870875487d63545ae620bb59eac643053dc411b"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-ENERGIZING_MEAL-native-bottom.png",
+      "sha256": "0d450acd1a3f2e60568f7ad6064968cf4514ef13702017b5f59f28b2796f4127"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-MYSTICAL_MEAL-native-bottom.png",
+      "sha256": "a92b2dea267b4014324b475af14835a929c63356c7f67add7cffa892b8119668"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-INVIGORATING_MEAL-native-bottom.png",
+      "sha256": "538314dbeb62df2aefc1aee4d33088bf6682e3d582d7a4d10e9f3889f6dcf1ae"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-native-bottom.png",
+      "sha256": "afc7b1f97652f1941b4fcae361944de488617fd4ed78b32ea2f025a00aae1cce"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-native-bottom.png",
+      "sha256": "dcdaa4754165f94187aa7e4cc51b37ed61a5858fb1fc229296dc592f132595d5"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-native-bottom.png",
+      "sha256": "1484f51a8397145d4f9b08589767b48b29da03744caeb0ecd78f95b8b87f910f"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-EMPOWERING_MEAL-native-bottom.png",
+      "sha256": "c050c24d1c0a64d9b6cfd54f01b6db1398e0bb80b45ebda64105683e30d00af8"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-STRENGTHENING_MEAL-native-bottom.png",
+      "sha256": "fa8e2b807d234a9d081a77556e38c5b0492a257600877f816b4f086e2fb03ee9"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-COMBINED_LETHALITY-native-bottom.png",
+      "sha256": "ddd8b50a61a6c846a65f84f5536bb994e046ee5e583a0980d025229d81249765"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-SATIATED_SPELLS-alternate-bottom.png",
+      "sha256": "eb22c090fec2ec95e92b3f12f8a1f38451fb523adf451507d17fd118fc8ece28"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-alternate-bottom.png",
+      "sha256": "131d452b77f2f97eb92d2aaf8918e454b8b54d908a60f31dff07208730e92b2f"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-alternate-bottom.png",
+      "sha256": "dcf2df6140fc97ddbe6c4630d35feb10efac34a0794784227a32bbb0802b87ae"
+    }
+  ]
+}

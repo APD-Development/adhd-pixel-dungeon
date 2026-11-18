@@ -1,0 +1,1367 @@
+{
+  "schema": 1,
+  "number": 446,
+  "variant": "Alpha-Testers",
+  "status": "alpha_variant_manual_visual_review_passed_pair_acceptance_pending_developer_recovery",
+  "reviewer": "/root/apd_build_failure",
+  "completed_utc": "2026-11-11T19:02:25.930556+00:00",
+  "source_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "producing_tree": "b53e170363a25b9854e876cfbac99072b3a0b6c8",
+  "run_id": 43077773970,
+  "run_attempt": 1,
+  "native_job_id": 130724789308,
+  "artifact_id": 13885126623,
+  "artifact_name": "apd446-native-Alpha-Testers",
+  "archive": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers-artifact-13885126623.zip",
+    "bytes": 54416927,
+    "sha256": "41fbb9c0be6f2e689761de883785f31b7f463e34baa4c8ba7d96d970a07c45a8"
+  },
+  "transport_receipt": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/artifact-13885126623-download-verification.json",
+    "bytes": 1339,
+    "sha256": "22a762e2dfd73f5c89bf9b7ed154d90fb859e90e01a6cfc47b3e7da7cc681573"
+  },
+  "game_apk": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/owner-delivery/APD-Alpha-Testers-446.apk",
+    "bytes": 39223400,
+    "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69"
+  },
+  "instrumentation_apk": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/evidence/instrumentation.apk",
+    "bytes": 947209,
+    "sha256": "9988e7d6c26832e982dc15cee33b7b70699fc72d5d843d811cffb72ecba2ef0d"
+  },
+  "candidate_provenance": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/evidence/candidate-provenance.json",
+    "bytes": 905,
+    "sha256": "318fa66468aa05fe828965f10e0b3dad5084474dc696a471a097fe5fdab567c6"
+  },
+  "original_ci_native_receipt": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/native-verification.json",
+    "bytes": 173122,
+    "sha256": "2e969ea4b8b302c0c7e4b298a94dca4626032d861a1f3adbab3e57384f25c4f2"
+  },
+  "original_ci_manual_visual_review_complete": false,
+  "original_ci_receipt_preserved_unchanged": true,
+  "terminal_main_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/snapshot-2026-11-11T18-54-23-054Z.json",
+    "bytes": 38896,
+    "sha256": "e985fd73af3d2d86f418ca8f2bb3a0c016d472eec0ca66a95329cd123cd78b68"
+  },
+  "terminal_native_mechanical_receipt": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/terminal-native-status.json",
+    "bytes": 21935,
+    "sha256": "fb81e1829455bfedb92f4e1f1b030ada48c07947a790ca07c444d0c466d3f258"
+  },
+  "native_job_log": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/native-Alpha-Testers-job-130724789308.log",
+    "bytes": 42890,
+    "sha256": "ba7eaec9def511e2e043c1b419e4de7acd915c3b95686f6a2fbaf4369605998a"
+  },
+  "native_logcat": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/native-logcat.txt",
+    "bytes": 6827742,
+    "sha256": "da9abfa7c33f8e4dbe1ad139a6c8acfb6efbe7d43672213fbe4ab91e666da8d3"
+  },
+  "checklist": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-manual-Alpha-Testers-preparation/checklist.json",
+    "bytes": 51243,
+    "sha256": "acc6877c5b62456fa5b468dc44c215cb85d319e6fb41123b6edc1ce1565c442b"
+  },
+  "actual_observations": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-manual-Alpha-Testers-preparation/actual-original-observations.json",
+    "bytes": 16675,
+    "sha256": "eaf7c55dab99afa13b58d79860eb1baa71e75fe0ef276f68211d419c9570d43c"
+  },
+  "scope": {
+    "original_images_personally_displayed_and_reviewed": 69,
+    "affected_originals": 61,
+    "retained_controls": 8,
+    "total_native_pngs_in_verified_manifest": 1469,
+    "all_image_hashes_and_transfers_verified_by_bound_mechanical_receipt": true,
+    "pngs_decoded_by_this_receipt": 69,
+    "raw_native_cases_passed": 9,
+    "complete_case_transfers": 9,
+    "blocking_visual_defects_observed": [],
+    "alpha_visual_acceptance": true,
+    "overall_pair_acceptance": false
+  },
+  "raw_native_cases": [
+    {
+      "id": "qol",
+      "class": "QolItemFeedbackDeviceTest",
+      "method": "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+      "case": "qol",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/qol.txt",
+        "bytes": 1093,
+        "sha256": "117a20c2c6f9443a86ad5aa9e6768459e5d598ef443c67564b49c4d6ed8cf7cc"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/qol-transfer.json",
+        "bytes": 166840,
+        "sha256": "2bc6cd555bfa9692631ba6e602a1c88cfbbb7897d9470e8b880f5fc00a49ba5b"
+      },
+      "device_verified_images": 1419,
+      "started": "2026-11-11T18:33:19.565281+00:00",
+      "completed": "2026-11-11T18:50:56.399027+00:00"
+    },
+    {
+      "id": "wall",
+      "class": "WallGeometryDeviceTest",
+      "method": "observedGeometryAndRetainedMarksUseTheActualAndroidLayer",
+      "case": "wall",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/wall.txt",
+        "bytes": 1047,
+        "sha256": "915d7262a71dd4a2c8bade1dc81f0700e78844a114b7ed0c776126e86b3ab528"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/wall-transfer.json",
+        "bytes": 167415,
+        "sha256": "9939ada7aa451d14c7e8aace12e7eb60a71ee50428f090b6c8c73dd89b9acb90"
+      },
+      "device_verified_images": 1424,
+      "started": "2026-11-11T18:50:56.432496+00:00",
+      "completed": "2026-11-11T18:51:14.706190+00:00"
+    },
+    {
+      "id": "seed",
+      "class": "TrapDiscoveryDeviceTest",
+      "method": "a_controlWritesEnabledPreference",
+      "case": "seed",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed.txt",
+        "bytes": 1001,
+        "sha256": "21bd330a326b2ab3e357d201a2f125d76fc56e1a061f666893e28c5abe4f9ee1"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed-transfer.json",
+        "bytes": 167520,
+        "sha256": "e2bd3efd7dabe976a319b5bb3bc948d6f7747657fc7ab8109f0f6471a5365630"
+      },
+      "device_verified_images": 1425,
+      "started": "2026-11-11T18:51:14.741708+00:00",
+      "completed": "2026-11-11T18:51:22.081859+00:00"
+    },
+    {
+      "id": "restart",
+      "class": "TrapDiscoveryDeviceTest",
+      "method": "b_freshProcessReadsEnabledAndCanDisable",
+      "case": "restart",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/restart.txt",
+        "bytes": 1015,
+        "sha256": "dcd07fc2bc807319c1e4d911e1df7aa38eba81974ea9085ca1b4ab70021c37b3"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/restart-transfer.json",
+        "bytes": 167738,
+        "sha256": "06e530433c46986bda95cabee4de493e287b6c8fa493ceaa62463add5423e312"
+      },
+      "device_verified_images": 1427,
+      "started": "2026-11-11T18:51:22.115859+00:00",
+      "completed": "2026-11-11T18:51:31.119381+00:00"
+    },
+    {
+      "id": "gameplay",
+      "class": "TrapDiscoveryDeviceTest",
+      "method": "c_runtimeDiscoveryRouteAndActualTrapEffect",
+      "case": "gameplay",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/gameplay.txt",
+        "bytes": 1021,
+        "sha256": "cad99d5cea34e06ba12ebc9db6796494b024e98f5cce40b1f226b8bd8f3db078"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/gameplay-transfer.json",
+        "bytes": 168979,
+        "sha256": "ef2a914569ac04daeb503c8c0fa800e3af50a0b1dff2ee0f51b775455e5324e4"
+      },
+      "device_verified_images": 1437,
+      "started": "2026-11-11T18:51:31.152720+00:00",
+      "completed": "2026-11-11T18:51:46.158177+00:00"
+    },
+    {
+      "id": "freeze",
+      "class": "RemovedActorStallDeviceTest",
+      "method": "cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending",
+      "case": "freeze",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/freeze.txt",
+        "bytes": 910,
+        "sha256": "02440111312aafc9f6ff6b4aa1ab547b663344c91899c02b80bec366e2ccf96d"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/freeze-transfer.json",
+        "bytes": 168979,
+        "sha256": "ffe74b9d0ae412ffcb666a37e2049d9a10aa73473f5f3a0b4a463993cff5d01e"
+      },
+      "device_verified_images": 1437,
+      "started": "2026-11-11T18:51:46.191460+00:00",
+      "completed": "2026-11-11T18:51:50.960231+00:00"
+    },
+    {
+      "id": "search-context",
+      "class": "SearchContextDeviceTest",
+      "method": "resumeChooserUsesObservedContextAndDispatchesExplicitActions",
+      "case": "search-context",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/search-context.txt",
+        "bytes": 1057,
+        "sha256": "9a33ea359caf9a8d129a48aba7df4e57616da896bfd7741f470931b4e02b2e4d"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/search-context-transfer.json",
+        "bytes": 171212,
+        "sha256": "6cdbfb6b348951ff2b5e6cff2d61b27e60a36bbed03d5fb1826cab658ed6bbc3"
+      },
+      "device_verified_images": 1457,
+      "started": "2026-11-11T18:51:50.993706+00:00",
+      "completed": "2026-11-11T18:52:35.450134+00:00"
+    },
+    {
+      "id": "seed-history",
+      "class": "SeedHistoryDeviceTest",
+      "method": "seedEntryShowsOnlyMatchingRecordedHistory",
+      "case": "seed-history",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed-history.txt",
+        "bytes": 1014,
+        "sha256": "d9f04c17bd98273a144a00b5ee7a95b7e61cbbce2425956d9c4bcfcd8b032548"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/seed-history-transfer.json",
+        "bytes": 171991,
+        "sha256": "dc4be95c05a0db9adfcd5fe0c252226f7be673227185b5ddebcfeb4739a1c9db"
+      },
+      "device_verified_images": 1464,
+      "started": "2026-11-11T18:52:35.485319+00:00",
+      "completed": "2026-11-11T18:52:55.835513+00:00"
+    },
+    {
+      "id": "pylon",
+      "class": "BossPylonTargetingDeviceTest",
+      "method": "nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons",
+      "case": "pylon",
+      "raw_result": "passed",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/pylon.txt",
+        "bytes": 1090,
+        "sha256": "fe6d4f2601293f6ec9db73a1694c8f4e235b35b3011edb5646dfda76ac6cd881"
+      },
+      "complete_transfer": true,
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/pylon-transfer.json",
+        "bytes": 172544,
+        "sha256": "9045d2577633fb67ed6f42868eace3ac9826ff9e30cb511b69c57cbf7e48a92b"
+      },
+      "device_verified_images": 1469,
+      "started": "2026-11-11T18:52:55.870061+00:00",
+      "completed": "2026-11-11T18:53:08.289754+00:00"
+    }
+  ],
+  "trap_process_binding": {
+    "seed_pid": 4938,
+    "restart_pid": 5128,
+    "distinct": true
+  },
+  "observed_fixture_and_runtime_markers": [
+    "11-11 18:51:40.693 I/System.out( 5363): LIQUID_AGILITY_NATIVE rank=1 potion=PotionOfPurity occupied=true start=5.0 enemy_time=5.0 paid=1.0 evasion=1.0 defense=15 quantity=1 hero_hp=20 target_hp=8",
+    "11-11 18:51:41.627 I/System.out( 5363): LIQUID_AGILITY_NATIVE rank=2 potion=PotionOfPurity occupied=true start=6.0 enemy_time=6.0 paid=1.0 evasion=1.0 defense=1000000 quantity=1 hero_hp=20 target_hp=8",
+    "11-11 18:51:42.779 I/System.out( 5363): LIQUID_AGILITY_NATIVE rank=2 potion=PotionOfStrength occupied=true start=7.0 enemy_time=7.0 paid=1.0 evasion=-1.0 defense=5 quantity=1 hero_hp=20 target_hp=8",
+    "11-11 18:51:52.640 I/System.out( 5832): APD445_OWNED_FIXTURE captured intro=false original_history_files=7 owned=apd445-search-f8616243-12eb-4bf5-b535-0453ff0f1c25",
+    "11-11 18:52:32.539 I/System.out( 5832): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true",
+    "11-11 18:52:37.105 I/System.out( 6256): APD445_OWNED_FIXTURE captured intro=false original_history_files=7 owned=apd445-seed-history-0cf4c5f8-11f2-407e-bc3f-dc8b223e56e4",
+    "11-11 18:52:51.330 I/System.out( 6256): APD445_SEED_HISTORY callbacks=hero-select-set,clear,ranking-copy logical_attempts=2 raw_logs=3 deepest=12 latest_queued_selection_only=true rankings_unchanged=true",
+    "11-11 18:52:52.850 I/System.out( 6256): APD446_SEED_HISTORY unfinished_exact_seed=true total_attempts=1 finished_attempts=0 unfinished_attempts=1 observed_main_depth=9 clean_unsealed=true no_terminal_record=true rankings_unchanged=true",
+    "11-11 18:52:53.039 I/System.out( 6256): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true",
+    "11-11 18:52:57.471 I/System.out( 6629): NATIVE_PYLON_PREFERENCE stage=captured intro=false stored=true",
+    "11-11 18:53:01.948 I/System.out( 6629): NATIVE_PYLON_TARGET stage=inactive-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=false quick=DM300 melee=DM300 activeActorIsHero=true",
+    "11-11 18:53:02.965 I/System.out( 6629): NATIVE_PYLON_TARGET stage=active-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=Pylon activeActorIsHero=true",
+    "11-11 18:53:03.515 I/System.out( 6629): NATIVE_PYLON_TARGET stage=manual-rat-preserved actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Rat melee=Rat activeActorIsHero=true",
+    "11-11 18:53:04.064 I/System.out( 6629): NATIVE_PYLON_TARGET stage=ranged-pylon-melee-boss actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=DM300 activeActorIsHero=true",
+    "11-11 18:53:04.703 I/System.out( 6629): NATIVE_PYLON_TARGET stage=hidden-pylon-excluded actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=false pylonEnemy=true quick=DM300 melee=DM300 activeActorIsHero=true",
+    "11-11 18:53:05.590 I/System.out( 6629): NATIVE_PYLON_PREFERENCE stage=restored intro=false"
+  ],
+  "images": [
+    {
+      "image": "pylon-native-active-visible.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/pylon-native-active-visible.png",
+      "bytes": 32066,
+      "sha256": "820522f253eff88feaeee5b9d35e7376adf5c7201ee88f6c8ab7ed7383eb2908",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_pylon_fixture",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The active pylon is visible directly above the hero with a green selection bar. The bottom-right attack portrait shows the pylon, with the boss and rat also visible. HUD and target visuals are unobscured.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "pylon-native-hidden-excluded.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/pylon-native-hidden-excluded.png",
+      "bytes": 37064,
+      "sha256": "f24c25261be9c5ae0c6d185ab721eb4da40868db886694c590d0bc552f2d0a05",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_pylon_fixture",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "An opaque wall separates the hero from a dark hidden pylon area. The visible boss has the selection bar/markers and the bottom-right attack portrait is the boss. The pylon is not visibly selected.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "pylon-native-inactive-visible.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/pylon-native-inactive-visible.png",
+      "bytes": 32497,
+      "sha256": "10faa120f8a9484aeee592e7e2d7ecf8ee3246ff74f8d7e76f0869f8f8360531",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_pylon_fixture",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The inactive gray pylon remains visible above the hero, while the boss carries the selection bar/markers and the attack portrait is the boss.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "pylon-native-manual-rat-preserved.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/pylon-native-manual-rat-preserved.png",
+      "bytes": 32258,
+      "sha256": "1e0e194bbd78129a05ae77e7ddee46cc41738b79bced346eb003fb3765b48887",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_pylon_fixture",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The rat beside the hero has the selection bar while the active pylon remains visible. The bottom-right attack portrait shows the rat, consistent with preserving the manual target.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "pylon-native-ranged-pylon-melee-boss.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/pylon-native-ranged-pylon-melee-boss.png",
+      "bytes": 32599,
+      "sha256": "3afb6f54d8af84af19fd64e57e210dee23ca093160cb187f6d5ff62fed3926e4",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_pylon_fixture",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The active pylon is farther above the hero and has the green target bar; the adjacent boss remains represented in the bottom-right melee attack portrait. Both indicators and the controlled scene are visible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-automatic-inventory-0.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-automatic-inventory-0.png",
+      "bytes": 15564,
+      "sha256": "280ea3d36494f464a23bf65ec9bfa0f09ced1ac6003158fa5f632f81c84e3a83",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Backpack equipment, tabs and first item row are legible. Strength labels 7, 10, 12 and 14, green +3/+8 labels and the selected item's orange label are visible without overlap; the selected cell stays inside the grid.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-automatic-inventory-4.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-automatic-inventory-4.png",
+      "bytes": 15424,
+      "sha256": "ec78ab56a1a71a189b9ffce94493e6985478ee55a06e5ddcbedf69b967aa8ae7",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The alternate inventory row visibly includes red -2, green +8/+3 and strength values 10, 7, 12 and 14, with equipment and bag tabs intact. Negative/positive labels fit their cells without overlap.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-counter-ability-normal-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-counter-ability-normal-bottom.png",
+      "bytes": 39845,
+      "sha256": "0f9bcdc6aa07a2e11a69df4e7a00e88f71ffa587fed2c92a5b8015e808b7304f",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_counter_ability",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom capture keeps the full Counter Ability panel visible, including the rank-4 1.5-charge paragraph; all text and numerals remain legible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-counter-ability-normal.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-counter-ability-normal.png",
+      "bytes": 39845,
+      "sha256": "0f9bcdc6aa07a2e11a69df4e7a00e88f71ffa587fed2c92a5b8015e808b7304f",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_counter_ability",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Counter Ability +2 panel visibly includes all four rank paragraphs and 0.38, 0.75, 1.13 and 1.5 charges. The final paragraph and panel border are fully visible with no clipping.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-ARCANE_VISION-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-ARCANE_VISION-bottom.png",
+      "bytes": 33285,
+      "sha256": "e05bb8bfc67fb38c8f4bbe9c9ee0ffa3bf314077fe3cc76dc8d8d900ddb2708e",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom Arcane Vision capture includes the complete final qualification and Show calculations control without clipping or missing glyphs.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-ARCANE_VISION.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-ARCANE_VISION.png",
+      "bytes": 33285,
+      "sha256": "e05bb8bfc67fb38c8f4bbe9c9ee0ffa3bf314077fe3cc76dc8d8d900ddb2708e",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Arcane Vision +2 ordinary panel visibly states 10 and 15 turns, Transfusion targeting allies, wards hitting surviving targets, and the already-frozen Frost exception. The complete text and Show calculations button fit.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+      "bytes": 46233,
+      "sha256": "644ad8e2c2f078d0570821ccfcffd1c40deca5f89136fe9e10426ec1bbfb9b9c",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom Empowered Strike capture retains all three ranks and the complete 10-turn/refreshed-by-zap sentence. Body and Show calculations button are readable within the border.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "bytes": 46233,
+      "sha256": "644ad8e2c2f078d0570821ccfcffd1c40deca5f89136fe9e10426ec1bbfb9b9c",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Empowered Strike +3 visibly shows one sixth/about 16.7%, one third/about 33.3%, and 50% damage; supported effect powers 1.5, 2 and 2.5; whole-damage rounding and separate defenses/effect qualifiers. The 10-turn duration and refresh sentence are fully visible above Show calculations.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+      "bytes": 32483,
+      "sha256": "14ecc21ed9900f3bc2434aea4c15b0fb9836f925e5e7b1a32b1bac7fe8ccb5fd",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The complete Lingering Magic ending and button remain visible in the bottom capture with no truncated line.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-LINGERING_MAGIC.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-LINGERING_MAGIC.png",
+      "bytes": 32483,
+      "sha256": "14ecc21ed9900f3bc2434aea4c15b0fb9836f925e5e7b1a32b1bac7fe8ccb5fd",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Lingering Magic +2 visibly states 1-2 bonus damage then 2 bonus damage, a 5-turn duration and another zap refreshing it. All ordinary text and Show calculations are readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+      "bytes": 39482,
+      "sha256": "f07565635d100ffb676b48fffdf38216ce567ffba091ca53a18e8e6d387d8334",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom Liquid Agility frame includes the complete exclusion, extension and output-quantity paragraphs and the button; numerals, glyphs and final lines are intact.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-LIQUID_AGILITY.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-LIQUID_AGILITY.png",
+      "bytes": 39482,
+      "sha256": "f07565635d100ffb676b48fffdf38216ce567ffba091ca53a18e8e6d387d8334",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Liquid Agility +2 displays rank-1 3x evasion/accuracy, rank-2 infinite evasion/accuracy, next-turn and 5-turn timing, throw exclusions for drink-only potions/elixirs, Strength/experience extension and alchemy output qualifier. All paragraphs fit above Show calculations.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+      "bytes": 32748,
+      "sha256": "b717819249b82e339176c2161d0204a20f0992159f717430c8965b8e34a31cbd",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom Provoked Anger capture retains the entire additive-duration sentence and Show calculations button without clipping.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-PROVOKED_ANGER.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-PROVOKED_ANGER.png",
+      "bytes": 32748,
+      "sha256": "b717819249b82e339176c2161d0204a20f0992159f717430c8965b8e34a31cbd",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Provoked Anger +2 visibly states 3 and 5 bonus damage when shielding breaks, a 5-turn bonus and another break adding 5 turns to the remaining duration. The panel and button fit completely.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+      "bytes": 33783,
+      "sha256": "8ffdb5361c5835b0630ca30e785ebd32591ba57198bf1b51731a0dc9508aff7b",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom Speedy Stealth capture includes all three rank paragraphs and the complete final freerunning qualification without overlap.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-SPEEDY_STEALTH.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-SPEEDY_STEALTH.png",
+      "bytes": 33783,
+      "sha256": "8ffdb5361c5835b0630ca30e785ebd32591ba57198bf1b51731a0dc9508aff7b",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Speedy Stealth +3 visibly states two momentum stacks per turn up to 10 while freerunning is inactive and off cooldown, rank-2 paused countdown while invisible, and rank-3 2x speed while invisible regardless of freerunning. All three ranks are readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+      "bytes": 26956,
+      "sha256": "eccddff67ad22f7d2e8af907e7baa41be709a51b0bdea6392a7c0544c13f56b8",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom Veteran's Intuition capture retains both complete rank descriptions, including armor 2x at rank 1 and immediate equip identification at rank 2.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-ordinary-talent-VETERANS_INTUITION.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-ordinary-talent-VETERANS_INTUITION.png",
+      "bytes": 26956,
+      "sha256": "eccddff67ad22f7d2e8af907e7baa41be709a51b0bdea6392a7c0544c13f56b8",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_ordinary_talents",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Veteran's Intuition +1 visibly gives rank-1 weapons 1.75x and armor 2x faster; rank-2 weapons 2.5x and armor when equipped. Title, text and Show calculations fit with no missing glyph.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+      "bytes": 36549,
+      "sha256": "cd9cb1714509df4cbdb62081629365e0e9dce1fdc67f5864debc1afe4c8d8111",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_excess_charge",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The scrolled calculation bottom includes the complete formula paragraph, stronger existing Barrier retention, normal effective-level modifiers, no hidden level reveal and the spell retaining normal time/charges. Hide calculations remains visible and the final lines are unclipped.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+      "bytes": 42967,
+      "sha256": "be23aa1bb8ea281bec07b0442be0accd9b52fcb5c0512dad004f5e24406f9a3e",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_excess_charge",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The bottom ordinary Excess Charge view includes the complete temporary-level, rounding and non-additive stronger-Barrier qualification, with all three ranks visible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+      "bytes": 42967,
+      "sha256": "be23aa1bb8ea281bec07b0442be0accd9b52fcb5c0512dad004f5e24406f9a3e",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_excess_charge",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Excess Charge +2 ordinary view shows 0.67, 1.34 and 2.01 shielding per effective imbued-wand level; temporary bonuses, nearest-whole-shield rounding and retaining a stronger Barrier are readable. Show calculations is intact.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+      "bytes": 37532,
+      "sha256": "5927ad4a9d102368e688aacf349b03e3446ea652ab97f43c61611f1cac7f682e",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_excess_charge",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The calculation top view shows current rank 2/3, the fully charged imbued-wand condition, round(effective wand level x 0.67 x rank), and 1.34 per effective level before rounding. The long explanation continues beyond the viewport and is completed by the paired bottom image; Hide calculations is visible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-confirmed-wall.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-confirmed-wall.png",
+      "bytes": 61996,
+      "sha256": "bc419f7dbf3225bdf7223ee85b9757ca130583a0b4b86e316ad652bf1761439d",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Confirmed-wall control visibly uses Search title and Search here first; all saved wall-search choices remain. No clipping or unreadable label is visible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-crystal-choice.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-crystal-choice.png",
+      "bytes": 61805,
+      "sha256": "0b75fe99ba9b4d390c3216c71a6b0ee78f3462f726054780241c8b2e40c44e13",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "CrystalChoice fixture shows Search title and Search here first with intact retained options. Window text and controls are legible; synthetic room/chest identity is not independently visible beneath the overlay.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-crystal-vault.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-crystal-vault.png",
+      "bytes": 62060,
+      "sha256": "a4ad881f325e24153b72c3309fdced7a84b017836e6d4879016af855d35c4ffa",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "CrystalVault fixture shows Search title and Search here first with the retained options. The chooser itself is fully readable; it covers the synthetic room geometry, so room identity is established by the bound native assertion.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-explicit-movement.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-explicit-movement.png",
+      "bytes": 30689,
+      "sha256": "7f851ee2cb41a6da310a9548953eae3ac0c1078ba7aa16b64dfd9b9fa65b5df5",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The chooser is closed after explicit movement. The hero and clear floor scene are visible without the blue search effect; HUD and toolbar remain intact. Movement duration is verified by the raw native assertion, not inferred from a still.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-explicit-search.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-explicit-search.png",
+      "bytes": 35620,
+      "sha256": "8b94d95467f08de439fe428da49a6c7abea1949af6e3b82a4ddc540a3e737fa9",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The chooser is closed after explicit Search here. The hero is centered on the floor with a visible blue search pattern and Search label; HUD and toolbar remain unobscured.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-explicit-wall.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-explicit-wall.png",
+      "bytes": 48230,
+      "sha256": "60739c876428749ceb2227227e7402fe58ca2a6f889fd884c25994544696dc7b",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The chooser is closed after explicit wall search. The hero, adjacent wall and blue search effect are visible with the Search label; no stale chooser obscures the action.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-metamorph-rank1-radius.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-metamorph-rank1-radius.png",
+      "bytes": 62863,
+      "sha256": "9e061d25bd8af9c0999041a5962faea11d0ce226b81082efdf652ac898cac4e9",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Warrior acquired rank-1 radius case shows Remembered wall search / Resume wall search first. Search here and all saved/cancel alternatives remain visible; the acquisition/radius state is bound to native assertions.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-metamorph-rank1-rounded.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-metamorph-rank1-rounded.png",
+      "bytes": 61798,
+      "sha256": "d965f6ea5d1af32bcab491b3bdbdd6520643f98b1f04795d2edfb8e955a09559",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rank-1 rounded-corner exclusion shows Search / Search here first, with all saved alternatives intact. The complete body and five buttons fit.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-metamorph-rank2-square.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-metamorph-rank2-square.png",
+      "bytes": 62915,
+      "sha256": "5bc860ea455300ba31edcb66873c91fc29d7f46c9e574a3ec3c5866436c114d4",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rank-2 square coverage shows Remembered wall search / Resume wall search first. The retained options and explanatory text are fully readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-metamorph-unacquired.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-metamorph-unacquired.png",
+      "bytes": 61915,
+      "sha256": "3c70b721a99a8ec2f0275f96c942dbf52ff97cb4f63b090a566c0fab08ce706d",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Unacquired Wide Search control shows Search / Search here first, retaining saved-wall options. No label truncation or missing glyph is visible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-movement-first.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-movement-first.png",
+      "bytes": 61620,
+      "sha256": "532713b69b6ecd2edf252a276955be8561afd341ac2efb1137941326c94c0e26",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Resume title and Resume previous movement first are visible above the retained five other options. All six buttons and the Floor 2 explanation fit without clipping or overlap.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-observed-wall-first.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-observed-wall-first.png",
+      "bytes": 62975,
+      "sha256": "34c05df1e408533d4242c9ab97d4828edaf79f72f16ab410d258a471d247f7c0",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Remembered wall search title and Resume wall search first are visible, followed by Search here and the three retained saved/cancel options. Text, five buttons and border are intact.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-open-area.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-open-area.png",
+      "bytes": 61960,
+      "sha256": "456ddba53273cf662785d963ff8a7918d0cc90d84128e9662c2363a3e54dd4f5",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Search title and Search here first are visible. Resume wall search, Show saved search position, Forget this search and Cancel remain visible. Floor 2 / one completed manual search and the complete cost/danger explanation fit the chooser.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-other-floor-memory.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-other-floor-memory.png",
+      "bytes": 61705,
+      "sha256": "a3345386c55f5999ce2a63856948cea0d71e09ac20200a04021113eebd204e72",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Search title and Search here first are readable. Summary explicitly says saved search on Floor 3 while the underlying current-floor display/log shows Floor 2; all saved alternatives remain accessible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-rogue-rank0.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-rogue-rank0.png",
+      "bytes": 60148,
+      "sha256": "fd36d201e91325cbfa01943a16d2c256d2eb30a6fd7b431d36dac472b09a82fc",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rogue rank-0/base-radius control visibly gives Remembered wall search and Resume wall search first. The Rogue portrait, complete body and five options are legible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-rogue-rank1-radius.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-rogue-rank1-radius.png",
+      "bytes": 60141,
+      "sha256": "42a79140fd283bad9e03e05df1b9d1852cf5aa44bde73ec73d5192080679d85f",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rogue rank-1 radius case gives Remembered wall search and Resume wall search first. All five buttons and the saved-position explanation are readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-rogue-rank1-rounded.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-rogue-rank1-rounded.png",
+      "bytes": 59400,
+      "sha256": "3b0f3cccd4b74384994d31d84008d6afb35469ed3348ea6be5b58b1b97bdf6f4",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rogue rank-1 rounded-corner exclusion gives Search and Search here first. All saved/cancel options remain visible; no clipped text is present.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-rogue-rank2-square.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-rogue-rank2-square.png",
+      "bytes": 60209,
+      "sha256": "a139615f38ccd4f04f79d0bac444458fbbddd5ad1af38050fe24834587fdc2cd",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rogue rank-2 square case gives Remembered wall search and Resume wall search first with all retained options intact. Actual footprint differences are established by the bound native case, not the obscured map.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-rogue-unacquired-radius.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-rogue-unacquired-radius.png",
+      "bytes": 59416,
+      "sha256": "de628524bcce73b874dfd6d3a603f7855e7e7f2f1db708e0f76cc9757f185331",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Rogue unacquired outer-radius control gives Search and Search here first, retaining all saved alternatives without overlap.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "search-context-unseen-wall.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/search-context-unseen-wall.png",
+      "bytes": 61681,
+      "sha256": "30a581049bdf09df59ff7bbd2086698020b23f2c3b4bf1bf89503910f3b783fd",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "contextual_search",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Unseen-wall control visibly uses Search title and Search here first with the four retained alternatives. The complete explanation and controls are legible.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-cleared-generated-selection.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-cleared-generated-selection.png",
+      "bytes": 105972,
+      "sha256": "40eff79aaf8d75dbb10701a626aef190ee26c244b98e807889e6c1b73f344e94",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The real custom-seed field is blank with an insertion caret. Set and Clear remain visible above the on-screen keyboard. No Seed History result modal is present; the blank entry and controls are not obscured.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-entry.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-entry.png",
+      "bytes": 147997,
+      "sha256": "bf73b34c54cdd62da94757e4c2003c36bc60f366a75cfd0121f12b2398445727",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The actual Enter a Custom Seed dialog visibly contains AAB-LMG-DTJ. Set and Clear buttons, clipboard icons, explanatory text and the entry caret are legible and fully within the dialog; the field is not blank.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-latest-unknown-selection.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-latest-unknown-selection.png",
+      "bytes": 165701,
+      "sha256": "5cd63f092b1fb9be5ae5383add82281c8d911ac12c1fcb5da4e35bb9972c31ab",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Seed History shows Unknown imported seed and the complete wording that no matching recorded attempt with a known seed was found in available local history. Missing/deleted-history and unknown-creator qualifications are readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-matching-records.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-matching-records.png",
+      "bytes": 153142,
+      "sha256": "390971f5b9705ae12963051db39dca1328b72a7df8703c6fde6820c8b5f5a5fa",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Seed History visibly says Matching local history, Recorded previous attempts: 2 and Deepest recorded floor: 12. The complete imported-archives and unknown-original-creator qualification is readable without clipping.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-ranking-copy-confirm.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-ranking-copy-confirm.png",
+      "bytes": 121545,
+      "sha256": "37f0665b13aa0d10ab180d76d061e10e7394147e07768fd3d622d397ce5724e3",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The actual Copy Seed confirmation is readable over the Level 1 Warrior ranking. Use this Seed and Cancel buttons are fully visible; custom-seed ranking restrictions and version warning fit the window.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-ranking-copy-result.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-ranking-copy-result.png",
+      "bytes": 120376,
+      "sha256": "b62f917c73756e1d09cba51ce36ec2f6152cb9d5859621c264383b86e47e96e0",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Seed History overlays the ranking after Copy with Matching local history, 2 previous attempts and floor 12. Imported-archive and creator qualifications are fully visible. The ranking score 1,200 remains visible behind the notice.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "seed-history-unfinished-record.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/seed-history-unfinished-record.png",
+      "bytes": 143262,
+      "sha256": "7c12332a87ba7764919bba55e06f450aa25dc001579ef73d399f858cfa88842d",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "seed_history",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The complete unfinished notice is visible: Matching local history, Recorded previous attempts: 1, Finished attempts: 0, Unfinished attempts: 1, observed main-dungeon floors rather than final results, and Deepest recorded floor: 9. The complete imported-archive/unknown-original-creator qualification fits the viewport with no missing glyph or clipping.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-liquid-agility-excluded-strength-after.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-liquid-agility-excluded-strength-after.png",
+      "bytes": 36776,
+      "sha256": "f1c88e190cb4b67b47e5837182b3d30a7071c3d82d463bbcead03a60dfb3bd57",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_liquid_agility",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The occupied target and purple splash effect are visible; the message says the flask shatters and the liquid splashes harmlessly. Hero/HUD/target remain in frame. The exclusion's defense value comes from the bound assertion.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-liquid-agility-excluded-strength-before.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-liquid-agility-excluded-strength-before.png",
+      "bytes": 34914,
+      "sha256": "9dc1606aa4a5dd2a5999b87e8c27d5005882a2a47f391be0fcac173d6c4a7d73",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_liquid_agility",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The excluded-Strength control shows the hero and selected rat on the same readable map before throwing. Static icons are not treated as proof of the numeric exclusion.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-liquid-agility-rank1-after.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-liquid-agility-rank1-after.png",
+      "bytes": 38443,
+      "sha256": "f958a2eb9bf08931a4ac2ddd926f6cd42dac1328097448c349da470ea8642983",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_liquid_agility",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Hero and occupied rat target remain visible after the throw, with a purple buff icon under the HP bar and readable uncommon-freshness feedback. Quantitative defense and expiration are bound to native assertions, not inferred from the icon.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-liquid-agility-rank1-before.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-liquid-agility-rank1-before.png",
+      "bytes": 38980,
+      "sha256": "05a076f02514677333c788bc0300437cc50afd0a6c73d85990b8f2f0b55a00a4",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_liquid_agility",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The controlled floor, hero at left and rat at right are visible at normal scale with 20/20 HP and an intact toolbar. The capture is centered and not faded; map/target state is readable before the throw.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-liquid-agility-rank2-after.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-liquid-agility-rank2-after.png",
+      "bytes": 39720,
+      "sha256": "65c4a5597d34b213133d64762bb3f437cc2ab5f8482f0d36d1f76964d73a392f",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_liquid_agility",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The post-impact hero, rat sprite and floor are clear, with readable freshness feedback and no overlay or half-fade. Infinite-defense and expiry behavior are established by the bound native case.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-liquid-agility-rank2-before.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-liquid-agility-rank2-before.png",
+      "bytes": 38115,
+      "sha256": "d1ee9d51e84a110b6edeceb02d7fcc447fc98f0b44061153c378967100cbafc0",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_liquid_agility",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The hero and rat are visible on the same controlled map before rank-2 impact; HP remains 20/20 and the target bar/portrait are readable. Residual effect visuals alone do not quantify the next defense check.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-runtime-actual-ooze.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-runtime-actual-ooze.png",
+      "bytes": 35104,
+      "sha256": "b4314c9e4046cf1c6c356eb0b7831f0098599e1b151bb3a3f54f88c5bf413c63",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The hero is centered on the synthetic floor with green marked tiles below, 20/20 HP, visible buff icons and the readable message Caustic ooze eats your flesh. Wash it away! The scene is neither off-camera nor half-faded; damage/clock behavior remains an assertion-bound fact.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "bytes": 46898,
+      "sha256": "6d8cafa8113ee7f7262512571dbe1fd698d098ec68fdc9ed954d8ac61369c26a",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_seer_shot",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The corresponding target square is black again; the key and pale item visible in the revealed frame are no longer visible. The hero and surrounding map remain readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-seer-shot-side-branch-before.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-seer-shot-side-branch-before.png",
+      "bytes": 46685,
+      "sha256": "0751e516e2246ae559bad1216124785572d6a42550782a9b411c58ddb5b28e6c",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_seer_shot",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The hero is visible left of a square black target area; that target area has no visible floor or item detail before the shot. HUD and surrounding floor are readable.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-seer-shot-side-branch-revealed.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-seer-shot-side-branch-revealed.png",
+      "bytes": 49477,
+      "sha256": "a3334663ab985269928de4e0260785dbfbb7b724a3836eb9ad925429589be4ac",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_seer_shot",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The same target area is visibly lit as a 3-by-3 floor patch, revealing a yellow key and a pale item while the hero remains left of it. The vision icon is visible. Actual stored branch/depth identity is supplied by native assertions.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-setting-off.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-setting-off.png",
+      "bytes": 66724,
+      "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The same row is visible with an empty checkbox after disable, and the complete explanation remains readable without the earlier offscreen-row limitation.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-setting-on.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-setting-on.png",
+      "bytes": 66776,
+      "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "Continue when traps are revealed is fully visible with a filled yellow checkbox. The complete explanation distinguishing movement continuation from stepping on traps/combat/manual search fits beneath the row.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "trap-discovery-setting-restarted.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/trap-discovery-setting-restarted.png",
+      "bytes": 66776,
+      "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The same row and full explanation remain visible with the checkbox filled yellow after the fresh-process stage. The distinct process IDs are verified separately from the log.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "wall-geometry-door-no-stale-check.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/wall-geometry-door-no-stale-check.png",
+      "bytes": 34447,
+      "sha256": "beb450ce84f687a380b413c6bc7e37d46ac1ff060763765bbd297bd53a85aab5",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The wall now has a visible doorway at the hero's position; the earlier red wall-face check is absent. The doorway, hero and wall edges are clear.",
+      "status": "accepted_within_stated_visual_scope"
+    },
+    {
+      "image": "wall-geometry-valid-searched-face.png",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Alpha-Testers/visuals/wall-geometry-valid-searched-face.png",
+      "bytes": 30873,
+      "sha256": "88174c04d72185317f03bfd87d7d68da473cc49e959d890b7ab16943a125e09a",
+      "dimensions": [
+        320,
+        640
+      ],
+      "group": "retained_controls",
+      "actually_displayed_and_reviewed_original": true,
+      "review_method": "tools.view_image of this original file, emitted individually at original 320x640 dimensions; no contact-sheet substitute",
+      "observations": "The searched horizontal wall face and small red check mark above the hero are visible at the actual wall, with no floating marker elsewhere.",
+      "status": "accepted_within_stated_visual_scope"
+    }
+  ],
+  "limits": [
+    "Only the 69 named original Alpha images were visually reviewed; the remaining manifest images were not personally viewed here.",
+    "Long Excess Charge calculation text is assessed across the top and bottom viewport pair; one frame alone does not show the whole paragraph.",
+    "Chooser overlays obscure synthetic room geometry; actual class/rank/radius/room identity, no automatic action and explicit action timing come from the pinned passing native case.",
+    "Synthetic controlled crystal rooms, acquired-talent metadata and pylon/boss/rat state are not natural encounter generation, consumed-scroll or balance acceptance.",
+    "The unfinished-history fixture is a clean unsealed log with start and floor entries but no terminal record; it does not simulate a live crash or damaged tail.",
+    "Seed entry uses actual TextInput assignment and actual control submission. Latest queued replacement is covered, not completion of an already-running obsolete lookup. Original creator and physical keyboard behavior are not established.",
+    "Static Liquid Agility icons do not establish numeric defense or next-turn expiry; raw native assertions and markers establish those mechanics.",
+    "No physical phone, audio, install-over, new scoring or overall pair acceptance is claimed.",
+    "The original Developer seed test passed but its screenshot synchronization failed and pylon was not reached. Its original archive, logs and partial captures remain preserved; separate recovery is required."
+  ],
+  "preserved_original_developer_archive": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer-artifact-13884437545.zip",
+    "bytes": 53797333,
+    "sha256": "230b565e0193b9aca9638abf713a9e69ae5a19ad9a2ecf915a70e4167689d334"
+  },
+  "application_or_instrumentation_rebuilt": false,
+  "workflow_retried": false,
+  "source_modified": false,
+  "remote_mutation": false,
+  "published_or_delivered": false,
+  "binding_script": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-manual-Alpha-Testers-preparation/complete_alpha_manual_review.py",
+    "bytes": 10550,
+    "sha256": "992d5e17cf02eafb308ca1f5eb39f487908f112340a1786a6d0fabece1ac8794"
+  }
+}

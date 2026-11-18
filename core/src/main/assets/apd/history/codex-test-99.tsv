@@ -1,0 +1,7 @@
+Quality of Life	ITEM_POTION_HOLDER	Healing confirmation	Identified Healing potions can require confirmation at a saved HP threshold from 0% to 100%; the default remains one-tap use.
+Interface	ITEM_POTION_HOLDER	Healing preference controls	APD Settings offers a native percentage slider with explicit Save and Cancel, plus an Off option.
+Performance	ICON_DATA	Compressed-statistics memory	Decoding statistics series reuses its step buffer instead of allocating a second array for every column.
+Testing	ICON_CHECKED	Healing regression coverage	Tested every percentage boundary, unidentified bypass and persistence, with real Android cancellation, consumption and settings controls.
+Testing	ICON_CHECKED	Statistics series coverage	Added signed-long extremes and delta-overflow roundtrips and recorded an actual decoder allocation comparison.
+Development	ICON_INFO	Build evidence	Recorded TEST97's successful verification and delivery, this batch's checks and its remaining limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I added optional healing confirmation without changing healing effects or normal drinking costs. I also reduced temporary memory use when reading compressed statistics.

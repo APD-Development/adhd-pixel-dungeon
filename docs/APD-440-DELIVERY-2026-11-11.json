@@ -1,0 +1,103 @@
+{
+  "number": 440,
+  "source_commit": "293b5a0d5fed957c1d953b301fadf576a766611b",
+  "original_run": 42940060890,
+  "artifact_id": 13819919599,
+  "artifact_sha256": "5f8f72f597c75368d377315b054e75d29593b67e1d44d9bfaeae2ea7c230f06f",
+  "core": {
+    "tests": 3180,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 461,
+  "variants": {
+    "Developer": {
+      "sha256": "98655a8ca11f3477f8566bf86e63238aa5d4abc2bc0460002489ca716dc36315",
+      "bytes": 39203482,
+      "version_name": "4.0.8-apd-INDEV-bC440-TEST"
+    },
+    "Alpha-Testers": {
+      "sha256": "e3af4d88e13360d263487c33f38fce941f60f1c356c579d4570887b945f90dad",
+      "bytes": 39203454,
+      "version_name": "4.0.8-apd-INDEV-bP440"
+    }
+  },
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "instrumentation_sha256": "e94c9e88ff655e5fb5a8db2bf7b3623f3514b591fdf8f27ccd6d7d71c4f5fd07",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "published": false,
+  "native_recovery_complete": true,
+  "android_tests": 12,
+  "manual_visual_review_complete": true,
+  "source_archive_sha256": "c934cc74b8d6d4c995442e3ae86a7f16c72737d153b03407bfc86d7702a4f571",
+  "physical_phone_verified": false,
+  "recovery_run": "43024704967",
+  "recovery_commit": "bbb24627d7717b7fd0869c3a1e8b524d9ad856c3",
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_recorded_utc": "2026-11-11T13:21:57.175245+00:00",
+  "github_release_published": false,
+  "manual_review_scope": "Both variants: explicitly listed original-size wall/trap/inventory/equipment captures; Alpha also88 contact-sheet samples. All1408images pervariant decoded and hashed.",
+  "manual_review_limits": [
+    "No physical-phone or acoustic testing",
+    "No targeted native DM300/pylon capture",
+    "Original restarted/off trap checkbox is offscreen; assertions and distinct PIDs support persistence"
+  ],
+  "saved_download_readback_sha256_verified": true,
+  "source_scan_run": 43024384931,
+  "source_scan_commit": "f552403050a03bccf0a1a2864f53dc57b22bd08a",
+  "source_scan_success": true,
+  "source_scan_artifact": {
+    "id": 13856472219,
+    "sha256": "2837620bd47f7f36bd678593089996447988fe2c3fe8fb0bcd2dbf41955a3916"
+  },
+  "owner_review_artifact": {
+    "id": 13857468783,
+    "sha256": "2e9cd017ff207406eaf2ad496a1c9f167b0583a156567bbb4818b5b6155c0946"
+  },
+  "corrective_run": 43024704967,
+  "corrective_source": "bbb24627d7717b7fd0869c3a1e8b524d9ad856c3",
+  "preserved_failed_recovery": 43021022953,
+  "native_artifacts": {
+    "Developer": {
+      "id": 13855504101,
+      "sha256": "53b9fec06a13d065727d5db26ba70fffe39974beae566b504e92603ff546bc8d"
+    },
+    "Alpha-Testers": {
+      "id": 13858455647,
+      "sha256": "44f7668581dfbbd3addd832901a99eadeb5a30b96087b9790525613dd23e505a"
+    }
+  },
+  "manual_review_receipts": {
+    "APD440-Alpha-Corrected-Manual-Visual-Review.json": "8a3ff1f586ac20fd1db2f8694385a537e1a726f6eff8d948f42763dcab1bc849",
+    "root-manual-review.json": "3ecbcf8b8196d1068bf7e151fa5effc8cbae6d76f57381d0a09eff62e7be3b01"
+  },
+  "readback_hashes": {
+    "APD-Developer-440.apk": "98655a8ca11f3477f8566bf86e63238aa5d4abc2bc0460002489ca716dc36315",
+    "APD-Alpha-Testers-440.apk": "e3af4d88e13360d263487c33f38fce941f60f1c356c579d4570887b945f90dad",
+    "APD-Source-440.zip": "c934cc74b8d6d4c995442e3ae86a7f16c72737d153b03407bfc86d7702a4f571"
+  },
+  "files": [
+    {
+      "file_id": "file_00000000d28c822f80afcfa2e82b3479",
+      "library_file_id": "libfile_fde3_f-43201e517a548191b500967903644783_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Developer-440.apk",
+      "sha256": "98655a8ca11f3477f8566bf86e63238aa5d4abc2bc0460002489ca716dc36315"
+    },
+    {
+      "file_id": "file_000000008cb0822fb748ba45bc9b8305",
+      "library_file_id": "libfile_fde3_f-59ff57b6fb64819196c102c81bf27450_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Alpha-Testers-440.apk",
+      "sha256": "e3af4d88e13360d263487c33f38fce941f60f1c356c579d4570887b945f90dad"
+    },
+    {
+      "file_id": "file_00000000a514822fbbdf6ced9c12dedd",
+      "library_file_id": "libfile_fde3_f-be5872ddd5cc8191bbe09f44d3e36433_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Source-440.zip",
+      "sha256": "c934cc74b8d6d4c995442e3ae86a7f16c72737d153b03407bfc86d7702a4f571"
+    }
+  ]
+}

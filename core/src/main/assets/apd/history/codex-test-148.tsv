@@ -1,0 +1,7 @@
+Changes	V061_BUGFIX	Elemental	Keep the elemental or its recorded summoner as the source of newborn fire fields.
+Changes	V061_BUGFIX	YogFist	Treat Burning Fist fire fields as boss-attributed effects.
+Changes	V061_BUGFIX	MonsterFireCallerTest	Exercise elemental fields, summon creators, unknown-friendly exclusion and restored boss fire.
+Changes	V061_BUGFIX	APD-TEST148-MONSTER-FIRE-2026-10-14	Record actual monster-fire checks and remaining acceptance.
+Changes	V061_BUGFIX	HANDOFF	Preserve the monster-fire continuation checkpoint.
+Changes	V061_BUGFIX	APD-CODEX-BUILD-REQUEST	Require full current-source and Android verification before acceptance.
+Changes	V061_BUGFIX	APD-NEXT-BUILD-HISTORY	Review the changes against the preceding produced APK.

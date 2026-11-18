@@ -1,0 +1,1 @@
+Bug Fixes	ICON_CHECKED	Memory stability and searched-wall edges	Gameplay releases unused statistics tables and stops unfinished menu preloads. Searched-wall checks follow visible wall faces and edges, including lower boundaries. Saved history, search timing and gameplay values are preserved.

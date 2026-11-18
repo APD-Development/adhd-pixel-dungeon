@@ -1,0 +1,9 @@
+# UIMSD phase memory observations — source follow-up
+
+The physical365 diagnostic has a process heap cap and failure-time readings, but no per-phase allocation trace or heap dump. It proves heap exhaustion while UIMSD was loading; it cannot assign retained-byte proportions to a particular model or decoder.
+
+The existing bounded local diagnostic trace now has a `memory.sample` event with the phase, timestamp, used bytes, committed bytes and heap-limit bytes. UIMSD records it before opening, after retiring the previous viewer, on model-state notification, and after releasing statistics for gameplay. These are current heap observations, not per-phase allocations or proof that released objects have already been garbage-collected. No forced garbage collection, history reads, identifier collection or new periodic polling was added.
+
+The same 128-event/14,000-character trace bounds and 65,536-byte persisted-session cap apply. Sampling allocation failures are caught so diagnostic capture does not replace an original failure. The two new tests verify actual timestamped byte-valued samples survive persistence/export and that 1,000 samples retain only the bounded recent tail.
+
+Targeted diagnostic/model/warm-cache tests passed. Full current-source local regressions passed2,854 tests across446 suites, with raw XML archived at `/workspace/apd-uimsd-phase-local-junit.zip`. Full required Android debug/release/instrumentation Java and desktop compilation passed on source035cf42ea, run42274945480/job128088751938. Artifact13531339728 was downloaded, SHA256 checked and all446 raw XML suites verified (2,854 tests; zero failures/errors/skips). No APK assembly. This is newer source only, absent from APK368; no fourth APK pair is authorized today. Native/physical-phone acceptance of these new phase events has not been run. Existing368 memory-ownership fixes and its completed emulator results are separate evidence.

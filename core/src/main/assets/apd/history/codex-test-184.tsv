@@ -1,0 +1,1 @@
+Changes	V061_PAGE	Reliable native empty Home regression	Render the empty-history Home with a controlled in-memory model so prior API34 fixtures cannot invalidate its wording and screenshot check; restore the original history cache afterward.

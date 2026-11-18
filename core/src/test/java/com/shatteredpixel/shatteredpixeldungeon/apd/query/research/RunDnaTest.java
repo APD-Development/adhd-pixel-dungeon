@@ -1,0 +1,13 @@
+package com.shatteredpixel.shatteredpixeldungeon.apd.query.research;
+import com.shatteredpixel.shatteredpixeldungeon.apd.query.*;
+import com.shatteredpixel.shatteredpixeldungeon.apd.stats.Fact;
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class RunDnaTest {
+    @Test public void actualRunSchemaProducesDefinedRatesAndEvidence(){ResearchFixture f=new ResearchFixture();Row row=f.add("a","warrior",0,20);RunDna.Profile p=RunDna.build(f.result(),row);assertEquals(10,p.metrics.size());assertEquals(20,p.metrics.get(0).value,0);assertEquals(50,p.metrics.get(1).value,0);assertEquals(20,p.metrics.get(8).value,0);assertNotNull(p.evidence);assertSame(row,f.result(p.evidence).rows.get(0));}
+    @Test public void missingAndZeroDenominatorsAreUnknownNotZero(){ResearchFixture f=new ResearchFixture();Row row=f.add("a","mage",0,20);f.num(row,"result.turns",0);RunDna.Profile p=RunDna.build(f.result(),row);assertFalse(p.metrics.get(0).known);row.clear(f.def.indexOf("combat.heroAttacks"));assertFalse(RunDna.build(f.result(),row).metrics.get(1).known);}
+    @Test public void lowerBoundNumeratorKeepsItsMarkButUncertainDenominatorIsUnknown(){ResearchFixture f=new ResearchFixture();Row row=f.add("a","mage",0,20);row.setNum(f.def.indexOf("combat.damageDealt"),100,Fact.PROV_INCOMPLETE);RunDna.Metric m=RunDna.build(f.result(),row).metrics.get(3);assertEquals(CellText.LOWER,m.state);assertTrue(m.shown.startsWith(">="));row.setNum(f.def.indexOf("result.turns"),100,Fact.PROV_INCOMPLETE);assertFalse(RunDna.build(f.result(),row).metrics.get(3).known);}
+    @Test public void excludedRowsCannotBeProfiledAndUnknownIsNotComparedAsZero(){ResearchFixture f=new ResearchFixture();Row a=f.add("a","mage",0,20),b=f.add("b","warrior",0,20);assertNull(RunDna.build(f.result(f.forClass("mage")),b));a.clear(f.def.indexOf("combat.damageDealt"));assertTrue(RunDna.compare(RunDna.build(f.result(),a),RunDna.build(f.result(),b)).get(3).contains("? (uncertain input)"));}
+    @Test public void inferredValuesRemainInferredAndInvalidHitRatesFailClosed(){ResearchFixture f=new ResearchFixture();Row a=f.add("a","mage",0,20);a.setNum(f.def.indexOf("combat.healed"),50,Fact.PROV_INFERRED);assertEquals(CellText.INFERRED,RunDna.build(f.result(),a).metrics.get(5).state);f.num(a,"combat.heroHits",21);assertFalse(RunDna.build(f.result(),a).metrics.get(1).known);}
+    @Test public void identityEvidenceIsCaseSensitive(){ResearchFixture f=new ResearchFixture();Row a=f.add("A","mage",0,20);f.add("a","mage",0,20);Query q=RunDna.build(f.result(),a).evidence;assertEquals(1,f.result(q).rows.size());assertSame(a,f.result(q).rows.get(0));}
+}

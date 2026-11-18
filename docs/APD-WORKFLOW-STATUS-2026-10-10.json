@@ -1,0 +1,29 @@
+{
+  "inspected_utc": "2026-10-11T00:30:10Z",
+  "updated_utc": "2026-10-11T00:30:41.755314Z",
+  "automation_id": "6aca774b2e2081918d6025f01eb471c5",
+  "title": "APD Hourly Development",
+  "enabled": true,
+  "schedule": "BEGIN:VEVENT\nDTSTART:20261010T173507Z\nRRULE:FREQ=HOURLY\nEND:VEVENT",
+  "default_timezone": "America/New_York",
+  "last_run_time": "2026-10-11T00:07:19.407499+00:00",
+  "next_run_time": null,
+  "changes": [
+    "Corrected existing task prompt to owner-approved bugs, Community, retained tests cycle",
+    "Specified delivery is a checkpoint and does not end approved backlog work"
+  ],
+  "preserved": [
+    "Existing hourly schedule",
+    "Existing subscription-only, zero-added-spend restrictions",
+    "Private repository / approved-branch expected-head leases",
+    "Separate daily preparation/PDF/APK tasks",
+    "All unrelated automations"
+  ],
+  "verified": "Update tool returned success, enabled existing task and full saved replacement prompt.",
+  "limitations": [
+    "No new execution of the updated prompt has been observed yet.",
+    "Null next_run_time does not verify when it will run next.",
+    "Metadata does not provide full previous execution errors or inactivity durations.",
+    "An enabled hourly task is bounded recurring execution, not continuous coding between runs."
+  ]
+}

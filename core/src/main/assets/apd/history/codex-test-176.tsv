@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Direct wand damage ownership	Apply the actual creator factor once to Blast Wave, Living Earth and Prismatic Light direct damage while retaining their original rolls and sources.
+Testing	V061_PAGE	Direct wand provenance coverage	Cover all factors and creator roles, contradictory settings, source identity, neutral RNG and all seven production boundaries.
+Changes	V061_PAGE	TEST173 evidence and TEST174 handoff	Preserve verified Fireblast staff evidence and record the pending remaining-direct-wand checkpoint.

@@ -1,0 +1,7 @@
+# APD433 owner delivery
+
+Resume the owner's November 10 instruction to deliver every completed verified build. Reuse the original APD433 Developer/Alpha-Testers pair from source 3cc23e1b4727a2401b7f4d4efd414973bcf2bef5 and build run 42890868062; do not rebuild or overwrite earlier releases.
+
+Independent recovery downloaded and SHA256-verified prepared artifact 13800367171 and raw native/core evidence artifact 13799803416. Parsed 458 actual core XML suites: 3169 tests, zero failures/errors/skips. All 12 targeted native commands completed successfully. All 4874 files in the corresponding-source manifest match. Twelve original Cached Rations/Rogue's Foresight screenshots were inspected again in normal, expanded and bottom states across both variants; text is readable and controls remain reachable. The original accepted review is docs/APD-433-MANUAL-VISUAL-REVIEW.json. The delivery workflow must still recheck both APK hashes, original signing certificate, application identity, exact source and download-back hashes before publication.
+
+Changes are limited to two existing Rogue talent descriptions. Actual talent mechanics, balance and save data are unchanged. This does not complete the wider talent audit, decide Cursed Wand wording or approve changes to existing mechanic-specific panels. No physical-phone or acoustic-audio verification is claimed. The local core rerun could not start because this container cannot resolve services.gradle.org; the core results above are parsed from the original successful producing run, not a new local test execution.

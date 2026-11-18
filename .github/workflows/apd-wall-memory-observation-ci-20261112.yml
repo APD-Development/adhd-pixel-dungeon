@@ -1,0 +1,61 @@
+name: Verify APD wall-search observation safety
+on:
+  push:
+    branches: [codex/apd-searched-wall-observation-guards-20261112]
+    paths: [.github/workflows/apd-wall-memory-observation-ci-20261112.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Validate isolated observation guards and regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchedWalls.java').read_text()
+          assert 'completeObservation(Level level)' in s
+          assert 'private static boolean observed(Level level, int cell)' in s
+          for name in ('map', 'heroFOV', 'visited', 'mapped'):
+              assert 'level.'+name+' != null' in s
+          assert 'level.secret==null||level.secret.length<level.length()' in s
+          t=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchedWallsTest.java').read_text()
+          for case in ('missingOrTruncatedObservationCannotCreateWallMarks',
+                       'existingWallMarksRemainReadableFromAvailableFogMemory',
+                       'incompleteDoorCheckInputsClearUnprovenNegativeResult',
+                       'incompleteNeighbourObservationsCannotCertifyDoorGeometry'):
+              assert 'void '+case+'(' in t
+          print('Bounded SearchedWalls guards and four regressions present')
+          PY
+      - name: Run complete core suite and compile desktop and Android Java
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require clean core suite and all new regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports,'Missing JUnit reports'
+          totals={k:sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3297 and all(totals[k]==0 for k in ('failures','errors','skipped')),totals
+          cases={t.get('name') for r in reports if r.get('name','').endswith('.SearchedWallsTest') for t in r.findall('testcase')}
+          required={'missingOrTruncatedObservationCannotCreateWallMarks',
+                    'existingWallMarksRemainReadableFromAvailableFogMemory',
+                    'incompleteDoorCheckInputsClearUnprovenNegativeResult',
+                    'incompleteNeighbourObservationsCannotCertifyDoorGeometry'}
+          assert required<=cases,required-cases
+          print('Verified',totals,'across',len(reports),'suites; all four wall-memory regressions passed')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-wall-memory-observation-core-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,2 @@
+Bug Fixes	ICON_PREFS	Show imported aggregate provenance	Mark grouped statistics that include imported ranking data, preserve stronger lower-bound and inferred warnings, and retain exact rate and ratio count metadata.
+Testing	ICON_CHECKED	Retain post-TEST263 acceptance	Preserve staged TEST263 receipts, complete APD Settings touch acceptance, cache-concurrency and dataset-schema contracts, and their exact core-only evidence.

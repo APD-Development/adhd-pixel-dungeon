@@ -1,0 +1,4 @@
+Changes	V061_PAGE	Retain TEST200 verification evidence	Include the TEST200 ally-summon verification report and the handoff/ledger evidence committed after the immediate previous compiled APK.
+Changes	V061_PAGE	Visible alchemy craft history	Record successful alchemy crafts with only displayed ingredient/result names, quantities, floor and the exact energy split.
+Testing	ICON_CHECKED	Alchemy privacy and omission boundaries	Retain successful payload, unidentified-class secrecy, failed-brew, restore-time, wiring, manifest and telemetry-version checks.
+Development	V061_PAGE	TEST202 history-placement correction	Retain TEST201's exact 1,614/1,615 contract failure and move only the telemetry 1.14 milestone below the immutable records-history preamble before rerunning the complete gate.

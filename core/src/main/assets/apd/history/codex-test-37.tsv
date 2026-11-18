@@ -1,0 +1,29 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Testing	ICON_CHECKED	Play Run Device Test	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature.
+Changes	ICON_PREFS	Saved settings	Saved the category-hotbar layout and food preference between sessions.
+Changes	ICON_BACKPACK	Category Hotbar	Added preferences describe slots; the original per-run QuickSlot assignments are never rewritten.
+Quality of Life	ICON_STATS	Statistics screen	Prevented a retired tour-data worker from invalidating the replacement scene.
+Quality of Life	ICON_INFO	Quick Slot Button	Connected category selection to the hotbar while preserving Classic assignments.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added persistent Classic, category presets and custom category/item arrangements.
+Testing	ICON_BACKPACK	Category Hotbar Test 1	Added a test covering defaults Keep Classic And Food Off. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 2	Added a test covering customizing One Preset Slot Preserves Other Positions. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 3	Added a test covering duplicate Categories And Empty Slots Survive Reopening. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 4	Added a test covering hidden Healing Stays In Potions Without Revealing Identity. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 5	Added a test covering known Healing Moves Only When Healing Slot Exists. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 6	Added a test covering saved Item Type And Custom Layout Survive Classic Mode. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 7	Added a test covering invalid Slot Rejected. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 8	Added a test covering shielding Is Not Misclassified As Healing. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 9	Added a test covering inventory Refresh And Slot Selection Do Not Consume Items Or Rng. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 10	Added a test covering category Settings Never Rewrite Classic Quick Slots. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Category Hotbar Test 11	Added a test covering unavailable Future Item Type Preference Is Not Deleted. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Tour Worker Lifecycle Test 1	Added a test covering loader Completion Invalidates The Replacement Scene. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Tour Worker Lifecycle Test 2	Added a test covering loaded Tour Changes Invalidate Current Scene Rather Than Former Scene. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Tour Worker Lifecycle Test 3	Added a test covering callback Resolves Scene At Delivery And Is Safe After Leaving Uimsd. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-TEST36-DELIVERY-2026-10-10	Added apd-test36-delivery-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-TEST36-REPORT-2026-10-10	Added apd-test36-report-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-WORKFLOW-STATUS-2026-10-10	Added apd-workflow-status-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Saved the category-hotbar layout and food preference between sessions. Added preferences describe slots; the original per-run QuickSlot assignments are never rewritten.

@@ -1,0 +1,5 @@
+Changes	V061_BUGFIX	Correct stale statistics after history replacement	Check raw-log contents before reusing cached rows, even when the file name, size and timestamp are unchanged.
+Changes	V061_BUGFIX	Recover older row caches safely	Bind derived caches to their source and rebuild older caches without changing raw history or saves.
+Changes	V061_BUGFIX	Reuse source-check workspace	Reuse one small hashing buffer across a statistics load instead of allocating one for every log.
+Testing	ICON_CHECKED	Verify source replacement and cache compatibility	Test changed equal-sized logs, unchanged caches, older cache rebuilding and incorrect source fingerprints.
+Development	V061_PAGE	Retain complete verification records	Record the preceding verified build and the cache correction's reproduction, tests, compatibility and remaining limits.

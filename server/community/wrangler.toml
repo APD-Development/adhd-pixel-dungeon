@@ -1,0 +1,20 @@
+# APD Community Worker. Deployed by Cloudflare Workers Builds straight from the deploy/community-server branch (no API token anywhere).
+name = "apd-community"
+main = "src/app.js"
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "apd-community"
+database_id = "1ca6717a-e895-44a6-901a-50791060bb3d"
+migrations_dir = "migrations"
+
+[vars]
+ADMIN_EMAILS = "charltonchris29@gmail.com"      # Chris's email: signing up with it makes that account the admin
+GOOGLE_CLIENT_ID = "1075731906356-tr7miehsnl77ld9ru05h3ijv84cd60jb.apps.googleusercontent.com"  # Google OAuth web client id(s), comma-separated
+MAIL_FROM = ""         # e.g. community@charltonbornstudios.com (a domain onboarded to Email Sending)
+
+# Verification-code emails (Cloudflare Email Service). Needs the Workers Paid plan and the sending domain onboarded
+# (npx wrangler email sending enable charltonbornstudios.com). Until then sign-up answers "email_not_set_up".
+# [[send_email]]
+# name = "EMAIL"

@@ -1,0 +1,95 @@
+{
+  "number": 439,
+  "source_commit": "8224872be92c44827282ff8ba6bde363d67f0826",
+  "original_run": 42938370462,
+  "artifact_id": 13819787406,
+  "artifact_sha256": "0439f100f337292e0847ce887e68c1f894de070b9d9672b273e2b078cf4c4f97",
+  "core": {
+    "tests": 3179,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 461,
+  "variants": {
+    "Developer": {
+      "sha256": "9c8a91c26894c5f8de3976c2e82925c5a94692e2d892d0ce4341d2ab4ced2b0d",
+      "bytes": 39203139,
+      "version_name": "4.0.8-apd-INDEV-bC439-TEST"
+    },
+    "Alpha-Testers": {
+      "sha256": "d19aa8b989fb7e2367c5df4c51301e44a3b83c79b8dde4ca844dd67f533d4552",
+      "bytes": 39203115,
+      "version_name": "4.0.8-apd-INDEV-bP439"
+    }
+  },
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "instrumentation_sha256": "e94c9e88ff655e5fb5a8db2bf7b3623f3514b591fdf8f27ccd6d7d71c4f5fd07",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "published": false,
+  "native_recovery_complete": true,
+  "android_tests": 12,
+  "manual_visual_review_complete": true,
+  "source_archive_sha256": "d9f48050cad0929739f7689fb3c6890949bfd997acc56945d122cf9eae8d3ae0",
+  "physical_phone_verified": false,
+  "recovery_run": "43021022953",
+  "recovery_commit": "45b4520ced7bf719db2678bdb123f0de88de5019",
+  "manual_review_scope": "Explicitly recorded original-size samples and contact-sheet triage; all screenshots hash-checked and decoded.",
+  "manual_review_limits": [
+    "No physical-phone testing",
+    "No targeted native DM300/pylon capture",
+    "Trap restarted/off state backed by assertions and separate PID, not visible toggle"
+  ],
+  "source_scan_run": 43024384931,
+  "source_scan_commit": "f552403050a03bccf0a1a2864f53dc57b22bd08a",
+  "source_scan_success": true,
+  "saved_download_readback_sha256_verified": true,
+  "files_saved_utc": "2026-11-11T12:58:29.459350+00:00",
+  "manual_review_receipts": {
+    "APD439-Developer-Manual-Visual-Review.json": "4b1b0370e152ecbaa8056d64a3d0eea3bd3d91f7d942e5e83b62bfc0e70b5416",
+    "manual-review.json": "b3aa9c132c1d265eaef450ead00144b6c2b81fcd8181d505b618decb84dec6a6"
+  },
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_recorded_utc": "2026-11-11T12:59:45.945107+00:00",
+  "source_scan_artifact": {
+    "id": 13856037766,
+    "sha256": "fc2e9efef8b4d7d0fdeb8335d3e1b37d1de567fb2a49a08e2f5a98aeeaf3d0eb"
+  },
+  "native_artifacts": {
+    "Developer": {
+      "id": 13855803481,
+      "sha256": "8b21bb38c4f7c4dff5305e592f2c3460f4b0181c0cca5a945164276e5d3d9c46"
+    },
+    "Alpha-Testers": {
+      "id": 13856880505,
+      "sha256": "051de67e4d209570534952bd39b475247a302d326b9bec29e68f0f7d1a17441f"
+    }
+  },
+  "owner_review_artifact": {
+    "id": 13855649249,
+    "sha256": "721b390d5fe6ff2606d1369e22f1ad0ecb5ba80f6a9439080bb0629b9cd3a49d"
+  },
+  "files": [
+    {
+      "name": "APD-Developer-439.apk",
+      "file_id": "file_00000000d7a881f68c605ce9ea31ffae",
+      "library_file_id": "libfile_fde3_f-fe949d9f0c28819197cace8160b61eda_4aba2690a1e48191a771a2e43a4a6278",
+      "sha256": "9c8a91c26894c5f8de3976c2e82925c5a94692e2d892d0ce4341d2ab4ced2b0d"
+    },
+    {
+      "name": "APD-Alpha-Testers-439.apk",
+      "file_id": "file_00000000b0c881f68aadf92a18b65426",
+      "library_file_id": "libfile_fde3_f-c886726170288191b11c954a0f943499_4aba2690a1e48191a771a2e43a4a6278",
+      "sha256": "d19aa8b989fb7e2367c5df4c51301e44a3b83c79b8dde4ca844dd67f533d4552"
+    },
+    {
+      "name": "APD-Source-439.zip",
+      "file_id": "file_00000000fae481f6ac00e229efab1c79",
+      "library_file_id": "libfile_fde3_f-0fb00272692c8191b7f70234d93fdc9d_4aba2690a1e48191a771a2e43a4a6278",
+      "sha256": "d9f48050cad0929739f7689fb3c6890949bfd997acc56945d122cf9eae8d3ae0"
+    }
+  ]
+}

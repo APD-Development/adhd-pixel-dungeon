@@ -1,0 +1,1 @@
+Owner explicitly requests the new corrected APK now. Build exactly one Developer/Alpha372 pair from this source; full2940/449, actual targeted native checks in both variants, original signing/application ID, key-free source scan and retained371 fallback. Prepare privately, inspect actual captures, then publish these exact bytes without rebuilding. No release of unverified APKs.

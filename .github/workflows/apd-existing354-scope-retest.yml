@@ -1,0 +1,118 @@
+name: Verify corrected exact-chance wording against existing TEST354
+
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - docs/APD-EXISTING354-SCOPE-RETEST.txt
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-existing354-scope-retest
+  cancel-in-progress: false
+
+jobs:
+  exact-apk-full-api34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Download exact TEST354 APK and prove application inputs are unchanged
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY']
+          source='682f784c5ce5c8b6a2b33945025a9893137e8257'
+          run_id=41571190415
+          artifact_id=13200744605
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1') for s in (source,os.environ['GITHUB_SHA'])]
+          assert all(not tree.get('truncated') for tree in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          run=api(f'repos/{repo}/actions/runs/{run_id}')
+          assert run['head_sha']==source and run['run_number']==354 and run['conclusion']=='failure'
+          jobs=api(f'repos/{repo}/actions/runs/{run_id}/jobs')['jobs']
+          assert any(job['name']=='verify-and-build' and job['conclusion']=='success' for job in jobs)
+          artifacts=api(f'repos/{repo}/actions/runs/{run_id}/artifacts')['artifacts']
+          artifact,=[a for a in artifacts if a['id']==artifact_id and a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact354.zip','wb') as out:
+              subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{artifact_id}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact354.zip').read_bytes()).hexdigest()==artifact['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact354.zip') as archive:
+              apk,=[name for name in archive.namelist() if name.endswith('.apk')]
+              data=archive.read(apk)
+              digest=hashlib.sha256(data).hexdigest()
+              checksum,=[name for name in archive.namelist() if name.endswith('.apk.sha256')]
+              assert archive.read(checksum).decode().split()[0]==digest
+              pathlib.Path('application/exact354.apk').write_bytes(data)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({
+              'application_source':source,
+              'application_run':run_id,
+              'application_artifact':artifact_id,
+              'application_artifact_digest':artifact['digest'],
+              'application_sha256':digest,
+              'application_rebuilt':False,
+              'application_inputs_unchanged':True,
+              'test_source':os.environ['GITHUB_SHA'],
+              'failed_predecessor_job':125705034958,
+              'failed_predecessor_reason':'One of 71 cases expected the superseded other-consumables sentence; rerun only that corrected assertion against the same APK',
+              'physical_device':False,
+              'published':False
+          },indent=2))
+          print('EXACT_TEST354_APK_SHA256',digest)
+          PY
+      - name: Compile current instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C354
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Verify corrected exact conversion wording on the same APK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: |
+            adb logcat -c
+            adb logcat -v time > exact354-retry-logcat.txt &
+            adb install -r application/exact354.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb shell settings put global hide_error_dialogs 1
+            adb shell settings put secure immersive_mode_confirmations confirmed
+            adb shell am instrument -w -r -e class 'com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest#healingConversionSettingExplainsItsExactScopeWithoutChangingSavedValue' com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > scope-instrumentation.txt
+            cat scope-instrumentation.txt
+            python3 -c "import pathlib; assert 'OK (1 test)' in pathlib.Path('scope-instrumentation.txt').read_text()"
+            mkdir -p scope-visuals
+            adb exec-out cat /sdcard/Pictures/APD-Test-Visuals/healing-conversion-setting.png > scope-visuals/healing-conversion-setting.png
+            python3 tools/validate_android_visuals.py scope-visuals healing-conversion-setting.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-test354-scope-retest
+          path: |
+            acceptance-source.json
+            scope-instrumentation.txt
+            exact354-retry-logcat.txt
+            scope-visuals/
+            android/build/reports/androidTests/
+            android/build/outputs/androidTest-results/
+          if-no-files-found: warn
+          retention-days: 7

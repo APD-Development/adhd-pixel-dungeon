@@ -1,0 +1,4 @@
+Infrastructure	ICON_INFO	run-device-tests	Updated the run-device-tests development workflow; it is not gameplay content.
+Testing	ICON_PREFS	Apd Settings Click Device Test	Added a device test covering every Control Of Apd Settings Answers A Touch. These are development checks, not a gameplay feature.
+Quality of Life	ICON_PREFS	APD Settings	Created the scroll pane before its controls so the settings buttons receive taps.
+Developer Commentary	V074_SHPX	Developer Commentary	Created the scroll pane before its controls so the settings buttons receive taps.

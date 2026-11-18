@@ -1,0 +1,16 @@
+{
+  "source": "cfca230d94821364debec48479948b544c74a557",
+  "run": 42420372918,
+  "reviewed": true,
+  "images": {
+    "Developer/qol-cloak-explanation-expanded.png": "7cd82e6011aac03df68c27cdb2ff213171e9a16624283a7df0a331a173035a77",
+    "Developer/qol-rose-explanation-expanded.png": "3a8c1af2b6be970fd341e6368f3c584f9e8172bfe11a09c43ee0a1c7a8ead75b",
+    "Developer/qol-force-weapon.png": "32a432687c37d6190b5047a0ab4c29d8c180ae24ede9a3ebb1b73ab5133e4612",
+    "Developer/qol-arcana-calculations-retained.png": "ec82206bdceb54e4ae7be0292bdad42be0abb40951a6f1f0ba7bf91b79deeb40",
+    "Alpha-Testers/qol-cloak-explanation-expanded.png": "99adde702b8b0a5f8933a15d43d8c70775988f0be405b0e1ce2c8a6768539088",
+    "Alpha-Testers/qol-rose-explanation-expanded.png": "949076bc7d7425b1993e159f65cba2dd26add73343b0e9cd89cffc13a39e32ee",
+    "Alpha-Testers/qol-force-weapon.png": "316dedd9dd034acfd4e773c6e11a090acd4d5eef39fa8f16b897a38da544c4e0",
+    "Alpha-Testers/qol-arcana-calculations-retained.png": "ae9e08e55d9b8ad3f67a6b5dff22f8604070acab097a9cd9d8e99817f5012e0a"
+  },
+  "finding": "Both variants: Cloak/Rose expanded explanation readable in bounded pane, collapse control visible with no overlap; ordinary Sword has no universal calculations control, Arcana retains working expansion. Eight actual PNGs visually inspected. Other retained PNGs not claimed manually inspected."
+}

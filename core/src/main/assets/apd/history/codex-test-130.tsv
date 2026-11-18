@@ -1,0 +1,6 @@
+Changes	V061_PAGE	Android Top Scores	Replaced Android's Quit button with Top Scores, opening the original Rankings screen from the same position.
+Changes	V061_BUGFIX	Rankings touch and Back checks	Added Android touch, Back, layout, stored-history protection and memory-only victory/death/abandoned-record presentation checks.
+Changes	V061_BUGFIX	Main menu visual verification	Required main-menu and Rankings screenshots alongside the new Android navigation test.
+Changes	V061_PAGE	Top Scores verification handoff	Recorded the preceding APK and required Top Scores checks without claiming pending Android tests passed.
+Changes	V061_BUGFIX	Android and desktop compiled routing	Updated compiled menu tests to verify Android Top Scores and desktop Quit while keeping UIMSD separate.
+Changes	V061_BUGFIX	Protected menu geometry	Updated the frozen-menu guard to allow only the approved Android Top Scores replacement.

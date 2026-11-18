@@ -1,0 +1,17 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Run state	Imported APD ranking records automatically when a run ends.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected automatic ranking import to run completion.
+Statistics / UIMSD	ICON_STATS	Legacy Importer	Preserved ranking records before they fall out of the visible ranking list.
+Statistics / UIMSD	ICON_STATS	Derived Store	Avoided duplicate derived records when rankings are imported repeatedly.
+Testing	ICON_STATS	Auto Import Test 1	Added a test covering finishing A Run Imports The Rankings By Itself. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 2	Added a test covering a Record Spd Is About To Drop Is Copied Before The Submit. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 3	Added a test covering the Same Rankings Imported Again And Again Adds Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 4	Added a test covering the Button And The Automatic Import Racing Still Give Each Record Once. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 5	Added a test covering a Broken Rankings File Never Interferes With Finishing The Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 6	Added a test covering a History Folder That Cannot Be Written Never Interferes Either. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 7	Added a test covering with Recording Off Nothing Is Imported. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 8	Added a test covering no Rankings File Is Not An Error. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test 9	Added a test covering the Hooks Sit Just Before Submit In Both Endings. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-LEGACY	Updated apd-stats-legacy accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

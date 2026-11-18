@@ -1,0 +1,75 @@
+diff --git a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+index 5d005cc86..b17d0f1e4 100644
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -60,12 +60,13 @@ public class QolItemFeedbackDeviceTest {
+     }
+     private static void showItem(Item item,String expected,String image,boolean captureBottom)throws Exception{
+         for(boolean useWindow:new boolean[]{false,true}){
+-            AtomicReference<WndInfoItem> shown=new AtomicReference<>();
++            AtomicReference<WndInfoItem> shown=new AtomicReference<>();boolean[] temporarilyOwned={false};
+             float[] time=new float[1];int[] hp=new int[1];String[] saved=new String[1];
+             TopScoresDeviceTest.render(()->{
+                 time[0]=Dungeon.hero.cooldown();hp[0]=Dungeon.hero.HP;
+                 com.watabou.utils.Bundle before=new com.watabou.utils.Bundle();item.storeInBundle(before);saved[0]=before.toString();
+                 assertTrue(item.info(),item.info().contains(expected));
++                if(useWindow&&!Dungeon.hero.belongings.contains(item)){Dungeon.hero.belongings.backpack.items.add(item);temporarilyOwned[0]=true;}
+                 WndInfoItem window=useWindow?new WndUseItem(null,item):new WndInfoItem(item);
+                 GameScene.show(window);shown.set(window);
+             });
+@@ -106,7 +107,7 @@ public class QolItemFeedbackDeviceTest {
+                     Thread.sleep(200);TopScoresDeviceTest.screenshot(image.replace(".png","-bottom.png"));
+                 }
+             }
+-            TopScoresDeviceTest.render(()->shown.get().hide());
++            TopScoresDeviceTest.render(()->{shown.get().hide();if(temporarilyOwned[0])Dungeon.hero.belongings.backpack.items.remove(item);});
+         }
+     }
+     private static void calculationWindow(java.util.concurrent.Callable<Window> factory,String expected,String screenshot)throws Exception{
+@@ -277,10 +278,11 @@ public class QolItemFeedbackDeviceTest {
+         Item[] items={new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.PetrifiedSeed(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.MossyClump(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.ExoticCrystals(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.FerretTuft(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.EyeOfNewt(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.CrackedSpyglass(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.VialOfBlood(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.SaltCube(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.ShardOfOblivion()};
+         String[] expected={"seeds or runestones","Excludes Floor 1","cannot be spent as alchemy energy","harder to hit","sense enemies through walls","Search can uncover it","maximum health","slows natural healing","once for each type"};
+         for(int i=0;i<items.length;i++)for(boolean use:new boolean[]{false,true}){
+-            Item item=items[i];String required=expected[i];AtomicReference<WndInfoItem> shown=new AtomicReference<>();
+-            TopScoresDeviceTest.render(()->{item.level(3);item.levelKnown=item.cursedKnown=true;assertTrue(item.info(),item.info().contains(required));WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);});Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
++            Item item=items[i];String required=expected[i];AtomicReference<WndInfoItem> shown=new AtomicReference<>();boolean[] temporarilyOwned={false};
++            TopScoresDeviceTest.render(()->{item.level(3);item.levelKnown=item.cursedKnown=true;assertTrue(item.info(),item.info().contains(required));if(use&&!Dungeon.hero.belongings.contains(item)){Dungeon.hero.belongings.backpack.items.add(item);temporarilyOwned[0]=true;}
++                WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);});Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
+             if(use)TopScoresDeviceTest.screenshot("qol-retained-trinket-"+i+"-normal-description.png");
+-            TopScoresDeviceTest.render(()->shown.get().hide());
++            TopScoresDeviceTest.render(()->{shown.get().hide();if(temporarilyOwned[0])Dungeon.hero.belongings.backpack.items.remove(item);});
+         }
+     }
+     private static void retainedArtifactDescriptionsRender()throws Exception{
+@@ -344,11 +346,12 @@ public class QolItemFeedbackDeviceTest {
+         for(String name:names){
+             Item item=(Item)Class.forName("com.shatteredpixel.shatteredpixeldungeon.items.potions.exotic."+name).getDeclaredConstructor().newInstance();TopScoresDeviceTest.render(()->item.identify());
+             for(boolean use:new boolean[]{false,true}){
+-                AtomicReference<WndInfoItem> shown=new AtomicReference<>();
+-                TopScoresDeviceTest.render(()->{WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);});
++                AtomicReference<WndInfoItem> shown=new AtomicReference<>();boolean[] temporarilyOwned={false};
++                TopScoresDeviceTest.render(()->{if(use&&!Dungeon.hero.belongings.contains(item)){Dungeon.hero.belongings.backpack.items.add(item);temporarilyOwned[0]=true;}
++                WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);});
+                 Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
+                 if(use)TopScoresDeviceTest.screenshot("qol-ordinary-potion-"+name+"-description.png");
+-                TopScoresDeviceTest.render(()->shown.get().hide());
++                TopScoresDeviceTest.render(()->{shown.get().hide();if(temporarilyOwned[0])Dungeon.hero.belongings.backpack.items.remove(item);});
+             }
+         }
+     }
+@@ -357,11 +360,12 @@ public class QolItemFeedbackDeviceTest {
+         for(String name:names){
+             Item item=(Item)Class.forName("com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.darts."+name).getDeclaredConstructor().newInstance();
+             for(boolean use:new boolean[]{false,true}){
+-                AtomicReference<WndInfoItem> shown=new AtomicReference<>();
+-                TopScoresDeviceTest.render(()->{item.levelKnown=item.cursedKnown=true;WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);assertFalse(item.info(),item.info().contains("scheduled units"));assertFalse(item.info().contains("scaling floor"));if(name.equals("RotDart")){assertTrue(item.info(),item.info().contains("Sharpshooting damage"));assertFalse(item.info(),item.info().contains("Sharpshooting durability"));}});
++                AtomicReference<WndInfoItem> shown=new AtomicReference<>();boolean[] temporarilyOwned={false};
++                TopScoresDeviceTest.render(()->{item.levelKnown=item.cursedKnown=true;if(use&&!Dungeon.hero.belongings.contains(item)){Dungeon.hero.belongings.backpack.items.add(item);temporarilyOwned[0]=true;}
++                WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);assertFalse(item.info(),item.info().contains("scheduled units"));assertFalse(item.info().contains("scaling floor"));if(name.equals("RotDart")){assertTrue(item.info(),item.info().contains("Sharpshooting damage"));assertFalse(item.info(),item.info().contains("Sharpshooting durability"));}});
+                 Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
+                 if(use)TopScoresDeviceTest.screenshot("qol-ordinary-dart-"+name+"-description.png");
+-                TopScoresDeviceTest.render(()->shown.get().hide());
++                TopScoresDeviceTest.render(()->{shown.get().hide();if(temporarilyOwned[0])Dungeon.hero.belongings.backpack.items.remove(item);});
+             }
+         }
+     }

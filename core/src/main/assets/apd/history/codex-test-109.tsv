@@ -1,0 +1,5 @@
+Statistics / UIMSD	ITEM_BACKPACK	Item history reliability	Item-history readers now exclude self-ancestry in cyclic records and retain items mentioned only in later lifecycle events.
+Changes	ITEM_SCROLL_GYFU	Metamorphosis announcement	Added a short News announcement explaining the already-available five-class talent chooser.
+Testing	ICON_CHECKED	Item history and News checks	Added cyclic and sparse item-history regressions and kept News popup coverage aligned with every published article.
+Development	ICON_INFO	Verification and delivery records	Recorded verified TEST108 delivery and the next reader-reliability checks without changing player data.
+Developer Commentary	V074_SHPX	Developer Commentary	I strengthened item-history readers for inconsistent records and added a short announcement for the verified metamorphosis chooser. Gameplay, inventory capacity and existing player data are unchanged.

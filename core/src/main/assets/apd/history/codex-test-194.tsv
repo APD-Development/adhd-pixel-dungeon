@@ -1,0 +1,1 @@
+Changes	V061_PAGE	Record canonical NPC interactions (TEST197 correction)	Add public telemetry 1.12 for accepted hero interactions with visible NPCs, including the permanent source-hook and records-history contracts; preserve separate quest-step events.

@@ -1,0 +1,77 @@
+{
+  "schema": "apd-test-verification-v1",
+  "build": 329,
+  "status": "rejected native acceptance candidate",
+  "recorded_at_utc": "2026-10-29T00:24:00Z",
+  "application_source": "16cb3c2de72595239573fe87bb72ad46a90d0fb0",
+  "developer_apk": {
+    "sha256": "617812461000e81f2b2f70caabd21c885fa9e35058dadcb200048e551da068f7",
+    "artifact_id": 12861022840,
+    "artifact_zip_sha256": "4ba3875f52d6734e54fe7f4df0b26d82811e5967cd1ce6c6c49dbaa7b7f068de"
+  },
+  "initial_native": {
+    "run_id": 40790379363,
+    "job_id": 123174790628,
+    "total": 64,
+    "passed": 62,
+    "failed": 2,
+    "artifact_id": 12862551011,
+    "artifact_zip_sha256": "db141bf392406b81b234cfb84c6c41ec5e1de4d55e40d9ab1a13e87cb7dc8480"
+  },
+  "exact_apk_retry": {
+    "instrumentation_source": "cd2474dc42238234cb5587d26eb68ad951132e6b",
+    "run_id": 40793176257,
+    "job_id": 123183119724,
+    "application_inputs_identical": true,
+    "application_rebuilt": false,
+    "methods": [
+      {
+        "name": "AndroidBackDeviceTest.homeTextKeepsItsWordsAndFitsOversizedTokens",
+        "status": "passed"
+      },
+      {
+        "name": "DiagnosticReportDeviceTest.actualReportButtonSavesDeviceEvidenceAndMenusSurvivePauseResume",
+        "status": "passed"
+      },
+      {
+        "name": "AndroidBackDeviceTest.warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms",
+        "status": "failed",
+        "opening": 1,
+        "actual_ms": 306,
+        "budget_ms": 250,
+        "second_opening_executed": false,
+        "create_ms": 116.733815,
+        "rebuild_ms": 92.906001,
+        "first_draw_ms": 115.939236
+      }
+    ],
+    "artifact_id": 12862323855,
+    "artifact_zip_sha256": "058b965ada2911015c841c2a845a17bacc497b994054da0dcffea4b0acc3d027",
+    "images": [
+      {
+        "name": "diagnostic-report-button.png",
+        "width": 320,
+        "height": 640,
+        "sha256": "0ade0870e0cb3abb810c50892684811f246d8a052eef6f5edaa863f1a2ce2b00"
+      },
+      {
+        "name": "diagnostic-report-saved.png",
+        "width": 320,
+        "height": 640,
+        "sha256": "61ef96b8b2d9b5d576f876440ff9669a4221e483f9e2fda60ad82fd8be66038f"
+      }
+    ],
+    "postprocessor_failure": "ModuleNotFoundError: No module named 'PIL'"
+  },
+  "composite_evidence_only": true,
+  "full_64_method_green_run": false,
+  "physical_device": false,
+  "automatic_distribution": false,
+  "public_release": false,
+  "latest_published_private_release": {
+    "build": 323,
+    "published_at_utc": "2026-10-28T19:00:45Z",
+    "developer_sha256": "f599e05202277cc2056255e1e6c8ca915eca68a8849af4959e633b678e515467",
+    "alpha_tester_sha256": "ad5a2febbccc6460c5644fdd7fbc8c7f35d4cc26ed917c0730b09ed815b14d24"
+  }
+}

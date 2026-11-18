@@ -1,0 +1,112 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Complete immutable402 acceptance after Developer emulator disconnect
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-402-COMPLETE-REQUEST.txt]
+permissions: {contents: read, actions: read}
+jobs:
+  complete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd402-built-pair, run-id: 42583016501, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd402-retry-Developer, run-id: 42584030587, github-token: '${{ github.token }}', path: evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: apd402-retry-Alpha-Testers, run-id: 42584030587, github-token: '${{ github.token }}', path: evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: apd402-retry-inputs, run-id: 42584030587, github-token: '${{ github.token }}', path: evidence/corrected-instrumentation}
+      - name: Preserve and require eleven completed cases before recovering the missing case
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PYACCEPT'
+          import json,pathlib,subprocess,shutil
+          jobs=json.loads(subprocess.check_output(['gh','run','view','42584030587','--repo','APD-Development/ShieldingShouldHaveWorked','--json','jobs']))['jobs']
+          assert next(j for j in jobs if j['name']=='instrumentation')['conclusion']=='success'
+          assert next(j for j in jobs if j['name']=='native (Alpha-Testers, alpha)')['conclusion']=='success'
+          cases={'qol':'grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively','wall':'observedGeometryAndRetainedMarksUseTheActualAndroidLayer','seed':'a_controlWritesEnabledPreference','restart':'b_freshProcessReadsEnabledAndCanDisable','gameplay':'c_runtimeDiscoveryRouteAndActualTrapEffect','freeze':'cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending'}
+          for label in ['developer','alpha']:
+            for case,name in cases.items():
+              if label=='developer' and case=='freeze':continue
+              expected='com.shatteredpixel.shatteredpixeldungeon.android.'+({'qol':'QolItemFeedbackDeviceTest','wall':'WallGeometryDeviceTest','freeze':'RemovedActorStallDeviceTest'}.get(case,'TrapDiscoveryDeviceTest'))
+              subprocess.run(['python3','tools/apd_check_single_instrumentation.py','evidence/'+label+'-'+case+'.txt',name,expected],check=True)
+          p=pathlib.Path('evidence/developer-freeze.txt')
+          if p.exists():p.rename('evidence/developer-freeze-before-disconnect.txt')
+          PYACCEPT
+          gh run download 42583016501 --repo "$GITHUB_REPOSITORY" --name apd402-native-Developer --dir evidence/initial-rejected/Developer
+          gh run download 42583016501 --repo "$GITHUB_REPOSITORY" --name apd402-native-Alpha-Testers --dir evidence/initial-rejected/Alpha-Testers
+          sha256sum owner-delivery/APD-*-402.apk > evidence/recovery-app-hashes-before.txt
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > evidence/developer-scheduler-recovery-logcat.txt &
+            adb install -r owner-delivery/APD-Developer-402.apk
+            adb install -r evidence/corrected-instrumentation/instrumentation.apk
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/developer-freeze.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/developer-freeze.txt cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest
+      - name: Verify immutable APK identities and complete evidence without rebuilding
+        env: {GH_TOKEN: '${{ github.token }}', APD_SOURCE_SHA: 'e91c52c0d7c2190686eb3213488f562e6ce8ef77'}
+        run: |
+          sha256sum -c evidence/recovery-app-hashes-before.txt
+          python3 tools/apd_prepare402.py
+          python3 - <<'PYPROOF'
+          import json,pathlib,os
+          p=pathlib.Path('owner-delivery/APD-Preview-402-Verification.json');d=json.loads(p.read_text());d['original_apk_build_run']=42583016501;d['native_retry_run']=42584030587;d['developer_scheduler_recovery_run']=os.environ['GITHUB_RUN_ID'];d['retry_new_application_apks_created']=0;d['native_recovery']='Eleven distinct cases accepted in42584030587 after test-only Rose correction; Developer emulator lost connection before scheduler case. The missing twelfth case passed here on identical original Developer APK and corrected instrumentation. No failed case counted as success, no app APK rebuilt. Developer screenshots lost with disconnected emulator; actual expanded-image review uses retained Alpha captures; prior Developer Qol checks completed successfully.';p.write_text(json.dumps(d,indent=2)+'\n')
+          with pathlib.Path('owner-delivery/release-notes.md').open('a') as f:f.write('\nVerification recovery: exact original402 APK pair; test-only Rose wording correction. All six Alpha cases and five Developer cases passed in42584030587. Developer emulator disconnected before the final scheduler case; that case was completed here on the unchanged APK. Original rejected/incomplete evidence retained. No extra application APK rebuilt. Developer screenshots were lost with that emulator; retained Alpha captures support manual text review.\n')
+          PYPROOF
+      - name: Scan key-free source and full reachable history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          if ! curl --connect-timeout 20 -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz; then
+            gh api repos/gitleaks/gitleaks/releases/assets/378332058 -H 'Accept: application/octet-stream' > /tmp/apd-gitleaks.tar.gz
+          fi
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd402-prepared-owner-pair
+          path: owner-delivery/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd402-source-and-native-evidence
+          path: |
+            evidence/
+            core/build/test-results/test/
+            docs/APD-402-DELIVERY-SPEC.json
+          retention-days: 14

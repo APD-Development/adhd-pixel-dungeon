@@ -1,0 +1,9 @@
+# TEST148 monster fire fields
+
+NewbornFireElemental water/dry fire fields now capture their actual emitter, retaining explicit summon creators without inferring ownership from friendliness. Burning Fist body/zap fields capture its boss origin. Field strengths, growth limits, cooldowns, direct burning, terrain conversion, RNG calls, immunities and source types are untouched. Existing once-only Burning scaling remains the sole damage boundary. No new serialized actor fields.
+
+Five actual caller methods: unmodified sources4failed/1passed; corrected sources plus all prior fire/chain/bomb methods34passed0.514s. They exercise real newborn zap, water2/dry8 field strengths, explicit player/boss summon provenance, unknown friendly exclusion, real Burning Fist zap and saved boss Fire restoration. Boss Damage replaces Enemy Damage. The body-aura branch is wired but not individually exercised by a full act fixture. Charge-time origin mutation/persistence still needs its own acceptance; this package captures the real emitter at release. No claim that all delayed/offensive sources are complete.
+
+TEST147 sourcecf6488e0825065e12376bd4b2686b982a88a3183/run38548687947 has passed verify-and-build; native job pending at preparation. It is an actual produced APK, not a fully verified delivery. Previous fully verified candidate146 source08d10dedbc862dad0d27de35d98f719bec8e7bf2/run38546323675,1516core+26API34/34PNG/debug/history. Last owner-delivered/signing-compared123 unchanged.
+
+Required1526core/26API34/34PNG/debug/history. Three Damage controls disabled. Remaining Dragon's Breath, Inferno, Burning transfer, vault boss/plant/other offense and derived sources; delayed creator/state changes and all-class/boss/combined acceptance. No scoring coefficients, raw-history, ranges, signing/appID/main/Claude/online changes.

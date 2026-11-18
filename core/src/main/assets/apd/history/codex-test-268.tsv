@@ -1,0 +1,2 @@
+Bug Fixes	ICON_PREFS	Make title Hide UI easier to tap	Expand the small bottom chevron's touch target into its reserved footer and prioritize its input handler. Keep the original Hide UI and restore behavior, icon, layout and game state unchanged.
+Testing	ICON_CHECKED	Preserve footer touch and previous-build evidence	Retain a non-overlap geometry regression, native outside-icon press and restore coverage, exact original title-layout goldens, and all intervening published verification, history and handoff records.

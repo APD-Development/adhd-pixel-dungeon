@@ -1,0 +1,21 @@
+diff --git a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+index c8ae42ea6..04725aded 100644
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -534,12 +534,12 @@ public class QolItemFeedbackDeviceTest {
+                         assertTrue(spell.desc(), spell.desc().contains("50 turns"));
+                         assertEquals(1, spell.desc().split("Charge cost:", -1).length - 1);
+                         Window w = new WndTitledMessage(new com.shatteredpixel.shatteredpixeldungeon.ui.HeroIcon(spell), com.shatteredpixel.shatteredpixeldungeon.messages.Messages.titleCase(spell.name()), spell.desc(), () -> com.shatteredpixel.shatteredpixeldungeon.apd.mechanics.SpellExplanation.details(spell, Dungeon.hero), 0);
+-                        GameScene.show(w); shown.set(w); assertDescriptionViewport(w);
++                        GameScene.show(w); shown.set(w);
+                     });
+-                    try { Thread.sleep(200); TopScoresDeviceTest.screenshot("qol-holy-" + index + "-paladin" + paladin + "-spell.png"); }
++                    try { Thread.sleep(250); TopScoresDeviceTest.render(() -> assertDescriptionViewport(shown.get())); TopScoresDeviceTest.screenshot("qol-holy-" + index + "-paladin" + paladin + "-spell.png"); }
+                     finally { TopScoresDeviceTest.render(() -> shown.get().hide()); }
+-                    TopScoresDeviceTest.render(() -> { assertTrue(buffs[which].desc().contains("Turns remaining:")); Window w = new WndInfoBuff(buffs[which]); GameScene.show(w); shown.set(w); assertDescriptionViewport(w); });
+-                    try { Thread.sleep(200); TopScoresDeviceTest.screenshot("qol-holy-" + index + "-paladin" + paladin + "-buff.png"); }
++                    TopScoresDeviceTest.render(() -> { assertTrue(buffs[which].desc().contains("Turns remaining:")); Window w = new WndInfoBuff(buffs[which]); GameScene.show(w); shown.set(w); });
++                    try { Thread.sleep(250); TopScoresDeviceTest.render(() -> assertDescriptionViewport(shown.get())); TopScoresDeviceTest.screenshot("qol-holy-" + index + "-paladin" + paladin + "-buff.png"); }
+                     finally { TopScoresDeviceTest.render(() -> shown.get().hide()); }
+                 }
+             }

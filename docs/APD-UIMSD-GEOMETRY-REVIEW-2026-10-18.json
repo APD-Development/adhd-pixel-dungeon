@@ -1,0 +1,61 @@
+{
+  "recorded_at": "2026-10-18T14:40:12.513Z",
+  "status": "verified_test_only_review",
+  "parent_commit": "e6c841c1ecbaf7ee75b39f13ff698953605a5890",
+  "application_source": "64beb4867feb73eb03257f6cbe1a32648e84ae10",
+  "reviewed": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/TableGeometry.java",
+      "sha": "22d28526a76de7a5c0f2144d552e94c2041b0791",
+      "lines": 112,
+      "production_defect": false
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/WindowGeometry.java",
+      "sha": "8b68016d931040114c9fef07c31f78b5def020c0",
+      "lines": 95,
+      "production_defect": false
+    }
+  ],
+  "tests": [
+    {
+      "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/TableGeometryTest.java",
+      "sha": "c545d29b64848874bc64a62f5cdc8ca3e4ceacbb",
+      "methods": 8,
+      "new_method": "touchBoundariesUseHalfOpenCells"
+    },
+    {
+      "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/WindowGeometryTest.java",
+      "sha": "11af54c0c7d758c8d89370b852b28de8080baa30",
+      "methods": 11,
+      "new_method": "emptyAndExactRowBoundariesDoNotInventTouches"
+    }
+  ],
+  "verification": {
+    "run_id": 39136612959,
+    "workflow": "Codex APD core-only verification",
+    "started_at": "2026-10-18T14:34:35Z",
+    "completed_at": "2026-10-18T14:37:14Z",
+    "conclusion": "success",
+    "core_tests": 1834,
+    "suites": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12139976488,
+    "artifact_bytes": 855464,
+    "artifact_digest": "sha256:94f3b57cbc6f53eb3817a3dc6a6ea98f1929b407684d0dc2d1abf3ec9fb2667e",
+    "downloaded_zip_digest": "sha256:94f3b57cbc6f53eb3817a3dc6a6ea98f1929b407684d0dc2d1abf3ec9fb2667e"
+  },
+  "exact_reviewed_production_paths": 123,
+  "application_source_changed": false,
+  "build_request_changed": false,
+  "apk_rebuilt": false,
+  "staged": false,
+  "published": false,
+  "distributed": false,
+  "latest_verified_private_candidate": 280,
+  "latest_actual_owner_publication": 262,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

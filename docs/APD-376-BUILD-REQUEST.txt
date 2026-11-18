@@ -1,0 +1,1 @@
+Owner-authorized correction includes short weapon wording and newly reported clipped Mirror Image scroll final line. Preserve old tags and APK assets: unpublished375 is superseded, not relabeled. Build one376 pair; full2956/452 core, compile/signing/source/native checks and actual screenshots. Failed deliveries exempt from cap by explicit owner instruction.

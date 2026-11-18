@@ -1,0 +1,14 @@
+{
+  "path": "/workspace/scratch/db82734c9c44/recovery/APD-Verification-Evidence-2026-11-11.zip",
+  "bytes": 387807901,
+  "sha256": "9264785bb88e17518879816ef6b3aabc3d1e8d233800ca785dddaff969d4e331",
+  "files": 1461,
+  "file_name": "APD-Verification-Evidence-2026-11-11.zip",
+  "file_id": "file_00000000556481f59b806aab12893978",
+  "library_file_id": "libfile_fde3_f-b60a767459388191b4e4c553c988f629_4aba2690a1e48191a771a2e43a4a6278",
+  "all_1461_evidence_files_read_back_and_hash_verified_during_archive_creation": true,
+  "manifest_additional_to_evidence_file_count": true,
+  "saved_archive_download_readback_sha256_verified": true,
+  "readback_verified_utc": "2026-11-11T13:52:23.415234+00:00",
+  "snapshot_note": "The archive preserves the reviewed delivery/state/handoff snapshot before the archive receipt itself was added. This avoids any circular archive hash or file-ID claim. Later documentation links the same frozen evidence; application APKs and source archives are separately delivered."
+}

@@ -1,0 +1,48 @@
+name: Deliver private Cleric lore PDF
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-cleric-guide-delivery.yml]
+permissions:
+  contents: write
+jobs:
+  deliver-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify the existing owner-only PDF
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path('docs/APD-Cleric-Lore-All-50-Collection-Guide.pdf')
+          b=p.read_bytes()
+          assert b.startswith(b'%PDF-') and b.rstrip().endswith(b'%%EOF')
+          assert hashlib.sha256(b).hexdigest()=='3bc32d6dc2de7aded9d71556e57be4e7f138109443e98c2881256e6de16ad27d'
+          print(p, len(b), hashlib.sha256(b).hexdigest())
+          PY
+      - name: Add PDF to existing private TEST198 release without replacing assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, tempfile, hashlib
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert repo=='APD-Development/ShieldingShouldHaveWorked'
+          meta=json.loads(subprocess.check_output(['gh','api','repos/'+repo]))
+          assert meta['private'] is True
+          release=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases/tags/apd-codex-test-198']))
+          assert not release['draft']
+          name='APD-Cleric-Lore-All-50-Collection-Guide.pdf'
+          assets=[a for a in release['assets'] if a['name']==name]
+          if assets:
+              assert len(assets)==1
+              with tempfile.TemporaryDirectory() as folder:
+                  subprocess.run(['gh','release','download','apd-codex-test-198','--repo',repo,'--pattern',name,'--dir',folder],check=True)
+                  from pathlib import Path
+                  assert hashlib.sha256((Path(folder)/name).read_bytes()).hexdigest()=='3bc32d6dc2de7aded9d71556e57be4e7f138109443e98c2881256e6de16ad27d'
+              print('Identical PDF already available; preserved.')
+          else:
+              subprocess.run(['gh','release','upload','apd-codex-test-198','docs/'+name,'--repo',repo],check=True)
+          print('https://github.com/'+repo+'/releases/download/apd-codex-test-198/'+name)
+          PY

@@ -1,0 +1,70 @@
+name: APD malformed run-end privacy checks
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-malformed-run-end-acceptance.yml]
+permissions:
+  contents: read
+concurrency:
+  group: apd-malformed-run-end-acceptance
+  cancel-in-progress: false
+jobs:
+  reproduce-and-check-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: c6bed1f12f017d3f2fa92adf2c29d793f5e004ab
+          path: original-application
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK for Gradle project configuration
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reproduce malformed end privacy failures in unchanged TEST233
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,subprocess,xml.etree.ElementTree as E
+          base=pathlib.Path('original-application')
+          fixture=pathlib.Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/MalformedRunEndPrivacyTest.java')
+          (base/fixture).write_bytes(fixture.read_bytes())
+          result=subprocess.run(['./gradlew',':core:test','--tests','*.MalformedRunEndPrivacyTest'],cwd=base)
+          roots=[E.parse(p).getroot() for p in (base/'core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          failures={c.get('name') for c in cases if c.find('failure') is not None}
+          expected={'malformedRunEndCannotMarkRunFinished','malformedRunEndCannotExportHiddenCurrentRunData'}
+          assert len(cases)==2 and result.returncode!=0 and failures==expected,(len(cases),result.returncode,failures)
+          pathlib.Path('original-malformed-run-end-result.json').write_text(json.dumps({'source':'c6bed1f12f017d3f2fa92adf2c29d793f5e004ab','tests':2,'expected_failures':sorted(failures),'original_production_changed':False},indent=2))
+          PY
+      - name: Run the complete corrected core suite
+        run: |
+          ./gradlew :core:test
+          python3 - <<'PY'
+          import json,os,pathlib,xml.etree.ElementTree as E
+          roots=[E.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']==len(cases)==len({(c.get('classname'),c.get('name')) for c in cases})==1697,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0
+          assert sum(c.get('classname','').endswith('.MalformedRunEndPrivacyTest') for c in cases)==2
+          pathlib.Path('corrected-malformed-run-end-result.json').write_text(json.dumps({'source':os.environ['GITHUB_SHA'],'counts':totals,'retained_methods':2,'application_built':False,'android_verified':False,'published':False},indent=2))
+          PY
+      - name: Retain original and corrected evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-malformed-run-end-before-after
+          path: |
+            original-malformed-run-end-result.json
+            corrected-malformed-run-end-result.json
+            original-application/core/build/test-results/test/
+            core/build/test-results/test/
+            core/build/reports/tests/test/
+          retention-days: 7
+          if-no-files-found: warn

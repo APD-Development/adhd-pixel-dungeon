@@ -1,0 +1,12 @@
+# Localized clean-language follow-up — October 15, 2026
+This follows TEST222; it is not included in that APK. No tester distribution is authorized by this report.
+## Confirmed remaining leaks
+Reviewing the translated equivalents of the Imp and journal messages found additional swearing beyond the first 25 registered alternatives. The new whole-resource regression also exposed the Polish Imp quest reminder, Traditional Chinese Blacksmith reminder and Hungarian Gnoll Exile description. A simple English-word scan did not establish these were clean.
+The policy now contains 64 exact authored alternatives, preserving original adult templates and formatting tokens. This changes wording only, not quest objectives, item data, scores, unlocked badges or saved runs.
+The localized guard covers all shipped resource files with reviewed language-specific swear patterns. Context review excludes innocent German Doom terminology, Swedish words for 'end', and Indonesian 'bad luck'. These are not censored. English resource profanity must also have an exact registered alternative so English fallback strings cannot bypass cleaning in another language.
+## Regression evidence
+Against the first 25-alternative policy, nine methods run with one localized-resource failure. The expanded policy passes all nine, plus seven unchanged Cleric-isolation methods: sixteen local methods passed. The tests preserve all 50 lore entries, exact adult originals, formatting tokens, actual preference disk reload, and player arguments through the real Messages.get formatting boundary. All 23 game languages are exercised.
+The original text/source archive was pinned to84c5cd9269c3b32326d9790e56e50e6b9d8feb06; later source overlays are explicit. The initial source/text scan covered1,986 files. No raw history, production storage, save encoding, random generation, gameplay, slider limit or score formula changes.
+## Candidate requirements
+Require1,669core tests, debug assembly, complete immediate-previous produced TEST222 history,31API34 methods and39validPNG. Preserve the established signing certificate and application ID. Candidate pending until the exact full gate succeeds; emulator evidence never substitutes for physical-phone acceptance. Original TEST222 owner delivery is separate and must not be credited with this follow-up.
+Friday October16 at4p.m.EDT remains the alpha target. Broad UIMSD audits remain parked until launch-critical verification is complete. Do not claim all development backlog tasks or the entire localization review are verified merely from local tests.

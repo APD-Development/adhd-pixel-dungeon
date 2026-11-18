@@ -1,0 +1,12 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Statistics / UIMSD	ICON_INFO	Archive Importer	Bounded ignored archive entries so oversized or stalled extra files cannot bypass import safeguards.
+Testing	ICON_CHECKED	Archive Ignored Entry Limit Test 1	Added a test covering ignored Entry Cannot Bypass Existing Per File Limit. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Ignored Entry Limit Test 2	Added a test covering small Ignored Entry Keeps Existing Compatibility. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Ignored Entry Limit Test 3	Added a test covering zero Progress Ignored Entry Stops Without Writing History. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Ignored Entry Limit Test 4	Added a test covering ignored Entry At Exact Limit Remains Compatible. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Ignored Entry Limit Test 5	Added a test covering rejected Oversized Extra Preserves Existing History Bytes. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-TEST45-REPORT-2026-10-11	Added apd-test45-report-2026-10-11 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_STATS	UIMSD-AUDIT-BUG-LOG	Added uimsd-audit-bug-log accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Bounded ignored archive entries so oversized or stalled extra files cannot bypass import safeguards.

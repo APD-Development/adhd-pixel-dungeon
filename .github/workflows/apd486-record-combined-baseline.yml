@@ -1,0 +1,46 @@
+name: APD486 record verified combined baseline only
+on:
+  push:
+    branches: [chatgpt/apd486-complete-r7-integration-20261116]
+    paths: [.github/workflows/apd486-record-combined-baseline.yml]
+permissions: {contents: write}
+concurrency:
+  group: apd486-baseline-record
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Preserve production tree and prepend authoritative continuation
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor c6fa033167789ef9f2fc6f31bcff39c824dfb4db HEAD
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          import subprocess
+          frozen='c6fa033167789ef9f2fc6f31bcff39c824dfb4db'
+          changed=subprocess.check_output(['git','diff','--name-only',frozen,'HEAD'],text=True).splitlines()
+          assert all(p.startswith('docs/') or p.startswith('.github/workflows/') for p in changed),changed
+          path=Path('AGENTS.md');original=path.read_text()
+          heading='## Current owner-authorized combined baseline: C466R7 + C485 -> C486/P486'
+          assert heading not in original
+          note='\n'+heading+'\n\nRead `docs/APD-486-R7-INTEGRATION-VERIFIED-2026-11-16.md` FIRST. The owner required the complete exact R7 source `34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7`, including weapons/shields, original sprites, full-pack swap, throw aiming, Greater Metamorphosis, adaptive magnifier/wall rules and R7 playback, combined with all C485 history/diagnostic/performance and rational v6 scoring work. Tested two-parent integration `c6fa033167789ef9f2fc6f31bcff39c824dfb4db` is the minimum combined baseline. Do not restart from incomplete C485, default main, or a build-only branch.\n\nExact run 43905816255 passed 3,540 tests / 539 suites with zero failures/errors/skips and desktop/Android Java compilation; original-signed C486/P486 artifact 14244034917 preserves the signer, application ID, versionCode 920 and edition flags. All 60 R7 changed paths were reconciled; 33 of 38 production files are byte-identical to R7, five retain reviewed C485 safety/performance compatibility, and all other C485 production files are unchanged. Downloaded APK class/asset/hash verification is recorded. Native execution, install-over/save verification, visual acceptance and qualified publication remain OUTSTANDING for these exact bytes. Preserve earlier candidates and independent C480 work.\n\nThis was one explicitly authorized integration session. Recurring APD development remains STOPPED. Do not re-enable any tasks or alter other games. Future work must preserve both parents and read the verified continuation rather than repeating this merge or trusting a larger build number.\n'
+          first,rest=original.split('\n',1)
+          path.write_text(first+'\n'+note+'\n'+rest)
+          claim=Path('docs/APD-486-R7-INTEGRATION-2026-11-16.md')
+          claim.write_text(claim.read_text()+'\n## Completed verification superseding pending status\n\nRecorded '+datetime.now(ZoneInfo('America/New_York')).isoformat()+'. Exact combined source `c6fa033167789ef9f2fc6f31bcff39c824dfb4db` passed 3,540 core tests / 539 suites and all requested Java compilation. Original-signed C486/P486 APKs are retained in artifact 14244034917 and were independently checked after download. See `APD-486-R7-INTEGRATION-VERIFIED-2026-11-16.md` for full source, test, APK hash and limitation receipts. Native acceptance and publication remain unperformed. No recurring tasks changed.\n')
+          PY
+          git add AGENTS.md docs/APD-486-R7-INTEGRATION-2026-11-16.md
+          test "$(git diff --cached --name-only | wc -l)" -eq 2
+          branch=chatgpt/apd486-complete-r7-integration-20261116
+          test "$(git ls-remote origin refs/heads/$branch | cut -f1)" = "$GITHUB_SHA"
+          git config user.name 'APD integration'
+          git config user.email 'apd-integration@users.noreply.github.com'
+          git commit -m 'Mark exact combined R7/C485 baseline and completed C486/P486 receipts in AGENTS'
+          git push origin HEAD:refs/heads/$branch
+          git rev-parse HEAD

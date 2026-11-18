@@ -1,0 +1,149 @@
+# ADHD Pixel Dungeon; Copyright (C) 2026 Chris Charlton
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Reviewed staging; compilation runs before assembly when root requests this candidate.
+name: Build and qualify one APD446 pair with preserved APD445 history
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-446-BUILD-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd446-exact-candidate, cancel-in-progress: false}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify candidate scope and retained evidence safeguards
+        run: |
+          python3 tools/apd_candidate446.py self-test
+          python3 -m unittest discover -s tools -p 'test_apd_recover439_440.py' -v
+          python3 -m unittest discover -s tools -p 'test_apd_native_screenshot_transfer.py' -v
+          python3 -m unittest discover -s tools -p 'test_apd_scan_prepared_sources.py' -v
+      - name: Require accepted APD444 and retain unaccepted APD445 compiled history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_candidate446.py history
+      - name: Run the exact complete core suite and compile every required target
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac -PapdTestBuild -PapdBuild=C446
+          python3 tools/apd_candidate446.py core
+          python3 tools/check_android_json_abi.py .
+      - name: Assemble one Developer and Alpha-Testers pair with the original signer
+        run: |
+          mkdir -p candidate446/built/owner-delivery
+          ./gradlew :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C446
+          cp android/build/outputs/apk/debug/android-debug.apk candidate446/built/owner-delivery/APD-Developer-446.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk candidate446/built/evidence/instrumentation.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P446
+          cp android/build/outputs/apk/debug/android-debug.apk candidate446/built/owner-delivery/APD-Alpha-Testers-446.apk
+          python3 tools/check_android_json_abi.py .
+          python3 tools/apd_candidate446.py freeze
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd446-built-pair
+          path: candidate446/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd446-build-failure-evidence
+          path: |
+            candidate446/
+            core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 30
+  native:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Bind and verify the frozen APD446 artifact
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_candidate446.py fetch
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run all nine native cases and verify complete device image transfers
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: python3 tools/apd_candidate446.py native --variant '${{ matrix.variant }}' --output native446
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd446-native-${{ matrix.variant }}
+          path: native446/
+          if-no-files-found: error
+          retention-days: 30
+  source-scan:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Install the unchanged pinned source scanner
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          if ! curl --connect-timeout 20 --max-time 120 -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz; then
+            gh api repos/gitleaks/gitleaks/releases/assets/378332058 -H 'Accept: application/octet-stream' > /tmp/apd-gitleaks.tar.gz
+          fi
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+      - name: Scan the exact APD446 source archive and reachable history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_candidate446.py source-scan
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd446-prepared-source-scan-evidence
+          path: source-scan-evidence/446/
+          if-no-files-found: error
+          retention-days: 30
+  prepare-owner-review:
+    needs: [build, native, source-scan]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Recheck frozen candidate and exact source-scan artifacts
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 tools/apd_candidate446.py fetch
+          python3 tools/apd_candidate446.py fetch-scan
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: apd446-native-*
+          path: native-evidence
+          merge-multiple: false
+      - name: Require all eighteen cases, scoped images and corresponding-source acceptance
+        run: python3 tools/apd_candidate446.py finalize --output owner-review446
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd446-owner-review-pair
+          path: owner-review446/
+          if-no-files-found: error
+          retention-days: 30

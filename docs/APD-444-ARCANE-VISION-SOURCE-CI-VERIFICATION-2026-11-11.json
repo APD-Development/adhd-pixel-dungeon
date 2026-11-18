@@ -1,0 +1,155 @@
+{
+  "status": "verified_source_checks_passed",
+  "verified_at_utc": "2026-11-11T16:21:04.816751+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "source_commit": "43c078b75b73626625369ed21d1cbf2f013e6f31",
+  "source_tree": "a6652dbb7af789b8b2bf4d925ed69fe8f8514eeb",
+  "run": {
+    "id": 43056607040,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43056607040",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-11T16:16:02Z",
+    "updated_at": "2026-11-11T16:19:12Z"
+  },
+  "job": {
+    "id": 130647614286,
+    "name": "source-check",
+    "conclusion": "success",
+    "all_recorded_steps_successful": true
+  },
+  "artifact": {
+    "id": 13872265550,
+    "name": "apd-qol-source-verification",
+    "bytes": 547832,
+    "sha256": "e921e76971af8f350e7a8b8835bd3d72437f68c8dc7d4aaff3e67949375953d5",
+    "github_metadata_digest_matches_actual_download": true,
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/source-ci-artifact.zip"
+  },
+  "junit": {
+    "summary": {
+      "source_commit": "43c078b75b73626625369ed21d1cbf2f013e6f31",
+      "suites": 466,
+      "tests": 3214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "apk_assembled": false,
+      "physical_phone_tested": false
+    },
+    "raw_xml_files": 466,
+    "actual_testcase_elements": 3214,
+    "unique_classname_name_pairs": 3214,
+    "nonzero_suite_or_test_outcomes": 0,
+    "all_suite_counts_equal_child_testcase_counts": true,
+    "raw_xml_and_summary_archive_byte_equality_verified": true,
+    "arcane_suite": {
+      "path": "core/build/test-results/test/TEST-com.shatteredpixel.shatteredpixeldungeon.apd.ArcaneVisionActivationTest.xml",
+      "sha256": "e16cbe89f2c29803b3f2c249a07b40b8e4768d7e442ef9a715fa4d6fcf15a2de",
+      "bytes": 879,
+      "suite": "com.shatteredpixel.shatteredpixeldungeon.apd.ArcaneVisionActivationTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "methods": [
+        "autonomousWardAttackTracksASurvivorWithoutAnotherHeroZap",
+        "frostImpactRequiresANonFrozenTargetToGrantActualAwareness",
+        "transfusionHealingTracksAnAllyBeyondOrdinarySight"
+      ]
+    },
+    "manifest_path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/raw-junit-manifest.json",
+    "manifest_sha256": "7ddf40389576cad49c09490e635214a26b2fec3d00848d0391901ddcd19fb914"
+  },
+  "compilation": {
+    "required_gradle_targets": [
+      ":core:test",
+      ":desktop:classes",
+      ":android:compileDebugJavaWithJavac",
+      ":android:compileReleaseJavaWithJavac",
+      ":android:compileDebugAndroidTestJavaWithJavac"
+    ],
+    "command": "./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac",
+    "task_log_evidence": {
+      ":core:test": [
+        {
+          "line": 377,
+          "text": "2026-11-11T16:17:28.3636338Z > Task :core:test"
+        },
+        {
+          "line": 524,
+          "text": "2026-11-11T16:17:32.3710007Z > Task :core:test"
+        },
+        {
+          "line": 621,
+          "text": "2026-11-11T16:17:38.0576885Z > Task :core:test"
+        }
+      ],
+      ":desktop:classes": [
+        {
+          "line": 368,
+          "text": "2026-11-11T16:17:22.5576465Z > Task :desktop:classes"
+        }
+      ],
+      ":android:compileDebugJavaWithJavac": [
+        {
+          "line": 513,
+          "text": "2026-11-11T16:17:31.1616899Z > Task :android:compileDebugJavaWithJavac"
+        }
+      ],
+      ":android:compileReleaseJavaWithJavac": [
+        {
+          "line": 519,
+          "text": "2026-11-11T16:17:31.7624237Z > Task :android:compileReleaseJavaWithJavac"
+        }
+      ],
+      ":android:compileDebugAndroidTestJavaWithJavac": [
+        {
+          "line": 619,
+          "text": "2026-11-11T16:17:36.6589185Z > Task :android:compileDebugAndroidTestJavaWithJavac"
+        }
+      ]
+    },
+    "gradle_success": "BUILD SUCCESSFUL in 2m 35s",
+    "source_status_evidence_safeguard_tests": 5,
+    "safeguard_result": "OK"
+  },
+  "evidence": {
+    "completed_job_log": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/source-check-job-130647614286.log",
+      "bytes": 753121,
+      "sha256": "9f839dd88112e3019494caf5605440518bda5b0a7b2989d1adef1974a7c23c27"
+    },
+    "final_run_job_artifact_snapshot": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/snapshot-2026-11-11T16-19-56-975Z.json",
+      "sha256": "5806765e29cddf94e6d0d5842d1e168922a34e5269bba3f41f004f2e7874836a"
+    },
+    "pinned_workflow": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/workflow-at-43c078b.yml",
+      "sha256": "540f1720ee96108272ebff24e25464baedffec6113bc33fa086f951469025b9e"
+    },
+    "ci_summary": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/source-ci-artifact/qol-verification.json",
+      "sha256": "fc17eb1fc2af5c9132386291ee56a75ea87515970662f4ad277a9ea9bc626f71"
+    }
+  },
+  "actions_taken": [
+    "Read-only GitHub run/job/artifact polling",
+    "Retrieved the completed job log",
+    "Independently hashed the artifact already downloaded by root",
+    "Parsed all 466 raw JUnit XML files and compared them byte for byte with the pinned artifact",
+    "Matched the committed workflow targets to successful completed-job task lines"
+  ],
+  "limits": {
+    "apk_assembled": false,
+    "apk_delivered": false,
+    "native_instrumentation_executed": false,
+    "physical_phone_tested": false,
+    "audio_verified": false,
+    "remote_mutation_or_retry": false,
+    "local_tests_or_compilers_rerun": false,
+    "compilation_evidence": "Successful CI job and actual Gradle target log lines. Android debug instrumentation was compiled, not executed."
+  }
+}

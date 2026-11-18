@@ -1,0 +1,19 @@
+{
+  "source": "624f6991bae64c3f9437be6a5e6e16535cff374d",
+  "run": 38344486604,
+  "started_at": "2026-10-13T04:01:47Z",
+  "updated_at": "2026-10-13T04:13:10Z",
+  "apk_name": "ADHD-Pixel-Dungeon-CODEX-TEST-100.apk",
+  "apk_sha256": "be4860a2573d1497c01153c113f04f2ec5b4d2c3864c1ef7600e55e5e1bfbfa3",
+  "entries": [
+    {
+      "entry": "assets/apd/history/codex-test-100.tsv",
+      "sha256": "e6b49f3c738b8712560c723a512f5879b299c280b5e097fdd88df4af545a0b17"
+    },
+    {
+      "entry": "assets/apd/history/index.tsv",
+      "sha256": "efc36d6552783f16a9860695c7a6fd6594e1c40af0ce07a3ce0b432ae986ae02"
+    }
+  ],
+  "scope": "Read-only extraction; no build, publication or APK signing claim."
+}

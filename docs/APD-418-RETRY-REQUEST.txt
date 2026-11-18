@@ -1,0 +1,1 @@
+Retry all12 native cases on exact original418 application APKs42642508263/8c2d5ca9. Only instrumentation expected MindVision default2tiles instead of1. Rebuild instrumentation only, never app APK; preserve one-line patch, original identity hashes and initial failures. Use APD_SOURCE_SHA8c2d5ca9; no publication until independent and manual acceptance.

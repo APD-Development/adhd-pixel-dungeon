@@ -1,0 +1,8 @@
+{
+  "run": 42641365143,
+  "source": "bcaade3fe1781671d0ce51805fc3fe38af640476",
+  "stage": "instrumentation Java compilation",
+  "reason": "New test grammar regex had illegal Java string escapes. Production compile and3138core passed; assemble steps not reached. No application APK produced or published.",
+  "correction": "Use explicit digit/letter character classes with no Java backslash escapes. Preserve failing source branch and raw log.",
+  "next_candidate": 418
+}

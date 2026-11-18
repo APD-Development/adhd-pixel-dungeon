@@ -1,0 +1,1 @@
+Rerun all12 native cases on exact original420 app APKs42650360251/55d8e9ad. Rebuild instrumentation only with one expected Might label corrected to include raw highlighting underscores around5of5. Do not rebuild apps or change/skip any case. Preserve original hashes, patch and failures. APD_SOURCE_SHA55d8e9ad. Independent/manual acceptance still required before publication.

@@ -1,0 +1,100 @@
+# ADHD Pixel Dungeon; Copyright (C) 2026 Chris Charlton
+# SPDX-License-Identifier: GPL-3.0-or-later
+name: Recover original APD439 and APD440 full native evidence without rebuilding
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-439-440-RECOVERY-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd439-440-exact-recovery, cancel-in-progress: false}
+jobs:
+  prepare:
+    strategy:
+      fail-fast: false
+      matrix: {build: [439, 440]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Test recovery rejection and source sanitization safeguards
+        run: python3 -m unittest discover -s tools -p 'test_apd_recover439_440.py' -v
+      - name: Verify original pair and export key-free corresponding source
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_recover439_440.py prepare ${{ matrix.build }} --root recovery
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-recovery-${{ matrix.build }}-original-pair-and-source
+          path: |
+            recovery/built/
+            recovery/source/
+            recovery/*.json
+          if-no-files-found: error
+          retention-days: 30
+  native:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      matrix: {build: [439, 440], variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-recovery-${{ matrix.build }}-original-pair-and-source
+          path: recovery
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run all six existing native cases on the original signed APK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: python3 tools/apd_recover439_440.py native ${{ matrix.build }} --variant '${{ matrix.variant }}' --root recovery --output native-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-recovery-${{ matrix.build }}-native-${{ matrix.variant }}
+          path: native-evidence/
+          if-no-files-found: error
+          retention-days: 30
+  package:
+    needs: [prepare, native]
+    if: always()
+    strategy:
+      fail-fast: false
+      matrix: {build: [439, 440]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-recovery-${{ matrix.build }}-original-pair-and-source
+          path: recovery
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: apd-recovery-${{ matrix.build }}-native-*
+          path: native-evidence
+          merge-multiple: false
+      - name: Require twelve exact-APK results and intact screenshots before packaging
+        run: python3 tools/apd_recover439_440.py finalize ${{ matrix.build }} --root recovery --native-root native-evidence --output owner-review
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-recovery-${{ matrix.build }}-owner-review-pair
+          path: owner-review/
+          if-no-files-found: error
+          retention-days: 30

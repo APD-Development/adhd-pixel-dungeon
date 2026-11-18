@@ -1,0 +1,87 @@
+name: APD486 exact R7 integration probe
+on:
+  push:
+    branches: [chatgpt/apd486-complete-r7-integration-20261116]
+    paths: [.github/workflows/apd486-r7-integration-probe.yml]
+permissions:
+  contents: read
+concurrency:
+  group: apd486-r7-integration-probe
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preserve exact inputs and preview three-way merge
+        shell: bash
+        run: |
+          set -euo pipefail
+          export APD_PROBE="$RUNNER_TEMP/apd486-probe"
+          mkdir -p "$APD_PROBE"
+          python3 - <<'PY'
+          import subprocess, pathlib, json, datetime
+          root=pathlib.Path(__import__('os').environ['APD_PROBE'])
+          refs={'r7':'34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7', 'c485':'18c8c3e74209fcaa6434399f5bbb681214455733', 'ancestor':'8c74997210585191d12603ad5e2ee398b1c54fe7'}
+          def git(*args): return subprocess.check_output(['git',*args])
+          assert git('merge-base',refs['c485'],refs['r7']).decode().strip()==refs['ancestor']
+          paths=git('diff','--name-only',refs['ancestor'],refs['r7']).decode().splitlines()
+          changes=[]
+          for p in paths:
+              row={'path':p,'versions':{}}
+              for label,ref in refs.items():
+                  spec=ref+':'+p
+                  try: data=git('show',spec)
+                  except subprocess.CalledProcessError:
+                      row['versions'][label]=None; continue
+                  target=root/label/p; target.parent.mkdir(parents=True,exist_ok=True); target.write_bytes(data)
+                  entry=git('ls-tree',ref,'--',p).decode().strip().split()
+                  row['versions'][label]={'mode':entry[0],'sha':entry[2],'bytes':len(data)}
+              changes.append(row)
+          (root/'inputs.json').write_text(json.dumps({'refs':refs,'workflow_sha':git('rev-parse','HEAD').decode().strip(),'changes':changes},indent=2))
+          missing=[r['path'] for r in changes if r['path'].startswith('core/src/main/') and r['versions']['r7'] is not None and r['versions']['c485'] is None]
+          required=['Tanto.java','Wakizashi.java','Tachi.java','Nodachi.java','Buckler.java','Targe.java','KiteShield.java','FullPackSwap.java','ThrowAim.java','GreaterMetamorphosis.java']
+          observed={pathlib.Path(p).name for p in missing}
+          assert set(required)<=observed, ('Baseline changed; inspect before integrating',observed)
+          (root/'baseline-red.json').write_text(json.dumps({'result':'EXPECTED_FAIL','missing_required_classes':required,'all_missing_production_paths':missing},indent=2))
+          print('Baseline completeness regression: EXPECTED FAIL, all ten required R7 classes absent from C485')
+          (root/'r7-commits.txt').write_bytes(git('log','--reverse','--format=%H %s',refs['ancestor']+'..'+refs['r7']))
+          (root/'c485-source.diff').write_bytes(git('diff',refs['ancestor'],refs['c485'],'--',*paths))
+          (root/'r7-source.diff').write_bytes(git('diff',refs['ancestor'],refs['r7']))
+          for label,ref in refs.items():
+              for p in ['AGENTS.md','docs/HANDOFF.md','docs/WORK-COMPLETED-LEDGER.md','docs/KNOWN-ISSUES-AND-SOURCE-GUIDE.md']:
+                  try: data=git('show',ref+':'+p)
+                  except subprocess.CalledProcessError: continue
+                  target=root/label/p;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
+          PY
+          git config user.name 'APD integration inspection'
+          git config user.email 'apd-integration@users.noreply.github.com'
+          set +e
+          git merge --no-commit --no-ff 34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7 > "$APD_PROBE/merge-preview.txt" 2>&1
+          status=$?
+          set -e
+          printf '%s\n' "$status" > "$APD_PROBE/merge-exit-code.txt"
+          git status --porcelain=v1 > "$APD_PROBE/status.txt"
+          git diff --name-only --diff-filter=U > "$APD_PROBE/conflicts.txt"
+          git diff --binary HEAD > "$APD_PROBE/preview.diff"
+          python3 - <<'PY'
+          import pathlib,json,shutil,os
+          root=pathlib.Path(os.environ['APD_PROBE'])
+          for row in json.loads((root/'inputs.json').read_text())['changes']:
+              p=pathlib.Path(row['path'])
+              if p.is_file():
+                  t=root/'preview'/p;t.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,t)
+          PY
+          cat "$APD_PROBE/merge-preview.txt"
+          echo 'No repository refs updated; no APK built; no signing inputs accessed.'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: APD486-exact-R7-merge-inputs
+          path: ${{ runner.temp }}/apd486-probe/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7

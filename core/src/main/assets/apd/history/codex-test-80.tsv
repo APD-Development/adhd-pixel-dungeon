@@ -1,0 +1,6 @@
+Bug Fixes	ICON_DATA	Damaged derived statistics text	Malformed text in the derived statistics cache now triggers a rebuild from genuine run logs instead of displaying corrupted values.
+Testing	ICON_DATA	Derived cache integrity regressions	Added tests for malformed cache recovery, unchanged genuine history and valid international text.
+Development	ICON_INFO	Verified private delivery	Recorded TEST79's verified APK delivery and added checks that wait for successful source verification before publishing.
+Development	ICON_INFO	Retired unsuccessful backup delivery	Removed an unused backup publication workflow after its source comparison correctly refused delivery; no player data or published assets changed.
+Development	ICON_INFO	Audit and build records	Recorded the cache reproduction, recovery checks, source evidence and remaining audit limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I made the older statistics cache reject malformed text and rebuild it from the original records. Valid international text and genuine run history remain unchanged.

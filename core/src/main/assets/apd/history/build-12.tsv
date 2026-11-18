@@ -1,0 +1,9 @@
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added the APD settings, shown as the "APD" tab of Options (WndSettings) and in the in-game menu's "APD Settings" window.
+Quality of Life	ICON_PREFS	APD Settings	Reused the APD settings pane inside its dedicated window.
+Quality of Life	ICON_PREFS	Settings	Added an APD tab to the Options window.
+Testing	ICON_CHECKED	Ui Entry Points Test 1	Added a test covering the Apd Pane Has The Recording Controls. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Ui Entry Points Test 2	Added a test covering options Has An Apd Tab That Shows The Pane. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Ui Entry Points Test 3	Added a test covering the In Game Menu Also Opens The Pane. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added the APD settings, shown as the "APD" tab of Options (WndSettings) and in the in-game menu's "APD Settings" window. Reused the APD settings pane inside its dedicated window.

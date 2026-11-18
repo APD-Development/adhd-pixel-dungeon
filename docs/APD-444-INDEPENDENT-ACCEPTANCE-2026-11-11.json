@@ -1,0 +1,400 @@
+{
+  "schema": 1,
+  "number": 444,
+  "status": "passed_independent_mechanical_acceptance_manual_review_separate",
+  "verified_at_utc": "2026-11-11T16:50:48.744834+00:00",
+  "source_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "producing_run": 43057716359,
+  "metadata_path": "/workspace/scratch/db82734c9c44/recovery/apd444-build/snapshot-2026-11-11T16-49-51-390Z.json",
+  "metadata_sha256": "028b01d79acbb5e8d8cf08975fa060d5f38fb4b2c04c49088338f882fab3afe8",
+  "all_five_original_jobs_success": true,
+  "original_instrumentation_only": true,
+  "supplemental_pylon_result_required": false,
+  "artifacts": {
+    "apd444-owner-review-pair": {
+      "id": 13873957382,
+      "sha256": "df6d77a0fcef7c510730a436fc2b884e9c3711db9afa971a37927d4f7ce354e0",
+      "bytes": 183229487,
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-owner-review-pair.zip",
+      "all_extracted_files_match": true,
+      "extracted_files_verified": 8
+    },
+    "apd444-native-Developer": {
+      "id": 13874360295,
+      "sha256": "7c262b3b0f8bb82300508d03dfce345116475d51d14a38fc97b3537bf9969d60",
+      "bytes": 42912009,
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer.zip",
+      "all_extracted_files_match": true,
+      "extracted_files_verified": 1452
+    },
+    "apd444-native-Alpha-Testers": {
+      "id": 13872558864,
+      "sha256": "e126de15ca6495af488729dd7c72f653f970e990d435b02f8a910c0e062b8474",
+      "bytes": 51179317,
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers.zip",
+      "all_extracted_files_match": true,
+      "extracted_files_verified": 1452
+    }
+  },
+  "owner_receipt_sha256": "46ee12b4a5de1e87ff646cb111cd0b5d2c69b4fe489bef07e469c3abd884c6ce",
+  "owner_apk_source_and_original_instrumentation_bytes_match_frozen_proof": true,
+  "apk_sha256": {
+    "Developer": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+    "Alpha-Testers": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162"
+  },
+  "instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+  "source_archive_sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076",
+  "native": {
+    "Developer": {
+      "raw_exact_cases_passed": 6,
+      "reports": [
+        {
+          "case": "qol",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest",
+          "method": "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/qol.txt",
+          "sha256": "04d8abe9dd0a6e91d6f1f460fa9475ca1e3fccb42fb3108745811a296f2a4e54",
+          "terminal_tests": 1
+        },
+        {
+          "case": "wall",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest",
+          "method": "observedGeometryAndRetainedMarksUseTheActualAndroidLayer",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/wall.txt",
+          "sha256": "e71d3d304077f3bd119ecc7b67ae3e16d5a559c396e81c1a9de8bde0da78f3e1",
+          "terminal_tests": 1
+        },
+        {
+          "case": "seed",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "a_controlWritesEnabledPreference",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/seed.txt",
+          "sha256": "d2155d81aa263239bbd8b0c648906a9b4587b2a03db7db5fb64e1fea8bcf9fb4",
+          "terminal_tests": 1
+        },
+        {
+          "case": "restart",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "b_freshProcessReadsEnabledAndCanDisable",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/restart.txt",
+          "sha256": "de0df8aaece9bcf9236eccb24a75e732afefc56503620d4ad25aa9215569d3b8",
+          "terminal_tests": 1
+        },
+        {
+          "case": "gameplay",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "c_runtimeDiscoveryRouteAndActualTrapEffect",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/gameplay.txt",
+          "sha256": "0d08bab6759a17b235fb12ad78ec5534e3e8249837fd029da8c1e0f480b9f26c",
+          "terminal_tests": 1
+        },
+        {
+          "case": "freeze",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest",
+          "method": "cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/freeze.txt",
+          "sha256": "c37588d0f82cddf3f3831e87f1b87ee8cd55ba58eb4eb01156d68b143490d36c",
+          "terminal_tests": 1
+        }
+      ],
+      "observed_png_count": 1437,
+      "all_png_crc_pixel_stream_filter_and_dimensions_valid": true,
+      "all_images_match_native_manifest": true,
+      "required_affected_originals": 29,
+      "all_required_images_present": true,
+      "previous_1433_image_names_retained": true,
+      "exactly_four_approved_image_names_added": true,
+      "transfers": {
+        "qol": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/qol-transfer.json",
+          "sha256": "dc5457a07e0f1f777d0ff4f6dc904dd1c863c227261c1d4d6a516d8863da977e",
+          "recorded_images": 1419,
+          "all_hashes_match": true
+        },
+        "wall": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/wall-transfer.json",
+          "sha256": "41677691f636ab4a4e8bad2684ccfb97e27687e00cd8a2f00b306242e9a4a3b1",
+          "recorded_images": 1424,
+          "all_hashes_match": true
+        },
+        "seed": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/seed-transfer.json",
+          "sha256": "0608ae7dd37d67b4806952fc90598629ed790306f3f9de1bcb00db69c76ef470",
+          "recorded_images": 1425,
+          "all_hashes_match": true
+        },
+        "restart": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/restart-transfer.json",
+          "sha256": "7f2266b3a76a7984bc10854101027fae9fc5e35fdf94acfff883853aeb31e0e3",
+          "recorded_images": 1427,
+          "all_hashes_match": true
+        },
+        "gameplay": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/gameplay-transfer.json",
+          "sha256": "5a6434d76ebe935fa0bcfebb621607b4a780b3f7f9c0afc0137b9ce0d4ee1260",
+          "recorded_images": 1437,
+          "all_hashes_match": true
+        },
+        "freeze": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Developer/freeze-transfer.json",
+          "sha256": "4c3a1bfed41e4a0eff2be6ad33682ddb5c6c1b2a9f283854c497df35ee3dd0d1",
+          "recorded_images": 1437,
+          "all_hashes_match": true
+        }
+      },
+      "final_device_manifest_equals_local_manifest": true,
+      "receipt_sha256": "40adb30caec9be4acdbd1bb843c91524454df41e005378dfca2b693bfbb923f9",
+      "source_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+      "apk_sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+      "seed_pid": 4915,
+      "restart_pid": 5113,
+      "distinct_trap_processes": true,
+      "logcat_sha256": "de3db73f6b0dd23e953b63e28b13dce4dea6d1a6ad806fac09f06f854c30339b",
+      "actual_liquid_agility_observations": [
+        {
+          "rank": "1",
+          "potion": "PotionOfPurity",
+          "occupied": "true",
+          "start": "5.0",
+          "enemy_time": "5.0",
+          "paid": "1.0",
+          "evasion": "1.0",
+          "defense": "15",
+          "quantity": "1",
+          "hero_hp": "20",
+          "target_hp": "8"
+        },
+        {
+          "rank": "2",
+          "potion": "PotionOfPurity",
+          "occupied": "true",
+          "start": "6.0",
+          "enemy_time": "6.0",
+          "paid": "1.0",
+          "evasion": "1.0",
+          "defense": "1000000",
+          "quantity": "1",
+          "hero_hp": "20",
+          "target_hp": "8"
+        },
+        {
+          "rank": "2",
+          "potion": "PotionOfStrength",
+          "occupied": "true",
+          "start": "7.0",
+          "enemy_time": "7.0",
+          "paid": "1.0",
+          "evasion": "-1.0",
+          "defense": "5",
+          "quantity": "1",
+          "hero_hp": "20",
+          "target_hp": "8"
+        }
+      ]
+    },
+    "Alpha-Testers": {
+      "raw_exact_cases_passed": 6,
+      "reports": [
+        {
+          "case": "qol",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest",
+          "method": "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/qol.txt",
+          "sha256": "d8e4542937a42e74e4f938cb7493a8eb29d4c914370a0955e38bdd2871e81dc2",
+          "terminal_tests": 1
+        },
+        {
+          "case": "wall",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest",
+          "method": "observedGeometryAndRetainedMarksUseTheActualAndroidLayer",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/wall.txt",
+          "sha256": "b866adc5e54aa0109259724ca04350e369e4d4bcc4352f80e33696a69a3e481d",
+          "terminal_tests": 1
+        },
+        {
+          "case": "seed",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "a_controlWritesEnabledPreference",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/seed.txt",
+          "sha256": "db86d6710a9ebae6818093ec750e6df9ea68ba4f4b5e660f58643305e26b2176",
+          "terminal_tests": 1
+        },
+        {
+          "case": "restart",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "b_freshProcessReadsEnabledAndCanDisable",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/restart.txt",
+          "sha256": "acbd3c05d287b9143d35277417cc11a934500c31a205f067e82e1f198de595b5",
+          "terminal_tests": 1
+        },
+        {
+          "case": "gameplay",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "c_runtimeDiscoveryRouteAndActualTrapEffect",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/gameplay.txt",
+          "sha256": "2d3eb0917c9a90bdd6762e22601f79b0ed9d887f7697d2d9ac14c7ecd07371da",
+          "terminal_tests": 1
+        },
+        {
+          "case": "freeze",
+          "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest",
+          "method": "cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/freeze.txt",
+          "sha256": "941d8ed8cdcb39779c808f72c68414aac85b9950e78671a5f960c7a2b3bfdb8b",
+          "terminal_tests": 1
+        }
+      ],
+      "observed_png_count": 1437,
+      "all_png_crc_pixel_stream_filter_and_dimensions_valid": true,
+      "all_images_match_native_manifest": true,
+      "required_affected_originals": 29,
+      "all_required_images_present": true,
+      "previous_1433_image_names_retained": true,
+      "exactly_four_approved_image_names_added": true,
+      "transfers": {
+        "qol": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/qol-transfer.json",
+          "sha256": "f102a2730e54982db0a9ff2549ea202d53ac13a05a8e9b17a0cb9f38955eff0a",
+          "recorded_images": 1419,
+          "all_hashes_match": true
+        },
+        "wall": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/wall-transfer.json",
+          "sha256": "77a28f0e70779a9d399ba5f0cf95b68e331d92545cb023cd0db4df641c1b1524",
+          "recorded_images": 1424,
+          "all_hashes_match": true
+        },
+        "seed": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/seed-transfer.json",
+          "sha256": "94bb7374060d4ca3afe0410a74d25b61608a48e8f31e86984d8890ff7f7286fd",
+          "recorded_images": 1425,
+          "all_hashes_match": true
+        },
+        "restart": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/restart-transfer.json",
+          "sha256": "02b49e54a2f8f6ddcb2c62e2dbd596f1c77cab9a7e224040e11a30478f1e2c23",
+          "recorded_images": 1427,
+          "all_hashes_match": true
+        },
+        "gameplay": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/gameplay-transfer.json",
+          "sha256": "b8fd2ae936f38dc36e407d0f9e8b4f131abe073659856ea536552c26037499f4",
+          "recorded_images": 1437,
+          "all_hashes_match": true
+        },
+        "freeze": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-native-Alpha-Testers/freeze-transfer.json",
+          "sha256": "4dbfde79fca251261741179e3a048d7780fe4f38f5af9583dd80919d6edb5a4a",
+          "recorded_images": 1437,
+          "all_hashes_match": true
+        }
+      },
+      "final_device_manifest_equals_local_manifest": true,
+      "receipt_sha256": "fe2d239daddde2efdd1d01ea3b2e51293a3681c59a85a88f6d77c5c643a40572",
+      "source_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+      "apk_sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+      "seed_pid": 4952,
+      "restart_pid": 5144,
+      "distinct_trap_processes": true,
+      "logcat_sha256": "5965f06aafdebc4f419f47e76a4f766fd35d49dc5f5f52cd9a36bce5f5e0fb31",
+      "actual_liquid_agility_observations": [
+        {
+          "rank": "1",
+          "potion": "PotionOfPurity",
+          "occupied": "true",
+          "start": "5.0",
+          "enemy_time": "5.0",
+          "paid": "1.0",
+          "evasion": "1.0",
+          "defense": "15",
+          "quantity": "1",
+          "hero_hp": "20",
+          "target_hp": "8"
+        },
+        {
+          "rank": "2",
+          "potion": "PotionOfPurity",
+          "occupied": "true",
+          "start": "6.0",
+          "enemy_time": "6.0",
+          "paid": "1.0",
+          "evasion": "1.0",
+          "defense": "1000000",
+          "quantity": "1",
+          "hero_hp": "20",
+          "target_hp": "8"
+        },
+        {
+          "rank": "2",
+          "potion": "PotionOfStrength",
+          "occupied": "true",
+          "start": "7.0",
+          "enemy_time": "7.0",
+          "paid": "1.0",
+          "evasion": "-1.0",
+          "defense": "5",
+          "quantity": "1",
+          "hero_hp": "20",
+          "target_hp": "8"
+        }
+      ]
+    }
+  },
+  "all_12_primary_native_cases_passed": true,
+  "observed_png_total": 2874,
+  "pre_native_evidence_reused": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pre-native-acceptance.json",
+    "sha256": "06a0fca1f8d374bb23d545b5b0e3deb0895b80445a3c69b016f6da5699ff2d63",
+    "raw_core_tests": 3214,
+    "raw_core_suites": 466,
+    "source_manifest_files": 5001,
+    "source_candidates_reviewed": 72,
+    "retained_redacted_history_findings": 23,
+    "compiled_previous_443_histories_preserved": true,
+    "common_runtime_assets": 932,
+    "history_tsvs": 449,
+    "player_note_tsvs": 2,
+    "ordinary_text_only_scope": {
+      "accepted_previous_source_zip_path": "/workspace/scratch/db82734c9c44/recovery/apd443-owner-review/APD-Source-443.zip",
+      "accepted_previous_source_zip_sha256": "8cc24328cc1b93006ace8c005509bbf82849a5fb9a2e9057670fd7c5f323cb1b",
+      "core_application_files_compared": 2114,
+      "generated_history_excluded_from_application_delta": true,
+      "changed_application_paths": [
+        "core/src/main/assets/messages/actors/actors.properties"
+      ],
+      "changed_ordinary_properties": [
+        "actors.hero.talent.arcane_vision.desc",
+        "actors.hero.talent.empowered_strike.desc"
+      ],
+      "empowered_existing_factors_and_full_prior_copy_preserved": true,
+      "frozen_actors_bytes_match_reviewed_source": true,
+      "source_only_scope_verified": true
+    },
+    "script_rerun": false,
+    "original_checks_not_reexecuted": true,
+    "owner_bytes_equal_to_independently_verified_original_bytes": true
+  },
+  "manual_review": {
+    "status": "separate_receipts_required",
+    "alpha_expected_originals": 37
+  },
+  "limitations": [
+    "No game/core/native tests, signatures or source scans were rerun locally. New raw native reports, all transferred PNGs and exact new owner/native archive bytes were checked.",
+    "The immutable pre-native receipt supplies the previously completed source/core/history/feature/signature-binding checks. Exact owner APK/source and original instrumentation hashes bind this final stage to those bytes.",
+    "PNG validation is mechanical; manual original-image review is recorded separately. No physical-phone, audio or install-over-existing-save acceptance is claimed.",
+    "The separate supplemental pylon instrumentation source/run is excluded. It does not gate primary APD444 delivery or replace original instrumentation."
+  ],
+  "prior_local_wrapper_attempt": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-independent-acceptance-attempt-1.log",
+    "sha256": "b7b8dc7d2820685254ffeaedd382d53a0da044dc274ee5dd48fb05063eaca149",
+    "issue": "Relative metadata path was resolved after changing working directory, before any new archive/native checks. Path resolution corrected; no application or test failure."
+  },
+  "repository_files_written": false,
+  "remote_mutations": false,
+  "script": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-independent-acceptance-check.py",
+    "sha256": "5f7aba3a93fadcf8e400d2c7b787dd512fb74483e653e38139b6e34c555d107c"
+  }
+}

@@ -1,0 +1,82 @@
+name: APD exact owner seed formula signed Developer APK
+on:
+  push:
+    branches: [chatgpt/apd-owner-exact-seed-formula-20261114]
+    paths: [.github/workflows/apd-owner-exact-seed-formula-apk.yml]
+permissions: {contents: read}
+concurrency: {group: apd-owner-formula-build, cancel-in-progress: false}
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Run all core tests and compile Android
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :android:compileDebugJavaWithJavac --no-daemon
+          python3 - <<'PY'
+          import pathlib, xml.etree.ElementTree as ET
+          roots=[ET.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert roots,"No test XML"
+          tally={k:sum(int(x.get(k,0)) for x in roots) for k in ('tests','failures','errors','skipped')}
+          assert tally['tests']>=3454 and not any(tally[k] for k in ('failures','errors','skipped')),tally
+          suites=[r for r in roots if r.get('name','').endswith('.SeedReuseScoreTest')]
+          assert len(suites)==1 and int(suites[0].get('tests',0))>=9
+          names={x.get('name') for x in suites[0].findall('testcase')}
+          for t in ('exactOwnerFormulaSevenPreviousAttemptsFloorNineToTwentySix',
+                    'retroactivelyMigrateOriginalZeroV1Receipt',
+                    'retroactivelyMigrateIncorrectV2FormulaWithoutRepeatingPenalty'):
+              assert t in names,t
+          print("Accepted core tests:",tally)
+          PY
+      - name: Assemble original-signed Developer only
+        run: |
+          set -euo pipefail
+          ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=C467 --no-daemon
+          mkdir -p deliverable
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Developer-SeedFormula-C467.apk
+          git archive --format=zip --output=deliverable/APD-Source-SeedFormula-C467.zip HEAD
+      - name: Verify original signer, identity, and produce SHA-256 receipts
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess
+          apk=pathlib.Path('deliverable/APD-Developer-SeedFormula-C467.apk')
+          tools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1].parent
+          output=subprocess.check_output([str(tools/'apksigner'),'verify','--print-certs',str(apk)],text=True)
+          match=re.search(r'SHA-256 digest:\s*([0-9a-fA-F:]+)',output)
+          assert match,output
+          signer=match.group(1).replace(':','').lower()
+          assert signer=='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e',signer
+          badge=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(apk)],text=True)
+          package=next(x for x in badge.splitlines() if x.startswith('package:'))
+          assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package,package
+          assert "versionCode='920'" in package,package
+          assert "-bC467-TEST" in package,package
+          files={p.name:{'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+                 for p in pathlib.Path('deliverable').iterdir() if p.is_file()}
+          receipt={'source':os.environ['GITHUB_SHA'],'signer_sha256':signer,
+                   'variant':'Developer only','package':package,'files':files,
+                   'native_device_tests':'not run','physical_phone':'not verified'}
+          pathlib.Path('deliverable/receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          sha256sum deliverable/*.apk deliverable/*.zip > deliverable/sha256sums.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: apd-owner-exact-seed-formula-signed-developer
+          path: deliverable/
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd-owner-seed-formula-failure-evidence
+          path: core/build/test-results/test/
+          if-no-files-found: warn

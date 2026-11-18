@@ -1,0 +1,61 @@
+Bug Fixes:
+- Returning from UIMSD evidence restores each table's filters, sorting, page and horizontal/vertical position. Following a new link starts at its own results; returning or rotating restores the parent position without mixing tables that share the same columns.
+- Resuming a saved run keeps manual hotbar assignments, empty slots and placeholders. Manual edits save immediately while the hero is waiting for input. The Waterskin starting-slot preference only affects new runs and never rearranges an existing run.
+- A completed UIMSD seed replay publishes its result and clears the busy message together.
+- Adding or reversing a secondary sort key keeps that selected statistic visible instead of jumping to the primary key. Column reordering preserves vertical position when the sort itself is unchanged.
+- CSV run reports now include their recorded fact sections, including Outcome and Ascended, alongside existing tables.
+- Final deaths no longer become Abandoned when death cleanup removes the save before the death ranking is submitted. Manually abandoned runs remain distinct. Existing ambiguous records are preserved.
+- UIMSD sorting preserves the horizontal column position through table refreshes. The active column shows an ascending or descending marker. Filters, column edits and table settings preserve the viewport where possible; sorting starts at the first result.
+
+Statistics / UIMSD:
+- Named personal experiments keep a question, both population definitions and a metric. Reopen results to include matching records from the latest loaded history, inspect contributors and recorded condition differences, and rename or delete definitions. Unknown values remain unknown; observational comparisons do not prove causation.
+- Exact questions can be saved by name and reopened later with the same measure, per-unit choice, split, conditions, run scope and hidden-information choice. They are asked again against current history; legacy saved tables still open normally.
+- Damage after equipping: choose a recorded equipment occurrence and a following-turn window, inspect the exact interpreted boundaries and open contributing damage records. Missing history stays unknown; observed totals are lower bounds.
+- Healing after damage: choose an exact recorded hit against the hero and inspect HP healing in the next 1, 5, 10, 20 or 50 turns. Same-turn healing is excluded because its ordering is not recorded; missing history stays unknown, exact contributors remain inspectable, and the result does not claim the damage caused the healing.
+- Research lab: Run DNA measures each run's combat, healing, equipment and exploration rates, compares two fingerprints and opens their source records.
+- Luck laboratory compares recorded generation outcomes against matching finished random-seed runs. It shows reference samples and empirical percentiles without changing scores or inventing RNG probabilities.
+- Automatic discoveries surface exploratory win-rate contrasts only when matched groups have sufficient exact data, adjusted uncertainty bands and inspectable contributors. Insufficient data produces no invented finding.
+- Statistical investigation lab captures filtered populations A and B separately from saved views, compares numeric statistics and win rates, reports exclusions and overlap, and opens contributor records. Population query snapshots persist with integrity checks; every analysis exports its methods and evidence.
+- Options > Charts compares grouped results with scrollable bars. Choose a measure, keep the table's filters and uncertainty marks, and tap a group for details. Unknown values have no bar; the first 24 groups follow table order.
+- Winning runs now record whether the ascent was completed. The Ascended column is available for filtering, summaries and exports; older unrecorded results remain unknown.
+
+Quality of Life:
+- APD Settings now opens a compact category index with focused Gameplay, Difficulty & Rules, Hotbar & Controls, Visibility & Navigation, Statistics & History, and Advanced sections. Controls use consistent compact styling, explain when changes apply, and keep diagnostics out of the main page.
+- Tile examination of open multi-item piles shows every item in top-first order with visible identity, icons and quantities. Inspect an item for its normal description without collecting it, advancing turns or identifying anything.
+
+APD 4.0.8-apd
+Added:
+- UIMSD interface and wording pass: dialogs are now grouped into sections with a short description under each choice and the current choice marked; filtering is a guided three-step flow that offers real choices (your classes, Won/Died/Abandoned, difficulty levels) instead of typed text, with every operator still available; tables show full two-line headings, a selected row, and say when more columns are off to the right; Options, Notes, Sort, Columns and the table list are laid out in sections; row and group sheets are easier to read; the Guide has sections and a plain-language glossary; the tour, status lines, column names and reports use player words (rules, runs, items, worked out, recording version); the first-run Home welcomes you and offers the tour. Nothing was removed and the ? >= ~ hidden marks are unchanged
+- Exotic potion/scroll chance is now part of each run: it is fixed when the run starts (APD Settings: "new runs"), so moving the slider never changes a run in progress or how it is recorded. A game saved by an older version continues as before, but its exotic setting is shown as not recorded instead of being given today's value
+- UIMSD: views that cover runs played under different rules now say "MIXED RULESETS" (status lines, Home, records, reports) so they are not read as comparable; narrow the rules to compare like with like. Seed floors compares recorded and canonical floors using each item's state when it was generated, and says "state not recorded" instead of reporting a false difference; leaving Seed floors puts your hidden-information choice back
+- UIMSD polish: Home has a Difficulty card (runs by difficulty, older runs shown as not recorded), hero classes read as words (Warrior, not WARRIOR), the rules list and notes name the difficulty, and the Guide and tour now explain reports, seed floors and canonical data, and difficulty. Reports mention the rules they were made under
+- Difficulty 1-5 (APD Settings, "Difficulty (new runs)"): 3 is the game exactly as it is. Lower levels make ordinary enemies weaker (70% / 85% health and damage) and give more ordinary loot (140% / 120%); higher levels make them tougher (120% / 150%) with less loot (85% / 70%). Bosses, healing, food, spawn rates, champions, traps and the items the game always gives you are unchanged. A run keeps the difficulty it started with, and runs from before difficulty existed show it as unknown. UIMSD can filter and group runs by difficulty and balance revision
+- UIMSD reports: share or save a report of your summary, the table you are looking at, a single run, a group (a class, item kind, enemy...), two runs side by side, or the seed floors. Share it as text, or save it as Markdown, a web page (print it to PDF from any browser) or CSV. Reports keep the marks (? unknown, >= at least, ~ inferred) with a legend, say plainly which data is canonical (a seed replay, not recorded history), and never include hidden information of a run that is still going
+- UIMSD seed floors: open a finished run, tap "Seed floors (canonical)" and see what every floor of its seed holds, including floors the run never reached: items with their true identity, where they lie, and creatures. Floors the run recorded always show the run's own log; every other row is labelled canonical (a replay of the seed under fixed reference rules) and marked ~, because play changes what later floors hold. A comparison table sets recorded against canonical floor by floor. Only for runs that are over, and only while no game is loaded
+- UIMSD Home and Guide: UIMSD now opens on a Home page with your runs, wins, win rate, deepest floor, characters, most used gear, the enemies you meet and that ended your runs, recent runs and records, each with a button into the full tables (All tables still has everything). The Guide (button on Home, ? in the tables) explains datasets, rows, drill-down, filters, sorting, columns, the marks (? >= ~), sample size and coverage, and starts an interactive tour on the real screens, using your own runs or a small made-up sample that is deleted afterwards
+- History export and import (APD Settings): save your whole run history as one ZIP file, anywhere you choose, and import it on another device or install. Importing only ever adds: nothing already there is replaced, every file is checked first, and a damaged or tampered archive is refused. A run that is not finished is exported without its hidden information. APD Settings also shows how much space the history takes, with a warning when it gets large. Nothing is ever deleted automatically
+- UIMSD: the UIMSD button on the home screen now opens the statistics screen (also reachable from APD Settings). Browse Runs, Items (with Weapons, Armor, Rings, Trinkets and Artifacts views), Enemies, Deaths, Characters and Challenges; sort by tapping a column, add any number of filters, choose columns, group, and see how much of every number is actually known. Hidden information of a run that is still going is never shown
+- APD's own rankings file is now copied into your APD history automatically when a run ends (and by the Import APD rankings button in APD Settings), so records can't fall out of its top 11 unseen. This only covers runs finished in APD, not the separately installed official game. Nothing is guessed: anything a record lacks stays unknown, and recorded runs remember which ranking entry they produced so they are never counted twice
+- Run history now also records what the game generated for each level: every item with its true identity and where it was placed, every enemy, and how the level was built, kept strictly separate from what you could see
+- Healing is now recorded exactly: how much each heal gave, and (kept as hidden information until the run is finished) what healed you. UIMSD shows Healed, the part that was only guessed, and for finished runs the healing by kind of source. Anything the game does not report is still noticed and marked as a guess, and runs recorded before this keep their guessed healing
+- Run history now also records fights and health: attacks, damage (including what shielding absorbed), kills, experience, hunger, healing (marked as inferred) and deaths, keeping what you could see apart from hidden enemy details
+- Run history now gives every item you meet a persistent identity (apd_uid) and records seeing, picking up, equipping, learning about and losing it, without ever recording what you could not have known yet
+- APD Settings in the pause menu
+- Exotic crystal conversion chance setting (0-80%, 10% steps)
+- Custom APD title/home screen: stone ADHD PIXEL DUNGEON logo, animated green flames, new background and stone buttons. Two-column menu (Play / UIMSD, Badges / Journal, Options / Quit) with News / Changes / About below. Landscape puts the logo and menu side by side.
+- UIMSD (Ultimate Infinite Mega Statistics Database) button on the home screen, replacing Rankings (opens the Rankings screen for now), with a very serious annotation pointing at it
+- APD Settings button on the home screen (exotic chance, run history recording, self-test)
+- APD INDEV version string (v4.0.8-apd-INDEV)
+- APD News and APD Changes screens
+- Sad Ghost now shows the real upgrade level of the gear it offers
+- Cleric attempt counter and the achievement "FUCK CLERIC, THAT'S WHY" (10 attempts)
+- Fresh installs go straight to the title menu
+Changed:
+- APD now requires Android 8.0 or newer (up from Android 5.0)
+- Selecting Cleric and pressing Start now leads to a black screen until the app is closed
+Fixed:
+- Starvation damage now consumes shielding before HP (APD-0001). Shielding does not cure hunger.
+Removed:
+- Cleric as a playable class
+- Support button on the home screen
+

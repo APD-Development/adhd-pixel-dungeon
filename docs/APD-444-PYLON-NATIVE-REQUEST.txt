@@ -1,0 +1,11 @@
+APD444 supplemental pylon targeting verification request, 2026-11-11
+Original game source: 2b8787a2fb41fc6ecacbb77617bd5f1763d902b0; producing run 43057716359; frozen built artifact 13873030855.
+Compile one separate Android instrumentation APK and execute only BossPylonTargetingDeviceTest#nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons on each exact original APD444 variant.
+Verify inactive, active, manual-target, ranged-versus-melee and hidden-pylon selection with actual game indicators, five complete native image transfers per variant and unchanged hero turn/HP.
+The only new Java source is this standalone Android test. Reject application-source differences from the frozen game, game APK assembly, changed original APKs or original instrumentation, and mixed-source/run/attempt evidence.
+This is supplemental test work. It does not rebuild the game, replace its primary six-case acceptance, authorize release publication, or claim touch/attack/full-boss/physical-phone validation. Deliver the primary APD444 pair as soon as its independent acceptance completes.
+
+Corrected fixture verification request, 2026-11-11:
+Preserve first supplemental run 43061442841 at source fbe701cea9dbb30020fcf2f436aa2075489baf0d and its separate test APK. Both targeting cases passed, but their logs exposed a caught pre-launch intro preference read returning the fallback value.
+Build one distinct new test artifact from the corrected fixture pinned by the updated plan. Capture initialized preferences on the render thread, restore only a captured value, and keep disposable-slot/global cleanup. Require both exact native cases, all five original captures per variant, matching preference capture/restore markers, and absence of the earlier preference initialization exception before full fixture acceptance.
+Reuse the exact original APD444 game pair, original instrumentation, signer and source archive. Create no game APKs and do not overwrite either earlier test artifact. Primary444 was already delivered from its independent original acceptance.

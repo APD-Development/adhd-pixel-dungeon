@@ -1,0 +1,6 @@
+Bug Fixes	ICON_RANKINGS	Filter uncommon text values	Multi-value text filters now offer full-list typing even when common suggestions are available, so uncommon recorded values remain reachable.
+Quality of Life	ICON_DATA	Long multi-value lists	The full-list text input no longer truncates multi-value filters at forty characters; ordinary suggestion lists remain compact.
+Quality of Life	ICON_INFO	Native menu help	Statistics picker help now uses SPD's grey button styling while retaining its existing explanation popup.
+Testing	ICON_INFO	Uncommon-value picker regression	Android checks now open full-list input, verify a value outside sixty suggestions and apply a longer six-value filter.
+Development	ICON_INFO	Verification and execution records	Recorded the preceding cache build's checks, continued audit evidence and actual scheduler limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I kept the compact suggestions while restoring a way to enter uncommon values and longer lists. Query calculations and genuine history remain unchanged.

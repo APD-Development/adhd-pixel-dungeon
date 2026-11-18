@@ -1,0 +1,146 @@
+{
+  "status": "DEVELOPER72_ALPHA4_TARGETED3_AND_DISPLAY11_PASSED_AUDIT_INCOMPLETE_NOT_DELIVERED",
+  "source": "412117a9a60f05358e5bb125fcde0c71035e176e",
+  "developer_run": 42216313574,
+  "alpha_run": 42216313427,
+  "targeted_native_run": 42216362442,
+  "display_matrix_run": 42216313155,
+  "developer_artifact": {
+    "id": 13501826824,
+    "zip": "/workspace/apd-internal367-developer.zip",
+    "zip_bytes": 36553823,
+    "zip_sha256": "39d4b6a9b2c5d3403b705482646572d9f34b3b7927c0c5372cf2080d39236c53",
+    "apk": "/workspace/apd-internal367-developer.apk",
+    "apk_bytes": 39056748,
+    "apk_sha256": "d1c43fdcbafd89f6af8151f1ec279f8a1380ad8e9a5a3a47e3675f3479432680",
+    "sidecar_matches": true,
+    "signature_verification": "pending exact native runner identity receipt"
+  },
+  "fallback": "Delivered365 remains verified fallback.366 withheld for actual rendering failure.367 whole-game audit unfinished; no owner or tester delivery.",
+  "physical_phone_tested": false,
+  "targeted_native": {
+    "run": 42216362442,
+    "artifact": 13501009292,
+    "artifact_sha256": "4c0b486fa1b1fe071abf95dff1d3089c381c933a98da318ff154d584e784c59c",
+    "tests": 3,
+    "passed": 3,
+    "local_evidence": "/workspace/apd-internal367-qol-native",
+    "visual_review": "All six PNGs inspected: calculation viewport clipped/aligned inside buff, talent, ability and spell windows; action controls remain visible. Waiting preferences all off and persisted display correctly.",
+    "physical_phone_tested": false
+  },
+  "developer_identity": {
+    "signature_verified": true,
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "package": "name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bC367-TEST' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+    "install_compatible_identity_with_365": true,
+    "physical_phone_tested": false
+  },
+  "alpha_artifact": {
+    "id": 13501203730,
+    "zip": "/workspace/apd-internal367-alpha.zip",
+    "zip_bytes": 37050165,
+    "zip_sha256": "031faa7f178f02336061bd522ef6e43f35d35687867ce9a60be034d21216ab92",
+    "apk": "/workspace/apd-internal367-alpha.apk",
+    "apk_bytes": 39056716,
+    "apk_sha256": "4df26df545b8039ee5af99571bc5720fa319401f5511e16915ae5117fbdd0096",
+    "sidecar_matches": true,
+    "feature_manifest": "extendedPlayback only, actual APK inspected",
+    "identity_and_native_acceptance": "pending new exact-Alpha instrumentation run"
+  },
+  "complete_native": {
+    "run": 42216313574,
+    "artifact": 13502252424,
+    "artifact_bytes": 8072540,
+    "artifact_sha256": "f20887ebed3cb519806be0ac51ede8db148d550e837b1d05fed54960b67c6849",
+    "tests": 72,
+    "failures": 0,
+    "raw_instrumentation": "/workspace/apd-internal367-full-native/existing-apk-instrumentation.txt",
+    "elapsed_seconds": 623.662,
+    "status": "PASSED"
+  },
+  "display_matrix": {
+    "run": 42216313155,
+    "configurations": 6,
+    "tests": 11,
+    "failures": 0,
+    "artifacts": [
+      {
+        "id": 13502282812,
+        "bytes": 5134513,
+        "sha256": "c4bda8de644f5998539093bc6894f81e960ff459d34f95e4879991e09ebc0499",
+        "local_evidence": "/workspace/attachments/f9855d66-8e90-4861-b6ab-a6ffdcea8a90/github-actions-artifact-13502282812.zip"
+      },
+      {
+        "id": 13502006558,
+        "bytes": 2101748,
+        "sha256": "7af1be59d9efea912e81b3d178ca5c8129346d0df3d160ba73be19338a6538fe",
+        "local_evidence": "/workspace/attachments/7de231b0-3329-4fb5-97cd-00ece8bba835/github-actions-artifact-13502006558.zip"
+      },
+      {
+        "id": 13501912242,
+        "bytes": 1018275,
+        "sha256": "8827680f3ee6f8d016fe86e63568ec872b6432688d5e7106dda0e5283ae46ccf",
+        "local_evidence": "/workspace/attachments/6e5a4d18-1887-4162-90d1-21e372cb8710/github-actions-artifact-13501912242.zip"
+      },
+      {
+        "id": 13501422892,
+        "bytes": 617313,
+        "sha256": "fe7badf726b71b2a1591901005f9c819311ce170b46a7351500e947dfaec9e5d",
+        "local_evidence": "/workspace/attachments/af9bbd1c-7ff4-4484-a378-8ff9d15cabc7/github-actions-artifact-13501422892.zip"
+      },
+      {
+        "id": 13501293296,
+        "bytes": 662880,
+        "sha256": "4ae17cc53996b7c957b08fe219d0702c6180ee6f839bf2ee30f289c49c759f0b",
+        "local_evidence": "/workspace/attachments/b2fde884-f392-44f5-bff7-16d642df77b4/github-actions-artifact-13501293296.zip"
+      },
+      {
+        "id": 13501198308,
+        "bytes": 822745,
+        "sha256": "0ae64937528fb2cb96707dc23133e14b153625a7ebb9cfad7e5a924390ae97a2",
+        "local_evidence": "/workspace/attachments/508001ca-ad58-466e-8a9a-bce2cbf049b0/github-actions-artifact-13501198308.zip"
+      }
+    ],
+    "visual_review": "All6 main-title layout images inspected; Redmagic scale7/6 and positive searched-wall image inspected. Bookshelf negative screenshot off-camera: controlled fixture centering corrected in instrumentation, same-APK recapture requested. Other images not exhaustively reviewed.",
+    "physical_phone_tested": false
+  },
+  "alpha_native": {
+    "run": 42218057843,
+    "artifact": 13503100083,
+    "artifact_sha256": "6b7039155ecdd6535e8adafe7509f1983016f4668160a8b6adba5cdb4863b703",
+    "tests": 4,
+    "failures": 0,
+    "source_receipt": {
+      "application_source": "412117a9a60f05358e5bb125fcde0c71035e176e",
+      "application_run": 42216313427,
+      "application_artifact": 13501203730,
+      "application_artifact_digest": "sha256:031faa7f178f02336061bd522ef6e43f35d35687867ce9a60be034d21216ab92",
+      "application_sha256": "4df26df545b8039ee5af99571bc5720fa319401f5511e16915ae5117fbdd0096",
+      "application_rebuilt": false,
+      "application_inputs_unchanged": true,
+      "test_source": "ddfd4398a57eb66ed6283b4372a04b829de3147f",
+      "physical_phone_test": false
+    },
+    "identity_receipt": {
+      "signature_verified": true,
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "package": "package: name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bP367' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "physical_phone_tested": false
+    },
+    "visual_review": "Inspected actual On/Off healing toggle screenshots, unidentified origin/range and extended playback choices; controls and bounded content visible. Other Alpha images not exhaustively reviewed.",
+    "physical_phone_tested": false
+  },
+  "centered_wall_recapture": {
+    "run": 42219469519,
+    "artifact": 13503845109,
+    "sha256": "2f52c9e452ffdb937074246fead76704062c5f105ab9173d9cddb7c806f854e5",
+    "tests": 3,
+    "passed": 3,
+    "application_source": "412117a9a60f05358e5bb125fcde0c71035e176e",
+    "application_sha256": "d1c43fdcbafd89f6af8151f1ec279f8a1380ad8e9a5a3a47e3675f3479432680",
+    "application_rebuilt": false,
+    "visual_review": "All three wall PNGs inspected: controlled fixture centered, bookshelf/decor exclusion unmarked and valid wall marks visible. This terrain is a test fixture, not a generated room or seed.",
+    "local_evidence": "/workspace/apd-internal367-centered-wall-proof",
+    "physical_phone_tested": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "purpose": "supplemental_native_targeting_on_frozen_APD444",
+  "status": "ready_for_supplemental_native",
+  "pending_review": [],
+  "fixture_path": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+  "fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+  "class": "com.shatteredpixel.shatteredpixeldungeon.android.BossPylonTargetingDeviceTest",
+  "method": "nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons",
+  "required_images": [
+    "pylon-native-inactive-visible.png",
+    "pylon-native-active-visible.png",
+    "pylon-native-manual-rat-preserved.png",
+    "pylon-native-ranged-pylon-melee-boss.png",
+    "pylon-native-hidden-excluded.png"
+  ],
+  "original_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_run": 43057716359,
+  "original_artifact": 13873030855,
+  "original_artifact_sha256": "9bf2e5ecd2fc705f1d481f863c0321c7e290f062dac06e4f7ef8757abb55fb45",
+  "original_core_tests": 3214,
+  "original_core_suites": 466
+}

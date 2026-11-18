@@ -1,0 +1,46 @@
+{
+  "accepted_for_publication": false,
+  "published": false,
+  "automated_acceptance": true,
+  "verification": {
+    "source_commit": "b5495528fcc772d2f37c0dcb625feaab0a6ecbb3",
+    "number": 405,
+    "tag": "apd-alpha-preview-405",
+    "core_tests": 3112,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "b9ebd846c35de66b7ebea8d002fe9c068a750793398a6ffc66732ca9c0153ff5",
+      "Alpha-Testers": "c8224a8fbf84bc5fb092610eec038ad965a139acd1332a33027880f8529d7c1b"
+    },
+    "source_sha256": "17a91ce55f36e1ce936c4a184d9204d2fea21a5f9d7bfa347b35b0d35318c8bf",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-09T09:20:20.615001+00:00",
+    "workflow_run": "42590603308",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true,
+    "original_apk_build_run": 42590380901,
+    "verification_harness_source": "4124173121325be967d59a49d9f51af9da4d0635",
+    "retry_new_application_apks_created": 0,
+    "native_retry": "Holy spell/buff fixture waits for the first render before asserting unchanged viewport coordinates, matching existing window tests. All six distinct cases per variant rerun on immutable original APKs. Original rejected evidence and exact fixture patch included. No application APK rebuilt."
+  },
+  "independent_checks": {
+    "number": 405,
+    "source_commit": "b5495528fcc772d2f37c0dcb625feaab0a6ecbb3",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4453,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": false
+  },
+  "manually_reviewed_captures": 32,
+  "manual_rejection": "A cursed+3 Tenacity has effective ring value0 and correctly displays0%, but generic text promises cursed damage increase and a nearzeroHPmaximum; both generalizations are wrong for neutral value0.",
+  "same_affected_provider_in_406": "deb35654c26d40c2a8dd1f7db2a4dcd63dc3f75e4c87ad0edd65c63f2492d02d",
+  "source_fix_local_tests": 3115,
+  "source_fix_new_apk": false,
+  "latest_published": 403
+}

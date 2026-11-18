@@ -1,0 +1,50 @@
+{
+  "application_source": "5b7e7250b63072e52c5cebd1a45ea9bbf1132aa4",
+  "test_source": "b33363038b5f622d3fb59b55b0de9880d04403b7",
+  "apk_hashes": {
+    "Developer": "9ac9819fcdd13b936376cd7deb7b3c6464ee3055f4f2720e44c7697d5604bf9d",
+    "Alpha-Testers": "6ffd5c9965994cee650bf256dbb5a4a38cabb22e8f3eee8cac125045e576ab0d"
+  },
+  "synthetic_geometry": true,
+  "natural_seed_claim": false,
+  "physical_phone_tested": false,
+  "review": "Downloaded PNGs visually inspected; no achievement banner obscures the target. Actual marker-layer assertions pass. Pixel analysis is corroborating evidence within the fixture target rectangle, not a universal map proof.",
+  "variants": {
+    "Developer": {
+      "artifact_id": 13587049615,
+      "artifact_sha256": "38265ebaac9591d2f76edcd01744a916f964f13d38dc506d1665ec7609624b52",
+      "files": {
+        "wall-geometry-corner-no-false-check.png": {
+          "sha256": "42892f684bf2182bb735df80ba59856f6b0a56f877443c960497cfb6eab1b5f5",
+          "marker_color_pixels_in_target": 0
+        },
+        "wall-geometry-valid-searched-face.png": {
+          "sha256": "c33e7c6f2bd2324169e73c887c0f6f33e0e31ed92a2685b7484fc9c725ad2fa1",
+          "marker_color_pixels_in_target": 24
+        },
+        "wall-geometry-door-no-stale-check.png": {
+          "sha256": "660925dfce8a29803aee7d8f399df76187e8f72e49a5f9fc4954d9bda305fe53",
+          "marker_color_pixels_in_target": 0
+        }
+      }
+    },
+    "Alpha-Testers": {
+      "artifact_id": 13587323997,
+      "artifact_sha256": "462a88a7ec01730ee20ea389d1ae0a205a0538baeb7e93041bef9b93b7f53ac4",
+      "files": {
+        "wall-geometry-corner-no-false-check.png": {
+          "sha256": "fba2e678e9846b0d5fe7e90025c28875d4a2d1c2b3fbdc5838d88ccd9f498447",
+          "marker_color_pixels_in_target": 0
+        },
+        "wall-geometry-valid-searched-face.png": {
+          "sha256": "8f512636bdf9f3eda2afb98c93064899b7690889d6501a25333fa85eb4319b79",
+          "marker_color_pixels_in_target": 24
+        },
+        "wall-geometry-door-no-stale-check.png": {
+          "sha256": "b0239a29759c23b41bf4e47f488be5bcfdfcc0542d97128f905163118eedcad1",
+          "marker_color_pixels_in_target": 0
+        }
+      }
+    }
+  }
+}

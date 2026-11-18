@@ -1,0 +1,89 @@
+name: APD old Actions artifact cleanup
+on:
+  issues:
+    types: [opened]
+permissions:
+  actions: write
+  contents: read
+  issues: read
+jobs:
+  cleanup:
+    if: github.event.issue.title == 'Execute APD older-than-72h artifact cleanup' && github.event.issue.user.login == 'charltonchris29'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Remove only historical unprotected build artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json, os, time, urllib.request, urllib.error
+          repo=os.environ["GITHUB_REPOSITORY"]
+          assert repo=="APD-Development/ShieldingShouldHaveWorked"
+          token=os.environ["GH_TOKEN"]
+          api="https://api.github.com/repos/"+repo+"/actions/artifacts"
+          headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json"}
+          def call(url,method="GET"):
+              req=urllib.request.Request(url,headers=headers,method=method)
+              with urllib.request.urlopen(req,timeout=60) as response:
+                  data=response.read()
+                  return json.loads(data) if data else {}
+          items=[]
+          for page in range(1,501):
+              rows=call(api+"?per_page=100&page="+str(page))["artifacts"]
+              items.extend(rows)
+              if len(rows)<100:break
+          else:raise RuntimeError("Inventory incomplete; abort")
+          items=[a for a in items if not a.get("expired")]
+          items.sort(key=lambda a:(a.get("created_at",""),a["id"]),reverse=True)
+          now=dt.datetime.now(dt.timezone.utc)
+          cutoff=now-dt.timedelta(hours=72)
+          protected_ids={a["id"] for a in items[:30]}
+          # Retain the latest 3 developer-delivery/APK-style artifacts by creation date.
+          delivery=[a for a in items if any(term in a.get("name","").lower() for term in ("apk","release","delivery","owner-pair","signed","candidate"))]
+          protected_ids.update(a["id"] for a in delivery[:3])
+          protected_name_terms=("source","backup","snapshot","checkpoint","handoff","signing","keystore","recovery")
+          candidates=[]
+          for a in items:
+              if a["id"] in protected_ids:continue
+              name=a.get("name","").lower()
+              if any(term in name for term in protected_name_terms):continue
+              created=dt.datetime.fromisoformat(a["created_at"].replace("Z","+00:00"))
+              if created>=cutoff:continue
+              candidates.append(a)
+          candidates.sort(key=lambda a:(int(a["size_in_bytes"]),a["created_at"]),reverse=True)
+          gib=lambda rows:round(sum(int(a["size_in_bytes"]) for a in rows)/1073741824,3)
+          batch=candidates[:800]
+          print("SAFE_APD_CLEANUP_PLAN="+json.dumps({"total_gib":gib(items),"eligible_gib":gib(candidates),"eligible_count":len(candidates),"batch_gib":gib(batch),"batch_count":len(batch),"newest_30_preserved":30,"last_72_hours_preserved":True,"important_name_patterns_preserved":list(protected_name_terms),"latest_three_delivery_apk_preserved":[{"name":a["name"],"id":a["id"]} for a in delivery[:3]]},separators=(",",":")),flush=True)
+          deleted=[]
+          for i,a in enumerate(batch,1):
+              success=False
+              for attempt in range(6):
+                  try:
+                      call(api+"/"+str(a["id"]),"DELETE")
+                      success=True
+                      break
+                  except urllib.error.HTTPError as ex:
+                      if ex.code==404:
+                          break
+                      if ex.code in (429,500,502,503,504) and attempt<5:
+                          time.sleep(2*(attempt+1))
+                          continue
+                      raise RuntimeError(f"Delete failed at {i}, HTTP {ex.code}") from ex
+              if success:
+                  deleted.append(a)
+              if i%50==0:print("SAFE_APD_DELETED_PROGRESS="+str(i)+"/"+str(len(batch)),flush=True)
+              if gib(deleted)>=7.0:
+                  break
+          result={"deleted_count":len(deleted),"deleted_gib":gib(deleted),"remaining_eligible_gib":round(gib(candidates)-gib(deleted),3)}
+          print("SAFE_APD_CLEANUP_RESULT="+json.dumps(result,separators=(",",":")),flush=True)
+          s=os.environ.get("GITHUB_STEP_SUMMARY")
+          if s:
+              with open(s,"a",encoding="utf-8") as f:
+                  f.write("## APD old-artifact cleanup\n\n")
+                  f.write("Deleted "+str(result["deleted_count"])+" old Actions artifacts totaling "+str(result["deleted_gib"])+" GiB.\n\n")
+                  f.write("Preserved most recent 72 hours, latest 30 artifacts, latest 3 delivery/APK artifacts, named source/recovery/backup items, GitHub Releases and repository code.\n")
+          
+          PY

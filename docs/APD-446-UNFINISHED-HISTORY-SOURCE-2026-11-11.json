@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T18:11:47.109571+00:00",
+  "status": "fresh_full_core_verified_android_source_gate_pending",
+  "parent_before_this_commit": "57720443ec56d9d6776afb663ca4c821fab76956",
+  "frozen_unaccepted_baseline_source": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "last_accepted_delivered_build": 444,
+  "corrected_gap": "Exact seeds in valid unfinished or crash-interrupted canonical run history were classified unknown because the lookup tied matching history to terminal results. The correction counts all supported exact logical identities and reports the unfinished subset.",
+  "depth_behavior": "For an unfinished identity, only canonical observed main-branch entries contribute known depth. Superseded terminal copies or ranking records cannot provide an unfinished final result. Missing observation remains unknown.",
+  "scoring_and_save_behavior": "All scoring, generation, entry/Copy restrictions, save fields and existing search mechanics remain unchanged. No penalty or reward formula is activated.",
+  "fresh_core": {
+    "tests": 3247,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": 468,
+    "new_methods": 3,
+    "main_java_files": 1721,
+    "test_java_files": 496,
+    "compile_provenance_sha256": "1963d1972d982ce96a9a8a72afad479ada1b8b7cc2aba569b25a9d3ec58643e6",
+    "raw_log_sha256": "18e3ce062324361d71bcca76dfb3211cf09e6ca6a275bfa8e15ed8bde0a558d0",
+    "raw_xml_manifest_sha256": "06f0a232866921b8f252dd4feacccf65c9e91f2886e4316d94b2a38e12d0c08a"
+  },
+  "expected_red_baseline": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-seed-history/attempt-1-red",
+    "totals": {
+      "suites": 3,
+      "tests": 26,
+      "failures": 4,
+      "errors": 0,
+      "skipped": 0
+    },
+    "failed_methods": [
+      "unfinishedRecordedHistoryMatchesAndUsesCanonicalObservedDepth",
+      "exactLogicalSegmentsAndCopiedLogsCountOnceAndLatestOpenSegmentIsNotFinished",
+      "mixedFinishedAndOpenExactIdentitiesCountOnceWithoutResurrectingTerminalDepth",
+      "crashedHistoryWithoutDepthStillMatchesAndKeepsUnknownDepth"
+    ],
+    "production_source_files_hash_matched": 1721,
+    "failure_kind": "Behavior assertions against unchanged frozen445 production classes, not fixture compilation errors."
+  },
+  "final_targeted": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-seed-history/attempt-3-final",
+    "totals": {
+      "suites": 3,
+      "tests": 26,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suite_methods": {
+      "com.shatteredpixel.shatteredpixeldungeon.apd.humor.AuthoredLanguageTest": 9,
+      "com.shatteredpixel.shatteredpixeldungeon.apd.stats.ContractTests": 4,
+      "com.shatteredpixel.shatteredpixeldungeon.apd.stats.SeedHistoryTest": 13
+    },
+    "new_seed_methods": 3,
+    "seed_methods_total": 13,
+    "unchanged_reused_production_sources_hash_matched": 1719,
+    "freshly_compiled_overlay_production_files": 2,
+    "full_source_compile_or_full_suite_claimed": false
+  },
+  "source_sha256": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java": "b7f9313d9b8f8e6c61285c0942b3dcf24ec223217971ec8fbf4703855e13cf34",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java": "c6147743ca9699446a3467589d19cbe3b52460d6029ca71c63a2c9bf17f9a4a8",
+    "core/src/main/assets/messages/scenes/scenes.properties": "9e630c9e75fb7ae49ddb53c77c3b62e9cb40526f10ec008e9debf58d24dfcb4b",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/SeedHistoryTest.java": "940ca33b1da974e4e53c8d593fb4a1a2842fe4cf69bd1181b55a43ebf17e78c6",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/humor/AuthoredLanguageTest.java": "becaca14c79fdca35e59b917c9afad47a492f5328bdfc053b484933583f30329"
+  },
+  "protected_unchanged_sha256": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java": "e0b65cd63a84ea63592517cdd775b552ca5837f5bce88bc74052681268769ea8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Rankings.java": "289a1eab39e6ffef4ed1e4fc5e270c970d257d60726c0b4afdf45c2534d22642",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDSettings.java": "2b42b235314dc19367d0d31bc99e16e4f35dffe760399842930c213fe8f7a435",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomScorePresentation.java": "7119550a51e39647182c27dcf8943c10d5dda0c4a65e8cfd562673aa749710c0",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomScoreRecord.java": "604d5c38467657b9a553a6503eeb5ce6edfb2c9c8562251c5bda5e18be0895eb",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomScoreSnapshot.java": "a4c5ede1e985cfc05f8acd5f48f79e55b952b304e0211b2779d696559e80683e",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java": "7978d508173dba557e83b70896bc0cd628f18cb34571ae2eec20c99bd4d61265",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndRanking.java": "04e580f84d7e3645946a30a105682a2a2eb659c25873e384f91d3e8f694be699"
+  },
+  "reviewed_native_fixture_sha256": {
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java": "498d78b5bbb836f9ff3f7edbc6403e7fcb6f4d521e39f21c3c50a1567525a636"
+  },
+  "native_fixture_scope": "Existing case and all six earlier capture stages retained. Added owned clean unsealed log with observed entries 4 to 9 to 4, actual Set callback, finished 0 / unfinished 1 / known depth 9 assertions and notice viewport check. This is synthetic record input, not a live crash simulation.",
+  "native_capture_added": "seed-history-unfinished-record.png",
+  "independent_source_review_sha256": "235a192b03abf32813f72fe62744e546316529c785dd4aaa583006c6860ed144",
+  "android_sdk_compile_complete": false,
+  "native_execution_complete": false,
+  "new_apk_created": false,
+  "apd445_artifacts_modified": false,
+  "apd445_accepted": false,
+  "apd445_delivered": false
+}

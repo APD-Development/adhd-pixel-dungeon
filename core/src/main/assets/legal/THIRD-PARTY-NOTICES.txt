@@ -1,0 +1,15 @@
+Third-party font notices
+
+core/src/main/assets/fonts/pixel_font.ttf
+Character sizing based on Roboto by Google
+
+Original bitmaps by Oleg Dolya(Watabou)
+
+TTF Conversion by Evan Debenham(Shattered Pixel)
+
+This font uses Characters from Roboto for in certain cases, all Roboto font data copyright Google 2014
+Apache License 2.0; full text: Apache-2.0.txt
+
+desktop/src/main/assets/fonts/droid_sans.ttf
+Digitized data copyright Google Corporation © 2006
+Apache License 2.0; full text: Apache-2.0.txt

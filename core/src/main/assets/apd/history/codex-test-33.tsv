@@ -1,0 +1,21 @@
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Warrior Simulation Device Test	Updated Android checks and fixtures for warrior simulation device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_STATS	Query Engine	Made contains filtering independent of the device’s locale.
+Quality of Life	ICON_STATS	Statistics Ask	Restored validation, grouped-column, empty-history and report messages without repeating actions.
+Testing	ICON_STATS	Expanded Content Stats Test	Added a test covering thousands Of Distinct Content Types Keep Accurate Groups And Bounded Pages. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Locale Regression Test 1	Added a test covering contains Matches The Same Recorded Names Under Different Device Locales. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Locale Regression Test 2	Added a test covering saved Filter Sort And Column Order Are Stable After Changing The Device Locale. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Locale Regression Test 3	Added a test covering saved Text Filters Preserve Literal Separators Unicode And Case. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Headless Actor Loop Probe Test	Updated automated checks and fixtures for headless actor loop probe. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Turn Policy	Added automated checks and fixtures for normal warrior turn policy. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Turn Policy Test 1	Added a test covering rooted State Selects The Shared Wait Command. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Turn Policy Test 2	Added a test covering recovery Rest Preserves The Existing Strict Limits. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Turn Policy Test 3	Added a test covering recovery Rejects Impossible Observed Health. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Warrior Turn Command	Added automated checks and fixtures for warrior turn command. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Warrior Turn Driver	Added automated checks and fixtures for warrior turn driver. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-HEADLESS-SIMULATOR-2026-10-10	Updated apd-headless-simulator-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Made contains filtering independent of the device’s locale. Restored validation, grouped-column, empty-history and report messages without repeating actions.

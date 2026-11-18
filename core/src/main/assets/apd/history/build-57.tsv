@@ -1,0 +1,8 @@
+Changes	ICON_INFO	Run state	Preserved each run’s original difficulty balance revision across saves and updates.
+Statistics / UIMSD	ICON_STAIRS	Seed Floors	Rebuilt floors under the recorded balance revision and refused unsupported or incomplete replay settings.
+Statistics / UIMSD	ICON_STATS	Ruleset	Preserved each run’s original difficulty balance revision across saves and updates.
+Quality of Life	ICON_STATS	Statistics screen	Prevented seed reconstruction while a live game remains behind UIMSD.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test	Updated automated checks and fixtures for difficulty. These are development checks, not a gameplay feature.
+Development	ICON_CHALLENGE_COLOR	APD-DIFFICULTY	Updated apd-difficulty accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Preserved each run’s original difficulty balance revision across saves and updates. Rebuilt floors under the recorded balance revision and refused unsupported or incomplete replay settings.

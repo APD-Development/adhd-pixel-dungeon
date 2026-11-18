@@ -1,0 +1,150 @@
+{
+  "number": 428,
+  "source_commit": "28013435e236058ec9945ab5968ec258c4c380aa",
+  "developer_original_run": 42681930991,
+  "developer_original_six_passed": true,
+  "reviewed_utc": "2026-11-09T19:47:06.933100+00:00",
+  "variant_manually_viewed": "Developer",
+  "full_frames_viewed": 33,
+  "contact_sheets_viewed": 9,
+  "selection": [
+    {
+      "name": "qol-existing-status-clear-concise-AscensionChallenge-bottom.png",
+      "sha256": "3b0643e0675d5349b2e96b5eb65e947c7d3343db60644b27c7a4f7d1404ec93b"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-AscensionChallenge-normal.png",
+      "sha256": "5c71bc5ee707190f34ae06a191eb910b2fdc520f4b6ab06158fadcad2d828ffe"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-AscensionChallenge.png",
+      "sha256": "eaa3cb024ac78fdc7d173fa21584e31b11aafd4c2a480079e79462c930048236"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bless-bottom.png",
+      "sha256": "584662c052d2bcebcd74b3a4e674750baacd52ba550df69bf19cbe23603b6ccb"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bless-normal.png",
+      "sha256": "9af358b0246e832f4687aac51424f48d23ee6012b4d4f30e574daf4d990ef0ea"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bless.png",
+      "sha256": "fd3aa238cbac138bc7fb1f55b35a1658d87c4d463db17d516a0178d134e9d295"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ChampionEnemy$AntiMagic-bottom.png",
+      "sha256": "d70f668dec8ae1db452c75da8e194aed3251f046ff86992481e8b0cf6e58a5fd"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ChampionEnemy$AntiMagic-normal.png",
+      "sha256": "a3c8b338a4faa39a2fe06b77055c4fd6463243e07474c4d1a937efc2d3d7c810"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ChampionEnemy$AntiMagic.png",
+      "sha256": "a1958e03712eaf4eae7ba3d9d09b39c1fdb0e99ef976af12e4cf7c9696cd0036"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ChampionEnemy$Growing-bottom.png",
+      "sha256": "99f48f06972f8fc6eb227275626c1c736c894005f79f0cc2b6bb7398ae7baf8e"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ChampionEnemy$Growing-normal.png",
+      "sha256": "350c6a11a37ecb87e08ffe7b84ca3f2d28b1b2611c0796feff1956de0b518e0e"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ChampionEnemy$Growing.png",
+      "sha256": "5d2ea208cee05bb10baca5973e23be22949cf688ff0a4e2b13b3503052c277d9"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Daze-bottom.png",
+      "sha256": "76abfe7d62e85e1891acc575e51b3ff4c9fd45750eca62c08f7e7493a5f6886a"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Daze-normal.png",
+      "sha256": "d391fc5b01611ddc2d9f852267cd68ba996fa7f08750f9e68a7e3dc5ff1cfc0d"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Daze.png",
+      "sha256": "afd3cfc0e995acd79509c688ec6a95f21acbd082c37e561732808fe2cc9433a8"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Foresight-bottom.png",
+      "sha256": "200b21925411538ceed1eec91b334ab01f7b600b2be1f72cf6b51bb10f0eb736"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Foresight-normal.png",
+      "sha256": "a4f29472754a7603bc822b8c43934498277ccdb678d5aa7ea511524dfac00990"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Foresight.png",
+      "sha256": "7d1f037295b8daa52d0c70c8a6d66544538b43e8f227bcb6bb319e3d05f86c32"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Hex-bottom.png",
+      "sha256": "f27b0b105300305fc0c20422395a9956cd906fe2c1a3d2eb522a00b7d4736ba3"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Hex-normal.png",
+      "sha256": "06d298e4c4624781626fe5130f7e28e79f2c01fb46ba821f9441054631781ecc"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Hex.png",
+      "sha256": "a37f7b656fb536aed15d2a4ba108482ba246ad5229014eee99136a4c2ab02f5c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Paralysis-bottom.png",
+      "sha256": "ac9bb33fb734cbfad49f64bdcd1210ebd0576b31c2a5933f1938ab964188cd00"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Paralysis-normal.png",
+      "sha256": "8d6ed5899ec84b2871ffc960c93a032b7c838219faa6f061e095a28250d837d3"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Paralysis.png",
+      "sha256": "f3b9789fed8103fbd5caefbe33ccdd49f7e0b1031a357b7cca1df0e37a6f7db7"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-HeroicLeap-bottom.png",
+      "sha256": "b7024a4290325984e68dda0b50f07ca6413278d872bc43c94152e17837d71245"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-HeroicLeap-normal.png",
+      "sha256": "93806d42d219b271807f1d48c03afd8fb62b9acc117bffc41154a951b16de92c"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-HeroicLeap.png",
+      "sha256": "8026c35dd022537da6fc588aaf73e04b1a9b91ff3d9c6169717ac39a8c035a3c"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Ratmogrify-bottom.png",
+      "sha256": "78dc8c8a5594a68a3be9fe2c4ee46ab87f33ec9570c55539ae1ed6eecec4cea7"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Ratmogrify-normal.png",
+      "sha256": "e57ed201d3836df1e920b15bf48a87a9fb2be241af3cb1546ea7cacff5a7a7b3"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Ratmogrify.png",
+      "sha256": "e7dffdb46f236032a48ef6e7b8740ca3cef07a2dcdeef94abd75600e600014fa"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Trinity-bottom.png",
+      "sha256": "a973ccf6ca581f53f48338797f78d3e3ee027829c8c6caf5c09725c60dbee2f4"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Trinity-normal.png",
+      "sha256": "426127bd3c4ed4f2bef3a7d3e6a996bd2803481fa0677171f719ca0cf56c5904"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Trinity.png",
+      "sha256": "91eadb8c14750f96181f914099a9e0f5b433fd1a8609f66edcf375d365294949"
+    }
+  ],
+  "scope": "Eight new status/champion and three ability contexts, each normal-expanded-bottom. Earlier427 wrappers80 and426spell64frames reviewed separately; unchangedpriorpanels not claimednewmanualchecks.",
+  "assessment": "Accepted revisedtext, livepercentages, timers, variableTrinitycost, Ratmogrifytiming/conditionaltalents, scroll endpoints, pinnedcontrols and retainedtalentgrid. No newblocking layout/font defect observed in these33frames. Wholeaudit remainsunfinished; dormantSpeed baseline messagegap alreadydiagnosed427 and fixedonlyonfuturebranch.",
+  "publication_gate": "All12 exact-app retrycasespassed, independentAPK/source/sidecars/scan/4781manifesthashes verified. All33 manuallyviewedoriginalpassedDeveloperPNGhashes match finalbundle. RetryDeveloperimages maydifferduecapturetiming and are notclaimedmanualreviewed.",
+  "physical_or_acoustic_phone_verified": false,
+  "final_bundle_matches_all_33_selected_original_passed_Developer_frames": true,
+  "final_evidence_frame_folder": "evidence/initial-limited/Developer/Developer-visuals"
+}

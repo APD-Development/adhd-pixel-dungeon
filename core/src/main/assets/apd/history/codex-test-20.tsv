@@ -1,0 +1,11 @@
+Testing	ICON_CHALLENGE_COLOR	Run Setup Difficulty Device Test	Updated Android checks and fixtures for run setup difficulty device. These are development checks, not a gameplay feature.
+Changes	ICON_INVESTIGATE	Ghost	Cleared absent Ghost reward fields before restoring another save.
+Quality of Life	ICON_INFO	Hero selection	Changed the class-selection gear highlight to the requested APD pink.
+Testing	ICON_INVESTIGATE	Ghost Quest Persistence Test 1	Added a test covering unenchanted Save Cannot Inherit Previous Saves Enchantments. These are development checks, not a gameplay feature.
+Testing	ICON_INVESTIGATE	Ghost Quest Persistence Test 2	Added a test covering enchanted Save Still Restores Its Own Enchantments. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Cleared absent Ghost reward fields before restoring another save. Changed the class-selection gear highlight to the requested APD pink.

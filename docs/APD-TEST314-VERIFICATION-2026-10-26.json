@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-26",
+  "timestamp": "2026-10-26T22:13:40Z",
+  "status": "accepted_for_reported_cleric_blocker_on_matched_apks",
+  "scope": "Exact unchanged TEST314 player and developer APK verification for the reported Cleric Start black-screen blocker; broad historical before/after supplemental gates remain unavailable because their required baseline artifacts expired.",
+  "application_source": "eda307d567bd7eacd1b304042747b65d0ea4ed72",
+  "fix_source": "37103bc1d2e5e4019e882bb81a0b51992519b0b4",
+  "corrected_core_expectation_source": "ac344447033eb483c839d056dae09cfead853ede",
+  "final_verification_source": "dbfa6e6dbf138bb26b5f19605a37f4df24eab433",
+  "build_request_blob": "dcaa4a08056fbf6a06dc067d7a58ba17e55ceac2",
+  "root_cause": "The regular-player APK omits apd/features.txt, and HeroSelectScene still invoked WndClericRemoved.trigger() whenever ApdFeatures.clericPlayable() was false. That obsolete gate produced the undismissable black screen after Cleric Start.",
+  "fix": "Removed only the obsolete Cleric Start feature gate. Independent lore controls, all six class kits, all 18 Custom Rules, saves, permanent statistics, score authority, history, seed, RNG and application identity remain preserved.",
+  "developer": {
+    "workflow_run": 40381278161,
+    "build_job": 121777853017,
+    "artifact_id": 12679410898,
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-314.apk",
+    "bytes": 38761522,
+    "sha256": "43517d2fb23163fc69d635e35c24a8b5d438df85a54824d93108c4571a78db55",
+    "private_features_asset": true
+  },
+  "player": {
+    "workflow_run": 40381277960,
+    "build_job": 121777852514,
+    "artifact_id": 12679246357,
+    "file": "APD-Player-TEST314.apk",
+    "bytes": 38761349,
+    "sha256": "b0166515e74180d627faf78e2bbbbc6f15ac7546a6c3416847d8c7445f82e22f",
+    "private_features_asset": false
+  },
+  "identity": {
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signer_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "developer_player_application_and_signer_match": true
+  },
+  "core": {
+    "methods": 2080,
+    "suites": 403,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "developer_passed": true,
+    "player_passed": true,
+    "debug_assembly_passed": true
+  },
+  "history": {
+    "immediate_previous_compiled_test": 313,
+    "predecessor_indexed_records_preserved": 340,
+    "indexed_records": 341,
+    "tsv_assets_including_index": 342,
+    "added_record": "codex-test-314.tsv",
+    "developer_player_history_byte_identical": true
+  },
+  "api34": {
+    "initial_full_run": {
+      "workflow_run": 40381278161,
+      "job": 121779508075,
+      "executed": 56,
+      "passed": 54,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "failure_scope": [
+        "Cleric stable-dungeon wait test harness",
+        "title native timing test harness"
+      ],
+      "valid_pngs": 80,
+      "invalid_placeholders": [
+        "cleric-unflagged-start.png",
+        "options-confirmations.png"
+      ]
+    },
+    "final_exact_matched_apk_run": {
+      "workflow_run": 40409084864,
+      "source": "731ed15261522049c3c116f3a7066e3560bfd914",
+      "application_rebuilt": false,
+      "changed_application_files": 0,
+      "methods_per_variant": 2,
+      "player": {
+        "job": 121874490950,
+        "passed": 2,
+        "failures": 0,
+        "evidence_artifact_id": 12692956076,
+        "evidence_digest": "sha256:ac6d87fbe87050a332b05ea3777cfa34a77e8494a650f526e8cf32e117d8e63e",
+        "cleric_png_bytes": 28566,
+        "cleric_png_sha256": "dba77c113a2b3f278a88ce5f44695d2f7b12ebcb27ea9ee0ca9a4c267fa4825d"
+      },
+      "developer": {
+        "job": 121874491225,
+        "passed": 2,
+        "failures": 0,
+        "evidence_artifact_id": 12693205887,
+        "evidence_digest": "sha256:0462076690e4a63ab4ff7218da4bcac67711c6ac734d4add871ee21c9cf47d06",
+        "cleric_png_bytes": 28915
+      }
+    },
+    "combined_method_coverage": "All 56 methods passed across the full run and exact-APK instrumentation-only rerun; this is explicitly composite rather than a single monolithic green job."
+  },
+  "visual": {
+    "display_workflow_run": 40381278098,
+    "profiles": [
+      "1080x2408",
+      "360x560",
+      "320x480",
+      "720x720",
+      "960x320"
+    ],
+    "profiles_passed": 5,
+    "replacement_options_artifact_id": 12678713067,
+    "replacement_options_png_sha256": "46c615a68449ffd1a68d4dd08181c7d6dd17d73da791675b6017f2d4fc5109d8",
+    "reviewed_images": 82,
+    "review": "80 valid images from the full run were decoded and contact-sheet reviewed; the exact player Cleric live-dungeon image and exact-application compact Options-confirmation image replaced the two invalid placeholders. No blank, corrupt or obvious clipping regression observed."
+  },
+  "retained_failures": [
+    {
+      "workflow_run": 40380042143,
+      "reason": "One stale core assertion required the obsolete black screen; corrected without weakening the intended behavior."
+    },
+    {
+      "workflow_run": 40381278161,
+      "reason": "Full API34 run had exactly two test-harness failures after 56/56 methods executed; 54 passed."
+    },
+    {
+      "workflow_run": 40387866426,
+      "reason": "Earlier exact-APK native attempt retained Cleric/title timing failures used to correct the harness."
+    },
+    {
+      "workflow_run": 40410490099,
+      "reason": "Death before/after rerun stopped before emulator startup because required TEST287 baseline artifact is no longer available."
+    },
+    {
+      "workflow_run": 40410490105,
+      "reason": "Hotbar/cold-restart before/after rerun stopped before emulator startup because required TEST285 baseline artifact is no longer available."
+    }
+  ],
+  "limitations": {
+    "fully_broad_emulator_verified_fallback": "TEST313",
+    "physical_phone_verified": false,
+    "tester_confirmation_of_fixed_apk": false,
+    "github_release_uploaded": false,
+    "automatically_distributed": false,
+    "newest_github_release": {
+      "test": 262,
+      "tag": "apd-alpha-preview-262",
+      "published_at": "2026-10-16T23:14:03Z"
+    },
+    "expired_baseline_gates": [
+      "TEST287 death-order before/after",
+      "TEST285 hotbar/cold-restart before/after"
+    ]
+  }
+}

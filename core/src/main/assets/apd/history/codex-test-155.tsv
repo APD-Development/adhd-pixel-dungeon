@@ -1,0 +1,19 @@
+Changes	V061_BUGFIX	Plant provenance	Persist an immutable creator snapshot for offensive plants while legacy/natural plants remain unowned.
+Changes	V061_BUGFIX	Level plant boundary	Create plants under an explicit offensive origin without changing placement behavior.
+Changes	V061_BUGFIX	Firebloom	Pass the retained plant origin into Fire.
+Changes	V061_BUGFIX	Sorrowmoss	Pass the retained plant origin into Poison.
+Changes	V061_BUGFIX	Rotberry	Pass the retained plant origin into Toxic Gas.
+Changes	V061_BUGFIX	Poison	Accept an already captured immutable origin.
+Changes	V061_BUGFIX	Regrowth Bomb	Preserve the bomb fuse origin in spawned plants.
+Changes	V061_BUGFIX	Wand of Regrowth	Capture and consume the actual zap origin for spawned plants.
+Changes	V061_BUGFIX	Cursed Wand	Attribute Random Plant to its actual caster.
+Changes	V061_BUGFIX	Sandals of Nature	Attribute invoked plant effects to their actual user.
+Changes	V061_BUGFIX	Overgrowth	Attribute the triggered plant to the actual initiating attacker.
+Changes	V061_BUGFIX	Plant provenance regression	Retain role, range, save, environmental, neutral and caller coverage.
+Changes	V061_BUGFIX	TEST153 evidence	Record implementation and honest verification boundary.
+Changes	V061_BUGFIX	Handoff	Record the candidate and unresolved acceptance work.
+Changes	V061_BUGFIX	Completed ledger	Record exact bounded work and pending checks.
+Changes	V061_BUGFIX	Build request	Require exact-source core, Android, debug and history verification.
+Changes	V061_BUGFIX	History manifest	Compare every reviewed path against the immediate previous TEST152 APK.
+Changes	V061_BUGFIX	Verified TEST151 evidence	Preserve the reviewed TEST151 Inferno/fire verification record in compiled history.
+Changes	V061_BUGFIX	Verified TEST152 evidence	Preserve the reviewed TEST152 source-safety verification record in compiled history.

@@ -1,0 +1,5 @@
+cleric_anytime.txt
+cleric_appreciation.txt
+cleric_comparisons.txt
+cleric_contextual.txt
+cleric_formats.txt

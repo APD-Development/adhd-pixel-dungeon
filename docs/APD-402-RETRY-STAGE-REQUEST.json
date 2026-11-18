@@ -1,0 +1,5 @@
+{
+  "run_id": 42584030587,
+  "source_commit": "e91c52c0d7c2190686eb3213488f562e6ce8ef77",
+  "scope": "Require all12cases on unchanged original402APKs after test-only Rose correction. Preserve original failed logs/testAPK, corrected patch/input and bothsource identities. Stage draft only, manual hashes/scan/actual windows before publish."
+}

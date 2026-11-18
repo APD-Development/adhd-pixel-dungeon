@@ -1,0 +1,58 @@
+name: Verify APD contextual Foresight caching
+on:
+  push:
+    branches: [codex/apd-foresight-context-cache-20261112]
+    paths: [.github/workflows/apd-foresight-context-ci-20261112.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Require single Foresight observation and bounded coverage regression
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          root=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol')
+          context=(root/'SearchControlContext.java').read_text()
+          covers=(root/'WallSearchSession.java').read_text()
+          check=context.split('public static boolean hasMeaningfulWall(',1)[1]
+          assert check.count('hero.buff(Foresight.class)') == 1
+          assert 'WallSearchSession.searchRadius(hero, foresight)' in check
+          assert 'WallSearchSession.covers(hero, level, hero.pos, cell, foresight)' in check
+          assert 'static boolean covers(Hero hero,Level level,int from,int cell,boolean foresight)' in covers
+          assert 'return covers(hero,level,from,cell,hero.buff(Foresight.class)!=null);' in covers
+          test=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContextTest.java').read_text()
+          assert 'cachedForesightScanMatchesOrdinaryCoverageForEveryClassAndAcquiredRank' in test
+          print('Verified one Foresight lookup per contextual scan and the unchanged public coverage API.')
+          PY
+      - name: Full core tests and desktop and Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Verify raw JUnit counts and the new exhaustive regression
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports,'Core JUnit XML missing'
+          totals={k:sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests'] >= 3267 and not any(totals[k] for k in ('failures','errors','skipped')),totals
+          matches=[r for r in reports if r.get('name','').endswith('.SearchControlContextTest')]
+          assert len(matches)==1
+          tests={e.get('name') for e in matches[0].findall('testcase')}
+          assert 'cachedForesightScanMatchesOrdinaryCoverageForEveryClassAndAcquiredRank' in tests
+          print('Verified',totals,'across',len(reports),'suites')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-foresight-cache-source-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

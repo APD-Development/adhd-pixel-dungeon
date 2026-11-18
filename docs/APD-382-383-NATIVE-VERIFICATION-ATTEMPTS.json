@@ -1,0 +1,47 @@
+{
+  "producing_sources": {
+    "382": "d6d21c97de27c5a49848c76bc62a5ae9fa276a60",
+    "383": "728ca445fe62dffab483ec824a1c977d970f24ff"
+  },
+  "original_build_runs": {
+    "382": 42534873950,
+    "383": 42536083963
+  },
+  "attempts": [
+    {
+      "run": 42534873950,
+      "pair": 382,
+      "result": "Qol failed before item UI: synthetic Escape Crystal storedItems was null during fixture snapshot serialization. Other ten native cases passed.",
+      "correction": "Initialize copies of gear, quickslots, gold and energy without clearing the hero inventory."
+    },
+    {
+      "run": 42535769537,
+      "pair": 382,
+      "result": "Qol failed on a viewport assertion in the same frame as new window construction.",
+      "correction": "Wait for the rendered frame before applying the same exact viewport assertions, as existing helper does."
+    },
+    {
+      "run": 42536441243,
+      "pair": 382,
+      "result": "Camera assertions passed; cursed+3 Tenacity fixture expected harm but actual formula correctly gives neutral0%.",
+      "correction": "Use cursed+0 for the harmful case; core tests already cover all signs/levels."
+    },
+    {
+      "run": 42536441338,
+      "pair": 383,
+      "result": "Same mistaken cursed+3 harm expectation.",
+      "correction": "Same cursed+0 fixture correction."
+    },
+    {
+      "run": 42536990071,
+      "pair": 382,
+      "result": "SUCCESS: full item-window checks on both original APKs, combined with ten original successful native cases; prepare and source scan passed, screenshots reviewed, actual pair published."
+    },
+    {
+      "run": 42536990078,
+      "pair": 383,
+      "result": "SUCCESS: full item-window checks on both original APKs, combined with ten original successful native cases; prepare and source scan passed, screenshots reviewed, actual pair published."
+    }
+  ],
+  "limits": "No original application APK rebuilt for these retries; production source and all acceptance assertions preserved. Failed native checks are not successful Android verification. APKs must remain drafts until completed acceptance and actual screenshot review."
+}

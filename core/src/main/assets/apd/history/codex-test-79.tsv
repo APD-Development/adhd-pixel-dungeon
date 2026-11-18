@@ -1,0 +1,5 @@
+Bug Fixes	ICON_RANKINGS	Cancelled statistics tours	A cancelled statistics tour can no longer replace your own statistics after its background loading finishes.
+Changes	ICON_DATA	Sample data lifecycle	Sample preparation and cleanup now run in sequence, retaining the safeguards that protect genuine run history.
+Testing	ICON_INFO	Tour cancellation regressions	Added controlled background-worker tests proving cancelled tours stay cancelled and current tours still open.
+Development	ICON_INFO	Verified build evidence	Recorded the preceding build's successful checks and Android screenshots, alongside remaining testing and execution limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I fixed a race that could reopen sample statistics after a tour was cancelled. Genuine history, statistics calculations and the current tour's normal behavior remain unchanged.

@@ -1,0 +1,43 @@
+{
+  "prepared_eastern": "2026-11-09T14:47:10.032132-05:00",
+  "source_commit": "28013435e236058ec9945ab5968ec258c4c380aa",
+  "number": 428,
+  "tag": "apd-alpha-preview-428",
+  "core_tests": 3158,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "6a1e2d7b9738d9dec25761f7b22bcebd773b5967acd25bc63cf85d6208c0c0f4",
+    "Alpha-Testers": "1baffb3246be5faa9822c8f4042cafac33a839deb85886b93d86a955deee381d"
+  },
+  "source_sha256": "86df4dc3b9649d023be21bd0d9f0bff7da96d6ff3556ad9a4ab286ef6eaa27a0",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "generic_item_panel_removal_preserved": true,
+  "existing_mechanic_panels_pending_owner_review": true,
+  "new_application_apks_created": 2,
+  "prepared_utc": "2026-11-09T19:47:10.160817+00:00",
+  "workflow_run": "42683625819",
+  "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+  "fallback_preserved": true,
+  "original_apk_build_run": 42681930991,
+  "retry_new_application_apks_created": 0,
+  "retry_scope": "Unchanged original Developer and Alpha APKs/instrumentation, all twelve cases",
+  "retry_reason": "The enlarged actual UI capture suite reached the old900second command cap in427Alpha. This wrapper gives the same assertions a finite1800second budget; no app/harness rebuild or skips. Original evidence is preserved, not counted as success.",
+  "stage_run": 42686678328,
+  "published_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-428",
+  "independent": {
+    "number": 428,
+    "source_commit": "28013435e236058ec9945ab5968ec258c4c380aa",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4781,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": true,
+    "manual_full_frames": 33,
+    "manual_frame_authority": "OriginalpassedDeveloper run42681930991 on unchanged428APK; all33frames in finalbundle match",
+    "source_rebuilt_independently": false
+  },
+  "manual_review_file": "docs/APD-428-MANUAL-VISUAL-REVIEW.json"
+}

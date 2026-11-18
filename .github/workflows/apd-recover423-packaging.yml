@@ -1,0 +1,67 @@
+name: Recover423 packaging only on unchanged tested APKs and original evidence
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-423-PACKAGING-RECOVERY-REQUEST.txt]
+permissions: {contents: read, actions: read}
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      APD_SOURCE_SHA: 2a98ed3e4d050d2eaa1c34a54a2ca09facde08d9
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, ref: 2a98ed3e4d050d2eaa1c34a54a2ca09facde08d9}
+      - uses: actions/download-artifact@v4
+        with: {name: apd423-built-pair, run-id: 42662501545, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd423-native-Developer, path: evidence, run-id: 42662501545, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd423-native-Alpha-Testers, path: evidence, run-id: 42662501545, github-token: '${{ github.token }}'}
+      - name: Preserve original failure and attest original APK bytes
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh run view 42662501545 --log-failed > evidence/original-packaging-failure.log
+          sha256sum owner-delivery/APD-Developer-423.apk owner-delivery/APD-Alpha-Testers-423.apk > evidence/original-application-sha256.txt
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify exact identities, completed tests and corresponding source
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          git show "$GITHUB_SHA:tools/apd423-delivery-history.patch" > /tmp/apd423-history.patch
+          git apply --check /tmp/apd423-history.patch
+          git apply /tmp/apd423-history.patch
+          cp /tmp/apd423-history.patch evidence/packaging-history-only.patch
+          cp tools/apd_prepare423.py evidence/corrected-packaging-script.py
+          python3 tools/apd_prepare423.py
+          python3 - <<'PYPROOF'
+          import json,pathlib,os
+          p=pathlib.Path('owner-delivery/APD-Preview-423-Verification.json');d=json.loads(p.read_text());d.update(new_application_apks_created=0,original_application_apks=2,original_build_run=42662501545,android_test_execution_run=42662501545,delivery_only_retry='Original build and all12 native cases passed. Corrected only stale packaging assertion: require420/421/422 instead of rejecting421. Exact original applications/evidence reused; no application/instrumentation rebuild and no repeated native tests.');p.write_text(json.dumps(d,indent=2)+'\n')
+          notes=pathlib.Path('owner-delivery/release-notes.md');notes.write_text(notes.read_text()+'\nPackaging-only recovery: original build42662501545/core3149/all12native passed. A stale history check rejected421; corrected to require every420/421/422 entry. Original tested APKs are unchanged. Failure/patch/script and complete evidence retained. No app/instrumentation rebuild or repeated native test.\n')
+          PYPROOF
+      - name: Scan key-free source and full reachable history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          if ! curl --connect-timeout 20 -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz; then
+            gh api repos/gitleaks/gitleaks/releases/assets/378332058 -H 'Accept: application/octet-stream' > /tmp/apd-gitleaks.tar.gz
+          fi
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd423-prepared-owner-pair
+          path: owner-delivery/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd423-source-and-native-evidence
+          path: |
+            evidence/
+            core/build/test-results/test/
+            docs/APD-423-DELIVERY-SPEC.json
+          retention-days: 14

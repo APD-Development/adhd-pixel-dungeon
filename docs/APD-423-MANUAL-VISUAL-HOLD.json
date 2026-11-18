@@ -1,0 +1,134 @@
+{
+  "reviewed_utc": "2026-11-09T17:49:17.814044+00:00",
+  "build": 423,
+  "source": "2a98ed3e4d050d2eaa1c34a54a2ca09facde08d9",
+  "core_tests": 3149,
+  "android_cases": 12,
+  "manifest_files_independently_checked": 4714,
+  "original_tested_APK_bytes_match": true,
+  "full_selected_frames_manually_viewed": 28,
+  "manual_visual_accepted": false,
+  "defect": "Shared Upgrades detailed16\u2154% uses unsupported U+2154, rendered as missing glyph. Other newly reviewed Endure/SoulMark/Doom/Corruption/Degrade and normal Sharedtalent frames readable; glyph defect blocks publication.",
+  "rejected_frames": [
+    "qol-reviewed-talent-clear-SHARED_UPGRADES.png",
+    "qol-reviewed-talent-clear-SHARED_UPGRADES-bottom.png"
+  ],
+  "inherited_by": [
+    424
+  ],
+  "published_fallback": 418,
+  "frames": [
+    {
+      "name": "qol-existing-status-clear-Corruption-bottom.png",
+      "sha256": "37c8ce6e1b1afbe64d4b7b3bdc0784a9e86dbefcd821489069ca62232608bf40"
+    },
+    {
+      "name": "qol-existing-status-clear-Corruption-normal.png",
+      "sha256": "7ce0c24c8c118127f2175b6f8bb244f99e2028274ed950ea079be740fa7b5265"
+    },
+    {
+      "name": "qol-existing-status-clear-Corruption.png",
+      "sha256": "64b212f129d1c3d6ec95381cc18c7924d16afc43404ede55acba34a80983e193"
+    },
+    {
+      "name": "qol-existing-status-clear-Degrade-known-bottom.png",
+      "sha256": "54d96cb549226eb55d3499a25e0b9b9ee6cf11db5cb44269fff18b79670c063d"
+    },
+    {
+      "name": "qol-existing-status-clear-Degrade-known-normal.png",
+      "sha256": "8046b162c3ef4c70d9060f09a292a5f49efa245fc1dffa881af9756f3ddc50a0"
+    },
+    {
+      "name": "qol-existing-status-clear-Degrade-known.png",
+      "sha256": "904d35b8468df832f1d1d87f58954cc07e69d5bec0be9c2f540b487bb19fdfc0"
+    },
+    {
+      "name": "qol-existing-status-clear-Degrade-unknown-bottom.png",
+      "sha256": "72b675821f742660c8b93b60c41a5f26f63ea391112238229002f393ce33e98f"
+    },
+    {
+      "name": "qol-existing-status-clear-Degrade-unknown-normal.png",
+      "sha256": "b962f1aa2564d595d01c629bbff850eca7f878f0b9edd81b1bd6ec3db4bda7d5"
+    },
+    {
+      "name": "qol-existing-status-clear-Degrade-unknown.png",
+      "sha256": "4787b16e8aec5d61b20d5d017d0b4da4af649fac7181b3390267cb8b74851ef9"
+    },
+    {
+      "name": "qol-existing-status-clear-Doom-bottom.png",
+      "sha256": "75c11c1ed72e7863eb982ca60c7bdbf87aacbc544786b97018aacc9112635cbe"
+    },
+    {
+      "name": "qol-existing-status-clear-Doom-normal.png",
+      "sha256": "46f98e6b8824a3ba3acc6321ac75fb8d39e39ed0dbf9d64de712f9a8df6b7c10"
+    },
+    {
+      "name": "qol-existing-status-clear-Doom.png",
+      "sha256": "fce25f616ca1beb2d30f7bb51179c23b9ca4211b6322fd99ecef328d55bd1d93"
+    },
+    {
+      "name": "qol-existing-status-clear-Endure-ready-bottom.png",
+      "sha256": "e4c745a0dee546b0517890dc2db9a7bd13cbce4dc9c41e3d75f108e2ec0e398e"
+    },
+    {
+      "name": "qol-existing-status-clear-Endure-ready-normal.png",
+      "sha256": "208f68764e8a15b9ec49d13e9e680b4c99cc4df07a3614f22e37d133771bbe2e"
+    },
+    {
+      "name": "qol-existing-status-clear-Endure-ready-one-hit-bottom.png",
+      "sha256": "abeda4f5fe3cd0d4672df2e413af783f35d75e6bfc83c46d43f6a3173b63a392"
+    },
+    {
+      "name": "qol-existing-status-clear-Endure-ready-one-hit-normal.png",
+      "sha256": "1d43daf856f6e6abf73263ec97f7997608b50de71fb08a208611f76dc6fe1330"
+    },
+    {
+      "name": "qol-existing-status-clear-Endure-ready-one-hit.png",
+      "sha256": "fe5204b013dd6744df8bb4a1363ff3e6fd33a28caf1d5be0c9549fbcc0311bc0"
+    },
+    {
+      "name": "qol-existing-status-clear-Endure-ready.png",
+      "sha256": "14aa6f10fa0504c905163e649f04e8aa19726848f62f0fda4dfb23077d5f91ef"
+    },
+    {
+      "name": "qol-existing-status-clear-SoulMark-bottom.png",
+      "sha256": "afb10b9379316c45eb511eb93df1eb0649bc6546b9a3bacaca851cdb480ac707"
+    },
+    {
+      "name": "qol-existing-status-clear-SoulMark-normal.png",
+      "sha256": "174304bef068e4cfbed7ef48754b85b8210250b367b5beab7884ad380cc01a27"
+    },
+    {
+      "name": "qol-existing-status-clear-SoulMark.png",
+      "sha256": "76c9ac4f956a0c9465a1c4f6a170f83a57e26348c35ad7a6e21dc7a38e6d458f"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_ENCHANTMENT-bottom.png",
+      "sha256": "af79afe49cd0a7423db72762dd88f407c9dd13d34323563e76e8365d9c65bd88"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_ENCHANTMENT-normal.png",
+      "sha256": "2282886ede007266d5e5da6beaf5ddebdef0a1b0b6f411fc5811dd55ff1a9760"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_ENCHANTMENT.png",
+      "sha256": "a63d4243b99317654283cd5b284f516c29624957d94f1c55c8c17e4fac9676a4"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_UPGRADES-bottom.png",
+      "sha256": "c57ca2c7da22ea48e49e04418065a4aaebcbbafe4ec83547e59984692132662c"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_UPGRADES-normal.png",
+      "sha256": "08eb13004a9a52abd598a20ce2d929899b8114338bb6ca4861ebb25e36153673"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SHARED_UPGRADES.png",
+      "sha256": "91e1c3430dcc983eeae55845884ba1134cfc7a189292471a700405cc00dd436a"
+    },
+    {
+      "name": "qol-soulmark-zero-healing-popup.png",
+      "sha256": "febef09ae5d5deeb2c106126b1a3a47ada56449e7cb9cad5b7e07d25b8af036f"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-11",
+  "status": "incomplete",
+  "release_count": 97,
+  "missing_legacy_release_numbers": [
+    1,
+    31,
+    38,
+    47,
+    79,
+    83
+  ],
+  "namespace_note": "Legacy Build N, Private TEST N and Codex TEST N are distinct. An absent release is not proof an APK never existed.",
+  "reviewed_compare": {
+    "previous": "8f13fcf9615bc83054d1eca99b4539b0c00a7ace",
+    "current": "e1ecea26bef287548464301558b90c2aa82a2143",
+    "commits": [
+      "ba8e4bf0c3aad13ce3599aa52459decd2e2ff701",
+      "ac63b66942c5a06fa7ab6f71ceab9e896045128d",
+      "4f02fece6a7ed2d31684a7678417fc3afe62c83e",
+      "450153afe1b2434c4805bea20e8bcea8c0ed6369",
+      "fb5d22034634854541e9d3d21c31774653430c75",
+      "6acddfb7493d89658b4084b44adf36952377a8a1",
+      "e1ecea26bef287548464301558b90c2aa82a2143"
+    ],
+    "files": [
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDSettings.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/AccountRequests.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/DataPolicy.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/EvidenceMessages.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/Gateways.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/HttpGateway.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backendbridge/BackendClient.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backendbridge/PrivacySummary.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/backendbridge/SubmissionQueue.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdOptions.java",
+      "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/BackendAccountTest.java",
+      "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/backend/HttpGatewayTest.java",
+      "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/backendbridge/EndToEndSubmissionTest.java",
+      "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/backendbridge/SubmissionQueueTest.java",
+      "docs/APD-BACKEND.md",
+      "docs/APD-HANDOFF.md",
+      "docs/HANDOFF.md"
+    ],
+    "limitation": "Release target source and diff inspected; exact APK mapping and exhaustive individual notes still need reconstruction."
+  }
+}

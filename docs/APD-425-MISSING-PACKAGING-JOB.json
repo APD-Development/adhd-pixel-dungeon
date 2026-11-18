@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-09T18:23:02.308985+00:00",
+  "run": 42669136432,
+  "source": "75809609745851368fe81f2dced1b69eb63cdfdf",
+  "build": "success",
+  "native_Developer": "success",
+  "native_Alpha_Testers": "success",
+  "core_tests": 3153,
+  "native_cases": 12,
+  "run_conclusion": "failure",
+  "prepare_job": "not present in run/check jobs",
+  "failed_step_log": "empty",
+  "failed_only_retry": "GitHub refused: run cannot be rerun; workflow file may be broken. Root cause not established.",
+  "action": "Separate packaging-only recovery on exact original APKs/native/XML, no production patch or rebuild. Do not claim job/service cause resolved."
+}

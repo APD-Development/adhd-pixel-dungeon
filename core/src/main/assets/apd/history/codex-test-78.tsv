@@ -1,0 +1,7 @@
+Bug Fixes	ICON_DATA	Replay and game-loading isolation	An interrupted game-loading wait can no longer proceed while seed replay still owns and restores shared dungeon state.
+Testing	ICON_DATA	Replay load-barrier regressions	Added real replay-thread tests for normal and interrupted loading waits, including preserved interruption status.
+Quality of Life	ICON_RANKINGS	Native statistics controls	UIMSD navigation now uses SPD's existing grey buttons while preserving every existing action.
+Quality of Life	ICON_INFO	Compact fictional-data indicator	Demo and sample statistics use a compact amber DEMO DATA indicator with an information popup instead of a wide red banner.
+Testing	ICON_INFO	Fictional-data popup verification	Android checks now tap the compact data indicator and capture its popup alongside the rendered Home screen.
+Development	ICON_INFO	Verified reliability evidence	Recorded TEST77 checks, reproduced replay interruption and the corrected visual acceptance evidence.
+Developer Commentary	V074_SHPX	Developer Commentary	I tightened replay isolation so loading waits for borrowed state to be restored. I also replaced the statistics screen's remaining red navigation and large demo banner with native grey controls.

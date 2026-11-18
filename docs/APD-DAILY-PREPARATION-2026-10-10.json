@@ -1,0 +1,73 @@
+{
+  "recorded_at_utc": "2026-10-10 20:45:46 UTC",
+  "source": "1483bac7ecd24cf33b64632ca0d4135bb252ad7d",
+  "run": 38082442832,
+  "build_number": 26,
+  "status": "verified and privately delivered TEST26",
+  "core": {
+    "tests": 972,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "artifact_ids": {
+    "apd-codex-android-checks": 11681297049,
+    "apd-codex-private-test-apk": 11681256295,
+    "apd-codex-core-tests": 11681066550
+  },
+  "rollback": "apd-codex-test-25",
+  "signing_status": "APK signatures verified; signing certificate matches TEST25",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC26-TEST",
+  "apk_sha256": "eae67a1c095819906e70e0de3e76c08d3f482bf7aab7ec13b90efd334e5fc0ff",
+  "delivery_run": 38083298816,
+  "release_tag": "apd-codex-test-26",
+  "release_target": "804713f84dc55d6c457f703d5ac76f66fe27c57f",
+  "published_at_utc": "2026-10-10T20:20:14Z",
+  "apk_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-26/ADHD-Pixel-Dungeon-CODEX-TEST-26.apk",
+  "pdf_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-26/APD-Bug-Fixes-2026-10-10-TEST26.pdf",
+  "publication_app_tree_matches_source": true,
+  "physical_phone_testing": "not performed",
+  "unattended_execution": "One independently scheduled coding/commit execution d595 verified; continuous overnight activity not demonstrated.",
+  "unattended_probe_commit": "7ead4a6e4891b78314e2f05ed69c15f889260a43",
+  "active_hours_past_30": "unknown",
+  "pending_source_changes": {
+    "description": "test-only simulator rare-enemy support and explicit recovery seed plans; no production changes beyond TEST26",
+    "source_commit": "b6e0eef65bce2d0398e056b6e173410e25bb3c5e",
+    "local_test_result": "18 Java checks passed0.133s; six fake-adb protocol tests passed0.710s",
+    "native_verification_run": 38083672601,
+    "native_verification_status": "running",
+    "complete_100_episode_result": "not demonstrated; original/recovery shards contain completed and incomplete records",
+    "original_batch_run": 38082709672,
+    "recovery_batch_run": 38082860120,
+    "included_in_TEST26": false
+  },
+  "unattended_coding_commit": "d5957b5cb370e3f2bcfc97aefa4cad4510a98d26",
+  "production_source_reuse_check": {
+    "compared_head": "b6e0eef65bce2d0398e056b6e173410e25bb3c5e",
+    "protected_files": 2197,
+    "changed_files": [],
+    "tool_regressions": "11 passed; no app rebuild required for test-only/tooling edits"
+  },
+  "simulator": {
+    "status": "incomplete",
+    "original_runs": [
+      38082709672,
+      38082860120
+    ],
+    "original_unique_attempts": 62,
+    "original_completed_early_episodes": 43,
+    "unresolved_seeds": 57,
+    "failed_followup_run": 38083672601,
+    "failed_followup_seed": 1000042,
+    "reason": "Unhandled optional gameplay window; further adapter verification pending",
+    "scope": "Early-game episodes, not full dungeon victories or causal survival proof",
+    "production_apk_unchanged": true
+  }
+}

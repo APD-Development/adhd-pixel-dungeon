@@ -1,0 +1,5 @@
+Performance	ICON_RANKINGS	Lighter statistics aggregates	Statistics calculations allocate distinct-value and median containers only when those calculations need them.
+Testing	ICON_RANKINGS	Resumed-run import regression	Added a real-log and cache-reload check that an unfinished resumed run does not hide an imported finished ranking.
+Testing	ICON_INFO	Allocation measurement	Added a repeatable desktop measurement of statistics aggregate allocations without changing Android gameplay.
+Development	ICON_INFO	Verification and delivery evidence	Recorded TEST73 signing checks, private APK delivery and the ongoing statistics audit.
+Developer Commentary	V074_SHPX	Developer Commentary	I reduced unnecessary statistics allocations while preserving query results. I also added a saved-history regression for resumed runs.

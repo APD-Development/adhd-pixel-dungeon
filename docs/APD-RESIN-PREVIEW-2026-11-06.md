@@ -1,0 +1,7 @@
+# Resin conversion preview purity and numerical explanation
+
+Red baseline `/workspace/apd-resin-preview-before.log` shows `Recipe.sampleOutput` changing the input wand's curse_infusion_bonus fromtrue tofalse, via the normal mutating Wand.level getter. A UI preview must preserve this state. The preview now uses existing pure previewBaseLevel. Actual brew still performs the original level cleanup exactly once before consuming known or unknown input; yield arithmetic and class/talent handling are unchanged.
+
+The description explains application cost/limit using shared live values, resin/curse-infusion versus temporary level bonuses, five-energy conversion cost, consumed input, base yield and current non-Mage Preservation units. Unknown preview yield stays undisclosed. Mage Preservation remains the separate imbuing behavior. The concurrent Ankh explanation was retained and made plainer without changing its quarter-HP formula or Healing exemption.
+
+Two new tests include the actual mutation reproduction plus1,248 preview/real-conversion comparisons across13 wand types, three base levels, two resin states, two inactive-infusion setups, Mage/non-Mage, two Preservation ranks and known/unknown upgrade levels. They verify exact output, consumption, legitimate gameplay cleanup, pure preview state/capacity and RNG/Hero preservation. Full local2864/446 passed, raw `/workspace/apd-resin-preview-local-junit.zip`. Remote required Android/desktop compilation pending. This is after delivered369; no additional APK or native/phone acceptance claim.

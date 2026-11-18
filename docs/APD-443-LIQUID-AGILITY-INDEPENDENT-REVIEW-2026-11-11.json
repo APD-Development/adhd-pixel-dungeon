@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-11-11T15:22:45.561557+00:00",
+  "scope": "Read-only review of narrow occupied-target throw completion production patch; tests pending author completion.",
+  "status": "No source-level acceptance blocker found in the reviewed two-file patch.",
+  "files": {
+    "items/Item.java": {
+      "current_sha256": "359c61ca8fabf485292ce05fccd2c8c35e51ff95b37a3814a0227b2972c145db",
+      "baseline_sha256": "39b729cc3c92af7daa281825673cd0959209b7a5bfa6a5b7cb209ad647cb8112"
+    },
+    "items/potions/Potion.java": {
+      "current_sha256": "728edbcede58ad0acbff766141313586a1c628c6e0024992a9fd0e93c0838bc3",
+      "baseline_sha256": "349c7c1066d4295c889dfb23d30caac9bd7956fda0e2cbb47dc0ef7bd12b709f"
+    }
+  },
+  "checks": [
+    "Item occupied paid branch retains busy then actual spend(delay); both paid and Lethal Momentum free branches invoke detached i completion then next exactly once.",
+    "Empty-target callback is unchanged and already spends before invoking onThrow.",
+    "Hero.spendAndNext implementation is exactly busy, spend, next; no production override found.",
+    "Potion completion context is cleared at onThrow entry and consumed before checking current tracker identity.",
+    "Context is armed only after original non-anonymous eligible exact-class/Brew successful-chance gate calls Talent.onPotionUsed and hero has Liquid Agility.",
+    "Current attached tracker identity is required, so a detached tracker with a stale target cannot be reattached and a replacement tracker cannot be refreshed.",
+    "Buff.prolong uses max existing expiry versus now plus actual hero cooldown and existing factor extra; it does not add cost to an already longer buff.",
+    "No onThrow override exists in any current Potion descendant. UnstableBrew delegates shatter only to an anonymized child and retains the existing single outer talent trigger.",
+    "No Bundle serialization, save fields, chance values, factor values, eligible class lists, drinking paths, item consumption, pressed-cell attribution, other potion talents or throw animations were changed.",
+    "Guarded context is on the detached item, including a split stack unit. New fields are not copied by Item split/duplicate Bundle persistence."
+  ],
+  "pending": "Review author regression source and fresh targeted/full results before final acceptance. No tests run by this independent reviewer for this patch.",
+  "reviewer_changes": "Only this transient recovery receipt; no repository files or GitHub mutations."
+}

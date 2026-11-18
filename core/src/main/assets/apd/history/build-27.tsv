@@ -1,0 +1,64 @@
+Changes	ICON_INFO	Demo Generator	Added grouped-statistics examples to fictional demo history.
+Changes	ICON_INFO	Demo Log	Extended fictional logs with grouped-statistics sample values.
+Statistics / UIMSD	ICON_STATS	Agg Value	Tracked sample counts and provenance for grouped aggregates.
+Statistics / UIMSD	ICON_STATS	Aggregate	Added statistical aggregates for grouped item, enemy and run views.
+Statistics / UIMSD	ICON_STATS	Cell Formatter	Formatted grouped statistics with coverage and uncertainty markers.
+Statistics / UIMSD	ICON_STATS	Cell Text	Preserved grouped-value disclosure and display states.
+Statistics / UIMSD	ICON_STATS	Column Def	Added metadata used by aggregate-first statistics.
+Statistics / UIMSD	ICON_STATS	Dataset Def	Defined reusable statistical sheets for datasets.
+Statistics / UIMSD	ICON_STATS	Dataset Store	Rebuilt cached rows with the additional grouped-statistics fields.
+Statistics / UIMSD	ICON_STATS	Datasets	Added aggregate-first item and enemy views with statistical sheets.
+Statistics / UIMSD	ICON_STATS	Group Detail	Added the statistics sheet of one group of a grouped table (all War Hammers, all rats): the dataset's sheet worked out over the group's rows, each statistic with how many values it rests on and what kind of knowledge it is.
+Statistics / UIMSD	ICON_STATS	Query Codec	Saved and restored the new aggregate definitions.
+Statistics / UIMSD	ICON_STATS	Query Engine	Calculated grouped aggregates with known-value and provenance handling.
+Statistics / UIMSD	ICON_STATS	Result Table	Presented grouped counts and aggregate values as table cells.
+Statistics / UIMSD	ICON_STATS	Row Builders	Derived additional item and enemy values from recorded events.
+Statistics / UIMSD	ICON_STATS	Stat Line	Added one line of a dataset's statistics sheet: what a group of rows (all glaives, all rats) is summed up as in its detail window.
+Statistics / UIMSD	ICON_STATS	Status Text	Explained aggregate coverage and omitted values.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Added group-to-instance and group-to-run drill-down navigation.
+Statistics / UIMSD	ICON_STATS	View Def	Defined the new aggregate-first entry views.
+Quality of Life	ICON_STATS	Statistics Table	Connected grouped table cells to their statistics sheets.
+Quality of Life	ICON_STATS	Statistics Row	Opened individual group statistics and links to their underlying records.
+Testing	ICON_STATS	Aggregate Extensions Test 1	Added a test covering distinct Count Counts Different Values Of Text Or Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 2	Added a test covering distinct Count Ignores Unknown Values And Says So. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 3	Added a test covering median Of Odd And Even Counts. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 4	Added a test covering median Uses Only Known Values And Is Unknown Not Zero When There Are None. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 5	Added a test covering a Median Of Lower Bounds Is Marked As At Least. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 6	Added a test covering ratio Is One Sum Over Another And Unknown When There Is Nothing To Divide By. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 7	Added a test covering ratio Skips Lower Bound Values Because They Cannot Be Divided. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 8	Added a test covering where Looks Only At Rows With The Given Value. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 9	Added a test covering rows That Cannot Be Judged Against The Condition Are Left Out And The Result Says So. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 10	Added a test covering per Distinct Value Counts A Run Once However Many Rows It Has. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 11	Added a test covering where And Per Distinct Combine. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 12	Added a test covering rows With No Value To Share Are Not Merged By The Distinct Rule. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 13	Added a test covering hidden Columns In The New Aggregates Follow The Hidden Information Rules. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 14	Added a test covering small Samples Are Marked And Large Ones Are Not. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 15	Added a test covering the New Aggregates Survive The Query Text Form And Old Lines Still Decode. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate Extensions Test 16	Added a test covering aggregates With Different Conditions Are Different Columns. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 1	Added a test covering an Enchanted Weapon Is Still The Same Type Of Weapon. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 2	Added a test covering a Ring Is Only Its Real Kind Once The Player Learned It. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 3	Added a test covering a Run Recorded Without Item Identity Falls Back To The Name And Is Not Guessed. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 4	Added a test covering rare Types Are Not Hidden And Every View Starts Grouped. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 5	Added a test covering the Weapons Table Is A Dense Statistics Table. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 6	Added a test covering acquired Is Out Of Seen Equipped Is Out Of Acquired And Runs Count Once. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 7	Added a test covering values That Were Never Known Stay Unknown In The Sheet. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 8	Added a test covering a Type Opens Its Instances And Their Runs And Back. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 9	Added a test covering the Drill Keeps The Filters The Player Set. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 10	Added a test covering runs Containing A Type Include Runs Outside The Current Scope So The List Never Comes Up Empty. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 11	Added a test covering item And Enemy Rows Carry Their Runs Outcome And Unfinished Runs Stay Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 12	Added a test covering enemies Are Aggregated By Type Then Encounters Then Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 13	Added a test covering statistics Sheets Never Depend On The Hidden Information Of An Unfinished Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test 14	Added a test covering with Hidden Information On The Unfinished Runs Sheets Still Match Those Of The Other History. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test	Updated automated checks and fixtures for dataset builders. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Demo Data Test	Updated automated checks and fixtures for demo data. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Synthetic Log	Updated automated checks and fixtures for synthetic log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Safety Test	Updated automated checks and fixtures for statistics safety. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-UIMSD	Updated apd-stats-uimsd accompanying this build.
+Statistics / UIMSD	ICON_STATS	Type	Added the Type statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run outcome	Added the Run outcome statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run class	Added the Run class statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run deepest floor	Added the Run deepest floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run challenges	Added the Run challenges statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items view	Updated the Items statistics view.
+Statistics / UIMSD	ICON_STATS	Enemies view	Updated the Enemies statistics view.
+Developer Commentary	V074_SHPX	Developer Commentary	Added grouped-statistics examples to fictional demo history. Extended fictional logs with grouped-statistics sample values.

@@ -1,0 +1,41 @@
+Testing	ICON_STAIRS	Floor Replay Device Test	Updated Android checks and fixtures for floor replay device. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_PREFS	Saved settings	Kept the exotic-item setting available to recorded-versus-canonical comparisons.
+Statistics / UIMSD	ICON_STAIRS	Replay Floor	Captured generated item and creature state for canonical floor tables.
+Statistics / UIMSD	ICON_STAIRS	Seed Floors	Added seed floors of ONE finished run: what each floor of the dungeon holds, floor 1 to 26, with the provenance of every row explicit.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Added seed-floor tables and recorded-versus-canonical comparisons for finished runs.
+Statistics / UIMSD	ICON_STAIRS	Floor Replay	Reconstructed floors using the run’s own generation settings.
+Statistics / UIMSD	ICON_STAIRS	Seed Floors Runner	Added the game-aware half of seed floors: reads the run's seed, class and rules from its row, replays the floors (FloorReplay) and hands them to the pure assembly in apd.query.
+Quality of Life	ICON_STATS	Statistics screen	Added seed-floor tables and recorded-versus-canonical comparisons for finished runs.
+Testing	ICON_STAIRS	Seed Floors Test 1	Added a test covering recorded Floors Are Authoritative And Others Are Labelled Canonical. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test 2	Added a test covering unknown Reach Is Said So Never Called Unreached. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test 3	Added a test covering comparison Counts What Is The Same And What Is Not. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test 4	Added a test covering every Seed Floors View Runs Through The Query Engine. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test 5	Added a test covering spec refuses Runs That Cannot Be Replayed. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test 6	Added a test covering a Finished Run Of The Sample History Builds And Opens Through The Model. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test 7	Added a test covering a Live Game Makes It A Notice Not A Crash. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test	Updated automated checks and fixtures for floor replay. These are development checks, not a gameplay feature.
+Development	ICON_STAIRS	APD-FLOOR-REPLAY	Updated apd-floor-replay accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Statistics / UIMSD	ICON_STATS	Basis	Added the Basis statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run	Added the Run statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Floor	Added the Floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Item	Added the Item statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Kind	Added the Kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True level	Added the True level statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Truly cursed	Added the Truly cursed statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Enchantment	Added the Enchantment statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Quantity	Added the Quantity statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Placed in	Added the Placed in statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Room	Added the Room statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Cell	Added the Cell statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Creature	Added the Creature statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Health	Added the Health statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Champion	Added the Champion statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Recorded items	Added the Recorded items statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Canonical items	Added the Canonical items statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Same in both	Added the Same in both statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Only recorded	Added the Only recorded statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Only canonical	Added the Only canonical statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Agreement %	Added the Agreement % statistics field; unrecorded values remain unknown.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Kept the exotic-item setting available to recorded-versus-canonical comparisons.

@@ -1,0 +1,3 @@
+Quality of Life	ICON_INFO	Experimental scoring explained	An optional scoring popup explains my plans for interacting rules and character progression without changing today's provisional multipliers.
+Testing	ICON_CHECKED	Scoring information on small screens	Android checks open and scroll the scoring explanation, then return with Back while preserving the selected rules and score.
+Infrastructure	ICON_INFO	Verified lunch delivery records	Private APK and report delivery records preserve exact source, checksums, signing checks and actual publication times.

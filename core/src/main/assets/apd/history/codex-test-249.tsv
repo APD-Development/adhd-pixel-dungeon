@@ -1,0 +1,4 @@
+Bug Fixes	ICON_STATS	Preserve malformed score histories	Invalid or overflowing adjusted scores remain unknown without preventing access to the original recorded run.
+Changes	ICON_CHALLENGE_COLOR	Explain active provisional score previews	Player notes explain live score previews, provisional rewards for new runs and original-score preservation.
+Testing	ICON_CHECKED	Compile the live scoring layout checks	Use the existing window geometry helper when checking multiplier text boundaries on Android.
+Infrastructure	ICON_INFO	Retain alpha acceptance and exact-source preparation	Keep the independent six-class acceptance workflow and record the corrected candidate's tests and failed-attempt evidence.

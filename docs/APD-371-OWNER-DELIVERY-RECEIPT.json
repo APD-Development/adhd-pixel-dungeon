@@ -1,0 +1,189 @@
+{
+  "source_commit": "5b7e7250b63072e52c5cebd1a45ea9bbf1132aa4",
+  "number": 371,
+  "tag": "apd-alpha-preview-371",
+  "core_tests": 2918,
+  "android_tests": 9,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "9ac9819fcdd13b936376cd7deb7b3c6464ee3055f4f2720e44c7697d5604bf9d",
+    "Alpha-Testers": "6ffd5c9965994cee650bf256dbb5a4a38cabb22e8f3eee8cac125045e576ab0d"
+  },
+  "source_sha256": "11520e41fc807411b918d646bb20e26342d9b4af068278199c93c3b7620ebedb",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "wall_marker_fix_complete": false,
+  "reproduced_unknown_geometry_false_marks_fixed": true,
+  "new_application_apks_created": 0,
+  "prepared_utc": "2026-11-07T19:32:20.131024+00:00",
+  "workflow_run": "42406279502",
+  "native_scope": "API34: actual wall-layer regression and three trap-setting/persistence/movement cases in each variant; combined QoL UI case in Developer. Nine targeted cases; not a complete Android suite.",
+  "fallback_preserved": true,
+  "application_rebuilt": false,
+  "original_pair_apks_created": 2,
+  "retained_producer_run": 42404197897,
+  "retained_producer_source": "5b7e7250b63072e52c5cebd1a45ea9bbf1132aa4",
+  "original_producer_conclusion": "failure",
+  "original_interruption": "adb closed during force-stop; emulator host connection lost; original failure retained",
+  "verification_source": "b33363038b5f622d3fb59b55b0de9880d04403b7",
+  "graphics_environment": "API34 software swiftshader, Vulkan disabled; separate VM per variant",
+  "prepared_artifact_reuse": {
+    "artifact_id": 13587148146,
+    "archive_sha256": "1e90498af8946b71af9184c94beb5064d03317eddbd62dba2935ee6b2198b8ab",
+    "reverified_utc": "2026-11-07T19:36:03.328776+00:00",
+    "application_rebuilt": false,
+    "prior_test_results_reused": true
+  },
+  "release_id": 437778364,
+  "asset_publication": [
+    {
+      "id": 721725354,
+      "name": "APD-Alpha-Testers-371.apk",
+      "digest": "sha256:6ffd5c9965994cee650bf256dbb5a4a38cabb22e8f3eee8cac125045e576ab0d",
+      "created_at": "2026-11-07T19:36:32Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Alpha-Testers-371.apk"
+    },
+    {
+      "id": 721725421,
+      "name": "APD-Alpha-Testers-371.apk.sha256",
+      "digest": "sha256:8dc0953f96657275e1729155df788097948dbcc37b6c5ca6b902af6f4b9f8e05",
+      "created_at": "2026-11-07T19:36:34Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Alpha-Testers-371.apk.sha256"
+    },
+    {
+      "id": 721725457,
+      "name": "APD-Developer-371.apk",
+      "digest": "sha256:9ac9819fcdd13b936376cd7deb7b3c6464ee3055f4f2720e44c7697d5604bf9d",
+      "created_at": "2026-11-07T19:36:35Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Developer-371.apk"
+    },
+    {
+      "id": 721725338,
+      "name": "APD-Developer-371.apk.sha256",
+      "digest": "sha256:a0b3f0dc4f17f3513007936b1cec845b4c68f634a2525701fc7a2841de1b4b8d",
+      "created_at": "2026-11-07T19:36:31Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Developer-371.apk.sha256"
+    },
+    {
+      "id": 721725223,
+      "name": "APD-Source-371.zip",
+      "digest": "sha256:11520e41fc807411b918d646bb20e26342d9b4af068278199c93c3b7620ebedb",
+      "created_at": "2026-11-07T19:36:27Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Source-371.zip"
+    },
+    {
+      "id": 721725598,
+      "name": "APD-Source-371.zip.sha256",
+      "digest": "sha256:96489625c37606f67f17cb51f7f2206b0bbaef081886064800d0d66a4539f595",
+      "created_at": "2026-11-07T19:36:38Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Source-371.zip.sha256"
+    },
+    {
+      "id": 721725439,
+      "name": "APD-Source-Scan.json",
+      "digest": "sha256:acf283412c9413e442321d2ec460ad38762666c5596e015032e2e8b8ed474b71",
+      "created_at": "2026-11-07T19:36:34Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Source-Scan.json"
+    }
+  ],
+  "published_at": "2026-11-07T19:36:39Z",
+  "downloaded_back_verified": true,
+  "link_sent": true,
+  "delivery_workflow_run": "42406968627",
+  "download_verified_utc": "2026-11-07T19:36:47.000097+00:00",
+  "owner_link_message": {
+    "channel": "commentary",
+    "sent": true,
+    "not_before_utc": "2026-11-07T19:37:49Z",
+    "exact_timestamp_not_available": true
+  },
+  "independent_local_downloads": {
+    "directory": "/workspace/apd371-delivered",
+    "both_apks_downloaded": true,
+    "sha256_matches_sidecars_and_github_digests": true
+  },
+  "visual_review": "docs/APD-371-VISUAL-REVIEW.json",
+  "additional_same_application_source_check": {
+    "source_commit": "ee351784475aa00bb9326416d9aa39e41988edf6",
+    "suites": 447,
+    "tests": 2919,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "apk_assembled": false,
+    "physical_phone_tested": false,
+    "workflow_run": 42406808069,
+    "job": 128506154083,
+    "artifact_id": 13588250061,
+    "artifact_sha256": "fff7bdeed0ac36218dc1c02045483aefbef3207d4c0c1b1dcac9a11c494589d0",
+    "actual_application_source_unchanged_from": "5b7e7250b63072e52c5cebd1a45ea9bbf1132aa4"
+  },
+  "asset_details": [
+    {
+      "id": 721725354,
+      "name": "APD-Alpha-Testers-371.apk",
+      "size": 39174780,
+      "digest": "sha256:6ffd5c9965994cee650bf256dbb5a4a38cabb22e8f3eee8cac125045e576ab0d",
+      "created_at": "2026-11-07T19:36:32Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Alpha-Testers-371.apk"
+    },
+    {
+      "id": 721725421,
+      "name": "APD-Alpha-Testers-371.apk.sha256",
+      "size": 92,
+      "digest": "sha256:8dc0953f96657275e1729155df788097948dbcc37b6c5ca6b902af6f4b9f8e05",
+      "created_at": "2026-11-07T19:36:34Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Alpha-Testers-371.apk.sha256"
+    },
+    {
+      "id": 721725457,
+      "name": "APD-Developer-371.apk",
+      "size": 39174812,
+      "digest": "sha256:9ac9819fcdd13b936376cd7deb7b3c6464ee3055f4f2720e44c7697d5604bf9d",
+      "created_at": "2026-11-07T19:36:35Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Developer-371.apk"
+    },
+    {
+      "id": 721725338,
+      "name": "APD-Developer-371.apk.sha256",
+      "size": 88,
+      "digest": "sha256:a0b3f0dc4f17f3513007936b1cec845b4c68f634a2525701fc7a2841de1b4b8d",
+      "created_at": "2026-11-07T19:36:31Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Developer-371.apk.sha256"
+    },
+    {
+      "id": 721725924,
+      "name": "APD-Preview-371-Verification.json",
+      "size": 4820,
+      "digest": "sha256:7fce76df9dc2bd9849c056c045623aff857043af80918fbfce6bfb988a44e37d",
+      "created_at": "2026-11-07T19:36:47Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Preview-371-Verification.json"
+    },
+    {
+      "id": 721725223,
+      "name": "APD-Source-371.zip",
+      "size": 72554953,
+      "digest": "sha256:11520e41fc807411b918d646bb20e26342d9b4af068278199c93c3b7620ebedb",
+      "created_at": "2026-11-07T19:36:27Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Source-371.zip"
+    },
+    {
+      "id": 721725598,
+      "name": "APD-Source-371.zip.sha256",
+      "size": 85,
+      "digest": "sha256:96489625c37606f67f17cb51f7f2206b0bbaef081886064800d0d66a4539f595",
+      "created_at": "2026-11-07T19:36:38Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Source-371.zip.sha256"
+    },
+    {
+      "id": 721725439,
+      "name": "APD-Source-Scan.json",
+      "size": 28360,
+      "digest": "sha256:acf283412c9413e442321d2ec460ad38762666c5596e015032e2e8b8ed474b71",
+      "created_at": "2026-11-07T19:36:34Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-371/APD-Source-Scan.json"
+    }
+  ]
+}

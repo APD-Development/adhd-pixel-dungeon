@@ -1,0 +1,43 @@
+{
+  "baseline_log": "/workspace/apd-no-hero-catalog-before.log",
+  "confirmed_issue_families": [
+    "Ring.buffedLvl dereferenced absent global Hero, affecting12 ring types",
+    "Spirit Bow personal range needed absent Hero and ring context",
+    "Tomahawk bleeding range queried absent ring wearer",
+    "Imbued Mages Staff description dereferenced absent Hero subclass"
+  ],
+  "fix": "Description paths withhold unavailable personal results; ring effective level guards absent wearer, preserving loaded-hero formulas. No combat formulas changed. Force/Tenacity do not invent example strength or missing-HP values.",
+  "catalog_contexts": 296,
+  "saved_item_and_rng_preserved": true,
+  "full_local": {
+    "suites": 446,
+    "tests": 2851,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "raw_junit": "/workspace/apd-no-hero-catalog-local-junit.zip",
+  "first_full_run": "Environment restarted before completion; not accepted. Complete rerun exit0 and full XML verified.",
+  "apk_status": "New source only; not368. No fourth pair. Android/desktop compilation pending source-only gate.",
+  "physical_phone_tested": false,
+  "root_cause_boundary": "Separately reproduced catalog-context failures; not attributed as the physical UIMSD heap-allocation cause.",
+  "additional_privacy_regression": {
+    "catalog_equipment_types": 85,
+    "hidden_levels_compared": [
+      0,
+      3,
+      7
+    ],
+    "descriptions_identical": true,
+    "full_local": {
+      "suites": 446,
+      "tests": 2852,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "raw_junit": "/workspace/apd-no-hero-privacy-local-junit.zip",
+    "application_source_unchanged_since": "0aa2688b2",
+    "additional_APK": false
+  }
+}

@@ -1,0 +1,8 @@
+Quality of Life	ICON_STAIRS	Visible staircase shortcut	The staircase shortcut now appears beside the hotbar by default; an explicitly disabled preference stays disabled.
+Changes	ICON_STAIRS	Find stair controls	Enabling Automatic Stair Navigation explains where to tap for Stairs Up and Stairs Down.
+Testing	ICON_INFO	Default stair-control regression	Added preference reload checks and a native dungeon test that opens the shortcut without force-enabling it.
+Quality of Life	V092_CHALICE	Chalice damage preview	Chalice inspection and confirmation show the next prick's base damage, full reduced range, HP loss after shields and current HP.
+Changes	V092_CHALICE	Current defenses and fatal warning	The warning considers temporary defenses, Antimagic, Cape activation and the Warrior's shield; Life Link is explicitly marked unpredictable.
+Testing	ICON_INFO	Damage and native rendering regressions	Added Chalice range, actual-damage, save and RNG checks, corrected the stair-default expectation and required an Android item-window screenshot.
+Development	ICON_INFO	Accurate build preparation records	Recorded the failed TEST84 attempt, successful preceding verification and the new preview's mechanics and limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I made the staircase shortcut easier to discover and added a Chalice preview that uses your current defenses. It warns about the worst outcome rather than suggesting an average hit is safe.

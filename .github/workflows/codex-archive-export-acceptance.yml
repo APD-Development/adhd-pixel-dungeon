@@ -1,0 +1,73 @@
+name: APD archive export reliability regression checks
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-archive-export-acceptance.yml]
+permissions:
+  contents: read
+concurrency:
+  group: apd-archive-export-acceptance
+  cancel-in-progress: false
+jobs:
+  reproduce-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 3e886234e69ab128a861cfbc17bca549ba3a3456
+          path: original-application
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK for project configuration
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reproduce both defects in exact verified TEST224 source
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,xml.etree.ElementTree as ET,json
+          baseline=pathlib.Path('original-application')
+          package=pathlib.Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive')
+          for name in ('ArchiveSegmentOrderingTest.java','RedactedDamageProvenanceTest.java'):
+              (baseline/package/name).write_bytes((package/name).read_bytes())
+          result=subprocess.run(['./gradlew',':core:test','--tests','*.ArchiveSegmentOrderingTest','--tests','*.RedactedDamageProvenanceTest'],cwd=baseline)
+          roots=[ET.parse(p).getroot() for p in (baseline/'core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[case for root in roots for case in root.iter('testcase')]
+          assert len(cases)==7
+          assert not any(case.find('error') is not None or case.find('skipped') is not None for case in cases)
+          failures={case.get('name') for case in cases if case.find('failure') is not None}
+          expected={'resumedRunWithSameTimestampKeepsEverySegmentRedacted','finishedRunWithSameTimestampKeepsEverySegmentLossless','truncatedSourceMustNotBecomeAnExactCleanHistory','corruptAndMismatchedSourcesKeepTheirIncompleteWarning','unreadablePublicPayloadIsNotSilentlyDroppedWithoutAWarning','damagedExportImportKeepsCountsIncompleteAndOriginalHistoryIntact'}
+          assert result.returncode!=0 and failures==expected,(result.returncode,failures)
+          pathlib.Path('original-reproduction.json').write_text(json.dumps({'source':'3e886234e69ab128a861cfbc17bca549ba3a3456','tests':7,'expected_failures':sorted(failures),'clean_control_passed':True,'unexpected_errors':0,'production_source_changed':False},indent=2))
+          PY
+      - name: Verify corrected archive and statistics integration
+        run: |
+          ./gradlew :core:test --tests '*apd.archive.*' --tests '*RunFacts*' --tests '*RowBuilders*' --tests '*CustomRuleArchiveIntegrationTest*'
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as ET,json,os
+          roots=[ET.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[case for root in roots for case in root.iter('testcase')]
+          totals={key:sum(int(root.get(key,0)) for root in roots) for key in ('tests','failures','errors','skipped')}
+          assert totals['failures']==totals['errors']==totals['skipped']==0
+          assert totals['tests']==len(cases)==len({(case.get('classname'),case.get('name')) for case in cases})
+          assert len([case for case in cases if case.get('classname','').endswith(('ArchiveSegmentOrderingTest','RedactedDamageProvenanceTest'))])==7
+          pathlib.Path('corrected-result.json').write_text(json.dumps({'source':os.environ['GITHUB_SHA'],'counts':totals,'tests':[case.attrib for case in cases],'application_built':False,'published':False,'physical_device':False},indent=2))
+          PY
+      - name: Preserve original failure and corrected results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-archive-export-before-after
+          path: |
+            original-reproduction.json
+            corrected-result.json
+            original-application/core/build/test-results/test/
+            core/build/test-results/test/
+            core/build/reports/tests/test/
+          retention-days: 7
+          if-no-files-found: warn

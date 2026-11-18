@@ -1,0 +1,86 @@
+{
+  "test": "TEST236",
+  "recorded_at_utc": "2026-10-16T07:01:05Z",
+  "source": "1ea12db8d365ca135aa7af799a1ea7405dc0241f",
+  "source_parent": "7865ed3e2f0b9623c04bcfff6c6a3aca57c8680c",
+  "full_run": {
+    "id": 38863040610,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/38863040610",
+    "attempts": 1,
+    "conclusion": "success",
+    "created_at_utc": "2026-10-16T06:45:41Z",
+    "completed_at_utc": "2026-10-16T07:01:05Z"
+  },
+  "targeted_run": {
+    "id": 38863040526,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/38863040526",
+    "conclusion": "success",
+    "started_at_utc": "2026-10-16T06:45:41Z",
+    "completed_at_utc": "2026-10-16T06:48:21Z",
+    "original_source": "b4a589a4d712de29f7bc651a4cbbac002ceafd68",
+    "expected_failures": [
+      "importRejectsManifestThatIgnoresLaterReadableStart",
+      "importUsesFirstReadableStartAfterMalformedStart",
+      "malformedFirstStartDoesNotHideReadableRunFromExportManifest"
+    ]
+  },
+  "corrected_core": {
+    "tests": 1701,
+    "suites": 335,
+    "unique_methods": 1701,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "debug_assembly": "passed",
+  "history": {
+    "previous_label": "Codex TEST 235",
+    "previous_source": "b4a589a4d712de29f7bc651a4cbbac002ceafd68",
+    "previous_run": 38857030793,
+    "complete": true
+  },
+  "android": {
+    "api": 34,
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12030626988,
+    "artifact_zip_sha256": "14a464d6005b89b3392187caf2c26a88ce47e251cec445d2dbbb67324aa0d2a2",
+    "screenshots": 42,
+    "dimensions": "320x640",
+    "accepted": true,
+    "reviewed": "complete contact sheet plus full-resolution UIMSD text-value, UIMSD home and Custom Dungeon Rules views"
+  },
+  "apk": {
+    "artifact_id": 12030161792,
+    "artifact_zip_sha256": "6328fab6e306ddd5fcc2ace52565868766755d6ca44d920f420761f3b0576a60",
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-236.apk",
+    "bytes": 38587690,
+    "sha256": "8e92c62427a853f47d0dfb34739c792d716908ba9f3a56751f7d868e42f60c81",
+    "version": "4.0.8-apd-INDEV-bC236-TEST",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "v2_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "identity_matches_test235": true
+  },
+  "artifacts": {
+    "targeted": {
+      "id": 12030332267,
+      "zip_sha256": "064e0e56b02cba376b0e39991d101ac39c8481d314b85a83128e175fb70ae581"
+    },
+    "core": {
+      "id": 12030351505,
+      "zip_sha256": "62ef189dd4a2203dc4a11a74882e0b34c26b7321cf29e7561aefc9a1a1a3b6b6"
+    }
+  },
+  "publication": false,
+  "tester_distribution": false,
+  "physical_phone": false,
+  "owner_install_over": false,
+  "latest_delivered": "TEST231",
+  "open": [
+    "broad UIMSD audit",
+    "audio acceptance",
+    "unconfirmed armor/sentry acceptance"
+  ]
+}

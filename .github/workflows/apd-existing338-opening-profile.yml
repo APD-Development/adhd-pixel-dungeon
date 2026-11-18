@@ -1,0 +1,78 @@
+name: Verify exact TEST338 opening profile
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-existing338-opening-profile.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  resource-tooltips-api34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Download exact produced APK and prove unchanged application inputs
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];source='b173239487dde4f0c070e6d2eda1f116cf349c31';run_id=40959928129
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1') for s in (source,os.environ['GITHUB_SHA'])]
+          assert all(not t.get('truncated') for t in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          run=api(f'repos/{repo}/actions/runs/{run_id}');assert run['head_sha']==source
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in api(f'repos/{repo}/actions/runs/{run_id}/jobs')['jobs'])
+          a,=[a for a in api(f'repos/{repo}/actions/runs/{run_id}/artifacts')['artifacts'] if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact338.zip','wb') as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{a["id"]}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact338.zip').read_bytes()).hexdigest()==a['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact338.zip') as z:
+              apk,=[n for n in z.namelist() if n.endswith('.apk')]
+              data=z.read(apk);digest=hashlib.sha256(data).hexdigest()
+              checksum,=[n for n in z.namelist() if n.endswith('.apk.sha256')]
+              assert z.read(checksum).decode().split()[0]==digest
+              pathlib.Path('application/exact338.apk').write_bytes(data)
+          print('EXACT_TEST338_APK_SHA256',digest)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':run_id,'application_sha256':digest,'protected_application_inputs_identical':True,'application_rebuilt':False,'test_source':os.environ['GITHUB_SHA'],'purpose':'Diagnostic GL stack sampling around unchanged native 72-run opening regression; not timing acceptance; no app rebuild'},indent=2))
+          PY
+      - name: Compile instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C338
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Profile actual native opening without changing the acceptance assertion
+        env: {APD_ENFORCE_DISPLAY: 'true'}
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          emulator-boot-timeout: 300
+          disable-animations: true
+          script: bash tools/run-existing338-opening-profile.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-existing338-opening-profile
+          path: |
+            acceptance-source.json
+            opening-profile/
+          retention-days: 7
+# Fixture callback accepts checked reflection failures; APK and assertions unchanged.
+
+# Guard the diagnostic sampler before Activity creates Game.instance; actual APK unchanged.

@@ -1,0 +1,118 @@
+{
+  "schema": "apd-test-verification-v1",
+  "test": "TEST320",
+  "recorded_at": "2026-10-28T15:35:27.838Z",
+  "status": "core_native_display_passed_legacy_supplementals_blocked",
+  "source_head": "71901973f0fe1364690a4f9b41aba420d2b3e83f",
+  "production_repair": "b1eba5201d3641627f098df03578fd8d32a0d9b8",
+  "core": {
+    "run": 40713885330,
+    "job": 122906190277,
+    "suites": 409,
+    "tests": 2110,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12826804172,
+    "artifact_digest": "sha256:3c40af71171c21e9c350338556acc7b413d6e9cce79fb05c5ae40f5a1350b1ac"
+  },
+  "developer": {
+    "run": 40713885330,
+    "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-320.apk",
+    "bytes": 38783840,
+    "sha256": "bd3782190d25506543404780036986b8d323545318ae95e2782f13746c7c4800",
+    "artifact_id": 12827237842
+  },
+  "player": {
+    "run": 40713885318,
+    "filename": "APD-Player-TEST320.apk",
+    "bytes": 38783663,
+    "sha256": "68a395ac0ee9a34e73e98bac33bf2abf48ed2205b2f7a1bf0a35147b457350dc",
+    "artifact_id": 12826144958,
+    "core_tests": 2110,
+    "developer_features": false,
+    "matching_application_id": true,
+    "matching_signer": true
+  },
+  "history": {
+    "indexed_records": 347,
+    "tsv_assets_including_index": 348,
+    "predecessors_preserved": 346,
+    "developer_player_identical": true
+  },
+  "android": {
+    "run": 40713885330,
+    "job": 122908402938,
+    "tests": 60,
+    "passed": 60,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12829480910,
+    "artifact_digest": "sha256:26021f62b1d447ba78e8dcf4586ff3dcef43800129ba3a87ba9c5a8d228ac18c",
+    "screenshots_reviewed": 82
+  },
+  "timing": {
+    "device": "API34 emulator; not physical REDMAGIC",
+    "menu_back_responsive_title_ms": {
+      "About": 80,
+      "Journal": 64,
+      "Top Scores": 82,
+      "Play slots": 90,
+      "Hero selection": 63,
+      "News": 63,
+      "Changes": 95,
+      "Community": 64,
+      "UIMSD": 68
+    },
+    "menu_back_budget_ms": 250,
+    "uimsd_title_prewarm_ms": 280,
+    "uimsd_validated_model_handoff_ms": 7,
+    "uimsd_handoff_is_not_end_to_end_scene_open_time": true,
+    "uimsd_cold_dataset_build_ms": 4357,
+    "uimsd_cached_reload_ms": 264,
+    "uimsd_home_build_ms": 35,
+    "synthetic_history_generation_ms": 3156
+  },
+  "displays": {
+    "run": 40713885373,
+    "passed": [
+      "compact-virtual",
+      "small-virtual",
+      "short-landscape",
+      "m53-representative",
+      "square-virtual"
+    ],
+    "failed": [],
+    "exact_application_source": true,
+    "screenshots_reviewed": 20,
+    "screenshot_limitation": "One m53 options capture shows the preceding title frame, and its restored capture is mid-compositor-fade; native assertions passed. Main API34 options/restored captures show intended states."
+  },
+  "supplemental_failures": [
+    {
+      "run": 40713885361,
+      "job": 122906189664,
+      "name": "exact-apk-death-order",
+      "reason": "Pre-test git diff cannot resolve eda307d567bd7eacd1b304042747b65d0ea4ed72 in the shallow checkout; no death-order execution evidence."
+    },
+    {
+      "run": 40713885434,
+      "job": 122906189319,
+      "name": "exact-apk-hotbar-restart",
+      "reason": "Same pre-test shallow-checkout failure; no cold-restart execution evidence."
+    },
+    {
+      "run": 40713885439,
+      "job": 122906189867,
+      "name": "validate-and-stage",
+      "reason": "Failed closed on missing apd-codex-core-tests artifact before producers finished. No staging/release."
+    }
+  ],
+  "delivery": {
+    "owner_apk_downloads_prepared": true,
+    "github_release_uploaded": false,
+    "tester_distribution": false,
+    "physical_phone_tested": false
+  },
+  "next_safe_step": "Owner installs TEST320 over the existing APD app and checks UIMSD readiness and Back on REDMAGIC. Preserve qualified emulator timing, distinguish cold dataset construction, and repair legacy exact-APK CI separately before claiming cold-restart/death-order supplemental acceptance."
+}

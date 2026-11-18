@@ -1,0 +1,4 @@
+Bug Fixes	ICON_CHECKED	Pending preference edits	The inactive sync model no longer marks a newer edit or deletion as acknowledged when only an older same-millisecond update was accepted.
+Testing	ICON_CHECKED	Acknowledgement regressions	Added same-millisecond edit, deletion, tombstone replacement, device identity and save/reload acknowledgement checks.
+Development	ICON_INFO	Verified delivery and hourly evidence	Recorded TEST111 delivery and published the owner's hour-by-hour evidence PDF without rebuilding the app or inventing work time.
+Developer Commentary	V074_SHPX	Developer Commentary	I corrected acknowledgement handling in the future preference-sync model and retained its pending edits across restart. Online functionality remains inactive; current gameplay and raw history are unchanged.

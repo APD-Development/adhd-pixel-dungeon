@@ -1,0 +1,112 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Trap discovery Android verification (internal only)
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-TRAP-DISCOVERY-VERIFY-REQUEST.txt]
+permissions: {contents: read}
+concurrency:
+  group: apd-trap-discovery-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Require private repository and active owner delivery hold
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          test "$(gh api repos/$GITHUB_REPOSITORY --jq .private)" = true
+          python3 - <<'PY'
+          import json,pathlib
+          assert json.loads(pathlib.Path('docs/APD-OWNER-DELIVERY-HOLD.json').read_text())['active'] is True
+          PY
+      - name: Verify instrumentation evidence validation
+        run: python3 -m unittest discover -s tools -p test_apd_check_single_instrumentation.py -v
+      - name: Full core suite and required platform compilation; build one internal test application
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileReleaseJavaWithJavac :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=INTERNAL-TRAP-20261107
+          ./gradlew --stop
+      - name: Verify exact tests and unchanged signing/application identity
+        run: |
+          python3 - <<'PY'
+          import glob,hashlib,json,os,pathlib,re,subprocess,xml.etree.ElementTree as E
+          roots=[E.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ['tests','failures','errors','skipped']}
+          assert len(roots)==447 and totals==dict(tests=2909,failures=0,errors=0,skipped=0),totals
+          apk=pathlib.Path('android/build/outputs/apk/debug/android-debug.apk')
+          tools=sorted(pathlib.Path(os.environ['ANDROID_HOME']).glob('build-tools/*/apksigner'))[-1].parent
+          cert=subprocess.check_output([str(tools/'apksigner'),'verify','--print-certs',str(apk)],text=True)
+          pathlib.Path('trap-signing-certificate.txt').write_text(cert)
+          digests=re.findall(r'certificate SHA-256 digest:\s*([0-9a-fA-F]{64})',cert)
+          assert len(digests)==1,cert
+          digest=digests[0].lower()
+          assert digest=='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          badging=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(apk)],text=True)
+          package=re.search(r"package: name='([^']+)'",badging).group(1)
+          assert package=='com.charltonchris29.adhdpixeldungeon.indev'
+          version=re.search(r"versionName='([^']+)'",badging).group(1)
+          assert 'INTERNAL-TRAP-20261107' in version
+          receipt=dict(source_commit=os.environ['GITHUB_SHA'],suites=len(roots),**totals,application_id=package,certificate_sha256=digest,version_name=version,apk_sha256=hashlib.sha256(apk.read_bytes()).hexdigest(),apk_bytes=apk.stat().st_size,apk_assembled=True,internal_game_apks_built=1,apk_published=False,apk_delivered=False,physical_phone_tested=False)
+          pathlib.Path('trap-source-and-build.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt))
+          PY
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Actual Android control, process-persistence and gameplay checks
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > trap-logcat.txt &
+            adb install -r android/build/outputs/apk/debug/android-debug.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#a_controlWritesEnabledPreference com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > trap-native-seed.txt
+            python3 tools/apd_check_single_instrumentation.py trap-native-seed.txt a_controlWritesEnabledPreference
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#b_freshProcessReadsEnabledAndCanDisable com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > trap-native-restart.txt
+            python3 tools/apd_check_single_instrumentation.py trap-native-restart.txt b_freshProcessReadsEnabledAndCanDisable
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#c_runtimeDiscoveryRouteAndActualTrapEffect com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > trap-native-gameplay.txt
+            python3 tools/apd_check_single_instrumentation.py trap-native-gameplay.txt c_runtimeDiscoveryRouteAndActualTrapEffect
+            mkdir -p trap-visual-evidence
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. trap-visual-evidence/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trap-discovery-evidence-no-application-apk
+          path: |
+            core/build/test-results/test/
+            trap-source-and-build.json
+            trap-signing-certificate.txt
+            trap-native-*.txt
+            trap-logcat.txt
+            trap-visual-evidence/
+          retention-days: 14

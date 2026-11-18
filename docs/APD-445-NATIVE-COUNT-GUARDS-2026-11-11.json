@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T17:41:59.774622+00:00",
+  "baseline_head": "9c27ec62c2e23832673c7184fe1d55e970b32598",
+  "scope": "Verification aggregation only: derive the reported total from every configured native case and variant after exact case completion is checked. Default six-case inventory and its checks remain unchanged.",
+  "test_command": "python3 -m unittest discover -s tools -p test_apd_recover439_440.py -v",
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "unit_log_sha256": "d907cf20fdd6f9bd8c8dd531c455c52e8e0122667f3e5fa8a1df69fa55f2c57d",
+  "baseline_regression": {
+    "status": "expected_baseline_failure_confirmed",
+    "tests_run": 1,
+    "failures": 1,
+    "errors": 0,
+    "reason": "Old finalize reports 12 after accepting the configured nine cases for both variants; corrected helper reports18. This is a unit-test fixture, not an APK/native result."
+  },
+  "baseline_regression_log_sha256": "cbab98b334e6ca6e892e457c797af5a234c47bb3bf1dee163dc8fedda7505ea3",
+  "files_sha256": {
+    "tools/apd_recover439_440.py": "18151f49436836d79edc3aa53d995272ee0c89c07c90e03b95f199bbfc010382",
+    "tools/test_apd_recover439_440.py": "a24f1e4a48ab4894c0428aaaf723992460d59f664d5741523dda0130566996a7"
+  },
+  "gameplay_files_changed": false,
+  "game_apk_created": false,
+  "actual_native_cases_executed_by_this_unit_test": 0,
+  "limits": "Unit fixtures mock APK signature/pair validation only; the count and missing-case tests exercise actual aggregation and native report parsing. Their printed APD445 totals are fixture results, not Android build or native execution claims."
+}

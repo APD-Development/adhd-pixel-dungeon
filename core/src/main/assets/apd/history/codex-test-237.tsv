@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Record verified TEST236 evidence	Retain the exact TEST236 targeted, core, Android, visual, APK, application-ID and signature evidence without rebuilding or publishing unchanged source.
+Statistics	ICON_WARNING	Reject mismatched archive kinds	History import now rejects runs/ or legacy/ entries whose declared kind contradicts their folder, closing a run-ID validation bypass before any payload is staged.

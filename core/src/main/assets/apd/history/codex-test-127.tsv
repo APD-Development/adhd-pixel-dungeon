@@ -1,0 +1,17 @@
+Changes	V091_SPINNER	Spinner	Prepared spinner poison attribution while preserving its existing duration.
+Changes	V061_SPELLBOOK	Poison	Prepared source-aware poison ticks, mixed extensions and matching damage forecasts without changing neutral behavior.
+Changes	V061_SPELLBOOK	Offensive Damage Origin	Prepared cast-time source lookup before later allegiance changes.
+Changes	V061_SPELLBOOK	Bandit	Prepared bandit poison attribution while preserving its existing duration.
+Changes	V061_SPELLBOOK	Cursed Wand	Prepared attributable cursed-wand poison and retained its caster across the delayed callback.
+Changes	V061_SPELLBOOK	Duration Damage Provenance	Prepared saved mixed-source duration damage accounting so each contribution receives its own factor once.
+Changes	V061_SPELLBOOK	Gnoll Trickster	Prepared trickster poison attribution including its zero-duration tick.
+Changes	V061_SPELLBOOK	Fungal Sentry	Prepared fungal sentry poison attribution while preserving its six-turn extension.
+Changes	V061_SPELLBOOK	Venomous	Prepared attacker attribution for venomous poison extensions.
+Changes	V073_DART	Poison Dart	Prepared attacker attribution for poison darts.
+Changes	V061_SPELLBOOK	Swarm	Split swarms retain the actual causes of inherited poison.
+Changes	V061_SPELLBOOK	Elemental Strike	Prepared hero attribution for Elemental Strike poison extensions.
+Changes	V061_SPELLBOOK	Offensive Invocation	Prepared temporary cast-origin tracking across delayed cursed-wand callbacks.
+Changes	V061_BUGFIX	Duration Damage Provenance Test	Added neutral, mixed-source, persistence, malformed-metadata and percentage-boundary regressions.
+Changes	V061_BUGFIX	Attributed Poison Integration Test	Added real poison tick, reapplication, legacy, save/load and RNG-free forecast regressions.
+Changes	V061_BUGFIX	Offensive Invocation Test	Added nested, exception-safe and thread-isolated cast-origin regressions.
+Changes	V061_PAGE	Build verification and attribution	Recorded preceding build verification and the required checks for this poison integration package.

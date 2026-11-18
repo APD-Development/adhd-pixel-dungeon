@@ -1,0 +1,6 @@
+Quality of Life	ICON_INFO	Main menu	Added the dedicated APD Settings main-menu button.
+Quality of Life	ICON_PREFS	Settings	Removed the APD tab from Options after adding its main-menu entry.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Development	ICON_INFO	APD-TITLE-SCREEN	Updated apd-title-screen accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added the dedicated APD Settings main-menu button. Removed the APD tab from Options after adding its main-menu entry.

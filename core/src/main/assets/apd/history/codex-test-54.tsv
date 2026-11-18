@@ -1,0 +1,16 @@
+Statistics / UIMSD	ICON_STATS	Boss Classes	Excluded Yog’s summoned minions from boss statistics.
+Statistics / UIMSD	ICON_STATS	Row Builders	Invalidated derived boss caches so corrected classification appears without changing raw history.
+Statistics / UIMSD	ICON_STATS	Row Codec	Rejected impossible cache allocation lengths before allocating memory.
+Testing	ICON_STATS	Boss Minion Classification Test 1	Added a test covering actual Yog Minions Are Not Bosses. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Boss Minion Classification Test 2	Added a test covering every Actual Fist Remains A Boss. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Boss Minion Classification Test 3	Added a test covering completed History Rebuilds Old Boss Classification Without Changing Logs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Cache Allocation Bounds Test 1	Added a test covering tiny Cache Cannot Allocate A Huge String Table. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Cache Allocation Bounds Test 2	Added a test covering tiny Unknown Section Cannot Allocate A Huge Column Map. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Cache Allocation Bounds Test 3	Added a test covering tiny Unknown Section Cannot Allocate A Huge Row List. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Cache Allocation Bounds Test 4	Added a test covering legitimate Empty Cache Remains Readable. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Cache Allocation Bounds Test 5	Added a test covering unknown Empty Future Section Remains Readable. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Row Cache Allocation Bounds Test 6	Added a test covering damaged Cache Rebuilds Without Changing Raw History. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-TEST53-REPORT-2026-10-11	Added apd-test53-report-2026-10-11 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Excluded Yog’s summoned minions from boss statistics. Invalidated derived boss caches so corrected classification appears without changing raw history.

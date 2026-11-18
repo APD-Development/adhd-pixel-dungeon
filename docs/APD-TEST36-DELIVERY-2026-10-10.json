@@ -1,0 +1,70 @@
+{
+  "test": 36,
+  "source": "3d3656e2c355fe70c5d50a6034eeb07d9700598d",
+  "delivery_commit": "811ac557deeffc0465d206f0a5816781be847bb2",
+  "build_run": 38099022839,
+  "delivery_run": 38099729187,
+  "published_at": "2026-10-11T00:50:16Z",
+  "build_started": "2026-10-11T00:36:49Z",
+  "build_completed": "2026-10-11T00:47:58Z",
+  "core": {
+    "tests": 1019,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "apk_sha256": "cd86c3b2cae76a09fae407b1b666daaa4b87c8f16ed3d651877fbcd8f42f099d",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC36-TEST",
+  "private": true,
+  "rollback": 31,
+  "physical_device_testing": false,
+  "full_normal_run_playthrough": false,
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-36.apk",
+      "size": 38242482,
+      "digest": "sha256:cd86c3b2cae76a09fae407b1b666daaa4b87c8f16ed3d651877fbcd8f42f099d",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-36/ADHD-Pixel-Dungeon-CODEX-TEST-36.apk"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-36.apk.sha256",
+      "size": 103,
+      "digest": "sha256:dd6517477591e2aeb330899b4eaf6d5a0efbe690d6037337e018cafa5b5463a3",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-36/ADHD-Pixel-Dungeon-CODEX-TEST-36.apk.sha256"
+    },
+    {
+      "name": "APD-Bug-Fixes-2026-10-10-TEST36.pdf",
+      "size": 18797,
+      "digest": "sha256:5f670e752eca109568fdadc27f3a74f503c68e77676eb7deb8281707db9a0f53",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-36/APD-Bug-Fixes-2026-10-10-TEST36.pdf"
+    },
+    {
+      "name": "TEST36-Verification.json",
+      "size": 209494,
+      "digest": "sha256:4af6289f7919f606e3afa6080c1a9ea482cce281ddc2b9fbe7b78bc1f2dbce29",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-36/TEST36-Verification.json"
+    }
+  ],
+  "timing": {
+    "resumed_about_utc": "2026-10-10T23:42:00Z",
+    "first_resumed_clock_utc": "2026-10-10T23:44:00Z",
+    "delivered_elapsed_about_minutes": 68,
+    "active_time": "not independently metered",
+    "idle_time": "not independently metered",
+    "explicit_wait_seconds": 60
+  },
+  "unattended": {
+    "existing_task_prompt_updated": true,
+    "continuous_execution_demonstrated": false,
+    "updated_invocation_causally_verified": false
+  },
+  "preserved_concurrent_completion_commit": "0f2583fd6ec22f3fb6bd2d3f20cf1d88cad0e908"
+}

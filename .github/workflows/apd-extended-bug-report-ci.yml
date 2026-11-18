@@ -1,0 +1,63 @@
+name: APD opt-in extended bug report verification
+# Reverify exact current source including scrollable consent and close-failure guards.
+on:
+  push:
+    branches: [chatgpt/apd-complete-action-report-20261116]
+    paths:
+      - .github/workflows/apd-extended-bug-report-ci.yml
+      - SPD-classes/src/main/java/com/watabou/utils/SupportActionJournal.java
+      - SPD-classes/src/main/java/com/watabou/utils/SupportDiagnostics.java
+      - SPD-classes/src/main/java/com/watabou/utils/GameSettings.java
+      - SPD-classes/src/main/java/com/watabou/input/**
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/diagnostics/**
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ShatteredPixelDungeon.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDSettings.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/Button.java
+      - android/src/main/java/com/shatteredpixel/shatteredpixeldungeon/android/AndroidLauncher.java
+      - android/src/main/java/com/shatteredpixel/shatteredpixeldungeon/android/AndroidSupportDiagnostics.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/APDSettingsPane.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/diagnostics/**
+  workflow_dispatch:
+permissions: {contents: read}
+concurrency:
+  group: apd-extended-bug-report-source
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Set up Android SDK
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - name: Verify full core tests and Android/desktop compilation
+        run: |
+          set -o pipefail
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac --no-daemon 2>&1 | tee verification.log
+      - name: Verify consent and event chronology regressions
+        run: |
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as ET,json
+          tests=list(pathlib.Path('core/build/test-results/test').glob('TEST-*.xml'))
+          suites=[ET.parse(t).getroot() for t in tests]
+          result={k:sum(int(x.get(k,0)) for x in suites) for k in ('tests','failures','errors','skipped')}
+          required='TEST-com.shatteredpixel.shatteredpixeldungeon.apd.diagnostics.ExtendedBugJournalTest.xml'
+          assert (pathlib.Path('core/build/test-results/test')/required).exists()
+          assert result['tests']>=3544 and result['failures']==result['errors']==result['skipped']==0,result
+          print(json.dumps(result))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-extended-bug-report-verification
+          path: |
+            verification.log
+            core/build/test-results/test/TEST-*.xml
+          retention-days: 14
+          if-no-files-found: warn

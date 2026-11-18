@@ -1,0 +1,165 @@
+{
+  "number": 443,
+  "source_commit": "a2960688e02468817914f006ff4c563b844c80c5",
+  "original_run": 43051129325,
+  "artifact_id": 13869069224,
+  "artifact_sha256": "a66637fad00085c315dfce185cab4e6d2f26e4c7b90b789db84267033a2768ea",
+  "core": {
+    "tests": 3210,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 465,
+  "variants": {
+    "Developer": {
+      "sha256": "aa649a0134ace897d95de804cc7ffe01927bfdb327428ae7e8c5cfb7cee1dbd3",
+      "bytes": 39205055,
+      "version_name": "4.0.8-apd-INDEV-bC443-TEST"
+    },
+    "Alpha-Testers": {
+      "sha256": "f2e7f1c2acac800adfb2ee8b112f1eb5675c711dc6e5e3ef98cb6f2cc1318cb0",
+      "bytes": 39205027,
+      "version_name": "4.0.8-apd-INDEV-bP443"
+    }
+  },
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "instrumentation_sha256": "87c63829166fec15595a6cf00d9e2a3f701d9d68b1909ea4d5abc68206574127",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "published": false,
+  "native_recovery_complete": true,
+  "android_tests": 12,
+  "manual_visual_review_complete": true,
+  "source_archive_sha256": "8cc24328cc1b93006ace8c005509bbf82849a5fb9a2e9057670fd7c5f323cb1b",
+  "physical_phone_verified": false,
+  "recovery_run": "43051129325",
+  "recovery_commit": "a2960688e02468817914f006ff4c563b844c80c5",
+  "new_application_apks_created": 2,
+  "new_candidate_build": true,
+  "previous_source": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+  "previous_artifact_id": 13867885096,
+  "previous_artifact_sha256": "e15284423d35dc46760b7c77c3f2205373a456ffa36f10ad117eabc5e17b5f8c",
+  "producing_run": 43051129325,
+  "scope_sha256": "e06a9fd91cbe796a7df74012e460766781d008aab7e054d7fc32c8baf0b40781",
+  "required_affected_images": [
+    "qol-counter-ability-normal-bottom.png",
+    "qol-counter-ability-normal.png",
+    "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+    "qol-ordinary-talent-LINGERING_MAGIC.png",
+    "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+    "qol-ordinary-talent-LIQUID_AGILITY.png",
+    "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+    "qol-ordinary-talent-PROVOKED_ANGER.png",
+    "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+    "qol-ordinary-talent-SPEEDY_STEALTH.png",
+    "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+    "qol-ordinary-talent-VETERANS_INTUITION.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+    "trap-discovery-liquid-agility-excluded-strength-after.png",
+    "trap-discovery-liquid-agility-excluded-strength-before.png",
+    "trap-discovery-liquid-agility-rank1-after.png",
+    "trap-discovery-liquid-agility-rank1-before.png",
+    "trap-discovery-liquid-agility-rank2-after.png",
+    "trap-discovery-liquid-agility-rank2-before.png",
+    "trap-discovery-seer-shot-foreign-branch-hidden.png",
+    "trap-discovery-seer-shot-side-branch-before.png",
+    "trap-discovery-seer-shot-side-branch-revealed.png"
+  ],
+  "complete_remote_image_manifest_verified": true,
+  "source_scan_verified": true,
+  "source_scan_receipt_sha256": "dc2494384b0a16316e515ec85c77de7fd95c3990f3d62c86b480bc9269619f3f",
+  "publication_authorized_by_this_workflow": false,
+  "manual_review_scope": "Each variant: 33 originals, including all 25 affected frames, all four trap frames, two wall and two inventory samples. Root additionally viewed four Developer Liquid Agility originals. All 1433 PNGs per variant decoded and hash-verified; no blanket manual-review claim.",
+  "manual_review_limits": [
+    "No physical-phone installation, install-over or acoustic verification.",
+    "No targeted native DM300/pylon capture; retained actual-targeting headless integration regressions remain separate.",
+    "Numerical evasion, lifetime, one-item consumption and actual callback timing are established by passing instrumentation assertions and log markers, not directly by still images.",
+    "Both APD443 Ooze originals visibly frame the hero and Caustic Ooze feedback; the later capture stabilization source is outside this frozen pair."
+  ],
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_recorded_utc": "2026-11-11T16:17:14.065922+00:00",
+  "delivery_method": "Direct saved-file APK and matching source links sent immediately after completed visual acceptance and exact saved-download byte readback.",
+  "github_release_published": false,
+  "owner_review_artifact": {
+    "id": 13869653810,
+    "sha256": "e5762b6fa148678fd83d8a3405b2ad90f1f4c0e897f2d310a4b30879186c226c",
+    "bytes": 183152609
+  },
+  "owner_package_independent_receipt_sha256": "6421be6c5715a64501077e8c71d0ba959efc1ab14508d4f5c6b4c6c113b7ff9f",
+  "independent_acceptance_github_file": "docs/APD-443-INDEPENDENT-ACCEPTANCE-2026-11-11.json",
+  "root_delivery_verification_sha256": "b8486d00cde699361a94788f7f41735d4a18614d22d2adb61abdb2b013e22bb0",
+  "source_scan_run": 43051129325,
+  "source_scan_commit": "a2960688e02468817914f006ff4c563b844c80c5",
+  "source_scan_success": true,
+  "source_scan_artifact": {
+    "id": 13870400724,
+    "sha256": "6430266169aebd08b92fd42ce09b4531474a72b98f7e18c46792a0c4a8abcfb4"
+  },
+  "source_manifest_files": 4981,
+  "source_scan_reviewed_candidates": 72,
+  "source_scan_retained_redacted_history_findings": 23,
+  "source_scan_zero_findings_claimed": false,
+  "manual_review_github_file": "docs/APD-443-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+  "manual_review_sha256": "b0f4d62a03abff8cdadd2d83918b90688679c8e5b7aad9f925d96d669275f664",
+  "saved_download_readback_sha256_verified": true,
+  "readback_verified_utc": "2026-11-11T16:12:51.121974+00:00",
+  "readback_hashes": {
+    "APD-Developer-443.apk": "aa649a0134ace897d95de804cc7ffe01927bfdb327428ae7e8c5cfb7cee1dbd3",
+    "APD-Alpha-Testers-443.apk": "f2e7f1c2acac800adfb2ee8b112f1eb5675c711dc6e5e3ef98cb6f2cc1318cb0",
+    "APD-Source-443.zip": "8cc24328cc1b93006ace8c005509bbf82849a5fb9a2e9057670fd7c5f323cb1b"
+  },
+  "original_ci_verification_preserved_unchanged": true,
+  "files": [
+    {
+      "file_id": "file_00000000192882128f0a2f1a5e764bba",
+      "library_file_id": "libfile_fde3_f-d64d0387a9508191a49f4e073ba64362_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Developer-443.apk",
+      "sha256": "aa649a0134ace897d95de804cc7ffe01927bfdb327428ae7e8c5cfb7cee1dbd3",
+      "bytes": 39205055,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd443-owner-review/APD-Developer-443.apk"
+    },
+    {
+      "file_id": "file_00000000040881f79b9860912dd40693",
+      "library_file_id": "libfile_fde3_f-f137f77feb7c8191bec5c21899899217_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Alpha-Testers-443.apk",
+      "sha256": "f2e7f1c2acac800adfb2ee8b112f1eb5675c711dc6e5e3ef98cb6f2cc1318cb0",
+      "bytes": 39205027,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd443-owner-review/APD-Alpha-Testers-443.apk"
+    },
+    {
+      "file_id": "file_00000000a55082309538860c9245b51e",
+      "library_file_id": "libfile_fde3_f-cffffee6578c8191a530727ea093b9a3_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Source-443.zip",
+      "sha256": "8cc24328cc1b93006ace8c005509bbf82849a5fb9a2e9057670fd7c5f323cb1b",
+      "bytes": 110735087,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd443-owner-review/APD-Source-443.zip"
+    }
+  ],
+  "native_artifacts": {
+    "Developer": {
+      "id": 13870228740,
+      "sha256": "925692872973481a4c09f7986cab4c643eb81c0ddc32b2f38b14edd0571ebcd8",
+      "images": 1433,
+      "seed_pid": 4953,
+      "restart_pid": 5146
+    },
+    "Alpha-Testers": {
+      "id": 13871022596,
+      "sha256": "beb9c9ff2ca5fd2c79431ccc1ade8231f680b6070b6f7329b85949c68616d127",
+      "images": 1433,
+      "seed_pid": 4924,
+      "restart_pid": 5133
+    }
+  },
+  "notes": [
+    "Original automatic CI proof retains manual_visual_review_complete=false from packaging time. This later acceptance adds completed manual review and delivery without editing that proof.",
+    "Exactly two new application APKs were created for443. Empowered Strike, Arcane Vision and Ooze capture stabilization sources committed later are not inside this pair.",
+    "Signing was verified by Android apksigner in CI and bound to the downloaded bytes by exact artifact and APK hashes. No local Android SDK signature rerun or physical-phone test is claimed."
+  ]
+}

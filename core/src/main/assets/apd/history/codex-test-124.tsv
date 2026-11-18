@@ -1,0 +1,20 @@
+Changes	V061_INVENTORY	Saved creator identity	Summoned creatures preserve their creator's offensive-damage origin when saving and loading; ordinary legacy creatures retain their existing behavior.
+Changes	V061_ETHEREAL_CHAINS	Inherited attack origin	Damage attribution follows an explicitly recorded summon creator rather than guessing from friendly alignment.
+Changes	V030_MAGE_CLOTH	Prismatic image identity	New prismatic images record the hero who created them.
+Changes	V074_LIVING_EARTH	Earth guardian identity	New earth guardians record their wand user's offensive origin.
+Changes	V062_CLOAK	Shadow clone identity	New shadow clones retain their hero creator's offensive origin.
+Changes	V063_HUNTRESS_CLOTH	Spirit hawk identity	New spirit hawks retain their hero creator's offensive origin.
+Changes	PD_GHOST	Ghost identity	New Dried Rose ghosts retain their summoning hero's offensive origin.
+Changes	V080_NECROMANCER	Skeleton identity	New necromancer skeletons record the necromancer who summoned them.
+Changes	V071_DWARF_KING	Dwarf summons identity	New Dwarf King subjects retain boss attribution through save/load.
+Changes	V080_YOG	Yog summons identity	Yog's new summons and fists retain their boss creator's offensive origin.
+Changes	PD_RAT	Swarm offspring identity	Split swarms inherit their parent's recorded offensive origin.
+Changes	PD_SKELETON	Ghoul offspring identity	New ghoul partners inherit their parent's recorded offensive origin.
+Changes	V080_SPAWNER	Spawner offspring identity	New ripper demons record their spawner's offensive origin.
+Changes	V075_ALBINO_RAT	Rat transformation identity	Summoned allied rats record their hero creator; transformed rats preserve the original creature's offensive origin.
+Changes	V061_BUGFIX	Ownership regressions	Added save/load, multi-generation summon, legacy-data, invalid-data and neutral-RNG checks for offensive ownership.
+Changes	V061_INVENTORY	Verified artifact staging	Staging now checks the exact TEST123 source, test counts, screenshots, package and signing before private delivery.
+Changes	V061_INVENTORY	Private delivery tag validation	Private delivery verifies identical application inputs when tagging a delivery commit, preserving prior assets and the tested APK.
+Changes	V061_PAGE	Touch-fix evidence	Recorded the successful core and Android touchscreen checks and actual TEST123 delivery.
+Changes	V061_PAGE	Ownership verification report	Recorded the source-ownership foundation, compatibility safeguards, remaining damage paths and build checks.
+Changes	V061_PAGE	Build verification metadata	Updated the exact previous-APK attribution and required test counts for this build.

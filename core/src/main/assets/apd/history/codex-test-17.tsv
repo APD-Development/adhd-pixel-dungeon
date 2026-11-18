@@ -1,0 +1,26 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_CHECKED	Play Run Device Test	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Run Setup Difficulty Device Test	Updated Android checks and fixtures for run setup difficulty device. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Hero actions	Ended the introduction when the hero leaves the entrance.
+Changes	ICON_INFO	Apd Intro	Made the introduction nonblocking and ended it before tutorial immunity follows ordinary gameplay.
+Changes	ICON_INFO	Title Geometry	Kept the annotation and menu geometry compatible with the nonblocking introduction.
+Statistics / UIMSD	ICON_INFO	Archive Exporter	Refused a successful export claim if source history changes after archive planning.
+Changes	ICON_STAIRS	Regular floor generation	Exposed the starting exit after seeded generation and repaired only old hidden entrance doors on load.
+Changes	ICON_STAIRS	Regular Painter	Clarified source comments without changing runtime behavior.
+Quality of Life	ICON_INFO	Game Scene	Kept ordinary game and menu controls usable during the nonblocking introduction.
+Testing	ICON_CHECKED	Apd Intro Test	Updated automated checks and fixtures for apd intro. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	First Floor Exit Test	Updated automated checks and fixtures for first floor exit. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Golden Child Main	Updated automated checks and fixtures for golden child main. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Level Generation Harness	Updated automated checks and fixtures for level generation harness. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Geometry Test	Updated automated checks and fixtures for title geometry. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test	Updated automated checks and fixtures for statistics wiring. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test	Updated automated checks and fixtures for archive round trip. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-POST-TEST10-VERIFICATION	Updated apd-post-test10-verification accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	KNOWN-ISSUES-AND-SOURCE-GUIDE	Updated known-issues-and-source-guide accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Ended the introduction when the hero leaves the entrance. Made the introduction nonblocking and ended it before tutorial immunity follows ordinary gameplay.

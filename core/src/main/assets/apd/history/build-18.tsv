@@ -1,0 +1,42 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Run state	Recorded level generation at the run lifecycle boundary.
+Changes	ICON_INFO	Actor	Connected generated enemy identities to recording.
+Changes	ICON_INFO	Enemy events	Recorded enemy placement and normal versus bonus loot provenance.
+Statistics / UIMSD	ICON_STATS	Apd Gen	Added the game's entry points for generation provenance.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected the run recorder to item and enemy generation provenance.
+Statistics / UIMSD	ICON_TARGET	Combat Tracker	Linked combat deaths and loot to generation provenance.
+Statistics / UIMSD	ICON_STATS	Generation Tracker	Added generation provenance for one run.
+Statistics / UIMSD	ICON_STATS	Event Types	Registered the generation provenance event types with stable recording identifiers.
+Statistics / UIMSD	ICON_STATS	Generation Events	Added encoders and decoders for the generation provenance events of telemetry 1.4.
+Statistics / UIMSD	ICON_BACKPACK	Item Events	Added generation context to recorded item events.
+Statistics / UIMSD	ICON_STATS	Self Test	Extended on-device self-checks for generation provenance recording.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.4.
+Changes	ICON_BACKPACK	Item generation	Recorded requested generation categories and the actual generated items.
+Changes	ICON_BACKPACK	Heap	Recorded where generated items are placed.
+Changes	ICON_STAIRS	Floor state	Recorded the generated floor layout, enemies and item positions.
+Testing	ICON_BACKPACK	Item Hook Wiring Test	Updated automated checks and fixtures for item hook wiring. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Level Generation Harness	Updated automated checks and fixtures for level generation harness. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 1	Added a test covering a Fresh Level Is Recorded With The Context It Was Built In. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 2	Added a test covering every Generated Item Gets An Identity And A Provenance Event And None Are Shared Or Lost. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 3	Added a test covering the Truth About Every Item Is Recorded Whether Or Not The Player Could Tell. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 4	Added a test covering how Each Item Was Drawn From The Generator Is Recorded. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 5	Added a test covering recording What The Game Built Never Makes Anything Visible To The Player. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 6	Added a test covering mimic Contents Statue Weapons And Quest Rewards Are Found Too. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 7	Added a test covering creature Loot And Bonus Drops Are Recorded When They Are Created. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 8	Added a test covering generated Creatures Are Joined To The Ids The Game Gives Them When The Hero Arrives. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Provenance Test 9	Added a test covering a Level Built After The Loaded Save Becomes An Abandoned Branch. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Safety Test 1	Added a test covering recording Changes Nothing About The Levels The Decks The Counters The Ids Or The Random Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Safety Test 2	Added a test covering a Failing Recorder Changes Nothing Either. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Safety Test 3	Added a test covering repeated Failures Switch Generation Recording Off And The Game Carries On. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Safety Test 4	Added a test covering the Hooks Never Throw On Odd Input. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Safety Test 5	Added a test covering generating Levels Is Cheap With Recording On. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Isolation Test	Updated automated checks and fixtures for recorder isolation. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Events Test 1	Added a test covering every Generation Event Round Trips. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Generation Events Test 2	Added a test covering an Item That Was Not Drawn Says So Instead Of Claiming A Category. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test	Updated automated checks and fixtures for item events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-GENERATION	Added apd-stats-generation accompanying this build.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

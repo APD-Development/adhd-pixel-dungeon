@@ -1,0 +1,82 @@
+Infrastructure	ICON_DATA	Accounts	Added the account model, independent of any sign-in provider.
+Infrastructure	ICON_DATA	Achievement Grant	Added a developer-granted achievement.
+Infrastructure	ICON_DATA	Audit Log	Added an append-only record of decisions that matter (approvals, revocations, grants, moderation, ranking corrections).
+Infrastructure	ICON_DATA	Backoff	Added how long to wait before trying a failed send again: doubles each time from 30 seconds up to 6 hours, so a long outage costs a few tries a day, not a stream of them.
+Infrastructure	ICON_DATA	Canon	Added canonical bytes of a record, for hashing and signing.
+Infrastructure	ICON_DATA	Content Version	Added one immutable version of a piece of community content (a character, a mod, a challenge pack).
+Infrastructure	ICON_DATA	Data Policy	Added where each kind of data may live.
+Infrastructure	ICON_DATA	Envelope	Added the wrapper of everything that crosses the client/server boundary: which schema it is, which version of it, and the payload.
+Infrastructure	ICON_DATA	Gateway	Added the ONE door between the game and any server.
+Infrastructure	ICON_DATA	Grant Ledger	Added what the app knows about its player's granted achievements.
+Infrastructure	ICON_DATA	Groups	Added a generic group of players with roles: the shared building block for anything where people belong together (creator teams, reviewer pools, a mod author's circle, a future clan if one is ever approved).
+Infrastructure	ICON_DATA	Id	Added an opaque, typed identifier.
+Infrastructure	ICON_DATA	Leaderboard	Added ranking as a pure function of server-held records, so any server implementation ranks identically and the result can be re-computed (and audited) at any time.
+Infrastructure	ICON_DATA	Local Profile	Added who this installation is, with NO account required.
+Infrastructure	ICON_DATA	Offline Gateway	Added a Gateway that is never connected.
+Infrastructure	ICON_DATA	Outbox	Added what the game wants the server to know, waiting to be sent.
+Infrastructure	ICON_DATA	Outbox Store	Added keeps the Outbox across app restarts: one line per item in a text file, written to a temporary file and then moved over the old one, so a crash in the middle of saving leaves the previous complete file, never half of a new one.
+Infrastructure	ICON_DATA	Permission	Added what an actor may be allowed to do on the shared (server-side) systems.
+Infrastructure	ICON_DATA	Report	Added a player's report of content, a submission, a profile or another player, for moderators.
+Infrastructure	ICON_DATA	Roles	Added roles and what they allow, in one table.
+Infrastructure	ICON_DATA	Run Submission	Added what a player sends to take part in rankings: a SUMMARY of ONE FINISHED run, nothing else.
+Infrastructure	ICON_DATA	Run Submission Codec	Added the wire form of a RunSubmission: plain "key=value" lines.
+Infrastructure	ICON_DATA	Submission Policy	Added the checks that need no secrets and no server state: they run on the device (so the player gets an immediate, honest "this cannot be submitted because ...") AND on the server (which must never rely on the device having run them).
+Infrastructure	ICON_DATA	Sync Record	Added a record that is kept in step between a player's devices (settings, preferences, profile choices - NEVER raw run history or UIMSD data, which are local-only by default; see DataPolicy).
+Infrastructure	ICON_STAIRS	Trust Level	Added how much a record can be believed, and by whom.
+Infrastructure	ICON_DATA	Trust Root	Added the public keys the app trusts, each only for the purpose it was published for, with a validity window and a revocation list.
+Infrastructure	ICON_DATA	Verifier	Added checks a signature.
+Infrastructure	ICON_DATA	Voting	Added community voting primitives: one round has a fixed set of options and an open/close time; each player has at most ONE ballot per round (a new ballot replaces the old one until the round closes, so voting is idempotent and retried sends are harmless).
+Infrastructure	ICON_DATA	Run Submission Factory	Added the ONLY place where the player's local run facts are turned into something that could leave the device.
+Statistics / UIMSD	ICON_STATS	Column Order	Added reordering the visible columns (plan 3.7): pure list moves, so the rule is the same everywhere and easy to test.
+Statistics / UIMSD	V011_ANKH	Saved Views	Added the player's own named views: a saved query (QueryCodec text) under a name they chose, so an eleven-condition question is built once.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Added saving, opening and deleting named statistics views.
+Quality of Life	ICON_STATS	Statistics Columns	Added persistent visible-column ordering controls.
+Quality of Life	ICON_STATS	Statistics Options	Added saving, opening and deleting named statistics views.
+Testing	ICON_DATA	Backend Community Test 1	Added a test covering the Submission Contract Is Exactly These Fields. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 2	Added a test covering policy Refuses What Cannot Be Right. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 3	Added a test covering the Wire Form Is Lossless And Forward Compatible. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 4	Added a test covering ranking Is Best Per Player And Honours Trust And Board Rules. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 5	Added a test covering one Account One Vote And Retries Are Harmless. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 6	Added a test covering audit Log Detects Edits And Removals. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 7	Added a test covering reports Are Bounded And Repeats Are No Ops. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 8	Added a test covering sync Merge Is Deterministic And Deletes Stick. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Community Test 9	Added a test covering accounts Keep One Player Across Credentials. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test 1	Added a test covering ids Are Typed And Validated. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test 2	Added a test covering canonical Bytes Cannot Be Confused. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test 3	Added a test covering envelope Version Rules. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test 4	Added a test covering trust Levels Only Claim Upward. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test 5	Added a test covering every Schema That Can Leave Is Classified And Raw History Stays Local. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test 6	Added a test covering architecture Boundaries. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Groups Test 1	Added a test covering platform Permissions Can Never Come From A Group. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Groups Test 2	Added a test covering membership Follows Permissions And Keeps An Owner. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Groups Test 3	Added a test covering every Change Is Audited. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Groups Test 4	Added a test covering groups Have A Size Limit. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Outbox Test 1	Added a test covering offline Play Keeps Everything Queued And Nothing Blocks. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Outbox Test 2	Added a test covering a Lost Reply Does Not Double Submit. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Outbox Test 3	Added a test covering permanent Refusals Are Dropped And Explained. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Outbox Test 4	Added a test covering temporary Trouble Retries With Growing Delays And A Gateway That Throws Is Survived. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Outbox Test 5	Added a test covering the Server Attaches The Identity And Trust Itself And Ranking Uses Only What It Checked. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Trust Test 1	Added a test covering a Developer Grant Is Accepted Once For The Right Player. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Trust Test 2	Added a test covering forged Or Altered Grants Are Refused. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Trust Test 3	Added a test covering keys Have Purposes Windows And Can Be Revoked. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Trust Test 4	Added a test covering key Rotation Keeps Old Grants Valid While The Old Key Is Trusted. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Trust Test 5	Added a test covering content Only Loads If Approved And Untampered. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Trust Test 6	Added a test covering content States Follow The Table. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Outbox Store Test 1	Added a test covering the Queue Survives A Restart Exactly. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Outbox Store Test 2	Added a test covering missing File Is An Empty Queue And Damage Loses Only The Damaged Line. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Outbox Store Test 3	Added a test covering a Hand Edited File Cannot Get Local Only Data Sent. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Outbox Store Test 4	Added a test covering the Offline Gateway Changes Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Test Authority	Added automated checks and fixtures for test authority. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Run Submission Factory Test 1	Added a test covering a Complete Finished Run Becomes A Submission. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Run Submission Factory Test 2	Added a test covering everything That Is Not Complete And Recorded Is Refused With A Reason. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Run Submission Factory Test 3	Added a test covering an Abandoned Run Is A Quit Not A Win. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Column Order Test 1	Added a test covering moves By One Place And Stops At The Ends. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Column Order Test 2	Added a test covering front And Back Keep Every Column. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test 1	Added a test covering a Saved View Comes Back As The Same Question. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test 2	Added a test covering names Are Validated Replaced Renamed And Deleted. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test 3	Added a test covering there Is A Limit. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test 4	Added a test covering missing Or Damaged Files Lose Only The Damage. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test 5	Added a test covering a View This Build Cannot Read Is Reported Not Crashed. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Added apd-backend accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added reordering the visible columns (plan 3.7): pure list moves, so the rule is the same everywhere and easy to test. Added the player's own named views: a saved query (QueryCodec text) under a name they chose, so an eleven-condition question is built once.

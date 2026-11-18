@@ -1,0 +1,7 @@
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -323,3 +323,3 @@
+             com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfMight.HTBoost boost=new com.shatteredpixel.shatteredpixeldungeon.items.potions.elixirs.ElixirOfMight.HTBoost();boost.target=Dungeon.hero;boost.reset();return new WndInfoBuff(boost);
+-        },"Level-ups remaining: 5 of 5","qol-existing-status-clear-MightBoost.png");
++        },"Level-ups remaining: _5 of 5_","qol-existing-status-clear-MightBoost.png");
+         calculationWindow(()->{

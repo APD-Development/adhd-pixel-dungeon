@@ -1,0 +1,6 @@
+{
+  "run_id": 42696629251,
+  "source_commit": "2193252bf075b8b429118262fdca8cca046e149c",
+  "requested_utc": "2026-11-09T20:50:23.980452+00:00",
+  "purpose": "Stage only after full3160core/all12native and source/scans pass. Privateuntil independenthashes/manualall19windowacceptance."
+}

@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Cancel a preparing UIMSD tour	Make Back cancel sample-tour generation immediately and invalidate its worker so a stale tour cannot appear after cancellation.
+Testing	V061_PAGE	Preparing-tour Back regression	Retain API34 coverage for immediate Home/main-model restoration, worker invalidation, and the existing completed-tour Back sequence.
+Changes	V061_PAGE	TEST186 failure and TEST187 handoff	Retain TEST186's pre-compilation history-manifest failure and request the unchanged tour-cancellation source with the complete TEST185 evidence path set.

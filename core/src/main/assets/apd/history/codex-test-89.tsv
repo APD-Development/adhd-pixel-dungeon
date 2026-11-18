@@ -1,0 +1,7 @@
+Bug Fixes	ICON_INFO	Crystal path rewards	The two final crystal-path compartments now always contain Experience and Transmutation, one in each.
+Testing	ICON_INFO	Crystal reward generation checks	Added checks across seeds, depths and exotic settings for both rewards and their two-key routes.
+Bug Fixes	ICON_DATA	Extreme statistics values	Fixed malformed decimal displays for the smallest supported signed statistics value.
+Testing	ICON_INFO	Statistics number-formatting checks	Added boundary-value checks and verified the existing formatter and query behavior.
+Development	ICON_DATA	Verified investigation records	Recorded the reward failure and seeded armor-generation findings without changing armor drop rates.
+Developer Commentary	V074_SHPX	Developer Commentary	I corrected the crystal-path room so its two final rewards match the promised choices. Existing generated floors remain untouched.
+Testing	ICON_INFO	Preserved seeded dungeon checks	Updated expected crystal-room reward records while retaining all existing deterministic dungeon checks.

@@ -1,0 +1,26 @@
+name: Deliver exact manually reviewed APD pair to the private owner release
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-REVIEWED-PAIR-DELIVERY.json]
+permissions: {contents: write, actions: read}
+concurrency: {group: apd-reviewed-pair-delivery, cancel-in-progress: false}
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify rejected-draft and source-tag publication safeguards
+        run: python3 -m unittest discover -s tools -p 'test_apd_deliv*.py' -v
+      - name: Recheck exact APKs, source, tests and manual review, then deliver
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_deliver_reviewed_pair.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-reviewed-owner-delivery
+          path: owner-delivery/
+          retention-days: 30

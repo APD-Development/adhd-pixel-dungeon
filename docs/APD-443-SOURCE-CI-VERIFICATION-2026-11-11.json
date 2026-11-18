@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "verified_utc": "2026-11-11T15:32:54.978598+00:00",
+  "source_commit": "83aee325935e3fda80d750aa10348e83a28ea5dd",
+  "run": 43048566842,
+  "run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43048566842",
+  "job_id": 130619106419,
+  "status": "completed",
+  "conclusion": "success",
+  "completed_at": "2026-11-11T15:29:51Z",
+  "artifact": {
+    "id": 13868552147,
+    "bytes": 543276,
+    "sha256": "2c77621eb1dde88cb9fc01195dfbe37d42ccaa7d6febbc350b8da5c3f76f989c",
+    "downloaded_and_hash_verified": true
+  },
+  "raw_xml_independently_parsed": true,
+  "results": {
+    "source_commit": "83aee325935e3fda80d750aa10348e83a28ea5dd",
+    "suites": 465,
+    "tests": 3210,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "apk_assembled": false,
+    "physical_phone_tested": false
+  },
+  "required_compilation": [
+    "core",
+    "desktop classes",
+    "Android debug",
+    "Android release",
+    "Android instrumentation"
+  ],
+  "job_log_sha256": "6eed37fabf48a350ee16a41af92a7f2fbd03222d6742952773b1bbabfbf64aed",
+  "github_push_verified": true,
+  "apk_assembled": false,
+  "native_executed": false,
+  "scope_limit": "This source includes the Liquid Agility core repair,13 regressions and ordinary-window captures. The later real-projectile native fixture is not in this source cutoff and requires its own Android compilation before any APK assembly."
+}

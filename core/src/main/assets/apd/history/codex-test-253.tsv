@@ -1,0 +1,3 @@
+Bug Fixes	ICON_PREFS	Narrow toolbar controls	The quickslot page switch sits above the slots when the normal row would overlap Inventory on narrow screens.
+Testing	ICON_CHECKED	Native controls and boss progression	Checks exercise narrow toolbar layouts and native paging, six-class save continuity, and Tengu and DM-300 phase and save behavior.
+Infrastructure	ICON_INFO	Acceptance evidence and recovery	Keep exact-source acceptance records, unsuccessful Android checks and compatible fallback evidence with the build.

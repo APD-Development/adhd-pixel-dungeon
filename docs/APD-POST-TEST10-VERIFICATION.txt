@@ -1,0 +1,12 @@
+C18 before: 2 tests, 1 failure: last visible entry false while actual column retained.
+C18 after: 22 checks pass, 0.625s.
+First broad532: one async archive fixture failure (initial public events not flushed), not diagnosed as a production regression.
+Archive isolated old15pass1.513s; corrected15pass0.549s.
+Corrected broad532pass21.696s.
+Android verification pending; no physical phone result.
+
+C20 before:16tests/1failure, changed finished file falsely reports successful incomplete archive.
+C20 after:16pass0.476s; broad533pass18.605s.
+C18 source65403163 CI run37966964739 pending; C20 later source not in that APK.
+
+Final TEST17sourcea317b5d5, run37972251204:908core/144suites pass,4API34pass;0fail/errors/skips. APKpublished2026-10-09T18:28:25Z,38225942bytes,sha256c66bcc0c4ad91b873c51a0b482f3dd2d6fc69dddc70faadfb32111a9a70c19b5. These replace pending statuses above; no physical-phone claim.

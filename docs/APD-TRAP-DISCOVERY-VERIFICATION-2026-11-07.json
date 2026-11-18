@@ -1,0 +1,64 @@
+{
+  "owner_apk_delivery_hold": true,
+  "physical_phone_tested": false,
+  "attempts": [
+    {
+      "source_commit": "0b4e890de676406429adafe3eceaad4f6b85ed47",
+      "workflow_run": 42399787845,
+      "job_id": 128484873417,
+      "conclusion": "failure",
+      "core": {
+        "suites": 447,
+        "tests": 2909,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "platform_build_step": "passed; core, desktop classes, Android release Java, debug APK and instrumentation APK assembly",
+      "signing_receipt": "failed: certificate parser assumed Signer #1 prefix; AttributeError on unmatched regex; signing was not claimed verified in this attempt",
+      "android_runtime": "not run; preceding receipt step failed",
+      "evidence_artifact_id": 13585222060,
+      "evidence_bytes": 511130,
+      "evidence_sha256": "e1d39877d6a876a53aab015d5a169bb03718594798f6397d1ec3516c8a3c9ac6",
+      "downloaded_inspected_evidence": "/workspace/attachments/79407fd7-6a19-4c15-adb0-4240c54c4b3a/github-actions-artifact-13585222060.zip",
+      "apk_published": false,
+      "apk_delivered": false
+    },
+    {
+      "source_commit": "946cc3cea7df43eb2da9036947d114e09bfd22fc",
+      "workflow_run": 42400199124,
+      "job_id": 128486107636,
+      "conclusion": "success",
+      "note": "Same application source as0b4e890de; actual V2 Signer certificate label parsed, exact original digest retained.",
+      "suites": 447,
+      "tests": 2909,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "version_name": "4.0.8-apd-INDEV-bINTERNAL-TRAP-20261107-TEST",
+      "apk_sha256": "56b2679dc20647c6d0ce2d26b58fbb520e7e888be91d930dc0f7d81c7305cb88",
+      "apk_bytes": 39012742,
+      "apk_assembled": true,
+      "internal_game_apks_built": 1,
+      "apk_published": false,
+      "apk_delivered": false,
+      "physical_phone_tested": false,
+      "evidence_artifact_id": 13584978803,
+      "evidence_bytes": 902909,
+      "evidence_sha256": "efdceaf31f97f3b0e05227126b360ba3b0d743a9ab6ec65604fa95cdd1a8115c",
+      "downloaded_inspected_evidence": "/workspace/attachments/5490b23e-e70a-4460-b1e2-72be34fdf6ae/github-actions-artifact-13584978803.zip",
+      "android_runtime": "API34 x86_64 disposable emulator; all three instrumentation cases independently complete OK (1 test), terminal -1, zero failure/skip",
+      "seed_process_pid": 2347,
+      "restart_process_pid": 2583,
+      "screenshots_reviewed": [
+        "trap-discovery-setting-on.png",
+        "trap-discovery-setting-restarted.png",
+        "trap-discovery-runtime-actual-ooze.png"
+      ],
+      "screenshot_limit": "Restart screenshot is at top of Gameplay; saved checkbox state is asserted by native test before actual Off tap. Not claimed visible in that screenshot."
+    }
+  ],
+  "total_internal_game_apks_built_in_these_attempts": 2
+}

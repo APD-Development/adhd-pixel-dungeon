@@ -1,0 +1,12 @@
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Community Preview	Added distinct useful summaries for every Community destination.
+Statistics / UIMSD	ICON_STATS	Query Codec	Read historical localized aggregate sort identifiers without rewriting saved-view files.
+Quality of Life	ICON_INFO	Community Scene	Added distinct useful summaries for every Community destination.
+Testing	ICON_CHECKED	Community Preview Test	Updated automated checks and fixtures for community preview. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Query Locale Regression Test	Updated automated checks and fixtures for query locale regression. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-COMMUNITY-UI-2026-10-10	Updated apd-community-ui-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added distinct useful summaries for every Community destination. Read historical localized aggregate sort identifiers without rewriting saved-view files.

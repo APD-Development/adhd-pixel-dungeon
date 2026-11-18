@@ -1,0 +1,12 @@
+Infrastructure	ICON_INFO	codex-pdf-report	Updated the codex-pdf-report development workflow; it is not gameplay content.
+Changes	ICON_INFO	Blacksmith	Cleared absent optional Blacksmith quest fields before restoring another save.
+Testing	ICON_JOURNAL	Blacksmith Quest Persistence Test 1	Added a test covering old Save Without Optional Fields Cannot Inherit Free Pickaxe Or Enchantments. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Blacksmith Quest Persistence Test 2	Added a test covering unenchanted Rewards Cannot Inherit Another Saves Enchantments. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Blacksmith Quest Persistence Test 3	Added a test covering explicit Free Pickaxe And Enchanted Rewards Still Restore. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-PDF-UPDATE	Updated apd-pdf-update accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Cleared absent optional Blacksmith quest fields before restoring another save.

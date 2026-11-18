@@ -1,0 +1,49 @@
+name: Verify APD manifest size overflow safety
+on:
+  push:
+    branches: [chatgpt/apd-manifest-size-overflow-20261112]
+    paths: [.github/workflows/apd-manifest-overflow-ci-20261112.yml]
+permissions: {contents: read}
+concurrency:
+  group: apd-manifest-overflow-source-verification-20261112
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check isolated source and named archive regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          source=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveManifest.java').read_text()
+          manifest=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveManifestTest.java').read_text()
+          hostile=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveHostileTest.java').read_text()
+          assert 'e.size > Long.MAX_VALUE - total' in source
+          assert 'checksumValidFileSizeOverflowIsRejectedButExactLongLimitParses' in manifest
+          assert 'checksumValidManifestSizeOverflowCannotTouchHistory' in hostile
+          print('Source guard and both regression tests are present')
+          PY
+      - name: Complete core tests and desktop and Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require complete clean JUnit results and both named tests
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports, 'Missing JUnit test reports'
+          totals={k:sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3300,totals
+          assert all(totals[k]==0 for k in ('failures','errors','skipped')),totals
+          cases={t.get('name') for r in reports for t in r.findall('testcase')}
+          expected={'checksumValidFileSizeOverflowIsRejectedButExactLongLimitParses','checksumValidManifestSizeOverflowCannotTouchHistory'}
+          assert expected <= cases, expected-cases
+          print('Verified exact regression cases and full suite:', totals, 'suites=', len(reports))
+          PY

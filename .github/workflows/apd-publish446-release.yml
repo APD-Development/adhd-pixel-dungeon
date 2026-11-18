@@ -1,0 +1,98 @@
+# APD446 publication only. Frozen accepted game/source bytes, no rebuild.
+name: Publish accepted APD446 prerelease
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-publish446-release.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd446-prerelease-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check frozen accepted delivery receipt and avoid replacing a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('docs/APD-446-DELIVERY-2026-11-11.json').read_text())
+          assert r['number'] == 446
+          assert r['native_recovery_complete'] is True
+          assert r['manual_visual_review_complete'] is True
+          assert r['github_release_published'] is False
+          assert r['original_application_or_instrumentation_rebuilt'] is False
+          assert r['source_archive_rebuilt'] is False
+          assert r['android_tests'] == 18
+          assert r['core']['failures'] == 0
+          assert r['source_commit'] == '1968913a441f53ab3652cffc05e131427d0c3703'
+          assert r['owner_review_artifact']['id'] == 13886086653
+          expected = {
+            'APD-Developer-446.apk': 'f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3',
+            'APD-Alpha-Testers-446.apk': '9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69',
+            'APD-Source-446.zip': '46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5',
+          }
+          assert {f['file_name']: f['sha256'] for f in r['files']} == expected
+          PY
+          if gh release view apd-446 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'APD446 release already exists; refusing to overwrite.' >&2
+            exit 1
+          fi
+      - name: Download exact accepted owner-review artifact from verified recovery run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh run download 43084695484 --repo "$GITHUB_REPOSITORY" --name apd446-developer-recovery-owner-run-43084695484-attempt-1 --dir owner-archive
+      - name: Extract only the three owner-delivery files and verify exact digests
+        run: |
+          set -euo pipefail
+          mkdir -p release-files
+          for name in APD-Developer-446.apk APD-Alpha-Testers-446.apk APD-Source-446.zip; do
+            mapfile -d '' matches < <(find owner-archive -type f -name "$name" -print0)
+            if [ "${#matches[@]}" -ne 1 ]; then
+              echo "Expected exactly one $name in owner archive; found ${#matches[@]}" >&2
+              exit 1
+            fi
+            cp "${matches[0]}" "release-files/$name"
+          done
+          cd release-files
+          printf '%s\n' \
+            'f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3  APD-Developer-446.apk' \
+            '9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69  APD-Alpha-Testers-446.apk' \
+            '46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5  APD-Source-446.zip' | sha256sum -c -
+      - name: Publish prerelease without changing latest stable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release create apd-446 \
+            release-files/APD-Developer-446.apk \
+            release-files/APD-Alpha-Testers-446.apk \
+            release-files/APD-Source-446.zip \
+            --repo "$GITHUB_REPOSITORY" \
+            --target 1968913a441f53ab3652cffc05e131427d0c3703 \
+            --title 'APD446: seed history and contextual Search' \
+            --notes 'Accepted APD446 Developer and Alpha-Testers APKs, with matching corresponding source archive. Verified from original build 43077773970 and successful recovery 43084695484. Existing seed scoring remains unchanged. Physical phone install-over and audio are not verified.' \
+            --prerelease --latest=false
+      - name: Verify published release assets retain exact bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release view apd-446 --repo "$GITHUB_REPOSITORY" --json isPrerelease,assets --jq '.isPrerelease and ((.assets | length) == 3)' | grep -qx true
+          mkdir -p release-readback
+          gh release download apd-446 --repo "$GITHUB_REPOSITORY" --dir release-readback
+          cd release-readback
+          printf '%s\n' \
+            'f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3  APD-Developer-446.apk' \
+            '9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69  APD-Alpha-Testers-446.apk' \
+            '46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5  APD-Source-446.zip' | sha256sum -c -

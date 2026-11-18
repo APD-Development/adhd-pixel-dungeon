@@ -1,0 +1,6 @@
+Quality of Life	ICON_INFO	APD Text Scene	News and Changes now return to the screen that opened them.
+Quality of Life	ICON_INFO	About screen	Added APD attribution above the original credits and preserved return navigation.
+Quality of Life	ICON_INFO	Hero selection	Hero selection always offers a working back button.
+Quality of Life	ICON_INFO	Main menu	Main-menu News and Changes now open APD pages instead of upstream pages.
+Quality of Life	ICON_INFO	Startup screen	The update prompt now opens APD Change History.
+Developer Commentary	V074_SHPX	Developer Commentary	News and Changes now return to the screen that opened them. Added APD attribution above the original credits and preserved return navigation.

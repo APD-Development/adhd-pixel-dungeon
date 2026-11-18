@@ -1,0 +1,1 @@
+Owner repeats fix the unresponsive APD376 gameplay. Prepare exactly one corrective Developer/Alpha pair from the approved Codex branch. Full2972/453 and actual native freeze/cancelled-versus-live controls required. Preserve original key/appID/saves and all assets. Full description audit incomplete; no claim of exact phone reproduction.

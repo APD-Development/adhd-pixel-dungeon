@@ -1,0 +1,4 @@
+Bug Fixes	ICON_DATA	Arcana Spirit Form preview	Known equipped Arcana rings now show Spirit Form's effect when the normal ring bonus is zero, matching actual enchantment and glyph power.
+Testing	ICON_CHECKED	Arcana fallback regression coverage	Added checks for Spirit Form, temporary ring boosts, unidentified rings and weapon/armor preview layout without consuming gameplay randomness.
+Development	ICON_INFO	Verified build records	Recorded TEST102's verified delivery and TEST103's exact changes and checks.
+Developer Commentary	V074_SHPX	Developer Commentary	I corrected an Arcana preview that missed Spirit Form's existing fallback. The displayed increase now matches the actual effect without changing gameplay.

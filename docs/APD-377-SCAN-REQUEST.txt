@@ -1,0 +1,1 @@
+Complete strict source/history scan of unchanged prepared377 pair from42492364454. Exact inspected false positive: generic-api-key matches keys reviewed, inventory5298. with inventory5298. as secret. Pin full reviewed line SHA256, not a blanket path allowlist. Preserve actual failed scan; no game build, no instrumentation build, no new source archive.

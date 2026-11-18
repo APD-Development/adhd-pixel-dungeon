@@ -1,0 +1,8 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_NEWS	Bundled news	Updated the announcements bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Quality of Life	ICON_INFO	Main menu	Renamed the statistics button UIMSD and added its original annotation arrow.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-SCHEMA	Updated apd-stats-schema accompanying this build.
+Development	ICON_INFO	APD-TITLE-SCREEN	Updated apd-title-screen accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the announcements bundled with this APK.

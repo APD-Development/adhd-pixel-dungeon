@@ -1,0 +1,37 @@
+name: Audit authored text without changing gameplay
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-authored-text-audit.yml]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve exact authored source and resources for review
+        run: |
+          python3 - <<'PY'
+          import pathlib,zipfile,json,re,os
+          roots=['core/src/main/java','core/src/main/assets','SPD-classes/src/main/java','android/src/main/java','services']
+          pattern=re.compile(r"\b(?:fuck\w*|shit\w*|bitch\w*|bastard\w*|asshole\w*|dick|piss\w*|cunt\w*|goddamn\w*|wank\w*|twat\w*|motherfuck\w*|arse|slut\w*|whore\w*|damn(?:ed|ing)?|hell|crap)\b",re.I)
+          rows=[];files=0
+          with zipfile.ZipFile('APD-Authored-Text-Source.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for root in roots:
+                  for p in pathlib.Path(root).rglob('*'):
+                      if p.suffix not in ('.java','.properties','.txt','.tsv','.json','.csv','.html') or not p.is_file():continue
+                      files+=1;z.write(p)
+                      for n,line in enumerate(p.read_text(encoding='utf-8',errors='replace').splitlines(),1):
+                          if pattern.search(line):rows.append({'path':str(p),'line':n,'text':line})
+          pathlib.Path('authored-text-audit.json').write_text(json.dumps({'source':os.environ['GITHUB_SHA'],'files_scanned':files,'matches':rows,'status':'Candidate matches require semantic review; comments, licenses and adult variants are not automatically player-visible violations.'},indent=2))
+          print('Scanned',files,'text files; candidate matching lines',len(rows))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: authored-text-audit-source
+          path: |
+            APD-Authored-Text-Source.zip
+            authored-text-audit.json
+          retention-days: 7

@@ -1,0 +1,6 @@
+2026-11-10 resumed owner-authorized APD development.
+Owner instruction: build and verify a new APK whenever dependencies permit and deliver every completed verified APK immediately. Existing design restrictions remain authoritative.
+Build APD433 from this exact commit, retaining the original APD432 compiled history, original signing certificate, .indev application ID and versionCode920. Preserve every previous build; APD431 remains rejected and unpublished.
+Source correction 53fc7370ec1e5c60469b95beebeb819203d3c16d passed all 3169 core tests across 458 suites and required Android/desktop compilations in run42889148831. Independent downloaded XML verification confirmed zero failures/errors/skips and the three original description failures.
+Run all core/compilation gates again for this build; execute all 12 existing targeted native cases on the exact Developer/Alpha APK pair. Review the two affected talent windows in both variants before private publication. No physical-phone or audio verification is implied.
+Changes: Cached Rations and Rogue Foresight ordinary text and existing details, plus four regression tests and two native-window contexts. No gameplay, balance, save, new panel, public distribution or recurring development authorization.

@@ -1,0 +1,519 @@
+{
+  "source_commit": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+  "tag": "apd-alpha-preview-358",
+  "number": 358,
+  "release_id": 432425860,
+  "published_at": "2026-11-03T08:17:23Z",
+  "download_verified_utc": "2026-11-03T08:17:30.703336+00:00",
+  "downloaded_back_verified": true,
+  "delivery_workflow_run": "41601972497",
+  "core_tests": 2331,
+  "android_tests": 71,
+  "tester_api34_tests": 3,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "apk_hashes": {
+    "Developer": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0",
+    "Alpha-Testers": "b63eccc43e35c5534b5718f403c627a053c5c71c08fb685a16d8c3fc26336e86"
+  },
+  "source_sha256": "aeb9f537dadee158f243b8c3f0db594cfc33aafcbb9815024c74e5596b484900",
+  "asset_publication": [
+    {
+      "id": 704851460,
+      "name": "APD-Alpha-Testers-358.apk",
+      "digest": "sha256:b63eccc43e35c5534b5718f403c627a053c5c71c08fb685a16d8c3fc26336e86",
+      "created_at": "2026-11-03T08:17:15Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Alpha-Testers-358.apk"
+    },
+    {
+      "id": 704851751,
+      "name": "APD-Alpha-Testers-358.apk.sha256",
+      "digest": "sha256:524bad5262ad03d089dde41010eb22761e0323956370e4b588c4cbbfc2df93b6",
+      "created_at": "2026-11-03T08:17:21Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Alpha-Testers-358.apk.sha256"
+    },
+    {
+      "id": 704851607,
+      "name": "APD-Developer-358.apk",
+      "digest": "sha256:e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0",
+      "created_at": "2026-11-03T08:17:18Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Developer-358.apk"
+    },
+    {
+      "id": 704851711,
+      "name": "APD-Developer-358.apk.sha256",
+      "digest": "sha256:fc651ffccae031774b67be4aa43539ee3ae405159ce45995a85b8c4b48cffd0a",
+      "created_at": "2026-11-03T08:17:21Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Developer-358.apk.sha256"
+    },
+    {
+      "id": 704851260,
+      "name": "APD-Source-358.zip",
+      "digest": "sha256:aeb9f537dadee158f243b8c3f0db594cfc33aafcbb9815024c74e5596b484900",
+      "created_at": "2026-11-03T08:17:12Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Source-358.zip"
+    },
+    {
+      "id": 704851215,
+      "name": "APD-Source-358.zip.sha256",
+      "digest": "sha256:5ff07aa46bfa4a3c47491000276a05cbd18ad3311838c9dfe407d810f0375b31",
+      "created_at": "2026-11-03T08:17:11Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Source-358.zip.sha256"
+    },
+    {
+      "id": 704851787,
+      "name": "APD-Source-Scan.json",
+      "digest": "sha256:f04e84a51f7a3b5b1da83ad2f48307fa71919ceb3e8471d2b19fc3326d3297ab",
+      "created_at": "2026-11-03T08:17:22Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-358/APD-Source-Scan.json"
+    }
+  ],
+  "runs": {
+    "developer": 41596335602,
+    "player": 41596335643,
+    "display": 41596335585,
+    "native": 41600059461,
+    "tester": 41599308950
+  },
+  "profiles": {
+    "m53-representative": {
+      "run": 41596335585,
+      "test_source": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+      "artifact": 13212638095,
+      "tests": 1,
+      "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0"
+    },
+    "compact-virtual": {
+      "run": 41596335585,
+      "test_source": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+      "artifact": 13211629917,
+      "tests": 1,
+      "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0"
+    },
+    "small-virtual": {
+      "run": 41596335585,
+      "test_source": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+      "artifact": 13212533210,
+      "tests": 1,
+      "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0"
+    },
+    "square-virtual": {
+      "run": 41596335585,
+      "test_source": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+      "artifact": 13212403621,
+      "tests": 1,
+      "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0"
+    },
+    "short-landscape": {
+      "run": 41596335585,
+      "test_source": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+      "artifact": 13211839433,
+      "tests": 1,
+      "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0"
+    },
+    "redmagic-representative-api36": {
+      "run": 41600059461,
+      "test_source": "e3d7c45aa45e9187b13c3a5d18d5392a9cfde4d6",
+      "artifact": 13214403030,
+      "tests": 6,
+      "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0"
+    }
+  },
+  "native_case_evidence": {
+    "application_source": "51a0819552a1b8d6c888cb273057f50dc79f2635",
+    "application_run": 41596335602,
+    "application_rebuilt": false,
+    "application_sha256": "e87a7f17739f30acebd84d938a98da6c9b0f033e1c4a462542b2d44bb6d677a0",
+    "native_job": 125796427733,
+    "passed_cases": 71,
+    "single_successful_invocation": false,
+    "case_sources": [
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "menusSurviveSceneRecreationAndNarrowActionsStayInsideTheirWindow",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "validationEmptyHistoryGroupedAndReportMessagesSurviveWithoutRepeatingActions",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "arcanaItemDescriptionsRequireKnownEquippedRingsAndFitWindows",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "textAndGuideScrollSurviveRepeatedResetsAndClampAfterResize",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "privacySubflowsRestoreExactLocalStateWithoutQueueingOrSending",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "tourChoicesSurviveWithoutStartingATourOrRepeatingTheOffer",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "name": "demoUnlockKeepsTenRunNoticeVisibleOnTitle",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdDeviceTimingTest",
+        "name": "uimsdIsFastEnoughOnThisDevice",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "name": "warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "name": "menuBackReachesAResponsiveTitleWithoutHalfSecondWaits",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "name": "homeTextKeepsItsWordsAndFitsOversizedTokens",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "name": "journalTabChangesKeepTheSameSceneAndOnlyReplaceTheCurrentTab",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "name": "backWalksBackwardsOneStepPerPress",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "name": "ordinarySettingsBackClosesOnlyTheWindowWithoutRebuildingTheScene",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "name": "aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "name": "tileVisibilityAndStairNavigationKeepNormalTurnsFogAndControls",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "name": "aWonRunIsRecordedAsWonAndSealed",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "name": "clericQuickCastsPersistAndKeepNormalCostsAndTargeting",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "name": "difficultyIsChosenOnTheCharacterScreenAndNotInSettings",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "name": "heroButtonsStayAboveNavigationBarAndRemainSelectable",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "name": "clericLoreFirstRunPopupIsVisibleAndBackContinuesExactlyOnce",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "name": "clericStartsWithoutPrivateFeatureFlagInsteadOfShowingBlackScreen",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "name": "navigationOverlapReservesVisibleBarsEvenWithFullscreenRequested",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "name": "categorizedSettingsPreserveControlsAndRespondOnSmallScreens",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "name": "grudgeControlsRespondToActualTouches",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "name": "communityMenuOpensEveryPreviewAndReturnsWithoutStackingWindows",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "name": "adultHumorControlWorksWithoutAnAgeProviderAndReopensWithSavedChoice",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AboutDeviceTest",
+        "name": "offlineNewsCardsOpenDatedSpritePopups",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AboutDeviceTest",
+        "name": "everyAboutPopupOpensScrollsAndCloses",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.AboutDeviceTest",
+        "name": "aboutFoundingStatementAndPopupFollowAdultHumorOnEveryOpening",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdScreensDeviceTest",
+        "name": "everyUimsdScreenAndDialogCanBeBuilt",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResourcesDeviceTest",
+        "name": "replacingHomeContentsDisposesPreviouslyDrawnImages",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ChangesVisualDeviceTest",
+        "name": "playerReleaseNotesAreCompactBrandedAndEveryChangeOpens",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ChangesVisualDeviceTest",
+        "name": "categoriesUseSpdColumnsAndEveryIconOpensItsExactBuildPopup",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ChangesVisualDeviceTest",
+        "name": "largeAndNamedHistoricalBuildsKeepAllIconsInScrollableNativeSections",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ReleaseNotesNavigationDeviceTest",
+        "name": "nativeTouchSwitchesHistoryModesAndSystemBackReturnsToAboutWithoutLosingRecords",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "noticeStaysAboveUsableControlsAndDoesNotChangeLockedRunOrScores",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "equipmentControlAcceptsTouchAndSavesOnlyNextRunPreferences",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "liveMultipliersMatchEveryPositionAndUpdateDuringNativeDragBeforeRelease",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "touchscreenSliderGesturesLockDirectionAndPreserveDraftAndSavedRules",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "scoringVisionPopupOpensScrollsAndBackPreservesDraftOnSmallScreens",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "allEighteenControlsAcceptNativeTouchSaveAndReopenWithoutChangingActiveRun",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "name": "healingConversionSettingExplainsItsExactScopeWithoutChangingSavedValue",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.TopScoresDeviceTest",
+        "name": "androidTopScoresOpensOriginalRankingsAndBackPreservesStoredHistory",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomScoreDeviceTest",
+        "name": "dailyCalendarShowsFrozenLongEarnedScoreWithoutOverlappingDates",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.CustomScoreDeviceTest",
+        "name": "nativeScorePopupsShowRecordedNeutralPendingAndUnknownThenCloseWithAndroidBack",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.TitleMenuLayoutDeviceTest",
+        "name": "titleControlsStaySeparateAndNativeChangesAndHideUiRemainUsable",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ClassSaveSlotsDeviceTest",
+        "name": "sixClassesOpenTwentyScrollableSaveRows",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.PileExaminationDeviceTest",
+        "name": "hugePileScrollsAndRealTouchOpensSelectedItemDescription",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdSearchDeviceTest",
+        "name": "searchDialogOpensNativePickerAndRowTouchOpensOnlyTheChosenTable",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdSearchDeviceTest",
+        "name": "exactQuestionSavesAndReopensThroughNativeMenus",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdColumnsModalDeviceTest",
+        "name": "sortingThroughNativeMenusKeepsRightHandColumnAndDirectionVisible",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdColumnsModalDeviceTest",
+        "name": "multipleColumnTapsRemainAboveTableUntilDone",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdColumnsModalDeviceTest",
+        "name": "evidenceBackRestoresEachTableAndSurvivesSceneRecreation",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdChartDeviceTest",
+        "name": "chartMeasureTouchesScrollRestoreAndGroupDetailsPreserveTheQuery",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "runDnaNativeMetricsAndSourceRunAreInspectable",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "automaticDiscoveryOpensTheActualContributingGroup",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "investigationPinsTwoPopulationsAndDrillsIntoTheChosenSide",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "comparableProgressCapturesExactCohortsAndOpensContributors",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "recordedEquipmentWindowSurvivesReloadAndOpensExactDamage",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "recordedDamageRecoveryWindowSurvivesReloadAndRowAction",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "recordedDeathContextShowsFinalAndRevivedEvidenceFromRealHistory",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "namedExperimentPersistsReevaluatesFutureRunsAndKeepsExactEvidence",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "name": "luckLaboratoryUsesMatchedPeerEvidenceAndKeepsScores",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.LootScrollDeviceTest",
+        "name": "bothScrollsReadThroughNativeItemButtonsAndShipmentSurvivesContinue",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.DiagnosticReportDeviceTest",
+        "name": "actualReportButtonSavesDeviceEvidenceAndMenusSurvivePauseResume",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ProgressionTooltipsDeviceTest",
+        "name": "resourceTooltipsShowExactPairsAndKeepActionsVisibleForNewAndLegacyHistory",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest",
+        "name": "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.HealingSettingsDeviceTest",
+        "name": "continuingOlderRunAdoptsZeroWithCrystalsAndPreservesItsItemsAndScore",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.ScaleChangeDeviceTest",
+        "name": "nativeTapQueuedDuringTitleBuildIsDiscardedButFreshTapWorks",
+        "run": 41596335602
+      },
+      {
+        "class": "com.shatteredpixel.shatteredpixeldungeon.android.HealingSettingsDeviceTest",
+        "name": "actualSettingsChooserSavesThresholdAndGatesRealPotionUse",
+        "run": 41600059461
+      }
+    ]
+  },
+  "native_test_source": "e3d7c45aa45e9187b13c3a5d18d5392a9cfde4d6",
+  "profile_overrides": {
+    "redmagic-representative-api36": {
+      "run": 41600059461,
+      "artifact": "apd-healing358-api36",
+      "test_source": "e3d7c45aa45e9187b13c3a5d18d5392a9cfde4d6"
+    }
+  },
+  "original_stale_assertion_runs": [
+    41596335602,
+    41596335585,
+    41596519859
+  ],
+  "retained_fixture_failure_runs": [
+    41598151553,
+    41598151808
+  ],
+  "retained_runner_failure_runs": [
+    41599309031
+  ],
+  "physical_phone_verified": false,
+  "owner_requested_behavior": "Tap Off to turn On immediately; tap On to turn Off, without a slider or Save",
+  "root_cause": "Previous Off option was one-way and only wrote disabled(-1); it was not a toggle",
+  "enabled_value": 0,
+  "disabled_value": -1,
+  "application_rebuilt_for_test_corrections_or_publication": false,
+  "independent_local_download_hashes_verified": true,
+  "fallback357_asset_ids_names_digests_unchanged": true,
+  "delivery_trigger": "Explicit owner toggle correction; not a scheduled invocation",
+  "release_links_ready_for_owner_final_response": true
+}

@@ -1,0 +1,86 @@
+{
+  "number": 374,
+  "source_commit": "9041b7a155f97def09648b4d277996cab0f72c58",
+  "tag": "apd-alpha-preview-374",
+  "preparation_run": 42426299732,
+  "delivery_run": 42427095094,
+  "delivery_job": 128567588295,
+  "prepared_artifact": 13595389716,
+  "prepared_artifact_sha256": "0892b42eb47cdbc2ddd6e56e6931961161a8c5810655ba9926cbd73c19f94bf6",
+  "native_artifacts": {
+    "Developer": 13594854485,
+    "Alpha_Testers": 13595911450
+  },
+  "published_utc": "2026-11-07T23:51:55Z",
+  "receipt_recorded_utc": "2026-11-07T23:53:07.705039+00:00",
+  "link_delivery": "Both actual direct APK links sent in this active task commentary after independent completed downloads and checksum verification; exact message timestamp not available.",
+  "scheduled_invocation": false,
+  "core_tests": 2954,
+  "core_suites": 451,
+  "android_emulator_tests": 10,
+  "physical_phone_verified": false,
+  "downloaded_back_verified": true,
+  "independent_local_downloads": "/workspace/apd374-delivered",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "96869c0cbf9205a8f22094ead3fd8af45a2395d7dbaa87655eb377a9332c2a43",
+    "Alpha-Testers": "3aca21efe6a123090096d760271491cebf6faff67d9c24d6e9d523316ee46e1d"
+  },
+  "source_sha256": "3b5616507dcc7b754fcc375028dd172d99564645126ffaf495f595e105c25649",
+  "assets": [
+    {
+      "name": "APD-Alpha-Testers-374.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Alpha-Testers-374.apk",
+      "size": 39176061
+    },
+    {
+      "name": "APD-Alpha-Testers-374.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Alpha-Testers-374.apk.sha256",
+      "size": 92
+    },
+    {
+      "name": "APD-Developer-374.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Developer-374.apk",
+      "size": 39176097
+    },
+    {
+      "name": "APD-Developer-374.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Developer-374.apk.sha256",
+      "size": 88
+    },
+    {
+      "name": "APD-Preview-374-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Preview-374-Verification.json",
+      "size": 4304
+    },
+    {
+      "name": "APD-Source-374.zip",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Source-374.zip",
+      "size": 72672333
+    },
+    {
+      "name": "APD-Source-374.zip.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Source-374.zip.sha256",
+      "size": 85
+    },
+    {
+      "name": "APD-Source-Scan.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-374/APD-Source-Scan.json",
+      "size": 28360
+    }
+  ],
+  "published_nov7_apks": 10,
+  "published_nov7_variants": {
+    "Developer": 5,
+    "Alpha_Testers": 5
+  },
+  "created_nov7_apks": 12,
+  "created_nov7_variants": {
+    "Developer": 7,
+    "Alpha_Testers": 5
+  },
+  "quota_correction": "Owner limit referred to releases. Two internal Developer trap test APKs had previously been conflated with published delivery. This is fifth/final released pair today.",
+  "unchanged_gameplay": true
+}

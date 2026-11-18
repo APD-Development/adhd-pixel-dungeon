@@ -1,0 +1,24 @@
+{
+  "number": 346,
+  "source": "0d938a994359b6a0e5cb2533b1207d5722df6cab",
+  "developer": 41520122020,
+  "player": 41520122195,
+  "display": 41520121601,
+  "native": 41523673215,
+  "core_tests": 2287,
+  "android_tests": 69,
+  "visual_review": {
+    "qol-searched-wall.png": "cc15880276c34ed59350893e9a52cdaae9847d3b580d9730444b8d88bab11c98",
+    "qol-sharpshooting-weapon.png": "8456f221cef2baff92fe230873c9242d642fa34dff5a53114d8bed0844c2b056",
+    "qol-offline-license.png": "5c2f37d43e70c3b9cb38e038d1c21e14f1e8f6aea1f91cd40650cd29dbdfd75d",
+    "qol-dew-settings.png": "9011c4d4c69c10f2ca457bc701b33d5b21ab410a88e67751b796b00080d02997",
+    "qol-force-weapon.png": "dec5b29903366df4309b1249f6e5e5c2b6deb6a578616476199ae67ba71ccd69"
+  },
+  "delivery_attempt": 3,
+  "previous_delivery_failure": {
+    "run": 41524810346,
+    "reason": "GitHub CLI refused ANSI escape sequences in the actual job console; raw logs are parsed after ANSI removal"
+  },
+  "draft_release_id": 431975450,
+  "draft_lookup_failure_run": 41526069371
+}

@@ -1,0 +1,144 @@
+{
+  "build": 266,
+  "status": "verified_and_staged_private_candidate",
+  "application_source": "09ba71aab8fd2cb426679add9c9d0ed2e4d72fb7",
+  "workflow_source": "e678d38c4c34bc755ed0cd501f7f44c88bc3c465",
+  "run": 39011090870,
+  "run_conclusion": "success",
+  "started_at": "2026-10-17T06:45:29Z",
+  "completed_at": "2026-10-17T06:58:21Z",
+  "core": {
+    "artifact_id": 12093435040,
+    "digest": "sha256:622ab3528f77885316f2b67301b503934ff5e02a2b0d4ad52ca12692ab33e5d6",
+    "bytes": 827204,
+    "suites": 350,
+    "tests": 1773,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "artifact_id": 12092578601,
+    "digest": "sha256:a2c6e6b53b9f8e55eb03b2303f37631c39c8e3f2d7c94fdb54683a08e17c42df",
+    "bytes": 4954720,
+    "suites": 14,
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "required_images": 57,
+    "image_dimensions": "320x640",
+    "images_reviewed": true
+  },
+  "apk": {
+    "artifact_id": 12093171647,
+    "digest": "sha256:f36abd07421e078440e01de0d331ea349fbea24e3ab22abd59b84ba102183afd",
+    "artifact_bytes": 36102835,
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-266.apk",
+    "bytes": 38592446,
+    "sha256": "7ba0bf6d2d93fb2e4c7b27cf6caf718e3c74e960abfa0274d434c9869089674c"
+  },
+  "regression": {
+    "test_class": "QuestionsTest",
+    "methods": 9,
+    "new_methods": [
+      "turningOffHiddenDetailsRemovesOnlyInternalQuestionParts",
+      "staleHiddenSelectionsCannotDisagreeWithTheAnswer"
+    ]
+  },
+  "failed_precursor": {
+    "build": 265,
+    "run": 39010922142,
+    "conclusion": "failure",
+    "reason": "complete-history ledger omitted 11 intervening paths; failed closed before compile",
+    "apk_created": false
+  },
+  "display": {
+    "run": 39011090883,
+    "conclusion": "failure",
+    "jobs_passed": 4,
+    "jobs_failed": 1,
+    "passed": [
+      "short-landscape",
+      "small-virtual",
+      "compact-virtual",
+      "square-virtual"
+    ],
+    "failed": {
+      "profile": "m53-representative",
+      "job_id": 117333591533,
+      "reason": "TitleMenuLayoutDeviceTest timed out waiting for the native title condition; non-PNG placeholder retained"
+    },
+    "artifacts": [
+      {
+        "id": 12093380074,
+        "name": "apd-title-display-small-virtual",
+        "digest": "sha256:2a8e04f202b4b91723c0c6676d1f864b3589251e24dcdb9efd3c776642765b6b"
+      },
+      {
+        "id": 12093007679,
+        "name": "apd-title-display-compact-virtual",
+        "digest": "sha256:9dfeffdcb13b57f51c57ca66ce39fdf86c2ff4ea866102cb1fca5c6c44cc024b"
+      },
+      {
+        "id": 12092863312,
+        "name": "apd-title-display-short-landscape",
+        "digest": "sha256:7ca24fb52a3122c1e8f1d170bd130fcf24215f927c0a9a03744bb9de86e642a6"
+      },
+      {
+        "id": 12092543293,
+        "name": "apd-title-display-m53-representative",
+        "digest": "sha256:b834c90471190c043502d0505190a77f348e5a6001c96438c3c03972c31edd38"
+      },
+      {
+        "id": 12092229631,
+        "name": "apd-title-display-square-virtual",
+        "digest": "sha256:42a9fcdfd6206d42cec004c0d7b72a2862896ec55e22090c155e89d8d4125b83"
+      }
+    ]
+  },
+  "stale_stage": {
+    "run": 39011090988,
+    "attempts": 2,
+    "conclusion": "failure",
+    "reason": "preparation profile still pinned TEST264",
+    "artifact_created": false,
+    "publication": false
+  },
+  "latest_published_owner_build": 262,
+  "preceding_staged_build": 264,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "automatic_tester_distribution": false,
+  "publication": false,
+  "all_backlog_complete": false,
+  "staging": {
+    "run": 39012540034,
+    "conclusion": "success",
+    "wrapper_source": "d5e3a87c0cb7ef128818973bac7fe890fc92c7de",
+    "started_at": "2026-10-17T07:08:51Z",
+    "completed_at": "2026-10-17T07:09:39Z",
+    "application_rebuilt": false,
+    "staged_preview": {
+      "artifact_id": 12093094377,
+      "bytes": 44528550,
+      "digest": "sha256:629a784f55e062513fca5cf9b2d4f82d36e738f87942ee686661c754f905827a"
+    },
+    "staged_evidence": {
+      "artifact_id": 12093755910,
+      "bytes": 8426017,
+      "digest": "sha256:1e3bfd3d660b0b36e0c040faa7d79311417a2f51a6121877cd55e695b3042336"
+    },
+    "apk_bytes": 38592446,
+    "apk_sha256": "7ba0bf6d2d93fb2e4c7b27cf6caf718e3c74e960abfa0274d434c9869089674c",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_name": "4.0.8-apd-INDEV-bC266-TEST",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_matches_latest_published_owner_build": true,
+    "install_over_version_compatible": true,
+    "cleric_lore_feature_marker_verified": true,
+    "required_screenshots_verified": 57,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  }
+}

@@ -1,0 +1,3 @@
+Changes	V061_BUGFIX	Reject stale UIMSD load completions	Give each background catalogue load a generation so an older success or failure cannot replace newer READY state.
+Testing	ICON_CHECKED	Force the stale handoff order	Retain a monitor-controlled regression that installs newer state before releasing the older loader, without timing assumptions.
+Development	V061_PAGE	Record TEST215 evidence and the exact TEST216 gate	Preserve verified TEST215 evidence and request one full gate for the bounded UIMSD lifecycle correction.

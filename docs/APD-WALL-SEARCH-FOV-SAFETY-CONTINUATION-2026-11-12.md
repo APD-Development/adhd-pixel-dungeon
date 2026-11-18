@@ -1,0 +1,13 @@
+# APD wall-search incomplete visibility guard, November 12, 2026
+
+## Verified source-only work
+
+Check the live GitHub branch head, AGENTS.md, newer handoffs, workflows and releases before doing more work. This bounded fix started from verified development branch `a7ccb60cfa096683427e7835b165c3d0694e6166` and was merged via [PR #13](https://github.com/APD-Development/ShieldingShouldHaveWorked/pull/13) as `a918adb5a3167555a32ccdc8575e946a4ba7dc03`.
+
+Production commit `6ee3e9aeae2a93da2737c27a7fc40c121524500e` changes only `WallSearchSession`: the ordinary covers check fails safely if `level.heroFOV` is null or truncated before the requested cell; explicit already-observed Foresight keeps its existing bypass. A selected saved-wall target also fails safely for null/truncated hero FOV and does not clear previously remembered progress. For complete FOV, search selection and coverage are unchanged. No map reveal, search radius change, turn, save schema, score, balance, class, signing identity, or new mechanic was introduced.
+
+Test commit `6cdf10098016f8f35ef475665dca1882f6cf3881` adds three `WallSearchSessionTest` regressions: absent FOV cannot crash or erase a prior target, a truncated FOV cannot create a new target, and complete FOV plus explicit Foresight keep their established behaviors. Isolated workflow commit `cf3ae72b0e4006933cd21c289d61a651a03da7cc` passed [Actions run 43259061984](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43259061984), job `131325110704`: **3,287 core tests / 471 suites, zero failures/errors/skips**, all three named regressions, desktop classes, and Android debug, release, and instrumentation Java compilation. The raw JUnit artifact is `apd-wall-search-fov-core-results` (ID `13962598051`, SHA-256 `46c7eb8cb9ccf6a2db1e8e617b68a44fe107b5e84794b93a0d4a5dd37681635b`). The PR merge is confirmed by a GitHub readback.
+
+## Release boundary and next work
+
+This was **source-only**. No new signed Developer or Alpha APK was assembled or published during this session. GitHub's published `apd-460` release was read back; tags `apd-461` and `apd-462` were absent when checked. The independent APD461 malformed observed terrain candidate stays in draft PR #6 after its failing Alpha WallGeometry native qualification, with its publication blocked. Do not bypass its native gate, claim an APK from this source work, interfere with that PR, or overwrite historical assets. Reconcile the source scope and original signing identity before any future independently verified APK build and release. Preserve all prior accepted gameplay, save compatibility, scoring, and owner decisions.

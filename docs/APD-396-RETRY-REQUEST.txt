@@ -1,0 +1,2 @@
+Retry all12targeted API34cases against unchanged original d19a99f8d APK396 pair from42565733012. Only Ferret native fixture patched: assert current evasion,50percent and all affected actor groups. Preserve initial failure evidence. No game APK rebuild, no publication until complete verification and actual visual review.
+Retry workflow syntax corrected to block-style artifact inputs; no application builds in the rejected syntax run.

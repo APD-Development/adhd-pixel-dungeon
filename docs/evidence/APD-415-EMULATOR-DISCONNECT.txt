@@ -1,0 +1,12 @@
+Original run42625074280 sourcea52bd33a8868875eb24fa2d0162ba41bdd099b0c, Developer job129189001011.
+Native grid incomplete; not accepted. Original pair and test binary must remain unchanged for fresh all12-case acceptance. No confirmed physical-phone issue or root-cause claim.
+2026-11-09T13:29:32.2448004Z The process '/usr/local/lib/android/sdk/platform-tools/adb' failed with exit code 1
+2026-11-09T13:29:34.2576491Z The process '/usr/local/lib/android/sdk/platform-tools/adb' failed with exit code 1
+2026-11-09T13:29:36.2773153Z The process '/usr/local/lib/android/sdk/platform-tools/adb' failed with exit code 1
+2026-11-09T13:41:19.9819772Z Verified actual terminal instrumentation result: grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively
+2026-11-09T13:41:42.4936783Z Verified actual terminal instrumentation result: a_controlWritesEnabledPreference
+2026-11-09T13:41:48.2591188Z Verified actual terminal instrumentation result: b_freshProcessReadsEnabledAndCanDisable
+2026-11-09T13:42:35.3153525Z error: closed
+2026-11-09T13:42:35.3283647Z ##[error]The process '/usr/bin/sh' failed with exit code 1
+2026-11-09T13:42:35.3386726Z error: could not connect to TCP port 5554: Connection refused
+2026-11-09T13:42:35.3406631Z The process '/usr/local/lib/android/sdk/platform-tools/adb' failed with exit code 1

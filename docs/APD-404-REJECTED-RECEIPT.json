@@ -1,0 +1,43 @@
+{
+  "draft": {
+    "assets": [
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726865926",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T09:10:50Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rUxgG",
+        "label": "",
+        "name": "APD-404-Rejected-Native-Evidence.zip",
+        "size": 2112804,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T09:10:50Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/untagged-e8834daf07338197ed9a/APD-404-Rejected-Native-Evidence.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726865756",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T09:10:46Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rUxdc",
+        "label": "",
+        "name": "APD-404-UNVERIFIED-Original-APKs.zip",
+        "size": 73268736,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T09:10:49Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/untagged-e8834daf07338197ed9a/APD-404-UNVERIFIED-Original-APKs.zip"
+      }
+    ],
+    "isDraft": true,
+    "tagName": "apd-alpha-preview-404"
+  },
+  "accepted": false,
+  "published": false,
+  "original_build_run": 42588965986,
+  "preservation_run": 42591322817,
+  "source_commit": "3b247dec53962815ff9895998285d268b28eaaad",
+  "reason": "Both new Holy UI fixtures asserted viewport coordinates before first render; no production defect/fix inferred. Unchanged assertions moved after rendering for405original-pair test-only retry.",
+  "original_apks_preserved": true,
+  "original_apks_rebuilt": false,
+  "current_verified_release": 403
+}

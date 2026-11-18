@@ -1,0 +1,286 @@
+{
+  "schema": 1,
+  "review_date": "2026-11-11",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "verified_start_commit": "31e66d6c5bb9f8602f97dd051ec6d8f45c7929f3",
+  "scope": "Bounded ordinary Rogue/Huntress/Duelist rank-number and central activation/branch facets; not closure of the entire talent audit.",
+  "review_context": [
+    "AGENTS.md",
+    "docs/WORK-COMPLETED-LEDGER.md (latest header and appended November 10 entries)",
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT-PROGRESS.md",
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT.json",
+    "docs/APD-MECHANICS-DESCRIPTION-AUDIT.json",
+    "docs/APD-CALCULATIONS-SCOPE-AUDIT-2026-11-07.md",
+    "docs/APD-ROGUE-TALENT-SOURCE-2026-11-10.json"
+  ],
+  "exclusions": [
+    "Counter Ability, Feigned Retreat, Expose Weakness",
+    "Completed all-19 armor-ability review",
+    "Cursed Wand and unresolved owner panel decisions",
+    "Already-completed meals, Cached Rations/Rogue Foresight, Combined Lethality/Swift Equip/Varied Charge/Twin Upgrades, Aggressive Barrier/Shielding Dew/Searing Light/Weapon Recharging, Barkskin/Natures Aid/Followup Strike/Projectile Momentum/Shared Enchantment/Shared Upgrades"
+  ],
+  "facets": [
+    {
+      "hero_class": "Rogue",
+      "talent": "SUCKER_PUNCH",
+      "finding": "Talent.onAttackProc: first surprise hit adds random 1-2 damage at rank 1 or 2 at rank 2; per-enemy tracker prevents repetition.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:885"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "PROTECTIVE_SHADOWS",
+      "finding": "While invisible, accumulates 0.5 * rank shield per update, capped at 1 + 2 * rank (3/5); a stronger existing Barrier is retained.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:224"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "INSCRIBED_STEALTH",
+      "finding": "Scroll path offers factor * (1 + 2 * rank) invisibility, giving factors 3/5 at ranks 1/2.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:770"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "WIDE_SEARCH",
+      "finding": "Search radius increases by one; rank 1 uses rounded search and rank 2 square search.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java:2705"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "SILENT_STEPS",
+      "finding": "Sleeping enemy wake check is prevented at distance >= 4 - rank: 3 tiles at rank 1, nonadjacent at rank 2.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Mob.java:1241"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "ENHANCED_RINGS",
+      "finding": "Artifact-use handler prolongs the boost by 3 * rank turns: 3/6/9.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:808"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "LIGHT_CLOAK",
+      "finding": "Unequipped cloak charging factor is 0.75 * rank / 3: 25/50/75%; alternate Ring of Energy multiplier adds 0.2 * rank / 3, matching rounded 7/13/20% text.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/CloakOfShadows.java:185",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/CloakOfShadows.java:249",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/rings/RingOfEnergy.java:80"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "ENHANCED_LETHALITY",
+      "finding": "Strictly below the rank/preparation threshold is correct: rank 1 4/13/27/67%, rank 2 5/17/33/83%, rank 3 6/20/40/100%; bosses use one fifth of those thresholds.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Preparation.java:82",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Preparation.java:109"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "ASSASSINS_REACH",
+      "finding": "Stored blink ranges match ordinary text: 1/3/4/6, 2/4/6/8, 2/5/7/10 tiles.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Preparation.java:98"
+      ]
+    },
+    {
+      "hero_class": "Rogue",
+      "talent": "SPEEDY_STEALTH",
+      "finding": "Demonstrated ordinary-description omission: +2 invisible stacks require inactive freerunning and no remaining cooldown and cap at 10. Rank 2 pauses active freerunning while invisible; rank 3 supplies 2x speed outside freerunning.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Momentum.java:65",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Momentum.java:119"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "NATURES_BOUNTY",
+      "finding": "Lifetime berry allowance is 2 + 2 * rank minus berries already dropped: 4/6.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/features/HighGrass.java:97"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "REJUVENATING_STEPS",
+      "finding": "Trigger cooldown is 15 - 5 * rank: 10/5. Regeneration-disabled or accumulated furrow counter >= 200 produces furrowed grass; otherwise counter increases by 3 - rank.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java:1230"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "HEIGHTENED_SENSES",
+      "finding": "Mind-vision enemy distance is 1 + rank: 2/3 tiles; neutral stealthy mimics and objects are excluded.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java:1479"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "DURABLE_PROJECTILES",
+      "finding": "Expected durability uses multiply by 1.25 + 0.25 * rank: 1.5/1.75 before later durability rounding.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/missiles/MissileWeapon.java:483"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "POINT_BLANK",
+      "finding": "Actual adjacent accuracy factor is 0.5 + 0.25 * rank: 0.75/1/1.25; nonadjacent factor is 1.5.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/missiles/MissileWeapon.java:239"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "SEER_SHOT",
+      "finding": "5/10/15-turn reveal and 20-turn cooldown match formulas, but the alternate thrown-weapon creation path omitted the existing branch field. Real branch-1 FOV failure reproduced separately.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/missiles/MissileWeapon.java:284",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/SpiritBow.java:494",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/RevealedArea.java:38",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java:1548"
+      ]
+    },
+    {
+      "hero_class": "Huntress",
+      "talent": "DURABLE_TIPS",
+      "finding": "Tipped-dart durability usage divides by 1 + rank, giving 2x/3x/4x before expected-use rounding.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/missiles/darts/TippedDart.java:191"
+      ]
+    },
+    {
+      "hero_class": "Duelist",
+      "talent": "PATIENT_STRIKE",
+      "finding": "Waiting records position; movement removes the tracker; the next qualifying non-thrown strike adds random rank..2 damage and consumes it.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java:1654",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:268",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:909"
+      ]
+    },
+    {
+      "hero_class": "Duelist",
+      "talent": "PRECISE_ASSAULT",
+      "finding": "Weapon ability grants the existing tracker with hero cooldown + 4; qualifying next melee accuracy factors are 2/5/infinite at ranks 1/2/3.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/melee/MeleeWeapon.java:196",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java:555",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java:590"
+      ]
+    },
+    {
+      "hero_class": "Duelist",
+      "talent": "UNENCUMBERED_SPIRIT",
+      "finding": "Each eligible equipped armor/melee item contributes 0.5/0.75/1 energy by tier 3/2/1 and learned rank; unarmed or active Ring of Force excludes the weapon contribution. Rank 3 grants cloth armor and gloves.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/MonkEnergy.java:173",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java:558"
+      ]
+    },
+    {
+      "hero_class": "Duelist",
+      "talent": "COMBINED_ENERGY",
+      "finding": "Energy ability threshold is 5 - rank: 4/3/2. Either pairing order within the existing 5-turn tracker refunds one energy, capped at capacity.",
+      "handler_references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/MonkEnergy.java:223",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/MonkEnergy.java:246",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/melee/MeleeWeapon.java:219"
+      ]
+    }
+  ],
+  "speedy_stealth": {
+    "issue": "Normal +1 text omitted activation conditions and cap already enforced by Momentum.act.",
+    "replacement_plus_one": "_+1:_ While invisible, the Freerunner gains 2 stacks of momentum per turn, up to 10, when freerunning is inactive and off cooldown.",
+    "root_owns_description_edit": true,
+    "rank_two_and_three_unchanged": true,
+    "existing_actual_handler_tests": [
+      "momentumDescriptionMatchesActualRunPauseCooldownAndArmorContribution",
+      "momentumStationaryLossAndInvisibleSpeedDoNotPromiseFreeRunEvasion"
+    ],
+    "test_file": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java",
+    "evidence": "The stationary test runs Momentum.act while invisible at rank 3, starting with 10 stacks and cooldown 3; it expects 7 stacks and cooldown 2. This contradicts unconditional +2 stacks while invisible.",
+    "new_redundant_text_test_added": false
+  },
+  "seer_shot": {
+    "issue": "Fresh alternate thrown-weapon reveal defaults branch to 0 even on branch 1; Level.updateFieldOfView filters it out and the cooldown still starts.",
+    "authorized_change": "Add a.branch = Dungeon.branch after a.depth in MissileWeapon.onThrow, matching SpiritBow.",
+    "existing_save_fields_unchanged": [
+      "branch",
+      "depth",
+      "pos"
+    ],
+    "new_test_class": "com.shatteredpixel.shatteredpixeldungeon.apd.SeerShotBranchBindingTest",
+    "new_test_methods": 5,
+    "baseline": {
+      "directory": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-seer-baseline-v2",
+      "compiled_main_files": 1718,
+      "compiled_test_files": 492,
+      "tests": 5,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "actual_failure": "branch 1, rank 1, cell 98 expected true but was false",
+      "test_assertion": "actual Level.updateFieldOfView after real MissileWeapon.onThrow"
+    },
+    "fixture_limit": "Headless LandingKnife uses existing spawnedForEffect flag to skip only the final Item.onThrow heap/sprite drawing tail; Seer Shot handler and field-of-view calculation are real.",
+    "controls": [
+      "Branch 0 all three ranks and exact 3x3-only added visibility",
+      "5/10/15-turn reveal and 20-turn cooldown",
+      "Save/restore of reveal followed by foreign branch and depth FOV rejection",
+      "Active cooldown retains old reveal position/branch and remaining times",
+      "Unlearned talent, Huntress ordinary thrown weapon, and occupied hero cell do not trigger alternate effect"
+    ],
+    "fixed_source_sha256": "aecb5e9656b0a7c2c0a7d9bb4ecd928d0ef636eb4e2231fbe8b5e3c1153b80fe",
+    "fixed_run": {
+      "directory": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-fixed-source",
+      "targeted_summary": {
+        "suites": 1,
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 0.258,
+        "fresh_current_source": true
+      },
+      "test_source_unchanged_from_failing_baseline": true,
+      "test_source_sha256": "7e80458a4c1d96daef6482c88e08058e088efc8a137bd16dba0b0fe37c9b72b6",
+      "full_suite": {
+        "suites": 464,
+        "tests": 3197,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 48.428,
+        "fresh_current_source": true
+      },
+      "full_raw_xml_directory": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-fixed-source/full",
+      "actors_properties_sha256": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+      "compiled_main_files": 1718,
+      "compiled_test_files": 492,
+      "dependency_jars": 9,
+      "fresh_production_and_test_classes_only": true
+    },
+    "initial_fixture_compile_error_preserved": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-seer-baseline/test-compile.log",
+    "native_acceptance": "Parent assigned another agent the native throw/FOV/map capture fixture; no Android execution claimed by this record."
+  },
+  "remaining_limits": [
+    "No gameplay or balance formula change proposed by the description audit.",
+    "No full talent-completion claim; unreviewed modifiers and unrelated branches remain outside this bounded record.",
+    "No GitHub mutation or APK build/delivery by this child agent."
+  ]
+}

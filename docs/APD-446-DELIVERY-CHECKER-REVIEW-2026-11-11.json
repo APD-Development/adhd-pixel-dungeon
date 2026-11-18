@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-11T19:18:57.193004+00:00",
+  "reviewer": "/root/apd_lineage",
+  "status": "bounded_v2_review_passed_no_concrete_blocker",
+  "new_checker": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovered-delivery-check-v2.py",
+    "bytes": 49387,
+    "sha256": "8500e97c2a04c472f3435bd4e9cac2ceb8e6d7504c7ea5b8e9db5b2f4a392828"
+  },
+  "unchanged_original_checker": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovered-delivery-check.py",
+    "bytes": 49043,
+    "sha256": "f32cf18eab70225772886b9f1593393c570224ea35b86afb61fc3a4d4101f0e2"
+  },
+  "preserved_failed_log": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/root-delivery-check-attempt-1.log",
+    "bytes": 535,
+    "sha256": "5797fa99479c53ecfba0a21ed70af9aa2a0f85fd40ee185e03935583bae62135"
+  },
+  "reviewed_correction_receipt": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/recovered-delivery-check-v2-correction.json",
+    "bytes": 3385,
+    "sha256": "17910af1d2bb4295bc51eacd3d2f5ca8d775465d4aadbe6da9678a11d02ee920"
+  },
+  "exact_patch": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/recovered-delivery-check-v2.patch",
+    "bytes": 1691,
+    "sha256": "c44a5e2bd0bbd5aaa42d76f9f31b41acac70d210c7439ce2bd44eee445cf4a6e"
+  },
+  "actual_owner_metadata_file": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-446-Recovery-Artifact-Provenance.json",
+    "bytes": 29578,
+    "sha256": "c7ce27718ba7ae2dd1503026ea69440bab156bd3632187918e99247c5f0cc37f"
+  },
+  "actual_terminal_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/snapshot-2026-11-11T19-15-26-662Z.json",
+    "bytes": 27783,
+    "sha256": "510c038e02f8b4125acf31345dee78a4993f2105a495b1e37642985592532050"
+  },
+  "actual_artifact_id": 13885533674,
+  "actual_producer_job_id": 130745915426,
+  "actual_metadata_differences": {
+    "node_id": {
+      "owner_present": true,
+      "snapshot_present": false,
+      "owner": "MDg6QXJ0aWZhY3QxMzg4NTUzMzY3NA==",
+      "snapshot": null
+    }
+  },
+  "findings": [
+    "Reversing exactly the helper insertion and the single metadata-equality call yields byte-for-byte original v1 source; no other acceptance checks changed.",
+    "The actual captured dictionaries differ only because owner metadata contains node_id and the terminal snapshot omits it. Every other field, including nested workflow identity, equals exactly, and both producer job IDs are 130745915426.",
+    "The helper copies both dictionaries before dropping only node_id when either response omits that optional field. Both-present node_id remains subject to exact equality. Every other key and nested value stays strict.",
+    "The saved seven focused checks cover the actual omission in both argument orders, equal and conflicting node IDs, and incorrect artifact ID, digest and source. Their reported outcomes all match the required outcomes. Those checks were reviewed, not rerun.",
+    "Original v1 and its failed attempt log match their preserved hashes. This is a local checker schema correction, not an application, SDK, native-test or artifact failure."
+  ],
+  "focused_checks_reviewed": [
+    {
+      "name": "actual owner node_id with terminal API omission",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "same actual omission with argument order reversed",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "both present and equal",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "both present but conflicting node_id",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "artifact ID mutation rejected",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "archive digest mutation rejected",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "producing source mutation rejected",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "full_checker_executed": false,
+  "focused_checks_rerun": false,
+  "game_sdk_core_or_native_tests_rerun": false,
+  "repository_or_remote_mutation": false,
+  "mechanical_delivery_acceptance_claimed": false
+}

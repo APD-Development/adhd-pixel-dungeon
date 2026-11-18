@@ -1,0 +1,36 @@
+{
+  "recorded_at_utc": "2026-11-11T15:01:00.742226+00:00",
+  "scope": "One additional read-only ordinary-description facet while APD442 verification runs: Necromancers Minions displayed rank chances. This does not close the whole talent audit or its eligibility/interactions.",
+  "selection": "Current inventory retains ordinary talents as partial. No individually completed normal Necromancers Minions rank-chance review was found in the current progress, ledger or description records. Existing expanded-provider wording was not changed or reimplemented.",
+  "ordinary_source": "core/src/main/assets/messages/actors/actors.properties:1039",
+  "handler_source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Mob.java:1037-1047",
+  "handler_threshold": "Random.Float() < (0.4f * pointsInTalent(NECROMANCERS_MINIONS) / 3f)",
+  "rank_comparison": [
+    {
+      "rank": 1,
+      "ordinary_percent": 13,
+      "handler_approximate_percent": 13.333333,
+      "nearest_whole_percent": 13
+    },
+    {
+      "rank": 2,
+      "ordinary_percent": 27,
+      "handler_approximate_percent": 26.666667,
+      "nearest_whole_percent": 27
+    },
+    {
+      "rank": 3,
+      "ordinary_percent": 40,
+      "handler_approximate_percent": 40,
+      "nearest_whole_percent": 40
+    }
+  ],
+  "result": "Checked correct as whole-percent rounded displays. The underlying first two probabilities are not exactly 13% and 27%. No numeric discrepancy or production correction is proposed.",
+  "existing_context": "The expanded provider already states the formula and spawn eligibility. The handler requires a soul-marked non-Wraith death and applies Corruption after successful Wraith.spawnAt. Those broader eligibility, spawn-failure and effect interactions are not claimed complete by this narrow rank comparison.",
+  "validation": "Read-only comparison of actual current source. No new test was written or run for this facet, no code changed and no GitHub action taken.",
+  "source_file_sha256": {
+    "core/src/main/assets/messages/actors/actors.properties": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Mob.java": "5aa449a9f928802c78426dd5289004cd10838bc51bbf9c05faa5d97498e05a55",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/mechanics/TalentExplanation.java": "c5799a8965e825105bcb97a2046e2768d3b1bc6b9eb978b6697c4d6ff36b4a12"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-11-09T17:39:04.134693+00:00",
+  "run": 42662501545,
+  "source": "2a98ed3e4d050d2eaa1c34a54a2ca09facde08d9",
+  "core_tests": 3149,
+  "native_cases": 12,
+  "build_and_both_native_jobs": "success",
+  "failure": "Copied packaging check incorrectly rejected compiled421 history, despite approved preservation and explicit build423 history merge. No runtime/native test failed.",
+  "correction": "Require420,421,422 history entries, with423first. Packaging-only recovery uses exact original APKs and complete original native/XML evidence; no app or instrumentation rebuild, no repeated native tests. Original failure and patch retained."
+}

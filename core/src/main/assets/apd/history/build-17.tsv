@@ -1,0 +1,45 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Combat actions	Recorded resolved attacks and damage, including shielding absorption.
+Changes	ICON_INFO	Hunger	Recorded hunger and starvation changes.
+Changes	ICON_INFO	Hero actions	Recorded combat-related experience and the hero death outcome.
+Statistics / UIMSD	ICON_TARGET	Apd Combat	Added the game's entry points for combat and health recording.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected the run recorder to attacks, damage, healing and hunger.
+Statistics / UIMSD	ICON_TARGET	Combat Tracker	Added combat and health recording for one run.
+Statistics / UIMSD	ICON_BACKPACK	Item Tracker	Kept item acquisition attribution consistent with combat loot.
+Statistics / UIMSD	ICON_TARGET	Combat Events	Added encoders and decoders for the combat and health events of telemetry 1.3.
+Statistics / UIMSD	ICON_STATS	Event Types	Registered the combat and health event types with stable recording identifiers.
+Statistics / UIMSD	ICON_STATS	Self Test	Extended on-device self-checks for combat and health recording.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.3.
+Testing	ICON_BACKPACK	Item Hook Wiring Test	Updated automated checks and fixtures for item hook wiring. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test 1	Added a test covering a Recorded Fight Is Identical To An Unrecorded One Including The Next Random Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test 2	Added a test covering a Failing Recorder Does Not Change A Fight Either. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test 3	Added a test covering repeated Failures Switch Combat Recording Off Without Affecting The Game. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test 4	Added a test covering odd Arguments Never Count As Failures. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test 5	Added a test covering combat After The Loaded Save Is An Abandoned Branch And The Load Invents Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test 6	Added a test covering recording A Crowded Fight Is Cheap And Small. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 1	Added a test covering killing A Rat Is Recorded As Attacks Damage A Kill And Experience. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 2	Added a test covering the Truth Behind A Fight Is Internal Only. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 3	Added a test covering a Fight The Player Cannot See Leaves No Public Trace. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 4	Added a test covering the Same Fight Becomes Public Once The Player Can See It. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 5	Added a test covering starvation Eats Shielding First And The Damage Event Shows It. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 6	Added a test covering damage That Would Kill Shows The Hero Hp And The Event Afterwards Does Not Invent A Heal. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 7	Added a test covering healing Is Inferred And Every Heal Is Marked As Inferred. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 8	Added a test covering an Unexplained Hp Loss Is Recorded As Inferred Too. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 9	Added a test covering levelling Up Is A Level Up And A New Maximum But Not A Heal. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 10	Added a test covering shield Gains Are Named By The Shield Effect. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 11	Added a test covering hunger Changes Are Exact And State Transitions Are Recorded. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 12	Added a test covering death And Revival Have Their Own Events. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 13	Added a test covering combat Events Carry The Depth And Cannot Be Mistaken For Another Level. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Telemetry Test 14	Added a test covering an Unrevealed Mimic Is Named As The Chest The Player Sees. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Test Support	Added automated checks and fixtures for combat test support. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Quiet Sprite	Added automated checks and fixtures for quiet sprite. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Events Test 1	Added a test covering every Combat Event Round Trips. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Events Test 2	Added a test covering inferred Events Always Carry The Inferred Flag And Direct Ones Never. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Events Test 3	Added a test covering a Public Damage Event Has No Field For An Enemys Exact Health. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test	Updated automated checks and fixtures for item events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_TARGET	APD-STATS-COMBAT	Added apd-stats-combat accompanying this build.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "number": 445,
+  "status": "passed_pre_native_archive_source_and_original_build_evidence",
+  "verified_at_utc": "2026-11-11T18:01:06.048912+00:00",
+  "source_commit": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "producing_run": 43072342086,
+  "run_attempt": 1,
+  "workflow": ".github/workflows/apd-candidate-445.yml",
+  "retained_api_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/snapshot-2026-11-11T17-59-47-696Z.json",
+    "sha256": "a08e0c7abff0eca859f262c76a9d9fa4446820712ad0f89581da2db1ebfba8ae"
+  },
+  "run_status_at_snapshot": "in_progress",
+  "run_conclusion_at_snapshot": null,
+  "artifacts": {
+    "built_artifact": {
+      "id": 13880080743,
+      "name": "apd445-built-pair",
+      "sha256": "7b6efc1ff834af2bba23df9716477ba0784c6283c4bfddddaf482f20b572b848",
+      "bytes": 184910900,
+      "archive": "/workspace/scratch/db82734c9c44/recovery/apd445-built-artifact-13880080743.zip",
+      "extracted": "/workspace/scratch/db82734c9c44/recovery/apd445-built",
+      "extracted_files_verified": 481
+    },
+    "source_scan_artifact": {
+      "id": 13880340744,
+      "name": "apd445-prepared-source-scan-evidence",
+      "sha256": "88b7178fd4438d100994e9af046e25d88b603e3d03cf97cae5a501003f4e9ffd",
+      "bytes": 11358,
+      "archive": "/workspace/scratch/db82734c9c44/recovery/apd445-source-scan-artifact-13880340744.zip",
+      "extracted": "/workspace/scratch/db82734c9c44/recovery/apd445-source-scan",
+      "extracted_files_verified": 8
+    }
+  },
+  "existing_core_evidence": {
+    "tests": 3244,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": 468,
+    "tests_rerun": false
+  },
+  "original_build_compile_and_abi_evidence": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/build-job-130703240880.log",
+    "sha256": "cb49dcc40af18b47a8c07cba1cb1350a04481701dd1842d70c9168430f81c4c8",
+    "job_id": 130703240880,
+    "download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/jobs/130703240880/logs",
+    "checked_out_source_observed": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+    "required_task_lines": {
+      ":core:test": [
+        "> Task :core:test",
+        "> Task :core:test",
+        "> Task :core:test"
+      ],
+      ":desktop:classes": [
+        "> Task :desktop:classes"
+      ],
+      ":android:compileDebugJavaWithJavac": [
+        "> Task :android:compileDebugJavaWithJavac"
+      ],
+      ":android:compileReleaseJavaWithJavac": [
+        "> Task :android:compileReleaseJavaWithJavac"
+      ],
+      ":android:compileDebugAndroidTestJavaWithJavac": [
+        "> Task :android:compileDebugAndroidTestJavaWithJavac"
+      ]
+    },
+    "successful_compile_invocations": 1,
+    "successful_variant_assembly_invocations": 2,
+    "android_json_abi": [
+      {
+        "phase": "before_assembly",
+        "production_classes": 4156,
+        "distinct_json_references": 38
+      },
+      {
+        "phase": "after_assembly",
+        "production_classes": 4156,
+        "distinct_json_references": 38
+      }
+    ],
+    "local_compilation_or_abi_rerun": false
+  },
+  "original_sdk_signer_and_identity_evidence": {
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "method": "The exact successful frozen-pair check_pair result, its original signing and aapt gates, immutable artifact hashes, and approved helper/workflow bytes are bound here.",
+    "local_sdk_or_signature_verifier_invoked": false,
+    "new_signature_verification_claimed": false
+  },
+  "apk_files": {
+    "Developer": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd445-built/built/owner-delivery/APD-Developer-445.apk",
+      "sha256": "03b76001cb44435f323b95665a26d2b8866f87b81d01af52e8b32bffa75eb787",
+      "bytes": 39206625,
+      "version_name": "4.0.8-apd-INDEV-bC445-TEST",
+      "feature_bytes_utf8": "testBuild\ngrudge\ndemoUnlock\nclericPlayable\n",
+      "asset_count": 934,
+      "previous_apk_sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "previous_history_preserved": true,
+      "changed_predecessor_assets": [
+        "apd/history/index.tsv",
+        "messages/scenes/scenes.properties"
+      ],
+      "added_assets": [
+        "apd/history/codex-test-445.tsv"
+      ]
+    },
+    "Alpha-Testers": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd445-built/built/owner-delivery/APD-Alpha-Testers-445.apk",
+      "sha256": "497e4ca1e2c195c43c08cd7fc32e456ca08d0ef459d9d8e637092dec61570ef9",
+      "bytes": 39206597,
+      "version_name": "4.0.8-apd-INDEV-bP445",
+      "feature_bytes_utf8": "extendedPlayback\ngrudge\n",
+      "asset_count": 934,
+      "previous_apk_sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "previous_history_preserved": true,
+      "changed_predecessor_assets": [
+        "apd/history/index.tsv",
+        "messages/scenes/scenes.properties"
+      ],
+      "added_assets": [
+        "apd/history/codex-test-445.tsv"
+      ]
+    }
+  },
+  "instrumentation_sha256": "27e17427176444a9a8cfa9f2c016457eb21278d349bb4c721200ed441968f3b3",
+  "source_manifest": {
+    "manifest_file_count": 5043,
+    "manifest_sha256": "2681ed5958ccf4d4ed9ed225e5c6e99e32f21c88c62d8eb68b61224ba6a29d1a",
+    "source_sha256": "cce08754cd7ad4ee74eeff0ff5afebe4372e4ad6810eb8d22b23b0e7d46e9ec8",
+    "source_commit": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525"
+  },
+  "common_runtime_asset_count": 933,
+  "application_scope": {
+    "reviewed_checkpoint": "80c9aab144f5812f89e6584f548d5969339775c1",
+    "changed_paths": [
+      "core/src/main/assets/messages/scenes/scenes.properties",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/ResumeIndicator.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndRanking.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndWallSearchResume.java"
+    ],
+    "reviewed_sha256": {
+      "core/src/main/assets/messages/scenes/scenes.properties": "6c22a98ea1eb62af5a0bd70518ba6cf2d6626671af9a3dd17209fffee98aca1f",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java": "6670ff01cfe0abe7a6b436a3f02365a9be32d98f551681f38fb4847956d2909a",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java": "551d180381d65943640ae2afd9dc603195c9869cef5c4f15654bd7accb164ea8",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java": "7978d508173dba557e83b70896bc0cd628f18cb34571ae2eec20c99bd4d61265",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/ResumeIndicator.java": "346dbe76529f82e9a72d1f132c1df842b336165f1c3830b758188527da8f91f1",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java": "781b9200f64bdaa7fa2fc6c157b9a78a0c9fae7b266015ac370226eedca397c0",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndRanking.java": "04e580f84d7e3645946a30a105682a2a2eb659c25873e384f91d3e8f694be699",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndWallSearchResume.java": "52d75da9ce41347a383128b251cb03890cbb5f173317e3c300a811d7b0c3352e"
+    },
+    "exact_reviewed_production_bytes_verified": true,
+    "scoring_settings_save_and_other_application_sources_unchanged": true
+  },
+  "source_scan": {
+    "receipt_sha256": "6793005634235d7868c13ae60125fd96fcaab99bfbde8297b2fa96a87dedcfce",
+    "report_sha256": "91eb3326e92509bb9905cad9a9831fac3d9704b20dc08052fefb0ed6227a9f38",
+    "scanner_version": "8.30.1",
+    "scanner_archive_sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+    "existing_scanner_script_sha256": "436dcfc230412e39e53b95e7301a7a8c78228ebb63a7db5f1afca070026c7734",
+    "source_candidate_count": 72,
+    "retained_redacted_history_candidate_count": 23,
+    "source_findings_reviewed": true,
+    "history_not_rewritten": true,
+    "scanner_rerun": false
+  },
+  "compiled_history_and_player_notes": {
+    "accepted_previous_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+    "accepted_previous_source_sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076",
+    "both_previous_compiled_histories_preserved": true,
+    "history_tsv_count": 450,
+    "player_note_tsv_count": 2,
+    "new_build_record_rows": 2,
+    "source_notes_match_both_apks": true
+  },
+  "helpers_used": [
+    "apd_candidate445.validate_plan",
+    "apd_candidate445.check_provenance",
+    "apd_candidate445.validate_artifact",
+    "apd_candidate445.verify_previous_history",
+    "apd_candidate445.application_paths",
+    "apd_recover439_440.check_core",
+    "apd_scan_prepared_sources.safe_members",
+    "apd_scan_prepared_sources.validate_source_zip",
+    "apd_scan_prepared_sources.validate_scan_report",
+    "apd_build_history.validate_player_notes",
+    "apd_build_history.verify_compiled"
+  ],
+  "helper_sha256": {
+    "apd_candidate445.py": "81aceb908918984c192c839294baa474bdb36dca4c4743b8be74fae31a830005",
+    "apd_recover439_440.py": "18151f49436836d79edc3aa53d995272ee0c89c07c90e03b95f199bbfc010382",
+    "apd_candidate441.py": "a59674f3f55d5d79e6a19264de94e8c26c644c81b3469383fc07ab01d6719997",
+    "apd_scan_prepared_sources.py": "fc0f14dcbbfed96e8e17b4636ad19ce3df2050d512166b69bcf828fba66268fd",
+    "apd_build_history.py": "a957d5d859277a9f5f76d5bfbfb7ffdd7db8f6e8377fbd40c39e0e55171101de",
+    "apd_qol_source_scan.py": "436dcfc230412e39e53b95e7301a7a8c78228ebb63a7db5f1afca070026c7734",
+    "apd_native_screenshot_transfer.py": "bdc1312ad65ecc69e90a8614d38d4ec469bf8b92e03d4ac45c8e59a2fb8dc713",
+    "validate_android_visuals.py": "86fab85f843464f68034334dbfc73fb04c8076058565c2535190866708fbe049",
+    "check_android_json_abi.py": "53299017cefff8a37dbb04769c9feda7cc7625002101a46cb07102ac549a3896",
+    "apd_existing_build_evidence.py": "07c23a6093b0bd3eb203c0d2558df3c3d5c2e43524056bb089c444dcf504f15d"
+  },
+  "local_game_builds": 0,
+  "new_tests_executed": false,
+  "native_acceptance_claimed": false,
+  "manual_visual_acceptance_claimed": false,
+  "delivery_claimed": false,
+  "physical_phone_audio_or_install_over_acceptance_claimed": false,
+  "repository_files_written": false,
+  "remote_mutations": false,
+  "inputs": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-independent-acceptance/inputs-actual.json",
+    "sha256": "af240cd0fe4393cef2cf30d442d3cf08d083d5efa905d8f073f60f96e5a58907"
+  },
+  "script": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-independent-acceptance/verify_pre_native.py",
+    "sha256": "92ed61222b9209253ab1cfb80b458714880f2e703372a575d498825bbfea5a9e"
+  }
+}

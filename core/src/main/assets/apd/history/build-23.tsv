@@ -1,0 +1,12 @@
+Statistics / UIMSD	ICON_STATS	Window Geometry	Bounded picker width and scroll height to the available screen.
+Quality of Life	ICON_STATS	Statistics List	Sized the window before its scroll pane so content remains inside the window.
+Testing	ICON_STATS	Window Geometry Test 1	Added a test covering the Window Is Always Narrower Than The Screen And Within Its Preferred Width. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 2	Added a test covering a Wider Screen Never Gives A Narrower Window. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 3	Added a test covering the List Is As Tall As Its Content Until It Reaches Most Of The Screen Then It Scrolls. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 4	Added a test covering rows Stack Without Gaps Or Overlaps And Each Tap Finds Its Row. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 5	Added a test covering rows Grow With Their Text And Text Stays Inside The Window. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 6	Added a test covering the Views List Fits Or Scrolls On Every Screen. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 7	Added a test covering every Uimsd Window With A Scroll Pane Is Resized Before The Pane Is Placed. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test 8	Added a test covering no Uimsd Window Uses A Fixed Pixel Width. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-UIMSD	Updated apd-stats-uimsd accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Bounded picker width and scroll height to the available screen. Sized the window before its scroll pane so content remains inside the window.

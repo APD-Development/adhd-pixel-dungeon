@@ -1,0 +1,31 @@
+name: Deliver verified private promotion correction TEST261
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-owner-promotion-delivery.yml]
+permissions: {contents: write, actions: read}
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Reverify existing APK, complete native evidence and private-only publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0 pillow
+          python3 tools/publish_owner_promotion261.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-promotion261-publication
+          path: |
+            publication-result.json
+            delivery/APD-Alpha-Preview-261.pdf
+            delivery/TEST261-Verification.json
+            delivery/APD-Promotion-Removal-261.json
+          retention-days: 7
+

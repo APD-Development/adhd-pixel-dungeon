@@ -1,0 +1,93 @@
+{
+  "recorded_at": "2026-10-18T14:01:17.290Z",
+  "status": "verified_private_candidate_not_published",
+  "application_source": "2b85088c8745e4163994c84858a4dca8398f0e2d",
+  "request_commit": "3b1f29b87d5658bdaf1b7ecc1b019a48955a49d6",
+  "run_id": 39131918637,
+  "started_at": "2026-10-18T13:31:28Z",
+  "completed_at": "2026-10-18T13:46:45Z",
+  "target": "Exact offline public-schema UIMSD question grammar and native search selection",
+  "core": {
+    "tests": 1831,
+    "suites": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12138138806,
+    "artifact_bytes": 854596,
+    "artifact_digest": "sha256:147cba53de452de97dfb63577d2594f980237d02c5c32a91dac035341ed69e9f"
+  },
+  "android": {
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12138707257,
+    "artifact_bytes": 4944355,
+    "artifact_digest": "sha256:e1deabb1fee2d9961151e0fda16277184e227c27c31a391b227d6878c599ee71"
+  },
+  "visuals": {
+    "required_pngs": 57,
+    "dimensions": "320x640",
+    "review": "All decoded; three contact sheets manually inspected with no blank, corrupt or obvious clipping regression."
+  },
+  "apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-279.apk",
+    "bytes": 38615958,
+    "sha256": "4c49b3d43b0bd9b9969353d10df420fd77a9f688f636fee1697930ed68d6642c",
+    "artifact_id": 12137843296,
+    "artifact_bytes": 36118032,
+    "artifact_digest": "sha256:f6485980b01134cc2c42148b6592d4dc4359f600195d3a2d4b6e8572ca08ff23"
+  },
+  "history": {
+    "previous_label": "Codex TEST 278",
+    "previous_source": "87254f62f5430e1da050fdd77108e94495e78e77",
+    "previous_run": 39120394227,
+    "strict_validation_passed": true
+  },
+  "supplemental_display": {
+    "run_id": 39131918709,
+    "attempt_1": {
+      "passed": [
+        "compact-virtual",
+        "small-virtual"
+      ],
+      "failed": [
+        "short-landscape",
+        "m53-representative",
+        "square-virtual"
+      ],
+      "failure": "Native title condition did not become true; failed captures retained."
+    },
+    "attempt_2": {
+      "scope": "failed jobs only against the unchanged TEST279 APK",
+      "passed": [
+        "short-landscape",
+        "m53-representative",
+        "square-virtual"
+      ],
+      "failed": []
+    },
+    "accepted_profiles": [
+      "compact-virtual",
+      "small-virtual",
+      "short-landscape",
+      "m53-representative",
+      "square-virtual"
+    ]
+  },
+  "staging": {
+    "run_id": 39131918699,
+    "conclusion": "failure",
+    "failure": "Publication commit changes application/build inputs",
+    "staged": false
+  },
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "latest_actual_owner_publication": {
+    "test": 262,
+    "receipt": "docs/APD-TEST262-OWNER-DELIVERY-2026-10-16.json"
+  }
+}

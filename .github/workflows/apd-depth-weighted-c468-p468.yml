@@ -1,0 +1,97 @@
+name: APD depth-weighted seed scoring C468 P468 signed pair
+on:
+  push:
+    branches: [chatgpt/apd-depth-weighted-seed-20261114]
+    paths: [.github/workflows/apd-depth-weighted-c468-p468.yml]
+permissions: {contents: read}
+concurrency: {group: apd-depth-weighted-c468-p468, cancel-in-progress: false}
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify full core suite and Android debug release instrumentation compile
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac --no-daemon
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          roots=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert roots, 'Missing core test XML'
+          total={key:sum(int(r.get(key,0)) for r in roots) for key in ('tests','failures','errors','skipped')}
+          assert total['tests']>=3400 and all(total[k]==0 for k in ('failures','errors','skipped')),total
+          suite=next((r for r in roots if r.get('name','').endswith('.SeedReuseScoreTest')),None)
+          assert suite is not None and int(suite.get('tests','0'))>=12
+          names={t.get('name') for t in suite.findall('testcase')}
+          required={'sevenAttemptsFloorNineToTwentySixConservativeFallbackIs216026',
+                    'verifiedSixFloorFourDeathsAndOneFloorNineAward263679',
+                    'migrateV2UnauthorizedFloorCreditAndV3CubicWithoutFabricatingDepths',
+                    'twentyOneEarlyDeathsCannotEraseUnexploredFloors',
+                    'actualEarnedRankingScoreAndBundleRoundTripAgree'}
+          assert required<=names,required-names
+          print('Accepted core tests:',total)
+          PY
+      - name: Build both originally signed APKs from identical game source
+        run: |
+          set -euo pipefail
+          mkdir -p deliverable
+          ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=C468 --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Developer-DepthWeighted-C468.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P468 --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Alpha-Testers-DepthWeighted-P468.apk
+          git archive --format=zip --output=deliverable/APD-Source-DepthWeighted-468.zip HEAD
+      - name: Verify original signer, features, package, versionCode, and hashes
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess,zipfile
+          buildtools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1].parent
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          report={'source_sha':os.environ['GITHUB_SHA'],'versionCode':920,'signer_sha256':expected,
+                  'android_device_tested':False,'real_phone_tested':False,'variants':{}}
+          for variant,filename,marker in (
+              ('Developer','APD-Developer-DepthWeighted-C468.apk','-bC468-TEST'),
+              ('Alpha Testers','APD-Alpha-Testers-DepthWeighted-P468.apk','-bP468')):
+              path=pathlib.Path('deliverable')/filename
+              assert path.is_file() and path.stat().st_size>30000000,filename
+              output=subprocess.check_output([str(buildtools/'apksigner'),'verify','--print-certs',str(path)],text=True)
+              match=re.search(r'SHA-256 digest:\s*([0-9a-fA-F:]+)',output)
+              assert match,output
+              cert=match.group(1).replace(':','').lower()
+              assert cert==expected,(filename,cert)
+              badge=subprocess.check_output([str(buildtools/'aapt'),'dump','badging',str(path)],text=True)
+              package=next(line for line in badge.splitlines() if line.startswith('package:'))
+              assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package,package
+              assert "versionCode='920'" in package,package
+              assert marker in package,package
+              with zipfile.ZipFile(path) as z:
+                  flags=z.read('assets/apd/features.txt').decode('utf-8').strip().splitlines()
+              assert flags==(['testBuild','grudge','demoUnlock','clericPlayable'] if variant=='Developer'
+                        else ['extendedPlayback','grudge']),(variant,flags)
+              report['variants'][variant]={'file':filename,'bytes':path.stat().st_size,
+                  'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'package':package,'flags':flags}
+          source=pathlib.Path('deliverable/APD-Source-DepthWeighted-468.zip')
+          report['source_zip_sha256']=hashlib.sha256(source.read_bytes()).hexdigest()
+          pathlib.Path('deliverable/receipt.json').write_text(json.dumps(report,indent=2)+'\n')
+          print(json.dumps(report,indent=2))
+          PY
+          sha256sum deliverable/*.apk deliverable/*.zip > deliverable/sha256sums.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: apd-depth-weighted-original-signed-c468-p468
+          path: deliverable/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd-depth-weighted-test-failure
+          path: core/build/test-results/test/
+          if-no-files-found: warn

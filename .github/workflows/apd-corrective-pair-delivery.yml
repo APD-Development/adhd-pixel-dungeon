@@ -1,0 +1,46 @@
+name: Privately deliver verified corrective Developer and Alpha-Testers pair
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-CORRECTIVE-PAIR-DELIVERY.json]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-corrective-pair-delivery
+  cancel-in-progress: false
+env:
+  APD_DELIVERY_SPEC: docs/APD-CORRECTIVE-PAIR-DELIVERY.json
+jobs:
+  verify-source-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce recorded owner APK delivery hold
+        run: python3 tools/apd_owner_delivery_policy.py
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - run: python3 -m pip install Pillow==12.0.0
+      - name: Verify actual APKs, source, signatures, core and emulator evidence
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          tool=$(python3 -c "import json; print('apd_appearance_pair_delivery.py' if json.load(open('docs/APD-CORRECTIVE-PAIR-DELIVERY.json')).get('kind') in ('searched-wall-appearance','healing-toggle','combined-owner','door-checks','alpha-playback','mechanics-memory') else 'apd_corrective_pair_delivery.py')")
+          python3 "tools/$tool"
+      - name: Scan exact sanitized source plus current reachable history before source sharing
+        run: |
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - name: Publish existing verified APKs and corresponding source privately
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_qol_publish_prepared.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-corrective-pair-delivery
+          path: owner-delivery/
+          retention-days: 30

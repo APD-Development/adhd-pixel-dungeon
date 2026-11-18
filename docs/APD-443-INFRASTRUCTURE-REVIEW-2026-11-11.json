@@ -1,0 +1,23 @@
+{
+  "number": 443,
+  "reviewer": "/root/apd_target_review",
+  "reviewed_utc": "2026-11-11T15:42:41.189229+00:00",
+  "scope": "Read-only independent review of the final pinned candidate workflow/helper/plan, not native or build acceptance.",
+  "status": "no_concrete_blocker_found",
+  "files_sha256": {
+    "tools/apd_candidate443.py": "538fbfea974b1c47f2863cc2714cad1097cf30f466202d7574a63e95cf4af535",
+    ".github/workflows/apd-candidate-443.yml": "50582db80b7dbecefaff7a7b33cda1049191faab3eef161685e6bba4fb3ceee1",
+    "docs/APD-443-BUILD-PLAN.json": "e06a9fd91cbe796a7df74012e460766781d008aab7e054d7fc32c8baf0b40781"
+  },
+  "accepted_baseline_head": "b912f2b083f70de5d81f2351d32c24a0d5ac129e",
+  "findings": [
+    "Pinned442 source/run/artifact/APK/instrumentation/scan values and both committed acceptance receipts match independently accepted evidence.",
+    "Predecessor gate requires five successful jobs including source scan, completed manual acceptance and saved download readback.",
+    "Plan requires3210 tests/465 suites, exactly three reviewed production paths,17 retained affected images and eight additive captures.",
+    "Android instrumentation compilation and ABI gate precede application assembly.",
+    "Frozen-pair guard, compiled predecessor history, original signer, exact variant features, all twelve native cases, transfers and corresponding-source scan remain intact."
+  ],
+  "application_built": false,
+  "native_execution_completed": false,
+  "review_edits": false
+}

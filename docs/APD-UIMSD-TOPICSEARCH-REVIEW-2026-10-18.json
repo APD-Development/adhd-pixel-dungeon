@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-10-18T09:37:32Z",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdTopicSearch.java",
+    "blob": "1e0f0a2b92192e80190ca1a7b6f58a96a318b560",
+    "lines": 88,
+    "complete": true,
+    "new_production_defect_confirmed": false
+  },
+  "reviewed_paths": [
+    "schema-only dataset/column matching",
+    "public/internal visibility boundary",
+    "Unicode/case/punctuation normalization",
+    "catalog and column result ordering",
+    "48-hit ceiling",
+    "Question-builder navigation and stale-state reset"
+  ],
+  "retained_test": {
+    "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdTopicSearchTest.java",
+    "blob": "4a6369517364769f0659856ce562003aaa1a4e90",
+    "commit": "9ed5fe49c7f50cc54443e30fded18addc03c6878",
+    "methods": 6,
+    "new_method_names": [
+      "resultLimitPreservesCatalogAndColumnOrder",
+      "datasetTopicClearsStaleQuestionPartsBeforeOpeningBuilder"
+    ]
+  },
+  "verification": {
+    "run_id": 39115923723,
+    "conclusion": "success",
+    "started_at": "2026-10-18T09:35:21Z",
+    "completed_at": "2026-10-18T09:37:32Z",
+    "tests": 1820,
+    "suites": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 6,
+    "focused_seconds": 0.012,
+    "artifact_id": 12132626259,
+    "artifact_bytes": 849064,
+    "artifact_digest": "sha256:407d6080d39813f960d7fbd6a6e281fb5448ca49e5751fb112ac45e66af487e7",
+    "downloaded_zip_digest_match": true
+  },
+  "application_source_changed": false,
+  "apk_rebuild_needed": false,
+  "build_request_changed": false,
+  "latest_verified_private_candidate": 277,
+  "latest_published_owner_build": 262,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

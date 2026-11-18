@@ -1,0 +1,161 @@
+{
+  "status": "partial audit, not entire UIMSD complete",
+  "source_snapshot": "b529832d07a1a2ba30453427edbd346dbf8b4124",
+  "current_verified_source": "3e9b2e2a132cda2dc0331d62c590159b4410f388",
+  "files": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetStore.java",
+      "sha256": "cf92fec10436b2b372204d6fc3f62f2c949abedde936982608bbdefe31e7aa90",
+      "lines": 411,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowCodec.java",
+      "sha256": "6e378d664aea4e5c7de04072bbb37e7d6b374e4e401d1b015e7027e0b771486c",
+      "lines": 209,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowMerger.java",
+      "sha256": "f95f3a93244a83d44b98c4691d8421a0d00b7425004b5f73deb501aaf3212f8a",
+      "lines": 181,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Row.java",
+      "sha256": "d1f87b55868f82191313da7cbb8bb804ec68fc3cd1831911b4f63c96e2139994",
+      "lines": 138,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Dataset.java",
+      "sha256": "3cc8b53d8ede9c230a190a1c59ddb99dd3d44fdbffee96227ef21fee4c9b6b86",
+      "lines": 59,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetDef.java",
+      "sha256": "9f61a1595ff4242b527fe9b59748a3c84417dac910944be4b7329188bb6a5780",
+      "lines": 110,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Catalog.java",
+      "sha256": "8b76d525793e940df1d8716850a2e66a2f0d4ca885f3acce3a3fd20217909139",
+      "lines": 88,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/SeedFloors.java",
+      "sha256": "1889dc643edb005775ef82918d640f9633baff8395e1f729051c45e60066ad57",
+      "lines": 405,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ReplayFloor.java",
+      "sha256": "9266e46b5c7c38b756d9d1041a00d550c2e3b2f3cb97d04664b00568acc26645",
+      "lines": 44,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ColumnOrder.java",
+      "sha256": "acacb5614e3cddae2f69eef5163e2b47112e35f5c3b499ff34ef6ce0e5a645ba",
+      "lines": 50,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Sort.java",
+      "sha256": "05b396ecf653a70bc76c1fbaadbd7927d9194c002c498b032f1fd41d445d0d15",
+      "lines": 46,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ResultTable.java",
+      "sha256": "ef986bd0bec36eeb897aa9f914c45906268c63a815620aa8d278013f4466ac36",
+      "lines": 157,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/GroupDetail.java",
+      "sha256": "8ef8720aaf9a0c80cb1d5c9fa0ef484fd9dca8ee6c0c5da7269d9771e024f216",
+      "lines": 128,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellText.java",
+      "sha256": "649c91f8a8d68311b6f7c3428a61422f94ddca79110825bdd4ff10d37df9ebd5",
+      "lines": 50,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportExport.java",
+      "sha256": "bb5ba9a79d5af6e6e5129c075310fbe9e2d44e64f0ee139b5e2cd0b120eed123",
+      "lines": 133,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportRenderer.java",
+      "sha256": "f8231201af8df958db49f661710fca954cdfdab9fe897ac0911e58bc2d164dbc",
+      "lines": 323,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportBuilder.java",
+      "sha256": "14af1a69e11d34d88fcd8135f1f47b25b07d1b8a261f2d24113e954bb70e6d4c",
+      "lines": 328,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/Report.java",
+      "sha256": "074cb579de0587709af5173fd8817536fbf06c12c2478d8656285712f4e66a7c",
+      "lines": 157,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/StorageMeter.java",
+      "sha256": "dba87267f6a54fed4120feb3bfae9c70f292471c23a3e46b006b07b55659dd20",
+      "lines": 120,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/Size.java",
+      "sha256": "d2e93dad4a8e5b330160631dda533b889e2bf56de14e2f1ea0902b226a319bb9",
+      "lines": 42,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ProgressGuardInputStream.java",
+      "sha256": "361dbd8b9d4bd4729d1a0203bf12277cb59efe16c6243487548082af2eafb797",
+      "lines": 22,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdReport.java",
+      "sha256": "af4d6d7ac945f6b0da656170c7aa0c7b152ce97fc170368ccd4fc62a7b9a4157",
+      "lines": 220,
+      "review": "full source and callers inspected in this batch"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdList.java",
+      "sha256": "1eca51888b005f32626ecea2499d4c1db14fa309cac90eddeb87a27fed7373f8",
+      "lines": 420,
+      "review": "full source and callers inspected in this batch"
+    }
+  ],
+  "confirmed_findings": [
+    "SeedFloors creates temporary Dataset and empty list per output row solely to retrieve column count; local cleanup tested.",
+    "WndUimsdReport comparison pickers truncate to 40 candidates without access to later records; native paged picker prepared and 3 boundary/coverage tests pass; Android checks pending."
+  ],
+  "tests": {
+    "existing_unique_local_passes": 113,
+    "new_page_tests": 3,
+    "android_new_pagination_verification": "pending"
+  },
+  "limitations": [
+    "No physical-phone or owner-save evidence",
+    "Full UIMSD audit remains incomplete",
+    "Host load fixtures are tiny synthetic records, not real player histories",
+    "Local environment setup failures corrected; not counted as product defects",
+    "No runtime speedup claimed for allocation cleanup"
+  ]
+}

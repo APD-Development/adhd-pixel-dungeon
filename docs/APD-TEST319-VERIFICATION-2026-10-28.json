@@ -1,0 +1,134 @@
+{
+  "schema": "apd-test-verification-v1",
+  "test": "TEST319",
+  "recorded_at": "2026-10-28T14:37:44Z",
+  "status": "compiled_rejected",
+  "source_head": "72a484112eebb8fe79c82e9348711cd46b6c9948",
+  "production_prewarm_source": "646cccb5e96df0ed2c47fe0ffac4710b8e506e81",
+  "test_correction_source": "24da6f19be6a5cffd5713257f8e508ac91339430",
+  "baseline": {
+    "label": "TEST318",
+    "source": "4e0306e2409309f7f890bcf0aec7415fe7af42d3",
+    "run": 40616453743,
+    "indexed_records": 345
+  },
+  "core": {
+    "run": 40703096522,
+    "job": 122867883233,
+    "suites": 408,
+    "tests": 2100,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12823441411,
+    "artifact_digest": "sha256:7ca66b32e4853a336acb622c18d6e96267902a3f3e444f04a624f3ee2fadda96"
+  },
+  "developer": {
+    "run": 40703096742,
+    "job": 122867882514,
+    "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-319.apk",
+    "bytes": 38766201,
+    "sha256": "5129659a752a6b7d0ac454287b7ab80acbaabce55201cd160abe0e391984b6b7",
+    "artifact_id": 12821469912,
+    "artifact_digest": "sha256:5ed58e9d8958237b65d77f1b52365ccefb3eda096eb50399c7d06efe90c1b17a"
+  },
+  "player": {
+    "run": 40703096516,
+    "job": 122867882555,
+    "filename": "APD-Player-TEST319.apk",
+    "bytes": 38766024,
+    "sha256": "8e1de98344ba613ce285af6c2f33d18d8f72d99332ecffcc8a5ad7358a20145d",
+    "artifact_id": 12821614710,
+    "artifact_digest": "sha256:c83d09036feff942a1b64c5a02f27edb0c848ac44ba522c8f9daadc6cc96ba5b"
+  },
+  "history": {
+    "indexed_records": 346,
+    "tsv_assets_including_index": 347,
+    "predecessors_preserved": 345,
+    "developer_player_identical": true
+  },
+  "android": {
+    "run": 40703096742,
+    "job": 122870059316,
+    "tests": 58,
+    "passed": 55,
+    "failures": [
+      {
+        "class": "AndroidBackDeviceTest",
+        "method": "backWalksBackwardsOneStepPerPress",
+        "reason": "timed out waiting for the title scene",
+        "seconds": 120.698
+      },
+      {
+        "class": "AndroidBackDeviceTest",
+        "method": "ordinarySettingsBackClosesOnlyTheWindowWithoutRebuildingTheScene",
+        "reason": "timed out waiting for the title scene",
+        "seconds": 120.705
+      },
+      {
+        "class": "TitleMenuLayoutDeviceTest",
+        "method": "titleControlsStaySeparateAndNativeChangesAndHideUiRemainUsable",
+        "reason": "expanded footer outside-icon touch did not hide UI",
+        "seconds": 125.778
+      }
+    ],
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12824626069,
+    "artifact_digest": "sha256:a40d9893a17aab3f23a0beca68d4e70eb4faadccd58b4f7e9ccce0d9a6cc83a3",
+    "uimsd_restore": {
+      "tests": 6,
+      "failures": 0,
+      "corrected_method_seconds": 6.894
+    },
+    "custom_rules": {
+      "tests": 7,
+      "failures": 0,
+      "all_18_controls": true
+    },
+    "timing": {
+      "executed": false,
+      "reason": "UimsdDeviceTimingTest is not included in tools/run-codex-android-checks.sh class inventory"
+    }
+  },
+  "displays": {
+    "run": 40703096617,
+    "passed": [
+      "compact-virtual",
+      "m53-representative",
+      "square-virtual"
+    ],
+    "failed": [
+      "small-virtual",
+      "short-landscape"
+    ],
+    "reason": "same expanded footer outside-icon touch failure"
+  },
+  "supplemental_failures": [
+    {
+      "run": 40703096531,
+      "job": 122867881201,
+      "name": "exact-apk-hotbar-restart",
+      "reason": "pre-test git diff could not resolve eda307d5 in shallow checkout; no evidence files"
+    },
+    {
+      "run": 40703096760,
+      "job": 122867883631,
+      "name": "exact-apk-death-order",
+      "reason": "pre-test git diff could not resolve eda307d5 in shallow checkout; no evidence files"
+    },
+    {
+      "run": 40703096738,
+      "job": 122867883229,
+      "name": "validate-and-stage",
+      "reason": "failed closed before producer artifacts existed"
+    }
+  ],
+  "release": {
+    "uploaded": false,
+    "distributed": false,
+    "physical_phone_tested": false,
+    "latest_github_release_apk": "TEST262"
+  },
+  "next_safe_step": "Explicitly enter TitleScene in AndroidBack fixtures; include UimsdDeviceTimingTest in the standard class inventory; diagnose footer touch against system insets before another intentional candidate."
+}

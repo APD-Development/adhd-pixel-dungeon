@@ -1,0 +1,5 @@
+Changes	V061_BUGFIX	Healing-only potion conversion setting	The APD conversion slider now affects only generated Healing potions becoming Shielding; other potions and scrolls retain the original Exotic Crystals behavior.
+Statistics / UIMSD	ICON_CHECKED	Identify corrected conversion rules	Keep corrected nonzero Healing-only settings distinct from older global-conversion rules without changing stored histories or neutral rules.
+Testing	ICON_CHECKED	Verify conversion scope and saved settings	Check both loot-generation paths, all trinket levels, unaffected potion and scroll types, exact RNG behavior and save/load identity.
+Testing	ICON_CHECKED	Check Healing setting on Android	Open the real settings window, verify the Healing-only explanation and layout, retain a screenshot and preserve the selected value.
+Development	V061_PAGE	Record correction and exact build evidence	Document the reproduced conversion bug and request full verification against the immediately preceding APK.

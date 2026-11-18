@@ -1,0 +1,23 @@
+Changes	ICON_PREFS	Saved settings	Saved player-controlled sending and secure server-address preferences; sending remained off by default.
+Infrastructure	ICON_JOURNAL	Account Requests	Added account-level requests a player can make: export what the server holds about them, or delete the account.
+Infrastructure	ICON_DATA	Data Policy	Defined account-export and deletion request data contracts.
+Infrastructure	ICON_DATA	Evidence Messages	Added wire forms for the evidence exchange.
+Infrastructure	ICON_DATA	Gateways	Added picks the Gateway the app uses.
+Infrastructure	ICON_DATA	Http Gateway	Added a Gateway that speaks plain HTTPS to whatever server the base URL points at.
+Infrastructure	ICON_DATA	Backend Client	Added what the game does with a server, kept to explicit player actions: nothing here runs by itself, and with sending off or no address the queue simply stays on the device.
+Infrastructure	ICON_DATA	Privacy Summary	Reported queued data and allowed explicit sending through the configured gateway.
+Quality of Life	ICON_STATS	Statistics Options	Added player-controlled sending, server-address and manual-send Privacy controls.
+Testing	ICON_DATA	Backend Account Test 1	Added a test covering export And Delete Requests Round Trip And Are Idempotent Per Player. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Account Test 2	Added a test covering bad Account Requests Are Refused Not Guessed. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Account Test 3	Added a test covering evidence Request Round Trips And Data Carries Its Digest. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Http Gateway Test 1	Added a test covering sends The Envelope With Its Key And Maps Server Answers. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Http Gateway Test 2	Added a test covering the Session Token Is Sent Only When Someone Is Signed In. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Http Gateway Test 3	Added a test covering an Unreachable Server Is Offline Not A Failure Of The Item. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Http Gateway Test 4	Added a test covering a Queue Drains Through The Http Gateway And Keeps Items While Offline. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Http Gateway Test 5	Added a test covering sending Is Off Unless Switched On With A Secure Address. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	End To End Submission Test	Added a test covering a Queued Run Is Sent Ranked Checked And Deleted With The Account. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test	Updated automated checks and fixtures for submission queue. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Updated apd-backend accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Saved player-controlled sending and secure server-address preferences; sending remained off by default. Added player-controlled sending, server-address and manual-send Privacy controls.

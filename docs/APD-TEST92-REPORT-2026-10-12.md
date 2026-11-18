@@ -1,0 +1,20 @@
+# TEST92: native item sprites in APD News and Changes
+
+Prior verified delivered TEST90 source21e4f7579715f42897408efe06535762014cc759/run38326602527; private publication38327910321, October12 8:35:23pmEDT. Actual delivery validator confirms1244core+21API34,0failures/errors/skips, same signing/appID; APK SHA2562e39ba16e79962e0764d03d13e4e34c3d4ad58bb2d07af2b888ee71cbd241965.
+
+The existing icon resolver accepted only Icons and ChangeIcons names, so game-item symbols fell back to a generic change icon. Added ITEM_ references resolved from existing public ItemSpriteSheet constants and rendered with SPD ItemSprite. No item construction, identification, effects, drop probabilities, gameplay RNG or save data is involved. Existing icon/change references remain on their old resolver. Missing/empty/null references fall back safely. The verified crystal-path history entry now uses the crystal-key sprite; its text/build attribution remains unchanged. Other historical entries are not claimed individually reviewed or converted.
+
+Three permanent resolver cases plus four existing history-grouping cases pass:7tests,0.022seconds. Exact production scene and two history model classes compiled locally. An initial local compile lacked those history classes, and an initial grouped test run lacked its compiled test class; both dependencies were supplied rather than weakening assertions.
+Existing Android category/icon/popup test strengthened to resolve crystal/potion/scroll item sprites with positive bounds, keep the legacy icon path, and tolerate missing/empty/null references. The current build ledger uses an actual crystal-key image, so normal native screenshot/popup checks exercise a displayed item sprite, not merely a helper. Android fixture compilation/rendering and full expected1247core/21API34/18PNG/debug verification are pending at this source commit. No91APK verified/delivered claim.
+
+Independent requested source comparison completed in read-only workflow38327221311. First APD setup commit56be46ab950e841857ec2eb7edf7ae64a6cc65b2 directly parents SPD2bb34a4e91d29c8785a9363cad6ddfe5122b1d4f. TEST89 source inventory differences:659source/configfiles,80979added,495deleted,net80484. Includes comments/blanks/tests/tooling; not all gameplay logic or Codex authorship.969all-kind changed files retained in ledger; binary differences have no line counts. Three parser/component tests pass. No app rebuild for this report.
+Entire UIMSD audit/visual acceptance, historical missing evidence, simulator/custom-rule foundations, exact owner saves and phone acceptance remain unfinished. No live services or unapproved scoring/design activated.
+
+
+## Completed verification and failed predecessor
+
+Actual compiled candidate: TEST92, source 3e9b2e2a132cda2dc0331d62c590159b4410f388, full verification run 38329572457 succeeded. The prior TEST91 run38328914537 stopped with 1 historical sprite validation failure out of1247 tests and produced no APK. Correction e6569698c29b1b753fb27b076a477e6f5a2570df preserves all historical attribution/fingerprint/duplicate/length assertions and accepts only existing ITEM_ sprite IDs. Eleven local history/sprite cases passed in0.419s. The retry used C92; earlier TEST91 labels in development notes identify the intended candidate, not a delivered build.
+
+Downloaded XML counts:1247 unique core tests passed;21 unique API34 instrumentation cases passed;zero failures/errors/skips. Android artifact11781809166 contains18 screenshots; native apd-changes.png viewed and confirmed TEST92 heading, actual crystal-key sprite, gold border, compact two-column categories, and unchanged historical Build89 attribution. Emulator evidence only; no physical-phone or owner-save verification claimed. Debug APK artifact11781964786 belongs to this exact successful source/run. Signing compatibility and publication are independently gated by the delivery workflow; checksum will be recorded from actual delivered artifact.
+
+The subsequent UIMSD seed-floor allocation and comparison-picker pagination changes are local only and are NOT included in this APK. They must not be listed as TEST92 changes.

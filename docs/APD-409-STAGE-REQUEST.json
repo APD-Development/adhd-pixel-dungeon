@@ -1,0 +1,5 @@
+{
+  "run_id": 42607976456,
+  "source_commit": "9fddee7ee05770375925106afe455723b6a2d93b",
+  "scope": "Stage only after packaging recovery passes all original-APK hashes, twelve exact native case/class checks and source/history scan. Keep draft until independent file hashes and actual artifact/Sandals/SkeletonKey windows reviewed."
+}

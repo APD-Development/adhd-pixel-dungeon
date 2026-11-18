@@ -1,0 +1,15 @@
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -344,10 +344,10 @@
+     }
+     private static void retainedTrinketDescriptionsRender()throws Exception{
+         Item[] items={new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.PetrifiedSeed(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.MossyClump(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.ExoticCrystals(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.FerretTuft(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.EyeOfNewt(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.CrackedSpyglass(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.VialOfBlood(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.SaltCube(),new com.shatteredpixel.shatteredpixeldungeon.items.trinkets.ShardOfOblivion()};
+-        String[] expected={"seeds or runestones","Excludes Floor 1","cannot be spent as alchemy energy","harder to hit","sense enemies through walls","Search can uncover it","maximum health","slows natural healing","once for each type"};
++        String[] expected={"seeds or runestones","Excludes Floor 1","cannot be spent as alchemy energy","Increases evasion","sense enemies through walls","Search can uncover it","maximum health","slows natural healing","once for each type"};
+         for(int i=0;i<items.length;i++)for(boolean use:new boolean[]{false,true}){
+             Item item=items[i];String required=expected[i];AtomicReference<WndInfoItem> shown=new AtomicReference<>();boolean[] temporarilyOwned={false};
+-            TopScoresDeviceTest.render(()->{item.level(3);item.levelKnown=item.cursedKnown=true;assertTrue(item.info(),item.info().contains(required));if(use&&!Dungeon.hero.belongings.contains(item)){Dungeon.hero.belongings.backpack.items.add(item);temporarilyOwned[0]=true;}
++            TopScoresDeviceTest.render(()->{item.level(3);item.levelKnown=item.cursedKnown=true;if(item instanceof com.shatteredpixel.shatteredpixeldungeon.items.trinkets.FerretTuft){assertTrue(item.info().contains("_50%_"));assertTrue(item.info().contains("your allies _and your enemies_"));}assertTrue(item.info(),item.info().contains(required));if(use&&!Dungeon.hero.belongings.contains(item)){Dungeon.hero.belongings.backpack.items.add(item);temporarilyOwned[0]=true;}
+                 WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);});Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
+             if(use)TopScoresDeviceTest.screenshot("qol-retained-trinket-"+i+"-normal-description.png");
+             TopScoresDeviceTest.render(()->{shown.get().hide();if(temporarilyOwned[0])Dungeon.hero.belongings.backpack.items.remove(item);});

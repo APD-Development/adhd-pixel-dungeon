@@ -1,0 +1,18 @@
+Changes	ICON_INFO	Back Gate	Added android can deliver one press of Back by two routes at once (the game's own key handling and the system back-gesture callback, depending on the Android version and how the app was opened).
+Changes	ICON_INFO	Input Handler	Routed both Android Back paths through the same guarded game action.
+Testing	ICON_CHECKED	Android Back Device Test	Added a device test covering back Walks Backwards One Step Per Press. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Run Setup Difficulty Device Test	Added a device test covering difficulty Is Chosen On The Character Screen And Not In Settings. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Screens Device Test	Updated Android checks and fixtures for statistics screens device. These are development checks, not a gameplay feature.
+Quality of Life	ICON_INFO	APD Text Scene	Made the visible exit button follow the screen’s own Back behavior.
+Quality of Life	ICON_INFO	Hero selection	Moved the new-run difficulty selector onto hero selection.
+Quality of Life	ICON_CHALLENGE_COLOR	Difficulty Bar	Added the difficulty of the run you are about to start, on the character screen where the run is set up: one touch each for 1 to 5, and the level written out ("3 - Normal").
+Quality of Life	ICON_PREFS	APD Settings Pane	Removed the difficulty selector from APD Settings after moving it to run setup.
+Quality of Life	ICON_STATS	Statistics Ask	Preserved previous-menu navigation when closing statistics dialogs.
+Testing	ICON_CHECKED	Back Gate Test 1	Added a test covering the Same Press By Two Routes Counts Once. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Back Gate Test 2	Added a test covering two Real Presses Are Two Backs. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Back Gate Test 3	Added a test covering the First Press Is Always Accepted. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Bar Test 1	Added a test covering every Level Has A Name and Three Is Normal. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Bar Test 2	Added a test covering the Explanation Says That A Run Keeps Its Difficulty. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Bar Test 3	Added a test covering normal Is Still The Unmodified Baseline. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added android can deliver one press of Back by two routes at once (the game's own key handling and the system back-gesture callback, depending on the Android version and how the app was opened). Routed both Android Back paths through the same guarded game action.

@@ -1,0 +1,21 @@
+{
+  "source": "16cb3c2de72595239573fe87bb72ad46a90d0fb0",
+  "number": 329,
+  "developer": 40790379363,
+  "player": 40790379774,
+  "display": 40790379323,
+  "core_count": 2185,
+  "android_count": 64,
+  "image_count": 88,
+  "history_files": 356,
+  "Developer_sha256": "617812461000e81f2b2f70caabd21c885fa9e35058dadcb200048e551da068f7",
+  "Alpha-Testers_sha256": "d961d8e9540372c8ecbcc9e07be4d8b02249a555e9122cc559af253c75d8f677",
+  "physical_phone_verified": false,
+  "diagnostic_candidate": true,
+  "fully_verified": false,
+  "native_retest": 40793176257,
+  "native_retest_source": "cd2474dc42238234cb5587d26eb68ad951132e6b",
+  "known_failed_check": "UIMSD opening306ms versus250ms; initial282ms",
+  "owner_only": true,
+  "tester_distribution_approved": false
+}

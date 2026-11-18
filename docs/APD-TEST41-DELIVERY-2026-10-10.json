@@ -1,0 +1,72 @@
+{
+  "status": "privately delivered",
+  "test": 41,
+  "source_commit": "e9f1515a52e219282772a590419e215c9a8139f1",
+  "implementation_commit": "1f57136a7cb9e6c55aab48da3d23f44eaa0efc3e",
+  "delivery_commit": "ca2a9ee7765fa2ba7c27d79a887ecb2ad0f62242",
+  "source_workflow": 38103226643,
+  "delivery_workflow": 38103936276,
+  "published_utc": "2026-10-11T02:04:56Z",
+  "published_new_york": "2026-10-10 22:04:56 EDT",
+  "apk_sha256": "d476ca16cd3f17a6a13257812243696dd4ed0acb92f7a94192d528628766d188",
+  "signer_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC41-TEST",
+  "rollback": 39,
+  "tests": {
+    "targeted": 23,
+    "full_core": 1035,
+    "android_api34": 11,
+    "delivery_verifier": 11,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "physical_phone_tested": false,
+  "full_normal_victory_playthrough": false,
+  "files_changed": [
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/hotbar/CategoryHotbar.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/QuickSlotButton.java",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/hotbar/CategoryHotbarTest.java",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/PlayRunDeviceTest.java"
+  ],
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-41.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-41/ADHD-Pixel-Dungeon-CODEX-TEST-41.apk",
+      "size": 38242482,
+      "digest": "sha256:d476ca16cd3f17a6a13257812243696dd4ed0acb92f7a94192d528628766d188"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-41.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-41/ADHD-Pixel-Dungeon-CODEX-TEST-41.apk.sha256",
+      "size": 103,
+      "digest": "sha256:66c1c8f28615393b5c748333ee32aa1b81aa0b24ed3747ead154e1de5c9fc803"
+    },
+    {
+      "name": "APD-Bug-Fixes-2026-10-10-TEST41.pdf",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-41/APD-Bug-Fixes-2026-10-10-TEST41.pdf",
+      "size": 8135,
+      "digest": "sha256:9c02b45d26a95a2058736fe6bd6f2d12ab08cd9952e6518c6d7569ca0cfac0c1"
+    },
+    {
+      "name": "TEST41-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-41/TEST41-Verification.json",
+      "size": 213133,
+      "digest": "sha256:e5e0dd0f95872725f9f335d36a1d8e30a6ea63d0c09a9b1b72efe276fd32f62c"
+    }
+  ],
+  "remaining": [
+    "Four dedicated saved Cleric quick-cast shortcuts",
+    "Physical Pixel Android17/Pixel Buds Pro2 retest",
+    "Full normal-run victory and real upgrade/save acceptance"
+  ],
+  "timing": {
+    "source_ci_start": "2026-10-11T01:51:20Z",
+    "source_ci_end": "2026-10-11T02:02:26Z",
+    "explicit_ci_timer_seconds": 570,
+    "active_coding_total": "not independently measured",
+    "idle_total": "not independently measured"
+  },
+  "verification_correction": "Android assertion initially inspected a toolbar wrapper; corrected by source inspection before publication. TEST40 native run superseded/canceled, no release. Application source unchanged by correction."
+}

@@ -1,0 +1,3 @@
+Changes	V061_BUGFIX	Reuse unchanged statistics registry identities	Avoid recalculating the same statistics schema fingerprint for every observation while preserving existing cache identities and late registration.
+Testing	ICON_CHECKED	Check registry compatibility during concurrent registration	Verify unchanged cache identities, duplicate handling and coordinated readers after newly registered statistics.
+Development	V061_PAGE	Record measured optimization and exact audit checkpoints	Retain local benchmark evidence, current-source verification status and an honest per-file audit reconciliation.

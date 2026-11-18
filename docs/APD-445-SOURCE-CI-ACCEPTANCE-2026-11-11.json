@@ -1,0 +1,152 @@
+{
+  "status": "source_only_ci_independently_verified",
+  "verified_at_utc": "2026-11-11T17:50:16.350099+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "source_commit": "80c9aab144f5812f89e6584f548d5969339775c1",
+  "source_tree": "ab4afc74bdc432992b70d0910ec08cc67cf6d56a",
+  "run": {
+    "id": 43071231591,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43071231591",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-11T17:45:33Z",
+    "updated_at": "2026-11-11T17:49:04Z"
+  },
+  "job": {
+    "id": 130699323839,
+    "name": "source-check",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-11-11T17:45:36Z",
+    "completed_at": "2026-11-11T17:49:03Z",
+    "all_steps_success": true
+  },
+  "artifact": {
+    "id": 13879001473,
+    "name": "apd-qol-source-verification",
+    "bytes": 552605,
+    "github_sha256": "546107175d6ee2a0689a445eb1c66a402d18c8898e45d83f07600934a441cf27",
+    "downloaded_sha256": "546107175d6ee2a0689a445eb1c66a402d18c8898e45d83f07600934a441cf27",
+    "created_at": "2026-11-11T17:48:59Z",
+    "expires_at": "2026-11-25T17:48:58Z",
+    "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/source-ci-artifact-13879001473.zip",
+    "extracted_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/source-ci-artifact",
+    "archive_file_count": 471,
+    "uncompressed_bytes": 2316365,
+    "safe_paths_and_no_duplicate_members": true,
+    "contains_apks": false
+  },
+  "junit": {
+    "raw_xml_suites": 468,
+    "tests": 3244,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "unique_testcase_identities": 3244,
+    "actual_failure_error_skip_nodes": {
+      "failure": 0,
+      "error": 0,
+      "skipped": 0
+    },
+    "artifact_summary": {
+      "source_commit": "80c9aab144f5812f89e6584f548d5969339775c1",
+      "suites": 468,
+      "tests": 3244,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "apk_assembled": false,
+      "physical_phone_tested": false
+    },
+    "manifest_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/raw-junit-manifest.json",
+    "manifest_sha256": "df51c99053017271c84a965cead740f8b94ad98b53afbae299cd54bb59bb243a",
+    "summary_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/source-ci-artifact/qol-verification.json",
+    "summary_sha256": "bc346c236c77751098f8a4c3794e9f67a2ca0c878c1195e8d36075571181e6ea"
+  },
+  "compilation": {
+    "required_tasks": {
+      ":core:test": [
+        {
+          "line": 380,
+          "text": "2026-11-11T17:47:14.0099343Z > Task :core:test"
+        },
+        {
+          "line": 510,
+          "text": "2026-11-11T17:47:16.0760070Z > Task :core:test"
+        },
+        {
+          "line": 620,
+          "text": "2026-11-11T17:47:23.4750462Z > Task :core:test"
+        }
+      ],
+      ":desktop:classes": [
+        {
+          "line": 367,
+          "text": "2026-11-11T17:47:03.7749246Z > Task :desktop:classes"
+        }
+      ],
+      ":android:compileDebugJavaWithJavac": [
+        {
+          "line": 378,
+          "text": "2026-11-11T17:47:12.2790287Z > Task :android:compileDebugJavaWithJavac"
+        }
+      ],
+      ":android:compileReleaseJavaWithJavac": [
+        {
+          "line": 505,
+          "text": "2026-11-11T17:47:14.9788175Z > Task :android:compileReleaseJavaWithJavac"
+        }
+      ],
+      ":android:compileDebugAndroidTestJavaWithJavac": [
+        {
+          "line": 618,
+          "text": "2026-11-11T17:47:21.2761047Z > Task :android:compileDebugAndroidTestJavaWithJavac"
+        }
+      ]
+    },
+    "gradle_success": [
+      {
+        "line": 8412,
+        "text": "2026-11-11T17:48:57.7969104Z BUILD SUCCESSFUL in 2m 53s"
+      }
+    ],
+    "junit_summary_log_line": [
+      {
+        "line": 8438,
+        "text": "2026-11-11T17:48:58.3090961Z {\"source_commit\": \"80c9aab144f5812f89e6584f548d5969339775c1\", \"suites\": 468, \"tests\": 3244, \"failures\": 0, \"errors\": 0, \"skipped\": 0, \"apk_assembled\": false, \"physical_phone_tested\": false}"
+      }
+    ],
+    "api_36_sdk_install_requested_in_successful_step": true,
+    "android_instrumentation_compilation_includes_both_reviewed_new_source_files": true,
+    "native_source_binding_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/native-source-cutoff-binding.json",
+    "native_source_binding_sha256": "5689c13319cf29e8557df2f16ff754a0d30777e914440d45bb8dbd3fa0b14173",
+    "apk_assembly_tasks_present": false
+  },
+  "evidence": {
+    "terminal_snapshot_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/snapshot-2026-11-11T17-49-24-801Z.json",
+    "terminal_snapshot_sha256": "17a60e896f79547850733b3ad516f6c9ad71ff98da94d419223f5ffe925651c4",
+    "completed_job_log_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/source-check-job-130699323839.log",
+    "completed_job_log_bytes": 754515,
+    "completed_job_log_sha256": "3e138a1d3541b258e6fb7a5d974cfcdf32501949ca7aeb04fc28919ec27023fa",
+    "workflow_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/workflow-at-80c9aab.yml",
+    "workflow_sha256": "b70c502fda4ad1ad9b2121f0da718436ed4b6c359b25d610d757e84b0f153c00",
+    "source_commit_metadata_path": "/workspace/scratch/db82734c9c44/recovery/apd445-source-ci/source-commit.json",
+    "source_commit_metadata_sha256": "bfeea1d9d3871462dc421bbe702289b7574ed1daa06ec6f152f93b91cb0ed545"
+  },
+  "actions_taken": {
+    "github_gets_only": true,
+    "workflow_dispatches": 0,
+    "workflow_retries": 0,
+    "github_mutations": 0,
+    "apks_built_by_this_task": 0,
+    "native_tests_run": 0
+  },
+  "limits": [
+    "This is source-only CI; no application or instrumentation APK was assembled by the pinned workflow.",
+    "Android SDK compilation is verified from this completed Actions run, separately from the previous local stub type-check.",
+    "Native execution and manual screenshot acceptance for APD445 remain future build gates.",
+    "No physical-phone installation, install-over or acoustic/audio verification is established."
+  ]
+}

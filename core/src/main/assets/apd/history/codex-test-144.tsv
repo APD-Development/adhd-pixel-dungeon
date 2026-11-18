@@ -1,0 +1,12 @@
+Bug Fixes	V061_BUGFIX	Bomb	Use the same captured creator to scale base and specialized bomb damage once.
+Bug Fixes	V061_BUGFIX	ArcaneBomb	Prepare custom damage scaling for arcane blasts while preserving their armor piercing.
+Bug Fixes	V061_BUGFIX	ShrapnelBomb	Prepare custom damage scaling for shrapnel before existing armor reduction.
+Bug Fixes	V061_BUGFIX	HolyBomb	Apply the captured damage setting to the holy bonus without changing its damage type.
+Changes	V061_BUGFIX	SpecialBombDamageProvenanceTest	Test specialized bomb sources, saved creators, unchanged environmental damage and neutral RNG.
+Changes	V061_BUGFIX	APD-TEST144-SPECIAL-BOMBS-2026-10-14	Document specialized bomb reproduction, correction, local tests and pending Android checks.
+Changes	V061_BUGFIX	HANDOFF	Record verified electricity checks and the specialized bomb checkpoint.
+Changes	V061_BUGFIX	APD-CODEX-BUILD-REQUEST	Require current-source tests, debug assembly, Android evidence and compiled history checks.
+Changes	V061_BUGFIX	APD-TEST143-ELECTRICITY-FIXTURE-2026-10-13	Preserve the actual electricity verification evidence and corrected test fixtures.
+Changes	V061_BUGFIX	WORK-COMPLETED-LEDGER	Record the completed TEST143 verification and its limitations.
+Changes	V061_BUGFIX	APD-Verified-Development-2026-10-14	Add the requested private development report covering work through TEST140.
+Changes	V061_BUGFIX	APD-NEXT-BUILD-HISTORY	Review this build against the immediately preceding produced APK.

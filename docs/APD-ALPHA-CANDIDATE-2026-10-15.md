@@ -1,0 +1,27 @@
+# APD private early-alpha candidate — October 15, 2026
+This is preparation for the owner’s October16limited early alpha. It is not authorization to distribute to testers, a public release, or a statement that the entire approved backlog is complete.
+
+## Exact candidate
+Reuse internal TEST214 from compiled source68b59177f3fe153c10583c227376348ed15287e4, source workflow38775582704. No new Gradle build is needed. Staging must refuse unless this exact run completes successfully and its actual artifacts contain1,650unique passing core tests and28unique passing API34methods. Candidate signing, package, version and checksum must be compared directly with publishedTEST206 before acceptance. The verification appendix records completed checks; pending checks are not treated as passed.
+PublishedTEST206 remains the owner-delivered fallback, SHA256566e29174c17c19f9a19f7429410d872a097c09c2aa4a1e4835548617a6c809c, appIDcom.charltonchris29.adhdpixeldungeon.indev. Install over the existing application; never uninstall or clear player data.
+
+## Completed source packages since lunch TEST206
+TEST207 corrected fixed-point ratio presentation without changing raw calculations.
+TEST208 memoizes immutable statistics registry identities, invalidating them only after actual registration. Exact hash/old-cache compatibility and concurrent-reader checks passed. Current31-kind local20klookup benchmark dropped from212.746ms/82,811,880allocatedbytes to1.065ms/224bytes, with identical fingerprint. This is a local microbenchmark, not physical-device or whole-game speed evidence.
+TEST213 marks surviving totals from truncated, corrupt or seal-mismatched histories as lower bounds. Clean open records and valid seals remain exact. Raw logs and saves remain intact; disposable derivations advance to9 and row-cache builder13. Its actual gate independently passed1,646core+28API34, zero failures/errors/skips, debug/history and38reviewedPNG. An initial full run failed one old test expectation for builder12; both version assertions were corrected while retaining old-cache rejection and raw-byte preservation. No failed APK was delivered.
+TEST214 prevents missing attack/damage/kill details from borrowing a later creature’s class or boss status. Detail lookup stops at intervening combat events or recording gaps. Four original-source regressions fail and corrected controls pass;639broader local checks pass21.394s, with baseline121source-guard limits. Disposable row-builder14forces one rebuild; raw formats, actual history, calculations and gameplay are unchanged. Production8a27ced4beb4dd46e7014927bf764d1456eb60bc/03338515a319cb49ff839d169ded4649c3374c58; permanent tests9f0c273eb71c435f347d564a0f63d14ab48e12ff.
+The supplied real-player log was read locally, not played on a phone:46,323events, SEALED, zero explicitGAPs,53enemy rows/53known classes/5boss kinds. Old and corrected enemy-classification SHA256both6d1951c2bc602307648429797ef6224f103da52c071ab96953ed3886373e085c. Raw log bytes were unchanged. Synthetic missing-event failures remain separate from this clean real-player control.
+
+## Alpha features retained
+All18custom difficulty controls remain implemented and recorded; current provisional bounds and the1–60whole-upgrade-scroll control remain unchanged. Original earned scores are preserved; custom scoring is deferred and the experimental/pending-scoring notice remains visible. No multiplier formula is approved or awarded.
+Retain Cleric lore’s50existing entries/collection history/opt-out and working quick-cast2–4touch selection; native News/About/Changes/TopScores, tile visibility, stair navigation and the existing approved systems remain present. This staging adds no gameplay mechanic, score adjustment, restriction or online service.
+
+## Risks and unfinished acceptance
+The complete UIMSD audit is unfinished. The old211component inventory now has213production components after adding recorded custom-rule settings and facts. Matching-blob inherited reviews, changed files and new source reviews must remain distinct; no global completion count is invented.
+Physical-phone/owner-save upgrade acceptance and a full tester playthrough remain outstanding. API34screenshots and injected-pointer tests are emulator evidence. Verify all six classes, major boss progression, neutral/custom gameplay combinations, saves, inventory and the owner’s device controls during acceptance; test totals alone are not proof of a bug-free alpha.
+Canonical seed floors are explicitly fixed-reference replays, not recorded history or guaranteed custom-run predictions. Remaining navigation/worker concerns require supported-path reproduction; no speculative rewrite is included.
+Keep raw-history compression and scoring research separate from production. No paid services, public releases, unfinished network activation, automatic tester distribution or save cleanup.
+
+## Honest timing
+The lunch PDF actually published11:56:24a.m.EDT andTEST206APK12:03:45p.m.EDT, not their nominal11:55/11:59times. Later package checks and corrections occurred afterward. Workflow timestamps are elapsed CI time, not proof of uninterrupted coding between sessions.
+The October16,4p.m.EDTtarget remains a stable private alpha candidate. The entire backlog/audit is not guaranteed finished by that time. This stage produces a concrete reviewable artifact and records actual success or failure without rebuilding unchanged application source.

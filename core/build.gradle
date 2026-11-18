@@ -1,0 +1,44 @@
+apply plugin: 'java-library'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
+
+dependencies {
+    api project(':SPD-classes')
+    implementation project(':services')
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    //APD: headless libGDX so tests can run real level generation, see docs/APD-STATS-PHASE0.md
+    testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    //same version SPD-classes uses at runtime, needed at compile time to canonicalize bundle JSON in tests
+    testImplementation 'org.json:json:20240303'
+}
+
+test {
+    //game code loads message bundles through Gdx.files.internal, so tests run from the assets folder
+    workingDir = file('src/main/assets')
+    // Messages and other game assets are loaded directly rather than processResources.
+    // Changing them must invalidate the test result instead of returning UP-TO-DATE.
+    inputs.dir('src/main/assets').withPropertyName('gameAssets')
+    //run with -Papd.golden.update=true to rewrite the golden file instead of comparing against it
+    systemProperty 'apd.golden.update', project.findProperty('apd.golden.update') ?: 'false'
+    systemProperty 'apd.golden.file', file('src/test/resources/apd/golden_levels.txt').absolutePath
+    systemProperty 'apd.event.manifest', file('src/test/resources/apd/event_type_manifest.txt').absolutePath
+    systemProperty 'apd.game.src', file('src/main/java/com/shatteredpixel/shatteredpixeldungeon').absolutePath
+    systemProperty 'apd.windows.src', file('src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows').absolutePath
+    systemProperty 'apd.recorder.src', file('src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder').absolutePath
+    systemProperty 'apd.stats.src', file('src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats').absolutePath
+    systemProperty 'apd.query.src', file('src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query').absolutePath
+    systemProperty 'apd.archive.src', file('src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive').absolutePath
+    //recording the golden file starts fresh JVMs, which need the test classpath
+    systemProperty 'apd.test.classpath', sourceSets.test.runtimeClasspath.asPath
+    testLogging {
+        events 'failed'
+        exceptionFormat 'full'
+        showStandardStreams = true
+    }
+}

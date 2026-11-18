@@ -1,0 +1,34 @@
+# APD460 isolated contextual Search scan continuation, November 12, 2026
+
+## Final APD460 release verification, November 12
+
+**APD460 is now verified and published**, superseding the pending status snapshot below. The exact original Developer and Alpha-Testers APKs and matching source are published in [release apd-460](https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-460), targeting frozen source `7c6a10e2db7c82f38297f5d5e38a62ceba27c962`. Original signer, package identity and versionCode 920 passed the original candidate-build gates. This release did not alter save schema, score, RNG, challenge balance, talent values, action costs or Search mechanics.
+
+- Full source CI [43237301847](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43237301847) succeeded: **3,266 core tests, 470 suites, zero failures/errors/skips**, required desktop and Android Java compilation, and the exact new bounded-radius regression.
+- One original signed Developer/Alpha pair and instrumentation were assembled in successful [candidate run 43237859054](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43237859054); original package/certificate/variant digests passed.
+- [Native run 43238039604](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43238039604), attempt 1, recorded five successful emulator cases and an Alpha WallGeometry instrumentation **pass** whose screenshot manifest failed after an emulator disconnect (`error: closed`, device not found). The failed transfer is not accepted as image evidence. Attempt 2 reran only that failed job, consumed the same frozen application/instrumentation APKs, and succeeded. Latest accepted evidence has all **six native cases** successful, complete device-screenshot transfer receipts and image hashes. The underlying emulator disconnect cause is not established.
+- [Publisher run 43238146009](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43238146009), attempt 1, correctly failed because native attempt 1 was incomplete. Attempt 2 succeeded after successful native recovery. It required exact source/build/native IDs and jobs, checked the original candidate hashes, published a new `apd-460` prerelease without overwriting another tag, downloaded all three published assets back, and verified matching SHA-256 hashes.
+- **Developer:** `APD-Developer-460.apk`, 39,211,116 bytes, SHA-256 `8298eeabe3a6d372acddc5eaeb424247ebbcb14779e00224f2f8d80e744549a4`.
+- **Alpha-Testers:** `APD-Alpha-Testers-460.apk`, 39,211,092 bytes, SHA-256 `d97a7c10d223412ec66509d715e985c9db0c31c132cc56c39ba035f41c7bd35c`.
+- **Matching source:** `APD-Source-460.zip`, 111,179,958 bytes, SHA-256 `0e7307be2e3f71387c2929dc720c77b488f46fbd4c36f85d9a5d67c05aa1d552`.
+
+These are confirmed GitHub release assets and publisher-readback checks, not physical RedMagic device installation or audio acceptance. Retain APD459 and all earlier release artifacts. The original native transport failure and failed publisher attempt remain historical evidence; do not rewrite them as initial successes. All follow-on agents should use APD460 as the latest verified published baseline until a newer independently verified release exists.
+
+## Status at this checkpoint
+APD459 remains the latest confirmed published Developer/Alpha pair until the APD460 release workflow actually completes and its assets are read back. This session started from the established development head `9a653930b135538958a8592fe829f7e39161aeeb` after verifying AGENTS.md, the APD459 handoff, active branch and release history. All work is isolated on `codex/apd-search-radius-scan-20261112` to avoid colliding with staggered coding sessions. Do not rebuild or overwrite APD459.
+
+## Source implementation
+- `d8b752d081b9164580b43eaf916f01e3c22624ed`: centralize the existing Search footprint radius in `WallSearchSession.searchRadius(hero,foresight)`, retaining Warrior/other radius 1, Rogue radius 2, +1 only if Wide Search is acquired, and Foresight radius 8.
+- `d108ef0cc84b9a447f305652d06528bfda33261c`: constrain `SearchControlContext.hasMeaningfulWall` scan to that exact footprint radius, rather than scanning a radius-3 square for ordinary heroes. The original `covers`, doorway geometry, known terrain, candidate and checkmark guards remain in place.
+- `7f75f820096d64336c06752a85bcb6b741227781`: add `contextualScanBoundsMatchActualClassTalentAndForesightFootprints` regression for every class, acquired Wide Search rank 1/2 with rounded corners, Metamorphosis, out-of-range walls and actual Foresight.
+- Frozen source/CI commit: `7c6a10e2db7c82f38297f5d5e38a62ceba27c962`. No scoring, saves, RNG, talent values, action costs, geometry, signer or game balance changes.
+
+## Verified source
+Full GitHub Actions source CI [43237301847](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43237301847) succeeded. Actual raw log reports 3,266 core tests across 470 suites, zero failures/errors/skips; desktop classes and Android debug, release and instrumentation Java compilation all passed. The exact new regression was required by the CI gate.
+
+## Frozen-APK pipeline, pending terminal verification
+- Signed original-signer candidate workflow [43237859054](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43237859054), trigger commit `3f37bff65330ea63cc05355ee514cd5b5700aa0f`. Must consume source run 43237301847 successfully and build one Developer/Alpha pair from exactly `7c6a10e2`, with the original signer/application/versionCode.
+- Android native workflow [43238039604](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43238039604), source `6ee677aabaa9b38a5be00f7dbd7e21d6ae1dbf72`. Must reuse original candidate APK bytes for six emulator cases, three each variant, with full screenshot transfer and hashes. Helper `tools/apd460_native_postcheck.py` binds exact candidate source, no app rebuild.
+- Release publisher [43238146009](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43238146009), source `2bb2cc6350eaa57f3e72b7b1f33bb131e5cdace1`. Must require exact source/build/native run success, six original Android case artifacts, then publish `apd-460` only if not already present and read back all three published file hashes.
+
+This is not an APK delivery receipt. Inspect completed workflow outcomes, exact signer/package and native evidence before claiming a new playable APK. If any fails, preserve the failure and correct only the demonstrated blocker. Once successful, retain all previous release identities and integrate to the established branch without overwriting other contributors. Physical-phone install-over and audio checks remain unverified. Unresolved personal seed-reuse scoring numerics and Cleric design choices belong to the owner.

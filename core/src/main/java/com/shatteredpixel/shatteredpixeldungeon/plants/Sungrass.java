@@ -1,0 +1,197 @@
+/*
+ * Pixel Dungeon
+ * Copyright (C) 2012-2015 Oleg Dolya
+ *
+ * Shattered Pixel Dungeon
+ * Copyright (C) 2014-2026 Evan Debenham
+ *
+ * ADHD Pixel Dungeon
+ * Copyright (C) 2026 Chris Charlton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+package com.shatteredpixel.shatteredpixeldungeon.plants;
+
+import com.shatteredpixel.shatteredpixeldungeon.apd.recorder.ApdCombat;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Healing;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
+import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
+import com.shatteredpixel.shatteredpixeldungeon.effects.FloatingText;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ShaftParticle;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.shatteredpixel.shatteredpixeldungeon.ui.BuffIndicator;
+import com.watabou.utils.Bundle;
+
+public class Sungrass extends Plant {
+	
+	{
+		image = 3;
+		seedClass = Seed.class;
+	}
+	
+    @Override
+    public String desc(){
+        return Dungeon.hero!=null&&com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CustomHealingHooks.disabled()
+                ?Messages.get(Sungrass.class,"desc_disabled_healing"):super.desc();
+    }
+
+	@Override
+	public void activate( Char ch ) {
+		
+		if (ch != null){
+			if (ch instanceof Hero && ((Hero) ch).subClass == HeroSubClass.WARDEN) {
+				Buff.affect(ch, Healing.class).setHeal(ch.HT, 0, 1);
+			} else {
+				Buff.affect(ch, Health.class).boost(ch.HT);
+			}
+		}
+		
+		if (Dungeon.level.heroFOV[pos]) {
+			CellEmitter.get( pos ).start( ShaftParticle.FACTORY, 0.2f, 3 );
+		}
+	}
+	
+	public static class Seed extends Plant.Seed {
+        @Override public String desc(){
+            return Dungeon.hero!=null&&com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CustomHealingHooks.disabled()
+                    ?Messages.get(Sungrass.class,"desc_disabled_healing"):super.desc();
+        }
+		{
+			image = ItemSpriteSheet.SEED_SUNGRASS;
+
+			plantClass = Sungrass.class;
+
+			bones = true;
+		}
+	}
+	
+	public static class Health extends Buff {
+		
+		private static final float STEP = 1f;
+		
+		private int pos;
+		private float partialHeal;
+		private int level;
+
+		{
+			type = buffType.POSITIVE;
+			announced = true;
+		}
+		
+		@Override
+		public boolean act() {
+			if (target.pos != pos) {
+				detach();
+			}
+			
+			//for the hero, full heal takes ~50/93/111/120 turns at levels 1/10/20/30
+			partialHeal += (40 + target.HT)/150f;
+			
+			if (partialHeal > 1){
+				int healThisTurn = (int)partialHeal;
+				partialHeal -= healThisTurn;
+				level -= healThisTurn;
+
+				if (target.HP < target.HT) {
+
+					int apdHpBefore = target.HP;
+					target.HP += com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CustomHealingHooks.amount(target, healThisTurn);
+					target.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CustomHealingHooks.display(target, apdHpBefore, healThisTurn)), FloatingText.HEALING);
+
+					if (target.HP >= target.HT) {
+						target.HP = target.HT;
+						if (target instanceof Hero && com.shatteredpixel.shatteredpixeldungeon.SPDSettings.waitStopFullHealth()) {
+							((Hero) target).resting = false;
+						}
+					}
+					ApdCombat.onHeal( target, apdHpBefore, ApdCombat.HEAL_PLANT_SUNGRASS, healThisTurn );
+				}
+			}
+			
+			if (level <= 0) {
+				detach();
+				if (target instanceof Hero && (target.HP < target.HT || com.shatteredpixel.shatteredpixeldungeon.SPDSettings.waitStopFullHealth())){
+					((Hero)target).resting = false;
+				}
+			}
+			spend( STEP );
+			return true;
+		}
+
+        public int remainingPool() { return level; }
+        public float healingProgress() { return partialHeal; }
+        public int nextUnmodifiedRequest() {
+            if (target == null) return 0;
+            float next = partialHeal + (40 + target.HT)/150f;
+            return next > 1 ? (int)next : 0;
+        }
+
+		public void boost( int amount ){
+			if (target != null) {
+				level += amount;
+				pos = target.pos;
+			}
+		}
+		
+		@Override
+		public int icon() {
+			return BuffIndicator.HERB_HEALING;
+		}
+
+		@Override
+		public float iconFadePercent() {
+			return Math.max(0, (target.HT - level) / (float)target.HT);
+		}
+
+		@Override
+		public String iconTextDisplay() {
+			return Integer.toString(level);
+		}
+
+		@Override
+		public String desc() {
+			return target!=null&&target==Dungeon.hero&&com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CustomHealingHooks.disabled()
+                    ?Messages.get(Sungrass.class,"desc_disabled_healing"):Messages.get(this, "desc", level);
+		}
+
+		private static final String POS	= "pos";
+		private static final String PARTIAL = "partial_heal";
+		private static final String LEVEL = "level";
+
+		@Override
+		public void storeInBundle( Bundle bundle ) {
+			super.storeInBundle( bundle );
+			bundle.put( POS, pos );
+			bundle.put( PARTIAL, partialHeal);
+			bundle.put( LEVEL, level);
+		}
+		
+		@Override
+		public void restoreFromBundle( Bundle bundle ) {
+			super.restoreFromBundle( bundle );
+			pos = bundle.getInt( POS );
+			partialHeal = bundle.getFloat( PARTIAL );
+			level = bundle.getInt( LEVEL );
+
+		}
+	}
+}
+

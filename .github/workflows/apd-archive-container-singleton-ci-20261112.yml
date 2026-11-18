@@ -1,0 +1,69 @@
+name: APD archive container singleton source gate
+on:
+  push:
+    branches: [chatgpt/apd-archive-container-singleton-20261112-2130]
+    paths:
+      - .github/workflows/apd-archive-container-singleton-ci-20261112.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveManifest.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveManifestContainerSingletonTest.java
+permissions: {contents: read}
+concurrency:
+  group: apd-archive-container-singleton-20261112
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify bounded container metadata repair
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveManifest.java').read_text()
+          tests = Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveManifestContainerSingletonTest.java').read_text()
+          assert 'if (containerSeen) throw new IllegalArgumentException("the manifest has repeated container metadata")' in source
+          for name in ('contradictoryContainerRecordsAreRefusedWithValidChecksum',
+                       'identicalContainerRecordIsAlsoRefused',
+                       'normalContainerAndUnknownFutureMetadataStillParse',
+                       'repeatedContainerZipImportPreservesOriginalHistory'):
+              assert 'void ' + name + '(' in tests, name
+          print('Bounded container validation and four regression methods present')
+          PY
+      - name: Run all core JUnit and compile desktop and Android Java
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require zero failures and archive compatibility tests
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports = [ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports, 'missing JUnit reports'
+          totals = {k:sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests'] >= 3349, totals
+          assert all(totals[k] == 0 for k in ('failures','errors','skipped')), totals
+          cases = {c.get('name') for r in reports for c in r.findall('testcase')}
+          for name in ('contradictoryContainerRecordsAreRefusedWithValidChecksum',
+                       'identicalContainerRecordIsAlsoRefused',
+                       'normalContainerAndUnknownFutureMetadataStillParse',
+                       'repeatedContainerZipImportPreservesOriginalHistory',
+                       'identicalRepeatedHeadersAreRejectedWithValidChecksum',
+                       'contradictoryRepeatedTotalsAreRefusedDespiteValidChecksum',
+                       'negativeEventCountsAreRefusedWithValidChecksums',
+                       'aManifestRoundTrips',
+                       'repeatedManifestPathKeepsFirstMatchAndNeverOverwritesHistory'):
+              assert name in cases, name
+          print('Full APD source tests:', totals, 'suites:', len(reports))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-archive-container-singleton-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

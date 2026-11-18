@@ -1,0 +1,5 @@
+{
+  "run_id": 42613354277,
+  "source_commit": "8bd99c644d5ce88cd824b9e698c25c92aaa28dab",
+  "scope": "Stage only after 3134 core and all 12 native cases pass, with source scans; remain draft pending independent source/APK hashes and manual inspection-window and zero-healing popup review."
+}

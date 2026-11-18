@@ -1,0 +1,6 @@
+Testing	ICON_CHECKED	Play Run Device Test	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature.
+Infrastructure	ICON_DATA	Outbox	Retained queued entries and applied retry backoff after malformed gateway responses.
+Testing	ICON_DATA	Backend Outbox Test	Updated automated checks and fixtures for backend outbox. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature. Retained queued entries and applied retry backoff after malformed gateway responses.

@@ -1,0 +1,133 @@
+{
+  "recorded_at": "2026-10-16T22:44:54Z",
+  "release": {
+    "tag": "apd-alpha-preview-261",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-261",
+    "published_at": "2026-10-16T22:44:46Z",
+    "private_repository": true,
+    "prerelease": true,
+    "draft": false,
+    "target": "2c3586ee14089c23fac38d0bebc35661a6d1dda4"
+  },
+  "application": {
+    "source": "7368f13940690e599ca05c47a1cf29cca6beed09",
+    "production_change_source": "0b191941c1f673c6c13d2ba119cb86656c99f1c9",
+    "producer_run": 38975391839,
+    "apk_bytes": 38589942,
+    "apk_sha256": "71eb6e057d4cdbaa194c8b37e9d243079e7e0849afc6eb164fd66c9187844833",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "version_name": "4.0.8-apd-INDEV-bC261-TEST",
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "rebuilt_for_delivery": false
+  },
+  "tests": {
+    "core": {
+      "methods": 1756,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12079335633,
+      "artifact_zip_digest": "sha256:567e4989abc7bccf16f27b1103a5cb9f12d1568b73caf4d29c9bcb440c068ae9"
+    },
+    "android": {
+      "distinct_methods": 37,
+      "accepted_executions": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "corrected_run": 38975988571,
+      "corrected_source": "655128758111d740994d86bdbfe1f8e819e3605a",
+      "full_artifact_id": 12079970767,
+      "full_artifact_zip_digest": "sha256:b567ba3fe99b06cda42652fd6bd22f2b493dd357aedf0d625769ac90b9280072",
+      "required_images": 77,
+      "manual_visual_review_recorded_by_publication_verifier": true
+    },
+    "small_display_retry": {
+      "run": 38976735864,
+      "source": "8a44f5d2923e4390164817962944b3b9421e785f",
+      "methods": 1,
+      "images": 4,
+      "artifact_id": 12079641116,
+      "artifact_zip_digest": "sha256:79585d96161df00f85fe07ea27857dffaef6cb0d18ad690f272fbf72892898cd"
+    }
+  },
+  "retained_failures": [
+    {
+      "build": 260,
+      "run": 38974830422,
+      "core_methods": 1756,
+      "passed": 1754,
+      "apk_exists": false
+    },
+    {
+      "build": 261,
+      "run": 38975391839,
+      "stage": "android test compilation",
+      "cause": "new fixture did not handle checked Exception",
+      "native_tests_executed": 0
+    },
+    {
+      "run": 38975988571,
+      "profile": "320x480 Pixel7",
+      "cause": "photographed Quickstep launcher ANR blocked native touch",
+      "methods_failed": 1,
+      "accepted": false,
+      "artifact_id": 12079470445,
+      "artifact_zip_digest": "sha256:da5c6093c256fc6344b8303ee25365d65e90339922e3e3c9d4d6ed0c8b050792"
+    }
+  ],
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-Alpha-Preview-261.apk",
+      "bytes": 38589942,
+      "digest": "sha256:71eb6e057d4cdbaa194c8b37e9d243079e7e0849afc6eb164fd66c9187844833"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-Alpha-Preview-261.apk.sha256",
+      "bytes": 107,
+      "digest": "sha256:a4ced3ff1d020f277d2265158e4232e929dd39c2961152c351e9d342a7e8b03e"
+    },
+    {
+      "name": "APD-Alpha-Preview-261.pdf",
+      "bytes": 6387,
+      "digest": "sha256:75639a3e68bd19141ea635fbcb3d09721327e55fe9b593a4ce2979388d0c73d2"
+    },
+    {
+      "name": "APD-Android-Evidence-261.zip",
+      "bytes": 16628080,
+      "digest": "sha256:edf112896626914b87f85f1da340208512c2dd8d61c1778d635b4a1acdc0fe3a"
+    },
+    {
+      "name": "APD-Promotion-Removal-261.json",
+      "bytes": 8216,
+      "digest": "sha256:b9271c695e9ece907d0695f12a603b0d6a91ef8996aad2c24ffbbd6c1b4d73eb"
+    },
+    {
+      "name": "TEST261-Verification.json",
+      "bytes": 372244,
+      "digest": "sha256:da14717856b0bc557fe6dd86709639273037a0a87f5357198204c5314ad823ac"
+    }
+  ],
+  "delivery": {
+    "run": 38977482912,
+    "conclusion": "success",
+    "artifact_id": 12079776361,
+    "artifact_zip_digest": "sha256:eda2237e0fab41ab91698c6b626233148b5c7b0ab435f93e4a87e5fc7bab1ba8",
+    "asset_downloads_reverified": true,
+    "chat_link_sent": false
+  },
+  "limits": {
+    "physical_phone_tested": false,
+    "owner_active_save_install_over_tested": false,
+    "automatic_tester_distribution": false,
+    "public_release": false,
+    "all_backlog_complete": false
+  },
+  "next_safe_step": "Continue the documented post-critical backlog from the latest head; do not rebuild unchanged TEST261. Keep physical-phone/active-save, human class/boss strategies, broader UIMSD audit/storage, armor playthrough and inherited audio open.",
+  "chat_link_sent": true,
+  "chat_link_sent_between_utc": [
+    "2026-10-16T22:45:28Z",
+    "2026-10-16T22:46:46Z"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "release": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-380",
+  "published_at": "2026-11-08T22:49:04Z",
+  "build_run": 42530677365,
+  "stage_run": 42531325440,
+  "verification": {
+    "source_commit": "e2ec44f8d7c27d46f350223d46fd15af2b0ac9ef",
+    "number": 380,
+    "tag": "apd-alpha-preview-380",
+    "core_tests": 3030,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "e2a07e1a73fee210ec3a223f5a0be64fc235c45a3705423811298b82a88ccad6",
+      "Alpha-Testers": "60d06e65ef9fed6c8d54cb9b5f07a8649d88c677a853e3794d321620552df11a"
+    },
+    "source_sha256": "c184d47812b4aaeae6df1a9972a42ee7711035be28c8934ba44c6f08c5a997fb",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-08T22:40:31.681352+00:00",
+    "workflow_run": "42530677365",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "limits": "Targeted Android emulator checks and reviewed captures, not owner-phone verification. Full description audit incomplete. No confirmed APD audio reproduction or production audio fix."
+}

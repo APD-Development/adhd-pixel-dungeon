@@ -1,0 +1,110 @@
+name: APD C489S/P489S trap-room search
+# APD settings start off, C489S/P489S.
+on:
+  push:
+    branches: [fix/apd-trap-room-search-20261116]
+    paths: [.github/workflows/apd488t-trap-room-search-apk.yml]
+permissions: {contents: read}
+concurrency:
+  group: apd-trap-room-search-c488t
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install Android platform
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - name: Preserve minimum merged 466r7 plus C485 source baseline
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor c6fa033167789ef9f2fc6f31bcff39c824dfb4db HEAD
+          git merge-base --is-ancestor 34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7 HEAD
+      - name: Full core tests and Android/desktop compile
+        run: |
+          set -o pipefail
+          mkdir -p evidence output
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac --no-daemon 2>&1 | tee evidence/verification.log
+      - name: Fail build for any regression or skipped test
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,xml.etree.ElementTree as ET
+          roots=[ET.parse(x).getroot() for x in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          counts={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert counts['tests']>=3544 and counts['failures']==counts['errors']==counts['skipped']==0,counts
+          names={p.name for p in Path('core/build/test-results/test').glob('TEST-*.xml')}
+          assert any('ExtendedBugJournalTest' in n for n in names),names
+          assert any('DiagnosticReportExtendedOptionTest' in n for n in names),names
+          import xml.etree.ElementTree as ET
+          test_file=next(Path('core/build/test-results/test').glob('*DiagnosticReportExtendedOptionTest.xml'))
+          tests={x.get('name') for x in ET.parse(test_file).getroot().iter('testcase')}
+          assert 'strongestCompressionIsLosslessPortableAndMuchSmallerForRepetitiveEvents' in tests,tests
+          Path('evidence/tests.json').write_text(json.dumps(counts,indent=2))
+          PY
+      - name: Assemble independently configured developer and alpha candidates
+        run: |
+          set -euo pipefail
+          ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=C489S --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk output/APD-Developer-Trap-Room-Search-C489S.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P489S --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk output/APD-Alpha-Testers-Trap-Room-Search-P489S.apk
+      - name: Verify original signature, package, version, flags and built feature classes
+        run: |
+          python3 - <<'PY'
+          import os,pathlib,subprocess,re,hashlib,json,zipfile
+          tools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1].parent
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          check_classes=['com/watabou/utils/SupportActionJournal','com/shatteredpixel/shatteredpixeldungeon/apd/diagnostics/DiagnosticReport','com/shatteredpixel/shatteredpixeldungeon/items/weapon/melee/Tanto','com/shatteredpixel/shatteredpixeldungeon/items/weapon/melee/KiteShield']
+          receipt={'source_sha':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                   'source_tree':subprocess.check_output(['git','rev-parse','HEAD^{tree}'],text=True).strip(),
+                   'github_run_id':os.environ['GITHUB_RUN_ID'],'native_android_acceptance':False,'install_over_save_verified':False,'published':False,'variants':{}}
+          for edition,name,marker in [('Developer','APD-Developer-Trap-Room-Search-C489S.apk','-bC489S-TEST'),('Alpha','APD-Alpha-Testers-Trap-Room-Search-P489S.apk','-bP489S')]:
+            file=pathlib.Path('output')/name
+            assert file.stat().st_size>30000000
+            cert=subprocess.check_output([str(tools/'apksigner'),'verify','--print-certs',str(file)],text=True)
+            fp=re.search(r'SHA-256 digest:\s*([0-9a-fA-F:]+)',cert).group(1).lower().replace(':','')
+            assert fp==expected,fp
+            badge=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(file)],text=True)
+            package=next(x for x in badge.splitlines() if x.startswith('package:'))
+            assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package and "versionCode='921'" in package and marker in package,package
+            with zipfile.ZipFile(file) as z:
+              flags=z.read('assets/apd/features.txt').decode().strip().splitlines()
+              expect=['testBuild','grudge','demoUnlock','clericPlayable'] if edition=='Developer' else ['extendedPlayback','grudge']
+              assert flags==expect,flags
+              dex=b''.join(z.read(n) for n in z.namelist() if re.fullmatch(r'classes\d*\.dex',n))
+              for cls in check_classes: assert ('L'+cls+';').encode() in dex,cls
+            receipt['variants'][edition]={'file':name,'size':file.stat().st_size,'sha256':hashlib.sha256(file.read_bytes()).hexdigest(),'signer':fp,'flags':flags,'package':package}
+          pathlib.Path('output/build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          sha256sum output/*.apk > output/sha256sums.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: APD-Developer-C489S
+          path: output/APD-Developer-Trap-Room-Search-C489S.apk
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: APD-Alpha-Testers-P489S
+          path: output/APD-Alpha-Testers-Trap-Room-Search-P489S.apk
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: APD-C489S-P489S-Trap-Room-Search-Evidence
+          path: |
+            evidence/
+            core/build/test-results/test/TEST-*.xml
+          retention-days: 14
+          if-no-files-found: warn

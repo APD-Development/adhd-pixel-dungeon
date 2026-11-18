@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "number": 446,
+  "purpose": "complete_two_developer_cases_on_frozen_APD446",
+  "status": "ready_for_recovery",
+  "pending_review": [],
+  "original_source": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "original_run": 43077773970,
+  "original_run_attempt": 1,
+  "original_artifacts": {
+    "built": {
+      "id": 13881279010,
+      "name": "apd446-built-pair",
+      "sha256": "a726c1c09a23faa4209ef51ff743da32503098737221be5c71dcf3f25e3c23ce",
+      "bytes": 184965727
+    },
+    "scan": {
+      "id": 13882374338,
+      "name": "apd446-prepared-source-scan-evidence",
+      "sha256": "6bdbb9ae223b950ce0c5133774eaf03bf645624ddf9dbe7eb9196cbf67c4b1f1",
+      "bytes": 11309
+    },
+    "original_alpha": {
+      "id": 13885126623,
+      "name": "apd446-native-Alpha-Testers",
+      "sha256": "41fbb9c0be6f2e689761de883785f31b7f463e34baa4c8ba7d96d970a07c45a8",
+      "bytes": 54416927
+    },
+    "original_developer": {
+      "id": 13884437545,
+      "name": "apd446-native-Developer",
+      "sha256": "230b565e0193b9aca9638abf713a9e69ae5a19ad9a2ecf915a70e4167689d334",
+      "bytes": 53797333
+    }
+  },
+  "original_core_tests": 3247,
+  "original_core_suites": 468,
+  "original_developer_cases": [
+    "qol",
+    "wall",
+    "seed",
+    "restart",
+    "gameplay",
+    "freeze",
+    "search-context"
+  ],
+  "recovery_developer_cases": [
+    "seed-history",
+    "pylon"
+  ],
+  "original_alpha_cases": [
+    "qol",
+    "wall",
+    "seed",
+    "restart",
+    "gameplay",
+    "freeze",
+    "search-context",
+    "seed-history",
+    "pylon"
+  ],
+  "original_developer_verified_images": 1457,
+  "fresh_recovery_images": 12,
+  "complete_images_per_variant": 1469,
+  "recovery_required_images": [
+    "pylon-native-active-visible.png",
+    "pylon-native-hidden-excluded.png",
+    "pylon-native-inactive-visible.png",
+    "pylon-native-manual-rat-preserved.png",
+    "pylon-native-ranged-pylon-melee-boss.png",
+    "seed-history-cleared-generated-selection.png",
+    "seed-history-entry.png",
+    "seed-history-latest-unknown-selection.png",
+    "seed-history-matching-records.png",
+    "seed-history-ranking-copy-confirm.png",
+    "seed-history-ranking-copy-result.png",
+    "seed-history-unfinished-record.png"
+  ],
+  "original_partial_developer_images_are_diagnostic_only": true,
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "source_archive_rebuilt": false,
+  "release_publication_authorized": false
+}

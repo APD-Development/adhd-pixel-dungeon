@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T18:31:44.717726+00:00",
+  "status": "immutable_failed_evidence_saved_and_read_back",
+  "build": 445,
+  "producing_source": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "producing_run": 43072342086,
+  "attempt": 1,
+  "accepted": false,
+  "delivered": false,
+  "last_accepted_delivered_build_at_preservation": 444,
+  "source_head_at_preservation": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "archive": "APD-445-Unaccepted-Build-Evidence-2026-11-11.zip",
+  "file_id": "file_00000000daac822fa71e01e256a6a62e",
+  "library_file_id": "libfile_fde3_f-cf939310b8888191a1677d388370cb1d_4aba2690a1e48191a771a2e43a4a6278",
+  "bytes": 302443798,
+  "sha256": "af95d5f359f5c188822eb64aa59827b881056387b62c363aa2df0731504fe3c4",
+  "readback_verified_utc": "2026-11-11T18:29:30.684910+00:00",
+  "all_archived_members_verified": true,
+  "evidence_files": 1680,
+  "archive_manifest_sha256": "f8d7c0b3ac34cf5b77b247cfb4b3c4b1e29d7fcbc8e691ae7c681d1e0e157507",
+  "preserved_contents": [
+    "Exact original built artifact, including the unaccepted APK pair, original instrumentation and matching source ZIP.",
+    "Both original failed native archives, full terminal logs, raw case reports, partial images and device transfer records.",
+    "Exact source-scan evidence, sourceCI evidence and fresh local tests including original failures.",
+    "Scope hold, reviewed fixes, push receipts and diagnostic-only visual review."
+  ],
+  "native_results": {
+    "passed": 14,
+    "failed": 2,
+    "not_run": 2
+  },
+  "no445_delivery_authorized": true,
+  "archive_local_verification_sha256": "cee84a1b72704cea7b3e53234bc9f5187097e47735dfe3ce78e556eec1b36431",
+  "saved_readback_receipt_sha256": "c67783126a58cb687f2ea2922cf75a00d8e240bdf137b356efe2e276c37bc5bf",
+  "no_other_archives_or_builds_replaced": true
+}

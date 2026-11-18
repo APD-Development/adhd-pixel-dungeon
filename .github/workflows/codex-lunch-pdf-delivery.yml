@@ -1,0 +1,62 @@
+name: Deliver staged TEST50 lunch PDF and APK
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-lunch-pdf-delivery.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-test50-pdf-publication
+  cancel-in-progress: false
+jobs:
+  publish-pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: '11706767653'
+          run-id: '38152161465'
+          github-token: ${{ github.token }}
+          merge-multiple: true
+          path: delivery
+      - name: Verify staged evidence and publish private lunch artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          def api(path):
+              return json.loads(subprocess.check_output(['gh','api',path]))
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert api('repos/'+repo)['private'], 'Private repository required'
+          assert datetime.now(ZoneInfo('America/New_York')) >= datetime(2026,10,11,11,59,tzinfo=ZoneInfo('America/New_York')), 'Too early'
+          run=api('repos/'+repo+'/actions/runs/38152161465')
+          assert run['conclusion']=='success' and run['head_sha']=='2afce8269536866a1d30b16b8cc32135cbad109c'
+          evidence=json.loads(pathlib.Path('delivery/TEST50-Verification.json').read_text())
+          assert evidence['source']=='14226785732470e5241daaabe92ba4dc7d399df3'
+          apk=pathlib.Path('delivery/ADHD-Pixel-Dungeon-CODEX-TEST-50.apk')
+          assert hashlib.sha256(apk.read_bytes()).hexdigest()=='ffa42ea87bcbbfa4ed7b600682aea49a703e90bce57f498b2bf36bccd2cd7c7f'
+          pdf=pathlib.Path('delivery/APD-Bug-Fixes-2026-10-11-TEST50.pdf')
+          assert pdf.read_bytes().startswith(b'%PDF-') and pdf.stat().st_size>1000
+          tag='apd-codex-test-50'
+          check=subprocess.run(['gh','release','view',tag,'--repo',repo,'--json','assets'],capture_output=True,text=True)
+          if check.returncode:
+              subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD PRIVATE CODEX TEST 50','--notes-file','delivery/verification.txt'],check=True)
+              assets=[]
+          else:
+              assets=json.loads(check.stdout)['assets']
+          if any(a['name']==pdf.name for a in assets):
+              pathlib.Path('existing').mkdir(exist_ok=True)
+              subprocess.run(['gh','release','download',tag,'--repo',repo,'--pattern',pdf.name,'--dir','existing'],check=True)
+              assert hashlib.sha256((pathlib.Path('existing')/pdf.name).read_bytes()).digest()==hashlib.sha256(pdf.read_bytes()).digest(), 'Existing differing asset preserved'
+          else:
+              subprocess.run(['gh','release','upload',tag,str(pdf),'--repo',repo],check=True)
+          for asset in [apk,pathlib.Path('delivery/TEST50-Verification.json'),pathlib.Path('delivery/ADHD-Pixel-Dungeon-CODEX-TEST-50.apk.sha256')]:
+              if not any(a['name']==asset.name for a in assets):
+                  subprocess.run(['gh','release','upload',tag,str(asset),'--repo',repo],check=True)
+          print(json.dumps({'pdf':pdf.name,'sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'bytes':pdf.stat().st_size,'published_at_utc':datetime.now(ZoneInfo('UTC')).isoformat()}))
+          PY

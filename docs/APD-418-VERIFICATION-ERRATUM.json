@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-11-09T16:26:59.745474+00:00",
+  "build": 418,
+  "scope": "Correction of copied human-readable retry labels only; no APK/source/test outcome changed.",
+  "original_verification_sha256": "e59c7fc9292c28abadd8796982babe3df87edaa34f13a9de57fea083ab522009",
+  "original_wrong_field": "native_retry",
+  "original_wrong_value": "Updated one exact Catalyst description expectation from six energy to six alchemy energy. All viewport, action-count, identity, save, turn and thirty ordinary plant windows remain required. Full twelve cases rerun on immutable original APKs. No application APK rebuilt.",
+  "correct_native_retry": "Only the exact MindVision fixture expectation changed from within1tile to within2tiles, matching the existing default radius. Instrumentation only was rebuilt; all12 cases reran on byte-identical original application APKs. No Catalyst expectation was changed in418.",
+  "actual_fixture_patch_sha256": "4a4de2b1d946c9cd46154365ac666fdd5c0f606b4426bb569b41fce13469986e",
+  "original_application_run": 42642508263,
+  "accepted_retry_run": 42644420369,
+  "source_commit": "8c2d5ca9f33154af69b782d6aa83ac181bd3c21d",
+  "core_tests": 3140,
+  "android_tests": 12,
+  "application_apks_unchanged": true,
+  "apk_hashes": {
+    "Developer": "ba97ddfae91b0cf5950cb53e7695d1265dfcfef0d531680857762584372a053d",
+    "Alpha-Testers": "e12431bc8d852f54f868db130f7bad8918675599d07ffd6743d7b0fccc9cc84c"
+  },
+  "physical_phone_verified": false,
+  "original_assets_retained": true
+}

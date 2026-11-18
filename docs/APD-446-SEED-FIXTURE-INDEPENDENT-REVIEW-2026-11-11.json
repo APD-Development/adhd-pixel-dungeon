@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T18:24:11.420262+00:00",
+  "status": "bounded_independent_source_review_passed_no_concrete_blocker",
+  "fixture_path": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java",
+  "fixture_sha256": "45208417464da8397aea86c94953caaec30fec88a6b5b264be0098ad4f732bfd",
+  "patch_sha256": "06546c28219a420a0452845c8b50b0130d24c73bcb92a368e1783043f7280ee0",
+  "previous_fixture_sha256": "498d78b5bbb836f9ff3f7edbc6403e7fcb6f4d521e39f21c3c50a1567525a636",
+  "scope": "Instrumentation-only initialization ordering, explicit existing statistics-worker quiescence, and the existing entry capture timing. No production changes.",
+  "findings": [
+    "The only start call is moved before seed selection, raw-log creation and the whole-tree baseline. All later ranking-payload, actual Set/clear/Copy, current-selection, score and raw-file assertions remain.",
+    "OwnedFixture.start waits for a real initialized ready GameScene. GameScene.create has already called UimsdScene.releaseForGameplay, invalidating prewarm/model generations and interrupting actual workers before returning.",
+    "The off-render existing bounded wait checks the exact real constructor names uimsd-title-prewarm and uimsd-load. It neither resets cache state nor cancels, joins indefinitely, or kills any worker.",
+    "After synchronized cancellation, a retired prewarm cannot spawn a later loader. Once both named workers are absent, no title/prewarm entry occurs again before the raw-log and notice whole-tree assertions. Cleanup returns to Title only afterward.",
+    "The subsequent assertion requires an initialized ready hero in GameScene with no pending scene switch before any measured log is written.",
+    "Both the original final whole-tree equality and the new unfinished-history whole-tree equality remain exact. Existing original-history and ranking-byte cleanup checks remain in finally-protected OwnedFixture.close.",
+    "The entry image now waits four render frames plus 150 ms, then verifies actual TextInput content equals the assigned code and its actual visible control maps inside the viewport immediately before capture.",
+    "The same single test and all seven exact image names remain. No expected value, cache exclusion, timeout assertion, seed callback or score rule was weakened."
+  ],
+  "images": [
+    "seed-history-unfinished-record.png",
+    "seed-history-entry.png",
+    "seed-history-matching-records.png",
+    "seed-history-latest-unknown-selection.png",
+    "seed-history-cleared-generated-selection.png",
+    "seed-history-ranking-copy-confirm.png",
+    "seed-history-ranking-copy-result.png"
+  ],
+  "unchanged_source_trace_receipt_sha256": "837e9b2cde5c2fb8019488c6701f3f7326b17a9cb0fedf57bfcc30cb9329abd4",
+  "limits": [
+    "The APD445 native tree assertion remains a retained failure; this review is not a corrected native result.",
+    "Full Android compilation and actual corrected native execution remain required.",
+    "TextInput content and the viewport assertion improve capture readiness; only actual image review can establish that the seed was visibly rendered.",
+    "The unfinished fixture covers a clean unsealed log with observed main-dungeon depth, not an actual process crash, physical keyboard/clipboard, or imported archive ownership."
+  ],
+  "production_edits": false,
+  "tests_rerun_by_this_review": false,
+  "remote_mutation": false
+}

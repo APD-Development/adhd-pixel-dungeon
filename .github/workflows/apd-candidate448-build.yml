@@ -1,0 +1,92 @@
+name: Build isolated APD448 gated-wall candidate
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-candidate448-build.yml]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd448-single-candidate, cancel-in-progress: false}
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Require exact final gated-room source verification
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os,subprocess,time
+          source='fbc7d6edf5d531e70f4d1046ed8f27ce98f04862'
+          for attempt in range(100):
+              run=json.loads(subprocess.check_output(['gh','api',
+                  'repos/APD-Development/ShieldingShouldHaveWorked/actions/runs/43108040565']))
+              assert run['head_sha']==source
+              if run['status']=='completed':
+                  assert run['conclusion']=='success', 'Final wall-marker source verification failed'
+                  break
+              time.sleep(10)
+          else: raise RuntimeError('Source verification not complete')
+          subprocess.run(['git','merge-base','--is-ancestor',source,'HEAD'],check=True)
+          changes=subprocess.check_output(['git','diff','--name-only',source,'HEAD'],text=True).splitlines()
+          assert changes==['.github/workflows/apd-candidate448-build.yml'],changes
+          subprocess.run(['git','checkout','--detach',source],check=True)
+          PY
+      - name: Assemble original-signer Developer and Alpha-Testers candidate pair
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          mkdir -p candidate448
+          ./gradlew :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C448
+          cp android/build/outputs/apk/debug/android-debug.apk candidate448/APD-Developer-448.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk candidate448/APD-Instrumentation-448.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P448
+          cp android/build/outputs/apk/debug/android-debug.apk candidate448/APD-Alpha-Testers-448.apk
+          test -s candidate448/APD-Developer-448.apk
+          test -s candidate448/APD-Alpha-Testers-448.apk
+          test -s candidate448/APD-Instrumentation-448.apk
+      - name: Require exact signer, package and variant identities
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess
+          tools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1].parent
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          files={}
+          for variant in ('Developer','Alpha-Testers'):
+              path=pathlib.Path('candidate448')/f'APD-{variant}-448.apk'
+              output=subprocess.check_output([str(tools/'apksigner'),'verify','--print-certs',str(path)],text=True)
+              match=re.search(r'SHA-256 digest:\s*([0-9a-fA-F:]+)',output)
+              assert match,output
+              cert=match.group(1).replace(':','').lower()
+              assert cert==expected,(variant,cert)
+              badging=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(path)],text=True)
+              package=next(line for line in badging.splitlines() if line.startswith('package:'))
+              assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package
+              assert "versionCode='920'" in package
+              assert ('-bC448-TEST' if variant=='Developer' else '-bP448') in package
+              files[variant]={'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'package':package}
+          instrument=pathlib.Path('candidate448/APD-Instrumentation-448.apk')
+          files['Instrumentation']={'bytes':instrument.stat().st_size,'sha256':hashlib.sha256(instrument.read_bytes()).hexdigest()}
+          pathlib.Path('candidate448/receipt.json').write_text(json.dumps({'build':448,'source':'fbc7d6edf5d531e70f4d1046ed8f27ce98f04862','status':'candidate_unaccepted','physical_phone_tested':False,'native_accepted':False,'files':files},indent=2)+'\n')
+          PY
+      - name: Preserve candidate source and hashes
+        run: |
+          git archive --format=zip --output=candidate448/APD-Source-448.zip HEAD
+          sha256sum candidate448/*.apk candidate448/APD-Source-448.zip > candidate448/sha256sums.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd448-unaccepted-gated-room-candidate
+          path: candidate448/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd448-build-failure-evidence
+          path: candidate448/
+          if-no-files-found: warn
+          retention-days: 30

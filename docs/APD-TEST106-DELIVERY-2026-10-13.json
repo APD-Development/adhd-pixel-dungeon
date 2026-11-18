@@ -1,0 +1,14 @@
+{
+  "source": "015d0392f5ff607746a6db0a2879fd4bbd4c3c45",
+  "verification_run": 38359186475,
+  "delivery_run": 38360862361,
+  "delivery_commit": "a0323b4ae352662df9e22844e507f893afd40b94",
+  "published_at": "2026-10-13T07:09:42Z",
+  "apk_sha256": "b6037c7460886b097408596dd4ca9921dc361745525fc8cbd6a508c2ceffedaa",
+  "core_tests": 1293,
+  "android_tests": 21,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "physical_phone_verified": false
+}

@@ -1,0 +1,21 @@
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Testing	ICON_STAIRS	Floor Replay Device Test	Added a device test covering floors Can Be Replayed On The Device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Run state	Saved and restored generation-related state around isolated canonical floor replay.
+Statistics / UIMSD	ICON_STAIRS	Replay Scan	Added reads a freshly generated level (read only) into a ReplayFloor, with the same notion of "item with an identity" the recorder uses.
+Statistics / UIMSD	ICON_STAIRS	Floor Replay	Added generates the floors of a seed in order, outside any game, under a fixed reference context, and returns them as plain data.
+Statistics / UIMSD	ICON_STAIRS	Replay Context	Added the reference context a floor replay runs in.
+Statistics / UIMSD	ICON_STAIRS	Replay Floor	Added one floor as a floor replay generated it: a CANONICAL SEED FLOOR under the reference context.
+Changes	ICON_JOURNAL	Catalog	Kept reconstructed floor data separate from recorded run datasets.
+Testing	ICON_STAIRS	Level Generation Harness	Updated automated checks and fixtures for level generation harness. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 1	Added a test covering replay Matches The Games Own Generation Floor For Floor. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 2	Added a test covering replay Is Repeatable And Prefix Stable. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 3	Added a test covering floors Have Content. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 4	Added a test covering refuses While A Game Is Live Or Recording. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 5	Added a test covering players Journal And Tutorial Are Never Read Or Changed. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 6	Added a test covering never Records Discoveries Or Badges For The Player. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 7	Added a test covering leaves The Dungeon State As Found. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test 8	Added a test covering replay Works When Nothing Was Ever Loaded. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Replay Static Audit Test	Added a test covering replay Changes Only Classified Statics. These are development checks, not a gameplay feature.
+Development	ICON_STAIRS	APD-FLOOR-REPLAY	Added apd-floor-replay accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Saved and restored generation-related state around isolated canonical floor replay. Added reads a freshly generated level (read only) into a ReplayFloor, with the same notion of "item with an identity" the recorder uses.

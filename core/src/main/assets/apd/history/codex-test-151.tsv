@@ -1,0 +1,8 @@
+Changes	V061_BUGFIX	Cell damage provenance	Retain and transfer weighted immutable creator mixtures without changing blob density, diffusion or RNG.
+Changes	V061_BUGFIX	Timed damage provenance	Expose the normalized ownership mixture for the next damage tick so chained fire keeps its actual cause.
+Bug Fixes	V063_MAGICMISSILE	Inferno and fire	Preserve creator mixtures through Inferno contact, diffusion, save/restore, neighbouring Fire and Burning-created terrain Fire.
+Bug Fixes	V061_BUGFIX	Infernal Brew	Capture the actual thrower once and reuse that immutable origin for every Inferno cell.
+Changes	V061_BUGFIX	Inferno provenance regression	Retain full-range role, save/legacy, chained-fire, neutral RNG and real caller-wiring coverage.
+Changes	V061_BUGFIX	TEST150 evidence	Record bounded implementation scope, preserved behavior, pending exact-source checks and unresolved acceptance work.
+Changes	V061_BUGFIX	Handoff and ledger	Record the TEST150 candidate commit and honest verification boundary.
+Changes	V061_BUGFIX	Build request and exact history	Require exact-current-source core, debug, Android and immediate-previous-APK verification without delivery.

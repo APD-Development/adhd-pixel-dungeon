@@ -1,0 +1,89 @@
+# Native acceptance of gated-room marker fixture on the original frozen APD448 pair.
+name: Verify APD448 locked-room checkmarks on frozen APKs
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd448-locked-room-native.yml]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd448-locked-room-native-acceptance, cancel-in-progress: false}
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Assert game source unchanged and frozen producing run accepted
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess
+          source='fbc7d6edf5d531e70f4d1046ed8f27ce98f04862'
+          changed=subprocess.check_output(['git','diff','--name-only',source,'HEAD'],text=True).splitlines()
+          assert changed and 'android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/WallGeometryDeviceTest.java' in changed
+          assert all(p.startswith(('android/src/androidTest/','.github/workflows/','tools/','docs/')) for p in changed),changed
+          run=json.loads(subprocess.check_output(['gh','api','repos/APD-Development/ShieldingShouldHaveWorked/actions/runs/43108511326']))
+          assert run['conclusion']=='success' and run['head_sha']=='17d1e4180abb5bba25d215da5080f46fa0a21a70'
+          PY
+          mkdir -p candidate448
+          gh run download 43108511326 --repo "$GITHUB_REPOSITORY" --name apd448-unaccepted-gated-room-candidate --dir candidate448
+          python3 - <<'PY'
+          import json,pathlib,hashlib
+          root=pathlib.Path('candidate448')
+          r=json.loads((root/'receipt.json').read_text())
+          assert r['source']=='fbc7d6edf5d531e70f4d1046ed8f27ce98f04862' and r['build']==448
+          for name,entry in r['files'].items():
+              path=root/('APD-Instrumentation-448.apk' if name=='Instrumentation' else 'APD-'+name+'-448.apk')
+              assert path.stat().st_size==entry['bytes']
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==entry['sha256']
+          PY
+      - name: Compile updated instrumentation only, without replacing original game APK
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C448
+          test -s android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+          test ! -e android/build/outputs/apk/debug/android-debug.apk
+      - name: Enable emulator KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Verify actual locked-room checkmark disappearance and return
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            mkdir -p native448
+            adb install -r candidate448/APD-${{ matrix.variant }}-448.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            timeout 1100 adb shell am instrument -w -r -e class 'com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest' com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > native448/instrumentation.txt 2>&1
+            cat native448/instrumentation.txt
+            python3 tools/apd448_native_postcheck.py --variant '${{ matrix.variant }}' --case WallGeometryDeviceTest --directory native448
+            python3 - <<'PY'
+            import json,pathlib
+            root=pathlib.Path('native448')
+            r=json.loads((root/'native-verification.json').read_text())
+            name='wall-geometry-locked-room-no-check.png'
+            assert name in r['image_sha256'], 'Missing real locked-room screenshot'
+            assert r['complete_device_screenshot_manifest'] and r['screenshots']>0
+            print(name,r['image_sha256'][name])
+            PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd448-locked-room-native-${{ matrix.variant }}
+          path: native448/
+          if-no-files-found: warn
+          retention-days: 30

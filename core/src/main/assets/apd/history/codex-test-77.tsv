@@ -1,0 +1,10 @@
+Bug Fixes	ICON_DATA	Damaged statistics cache text	Malformed cached text now triggers rebuilding from the original history instead of displaying replacement characters.
+Bug Fixes	ICON_DATA	Removed dataset cache alignment	Skipping a removed statistics dataset now consumes its column references correctly so later tables remain readable.
+Performance	ICON_RANKINGS	Reuse enemy death totals	The Home screen calculates each enemy's death total once instead of repeatedly scanning its records while sorting.
+Performance	ICON_DATA	Unused imported-ID tracking	Removed an unused set of ranking IDs that duplicated work already performed by the actual duplicate-matching map.
+Changes	ICON_DATA	Unused run-group flag	Removed an unused run-group field without changing ruleset detection or recorded data.
+Quality of Life	ICON_RANKINGS	More compact statistics Home	Home uses relevant native sprites and tighter rows; question instructions remain available through its information popup.
+Testing	ICON_INFO	Cache and Home regressions	Added malformed-text, raw-history preservation, removed-dataset, enemy-ranking tie and uncertainty-mark regressions.
+Testing	ICON_RANKINGS	Actual statistics Home screenshot	Android checks now capture the rendered sample Home in addition to testing every existing statistics screen and dialog.
+Development	ICON_INFO	Verified playback and audit record	Recorded successful TEST76 playback checks and the next tested statistics-reliability batch.
+Developer Commentary	V074_SHPX	Developer Commentary	I made the statistics Home more compact and removed repeated work without changing its results. I also fixed two cache-reader problems while preserving the original history.

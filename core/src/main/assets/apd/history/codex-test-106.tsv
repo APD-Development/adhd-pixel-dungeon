@@ -1,0 +1,4 @@
+Statistics / UIMSD	ICON_DATA	Unsupported legacy telemetry	Legacy statistics no longer misinterpret logs from newer recording versions; original files are preserved and affected caches rebuild once.
+Testing	ICON_CHECKED	Future-version regression coverage	Added checks for unsupported imports, legacy totals and dailies, cache upgrades and preserved original records.
+Development	ICON_INFO	Verified build evidence	Recorded TEST105's actual delivery and this build's compatibility checks and remaining audit scope.
+Developer Commentary	V074_SHPX	Developer Commentary	I aligned legacy statistics with the existing recording-version checks. Unsupported records stay preserved instead of being reported with potentially incorrect meanings.

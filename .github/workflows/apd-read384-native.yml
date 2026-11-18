@@ -1,0 +1,41 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Read APD384 native failure evidence without rebuilding applications
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-384-READ-NATIVE.txt]
+permissions: {contents: write, actions: read}
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {name: apd384-native-Developer, run-id: 42539268859, github-token: '${{ github.token }}', path: evidence/Developer}
+      - uses: actions/download-artifact@v4
+        with: {name: apd384-native-Alpha-Testers, run-id: 42539268859, github-token: '${{ github.token }}', path: evidence/Alpha-Testers}
+      - name: Read actual terminal failures and preserve diagnostic captures
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PYREAD'
+          import pathlib,zipfile
+          for p in pathlib.Path('evidence').rglob('*-qol.txt'):
+            print(str(p));print(p.read_text()[-12000:])
+          with zipfile.ZipFile('APD-384-Unaccepted-Native-Diagnostics.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in pathlib.Path('evidence').rglob('*'):
+              if p.is_file() and p.suffix in ('.png','.txt'):z.write(p)
+          PYREAD
+          gh release upload apd-alpha-preview-384 APD-384-Unaccepted-Native-Diagnostics.zip --repo "$GITHUB_REPOSITORY"

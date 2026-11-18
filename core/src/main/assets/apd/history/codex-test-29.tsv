@@ -1,0 +1,24 @@
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Warrior Simulation Device Test	Updated Android checks and fixtures for warrior simulation device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Community Preview	Clarified what is currently available on every Community preview page.
+Statistics / UIMSD	ICON_STATS	Long Word Wrap	Added only inserts presentation line breaks; never changes stored/exported text.
+Statistics / UIMSD	V011_ANKH	Saved Views	Refused saved-view writes after incomplete or corrupt reads, preserving the original file.
+Quality of Life	ICON_STATS	Statistics Text	Kept queue payload text literal and wrapped oversized identifiers.
+Quality of Life	ICON_STATS	Statistics Options	Used wrapped literal previews without interpreting queued payloads as formatting markup.
+Testing	ICON_CHECKED	Community Preview Test	Updated automated checks and fixtures for community preview. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 1	Added a test covering ordinary Text And Whitespace Stay Unchanged. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 2	Added a test covering unbroken Preview Ids Wrap Without Losing Characters. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 3	Added a test covering measured Widths Rather Than Character Counts Determine Breaks. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 4	Added a test covering unicode Code Points Are Never Split In Half. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 5	Added a test covering raw Underscores And Stars Are Never Removed. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 6	Added a test covering one Glyph Wider Than The Viewport Does Not Cause An Infinite Loop. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Long Word Wrap Test 7	Added a test covering large Unbroken Values Have Bounded Work. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test	Updated automated checks and fixtures for saved views. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-COMMUNITY-UI-2026-10-10	Added apd-community-ui-2026-10-10 accompanying this build.
+Development	V011_ANKH	APD-SAVED-VIEW-INTEGRITY-2026-10-10	Added apd-saved-view-integrity-2026-10-10 accompanying this build.
+Development	ICON_STATS	APD-UIMSD-RAW-PREVIEW-2026-10-10	Added apd-uimsd-raw-preview-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Clarified what is currently available on every Community preview page. Added only inserts presentation line breaks; never changes stored/exported text.

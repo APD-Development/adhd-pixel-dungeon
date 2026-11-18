@@ -1,0 +1,661 @@
+{
+  "status": "VERIFIED_PAIR_PRIVATE_RELEASE_CREATION_BLOCKED_HTTP403_LOCAL_WORKSPACE_COPIES_LINKED",
+  "source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+  "number": 368,
+  "developer_run": 42262060915,
+  "alpha_run": 42262060908,
+  "display_run": 42262060874,
+  "alpha_acceptance_run": 42262576345,
+  "panel_run": 42262761458,
+  "core": {
+    "suites": 446,
+    "tests": 2835,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "developer_artifact": {
+    "id": 13525965707,
+    "zip": "/workspace/apd-internal368-developer.zip",
+    "zip_bytes": 36643472,
+    "zip_sha256": "b4cc14fd0f05b1f10922c34445755e72ab4c297c0449eba4f9ea7d69d6ffe915",
+    "apk": "/workspace/apd-internal368-developer.apk",
+    "apk_bytes": 39156427,
+    "apk_sha256": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+    "sidecar_matches": true
+  },
+  "alpha_artifact": {
+    "id": 13525478025,
+    "zip": "/workspace/apd-internal368-alpha.zip",
+    "zip_bytes": 37148297,
+    "zip_sha256": "622f44e9e822f82b72c88363f3a02d1337221667156acbc2f2a0124761f3eb14",
+    "apk": "/workspace/apd-internal368-alpha.apk",
+    "apk_bytes": 39156395,
+    "apk_sha256": "f3228dd0259848d756a88d063fa11a84176ac483c7dd2bd97b4d7706362f1fd8",
+    "sidecar_matches": true,
+    "feature_manifest": "extendedPlayback only; shared assets identical"
+  },
+  "physical_phone_tested": false,
+  "whole_game_semantic_audit_complete": false,
+  "followups": [
+    "Poison effect source value should be labelled duration rather than strength in the newly added raw-meat and Poison Dart details. Gameplay unchanged.",
+    "Full inventory/nested semantic closure remains unclaimed."
+  ],
+  "daily_pair_limit": "Third/final pair produced today; no further application APK requested",
+  "last_delivered": "365 private release preserved; owner reported confirmed UIMSD OOM there; it does not contain fixes",
+  "previous_internal_verified": "367 remains preserved with its own older-source native evidence",
+  "panel_acceptance": {
+    "run": 42262761458,
+    "artifact": 13524929714,
+    "artifact_bytes": 451867,
+    "artifact_sha256": "06401209729bdd2c85c93362ad3ffcbef99e14d03385cbbf3395fafc46a51b3c",
+    "local_evidence": "/workspace/apd-internal368-panels",
+    "tests": 3,
+    "failures": 0,
+    "identity": {
+      "signature_verified": true,
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "package": "name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bC368-TEST' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "install_compatible_identity_with_365": true,
+      "physical_phone_tested": false
+    },
+    "visual_hashes": {
+      "qol-door-ineligible-bookshelf.png": "f699877a0e326a8da68936ec3c0680496bc381ba7d1882fbd5c4239b757125ff",
+      "qol-door-ineligible-decoration.png": "82442d105281ed9ef9177716d637cbde4c70cab1903ac023019a31f745b1e84e",
+      "qol-mechanics-ability-expanded.png": "39bc1127948f5b33aa6a038ca8d0432fae1e6af1a49a78f0fbb0ef9dcff44806",
+      "qol-mechanics-buff-expanded.png": "705d5996fe4ad0ee86608afc4ca026b227a92135e46db39200bf9d4b125f072c",
+      "qol-mechanics-spell-expanded.png": "425df92ed89b02f9c63e96dc8f020df3dae08b9ed2e28f24504d5947d54ddeb0",
+      "qol-mechanics-talent-expanded.png": "23df8a8b5ec3dac6e5ef6cd3d14fafcad94b1c62f00db0f58a81acb9768fcdc5",
+      "qol-searched-wall.png": "a49ebd931893fda48eab1415caf4825d2ac7666d550c4257edd74ceb389a6adb",
+      "qol-waiting-independent-stops.png": "698aa07aa561ed6ad70ff96d51ede029034832bd853866076e457195f41d98c5",
+      "qol-waiting-saved-stops.png": "698aa07aa561ed6ad70ff96d51ede029034832bd853866076e457195f41d98c5"
+    },
+    "visual_review": "All9 captures inspected together: expanded calculations clipped inside four windows with action buttons visible; waiting stops disabled and restored consistently; controlled bookshelf/decor negatives have no checkmarks and valid wall fixture retains rendered marks. Synthetic controlled terrain, not a naturally generated isolated room or seed."
+  },
+  "alpha_native": {
+    "run": 42262576345,
+    "artifact": 13526082016,
+    "artifact_bytes": 747200,
+    "artifact_sha256": "eb79f79862cd7b9af6864a7b818087b41f8e7ba69a70c933389fa7306fb6df9e",
+    "tests": 4,
+    "failures": 0,
+    "local_evidence": "/workspace/apd-internal368-alpha-native",
+    "identity": {
+      "signature_verified": true,
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "package": "package: name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bP368' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "physical_phone_tested": false
+    },
+    "reviewed_visuals": "Actual Alpha playback selector, healing toggle Off/On and HP editor, Rat quick-search toggle and unidentified origin/range viewed. All17 PNGs decoded. Controlled negative terrain examples are synthetic."
+  },
+  "display_matrix": {
+    "run": 42262060874,
+    "profiles": 6,
+    "tests": 11,
+    "failures": 0,
+    "profiles_first_five": [
+      {
+        "id": 13526595279,
+        "sha": "2f04b72d8ddd3e6266ea5d826ef61671d0d5b1c89b7c8378f734a75f60fd278f",
+        "path": "/workspace/attachments/80c53c2a-47d8-49ba-b93d-0dd9fbda1fae/github-actions-artifact-13526595279.zip",
+        "size_bytes": 981787,
+        "tests": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pngs": 5,
+        "proof": {
+          "application_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "application_run": 42262060915,
+          "application_sha256": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+          "protected_application_inputs_identical": true,
+          "application_rebuilt": false,
+          "test_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "supersedes_failed_lookup_run": 40888337192
+        },
+        "folder": "/workspace/apd-internal368-display/13526595279"
+      },
+      {
+        "id": 13526141345,
+        "sha": "7fa863bd37a5e228dfb4ddfc3b137a26640cae5ced57fbd7f547e82ca93bd399",
+        "path": "/workspace/attachments/30ac1d5b-6dea-4ec4-8837-d98c9e759041/github-actions-artifact-13526141345.zip",
+        "size_bytes": 796951,
+        "tests": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pngs": 5,
+        "proof": {
+          "application_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "application_run": 42262060915,
+          "application_sha256": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+          "protected_application_inputs_identical": true,
+          "application_rebuilt": false,
+          "test_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "supersedes_failed_lookup_run": 40888337192
+        },
+        "folder": "/workspace/apd-internal368-display/13526141345"
+      },
+      {
+        "id": 13525816604,
+        "sha": "1f484b6e6ecc06a87f3373a9e6532849578eec092f2979114e52b6d87b75a117",
+        "path": "/workspace/attachments/3c467f13-8b61-47ed-bf52-2ea29f29c2e3/github-actions-artifact-13525816604.zip",
+        "size_bytes": 725621,
+        "tests": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pngs": 5,
+        "proof": {
+          "application_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "application_run": 42262060915,
+          "application_sha256": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+          "protected_application_inputs_identical": true,
+          "application_rebuilt": false,
+          "test_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "supersedes_failed_lookup_run": 40888337192
+        },
+        "folder": "/workspace/apd-internal368-display/13525816604"
+      },
+      {
+        "id": 13525094132,
+        "sha": "9140cdcc3da6881f8a908ed3543360d1e307d45a4ec10151b286747699b03328",
+        "path": "/workspace/attachments/bd65cb1e-a86e-47f5-96cf-967284984916/github-actions-artifact-13525094132.zip",
+        "size_bytes": 507305,
+        "tests": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pngs": 5,
+        "proof": {
+          "application_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "application_run": 42262060915,
+          "application_sha256": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+          "protected_application_inputs_identical": true,
+          "application_rebuilt": false,
+          "test_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "supersedes_failed_lookup_run": 40888337192
+        },
+        "folder": "/workspace/apd-internal368-display/13525094132"
+      },
+      {
+        "id": 13524819800,
+        "sha": "29434d6ecbcf5091c26b3736243cacd75dbc53ed9ee6c77c30509195dcce2afc",
+        "path": "/workspace/attachments/e5f09103-eadd-457b-94bc-3db5d7cc619f/github-actions-artifact-13524819800.zip",
+        "size_bytes": 2130285,
+        "tests": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pngs": 5,
+        "proof": {
+          "application_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "application_run": 42262060915,
+          "application_sha256": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+          "protected_application_inputs_identical": true,
+          "application_rebuilt": false,
+          "test_source": "7ef0800dfd6c4e624d3c001e886eb1a711d80a68",
+          "supersedes_failed_lookup_run": 40888337192
+        },
+        "folder": "/workspace/apd-internal368-display/13524819800"
+      }
+    ],
+    "api36": {
+      "artifact": 13526311971,
+      "artifact_bytes": 4880478,
+      "artifact_sha256": "365c7f26a5c5e9b5a15191f7a5f82f7aea43fb8602f16f1b9fb06a0834edfaf6",
+      "tests": 6,
+      "failures": 0,
+      "local_evidence": "/workspace/apd-internal368-api36",
+      "reviewed_visuals": {
+        "qol-dew-settings.png": "ec359c95f77ef8007b1ada6e8f090c737da66a8059b3be0588f5f0febd07b386",
+        "qol-force-weapon.png": "d4a4f70fa9f7588dbda30db02453ccd1969900a3ac623be809309459d6a71027",
+        "qol-sharpshooting-weapon.png": "614c961c20b7a6065e3cdc3adc947f787ce4586ad59a5820e379ca8fd7edd7be",
+        "qol-searched-wall.png": "3b230ed7a9f9edb1fa0567f5659c2f6881bfe45aa3fd6c0ed3da46144833ebe0",
+        "qol-searched-wall-color.png": "e2bdee26c81a21866cee1ed4679b265c08ba73fb25859511840edfac3eef23c2",
+        "qol-offline-license.png": "fefd0c468e9638502b557bd0f23a0edf80aed5019805df6c14c7309e5fea9764"
+      }
+    },
+    "visual_review": "All46 PNGs decoded; five restored title layouts and six API36 ring/settings/wall/license captures manually viewed. Original full-resolution image dimensions retained. Automated/emulator evidence only."
+  },
+  "complete_native": {
+    "run": 42262060915,
+    "job": 128046194572,
+    "artifact": 13527305028,
+    "artifact_bytes": 8051927,
+    "artifact_sha256": "f679671724340c58605e57e24c50461ed610466d47716bfdff64ed6ac84b59b9",
+    "local_evidence": "/workspace/apd-internal368-full-native",
+    "tests": 72,
+    "failures": 0,
+    "cases": [
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "menusSurviveSceneRecreationAndNarrowActionsStayInsideTheirWindow",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "validationEmptyHistoryGroupedAndReportMessagesSurviveWithoutRepeatingActions",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "arcanaItemDescriptionsRequireKnownEquippedRingsAndFitWindows",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "textAndGuideScrollSurviveRepeatedResetsAndClampAfterResize",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "privacySubflowsRestoreExactLocalStateWithoutQueueingOrSending",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "tourChoicesSurviveWithoutStartingATourOrRepeatingTheOffer",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest",
+        "demoUnlockKeepsTenRunNoticeVisibleOnTitle",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdDeviceTimingTest",
+        "uimsdIsFastEnoughOnThisDevice",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "menuBackReachesAResponsiveTitleWithoutHalfSecondWaits",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "homeTextKeepsItsWordsAndFitsOversizedTokens",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "journalTabChangesKeepTheSameSceneAndOnlyReplaceTheCurrentTab",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "backWalksBackwardsOneStepPerPress",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AndroidBackDeviceTest",
+        "ordinarySettingsBackClosesOnlyTheWindowWithoutRebuildingTheScene",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "tileVisibilityAndStairNavigationKeepNormalTurnsFogAndControls",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "aWonRunIsRecordedAsWonAndSealed",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.PlayRunDeviceTest",
+        "clericQuickCastsPersistAndKeepNormalCostsAndTargeting",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "difficultyIsChosenOnTheCharacterScreenAndNotInSettings",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "heroButtonsStayAboveNavigationBarAndRemainSelectable",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "clericLoreFirstRunPopupIsVisibleAndBackContinuesExactlyOnce",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "clericStartsWithoutPrivateFeatureFlagInsteadOfShowingBlackScreen",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.RunSetupDifficultyDeviceTest",
+        "navigationOverlapReservesVisibleBarsEvenWithFullscreenRequested",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "categorizedSettingsPreserveControlsAndRespondOnSmallScreens",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "grudgeControlsRespondToActualTouches",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "communityMenuOpensEveryPreviewAndReturnsWithoutStackingWindows",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest",
+        "adultHumorControlWorksWithoutAnAgeProviderAndReopensWithSavedChoice",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AboutDeviceTest",
+        "offlineNewsCardsOpenDatedSpritePopups",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AboutDeviceTest",
+        "everyAboutPopupOpensScrollsAndCloses",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.AboutDeviceTest",
+        "aboutFoundingStatementAndPopupFollowAdultHumorOnEveryOpening",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdScreensDeviceTest",
+        "everyUimsdScreenAndDialogCanBeBuilt",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResourcesDeviceTest",
+        "replacingHomeContentsDisposesPreviouslyDrawnImages",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ChangesVisualDeviceTest",
+        "playerReleaseNotesAreCompactBrandedAndEveryChangeOpens",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ChangesVisualDeviceTest",
+        "categoriesUseSpdColumnsAndEveryIconOpensItsExactBuildPopup",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ChangesVisualDeviceTest",
+        "largeAndNamedHistoricalBuildsKeepAllIconsInScrollableNativeSections",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ReleaseNotesNavigationDeviceTest",
+        "nativeTouchSwitchesHistoryModesAndSystemBackReturnsToAboutWithoutLosingRecords",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "noticeStaysAboveUsableControlsAndDoesNotChangeLockedRunOrScores",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "equipmentControlAcceptsTouchAndSavesOnlyNextRunPreferences",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "liveMultipliersMatchEveryPositionAndUpdateDuringNativeDragBeforeRelease",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "touchscreenSliderGesturesLockDirectionAndPreserveDraftAndSavedRules",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "scoringVisionPopupOpensScrollsAndBackPreservesDraftOnSmallScreens",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "allEighteenControlsAcceptNativeTouchSaveAndReopenWithoutChangingActiveRun",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomRulesNoticeDeviceTest",
+        "healingConversionSettingExplainsItsExactScopeWithoutChangingSavedValue",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.TopScoresDeviceTest",
+        "androidTopScoresOpensOriginalRankingsAndBackPreservesStoredHistory",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomScoreDeviceTest",
+        "dailyCalendarShowsFrozenLongEarnedScoreWithoutOverlappingDates",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.CustomScoreDeviceTest",
+        "nativeScorePopupsShowRecordedNeutralPendingAndUnknownThenCloseWithAndroidBack",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.TitleMenuLayoutDeviceTest",
+        "titleControlsStaySeparateAndNativeChangesAndHideUiRemainUsable",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ClassSaveSlotsDeviceTest",
+        "sixClassesOpenTwentyScrollableSaveRows",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.PileExaminationDeviceTest",
+        "hugePileScrollsAndRealTouchOpensSelectedItemDescription",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdSearchDeviceTest",
+        "searchDialogOpensNativePickerAndRowTouchOpensOnlyTheChosenTable",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdSearchDeviceTest",
+        "exactQuestionSavesAndReopensThroughNativeMenus",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdColumnsModalDeviceTest",
+        "sortingThroughNativeMenusKeepsRightHandColumnAndDirectionVisible",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdColumnsModalDeviceTest",
+        "multipleColumnTapsRemainAboveTableUntilDone",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdColumnsModalDeviceTest",
+        "evidenceBackRestoresEachTableAndSurvivesSceneRecreation",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdChartDeviceTest",
+        "chartMeasureTouchesScrollRestoreAndGroupDetailsPreserveTheQuery",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "runDnaNativeMetricsAndSourceRunAreInspectable",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "automaticDiscoveryOpensTheActualContributingGroup",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "investigationPinsTwoPopulationsAndDrillsIntoTheChosenSide",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "comparableProgressCapturesExactCohortsAndOpensContributors",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "recordedEquipmentWindowSurvivesReloadAndOpensExactDamage",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "recordedDamageRecoveryWindowSurvivesReloadAndRowAction",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "recordedDeathContextShowsFinalAndRevivedEvidenceFromRealHistory",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "namedExperimentPersistsReevaluatesFutureRunsAndKeepsExactEvidence",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "luckLaboratoryUsesMatchedPeerEvidenceAndKeepsScores",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.UimsdResearchDeviceTest",
+        "exactOccurrenceRowOpensRecordedTurnAndRestoresReadOnlyTimeline",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.LootScrollDeviceTest",
+        "bothScrollsReadThroughNativeItemButtonsAndShipmentSurvivesContinue",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.DiagnosticReportDeviceTest",
+        "actualReportButtonSavesDeviceEvidenceAndMenusSurvivePauseResume",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ProgressionTooltipsDeviceTest",
+        "resourceTooltipsShowExactPairsAndKeepActionsVisibleForNewAndLegacyHistory",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest",
+        "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.HealingSettingsDeviceTest",
+        "actualSettingsChooserSavesThresholdAndGatesRealPotionUse",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.HealingSettingsDeviceTest",
+        "continuingOlderRunAdoptsZeroWithCrystalsAndPreservesItsItemsAndScore",
+        0
+      ],
+      [
+        "com.shatteredpixel.shatteredpixeldungeon.android.ScaleChangeDeviceTest",
+        "nativeTapQueuedDuringTitleBuildIsDiscardedButFreshTapWorks",
+        0
+      ]
+    ],
+    "cold_reopening_heap": [
+      {
+        "used": 27461696,
+        "limit": 201326592
+      }
+    ],
+    "warm_timings": [
+      "UIMSD_NATIVE_TAP opening=1 ready_72_run_home_draw_ms=139 budget_ms=250",
+      "UIMSD_NATIVE_TAP_MILESTONE opening=1 down_dispatch_ms=33 input_dispatch_ms=42 scene_observed_ms=98 scene_to_home_ms=41 input_to_home_ms=97",
+      "UIMSD_NATIVE_TAP opening=2 ready_72_run_home_draw_ms=107 budget_ms=250",
+      "UIMSD_NATIVE_TAP_MILESTONE opening=2 down_dispatch_ms=19 input_dispatch_ms=31 scene_observed_ms=85 scene_to_home_ms=22 input_to_home_ms=76"
+    ],
+    "validated_images": 110,
+    "physical_phone_tested": false
+  },
+  "publication": {
+    "run": 42264869642,
+    "attempt1_job": 128054040965,
+    "attempt1_error": "POST git/refs for release tag: HTTP403 Resource not accessible by integration",
+    "tag_created_using_existing_authorized_git_connection": "apd-alpha-preview-368 ->7ef0800dfd6c4e624d3c001e886eb1a711d80a68; no ref overwritten",
+    "attempt2_job": 128056132749,
+    "attempt2_error": "POST releases: urllib.error.HTTPError HTTP Error403 Forbidden",
+    "actual_token_permissions": [
+      "Actions:read",
+      "Contents:write",
+      "Metadata:read"
+    ],
+    "source_and_history_scans": "Both actual attempts passed; key-free corresponding source preserved",
+    "github_release_published": false,
+    "owner_action": "Async question asks owner to create prerelease for existing tag or check repository access; no answer yet",
+    "local_workspace_links_sent": true,
+    "workspace_link_exact_time": "Not recorded; do not infer asset publication or GitHub delivery from workspace links",
+    "local_files": "/workspace/APD368-Downloads",
+    "prepared_artifact": 13526323860,
+    "prepared_artifact_sha256": "cac7436863477f01822174f91c9911d53b2cf6046c104c2c45c8b94fa9c277a0",
+    "source_sha256": "c52135f8b66da133fc1f117bc006b4452440f0a1ce81faa356b3b68479a26241"
+  },
+  "newer_source_followups_not_in_this_apk": [
+    "Poison duration label correction verified in source0245f07e7",
+    "13 plant/seed and TimeBubble details verified in source9ec83306e",
+    "Pending-shot crossbow inspection fix and Seal/bee-pot details source2845 local passed; remote pending",
+    "Warding/Regrowth default description purity, no-hero Regrowth crash and plant context withholding; full2850 local passed, new-source compile pending"
+  ],
+  "current_owner_status_note": {
+    "path": "/workspace/APD368-Downloads/KNOWN-SOURCE-BOUNDARIES.md",
+    "latest_source_only": "035cf42ea",
+    "inside_368": false,
+    "new_APK": false,
+    "release_verified": false
+  },
+  "current_publication_state": {
+    "status": "published_verified_fallback",
+    "release_id": 436913137,
+    "published_at": "2026-11-06T19:35:44Z",
+    "download_back_verified_at": "2026-11-06T19:35:51.893311Z",
+    "workflow_run": 42280704000,
+    "previous_403": "Retained historical failure. Existing-tag request resolved creation without permission changes.",
+    "superseded_by_verified_owner_delivery": 369
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "core_tests": 2121,
+  "android_tests": 62,
+  "screenshots": 82,
+  "rollback_number": 262,
+  "rollback_tag": "apd-alpha-preview-262",
+  "rollback_asset": "ADHD-Pixel-Dungeon-Alpha-Preview-262.apk",
+  "rollback_sha256": "5ad5beb717673a51a10a646c28b887ed54a4f78f8d25ee351834a39a29ecf8d2",
+  "reports": [
+    "docs/APD-TEST323-STAGING-CONTINUATION-2026-10-28.md"
+  ],
+  "verified_owner_release": {
+    "build": 262,
+    "source": "e4ee7e6d213a997163ecc2520da0eea309a1a819",
+    "application_source": "e4ee7e6d213a997163ecc2520da0eea309a1a819",
+    "run": 38977979688,
+    "application_run": 38977979688,
+    "application_workflow_conclusion": "success",
+    "producer_job_conclusion": "success",
+    "required_native_job": 117232928233,
+    "required_native_conclusion": "success",
+    "capture_recovery_run": 38979689121,
+    "capture_recovery_source": "efa5443b9f59d24a173d0699829a887f34a28713",
+    "publication_run": 38980234369,
+    "publication_source": "f8650a356fda9201ca66b780cbd7d4272cd56f02",
+    "published_at": "2026-10-16T23:14:03Z",
+    "download_verified_at": "2026-10-16T23:14:07.221076+00:00",
+    "chat_link_sent": true,
+    "chat_link_sent_between_utc": [
+      "2026-10-16T23:14:51Z",
+      "2026-10-16T23:15:12Z"
+    ],
+    "apk_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-262/ADHD-Pixel-Dungeon-Alpha-Preview-262.apk",
+    "pdf_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-262/APD-Alpha-Preview-262.pdf",
+    "apk_sha256": "5ad5beb717673a51a10a646c28b887ed54a4f78f8d25ee351834a39a29ecf8d2",
+    "apk_bytes": 38590621,
+    "pdf_sha256": "acc315df86e1f26f9323fb570b1b449b92b0168297b2a63fcb19570674abed85",
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "version_name": "4.0.8-apd-INDEV-bC262-TEST",
+    "core": {
+      "tests": 1761,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "android": {
+      "unique_methods": 37,
+      "required_suite_executions": 37,
+      "capture_recovery_executions": 3,
+      "supplemental_accepted_executions": 4,
+      "accepted_executions": 44,
+      "required_failures": 0,
+      "required_errors": 0,
+      "required_skipped": 0,
+      "supplemental_failed_executions": 1
+    },
+    "required_images_reviewed": 57,
+    "original_collector_images": 52,
+    "recovered_images": 5,
+    "original_stage_run": 38977979687,
+    "original_stage_conclusion": "failure",
+    "original_stage_reason": "Expected57 screenshots but old collector copied52; corrected with separate same-APK three-method recovery, not relabeled green.",
+    "supplemental_display_run": 38977979689,
+    "supplemental_display_conclusion": "failure",
+    "supplemental_failure": "One square-display method blocked by captured com.android.launcher3 Quickstep ANR; raw failure/screens/log retained.",
+    "small_display_options_capture_verified": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false,
+    "automatic_tester_distribution": false,
+    "all_backlog_complete": false,
+    "fallback_preserved": "apd-alpha-preview-261",
+    "timing": [
+      {
+        "id": 38977979688,
+        "source": "e4ee7e6d213a997163ecc2520da0eea309a1a819",
+        "started_at": "2026-10-16T22:49:10Z",
+        "updated_at": "2026-10-16T23:04:19Z",
+        "conclusion": "success"
+      },
+      {
+        "id": 38979689121,
+        "source": "efa5443b9f59d24a173d0699829a887f34a28713",
+        "started_at": "2026-10-16T23:07:17Z",
+        "updated_at": "2026-10-16T23:11:36Z",
+        "conclusion": "success"
+      },
+      {
+        "id": 38980234369,
+        "source": "f8650a356fda9201ca66b780cbd7d4272cd56f02",
+        "started_at": "2026-10-16T23:13:13Z",
+        "updated_at": "2026-10-16T23:14:12Z",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "legacy_original_workflow_gate_supports_corrected_native": false,
+  "previous_verified_owner_release": {
+    "source": "7368f13940690e599ca05c47a1cf29cca6beed09",
+    "run": 38975391839,
+    "original_workflow_conclusion": "failure",
+    "corrected_native_source": "655128758111d740994d86bdbfe1f8e819e3605a",
+    "display_run": 38975988571,
+    "small_retry_run": 38976735864,
+    "apk_sha256": "71eb6e057d4cdbaa194c8b37e9d243079e7e0849afc6eb164fd66c9187844833",
+    "published_at": "2026-10-16T22:44:46Z",
+    "download_verified_at": "2026-10-16T22:44:49.927774+00:00",
+    "apk_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-261/ADHD-Pixel-Dungeon-Alpha-Preview-261.apk",
+    "pdf_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-261/APD-Alpha-Preview-261.pdf",
+    "chat_link_sent": true,
+    "physical_phone_tested": false,
+    "build": 261,
+    "chat_link_sent_between_utc": [
+      "2026-10-16T22:45:28Z",
+      "2026-10-16T22:46:46Z"
+    ],
+    "publication_run": 38977482912,
+    "core": {
+      "tests": 1756,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "android": {
+      "unique_methods": 37,
+      "accepted_executions": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "required_images_reviewed": 77,
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "owner_save_install_over_tested": false,
+    "all_backlog_complete": false,
+    "fallback_preserved": "apd-alpha-preview-258"
+  },
+  "published_asset_reuse_note": "TEST262 is downloadable and verified. Reuse the published APK/PDF when no application change exists; do not rebuild or wait on the original failed52-image staging job. Corrected recovery evidence is in the published verification JSON and receipt.",
+  "source_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+}

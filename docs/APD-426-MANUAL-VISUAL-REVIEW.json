@@ -1,0 +1,275 @@
+{
+  "number": 426,
+  "source_commit": "1bd96affecc830ade14346d60842bcf3c9489e0e",
+  "reviewed_utc": "2026-11-09T19:24:24.053231+00:00",
+  "variant_manually_viewed": "Developer",
+  "full_frames_viewed": 64,
+  "contact_sheets_viewed": 16,
+  "selection": [
+    {
+      "name": "qol-reviewed-spell-clear-AuraOfProtection-bottom.png",
+      "sha256": "db690c0095d15783725bf9891bfd80278b2096a6cc77e9bcff9da290cd226ced"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-AuraOfProtection.png",
+      "sha256": "6add29ec84ce4287715fead9dae058ad824089c6441190947dcb19e78ae428dd"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BeamingRay-bottom.png",
+      "sha256": "1d582b674fdd7b0668cb131240477f08a7e72cba76072bf2f657ffb6a954d40b"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BeamingRay.png",
+      "sha256": "3e2797ecfc22042a9fbaec920a90e03698560e9d2802d7ab3513cd2ce0a119b9"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Bless-bottom.png",
+      "sha256": "51ba0cd8bd8f567ad9468c7127eb4ed010a554a1bca71d098d6ec274a2251aee"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Bless.png",
+      "sha256": "9aef0fe7f1981e8d8da584a461ca01ea6a98e23e3f8bfad60b2633e0fe233444"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BodyForm-bottom.png",
+      "sha256": "e50ed8dbaca25060f6aab077b1bdf94019f661bea6e1617aa78f51ce525c882c"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BodyForm.png",
+      "sha256": "09a3d1b7d8535c62b711a54c5ba585168d32375fda3e412e34673768d9c7b9c2"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Cleanse-bottom.png",
+      "sha256": "aef5a3b7a84dc8972d1d5066b1a39557875652650a3acf1ea40669c4cbb25eb2"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Cleanse.png",
+      "sha256": "2b6ed391b514827ece33d6e0439a0155b30733a33b082a1a36b5242ba993ce79"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineIntervention-bottom.png",
+      "sha256": "92e6a06fac64d2d0d6983d3ab2e11177e80dd9c840a7e5b39052a666af84e2f7"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineIntervention.png",
+      "sha256": "bf5c290acdd687ec97f320a5056fac53d61f3a334d5c2af9c7c5a3c30a182cb0"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineSense-bottom.png",
+      "sha256": "22e327c92d7406ed6c13c226d645db88deb94ffd0c77fd81ab4cff04a1f8124a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineSense.png",
+      "sha256": "22e327c92d7406ed6c13c226d645db88deb94ffd0c77fd81ab4cff04a1f8124a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Flash-bottom.png",
+      "sha256": "e941b6ef6f2220c6be5cafbb29d4816a86f0f757710c834624511dd4edbc24bf"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Flash.png",
+      "sha256": "f0ec66d89880ea14d13a4bb1c9ef4c0611ebfdb43e52ce201783778d2f9e2630"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-Priest-bottom.png",
+      "sha256": "f6a4319afb2a414a6c0e0df0b2269181e8536fbc642a3e1da950b262f001b421"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-Priest.png",
+      "sha256": "f6a4319afb2a414a6c0e0df0b2269181e8536fbc642a3e1da950b262f001b421"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-bottom.png",
+      "sha256": "624d99eb45ccfdf1fa5cc514d1c98e2b96d1c74cffb8f1c1ccef6247cb17df02"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight.png",
+      "sha256": "624d99eb45ccfdf1fa5cc514d1c98e2b96d1c74cffb8f1c1ccef6247cb17df02"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HallowedGround-bottom.png",
+      "sha256": "5018b264cd3e4254005a277d020f83cc441e6c7ca441ea91faf528dd3e79fcad"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HallowedGround.png",
+      "sha256": "9d830e4266439bcf8d4e595bd757e63e507c2755d04f75e464d133cbec3d1c72"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyIntuition-bottom.png",
+      "sha256": "09610a4d426e580e548096153ed83ae9f70d08087808d4a413c6aa118f919a05"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyIntuition.png",
+      "sha256": "09610a4d426e580e548096153ed83ae9f70d08087808d4a413c6aa118f919a05"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyLance-bottom.png",
+      "sha256": "b27df6fd834ddca183473e9a8ab367517c69dfa4764f990ef6435451147e230d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyLance.png",
+      "sha256": "b27df6fd834ddca183473e9a8ab367517c69dfa4764f990ef6435451147e230d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWard-Paladin-bottom.png",
+      "sha256": "b9219a95aeb6d65f30af0576ef43204e7b64881c357e2a51651035c6ff2ffb2d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWard-Paladin.png",
+      "sha256": "00a7bcc047bfd25c453704280afda38a6e58f97cfc3770956ab58b430dbd5687"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWard-bottom.png",
+      "sha256": "c43f5d83e19fe5600baa147aadc64f4df74e5d60433ce34167dfb1028e55d598"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWard.png",
+      "sha256": "c43f5d83e19fe5600baa147aadc64f4df74e5d60433ce34167dfb1028e55d598"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWeapon-Paladin-bottom.png",
+      "sha256": "dddb870f06fd7766637e16cb309624b1cbe25b560ca4c3fd5337d2a4241c7385"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWeapon-Paladin.png",
+      "sha256": "7c0439fa34718f110edfb314726eff5674e0789f8226031769b19ca8d58373d1"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWeapon-bottom.png",
+      "sha256": "27d2d244ac1c5d4b4ec55ef60b985dfe6a4335201244e0ebdc0cee38f49e7f5a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWeapon.png",
+      "sha256": "7b14cb780341ad4f4d35d15a0b8859da84734f67fa188237e67ef04071067ecf"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Judgement-bottom.png",
+      "sha256": "6ed078347cc1ff062e4abb55aafbd16031e5bbb49983cd21740b924773a75ac9"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Judgement.png",
+      "sha256": "6ed078347cc1ff062e4abb55aafbd16031e5bbb49983cd21740b924773a75ac9"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LayOnHands-bottom.png",
+      "sha256": "5448fd61539e4cfdd91654890023fad8c9d4858654f6200c9f7f6dffd38fc953"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LayOnHands.png",
+      "sha256": "368e9a8a5e791cc732361d41ed44f9e6bd8dd4fbe30791de87db1aae21e7663f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LifeLink-bottom.png",
+      "sha256": "fe4f4a490e9d7a3890e65ed6779379b392bd7a3592fd4826055ba93f69efb179"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LifeLink.png",
+      "sha256": "f3b942152d79f8cdc04952491d208a2084369c91d454763bdb4e2bc7e72c5538"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MindForm-bottom.png",
+      "sha256": "7b7563d1c5fd2918a75958027ebd858f8746ef755ca46aab29b0178786cdfbff"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MindForm.png",
+      "sha256": "7b7563d1c5fd2918a75958027ebd858f8746ef755ca46aab29b0178786cdfbff"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MnemonicPrayer-bottom.png",
+      "sha256": "1294a19eb99ac821f399d0df9c5e966ab17f4383bfc629d4c06c92ca4c443a67"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MnemonicPrayer.png",
+      "sha256": "c6ba43803a712e3c05346fc29d88486668c139f86fa25bd5e6866a3ec42a51da"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Radiance-bottom.png",
+      "sha256": "3c88e63f94923fbc3eb539cb79a007c2f70ccead2fbbba290d7a66a0422a2b78"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Radiance.png",
+      "sha256": "281a596436f9d7a20a7726839df031c51111c0115b0c5795af1e179ac190ddcf"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-RecallInscription-bottom.png",
+      "sha256": "daa6c7b694f77161ecc00176bb3b3acbd992c1ad0750dca194586383fd60d0ca"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-RecallInscription.png",
+      "sha256": "5c84c8154b293d9d2f2f23c3c96b6d7e572ba437db015f70d056ef90fbeea6af"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight-bottom.png",
+      "sha256": "2b6c4c55bb2afe784332e906e7a20948a14c4fa18eaf5e68cb9a56f6389e646a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight.png",
+      "sha256": "ee696c6eb2edc6c584ef767c832a714fe60a1e17e2ed96faed0857a1ffb89ad0"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Smite-bottom.png",
+      "sha256": "891d1ed075924f97b99c3adbd7d94da4273be05e4b2f72d61df3e48b5bda7b27"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Smite.png",
+      "sha256": "85b0afd392d24f63b18559092a896a1b4ac852fb062e7e2263e44bd560edb615"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-SpiritForm-bottom.png",
+      "sha256": "de3e0d2b0ae89277b7c93d1cd147cfa5b68d81396b535495d738c0f52e08d7fe"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-SpiritForm.png",
+      "sha256": "134ac2594150005c6705d704b09a1bdb0a1641d0826db846fd8307a7f6ae377c"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Stasis-bottom.png",
+      "sha256": "2173e70cc2d51e7bad552ede65c8149ebd25e84157f400e7c631946a52ec4dfb"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Stasis.png",
+      "sha256": "6d0c216358e8fe2c641a7508b1981f25b7a79285ad576aea23b255a78720be81"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Sunray-bottom.png",
+      "sha256": "ccee50aac510c9674aca4e8573ad70181ac29decf73f048b0cb54fef6b1fafd9"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Sunray.png",
+      "sha256": "6115955c1d6bff78c73d28ba3da444a3a1aef1ea668588765c2c72f16c8b9816"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-WallOfLight-bottom.png",
+      "sha256": "fd05e8175ff1680989bad676537966f652cf332e0f885066f1c09658f5a5aebf"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-WallOfLight.png",
+      "sha256": "998a0a32f58151e531bd79f9657a0fc8c1936ffe06989373e518f83574e3722e"
+    },
+    {
+      "name": "qol-reviewed-spell-magic-HolyWard-bottom.png",
+      "sha256": "bef49ac4c183b6b1bb77f6eba9c2fa13e8518df411f4de28dde843fdb6d855d7"
+    },
+    {
+      "name": "qol-reviewed-spell-magic-HolyWard.png",
+      "sha256": "1fb59d8e720bcd807d98f1d7819fbb4589a4dea14d97f3b558f61fd14703e475"
+    },
+    {
+      "name": "qol-reviewed-spell-magic-HolyWeapon-bottom.png",
+      "sha256": "c9185829a494f71031b920e4c1405da9f32d2d3e9e55715eddf7cdfd736ff5df"
+    },
+    {
+      "name": "qol-reviewed-spell-magic-HolyWeapon.png",
+      "sha256": "369a99c2d6276b0dbc9efee0368f4619338236bd49684aaf0964dbe79e1adfdc"
+    }
+  ],
+  "scope": "All32 current spell contexts, expanded and bottom positions, including Priest/Paladin and both magic-immunity cases. Normal spell windows natively viewport-checked; separate normal captures are introduced later in427.",
+  "verdict": "Accepted: readable live figures, functioning/pinned controls and reachable bottom text; no missing glyph or new blocking layout defect observed. Existing mechanic-specific panels remain pending owner review.",
+  "limitations": [
+    "Targeted API34 emulator checks, not full Android suite or physical phone",
+    "No acoustic verification or proved audio fix",
+    "No independent corresponding-source rebuild",
+    "Whole item-description audit remains unfinished",
+    "Minor existing normal Cleric prose and advanced timer wording remain follow-up; no universal panel redesign authorized"
+  ]
+}

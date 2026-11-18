@@ -1,0 +1,41 @@
+Infrastructure	ICON_INFO	private-test-apk	Updated the private-test-apk development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_INFO	Shattered Pixel Dungeon	Prevented returning installs from remaining trapped in the first-run tutorial flow.
+Changes	ICON_INFO	Apd Features	Kept reserved content centrally disabled while preserving its implementation.
+Changes	ICON_INFO	Apd Intro	Added sPD's first-run tutorial ("intro") hides the floor-1 entrance door, greys out Main Menu in the game menu and waits for the player to read the first guidebook page.
+Infrastructure	ICON_DATA	Catalogue Keeper	Added holds the newest catalogue the device has accepted, on disk, so the content list works offline.
+Infrastructure	ICON_DATA	Content Catalogue	Added a signed list of approved community content, meant to be served as a plain file from anywhere (a CDN, a mirror, a USB stick): the transport is never trusted, only the signatures are.
+Infrastructure	ICON_DATA	Sync Replica	Added this device's copy of the preference records that sync between a player's devices (SyncCollections only, never history).
+Quality of Life	ICON_INFO	Hero selection	Prevented returning installs from remaining trapped in the first-run tutorial flow.
+Quality of Life	ICON_INFO	Reserved development content	Updated inactive reserved-content development files.
+Testing	ICON_CHECKED	Apd Features Test	Updated automated checks and fixtures for apd features. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Apd Intro Test 1	Added a test covering a True First Time Player Still Gets The Tutorial. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Apd Intro Test 2	Added a test covering a Used Install Does Not. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	First Floor Exit Test 1	Added a test covering the Tutorial Start Is Closed And A Normal Start Is Open. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	First Floor Exit Test 2	Added a test covering a Returning Player With No Guide Pages Gets An Open Floor One And We See What Floor Two Does. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Level Generation Harness	Updated automated checks and fixtures for level generation harness. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 1	Added a test covering a Signed Catalogue Round Trips Through Text And Verifies. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 2	Added a test covering tampering With Anything Breaks The Signature. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 3	Added a test covering a Key For Another Purpose Or An Unknown Key Is Refused. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 4	Added a test covering an Expired Catalogue Is Expired. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 5	Added a test covering malformed Text Is Rejected Whole Not Half Read. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 6	Added a test covering the Keeper Accepts Only Newer Verified Catalogues And Survives Restart. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 7	Added a test covering a Revocation Only Arrives In A Newer Catalogue And A Replay Cannot Undo It. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 8	Added a test covering content For Another Ruleset Era Tampered Bytes And Stale Catalogues Are Not Offered. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Content Catalogue Test 9	Added a test covering a Damaged Or Newly Distrusted Cache File Is Ignored Not A Crash. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 1	Added a test covering a Local Edit Is Pending Until The Server Acknowledges It. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 2	Added a test covering only Syncable Collections And Small Values Are Accepted. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 3	Added a test covering a Newer Remote Change Replaces A Clean Record And Applying Twice Changes Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 4	Added a test covering a Delete Travels As A Tombstone Both Ways. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 5	Added a test covering when Both Sides Changed The Later Edit Wins And Every Device Agrees. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 6	Added a test covering an Edit Made After An Upload Was Sent Is Not Lost By The Acknowledgement. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 7	Added a test covering old Clean Tombstones Are Purged But Pending Ones Are Not. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Sync Replica Test 8	Added a test covering the Replica Survives A Restart And Ignores Damaged Lines. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Reserved development content	Updated inactive reserved-content development files. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Updated apd-backend accompanying this build.
+Development	ICON_INFO	APD-FIX-LOG-2026-10-08	Added apd-fix-log-2026-10-08 accompanying this build.
+Development	ICON_INFO	APD-PHONE-CHECKLIST-B69	Updated apd-phone-checklist-b69 accompanying this build.
+Development	ICON_INFO	APD-PHONE-CHECKLIST-B69	Added apd-phone-checklist-b69 accompanying this build.
+Development	ICON_INFO	APD-PRIVATE-TEST-BUILD	Updated apd-private-test-build accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Prevented returning installs from remaining trapped in the first-run tutorial flow. Kept reserved content centrally disabled while preserving its implementation.

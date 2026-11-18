@@ -1,0 +1,145 @@
+{
+  "source_commit": "5c225bdf7c6a181f7a4d0ee16b1edbdbae2a3e4d",
+  "original_build_run": 42509916901,
+  "alpha_completed_retry_run": 42510732550,
+  "native_cases": [
+    {
+      "variant": "Developer",
+      "case": "qol",
+      "artifact_id": 13628947277,
+      "sha256": "90aa9484a127decabc10d792171782ab28081e958a24f7f3e15b4b0880657faa"
+    },
+    {
+      "variant": "Developer",
+      "case": "wall",
+      "artifact_id": 13628947277,
+      "sha256": "3de3389ff8fa975e561952e97594980545cadfdaefbcac056b4075fc3554b892"
+    },
+    {
+      "variant": "Developer",
+      "case": "seed",
+      "artifact_id": 13628947277,
+      "sha256": "799ff2ae957f54937ac4027bc110a59c4fd3f76819183c8461084523edf268f8"
+    },
+    {
+      "variant": "Developer",
+      "case": "restart",
+      "artifact_id": 13628947277,
+      "sha256": "83de994cd3381741a9e7b027589d15ece60d8f610be93c976adfdaa681482212"
+    },
+    {
+      "variant": "Developer",
+      "case": "gameplay",
+      "artifact_id": 13628947277,
+      "sha256": "7577ab57613570cfc56798d3cd48862392bafb4affbf77342963d5eef69325f4"
+    },
+    {
+      "variant": "Developer",
+      "case": "freeze",
+      "artifact_id": 13628947277,
+      "sha256": "3a9e7b23b06becd7b25f9538d0a01bd8538b9c18422b44db5f1f37e458b34751"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "qol",
+      "artifact_id": 13628904854,
+      "sha256": "a78725c9cee7f0a5aa7ed338dc92b77029d6e8334c4a6402a81ee0fad2b32558"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "wall",
+      "artifact_id": 13628904854,
+      "sha256": "d819cbcfbe60ce1bd7913f05dd6bab9b7b9b0f3880192b7669158daad6f1fd0a"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "seed",
+      "artifact_id": 13628904854,
+      "sha256": "0774cadc5d0984003212e8c1c6c61a3cd32880c56e387633c1151e334d9e1c10"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "restart",
+      "artifact_id": 13628904854,
+      "sha256": "38c6abb32b78d85af8b6e0a11e1482da8a57fb7e9d324d4035ed3068888d64a6"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "gameplay",
+      "artifact_id": 13628904854,
+      "sha256": "87714d614a47692d4dc484fa03d73b32c041c4e43c9be4b3d968d8bd0527b5d5"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "freeze",
+      "artifact_id": 13628904854,
+      "sha256": "15dbbd0dddf3ead7c1fb9eddf34f0a2868ce5881b02a2676a84cd3b7a633e46b"
+    }
+  ],
+  "visually_reviewed_images": [
+    {
+      "variant": "Developer",
+      "case": "backpack-tier-upgrade-unknown-last",
+      "file": "qol-automatic-inventory-0.png",
+      "artifact_id": 13628947277,
+      "sha256": "993bc87b3da0bbd5b8282a187b2b784345759bf807f4a4b1250d0fbee59fef23"
+    },
+    {
+      "variant": "Developer",
+      "case": "holster-throwables-before-wands",
+      "file": "qol-automatic-inventory-1.png",
+      "artifact_id": 13628947277,
+      "sha256": "484a76de6051ad70c9dc313d3a6044fd562cf256df7b1b3d5bb574cb2e19729a"
+    },
+    {
+      "variant": "Developer",
+      "case": "consumable-quantity",
+      "file": "qol-automatic-inventory-2.png",
+      "artifact_id": 13628947277,
+      "sha256": "0c92c5915f0597c9d9fc04fbddfd7407ef80228ae9ee20f34d2bdcb7261d4606"
+    },
+    {
+      "variant": "Developer",
+      "case": "identified-item-moves-automatically",
+      "file": "qol-automatic-inventory-3.png",
+      "artifact_id": 13628947277,
+      "sha256": "bf3eb634fb20579e5c137be830539d75501d5c3c0fc4825b62eb43d089bfa528"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "backpack-tier-upgrade-unknown-last",
+      "file": "qol-automatic-inventory-0.png",
+      "artifact_id": 13628904854,
+      "sha256": "b9cae9df60f17c3a9e45fd3d5e83369ceeff8fecce007c5ab1ebcf319dae6698"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "holster-throwables-before-wands",
+      "file": "qol-automatic-inventory-1.png",
+      "artifact_id": 13628904854,
+      "sha256": "2c02e6b5d2ed7b6a2e98653ec5b7e81116c0f07db9e84384a141453404859aed"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "consumable-quantity",
+      "file": "qol-automatic-inventory-2.png",
+      "artifact_id": 13628904854,
+      "sha256": "8cc724611d6ef346347d293aa90bee06962d303f0854bf5de55e29f945074818"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "identified-item-moves-automatically",
+      "file": "qol-automatic-inventory-3.png",
+      "artifact_id": 13628904854,
+      "sha256": "d0ddd91c2156016911b10fe3076980adfcdcb7103ca83ae61af41c8d1282da85"
+    }
+  ],
+  "observations": [
+    "Equipped top row stays fixed; backpack shows tier then known upgrade and unknown weapon at category end.",
+    "Holster shows known thrown weapons by tier/upgrade, then known wands by upgrade and unidentified wand last in wand category.",
+    "Potion Bandolier shows single Healing before eight Shielding.",
+    "After identification, former unknown tier1 weapon at-2 moves before identified tier1+8; no sorting action/button."
+  ],
+  "physical_phone_verified": false,
+  "whole_description_audit_complete": false
+}

@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Stage and privately deliver verified TEST231	Reuse the exact verified TEST231 APK, check source application inputs, checksum, signing, package and install-over version, and publish only the private owner preview without rebuilding or distributing to testers.
+Reliability	ICON_WARNING	Continue lifecycle recovery after one damaged payload	Resume and segment recovery isolate malformed lifecycle payloads so later readable ruleset and segment state remains available; original history and gameplay stay unchanged.

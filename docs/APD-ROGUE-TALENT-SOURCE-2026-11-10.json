@@ -1,0 +1,35 @@
+{
+  "workflow_run": "42889148831",
+  "input_commit": "c4eb564e47144f7927aa6fde88e675fd098502a6",
+  "tests": {
+    "tests": 3169,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": 458,
+  "intended_red_failures": 3,
+  "required_compilation": "Android debug/release/instrumentation and desktop passed",
+  "patch": {
+    "base": "c368927e18c18014b91c5be4abb2f3e37e3e7e79",
+    "scope": "Two existing Rogue talent descriptions and existing native windows only",
+    "files": {
+      "core/src/main/assets/messages/actors/actors.properties": {
+        "before_sha256": "a799817d609b2e15278a134c4dd97cecc6daa9e224c581b5248a01394255e6d7",
+        "after_sha256": "fe4e84082b9b1139803904e3e569809716167752d8453b9a0d71cef35cd9cf65"
+      },
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/mechanics/TalentExplanation.java": {
+        "before_sha256": "d4ce960d5bb39fbb43d4fee01cbaf6713f46e86221897e16209b2fecbb5bd9e9",
+        "after_sha256": "c5799a8965e825105bcb97a2046e2768d3b1bc6b9eb978b6697c4d6ff36b4a12"
+      },
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java": {
+        "before_sha256": "530d256940c1b0b75fad44e8b1f2c06a279b9ef7172cea0f21c99232120cafc4",
+        "after_sha256": "727236a52b7013f395bd7f9a61fadba41175290c04deba180189b4b367e80486"
+      }
+    }
+  },
+  "apk_assembled": false,
+  "native_executed": false,
+  "physical_phone_tested": false,
+  "whole_talent_audit_complete": false
+}

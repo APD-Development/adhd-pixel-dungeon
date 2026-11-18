@@ -1,0 +1,74 @@
+Infrastructure	ICON_INFO	android-tests	Added the android-tests development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Testing	ICON_STATS	Apd Stats Device Test	Added a device test covering storage Self Test Passes On Android. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Run state	Recorded run starts, floor changes, saves and restored checkpoints.
+Changes	ICON_PREFS	Saved settings	Added the persistent run-recording preference.
+Changes	ICON_INFO	Shattered Pixel Dungeon	Initialized recording storage and handled app-session boundaries.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected the run recorder to run starts, saves, loads, sessions and endings.
+Statistics / UIMSD	ICON_STATS	Game Snapshot	Added reads the current game state into recorder data.
+Statistics / UIMSD	ICON_STATS	Recorder Status	Added a snapshot of what the recorder is doing, for diagnostics screens and tests.
+Statistics / UIMSD	ICON_STATS	Ruleset	Added the gameplay-affecting rules in force, as an identity.
+Statistics / UIMSD	ICON_STATS	Event Types	Registered the run lifecycle event types with stable recording identifiers.
+Statistics / UIMSD	ICON_STATS	Lifecycle Events	Added encoders and decoders for the run lifecycle events of telemetry 1.1.
+Statistics / UIMSD	ICON_STATS	Run log writer	Added the lifecycle recording support used by the background log writer.
+Statistics / UIMSD	ICON_STATS	Run Timeline	Added separates the events of a run log into the canonical timeline and abandoned branches.
+Statistics / UIMSD	ICON_STATS	Self Test	Extended on-device self-checks for run lifecycle recording.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.1.
+Quality of Life	ICON_PREFS	APD Settings	Added recording controls, diagnostics and device self-checks.
+Testing	ICON_CHECKED	Golden Child Main	Updated automated checks and fixtures for golden child main. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Golden Level Hash Test	Updated automated checks and fixtures for golden level hash. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Level Generation Harness	Updated automated checks and fixtures for level generation harness. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 1	Added a test covering an Unusable History Folder Never Breaks The Game. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 2	Added a test covering injected Recorder Failures Are Contained And Switch The Recorder Off. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 3	Added a test covering a Failing Start Of A Run Leaves The Game And Its Saves Alone. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 4	Added a test covering recording Switched Off Writes Nothing At All. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 5	Added a test covering an Unconfigured Recorder Does Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 6	Added a test covering a Missing Hero Does Not Stop A Checkpoint. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Failure Protection Test 7	Added a test covering the Recorder Can Be Switched Off Mid Run And Back On Without Corrupting The Log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Isolation Test	Added a test covering recorder Source Never Touches Randomness Or Changes The Game. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 1	Added a test covering new Run Writes Session Start Run Start And A Starting Checkpoint. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 2	Added a test covering levels And Saves Are Recorded In Order. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 3	Added a test covering the Game Save Carries The Run Id And Matches The Save Marker. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 4	Added a test covering death Seals The Log And Updates The Index. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 5	Added a test covering erasing The Save Of The Open Run Abandons It. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 6	Added a test covering erasing Another Sessions Save Ends It From Its Log And Says Details Are Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 7	Added a test covering deleting A Slot With No Recorded Run Does Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 8	Added a test covering a Changed Gameplay Setting Is Recorded As A Ruleset Change. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 9	Added a test covering ruleset Ids Depend Only On The Rules. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test 10	Added a test covering a New Run While Another Is Open Leaves The First Resumable. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Never Affects The Game Test 1	Added a test covering played Through Levels Are The Same With Recording On Or Off. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Never Affects The Game Test 2	Added a test covering save Files Are Identical Except For The Run Id. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Never Affects The Game Test 3	Added a test covering the Game Runs Normally When Recording Is Not Set Up At All. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Test Support	Added automated checks and fixtures for recorder test support. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 1	Added a test covering killed After A Save Abandons The Later Play But Keeps It In The Log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 2	Added a test covering canonical Timeline Is Exactly The Play That Survived. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 3	Added a test covering repeated Kills Keep Every Abandoned Branch. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 4	Added a test covering loading The Newest Save Rolls Back Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 5	Added a test covering a Save Further On Than The Log Means Recording Was Missing And Says So. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 6	Added a test covering a Save That Matches No Marker Is Reported As Uncertain And Nothing Is Abandoned. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 7	Added a test covering a Save From Before Recording Existed Is Adopted As A Partial Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 8	Added a test covering a Missing Log Starts A Partial Log With The Same Id. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 9	Added a test covering a Log Of Another Telemetry Version Is Never Appended To A New Segment Is Started. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test 10	Added a test covering a Save Of An Already Ended Run Starts A New Segment Instead Of Touching The Sealed Log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Lifecycle Events Test 1	Added a test covering run Start Round Trips And Keeps The Partial Flag. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Lifecycle Events Test 2	Added a test covering run End Save Level And Session Events Round Trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Lifecycle Events Test 3	Added a test covering checkpoint Keeps Items With What The Player Knew. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Lifecycle Events Test 4	Added a test covering no Hunter Or Status Fields Are Lost When Empty. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Lifecycle Events Test 5	Added a test covering recording Meta Events Are Only Gap Rollback And Session. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Lifecycle Events Test 6	Added a test covering decoding A Short Payload Fails Cleanly Not With An Array Error. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 1	Added a test covering no Rollback Means Everything Is Canonical. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 2	Added a test covering matched Rollback Abandons Everything Between The Save And The Rollback. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 3	Added a test covering save Markers Inside The Abandoned Branch Are Abandoned Too. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 4	Added a test covering second Rollback To The Same Save Abandons The Play After The First One. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 5	Added a test covering rollback To An Earlier Save Also Abandons Later Saves And Their Rollbacks Meta. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 6	Added a test covering unmatched Rollback Abandons Nothing But Flags Uncertainty. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 7	Added a test covering a Damaged Rollback Event Abandons Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Timeline Test 8	Added a test covering rollback With A Marker That Is Not In The List Abandons Nothing Before It. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Self Test Test 1	Added a test covering the Device Self Test Passes On This Machine And Cleans Up After Itself. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Self Test Test 2	Added a test covering a Folder That Cannot Be Written Gives A Failed Report Not An Exception. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test	Updated automated checks and fixtures for writer thread. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-RECORDER	Added apd-stats-recorder accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the recording-format history bundled with this APK. Recorded run starts, floor changes, saves and restored checkpoints.

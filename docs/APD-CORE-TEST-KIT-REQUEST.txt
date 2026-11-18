@@ -1,0 +1,1 @@
+November 10 resumed APD development: verify the current full core suite and export its compiled runtime/dependencies for local regression execution where services.gradle.org DNS is unavailable. No APK assembly, signing, publication, provider changes or recurring schedule. Existing production and test changes remain intact.

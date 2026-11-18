@@ -1,0 +1,3 @@
+2026-11-11: recover only the incomplete native qualification of the original signed APD440 Alpha APK.
+Reuse pinned original439 and440 successful evidence. Run the six existing Alpha cases with serialized screenshot transfers and exact remote-to-local image hashes.
+Preserve the original failure artifacts, APK bytes, signatures, source archives and all successful tests. No application or instrumentation rebuild; no publication.

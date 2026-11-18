@@ -1,0 +1,10 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Statistics / UIMSD	ICON_INFO	Report Export	Reported failure when the destination fails during close instead of claiming the report was saved.
+Testing	ICON_CHECKED	Report Export Completion Test 1	Added a test covering close Failure Must Not Claim Saved. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Export Completion Test 2	Added a test covering write Failure Closes And Reports Failure. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Export Completion Test 3	Added a test covering successful Export Closes Before Reporting Success. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-TEST48-REPORT-2026-10-11	Added apd-test48-report-2026-10-11 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	apd existing build evidence	Updated the apd existing build evidence development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Reported failure when the destination fails during close instead of claiming the report was saved.

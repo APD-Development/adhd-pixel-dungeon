@@ -1,0 +1,6 @@
+Bug Fixes	ICON_DATA	Detect damaged statistics caches	A bit flip in a temporary row cache now triggers a rebuild instead of silently changing recorded statistics.
+Statistics / UIMSD	ICON_RANKINGS	Compatible row-cache refresh	Older row caches rebuild once from original run logs, then remain available for normal fast reloads.
+Changes	ICON_DATA	Checksum without extra buffer copy	Cache writing computes its integrity check directly from the existing buffer, preserving raw-history formats and avoiding another full-size copy.
+Testing	ICON_INFO	Cache corruption and migration coverage	Added tests for bit flips, valid-text damage, older cache migration and unchanged genuine history; existing allocation checks still exercise malformed payloads.
+Development	ICON_INFO	Verified audit and build records	Recorded the preceding Sort fix's Android evidence, cache corruption reproductions and remaining audit limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I added an integrity check to temporary row caches because valid-looking text could still be damaged. Original run logs stay untouched, and older caches rebuild safely.

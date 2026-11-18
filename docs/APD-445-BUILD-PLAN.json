@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "number": 445,
+  "base_head": "9c27ec62c2e23832673c7184fe1d55e970b32598",
+  "status": "ready_for_build",
+  "date": "2026-11-11",
+  "core_tests": 3244,
+  "core_suites": 468,
+  "application_paths": [
+    "core/src/main/assets/messages/scenes/scenes.properties",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/ResumeIndicator.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndRanking.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndWallSearchResume.java"
+  ],
+  "additional_required_images": [
+    "pylon-native-active-visible.png",
+    "pylon-native-hidden-excluded.png",
+    "pylon-native-inactive-visible.png",
+    "pylon-native-manual-rat-preserved.png",
+    "pylon-native-ranged-pylon-melee-boss.png",
+    "search-context-confirmed-wall.png",
+    "search-context-crystal-choice.png",
+    "search-context-crystal-vault.png",
+    "search-context-explicit-movement.png",
+    "search-context-explicit-search.png",
+    "search-context-explicit-wall.png",
+    "search-context-metamorph-rank1-radius.png",
+    "search-context-metamorph-rank1-rounded.png",
+    "search-context-metamorph-rank2-square.png",
+    "search-context-metamorph-unacquired.png",
+    "search-context-movement-first.png",
+    "search-context-observed-wall-first.png",
+    "search-context-open-area.png",
+    "search-context-other-floor-memory.png",
+    "search-context-rogue-rank0.png",
+    "search-context-rogue-rank1-radius.png",
+    "search-context-rogue-rank1-rounded.png",
+    "search-context-rogue-rank2-square.png",
+    "search-context-rogue-unacquired-radius.png",
+    "search-context-unseen-wall.png",
+    "seed-history-cleared-generated-selection.png",
+    "seed-history-entry.png",
+    "seed-history-latest-unknown-selection.png",
+    "seed-history-matching-records.png",
+    "seed-history-ranking-copy-confirm.png",
+    "seed-history-ranking-copy-result.png"
+  ],
+  "changes": [
+    {
+      "category": "Quality of Life",
+      "sprite": "ICON_PREFS",
+      "title": "Seed history on entry and Copy",
+      "text": "Entering or copying a seed now checks the completed and failed runs available on this device. Matching history shows the recorded attempt count and deepest recorded floor. A seed without matching history is labelled unknown imported, without claiming its original creator. Existing scores are unchanged."
+    },
+    {
+      "category": "Quality of Life",
+      "sprite": "ICON_PREFS",
+      "title": "Context-sensitive remembered search",
+      "text": "The remembered-search menu now puts the appropriate action first. Open areas and crystal chest rooms prefer regular Search; an eligible visible wall within the current search area can prefer Wall Search. It follows acquired Wide Search, including Metamorphosis, while preserving saved searches, interrupted movement, normal turn costs and danger checks."
+    }
+  ],
+  "pending_scope_items": []
+}

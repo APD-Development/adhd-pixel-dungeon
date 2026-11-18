@@ -1,0 +1,89 @@
+{
+  "build": 329,
+  "status": "private owner diagnostic candidate; NOT fully verified",
+  "application_source": "16cb3c2de72595239573fe87bb72ad46a90d0fb0",
+  "publication_source": "80879a515cfb68d00faa56bfee886870de964995",
+  "publication_run": 40794450508,
+  "publication_job": 123187385657,
+  "asset_published_utc": "2026-10-29T00:30:41Z",
+  "core": {
+    "tests_each_variant": 2185,
+    "suites": 419,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native": {
+    "initial_tests": 64,
+    "initial_passed": 62,
+    "initial_failures": 2,
+    "retest_run": 40793176257,
+    "retest_tests": 3,
+    "retest_passed": 2,
+    "retest_failures": 1,
+    "combined_unique_methods_passed": 63,
+    "remaining_failed_method": "AndroidBackDeviceTest.warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms",
+    "initial_ms": 282,
+    "retest_ms": 306,
+    "budget_ms": 250,
+    "report_export_passed": true,
+    "scroll_read_save_continue_passed": true,
+    "fully_verified": false
+  },
+  "display_profiles_passed": 5,
+  "accepted_png_reviewed": 88,
+  "display_application_states_reviewed": 20,
+  "source_and_signing_and_application_id_verified": true,
+  "uploaded_assets_downloaded_and_hash_verified": true,
+  "physical_phone_verified": false,
+  "phone_freeze_cause_confirmed": false,
+  "tester_distribution_approved": false,
+  "last_verified_fallback": 323,
+  "assets": [
+    {
+      "name": "APD-329-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-329/APD-329-Verification.json",
+      "bytes": 971850,
+      "sha256": "sha256:c868f15b2c6349c6ea841f4bf6db90f56c862012e56b327cd1c4204c8e1ecd70",
+      "created_at": "2026-10-29T00:30:38Z"
+    },
+    {
+      "name": "APD-Alpha-Preview-329.pdf",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-329/APD-Alpha-Preview-329.pdf",
+      "bytes": 6151,
+      "sha256": "sha256:9bcee4586b0ec28e8e18e11e065b14d72c3d4788d2da71e1a383577c532d16bc",
+      "created_at": "2026-10-29T00:30:38Z"
+    },
+    {
+      "name": "APD-Alpha-Testers-329.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-329/APD-Alpha-Testers-329.apk",
+      "bytes": 38824451,
+      "sha256": "sha256:d961d8e9540372c8ecbcc9e07be4d8b02249a555e9122cc559af253c75d8f677",
+      "created_at": "2026-10-29T00:30:38Z"
+    },
+    {
+      "name": "APD-Alpha-Testers-329.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-329/APD-Alpha-Testers-329.apk.sha256",
+      "bytes": 92,
+      "sha256": "sha256:c552b2f3492da01e3eb226496ad1f7ec0a49df1f8f5ffcb820b7e686bf5f5241",
+      "created_at": "2026-10-29T00:30:38Z"
+    },
+    {
+      "name": "APD-Developer-329.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-329/APD-Developer-329.apk",
+      "bytes": 38824628,
+      "sha256": "sha256:617812461000e81f2b2f70caabd21c885fa9e35058dadcb200048e551da068f7",
+      "created_at": "2026-10-29T00:30:38Z"
+    },
+    {
+      "name": "APD-Developer-329.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-329/APD-Developer-329.apk.sha256",
+      "bytes": 88,
+      "sha256": "sha256:6a2fe3b7ff17f5b4c4df4ca29d67b947a94a204388cbe1f885728e242c029be2",
+      "created_at": "2026-10-29T00:30:38Z"
+    }
+  ],
+  "direct_link_sent_in_commentary": true,
+  "exact_chat_delivery_timestamp_available": false,
+  "final_response_direct_link_delivery": "pending until final response is emitted"
+}

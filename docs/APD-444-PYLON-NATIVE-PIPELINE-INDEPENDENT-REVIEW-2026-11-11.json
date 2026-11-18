@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-11-11T16:44:38.659002+00:00",
+  "outcome": "No concrete blocking execution or provenance issue found in the bounded read-only review.",
+  "reviewed_files_sha256": {
+    "tools/apd444_pylon_native.py": "79397ec9b12576b971abaf564331c8392de927491ae9e16065bb43b58782f46f",
+    "tools/apd444_pylon_native_guards.py": "9c3903502204cfb1d652255211f762c000ccf31910389e2e7895b2ee1856307b",
+    ".github/workflows/apd-pylon-native-444.yml": "968cd06371903c126a3cc5b6c0bdd473ca14ef729eee010b1a1d5dc5d43f7661",
+    "docs/APD-444-PYLON-NATIVE-PLAN.json": "07539892dbabb83c08b0c4d92c2eb4b0b25837310a4f7b739145ed32462bdd8e"
+  },
+  "accepted_fixture_sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+  "checks": [
+    {
+      "area": "Android build scope",
+      "finding": "assembleDebugAndroidTest with packageDebug and assembleDebug excluded matches the existing apd-verify377 workflow pattern. Its output is the existing androidTest/debug/android-debug-androidTest.apk path. Before/after guards reject any game APK output; frozen applications are only downloaded and checked. Compilation of dependencies is not presented as another application APK."
+    },
+    {
+      "area": "Actual new fixture compatibility",
+      "finding": "Exact standalone class, sole method and all five image names match the accepted fixture. The nested package path is not excluded by androidTest root-only *Test.java exclusion. The corrected outer fade check uses reflection, with no protected Fader reference. Existing TopScores helpers remain unchanged. The fixture uses APIs present in both frozen debug application variants and no Developer-only feature gate."
+    },
+    {
+      "area": "Frozen byte binding",
+      "finding": "Independently rehashed the actual retained archive, both game APKs, original instrumentation and source ZIP; all match helper constants. Archive extraction layout contains the exact preparation/source/built paths the helper reads. Original instrumentation is kept separate from the one new test APK."
+    },
+    {
+      "area": "Same-attempt artifact binding",
+      "finding": "Current source/run/attempt/workflow and exact successful producer job are checked; artifact lookup is locally filtered by attempt-specific name, requires one match, matches run/head/digest/size and creation during that producing job. Source fixture, reviewed plan and binary proof are rebound after download. Partial rerun without a matching current-attempt instrument artifact fails closed."
+    },
+    {
+      "area": "Source and dependency scope",
+      "finding": "Only the new fixture plus explicit supplemental files and documentation may change from frozen source. Existing game/Gradle/signing files and other tests are forbidden. All eight existing helper hash pins match local files. Draft plan blocks operational stages before API, download, build or device work."
+    },
+    {
+      "area": "JSON ABI gate",
+      "finding": "The unchanged bytecode checker runs after compilation with pipefail and saves its log. freeze requires a successful nonempty production/JSON-reference result and binds the log digest; fetch rechecks that digest. This is compatible with production classes compiled as test-APK dependencies."
+    },
+    {
+      "area": "Native report and images",
+      "finding": "Exactly one start, one pass, one exact class/method, numtests=1 and terminal success are required. Five exact unique PNG names must decode to 320x640. Serial incremental pulls finish before stable remote-SHA synchronization, and local hashes must equal the entire device manifest. Finalization rechecks reports, image hashes, transfer receipt, original/new APK binding and both matrix artifacts."
+    },
+    {
+      "area": "Failure and acceptance boundaries",
+      "finding": "Failure path retains reports/logcat and available device images with an explicitly unsuccessful partial-transfer receipt. Successful supplemental evidence does not claim primary APD444 acceptance, manual visual completion, physical-phone/audio verification or publication. Main APD444 delivery remains independent."
+    }
+  ],
+  "local_frozen_files": {
+    "original_archive": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built-pair.zip",
+      "bytes": 184694131,
+      "sha256": "9bf2e5ecd2fc705f1d481f863c0321c7e290f062dac06e4f7ef8757abb55fb45"
+    },
+    "Developer": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/built/owner-delivery/APD-Developer-444.apk",
+      "bytes": 39205618,
+      "sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0"
+    },
+    "Alpha-Testers": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/built/owner-delivery/APD-Alpha-Testers-444.apk",
+      "bytes": 39205594,
+      "sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162"
+    },
+    "original_instrumentation": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/built/evidence/instrumentation.apk",
+      "bytes": 916201,
+      "sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31"
+    },
+    "source_archive": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/source/APD-Source-444.zip",
+      "bytes": 110815290,
+      "sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076"
+    }
+  },
+  "original_build_identity": {
+    "source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+    "run": 43057716359,
+    "artifact": 13873030855
+  },
+  "plan_status_at_review": "draft_pending_root_pipeline_review",
+  "peer_reported_checks_not_rerun": {
+    "offline_rejection_guards": 58,
+    "peer_receipt_sha256": "f516af1ed5c2b6db00465c2e9c352384b71bb2e22cc1cbd24cd2ef48ebf3b558"
+  },
+  "reviewer_actions": {
+    "production_edits": [],
+    "pipeline_edits": [],
+    "remote_actions": [],
+    "tests_run": [],
+    "apk_builds": []
+  },
+  "limits": [
+    "This review did not execute the Android task graph, compile the outer Android test, invoke SDK signing tools, run instrumentation or inspect new pylon screenshots. Those remain actual CI/native/manual gates.",
+    "The existing six core targeting cases remain references, not rerun results. The new native fixture does not cover full boss progression, touch dispatch or attack/projectile execution.",
+    "The draft plan needs the root-controlled ready transition and request before operation."
+  ]
+}

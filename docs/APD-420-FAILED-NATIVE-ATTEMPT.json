@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-09T16:13:28.995Z",
+  "candidate": 420,
+  "producing_source": "7143d16bc481045b49ec4a60624128b0dcccc6b1",
+  "build_run": 42650360251,
+  "build_job": 129274751071,
+  "build_result": "success",
+  "core": {
+    "tests": 3143,
+    "suites": 457,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "original_built_pair_artifact": {
+    "id": 13688819221,
+    "sha256": "7fdfa606a006605489bd4f70f62dd364827aa7d035328ec1c381ef7fda295765"
+  },
+  "native": {
+    "Developer": {
+      "job": 129277604484,
+      "artifact_id": 13690960366,
+      "artifact_sha256": "0697fd3dc539dbf5f8291b6f5e920fdf5a002d2ea4bd3a4d400f80871c5026f"
+    },
+    "Alpha-Testers": {
+      "job": 129277604364,
+      "artifact_id": 13690805750,
+      "artifact_sha256": "3883a9d36e254f9034eeddf308c64df7671b6ecf397c963f437b0b10bab311d9"
+    },
+    "common_failure": "QolItemFeedbackDeviceTest expected 'Level-ups remaining: 5 of 5'; production HTBoost description accepts and renders only remaining count, 'Level-ups remaining: 5'.",
+    "application_defect": false,
+    "fixture_defect": true,
+    "all_required_native_cases_completed": false
+  },
+  "prepare_job": "skipped",
+  "publication": false,
+  "correction": "Change only the exact stale instrumentation expectation to 'Level-ups remaining: 5'; rebuild instrumentation only and rerun the complete native grid on unchanged original APKs."
+}

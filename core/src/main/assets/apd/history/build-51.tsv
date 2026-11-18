@@ -1,0 +1,36 @@
+Testing	ICON_STAIRS	Floor Replay Device Test	Updated Android checks and fixtures for floor replay device. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Device Timing Test	Updated Android checks and fixtures for statistics device timing. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Run state	Carried the chosen difficulty through run state, recording and statistics; the initial framework remained gameplay-neutral.
+Changes	ICON_INFO	Combat actions	Added neutral difficulty hooks for enemy statistics and ordinary loot.
+Statistics / UIMSD	ICON_INFO	Log Redactor	Carried the chosen difficulty through run state, recording and statistics; the initial framework remained gameplay-neutral.
+Changes	ICON_CHALLENGE_COLOR	Difficulty	Added aPD's global difficulty system: levels 1-5, level 3 is the game as it is (the baseline).
+Changes	ICON_CHALLENGE_COLOR	Difficulty Hooks	Added the seams where the game asks the difficulty system about something.
+Quality of Life	ICON_STATS	Statistics screen	Carried the chosen difficulty through run state, recording and statistics; the initial framework remained gameplay-neutral.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added the difficulty selector for new runs; this initial framework did not yet change balance.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 1	Added a test covering levels Are One To Five And Three Is The Baseline. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 2	Added a test covering level Three Is Neutral Whatever The Table Says And Has No Balance Revision. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 3	Added a test covering no Balance Is Approved Yet So Every Level Is A Placeholder. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 4	Added a test covering scaling Is Exact When Neutral And Rounds Only When Not. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 5	Added a test covering difficulty Three Keeps The Ruleset Ids Of Before And Other Levels Get Their Own. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 6	Added a test covering the Ruleset Of The Run And Of The Next Run Follow The Right Sources. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 7	Added a test covering the Setting Is Stored And Validated. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 8	Added a test covering a Run Keeps Its Difficulty When The Setting Changes And Across Save And Load. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 9	Added a test covering a Run Saved Before Difficulty Existed Stays Not Recorded And Plays As Three. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 10	Added a test covering new Runs Record Difficulty Legacy Runs Stay Unknown And Uimsd Can Filter And Group. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 11	Added a test covering redacted Copies And Older Starts Still Read Their Difficulty Correctly. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 12	Added a test covering every Level Builds The Same Floors As Three Until Balance Is Approved. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 13	Added a test covering the Game Seams Are Identity At Three And Scale Enemies Only When A Modifier Is Set. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 14	Added a test covering the Seams Are Called From The Game At One Place Each. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 15	Added a test covering a Floor Replay Uses The Runs Difficulty Not The Installs. These are development checks, not a gameplay feature.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test 16	Added a test covering the Settings Screen Offers The Selector For New Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test	Updated automated checks and fixtures for dataset builders. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test	Updated automated checks and fixtures for telemetry version handling. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Development	ICON_CHALLENGE_COLOR	APD-DIFFICULTY	Added apd-difficulty accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Statistics / UIMSD	ICON_STATS	Difficulty	Added the Difficulty statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Balance revision	Added the Balance revision statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Difficulty view	Added the Difficulty statistics view.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

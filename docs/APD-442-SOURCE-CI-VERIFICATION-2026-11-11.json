@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "verified_utc": "2026-11-11T15:06:59.505127+00:00",
+  "source_commit": "69532e7422d852237fe4681a4873473c4bb8f218",
+  "source_commit_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/69532e7422d852237fe4681a4873473c4bb8f218",
+  "github_push_verified": true,
+  "run": 43044196109,
+  "run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43044196109",
+  "job_id": 130603676090,
+  "status": "completed",
+  "conclusion": "success",
+  "completed_at": "2026-11-11T15:05:00Z",
+  "artifact": {
+    "id": 13866692493,
+    "name": "apd-qol-source-verification",
+    "bytes": 543702,
+    "sha256": "aa865f2b9852cc9b0b560727bf2bec9595a90752d263340a166b47a1644f27bc",
+    "downloaded_and_hash_verified": true
+  },
+  "raw_xml_independently_parsed": true,
+  "results": {
+    "source_commit": "69532e7422d852237fe4681a4873473c4bb8f218",
+    "suites": 464,
+    "tests": 3197,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "apk_assembled": false,
+    "physical_phone_tested": false
+  },
+  "required_compilation": [
+    "core",
+    "desktop classes",
+    "Android debug",
+    "Android release",
+    "Android instrumentation"
+  ],
+  "job_log_sha256": "5cc5a0c2202109fe79327e32b5e19cbd3d79f24ab2584c9dbe9479a9cbdb7d20",
+  "apk_assembled": false,
+  "native_executed": false,
+  "next": "Request one APD442 pair using the already-reviewed scope, existing signer and exact APD441 compiled history."
+}

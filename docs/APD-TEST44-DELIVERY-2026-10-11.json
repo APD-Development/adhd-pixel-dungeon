@@ -1,0 +1,65 @@
+{
+  "source_commit": "8134f1d29f42c307c6fdb5fd34e908a529b8daff",
+  "source_run": 38110893103,
+  "delivery_commit": "9340342b465d4ead5be742254f0301a3f8adb8ac",
+  "delivery_run": 38111641237,
+  "published_utc": "2026-10-11T04:28:13Z",
+  "apk_sha256": "561240a044c82543d17f4ca8a0903f037d7ecb15acd968978b92d1b7c70b11df",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC44-TEST",
+  "core_tests": 1049,
+  "android_emulator_tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "physical_phone_verified": false,
+  "rollback": "apd-codex-test-41",
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-44.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/ADHD-Pixel-Dungeon-CODEX-TEST-44.apk",
+      "size": 38242482,
+      "digest": "sha256:561240a044c82543d17f4ca8a0903f037d7ecb15acd968978b92d1b7c70b11df"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-44.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/ADHD-Pixel-Dungeon-CODEX-TEST-44.apk.sha256",
+      "size": 103,
+      "digest": "sha256:b8b784ac97a552ddf267b085deaca5b5f1a11c5b7b2bd8331674309e64d99a9e"
+    },
+    {
+      "name": "APD-Bug-Fixes-2026-10-11-TEST44.pdf",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/APD-Bug-Fixes-2026-10-11-TEST44.pdf",
+      "size": 4967,
+      "digest": "sha256:d7e58eb86162741f5e8e519aee94c75ca969523fd40e21440e12dc3855239218"
+    },
+    {
+      "name": "APD-Source-Line-Counts.csv",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/APD-Source-Line-Counts.csv",
+      "size": 219484,
+      "digest": "sha256:801c0e90fa84ab99197a903acbb9d6e5c5749c912ad3eba9bb643c210e8f415b"
+    },
+    {
+      "name": "APD-Source-Line-Counts.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/APD-Source-Line-Counts.json",
+      "size": 3222,
+      "digest": "sha256:9f451a10c3e84d3088cbe8fc6a4b6ba89267d40d3117f88178928cdf2337832e"
+    },
+    {
+      "name": "APD-Source-Line-Counts.md",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/APD-Source-Line-Counts.md",
+      "size": 2507,
+      "digest": "sha256:a9974dd84ee110a28fd62ddc429b2243debc5e814d89314e9fa4eca525508bac"
+    },
+    {
+      "name": "TEST44-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-44/TEST44-Verification.json",
+      "size": 216145,
+      "digest": "sha256:f2ad25de239d5d61fb70efcb862aeed017e1c820cf2fbc20b421808b1a123dbf"
+    }
+  ],
+  "included": "Category hotbar, persistent 1–4 vertically stacked Cleric quick casts, malformed gateway queue retention",
+  "not_included": "Later hotbar capacity expansion staged locally; comprehensive UIMSD audit just started",
+  "timing": "Source CI04:13:27–04:24:24UTC; publication04:28:13UTC=Oct11 12:28:13AM New York. Total active/idle time unmetered; no continuous overnight execution claim."
+}

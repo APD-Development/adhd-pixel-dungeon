@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "reviewed_at_utc": "2026-11-11T17:11:13.364275+00:00",
+  "status": "corrected_supplemental_native_and_manual_review_passed",
+  "instrumentation_source": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+  "run_id": 43063913542,
+  "attempt": 1,
+  "original_game_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_game_run": 43057716359,
+  "new_game_apks_built": 0,
+  "gameplay_or_save_format_changes": false,
+  "root_actual_original_image_views": 10,
+  "native_cases": 2,
+  "variants": {
+    "Developer": {
+      "exact_native_case_passed": true,
+      "report_sha256": "d60a2a4eecb9785139b4ae1973c1656ed68fb5dadd65c00b51045a38fe3023f2",
+      "native_logcat_sha256": "a79f819c0bd788807ce845ee09c5126f3c3deb429fb110d80e32ee86af5dbabe",
+      "preference_markers": [
+        "11-11 17:05:01.506 I/System.out( 2296): NATIVE_PYLON_PREFERENCE stage=captured intro=true stored=false",
+        "11-11 17:05:09.648 I/System.out( 2296): NATIVE_PYLON_PREFERENCE stage=restored intro=true"
+      ],
+      "target_markers": [
+        "11-11 17:05:05.829 I/System.out( 2296): NATIVE_PYLON_TARGET stage=inactive-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=false quick=DM300 melee=DM300 activeActorIsHero=true",
+        "11-11 17:05:06.847 I/System.out( 2296): NATIVE_PYLON_TARGET stage=active-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=Pylon activeActorIsHero=true",
+        "11-11 17:05:07.306 I/System.out( 2296): NATIVE_PYLON_TARGET stage=manual-rat-preserved actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Rat melee=Rat activeActorIsHero=true",
+        "11-11 17:05:07.780 I/System.out( 2296): NATIVE_PYLON_TARGET stage=ranged-pylon-melee-boss actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=DM300 activeActorIsHero=true",
+        "11-11 17:05:08.525 I/System.out( 2296): NATIVE_PYLON_TARGET stage=hidden-pylon-excluded actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=false pylonEnemy=true quick=DM300 melee=DM300 activeActorIsHero=true"
+      ],
+      "all5_pngs_match_complete_remote_manifest": true,
+      "root_individually_viewed_originals": [
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-inactive-visible.png",
+          "sha256": "f2170d546e33f4fdfcaaa131645b55b056b947b311754771961099268cf19384",
+          "bytes": 24839,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The visible inactive pylon has no selected health bar. DM300 has the green target bar and the actual bottom-right attack portrait. The enemy indicator reads 2."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-active-visible.png",
+          "sha256": "2db4231295f1ab0ab06641af5c24ac827fb61691b313b170a3b36ff16a331c18",
+          "bytes": 24634,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The activated adjacent pylon has the green health bar and pylon attack portrait. The enemy indicator reads 3. Hero, rat and DM300 remain in frame."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-manual-rat-preserved.png",
+          "sha256": "8d922698bf1b5be5b25630605c6f378652c3250f0ccc1cf8df1ee45579d6c3a3",
+          "bytes": 24789,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The rat retains the selected health bar and rat attack portrait while the activated pylon remains visible. The enemy indicator remains 3."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-ranged-pylon-melee-boss.png",
+          "sha256": "faaf09313cb69cf69838bde2ceb7c58f7d4592fa5d01500c968b7717c1189553",
+          "bytes": 25413,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The pylon is visibly farther from the hero and has the selected health bar. The attack portrait depicts DM300, visibly separating ranged selection and melee selection."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-hidden-excluded.png",
+          "sha256": "560b9678e606e1ce88b170a8a71d0a0560cc2a70a5c0e8564f2f33b7fb7ebd99",
+          "bytes": 30802,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The wall and dark region conceal the pylon. DM300 has the target bar and attack portrait, with enemy count 2. No hidden-pylon bar or attack portrait remains."
+        }
+      ],
+      "observed_visual_blockers": []
+    },
+    "Alpha-Testers": {
+      "exact_native_case_passed": true,
+      "report_sha256": "e167607a98ecd2087ed8f6f2a898aa413a6c9e192c56d7e2e63974fda0fceb8e",
+      "native_logcat_sha256": "a643571066783bbbeef66bd36bcc668d5b496bb95a45d1d869fe887f8c84b707",
+      "preference_markers": [
+        "11-11 17:05:28.615 I/System.out( 2290): NATIVE_PYLON_PREFERENCE stage=captured intro=true stored=false",
+        "11-11 17:05:35.572 I/System.out( 2290): NATIVE_PYLON_PREFERENCE stage=restored intro=true"
+      ],
+      "target_markers": [
+        "11-11 17:05:32.088 I/System.out( 2290): NATIVE_PYLON_TARGET stage=inactive-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=false quick=DM300 melee=DM300 activeActorIsHero=true",
+        "11-11 17:05:33.037 I/System.out( 2290): NATIVE_PYLON_TARGET stage=active-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=Pylon activeActorIsHero=true",
+        "11-11 17:05:33.579 I/System.out( 2290): NATIVE_PYLON_TARGET stage=manual-rat-preserved actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Rat melee=Rat activeActorIsHero=true",
+        "11-11 17:05:34.070 I/System.out( 2290): NATIVE_PYLON_TARGET stage=ranged-pylon-melee-boss actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=DM300 activeActorIsHero=true",
+        "11-11 17:05:34.611 I/System.out( 2290): NATIVE_PYLON_TARGET stage=hidden-pylon-excluded actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=false pylonEnemy=true quick=DM300 melee=DM300 activeActorIsHero=true"
+      ],
+      "all5_pngs_match_complete_remote_manifest": true,
+      "root_individually_viewed_originals": [
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-inactive-visible.png",
+          "sha256": "2acf1767008eff9441a38d13d1c1b628e55e72ce670ee4b4338fc8072eb0962f",
+          "bytes": 26473,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The visible inactive pylon has no selected health bar. DM300 has the green target bar and the actual bottom-right attack portrait. The enemy indicator reads 2."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-active-visible.png",
+          "sha256": "21f6a72c9e5d583121eb1c68139a372d91003b894cf2e3b7f922847c6483da43",
+          "bytes": 26145,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The activated adjacent pylon has the green health bar and pylon attack portrait. The enemy indicator reads 3. Hero, rat and DM300 remain in frame."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-manual-rat-preserved.png",
+          "sha256": "53f263a787c08679bd57d889ff2b9f539c745edec1d3ad4009a56deace4635a4",
+          "bytes": 26175,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The rat retains the selected health bar and rat attack portrait while the activated pylon remains visible. The enemy indicator remains 3."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-ranged-pylon-melee-boss.png",
+          "sha256": "7447d26047fec8f7a1c88357d71e35341440a3f140994d5a92698e7b7ce7055c",
+          "bytes": 26473,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The pylon is visibly farther from the hero and has the selected health bar. The attack portrait depicts DM300, visibly separating ranged selection and melee selection."
+        },
+        {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-hidden-excluded.png",
+          "sha256": "cb38e64c73e08ce4c43fb9cb806ec715ca458fa3979469c5fca2db534e43c656",
+          "bytes": 30840,
+          "dimensions": [
+            320,
+            640
+          ],
+          "root_actually_viewed_original": true,
+          "root_observation": "The wall and dark region conceal the pylon. DM300 has the target bar and attack portrait, with enemy count 2. No hidden-pylon bar or attack portrait remains."
+        }
+      ],
+      "observed_visual_blockers": []
+    }
+  },
+  "compiled_acceptance": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/corrected-native-acceptance/compiled-acceptance.json",
+    "sha256": "710771ddbc3ddcfd38e800a39f7385f95ff922be471da516aca2fbaeaf87afc8"
+  },
+  "independent_acceptance": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/corrected-native-acceptance/final-independent-acceptance.json",
+    "sha256": "7bbd90a62082ee0be54124270fa22fbe4b7f54967a70b559eccf41fef13a3188"
+  },
+  "terminal_ci_acceptance": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/final-automated-acceptance.json",
+    "sha256": "c2d4744dd190b68ae0b681b53adcf3b6d770934ce31792b7b97504f6b7b96fdc"
+  },
+  "prior_receipts_unchanged": [
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/root-first-native-review.json",
+      "sha256": "b53d5c753e51d1bee4b9a9f01342ee87430f8f80b5fb92620931755a4d457e55"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/supplemental-native-independent-acceptance.json",
+      "sha256": "3c3d5fcc07d0ba7d84705758d80fe9f21f2d273192a056938553c762ee06ee2b"
+    }
+  ],
+  "first_run_known_issue": "Both first supplemental targeting cases passed, but prelaunch preference capture emitted a caught NPE and did not reliably read the setting. Those raw results and qualified receipts remain unchanged.",
+  "correction_verified": "Both corrected native executions capture initialized effective intro=true with no stored key before the five targeting states, then restore true. No previous preference initialization exception appears in either complete log.",
+  "scope_limits": [
+    "The fixture uses a synthetic disposable live GameScene with actual DM300/Pylon/Rat sprites and actual targeting/FOV/indicator call sites. It is not a naturally reached boss encounter.",
+    "Manual selection uses the public target API. No touch-input dispatch, attack/projectile execution, damage, boss progression, balance or save-format change is claimed.",
+    "There are two native test executions, one per variant, with five state captures each. The ten screenshots are not ten separate test methods.",
+    "Quick-slot/inventory identity, held actor/hero clocks and unchanged HP are established by actual assertions and logs. Screenshots directly show scene framing, target health bars, attack portraits and hidden-pylon exclusion.",
+    "Both corrected native runs observed effective intro=true with stored=false, then restored true. Persisted-false restoration was tested by the separate three-method real HeadlessPreferences local check, not by a seeded native false-setting run.",
+    "Both original game APKs and the original and first supplemental instrumentation bytes remain unchanged. This workflow produced one corrected test APK and no new game APK.",
+    "Signing/package/runner compatibility was verified in the successful bound CI stage. This local acceptance did not invoke unavailable SDK signing tools.",
+    "Primary APD444 delivery acceptance remains separate. No physical-phone, install-over, audio, release publication or new core test run is claimed."
+  ],
+  "review_note": "Root viewed every corrected original screenshot in five tool calls containing two images each. An earlier oversized output was truncated and is not counted as a visual review. Automated CI receipts retain manual_visual_review_complete=false; this separate receipt records actual human-readable image review."
+}

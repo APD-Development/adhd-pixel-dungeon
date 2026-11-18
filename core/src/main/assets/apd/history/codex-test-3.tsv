@@ -1,0 +1,21 @@
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	V011_ANKH	Saved Views	Preserved existing saved-view files when replacement fails and rejected directories as destinations.
+Quality of Life	ICON_STATS	Statistics screen	Retained restored guide actions against the current scene.
+Quality of Life	ICON_INFO	Demo Unlock	Restored the pending unlock choice after screen recreation.
+Quality of Life	ICON_INFO	Text Input	Allowed statistics input dialogs to use responsive full-width buttons.
+Quality of Life	ICON_STATS	Statistics Ask	Restored the question builder, dataset and measure choices.
+Quality of Life	ICON_STATS	Statistics Filter	Preserved typed values and multi-value selections while restoring filters.
+Quality of Life	ICON_STATS	Statistics Options	Retained unfinished saved-view names and server-address input.
+Quality of Life	ICON_STATS	Statistics Report	Restored the pending report choice without generating it again.
+Quality of Life	ICON_STATS	Statistics Sort	Restored the pending sort-direction choice.
+Quality of Life	ICON_STATS	Statistics Text	Restored opened explanations and guide topics after screen recreation.
+Quality of Life	ICON_STATS	Statistics Text Input	Added a UIMSD input keeps its typed value and callback when the scene is rebuilt.
+Testing	V011_ANKH	Saved Views Test	Updated automated checks and fixtures for saved views. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-TEST-OUTPUT-2026-10-09	Updated apd-sprint-test-output-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Preserved existing saved-view files when replacement fails and rejected directories as destinations. Retained restored guide actions against the current scene.

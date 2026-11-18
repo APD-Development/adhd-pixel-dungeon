@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Crush splash damage ownership	Apply Player Damage once to Warrior Crush splash before its original halving, armor and vulnerability order.
+Testing	V061_PAGE	Crush scaling identity coverage	Cover all permitted Player Damage values, contradictory enemy and boss settings, pre-armor order, neutral rounding and next RNG.
+Changes	V061_PAGE	TEST171 evidence and TEST172 handoff	Preserve verified RunIndex concurrency evidence and record the distinct pending Crush splash checkpoint.

@@ -1,0 +1,37 @@
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Demo Unlock Device Test	Added a device test covering the Demo Unlock Makes Ten Demo Runs Opens Uimsd For Good And Its Button Is Used Up. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Run state	Added persistent genuine-run unlock preferences and post-run prompt handling.
+Infrastructure	ICON_DATA	Backend Client	Dropped evidence requests that have passed their deadline.
+Changes	ICON_INFO	Demo Generator	Added the separate ten-run fictional unlock demonstration set.
+Changes	ICON_STATS	Statistics Unlock	Added whether UIMSD is open to the player.
+Quality of Life	ICON_INFO	Main menu	Added the original progression-controlled statistics annotation.
+Quality of Life	ICON_STATS	Statistics screen	Added persistent genuine-run unlock preferences and post-run prompt handling.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added the shared Adult/Clean preference, initially Clean.
+Quality of Life	ICON_STATS	Statistics Gate	Added the door to UIMSD.
+Quality of Life	ICON_INFO	Demo Unlock	Added the demo-unlock warning, presented as a pop-up card in front of everything (it is NOT an advertisement and carries nothing but the warning and its two choices).
+Quality of Life	ICON_STATS	Statistics Options	Added protected demo switching and deletion without affecting genuine history.
+Testing	ICON_STATS	Statistics Wiring Test	Updated automated checks and fixtures for statistics wiring. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Evidence Flow Test	Updated automated checks and fixtures for evidence flow. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 1	Added a test covering the Ten Demo Runs Are Varied Marked And The Same Every Time. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 2	Added a test covering demo Runs Never Count As Genuine And Never Reach The Real Catalog Or The Submission Queue. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 3	Added a test covering the Demo Route Unlocks Once And The Button Never Comes Back. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 4	Added a test covering ten Genuine Runs Unlock For Good And Deleting Them Does Not Lock Again. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 5	Added a test covering with The Gate Off Everything Stays Open And No Button Is Shown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 6	Added a test covering a Failed Generation Changes Nothing And Never Touches A Foreign Folder. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 7	Added a test covering deleting Demo Data Leaves Genuine History And Saves Alone. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 8	Added a test covering the Tour Stays Closed After The Demo Route And Opens Only With Ten Genuine Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 9	Added a test covering ten Genuine Runs Open Uimsd And The Tour Together And The Gate Off Opens Both. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 10	Added a test covering the Tenth Genuine Run Queues The One Time Prompt And Nothing Else Does. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 11	Added a test covering a Queued Prompt Survives A Restart Until It Is Shown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 12	Added a test covering demo Runs Never Trigger The Prompt And The Demo Route Does Not Spend It. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test 13	Added a test covering with The Gate Off Nothing Is Queued. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test 1	Added a test covering the Warning And Both Choices Are Word For Word. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test 2	Added a test covering the Gate Is Off Until The Owner Switches It On. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test 3	Added a test covering the Title Arrow Keeps Its Usual Text While The Gate Is Off. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test 4	Added a test covering the Arrow Says The Locked Message Then The Humor Message Until Uimsd Is Opened Then Its Usual Text. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test 5	Added a test covering the Humor Setting Is Clean Unless The Player Chose Adult. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_STATS	APD-UIMSD-UNIVERSAL	Updated apd-uimsd-universal accompanying this build.
+Development	ICON_INFO	Reserved development content	Updated inactive reserved-content development files.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added persistent genuine-run unlock preferences and post-run prompt handling. Added the separate ten-run fictional unlock demonstration set.

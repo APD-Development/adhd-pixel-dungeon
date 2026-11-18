@@ -1,0 +1,13 @@
+Testing	ICON_CHECKED	Play Run Device Test	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_INFO	Archive Importer	Indexed manifest lookups while preserving first-match compatibility and existing history.
+Infrastructure	ICON_DATA	Outbox Store	Rejected invalid UTF-8 queue data without overwriting the original bytes.
+Statistics / UIMSD	ICON_STATS	Query Engine	Separated grouping keys that share prefixes or contain boundary characters.
+Testing	ICON_CHECKED	Archive Manifest Lookup Compatibility Test	Added a test covering repeated Manifest Path Keeps First Match And Never Overwrites History. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Outbox Utf8 Validation Test 1	Added a test covering malformed Encoded Detail Is Reported Without Changing Stored Bytes. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Outbox Utf8 Validation Test 2	Added a test covering valid Unicode Round Trips Exactly. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Grouping Text Boundary Test	Added a test covering text Containing Separator Cannot Merge Different Grouping Values. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Statistics / UIMSD	ICON_STATS	First	Added the First statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Second	Added the Second statistics field; unrecorded values remain unknown.
+Developer Commentary	V074_SHPX	Developer Commentary	Indexed manifest lookups while preserving first-match compatibility and existing history. Separated grouping keys that share prefixes or contain boundary characters.

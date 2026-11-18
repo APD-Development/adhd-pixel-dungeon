@@ -1,0 +1,7 @@
+Quality of Life	V023_HOURGLASS	Game playback speed	Choose 0.5x, 1x or 2x dungeon playback in APD Settings without changing gameplay turns or combat costs.
+Changes	V023_HOURGLASS	Dungeon animation timing	Dungeon visual groups follow the selected speed while menus, HUD long presses and the actor clock keep their normal timing.
+Testing	ICON_INFO	Playback regressions	Added saved-setting, frame-rate, nested-group, clock-restoration and unchanged-turn-clock regressions for all three speeds.
+Testing	V023_HOURGLASS	Android speed controls and animations	Android checks now select every speed through actual touches and compare real dungeon animation completion times.
+Development	ICON_INFO	Playback verification record	Recorded the approved playback-only scope, local checks and remaining Android verification.
+Developer Commentary	V074_SHPX	Developer Commentary	I added three playback speeds while keeping turn costs and HUD timing unchanged. I am verifying the actual Android controls and animation timing before delivery.
+Changes	V023_HOURGLASS	Supported hourglass icons	Playback entries use SPD's existing hourglass sprite, and the failed no-APK TEST75 attempt is recorded accurately.

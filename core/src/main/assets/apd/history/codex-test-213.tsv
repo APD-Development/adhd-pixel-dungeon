@@ -1,0 +1,3 @@
+Changes	V061_BUGFIX	Keep damaged-history counts honest	Mark counts reconstructed from truncated, corrupt or seal-mismatched logs as lower bounds while preserving exact clean and validly sealed histories.
+Testing	ICON_CHECKED	Retain damaged-history provenance cases	Cover clean and damaged histories, actual resynchronization recovery, cache-version invalidation and rejection of older boss-classification caches.
+Development	V061_PAGE	Record exact acceptance boundaries	Preserve the TEST208 checkpoint, owner-delivered TEST206 status, pending artifact review, and the next complete gate without claiming results in advance.

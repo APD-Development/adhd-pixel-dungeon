@@ -1,0 +1,81 @@
+name: Qualify APD458 Search performance and scoring regression on Android
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/apd-candidate458-native.yml
+      - tools/apd458_native_postcheck.py
+permissions: {contents: read, actions: read}
+concurrency: {group: apd458-native-candidate, cancel-in-progress: false}
+jobs:
+  android-native:
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [Developer, Alpha-Testers]
+        case: [WallGeometryDeviceTest, SearchContextDeviceTest, SeedHistoryDeviceTest]
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Require exact completed source-bound candidate, never rebuild
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,time
+          expected='8a2bb9c0c9c5a61795e4e84e1924741dcaf44b58'
+          for retry in range(150):
+              run=json.loads(subprocess.check_output(['gh','api','repos/APD-Development/ShieldingShouldHaveWorked/actions/runs/43231889687']))
+              assert run['head_sha']==expected,'Unexpected APD458 producer source'
+              if run['status']=='completed':
+                  assert run['conclusion']=='success','Frozen APD458 producer not successful'
+                  break
+              time.sleep(10)
+          else: raise RuntimeError('APD458 candidate still not built')
+          PY
+          mkdir -p candidate458
+          gh run download 43231889687 --repo "$GITHUB_REPOSITORY" --name apd458-unaccepted-gated-room-candidate --dir candidate458
+          python3 - <<'PY'
+          import pathlib,hashlib,json
+          folder=pathlib.Path('candidate458')
+          receipt=json.loads((folder/'receipt.json').read_text())
+          assert receipt['source']=='8c74997210585191d12603ad5e2ee398b1c54fe7'
+          assert receipt['build']==458 and receipt['native_accepted'] is False
+          for kind,entry in receipt['files'].items():
+              name='APD-Instrumentation-458.apk' if kind=='Instrumentation' else f'APD-{kind}-458.apk'
+              f=folder/name
+              assert f.stat().st_size==entry['bytes']
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==entry['sha256']
+          PY
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise existing wall, search and seed Android cases without rebuilding game
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            mkdir -p native458
+            adb install -r candidate458/APD-${{ matrix.variant }}-458.apk
+            adb install -r candidate458/APD-Instrumentation-458.apk
+            adb logcat -c
+            timeout 1200 adb shell am instrument -w -r -e class 'com.shatteredpixel.shatteredpixeldungeon.android.${{ matrix.case }}' com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > native458/instrumentation.txt 2>&1
+            cat native458/instrumentation.txt
+            python3 tools/apd458_native_postcheck.py --variant '${{ matrix.variant }}' --case '${{ matrix.case }}' --directory native458
+            adb logcat -d -v time > native458/logcat.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd458-native-${{ matrix.variant }}-${{ matrix.case }}
+          path: native458/
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,16 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Renamed the import to APD rankings and clarified that it reads this app’s local history.
+Statistics / UIMSD	ICON_STATS	Event Types	Clarified source comments without changing runtime behavior.
+Statistics / UIMSD	ICON_STATS	Fact	Adjusted ranking-import names and metadata to match APD-local history.
+Statistics / UIMSD	ICON_STATS	Self Test	Updated import self-checks for APD-local ranking terminology.
+Quality of Life	ICON_PREFS	APD Settings Pane	Renamed the import to APD rankings and clarified that it reads this app’s local history.
+Testing	ICON_BACKPACK	Item Hook Wiring Test	Updated automated checks and fixtures for item hook wiring. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Apd Rankings Wording Test 1	Added a test covering no Text Claims To Import From Official Spd. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Apd Rankings Wording Test 2	Added a test covering the Button And The Messages Say APD. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Auto Import Test	Updated automated checks and fixtures for auto import. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test	Updated automated checks and fixtures for legacy importer. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-LEGACY	Updated apd-stats-legacy accompanying this build.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Development	ICON_STATS	APD-STATS-SCHEMA	Updated apd-stats-schema accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

@@ -1,0 +1,6 @@
+APD445 build and exact-pair qualification request, 2026-11-11
+Feature source cutoff: 80c9aab144f5812f89e6584f548d5969339775c1. Actual source CI 43071231591 passed 3,244 tests across 468 suites and desktop/Android debug/release/instrumentation compilation.
+Approved scope: offline local seed-history classification and recorded-attempt/depth lookup; contextual remembered Search/Wall Search presentation. No new scoring multiplier, search footprint/cost, save format or unrelated mechanic change.
+Use the final docs/APD-445-BUILD-PLAN.json. Assemble one Developer C445 and Alpha-Testers P445 pair from the commit containing this request, preserving the original signer and actual accepted APD444 compiled history.
+Require all complete core/compile/ABI/source gates and nine exact native cases per variant, all retained captures and the 31 additional declared images. Review affected originals, preserve failed evidence and frozen binaries, and deliver verified APKs and matching source immediately after exact saved-file readback.
+Do not rebuild a frozen application pair to repair evidence or delivery. No GitHub release publication is requested by this workflow.

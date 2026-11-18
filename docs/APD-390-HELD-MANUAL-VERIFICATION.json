@@ -1,0 +1,13 @@
+{
+  "source": "68b8dd002ed3cbd223f7dcfc951c0c5a01a32e8a",
+  "build": 42551526214,
+  "stage": 42551686945,
+  "core_tests": 3049,
+  "native_cases": 12,
+  "manual_acceptance": false,
+  "published": false,
+  "reason": "Actual Alpha +10Chalice Healing0 capture falsely promises pricking upgrades despite cap. All exact original signed APK/source/hash/core/native assets preserved in private390draft.",
+  "capture": "qol-chalice-healing-zero.png",
+  "correction": "Omit upgrade promise at maximum level; test0/3/10 against actual PRICK action and actual no-heal regeneration.",
+  "latest_published": 388
+}

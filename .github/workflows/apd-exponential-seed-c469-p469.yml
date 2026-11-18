@@ -1,0 +1,97 @@
+name: APD exponential seed reuse C469 P469 signed pair
+on:
+  push:
+    branches: [chatgpt/apd-exponential-seed-v5-20261114]
+    paths: [.github/workflows/apd-exponential-seed-c469-p469.yml]
+permissions: {contents: read}
+concurrency: {group: apd-exponential-c469-p469, cancel-in-progress: false}
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify complete core suite and Android variants compile
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac --no-daemon
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          roots=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert roots,'No test XML'
+          total={key:sum(int(r.get(key,0)) for r in roots) for key in ('tests','failures','errors','skipped')}
+          assert total['tests']>=3400 and all(total[k]==0 for k in ('failures','errors','skipped')),total
+          suite=next((r for r in roots if r.get('name','').endswith('.SeedReuseScoreTest')),None)
+          assert suite is not None and int(suite.get('tests','0'))>=12
+          names={t.get('name') for t in suite.findall('testcase')}
+          required={'exactExponentialEquationSevenPreviousNineToTwentySix',
+                    'individualHistorySixFloorFourDeathsOneFloorNine',
+                    'authenticV4WithExactDepthsMigratesWithoutDiscardingHistory',
+                    'realRankingsUseCorrectFinalEarnedScoreAfterSaveReload',
+                    'twentyOneFloorOneDeathsPreserveUnseenDepth'}
+          assert required<=names,required-names
+          print('Accepted core tests:',total)
+          PY
+      - name: Assemble originally signed Developer and Alpha Testers APKs
+        run: |
+          set -euo pipefail
+          mkdir -p deliverable
+          ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=C469 --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Developer-Exponential-C469.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P469 --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Alpha-Testers-Exponential-P469.apk
+          git archive --format=zip --output=deliverable/APD-Source-Exponential-469.zip HEAD
+      - name: Require original signing, exact variant identities and artifact receipts
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess,zipfile
+          buildtools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1].parent
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          receipt={'source_sha':os.environ['GITHUB_SHA'],'versionCode':920,'signer_sha256':expected,
+                   'android_device_tested':False,'real_phone_tested':False,'variants':{}}
+          for variant,name,marker in (
+              ('Developer','APD-Developer-Exponential-C469.apk','-bC469-TEST'),
+              ('Alpha Testers','APD-Alpha-Testers-Exponential-P469.apk','-bP469')):
+              p=pathlib.Path('deliverable')/name
+              assert p.is_file() and p.stat().st_size>30000000
+              output=subprocess.check_output([str(buildtools/'apksigner'),'verify','--print-certs',str(p)],text=True)
+              match=re.search(r'SHA-256 digest:\s*([0-9a-fA-F:]+)',output)
+              assert match,output
+              signer=match.group(1).replace(':','').lower()
+              assert signer==expected,(name,signer)
+              badge=subprocess.check_output([str(buildtools/'aapt'),'dump','badging',str(p)],text=True)
+              package=next(x for x in badge.splitlines() if x.startswith('package:'))
+              assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package,package
+              assert "versionCode='920'" in package,package
+              assert marker in package,package
+              with zipfile.ZipFile(p) as z:
+                  flags=z.read('assets/apd/features.txt').decode('utf-8').strip().splitlines()
+              assert flags==(['testBuild','grudge','demoUnlock','clericPlayable'] if variant=='Developer'
+                        else ['extendedPlayback','grudge']),flags
+              receipt['variants'][variant]={'name':name,'bytes':p.stat().st_size,
+                  'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'package':package,'flags':flags}
+          src=pathlib.Path('deliverable/APD-Source-Exponential-469.zip')
+          receipt['source_zip_sha256']=hashlib.sha256(src.read_bytes()).hexdigest()
+          pathlib.Path('deliverable/receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          sha256sum deliverable/*.apk deliverable/*.zip > deliverable/sha256sums.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: apd-exponential-original-signed-c469-p469
+          path: deliverable/
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd-exponential-test-failure
+          path: core/build/test-results/test/
+          if-no-files-found: warn

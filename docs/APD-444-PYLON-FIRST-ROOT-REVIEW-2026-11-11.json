@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-11T16:55:51.367114+00:00",
+  "reviewer": "root",
+  "instrumentation_source": "fbe701cea9dbb30020fcf2f436aa2075489baf0d",
+  "instrumentation_run": 43061442841,
+  "instrumentation_attempt": 1,
+  "original_game_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "result": "targeting_assertions_and_visuals_passed_preference_setup_correction_required",
+  "native_targeting_tests_passed": 2,
+  "individually_displayed_originals": 10,
+  "full_fixture_cleanup_acceptance": false,
+  "variants": {
+    "Developer": {
+      "original_application_sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "supplemental_test_sha256": "19390a659fffbd07bb4242e2b60d22806b449b28e94e00616ebfe4f5c11a362a",
+      "exact_case_passed": true,
+      "five_complete_images_verified": true,
+      "five_originals_displayed": true,
+      "images": {
+        "pylon-native-inactive-visible.png": "112fdacc21926e619492311c29726f3bd964652742cba5d5936ee49ca5ac718e",
+        "pylon-native-active-visible.png": "9c5cd4aa9fb780fabaef4947f5487d79ca63a41fae92b1c532833f655e6abb96",
+        "pylon-native-manual-rat-preserved.png": "908bac7e18ea1fbc5c1646c4e60873520fbe42a5eb1f055fa483ec3955be4673",
+        "pylon-native-ranged-pylon-melee-boss.png": "a31ce4e7eac72397a7735ff5fc079b73b89ca4521e089dbadf1a538bced2b765",
+        "pylon-native-hidden-excluded.png": "89eb75933dc35c22d69ecb5ee78f02b93aedfd6442f2b993e4e7e5e0e080b75f"
+      },
+      "actual_log_observations": [
+        {
+          "stage": "inactive-visible",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "false",
+          "quick": "DM300",
+          "melee": "DM300",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "active-visible",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "true",
+          "quick": "Pylon",
+          "melee": "Pylon",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "manual-rat-preserved",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "true",
+          "quick": "Rat",
+          "melee": "Rat",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "ranged-pylon-melee-boss",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "true",
+          "quick": "Pylon",
+          "melee": "DM300",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "hidden-pylon-excluded",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "false",
+          "pylonEnemy": "true",
+          "quick": "DM300",
+          "melee": "DM300",
+          "activeActorIsHero": "true"
+        }
+      ],
+      "report_sha256": "fc860b50a9085df5409e3b06a4145b3c83e31dcf09dffe0c79caaaffa8d6bbf0",
+      "logcat_sha256": "e3151df1352a3987feb26121ec95fa9aef7114f0913e05b6b4ec73e01cc4f5d3",
+      "caught_preference_initialization_exception_observed": true
+    },
+    "Alpha-Testers": {
+      "original_application_sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "supplemental_test_sha256": "19390a659fffbd07bb4242e2b60d22806b449b28e94e00616ebfe4f5c11a362a",
+      "exact_case_passed": true,
+      "five_complete_images_verified": true,
+      "five_originals_displayed": true,
+      "images": {
+        "pylon-native-inactive-visible.png": "b9eb3f43094a2daf1e3cb733fbbc073ac81a8676d4fb3084357e0a99a5ddd2e6",
+        "pylon-native-active-visible.png": "82225abe809275b3ce0d5786d43c4a9a82e082d627587e6016597f3bb6276418",
+        "pylon-native-manual-rat-preserved.png": "52277ca704a9673dd2227596756fccdd25148eb42b8cd803fd651ecd6c9e48ba",
+        "pylon-native-ranged-pylon-melee-boss.png": "d375f58341d1a5aef182f823bccacde935417e28160847a4d49170cb19038b20",
+        "pylon-native-hidden-excluded.png": "d8fa216df39b2babb2c4f7e6216eb30abd55b3c03b798a876746d8e59aaeabc1"
+      },
+      "actual_log_observations": [
+        {
+          "stage": "inactive-visible",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "false",
+          "quick": "DM300",
+          "melee": "DM300",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "active-visible",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "true",
+          "quick": "Pylon",
+          "melee": "Pylon",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "manual-rat-preserved",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "true",
+          "quick": "Rat",
+          "melee": "Rat",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "ranged-pylon-melee-boss",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "true",
+          "pylonEnemy": "true",
+          "quick": "Pylon",
+          "melee": "DM300",
+          "activeActorIsHero": "true"
+        },
+        {
+          "stage": "hidden-pylon-excluded",
+          "actorTime": "0.0",
+          "heroTime": "0.0",
+          "heroHp": "20",
+          "bossHp": "300",
+          "pylonHp": "50",
+          "pylonVisible": "false",
+          "pylonEnemy": "true",
+          "quick": "DM300",
+          "melee": "DM300",
+          "activeActorIsHero": "true"
+        }
+      ],
+      "report_sha256": "57a4d3d5cd856b518a7c144832f0a327abc919ab8c2b408812585640ae1d2b56",
+      "logcat_sha256": "3d7d4c48a0658d930a3290618deb596285fd16b19c23c0529c287c220047a693",
+      "caught_preference_initialization_exception_observed": true
+    }
+  },
+  "visual_observations": [
+    "Both variants show the DM300 health marker and attack portrait with an inactive pylon; active reachable state changes both to the pylon.",
+    "The selected rat retains its health marker and rat attack portrait. The farther active pylon carries the health marker while the attack portrait remains DM300.",
+    "The wall-hidden pylon is not visible; the marker and attack portrait both show DM300. All five scene states and controls are visibly assessable in original320x640 images."
+  ],
+  "issue": {
+    "kind": "caught pre-launch preference read exception",
+    "observed_in_both_variants": true,
+    "source_line": 345,
+    "cause": "SPDSettings.intro is called before ActivityScenario.launch initializes Gdx.app; GameSettings.getBoolean reports the NullPointerException and returns its true default.",
+    "impact": "Targeting assertions and observed images pass, but capturing the original intro setting is not reliable. The test fixture needs to capture initialized preferences and conditionally restore them.",
+    "production_game_changed": false,
+    "primary_444_acceptance_affected": false
+  },
+  "limits": [
+    "Synthetic real-game target selection and visible indicators only; no touch dispatch, attack, projectile, natural phase transition or full boss fight.",
+    "No physical-phone, audio or install-over verification.",
+    "The successful first run and its original automatic proof remain preserved; the caught fixture issue requires a separate corrected test artifact."
+  ]
+}

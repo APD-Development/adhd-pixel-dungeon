@@ -1,0 +1,21 @@
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -331,7 +331,17 @@
+         }
+     }
+     private static void questDescriptionsRender()throws Exception{
+-        Item[] items={new com.shatteredpixel.shatteredpixeldungeon.items.quest.CeremonialCandle(),new com.shatteredpixel.shatteredpixeldungeon.items.quest.CorpseDust(),new com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal()};
++        com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal escape=new com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal();
++        TopScoresDeviceTest.render(()->{
++            escape.storedItems=new com.watabou.utils.Bundle();
++            com.watabou.utils.Bundle gear=new com.watabou.utils.Bundle(),slots=new com.watabou.utils.Bundle();
++            Dungeon.hero.belongings.storeInBundle(gear);Dungeon.quickslot.storePlaceholders(slots);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.BELONGINGS,gear);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.QUICKSLOTS,slots);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.GOLD,Dungeon.gold);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.ENERGY,Dungeon.energy);
++        });
++        Item[] items={new com.shatteredpixel.shatteredpixeldungeon.items.quest.CeremonialCandle(),new com.shatteredpixel.shatteredpixeldungeon.items.quest.CorpseDust(),escape};
+         String[] expected={"north, east, south and west","banishes its wraiths","returns your original equipment"};
+         for(int i=0;i<items.length;i++)showItem(items[i],expected[i],"qol-quest-"+i+"-concise.png",true);
+     }

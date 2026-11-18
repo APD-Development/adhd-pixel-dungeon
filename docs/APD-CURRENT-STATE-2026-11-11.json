@@ -1,0 +1,956 @@
+{
+  "schema": 2,
+  "recorded_utc": "2026-11-11T19:23:16.843879+00:00",
+  "project": "ADHD Pixel Dungeon",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "continuation_resumed_from": "31e66d6c5bb9f8602f97dd051ec6d8f45c7929f3",
+  "prior_checkpoint": "The earlier APD439, APD440 and APD441 recovery and delivery checkpoint remains in Git at commit 31e66d6 and in its unchanged delivery and evidence receipts. Do not reopen completed work.",
+  "latest_verified_source_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "last_verified_remote_commit_before_checkpoint_commit": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+  "latest_delivered_build": 446,
+  "builds_delivered_in_this_continuation": [
+    442,
+    443,
+    444,
+    446
+  ],
+  "new_application_apks_created_in_this_continuation": 10,
+  "original_439_440_441_442_apks_rebuilt": false,
+  "source_work": [
+    "Repair Seer Shot branch binding, correct four ordinary descriptions and add actual-handler regressions; verified and delivered in APD442.",
+    "Repair Liquid Agility occupied-throw timing with thirteen regressions, actual-flight native coverage and ordinary-text clarification; verified and delivered in APD443.",
+    "Clarify existing Empowered Strike ten-turn readiness and Arcane Vision activation in ordinary descriptions, add real-handler regressions and ordinary-window captures, and stabilize the instrumentation-only Ooze frame; verified and delivered in APD444.",
+    "Add a separate instrumentation-only DM300/pylon targeting fixture against the exact frozen APD444 application pair. Its status and limits are recorded separately below; it creates no new application APK.",
+    "Implement approved offline exact-seed history and contextual Search, including eligible unfinished history and isolated native fixtures. Verified and privately delivered as the original frozen APD446 pair after separate Developer transport recovery; scoring and existing mechanics remain unchanged."
+  ],
+  "preserved": [
+    "Approved talent values, eligibility, chance, action costs and balance.",
+    "Save schema, prior saved fields, statistics and collection history.",
+    "Application ID, versionCode 920, exact original signing certificate and private variant feature assets.",
+    "Cleric balance/lore and unresolved owner design choices.",
+    "All previous compiled history, APKs, failed attempts and main branch."
+  ],
+  "builds": {
+    "442": {
+      "source": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+      "run": 43045170286,
+      "status": "verified_and_delivered",
+      "core": {
+        "tests": 3197,
+        "suites": 464,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "native_cases": 12,
+      "pngs_per_variant": 1425,
+      "manual_originals_per_variant": 25,
+      "source_manifest_files": 4964,
+      "source_candidates_reviewed": 72,
+      "retained_redacted_history_findings": 23,
+      "delivery_receipt": "docs/APD-442-DELIVERY-2026-11-11.json"
+    },
+    "443": {
+      "source": "a2960688e02468817914f006ff4c563b844c80c5",
+      "run": 43051129325,
+      "status": "verified_and_delivered",
+      "core": {
+        "tests": 3210,
+        "suites": 465,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "build_artifact": 13869069224,
+      "build_artifact_sha256": "a66637fad00085c315dfce185cab4e6d2f26e4c7b90b789db84267033a2768ea",
+      "source_manifest_files": 4981,
+      "native_complete": true,
+      "manual_complete": true,
+      "delivered": true,
+      "required_compilation": [
+        "core",
+        "desktop",
+        "Android debug",
+        "Android release",
+        "Android instrumentation"
+      ],
+      "json_abi": {
+        "checks_passed": 2,
+        "production_classes": 4138,
+        "distinct_json_references": 38
+      },
+      "source_scan_success": true,
+      "source_candidates_reviewed": 72,
+      "retained_redacted_history_findings": 23,
+      "source_scan_artifact": {
+        "id": 13870400724,
+        "sha256": "6430266169aebd08b92fd42ce09b4531474a72b98f7e18c46792a0c4a8abcfb4"
+      },
+      "source_archive_sha256": "8cc24328cc1b93006ace8c005509bbf82849a5fb9a2e9057670fd7c5f323cb1b",
+      "pre_native_acceptance_receipt": "docs/APD-443-PRE-NATIVE-ACCEPTANCE-2026-11-11.json",
+      "native_cases": 12,
+      "pngs_per_variant": 1433,
+      "manual_originals_per_variant": 33,
+      "owner_artifact": {
+        "id": 13869653810,
+        "sha256": "e5762b6fa148678fd83d8a3405b2ad90f1f4c0e897f2d310a4b30879186c226c",
+        "bytes": 183152609
+      },
+      "instrumentation_sha256": "87c63829166fec15595a6cf00d9e2a3f701d9d68b1909ea4d5abc68206574127",
+      "apk_sha256": {
+        "Developer": "aa649a0134ace897d95de804cc7ffe01927bfdb327428ae7e8c5cfb7cee1dbd3",
+        "Alpha-Testers": "f2e7f1c2acac800adfb2ee8b112f1eb5675c711dc6e5e3ef98cb6f2cc1318cb0"
+      },
+      "native_artifacts": {
+        "Developer": {
+          "id": 13870228740,
+          "sha256": "925692872973481a4c09f7986cab4c643eb81c0ddc32b2f38b14edd0571ebcd8",
+          "images": 1433,
+          "seed_pid": 4953,
+          "restart_pid": 5146
+        },
+        "Alpha-Testers": {
+          "id": 13871022596,
+          "sha256": "beb9c9ff2ca5fd2c79431ccc1ade8231f680b6070b6f7329b85949c68616d127",
+          "images": 1433,
+          "seed_pid": 4924,
+          "restart_pid": 5133
+        }
+      },
+      "delivery_receipt": "docs/APD-443-DELIVERY-2026-11-11.json",
+      "manual_receipt": "docs/APD-443-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+      "independent_acceptance_receipt": "docs/APD-443-INDEPENDENT-ACCEPTANCE-2026-11-11.json",
+      "acceptance_commit": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+      "acceptance_commit_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+      "saved_download_readback_sha256_verified": true,
+      "readback_verified_utc": "2026-11-11T16:12:51.121974+00:00",
+      "delivery_recorded_utc": "2026-11-11T16:17:14.065922+00:00",
+      "ooze_visual_result": "Both reviewed originals visibly frame the hero and Caustic Ooze feedback. The later capture stabilization change is excluded from this pair."
+    },
+    "444": {
+      "source_checkpoint": "43c078b75b73626625369ed21d1cbf2f013e6f31",
+      "source_ci_run": 43056607040,
+      "source_ci_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43056607040",
+      "source_ci_receipt": "docs/APD-444-ARCANE-VISION-SOURCE-CI-VERIFICATION-2026-11-11.json",
+      "source_ci_receipt_sha256": "6b3ec8ce983df69fa611f2a025b6cae85c0ef7b56092d0b773e9a28c8f2464aa",
+      "source_ci_artifact": {
+        "id": 13872265550,
+        "name": "apd-qol-source-verification",
+        "bytes": 547832,
+        "sha256": "e921e76971af8f350e7a8b8835bd3d72437f68c8dc7d4aaff3e67949375953d5",
+        "github_metadata_digest_matches_actual_download": true,
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-arcane-source-checkpoint/source-ci-artifact.zip"
+      },
+      "core": {
+        "tests": 3214,
+        "suites": 466,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "source_ci_required_compilation_passed": true,
+      "source_ci_apk_assembled": false,
+      "accepted_predecessor_commit": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+      "source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+      "source_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+      "source_tree": "8c6986a3549e65abbe364daa932b9b96f55735c0",
+      "run": 43057716359,
+      "run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43057716359",
+      "run_attempt": 1,
+      "status": "verified_and_delivered",
+      "status_observed_utc": "2026-11-11T16:49:51.390Z",
+      "status_evidence_path": "/workspace/scratch/db82734c9c44/recovery/apd444-build/snapshot-2026-11-11T16-49-51-390Z.json",
+      "status_evidence_sha256": "028b01d79acbb5e8d8cf08975fa060d5f38fb4b2c04c49088338f882fab3afe8",
+      "build_request_created": true,
+      "predecessor_history_gate_passed": true,
+      "assembly_completed_at_snapshot": true,
+      "artifacts_recorded_at_snapshot": 5,
+      "verified_application_apks": 2,
+      "native_execution_completed": true,
+      "source_scan_completed": true,
+      "manual_review_completed": true,
+      "delivered": true,
+      "required_affected_images": 29,
+      "retained_affected_images": 25,
+      "new_ordinary_images": 4,
+      "application_paths": [
+        "core/src/main/assets/messages/actors/actors.properties"
+      ],
+      "scope": "Application edits are limited to the approved Empowered Strike and Arcane Vision ordinary properties. Existing factors, duration, panels and mechanics are unchanged. Ooze stabilization affects instrumentation framing only.",
+      "previous_source_ci_checkpoint": {
+        "source": "0cc99bbfd82cbbe8140180a0b8f7e64db82e660a",
+        "run": 43052555006,
+        "tests": 3211,
+        "suites": 465,
+        "receipt": "docs/APD-444-SOURCE-CI-VERIFICATION-2026-11-11.json"
+      },
+      "full_core_compile_abi_step_passed": true,
+      "assembly_in_progress_at_snapshot": false,
+      "core_result_scope": "The original producing artifact raw XML was independently checked: 3,214 unique tests across 466 suites, zero failures/errors/skips. The complete build compiled the required targets and passed both JSON ABI checks. No old or later test-only classes substitute for the producing evidence.",
+      "earlier_request_snapshot": {
+        "status": "requested_in_progress_single_pair_assembly_and_freeze_running",
+        "status_observed_utc": "2026-11-11T16:26:30.714Z",
+        "status_evidence_path": "/workspace/scratch/db82734c9c44/recovery/apd444-build/snapshot-2026-11-11T16-26-30-714Z.json",
+        "status_evidence_sha256": "10eb108a4defcd7ac2a3db9feed63cb95ccebdd9fc04eb0e2f62ce3ece1c4608",
+        "assembly_completed_at_snapshot": false,
+        "artifacts_recorded_at_snapshot": 0,
+        "verified_application_apks": 0,
+        "native_execution_completed": false,
+        "source_scan_completed": false,
+        "manual_review_completed": false,
+        "delivered": false,
+        "assembly_in_progress_at_snapshot": true,
+        "core_result_scope": "The stated exact counts are independently verified for source CI 43056607040. The later producing run full core/compile/ABI step is successful in metadata; its raw producing artifact has not yet been downloaded or independently accepted."
+      },
+      "all_five_jobs_succeeded": true,
+      "required_compilation": [
+        "core",
+        "desktop",
+        "Android debug",
+        "Android release",
+        "Android instrumentation"
+      ],
+      "json_abi_checks_passed": 2,
+      "build_artifact": 13873030855,
+      "build_artifact_sha256": "9bf2e5ecd2fc705f1d481f863c0321c7e290f062dac06e4f7ef8757abb55fb45",
+      "build_artifact_bytes": 184694131,
+      "source_manifest_files": 5001,
+      "source_archive_sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076",
+      "source_candidates_reviewed": 72,
+      "retained_redacted_history_findings": 23,
+      "source_scan_success": true,
+      "source_scan_artifact": {
+        "id": 13872975981,
+        "sha256": "a9c324f7f542ea11bc7e284c58b269b4f2483549a84db4a543cf2e0e981d4a40",
+        "bytes": 11374,
+        "extracted_members_matched": 8
+      },
+      "native_cases": 12,
+      "pngs_per_variant": 1437,
+      "png_total": 2874,
+      "manual_originals_per_variant": 37,
+      "instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+      "apk_sha256": {
+        "Developer": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+        "Alpha-Testers": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162"
+      },
+      "accepted_predecessor_source": "a2960688e02468817914f006ff4c563b844c80c5",
+      "common_runtime_assets": 932,
+      "history_tsvs": 449,
+      "player_note_tsvs": 2,
+      "saved_download_readback_sha256_verified": true,
+      "readback_verified_utc": "2026-11-11T16:51:10.773700+00:00",
+      "saved_readback_receipt_sha256": "3dce61fe4bff1ec1591d58b64dfeda41a235cfd0711717c50230e219c9ae1f6d",
+      "delivery_observation": "Direct APK and source links were delivered in active chat immediately after final manual acceptance, around 2026-11-11T16:51:30Z. The readback timestamp is exact; the chat delivery time is approximate.",
+      "ooze_visual_result": "Both actual APD444 originals clearly frame the hero and Caustic Ooze feedback after the instrumentation-only fade/centering adjustment.",
+      "application_rebuilt_after_freeze": false,
+      "original_instrumentation_rebuilt_after_freeze": false,
+      "github_release_published": false,
+      "owner_artifact": {
+        "id": 13873957382,
+        "sha256": "df6d77a0fcef7c510730a436fc2b884e9c3711db9afa971a37927d4f7ce354e0",
+        "bytes": 183229487
+      },
+      "native_artifacts": {
+        "Developer": {
+          "id": 13874360295,
+          "sha256": "7c262b3b0f8bb82300508d03dfce345116475d51d14a38fc97b3537bf9969d60",
+          "bytes": 42912009,
+          "images": 1437,
+          "seed_pid": 4915,
+          "restart_pid": 5113
+        },
+        "Alpha-Testers": {
+          "id": 13872558864,
+          "sha256": "e126de15ca6495af488729dd7c72f653f970e990d435b02f8a910c0e062b8474",
+          "bytes": 51179317,
+          "images": 1437,
+          "seed_pid": 4952,
+          "restart_pid": 5144
+        }
+      },
+      "delivery_receipt": "docs/APD-444-DELIVERY-2026-11-11.json",
+      "delivery_receipt_sha256": "cf90cc78462c1b5580df937d458d9110647db36b79fc792024849df0a4fc6470",
+      "manual_receipt": "docs/APD-444-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+      "manual_receipt_sha256": "4a5f35c85685544c93834b41924bf978d4caa80c27143e1b00c8d93c76f39901",
+      "independent_acceptance_receipt": "docs/APD-444-INDEPENDENT-ACCEPTANCE-2026-11-11.json",
+      "independent_acceptance_receipt_sha256": "a91d93eac7a306c5531ecfe735438d6221a0b22c8f517939a3e96be2a7611b53",
+      "pre_native_acceptance_receipt": "docs/APD-444-PRE-NATIVE-ACCEPTANCE-2026-11-11.json",
+      "pre_native_acceptance_receipt_sha256": "06a0fca1f8d374bb23d545b5b0e3deb0895b80445a3c69b016f6da5699ff2d63",
+      "delivery_recorded_utc": "2026-11-11T16:54:12.840374+00:00",
+      "delivery_commentary_sent_before_this_receipt": true,
+      "acceptance_commit": "b2be6a4be9a2b899fa14e807a3b467068d2c19d9",
+      "acceptance_commit_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/b2be6a4be9a2b899fa14e807a3b467068d2c19d9"
+    },
+    "446": {
+      "number": 446,
+      "started": true,
+      "source_cutoff": "1968913a441f53ab3652cffc05e131427d0c3703",
+      "source_verification_complete": true,
+      "build_workflow_requested": true,
+      "application_scope_defined": true,
+      "game_apk_created": true,
+      "subsequent_fixture_sha256": "45208417464da8397aea86c94953caaec30fec88a6b5b264be0098ad4f732bfd",
+      "subsequent_fixture_sdk_and_native": "Exact fixture SDK compilation passed. Both original seed-history native cases passed; Developer screenshot transfer was interrupted after its pass. Recovery uses the same fixture binary.",
+      "request": "docs/APD-446-BUILD-REQUEST.txt",
+      "readiness": "docs/APD-446-BUILD-READINESS-2026-11-11.json",
+      "application_source_checkpoint": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+      "producing_run": 43077773970,
+      "run_attempt": 1,
+      "status": "verified_and_delivered_after_frozen_pair_native_recovery",
+      "core": {
+        "tests": 3247,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 468,
+        "tests_rerun": false
+      },
+      "apk_files": {
+        "Developer": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/owner-delivery/APD-Developer-446.apk",
+          "sha256": "f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3",
+          "bytes": 39223428,
+          "version_name": "4.0.8-apd-INDEV-bC446-TEST",
+          "feature_bytes_utf8": "testBuild\ngrudge\ndemoUnlock\nclericPlayable\n",
+          "asset_count": 935,
+          "previous_apk_sha256": "03b76001cb44435f323b95665a26d2b8866f87b81d01af52e8b32bffa75eb787",
+          "previous_history_preserved": true,
+          "changed_predecessor_assets": [
+            "apd/history/index.tsv",
+            "messages/scenes/scenes.properties"
+          ],
+          "added_assets": [
+            "apd/history/codex-test-446.tsv"
+          ]
+        },
+        "Alpha-Testers": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/owner-delivery/APD-Alpha-Testers-446.apk",
+          "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69",
+          "bytes": 39223400,
+          "version_name": "4.0.8-apd-INDEV-bP446",
+          "feature_bytes_utf8": "extendedPlayback\ngrudge\n",
+          "asset_count": 935,
+          "previous_apk_sha256": "497e4ca1e2c195c43c08cd7fc32e456ca08d0ef459d9d8e637092dec61570ef9",
+          "previous_history_preserved": true,
+          "changed_predecessor_assets": [
+            "apd/history/index.tsv",
+            "messages/scenes/scenes.properties"
+          ],
+          "added_assets": [
+            "apd/history/codex-test-446.tsv"
+          ]
+        }
+      },
+      "instrumentation_sha256": "9988e7d6c26832e982dc15cee33b7b70699fc72d5d843d811cffb72ecba2ef0d",
+      "pre_native_receipt": "docs/APD-446-PRE-NATIVE-ACCEPTANCE-2026-11-11.json",
+      "native_accepted": true,
+      "manual_accepted": true,
+      "delivered": true,
+      "original_native_terminal": {
+        "run": 43077773970,
+        "attempt": 1,
+        "conclusion": "failure",
+        "raw_passed": 17,
+        "failed_test_reports": 0,
+        "not_run": 1,
+        "complete_case_transfer_receipts": 16,
+        "developer_complete_cases": 7,
+        "developer_complete_images": 1457,
+        "developer_partial_seed_diagnostics": 6,
+        "alpha_complete_cases": 9,
+        "alpha_complete_images": 1469,
+        "receipt": "docs/APD-446-ORIGINAL-NATIVE-TRANSPORT-FAILURE-2026-11-11.json",
+        "receipt_sha256": "fb81e1829455bfedb92f4e1f1b030ada48c07947a790ca07c444d0c466d3f258",
+        "underlying_emulator_exit_cause_established": false
+      },
+      "alpha_scoped_manual_review": {
+        "accepted": true,
+        "original_images_actually_viewed": 69,
+        "affected_originals": 61,
+        "receipt": "docs/APD-446-MANUAL-ALPHA-2026-11-11.json",
+        "receipt_sha256": "4b2e963cb1b1ed227d337cd9ca30defd940d14287e6776eacba18ed1b5d4f2c2",
+        "pair_acceptance": false
+      },
+      "native_recovery": {
+        "workflow": ".github/workflows/apd-recover446-developer.yml",
+        "plan": "docs/APD-446-NATIVE-RECOVERY-PLAN.json",
+        "status": "completed_success",
+        "cases": [
+          "seed-history",
+          "pylon"
+        ],
+        "variant": "Developer",
+        "original_developer_images": 1457,
+        "required_new_images": 12,
+        "required_combined_images": 1469,
+        "original_images_not_copied_to_new_device": true,
+        "separate_cohort_device_proofs_required": true,
+        "application_rebuilt": false,
+        "instrumentation_rebuilt": false,
+        "source_archive_rebuilt": false,
+        "ready_plan_sha256": "0cc17ab213decd76acbba0c9ec2189b0063008278b3751c22a82facbd4cbbb92",
+        "helper_sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25",
+        "workflow_sha256": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127",
+        "readiness_receipt": "docs/APD-446-NATIVE-RECOVERY-READINESS-2026-11-11.json",
+        "independent_review_receipt": "docs/APD-446-NATIVE-RECOVERY-REVIEW-2026-11-11.json",
+        "guard_tests": 8,
+        "corruption_rejections": 51,
+        "source_commit": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+        "run": 43084695484,
+        "run_attempt": 1,
+        "jobs_passed": 2,
+        "actual_cases_passed": 2,
+        "fresh_images": 12,
+        "single_developer_device_manifest": false,
+        "owner_artifact_id": 13886086653,
+        "owner_artifact_bytes": 187665366,
+        "owner_artifact_sha256": "86af4f555d506165ff65267021e848b74911eb96f18809f1117e55b706a02e1c",
+        "native_artifact_id": 13885533674,
+        "native_artifact_sha256": "5d155facc3b1f827ea74bd94124b1a6f8d3a14e013836fb4aabd432b2a9ed2ed"
+      },
+      "accepted_logical_cases": 18,
+      "images_mechanically_checked": 2938,
+      "images_per_variant": 1469,
+      "manual_originals_per_variant": 69,
+      "manual_originals_total": 138,
+      "developer_manual_cohorts": {
+        "original": 57,
+        "recovery": 12
+      },
+      "original_built_files_retained": 481,
+      "original_built_mapping_sha256": "a6ebbdc894da8306a469e76d7c5fba2c85c477dc5d850eb1064a4ca46d94dfcd",
+      "owner_files": {
+        "APD-Developer-446.apk": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Developer-446.apk",
+          "bytes": 39223428,
+          "sha256": "f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3"
+        },
+        "APD-Alpha-Testers-446.apk": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Alpha-Testers-446.apk",
+          "bytes": 39223400,
+          "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69"
+        },
+        "APD-Source-446.zip": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Source-446.zip",
+          "bytes": 111038215,
+          "sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5"
+        }
+      },
+      "mechanical_receipt": {
+        "path": "docs/APD-446-INDEPENDENT-ACCEPTANCE-2026-11-11.json",
+        "bytes": 616977,
+        "sha256": "dd838e0e311005b586075deafbed5d7809a95e2c80630a270a19bfb967a69bd0"
+      },
+      "manual_receipt": {
+        "path": "docs/APD-446-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+        "bytes": 19083,
+        "sha256": "da53764a5a3d25501f0276169e566d4b756d931d2f1027b5625bd1e775d1a316"
+      },
+      "saved_download_readback_complete": true,
+      "saved_downloads": [
+        {
+          "file_id": "file_000000007c8481f5be1d15644146067e",
+          "library_file_id": "libfile_fde3_f-2a8f588da54081919afc3828d1e4bd06_4aba2690a1e48191a771a2e43a4a6278",
+          "file_name": "APD-Developer-446.apk",
+          "sha256": "f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3",
+          "bytes": 39223428,
+          "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Developer-446.apk",
+          "saved_download_readback_path": "/workspace/scratch/db82734c9c44/recovery/apd446-saved-readback/APD-Developer-446.apk",
+          "separate_saved_download_file": true
+        },
+        {
+          "file_id": "file_00000000209481f5b00d2339ed251164",
+          "library_file_id": "libfile_fde3_f-4fe8bd8071408191b98649859bd7bf62_4aba2690a1e48191a771a2e43a4a6278",
+          "file_name": "APD-Alpha-Testers-446.apk",
+          "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69",
+          "bytes": 39223400,
+          "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Alpha-Testers-446.apk",
+          "saved_download_readback_path": "/workspace/scratch/db82734c9c44/recovery/apd446-saved-readback/APD-Alpha-Testers-446.apk",
+          "separate_saved_download_file": true
+        },
+        {
+          "file_id": "file_00000000a8f481f5a1b3b5d9837fae5a",
+          "library_file_id": "libfile_fde3_f-dfbfdc2e9b4081918e776f0653a772d8_4aba2690a1e48191a771a2e43a4a6278",
+          "file_name": "APD-Source-446.zip",
+          "sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5",
+          "bytes": 111038215,
+          "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Source-446.zip",
+          "saved_download_readback_path": "/workspace/scratch/db82734c9c44/recovery/apd446-saved-readback/APD-Source-446.zip",
+          "separate_saved_download_file": true
+        }
+      ],
+      "delivery_receipt": "docs/APD-446-DELIVERY-2026-11-11.json",
+      "saved_download_readback_sha256_verified": true,
+      "readback_verified_utc": "2026-11-11T19:20:46.706716+00:00",
+      "saved_readback_receipt": {
+        "path": "docs/APD-446-SAVED-DOWNLOAD-READBACK-2026-11-11.json",
+        "bytes": 2477,
+        "sha256": "e1d04264a211954891a57fa0cad2535cc9dcb0096c30ea4764bb1f8c307764bc"
+      },
+      "delivery_receipt_sha256": "4bea952291e56c1b5a496ad94f2937beb763342e419d98b426969947e7d59fc4",
+      "delivery_commentary_sent": true,
+      "github_release_published": false,
+      "accepted_predecessor_build": 444,
+      "retained_unaccepted_predecessor_build": 445,
+      "source": "1968913a441f53ab3652cffc05e131427d0c3703",
+      "run": 43077773970,
+      "run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43077773970",
+      "recovery_source": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+      "recovery_run": 43084695484,
+      "original_producing_conclusion": "failure",
+      "recovery_conclusion": "success",
+      "source_manifest_files": 5057,
+      "source_candidates_reviewed": 71,
+      "retained_redacted_history_findings": 23,
+      "json_abi_checks_passed": 2,
+      "all_five_required_compile_targets_passed": true,
+      "delivery_recorded_utc": "2026-11-11T19:22:31.604196+00:00"
+    }
+  },
+  "verification": {
+    "latest_full_local_and_source_ci": {
+      "tests": 3247,
+      "suites": 468,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "required_compilation": "Core, desktop, Android debug, Android release and Android instrumentation compilation passed for the corrected source and the exact APD446 producing source. Both original producing JSON ABI checks passed. Recovery rebuilt neither game nor instrumentation.",
+    "native_scope": "APD446 has 18 accepted logical cases in three explicit cohorts: original Alpha nine, original Developer seven and fresh Developer two. All 2,938 accepted PNGs have per-cohort device-transfer/hash proof. Scoped manual review covers 69 originals per variant, 138 total. Original failure and partial diagnostics remain preserved.",
+    "signing": "Existing CI signature results are bound to the exact downloaded APK hashes. No local signature rerun or physical install-over verification is claimed.",
+    "latest_producing_core": {
+      "source_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+      "run": 43077773970,
+      "tests": 3247,
+      "suites": 468,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "delivery_receipts": [
+    "docs/APD-442-DELIVERY-2026-11-11.json",
+    "docs/APD-443-DELIVERY-2026-11-11.json",
+    "docs/APD-444-DELIVERY-2026-11-11.json",
+    "docs/APD-446-DELIVERY-2026-11-11.json"
+  ],
+  "earlier_delivery_receipts": [
+    "docs/APD-439-DELIVERY-2026-11-11.json",
+    "docs/APD-440-DELIVERY-2026-11-11.json",
+    "docs/APD-441-DELIVERY-2026-11-11.json"
+  ],
+  "preserved_new_regression_failures": [
+    "Seer Shot baseline: five tests, one expected branch-binding failure and four passing controls. Initial test-only protected-spend compile error preserved.",
+    "Liquid Agility baseline: six cases, two expected occupied-throw failures and four controls. Earlier isolated fixture setup errors remain in recovery.",
+    "The local APD443 pre-native checker first stopped outside the repository cwd because its relative build-plan path was missing. It subsequently passed from the correct cwd. This was a local wrapper error, not a failed game test.",
+    "Arcane Vision isolated fixture attempts first exposed an assertion-overload issue, then missing input-selector/ward-animation fixture state. These were corrected in the isolated tests; the final three actual-handler cases and full source CI passed. The original attempt logs remain preserved.",
+    "The APD443 download/extraction wrapper first used the wrong local helper import path after successful artifact byte/hash downloads. The corrected extraction passed without redownloading or changing frozen bytes; this was not a remote build or game-test failure.",
+    "The first local APD444 final checker resolved its relative metadata path after changing cwd and stopped before new archive/native checks. The log was preserved; resolving the path before chdir corrected the wrapper, and full acceptance then passed. No application or test failure occurred."
+  ],
+  "github_release_publication": {
+    "last_verified_published_release": 437,
+    "release_id": 441113099,
+    "tag": "apd-alpha-preview-437",
+    "source": "4da1ef4cf0e116c7a5187236b5c61e53600e241b",
+    "published_at": "2026-11-11T01:00:23Z",
+    "unresolved_path": "Original APD439 release run 42938508243 returned HTTP 403 Resource not accessible by integration on POST /releases; credential-free correction not proven.",
+    "new_439_440_441_github_releases_claimed": false,
+    "direct_download_delivery_succeeded": true,
+    "new_442_443_github_releases_claimed": false,
+    "new_444_github_release_claimed": false,
+    "new_446_github_release_claimed": false
+  },
+  "remaining_limits": [
+    "Physical RedMagic install-over, checklist steps 23-41 and Prison/Tengu speaker timing remain unverified.",
+    "The ordinary-talent audit remains partial; Cursed Wand wording and mechanic-panel choices remain owner decisions.",
+    "The corrected supplemental pylon fixture covers five synthetic live-scene selection states. Both native runs captured and restored effective intro=true with no stored key at capture; persisted-false restoration has local real-preference guard coverage only, not a seeded Android false-setting run.",
+    "The five bounded pylon selection states do not complete the broader boss audit or prove a natural boss fight, touch/attack, vulnerable-boss or blocked/mind-vision-only native controls.",
+    "All original images were mechanically validated, but manual review covered the documented 37 originals per APD444 variant rather than every screenshot. No physical-phone or acoustic acceptance is claimed.",
+    "Older APD442 Ooze limits remain historical. Both actual APD443 and APD444 Ooze originals are visibly assessable.",
+    "APD446 manual review covers 69 originals per variant; all 2,938 images were mechanically checked, but not all were manually viewed.",
+    "APD446 Search and pylon native fixtures use controlled live-scene geometry and actual handlers. They do not prove a naturally generated crystal encounter, a consumed Metamorphosis scroll or a complete natural boss fight.",
+    "Exact personal replay/new-depth and imported-seed scoring formulas have not been approved or activated. Current scores remain unchanged."
+  ],
+  "next_steps": [
+    "Preserve original and recovery raw evidence, separate device cohorts, source/build files and actual saved-file readback, then commit final acceptance and handoff records. APD445 remains unaccepted and undelivered.",
+    "Resume approved unfinished ledger/audit work from the latest verified metadata head while retaining 1968913a as the delivered APD446 game source. Do not repeat completed seed/Search investigations or rebuild the accepted pair.",
+    "Await explicit owner formulas before personal replay/new-depth or imported-seed scoring integration. Preserve pending Cursed Wand, mechanic-panel and postponed Cleric design decisions.",
+    "Physical RedMagic install-over, checklist steps 23-41 and Prison/Tengu speaker timing remain unverified. No next application build or recurring execution schedule has been started."
+  ],
+  "session_execution": {
+    "active_at_checkpoint": true,
+    "new_recurring_schedule_created": false,
+    "background_coding_promised": false,
+    "all_observed_build_runs_terminal": true
+  },
+  "session_commits": [
+    {
+      "sha": "69532e7422d852237fe4681a4873473c4bb8f218",
+      "summary": "Repair Seer Shot branch binding, correct four ordinary descriptions and add actual-handler regressions.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/69532e7422d852237fe4681a4873473c4bb8f218"
+    },
+    {
+      "sha": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+      "summary": "Produce the exact verified and delivered APD442 pair.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc"
+    },
+    {
+      "sha": "83aee325935e3fda80d750aa10348e83a28ea5dd",
+      "summary": "Repair Liquid Agility occupied-throw timing with thirteen regressions and ordinary-text clarification.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/83aee325935e3fda80d750aa10348e83a28ea5dd"
+    },
+    {
+      "sha": "b912f2b083f70de5d81f2351d32c24a0d5ac129e",
+      "summary": "Record APD442 delivery and add the actual-flight Liquid Agility native regression.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/b912f2b083f70de5d81f2351d32c24a0d5ac129e"
+    },
+    {
+      "sha": "a2960688e02468817914f006ff4c563b844c80c5",
+      "summary": "Produce the exact APD443 pair, now fully verified and delivered.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/a2960688e02468817914f006ff4c563b844c80c5"
+    },
+    {
+      "sha": "0cc99bbfd82cbbe8140180a0b8f7e64db82e660a",
+      "summary": "Earlier APD444 source checkpoint: Empowered Strike readiness wording and instrumentation-only Ooze framing; 3211/465 source CI passed.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/0cc99bbfd82cbbe8140180a0b8f7e64db82e660a"
+    },
+    {
+      "sha": "43c078b75b73626625369ed21d1cbf2f013e6f31",
+      "summary": "Add the approved Arcane Vision ordinary activation wording and real-handler/native-window regressions; exact source CI passed 3214/466 and required compilation.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/43c078b75b73626625369ed21d1cbf2f013e6f31"
+    },
+    {
+      "sha": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+      "summary": "Record completed APD443 manual acceptance, exact saved-file readback and private delivery; accepted predecessor for APD444.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/69801dff65bc10b6fb45720c88f3d0cd5f7dd281"
+    },
+    {
+      "sha": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+      "summary": "Produce the exact APD444 pair with 3214/466, complete compilation/ABI, source scan, twelve native cases and bounded manual acceptance; both original APKs and source were delivered after saved-file readback.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/2b8787a2fb41fc6ecacbb77617bd5f1763d902b0"
+    },
+    {
+      "sha": "50f39f8c7caa4dd21e75db5e5e34672da0803267",
+      "summary": "Record the explicitly timed APD444 in-progress checkpoint without changing its frozen producing source.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/50f39f8c7caa4dd21e75db5e5e34672da0803267"
+    },
+    {
+      "sha": "fbe701cea9dbb30020fcf2f436aa2075489baf0d",
+      "summary": "Add separate test-only pylon instrumentation and exact-frozen-APD444 verification infrastructure; no new application APK or application source change.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/fbe701cea9dbb30020fcf2f436aa2075489baf0d"
+    },
+    {
+      "sha": "b2be6a4be9a2b899fa14e807a3b467068d2c19d9",
+      "summary": "Record the completed primary APD444 delivery, bounded manual review, independent acceptance and preserved pre-native proof; exact saved downloads match the frozen game/source bytes.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/b2be6a4be9a2b899fa14e807a3b467068d2c19d9"
+    },
+    {
+      "sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+      "summary": "Correct only the supplemental pylon preference setup/restore, retain first-run targeting evidence and its disclosed caught exception, and request a separate corrected instrumentation run against unchanged APD444 game APKs.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/b5ba1c00ef01238624265d62d7c65af1fa34ef57"
+    },
+    {
+      "sha": "4ed9d22ba61010a69b386e036f22bac1a80cde1c",
+      "summary": "Preserve corrected supplemental CI, compiled-test, independent and root acceptance after both exact native cases and all ten original captures passed; original APD444 game/source and primary delivery remain unchanged.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/4ed9d22ba61010a69b386e036f22bac1a80cde1c"
+    },
+    {
+      "sha": "49ef0f1861592bbbd349f332de97eb5c7bb89821",
+      "summary": "Repair accepted native case reporting from the actual exact configured inventory;11 focused Python tests pass.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/49ef0f1861592bbbd349f332de97eb5c7bb89821"
+    },
+    {
+      "sha": "80c9aab144f5812f89e6584f548d5969339775c1",
+      "summary": "Implement approved offline seed history and contextual Search;3244/468 sourceCI passed.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/80c9aab144f5812f89e6584f548d5969339775c1"
+    },
+    {
+      "sha": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+      "summary": "Produce the frozen445 pair; subsequently held for an unfinished-history gap and failed seed-fixture native assertion. Never accepted or delivered.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/a0c2755a7a668f8b2f5f4181be50a8d53f40f525"
+    },
+    {
+      "sha": "57720443ec56d9d6776afb663ca4c821fab76956",
+      "summary": "Preserve445 mechanical evidence and explicit acceptance hold without changing frozen application bytes.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/57720443ec56d9d6776afb663ca4c821fab76956"
+    },
+    {
+      "sha": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+      "summary": "Correct supported unfinished seed attempts and canonical observed depth;3247/468 fresh local and actual sourceCI pass.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/245310c4d2a820bd7f220de6e7c3278cd5b119e7"
+    },
+    {
+      "sha": "1968913a441f53ab3652cffc05e131427d0c3703",
+      "summary": "Produce one exact446 pair; core/compile/ABI/source/history gates passed. Original native run has17 raw passes and a Developer emulator transport failure before final pylon, preserved for verification-only recovery.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/1968913a441f53ab3652cffc05e131427d0c3703"
+    },
+    {
+      "sha": "6eaa346b38e17c93abffade923875b37596f2ee3",
+      "summary": "Preserve446 pre-native and accepted444-to446 application scope proof, plus durable445 unaccepted-evidence readback; metadata only.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/6eaa346b38e17c93abffade923875b37596f2ee3"
+    },
+    {
+      "sha": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+      "summary": "Complete verification-only Developer seed-history and pylon recovery against the exact frozen APD446 pair; preserve separate original/fresh cohorts and all 481 original built files. No APK or source rebuild.",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/8d4ca1029fabe43df3a21e2362be59200d02839f"
+    }
+  ],
+  "previous_verification_evidence_archive": {
+    "bytes": 387807901,
+    "sha256": "9264785bb88e17518879816ef6b3aabc3d1e8d233800ca785dddaff969d4e331",
+    "files": 1461,
+    "file_name": "APD-Verification-Evidence-2026-11-11.zip",
+    "file_id": "file_00000000556481f59b806aab12893978",
+    "library_file_id": "libfile_fde3_f-b60a767459388191b4e4c553c988f629_4aba2690a1e48191a771a2e43a4a6278",
+    "all_1461_evidence_files_read_back_and_hash_verified_during_archive_creation": true,
+    "manifest_additional_to_evidence_file_count": true,
+    "saved_archive_download_readback_sha256_verified": true,
+    "readback_verified_utc": "2026-11-11T13:52:23.415234+00:00",
+    "snapshot_note": "The archive preserves the reviewed delivery/state/handoff snapshot before the archive receipt itself was added. This avoids any circular archive hash or file-ID claim. Later documentation links the same frozen evidence; application APKs and source archives are separately delivered."
+  },
+  "application_apk_count_basis": "Eight accepted APD442, APD443, APD444 and APD446 APKs plus two frozen unaccepted APD445 APKs. APD446 recovery created zero application or instrumentation APKs.",
+  "latest_verified_source_commit_scope": "Exact producing source of the delivered APD446 application pair. The later 8d4ca102 recovery/metadata source has zero application or instrumentation delta and created no game or test APK.",
+  "last_verified_remote_tree_before_checkpoint_commit": "9902c9ed66b3ebd7877ee85248bf5f46877cce45",
+  "supplemental_pylon_verification": {
+    "source_commit": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+    "run": 43063913542,
+    "run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43063913542",
+    "status": "corrected_separate_instrumentation_accepted",
+    "first_run_jobs_passed": 4,
+    "first_run_native_cases": 2,
+    "first_run_images": 10,
+    "first_run_original_images_viewed_by_root": 10,
+    "fixture_startup_issue": "The first fixture read SPDSettings.intro before Gdx.app initialized, producing a caught NullPointerException and default fallback. The corrected test-only source captures initialized preferences and conditionally restores them. Both corrected native cases passed with equal effective true capture/restore markers and no recurrence; the original evidence remains preserved.",
+    "corrected_run": 43063913542,
+    "corrected_acceptance_claimed": true,
+    "summary": "The separate pylon fixture is now accepted for five bounded selection states on both exact APD444 game APKs. Corrected test-only source [b5ba1c00](https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/b5ba1c00ef01238624265d62d7c65af1fa34ef57) passed all four jobs in [run 43063913542](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43063913542): instrumentation compilation and the existing JSON ABI gate, two native cases and ten individually reviewed original images. Both runs captured initialized effective intro=true with no stored key, then restored true, with no recurrence of the earlier exception. Persisted-false restoration is covered only by the three local real-preference guards, not a seeded native false-setting run. The first [run 43061442841](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43061442841) and its passing targeting evidence plus caught pre-launch preference exception remain preserved. The corrected workflow created one separate test APK and no game APK. [Acceptance commit 4ed9d22b](https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/4ed9d22ba61010a69b386e036f22bac1a80cde1c) preserves the corrected CI, compiled, independent and root receipts. Root separately viewed the same ten corrected originals and checked both raw cases, preference markers and complete manifests.",
+    "remaining_limit": "The corrected supplemental pylon fixture covers five synthetic live-scene selection states. Both native runs captured and restored effective intro=true with no stored key at capture; persisted-false restoration has local real-preference guard coverage only, not a seeded Android false-setting run.",
+    "first_native_review": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/root-first-native-review.json",
+      "sha256": "b53d5c753e51d1bee4b9a9f01342ee87430f8f80b5fb92620931755a4d457e55"
+    },
+    "first_source_commit": "fbe701cea9dbb30020fcf2f436aa2075489baf0d",
+    "first_run": 43061442841,
+    "first_run_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43061442841",
+    "corrected_source_commit": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+    "local_real_preference_guards_passed": 3,
+    "corrected_terminal_status": "success",
+    "corrected_jobs_passed": 4,
+    "corrected_native_cases": 2,
+    "corrected_original_images_viewed": 10,
+    "corrected_test_apk_sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+    "fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+    "ready_plan_sha256": "c448aae4a688c98703bd7e3f27b3169812a41f2c86f43010c7859b0dda2a56a0",
+    "no_application_delta_verified": true,
+    "corrected_independent_receipt": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/corrected-native-acceptance/final-independent-acceptance.json",
+      "sha256": "7bbd90a62082ee0be54124270fa22fbe4b7f54967a70b559eccf41fef13a3188"
+    },
+    "corrected_monitoring_receipt": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/final-automated-acceptance.json",
+      "sha256": "c2d4744dd190b68ae0b681b53adcf3b6d770934ce31792b7b97504f6b7b96fdc"
+    },
+    "corrected_artifacts": [
+      {
+        "id": 13875836115,
+        "name": "apd444-pylon-native-Alpha-Testers-attempt-1",
+        "bytes": 204983,
+        "github_archive_sha256": "6fac3ba7365e5e9c9419466440d040498d3708a38be73326902633a06268f71f",
+        "created_at": "2026-11-11T17:05:39Z",
+        "expires_at": "2026-12-11T17:05:39Z"
+      },
+      {
+        "id": 13874877525,
+        "name": "apd444-pylon-supplemental-evidence-attempt-1",
+        "bytes": 791155,
+        "github_archive_sha256": "2e197c55fb9a2b8fd72dd47544284de5e75dc333e4f063c3acae1e0e224be271",
+        "created_at": "2026-11-11T17:06:19Z",
+        "expires_at": "2026-12-11T17:06:18Z"
+      },
+      {
+        "id": 13874667875,
+        "name": "apd444-pylon-instrumentation-attempt-1",
+        "bytes": 923633,
+        "github_archive_sha256": "ad87165255953829200d5bdab4b77f1f105fabd1be3a05fe99b12c17bcc3767d",
+        "created_at": "2026-11-11T17:02:47Z",
+        "expires_at": "2026-12-11T17:02:46Z"
+      },
+      {
+        "id": 13874288955,
+        "name": "apd444-pylon-native-Developer-attempt-1",
+        "bytes": 189065,
+        "github_archive_sha256": "6c27c7cecdb06cea10ae4e1506c3c695a91daa13f40e2dab53d27f93336abf37",
+        "created_at": "2026-11-11T17:05:19Z",
+        "expires_at": "2026-12-11T17:05:18Z"
+      }
+    ],
+    "corrected_native_preference_scope": {
+      "captured_effective_intro": true,
+      "key_present_at_capture": false,
+      "restored_effective_intro": true,
+      "previous_exception_recurrence": false,
+      "persisted_false_native_tested": false,
+      "persisted_false_local_real_preferences_guard_tested": true
+    },
+    "corrected_scope_limits": [
+      "The fixture uses a synthetic disposable live GameScene with actual DM300/Pylon/Rat sprites and actual targeting/FOV/indicator call sites. It is not a naturally reached boss encounter.",
+      "Manual selection uses the public target API. No touch-input dispatch, attack/projectile execution, damage, boss progression, balance or save-format change is claimed.",
+      "There are two native test executions, one per variant, with five state captures each. The ten screenshots are not ten separate test methods.",
+      "Quick-slot/inventory identity, held actor/hero clocks and unchanged HP are established by actual assertions and logs. Screenshots directly show scene framing, target health bars, attack portraits and hidden-pylon exclusion.",
+      "Both corrected native runs observed effective intro=true with stored=false, then restored true. Persisted-false restoration was tested by the separate three-method real HeadlessPreferences local check, not by a seeded native false-setting run.",
+      "Both original game APKs and the original and first supplemental instrumentation bytes remain unchanged. This workflow produced one corrected test APK and no new game APK.",
+      "Signing/package/runner compatibility was verified in the successful bound CI stage. This local acceptance did not invoke unavailable SDK signing tools.",
+      "Primary APD444 delivery acceptance remains separate. No physical-phone, install-over, audio, release publication or new core test run is claimed."
+    ],
+    "acceptance_commit": "4ed9d22ba61010a69b386e036f22bac1a80cde1c",
+    "acceptance_commit_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/4ed9d22ba61010a69b386e036f22bac1a80cde1c",
+    "committed_acceptance_receipts": {
+      "CI": {
+        "path": "docs/APD-444-PYLON-CORRECTED-CI-ACCEPTANCE-2026-11-11.json",
+        "sha256": "c2d4744dd190b68ae0b681b53adcf3b6d770934ce31792b7b97504f6b7b96fdc",
+        "bytes": 10878
+      },
+      "COMPILED": {
+        "path": "docs/APD-444-PYLON-CORRECTED-COMPILED-ACCEPTANCE-2026-11-11.json",
+        "sha256": "710771ddbc3ddcfd38e800a39f7385f95ff922be471da516aca2fbaeaf87afc8",
+        "bytes": 11932
+      },
+      "INDEPENDENT": {
+        "path": "docs/APD-444-PYLON-CORRECTED-INDEPENDENT-ACCEPTANCE-2026-11-11.json",
+        "sha256": "7bbd90a62082ee0be54124270fa22fbe4b7f54967a70b559eccf41fef13a3188",
+        "bytes": 32736
+      },
+      "ROOT": {
+        "path": "docs/APD-444-PYLON-CORRECTED-ROOT-ACCEPTANCE-2026-11-11.json",
+        "sha256": "73b152e1b1e3c5c1b7164b240422778423fd57aba6fcaded3840ab4088567805",
+        "bytes": 13780
+      }
+    },
+    "root_personally_viewed_corrected_originals": 10,
+    "root_acceptance_receipt": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-root-acceptance.json",
+      "sha256": "73b152e1b1e3c5c1b7164b240422778423fd57aba6fcaded3840ab4088567805"
+    },
+    "application_build_number": 444,
+    "application_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+    "application_run": 43057716359,
+    "original_application_sha256": {
+      "Developer": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "Alpha-Testers": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162"
+    },
+    "original_instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+    "new_application_apks_created": 0,
+    "primary_delivery_gated_by_supplemental": false,
+    "broader_boss_audit_complete": false,
+    "scope_limit": "Five actual native selection states only. Full natural boss progression, actual touch/attack, vulnerable-boss and blocked/mind-vision-only native controls remain outside this bounded fixture."
+  },
+  "next_application_build": {
+    "number": null,
+    "started": false,
+    "application_scope_defined": false,
+    "build_workflow_requested": false,
+    "game_apk_created": false,
+    "reason": "The approved seed-history and contextual Search work is verified and delivered in APD446. No subsequent application build has been requested."
+  },
+  "verification_evidence_archive_442_444": {
+    "file_name": "APD-Verification-Evidence-442-444-2026-11-11.zip",
+    "bytes": 344983318,
+    "sha256": "27c59c6baa148d4ea1d47cf8d15852d34ef56927c0d33409d4386ac645217ef3",
+    "files": 5858,
+    "manifest_sha256": "6f5390b59051495afa3b6985fe56c3bcc915990c722173a78749f215522e243d",
+    "source_head_at_preservation": "5f47737726836fa219b9142ea24f588e050e3579",
+    "file_id": "file_00000000b97481f6bacf31789d91eefd",
+    "library_file_id": "libfile_fde3_f-908f0743d8dc81919f12ac9f52117132_4aba2690a1e48191a771a2e43a4a6278",
+    "all_archived_members_read_back_and_verified": true,
+    "saved_archive_download_readback_sha256_verified": true,
+    "readback_verified_utc": "2026-11-11T17:15:23.163279+00:00",
+    "snapshot_note": "This immutable archive preserves the raw evidence and checkpoint snapshot at 5f47737726836fa219b9142ea24f588e050e3579. This later preservation receipt, its saved-file identities and readback check are not inside the archive, avoiding circular content/hash claims. Original game APKs and matching source bundles remain saved separately.",
+    "repository_receipt": "docs/APD-442-444-EVIDENCE-PRESERVATION-2026-11-11.json"
+  },
+  "latest_verified_feature_source_commit": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+  "approved_seed_search_work": {
+    "status": "verified_and_delivered_in_APD446",
+    "source_ci_run": 43075480141,
+    "tests": 3247,
+    "suites": 468,
+    "source_receipt": "docs/APD-446-UNFINISHED-HISTORY-SOURCE-2026-11-11.json",
+    "ci_receipt": "docs/APD-446-SOURCE-CI-ACCEPTANCE-2026-11-11.json",
+    "scoring_unchanged": true,
+    "pending_owner_decisions": [
+      "Exact imported-seed multiplier; no new imported penalty activated.",
+      "Numerical personal replay/depth and new-depth reward formula, absent from the verified branch. Preserve the intended smaller early-death penalty and relative new-depth reward when approved."
+    ],
+    "feature_scope_accepted": true,
+    "recorded_attempts_include_unfinished": true,
+    "creator_ownership_inferred_from_history": false,
+    "seed_scoring_formula_activated": false,
+    "search_footprint_changed": false,
+    "new_save_schema": false,
+    "delivery_receipt": "docs/APD-446-DELIVERY-2026-11-11.json"
+  },
+  "unaccepted_build_445": {
+    "source_commit": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+    "producing_run": 43072342086,
+    "built_artifact_id": 13880080743,
+    "built_artifact_sha256": "7b6efc1ff834af2bba23df9716477ba0784c6283c4bfddddaf482f20b572b848",
+    "apk_pair_frozen": true,
+    "pre_native_mechanical_evidence_passed": true,
+    "overall_accepted": false,
+    "delivered": false,
+    "known_gap": "Exact seed from valid unfinished/crash history is wrongly classified unknown imported.",
+    "receipt": "docs/APD-445-ACCEPTANCE-HOLD-2026-11-11.json",
+    "native_status": "failed",
+    "native_passed": 14,
+    "native_failed": 2,
+    "native_not_run": 2,
+    "owner_preparation": "skipped",
+    "native_failure_receipt": "docs/APD-445-NATIVE-FAILURE-2026-11-11.json",
+    "evidence_preservation_receipt": "docs/APD-445-EVIDENCE-PRESERVATION-2026-11-11.json",
+    "evidence_archive": {
+      "schema": 1,
+      "recorded_utc": "2026-11-11T18:31:44.717726+00:00",
+      "status": "immutable_failed_evidence_saved_and_read_back",
+      "build": 445,
+      "producing_source": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+      "producing_run": 43072342086,
+      "attempt": 1,
+      "accepted": false,
+      "delivered": false,
+      "last_accepted_delivered_build_at_preservation": 444,
+      "source_head_at_preservation": "1968913a441f53ab3652cffc05e131427d0c3703",
+      "archive": "APD-445-Unaccepted-Build-Evidence-2026-11-11.zip",
+      "file_id": "file_00000000daac822fa71e01e256a6a62e",
+      "library_file_id": "libfile_fde3_f-cf939310b8888191a1677d388370cb1d_4aba2690a1e48191a771a2e43a4a6278",
+      "bytes": 302443798,
+      "sha256": "af95d5f359f5c188822eb64aa59827b881056387b62c363aa2df0731504fe3c4",
+      "readback_verified_utc": "2026-11-11T18:29:30.684910+00:00",
+      "all_archived_members_verified": true,
+      "evidence_files": 1680,
+      "archive_manifest_sha256": "f8d7c0b3ac34cf5b77b247cfb4b3c4b1e29d7fcbc8e691ae7c681d1e0e157507",
+      "preserved_contents": [
+        "Exact original built artifact, including the unaccepted APK pair, original instrumentation and matching source ZIP.",
+        "Both original failed native archives, full terminal logs, raw case reports, partial images and device transfer records.",
+        "Exact source-scan evidence, sourceCI evidence and fresh local tests including original failures.",
+        "Scope hold, reviewed fixes, push receipts and diagnostic-only visual review."
+      ],
+      "native_results": {
+        "passed": 14,
+        "failed": 2,
+        "not_run": 2
+      },
+      "no445_delivery_authorized": true,
+      "archive_local_verification_sha256": "cee84a1b72704cea7b3e53234bc9f5187097e47735dfe3ce78e556eec1b36431",
+      "saved_readback_receipt_sha256": "c67783126a58cb687f2ea2922cf75a00d8e240bdf137b356efe2e276c37bc5bf",
+      "no_other_archives_or_builds_replaced": true
+    }
+  },
+  "latest_verified_built_candidate_source": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "description_audit_inventory": {
+    "source_units": 445,
+    "complete": 442,
+    "partial": 3,
+    "whole_audit_complete": false
+  }
+}

@@ -1,0 +1,75 @@
+name: Retest existing TEST329 Android paths without rebuilding APD
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-existing329-native-retest.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify identical application inputs and download the exact TEST329 APK
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];source='16cb3c2de72595239573fe87bb72ad46a90d0fb0'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1') for s in (source,os.environ['GITHUB_SHA'])]
+          assert all(not t.get('truncated') for t in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          run=api(f'repos/{repo}/actions/runs/40790379363');assert run['head_sha']==source
+          jobs=api(f'repos/{repo}/actions/runs/40790379363/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          a,=[a for a in api(f'repos/{repo}/actions/runs/40790379363/artifacts')['artifacts'] if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact329.zip','wb') as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{a["id"]}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact329.zip').read_bytes()).hexdigest()==a['digest']
+          with zipfile.ZipFile('exact329.zip') as z:
+              name,=[n for n in z.namelist() if n.endswith('.apk')]
+              data=z.read(name)
+              assert hashlib.sha256(data).hexdigest()=='617812461000e81f2b2f70caabd21c885fa9e35058dadcb200048e551da068f7'
+              pathlib.Path('exact329.apk').write_bytes(data)
+          pathlib.Path('exact329-source.json').write_text(json.dumps({'application_source':source,'application_run':40790379363,'apk_sha256':hashlib.sha256(data).hexdigest(),'instrumentation_source':os.environ['GITHUB_SHA'],'application_inputs_identical':True,'application_rebuilt':False},indent=2))
+          PY
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - name: Compile instrumentation only
+        run: |
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C329
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Retest actual touch, both unchanged timing limits, pause/resume and exported file
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: bash tools/run-existing329-native-retest.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-existing329-native-retest
+          path: |
+            exact329-source.json
+            title-instrumentation.txt
+            title-evidence/
+            exact329-logcat.txt
+          if-no-files-found: error
+          retention-days: 7

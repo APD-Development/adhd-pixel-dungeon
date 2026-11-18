@@ -1,0 +1,95 @@
+name: APD downloadable Warrior simulator
+
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-simulator-download.yml
+      - docs/APD-SIMULATOR-USER-GUIDE.md
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-downloadable-warrior-simulator
+  cancel-in-progress: true
+
+env:
+  APD_SIMULATION_SOURCE: 455f22b5f14c1ea9886d033b81d0a1270ea5cd20
+  APD_BASELINE_RUN: '38088088384'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Require successful verification of the exact binary source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run watch "$APD_BASELINE_RUN" --repo "$GITHUB_REPOSITORY" --exit-status --interval 30
+          gh run view "$APD_BASELINE_RUN" --repo "$GITHUB_REPOSITORY" --json headSha,conclusion > baseline.json
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          run=json.loads(Path('baseline.json').read_text())
+          if run['headSha']!=os.environ['APD_SIMULATION_SOURCE'] or run['conclusion']!='success':
+              raise SystemExit('No verified simulator package available from this candidate.')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          ref: 455f22b5f14c1ea9886d033b81d0a1270ea5cd20
+          path: source
+      - uses: actions/checkout@v4
+        with:
+          path: delivery
+      - name: Verify the packaged evidence-accounting tool
+        run: python3 delivery/tools/test-warrior-experiment-summary.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-reusable-warrior-simulator
+          path: package/simulator-binaries
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 38088088384
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-real-warrior-simulation
+          path: package/baseline-evidence
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: 38088088384
+      - name: Verify package identity and include exact-source tools
+        run: |
+          cd package
+          sha256sum --check simulator-binaries/SHA256SUMS
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          manifest=json.loads(Path('simulator-binaries/manifest.json').read_text())
+          if manifest['sourceCommit']!=os.environ['APD_SIMULATION_SOURCE'] or str(manifest['verificationRunId'])!=os.environ['APD_BASELINE_RUN']:
+              raise SystemExit('Wrong source or verification run in download.')
+          PY
+          mkdir tools
+          cp ../source/tools/run-warrior-instrumentation.sh tools/
+          cp ../delivery/tools/summarize-warrior-experiment.py tools/
+          cp ../delivery/tools/test-warrior-experiment-summary.py tools/
+          cp ../delivery/docs/APD-SIMULATOR-USER-GUIDE.md README.md
+          cp ../baseline.json VERIFICATION-RUN.json
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          files=list(Path('tools').glob('*'))+[Path('README.md')]
+          Path('PACKAGE-TOOLS.json').write_text(json.dumps({
+              'binarySourceCommit':os.environ['APD_SIMULATION_SOURCE'],
+              'deliverySourceCommit':os.environ['GITHUB_SHA'],
+              'runnerSourceCommit':os.environ['APD_SIMULATION_SOURCE'],
+              'summarySourceCommit':os.environ['GITHUB_SHA'],
+              'sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+          },indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-warrior-simulator-download
+          path: package/
+          if-no-files-found: error
+          retention-days: 7

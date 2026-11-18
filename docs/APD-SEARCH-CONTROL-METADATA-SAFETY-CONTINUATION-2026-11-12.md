@@ -1,0 +1,17 @@
+# APD adaptive Search chooser metadata safety, November 12, 2026
+
+## Verified source-only continuation
+
+Start every next session by checking live branches, releases, AGENTS.md, the latest handoffs and Actions. This is completed verified source development, **not** a new APK build.
+
+The isolated branch `codex/apd-search-control-metadata-safety-20261112` was forked from verified development commit `ee4bff487dc2e2b8a2619a70813c4068f53c5a5a`. Production commit [`25ea4aaa`](https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/25ea4aaac03bc5b4632df05092d1304e9b1dddc2) adds a bounded read-only guard to `SearchControlContext`. Adaptive chooser and ordinary room-interior inspection now decline wall inference when a partially restored level has missing or truncated observed `map`, `heroFOV`, `visited` or `mapped` arrays. A complete level follows the existing path exactly. The guard does not consult hidden terrain or change Search/Wall Search costs, movement, checkmarks, Foresight, challenge values, scoring, save schemas, signing or gameplay balance.
+
+Regression commit [`5d106503`](https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/5d1065039ebcf54f2e374b1aae4e454f1a9acf2e) adds two cases in `SearchControlContextTest`: `incompleteObservationArraysCannotPromoteAdaptiveWallChoice` and `roomCenterCheckHandlesMissingAndShortVisibilityWithoutReadingHiddenTiles`. The first covers null/short FOV, visited, mapped, map, complete metadata restoration, stable chooser options and zero actions/turns. The second covers an ordinary room center and null/truncated FOV with no action/turn.
+
+The isolated workflow was committed as [`ad234aba`](https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/ad234ab9091095052086a0034aa46b57981a5496) and [Actions run 43264585642](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43264585642) completed **success** on that exact head. Its job `131344647467` logged `BUILD SUCCESSFUL in 2m 53s` for complete core tests and desktop/Android debug, release, and instrumentation Java compilation. The final XML gate confirmed **3,293 core tests across 472 suites**, zero failures/errors/skips, including both new cases. JUnit artifact `apd-search-control-metadata-core-results` ID `13965636916`, digest `36aa1fb58efb84f12cb7773f1fe00e9ee65671dae18004c1c1099fcb4618d1da`.
+
+[PR #15](https://github.com/APD-Development/ShieldingShouldHaveWorked/pull/15) changed exactly the production source, test file and isolated workflow, then merged to the established `codex/apd-phone-fixes-2026-10-09` development branch at [`8196c8f8`](https://github.com/APD-Development/ShieldingShouldHaveWorked/commit/8196c8f82ea5eed5bb5b8fa6304e3e6979e36bac). Preserve concurrent work and do not duplicate this fix.
+
+## APK boundary
+
+No new Developer or Alpha APK was produced by this source session. Last independently verified published release was [APD460](https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-460). Draft [PR #6](https://github.com/APD-Development/ShieldingShouldHaveWorked/pull/6) for APD461 still has a failed Alpha WallGeometry native verification gate at [run 43240714587](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43240714587). Do not bypass it, recycle previous builds, assign a successor version without approval/verification, or conflate this source fix with APK publication. Preserve original signing identities, prior binaries, save compatibility, balancing, scoring and the owner's design authority.

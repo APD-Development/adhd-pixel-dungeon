@@ -1,0 +1,10 @@
+{
+  "run_id": 42628501030,
+  "original_failed_run": 42625074280,
+  "source_commit": "a52bd33a8868875eb24fa2d0162ba41bdd099b0c",
+  "number": 415,
+  "require_all_native_cases": true,
+  "publish": false,
+  "manual_review_required": true,
+  "application_apks_rebuilt": false
+}

@@ -1,0 +1,71 @@
+name: Publish verified lunch TEST123 privately
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-lunch-publish.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-lunch-test123-publication
+  cancel-in-progress: false
+jobs:
+  private-delivery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-test123-delivery
+          run-id: 38434505602
+          github-token: ${{ github.token }}
+          path: delivery
+      - name: Verify staged files and publish only to private repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,subprocess,re
+          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          def api(path): return json.loads(subprocess.check_output(['gh','api',path]))
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert api('repos/'+repo)['private'], 'Private repository required'
+          now=datetime.now(ZoneInfo('America/New_York'))
+          assert now.date().isoformat()=='2026-10-13' and (now.hour,now.minute)>=(11,59), 'No early publication'
+          stage=api('repos/'+repo+'/actions/runs/38434505602')
+          assert stage['head_sha']=='c717b45796291e85032524707b7f5a9e1544d7c2' and stage['conclusion']=='success'
+          evidence=json.loads(Path('delivery/TEST123-Verification.json').read_text())
+          assert evidence['source']=='19b358d1a8a46f197837401b83fe836cba88988d'
+          assert evidence['run']=='38432306523'
+          for section,count in [('core',1384),('android',24)]:
+              assert evidence[section]['tests']==count
+              assert all(evidence[section][k]==0 for k in ['failures','errors','skipped'])
+          apk=Path('delivery/ADHD-Pixel-Dungeon-CODEX-TEST-123.apk')
+          digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert digest==evidence['apk_sha256']=='fb77eb8e2a1babf06e3a3ebb12324696b075597d26094ca35ff856a58520eed2'
+          assert Path(str(apk)+'.sha256').read_text().split()[0]==digest
+          pdf=Path('delivery/APD-Bug-Fixes-2026-10-13-TEST123.pdf')
+          assert hashlib.sha256(pdf.read_bytes()).hexdigest()=='2d2c5a4428e44dc61460e3c43115b5b843d7c3ef5dd85dd56f13d720da38fc10'
+          signer=sorted((Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          signature=subprocess.check_output([str(signer),'verify','--print-certs',str(apk)],text=True)
+          cert='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          assert cert in signature and evidence['certificate_sha256']==[cert]
+          package=subprocess.check_output([str(signer.parent/'aapt'),'dump','badging',str(apk)],text=True)
+          assert "package: name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bC123-TEST'" in package
+          publication=os.environ['GITHUB_SHA']
+          def inputs(commit):
+              tree=api('repos/'+repo+'/git/trees/'+commit+'?recursive=1')
+              assert not tree.get('truncated',False)
+              return {x['path']:x['sha'] for x in tree['tree'] if x['type']!='tree' and x['path'].split('/',1)[0] not in ('.github','docs','tools') and not x['path'].startswith(('core/src/test/','android/src/androidTest/'))}
+          assert inputs(evidence['source'])==inputs(publication), 'Delivery application inputs differ from tested APK'
+          tag='apd-codex-test-123'
+          existing=subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True)
+          if existing.returncode==0:
+              raise SystemExit('Existing release preserved; refusing asset overwrite')
+          notes=Path('delivery/lunch-release-notes.txt')
+          notes.write_text('Verified TEST123: Custom Dungeon Rules vertical/horizontal touchscreen gesture correction, repaired Equipment Availability and stable neutral generation tests; see the attached PDF. Source '+evidence['source']+'. 1384 core tests and 24 API34 emulator tests passed, no failures/errors/skips. APK checksum and signing compatibility verified. Physical-phone verification remains pending. Install over APD; never uninstall or clear data. Three offensive Damage sliders and mandatory UIMSD integration remain incomplete. No custom scoring coefficients or online activation. No APK rebuilt during delivery. Delivery tag commit '+publication+' has identical application/build inputs to the tested source.')
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',publication,'--prerelease','--latest=false','--title','APD PRIVATE CODEX TEST123 — slider touch correction','--notes-file',str(notes),str(apk),str(apk)+'.sha256',str(pdf),'delivery/TEST123-Verification.json'],check=True)
+          print('Private release published; existing assets preserved.')
+          PY

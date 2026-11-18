@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "number": 442,
+  "status": "draft_infrastructure_verified",
+  "completed_utc": "2026-11-11T15:00:29.753848+00:00",
+  "scope_status": "ready_for_build",
+  "accepted_baseline_head": "31e66d6c5bb9f8602f97dd051ec6d8f45c7929f3",
+  "previous_source": "748f9c990284b61f74b39c5111646bcb1d395183",
+  "previous_built_artifact": {
+    "id": 13860480452,
+    "sha256": "a2f9775712bbe777239ba2c220a5ee972e360e44da79a97c9f0f6d9e9950acfc"
+  },
+  "previous_owner_artifact": {
+    "id": 13861068719,
+    "sha256": "b16193bb202a2dbe17af4d808667576a0c11506abc0b91393669fadb7dd1ba4a"
+  },
+  "previous_apk_sha256": "ca3133202969f2c2e7fe58d751fbac4a767207aaa0b96b902c05d5e7d2af0fde",
+  "previous_history_tsv_files_preserved": 446,
+  "one_new_history_record_and_index_row_verified": true,
+  "core_evidence_read_only": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-fixed-source/full",
+    "totals": {
+      "suites": 464,
+      "tests": 3197,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "summary_sha256": "83e7cbfe1650394e96bb31442db4cbf09d2723c5d12f8f6565c8086cf0279683",
+    "raw_xml_inventory_sha256": "1d8ebfff739a3acf7ec02b624a0a8d5f067a3b1dce20bdd784abf9df3a100462",
+    "core_suite_rerun_by_this_validation": false
+  },
+  "checks": {
+    "self_test_rejections": 25,
+    "python_ast": true,
+    "json_plan": true,
+    "yaml_workflow": true,
+    "curated_change_notes": true,
+    "exact_trigger": true,
+    "read_only_permissions": true,
+    "two_native_variants": true,
+    "source_scan_packaging_dependency": true,
+    "request_file_absent_in_draft_and_repository": true,
+    "additional_images": 11,
+    "application_paths": [
+      "core/src/main/assets/messages/actors/actors.properties",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/missiles/MissileWeapon.java"
+    ]
+  },
+  "current_source_inputs_sha256": {
+    "core/src/main/assets/messages/actors/actors.properties": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/missiles/MissileWeapon.java": "aecb5e9656b0a7c2c0a7d9bb4ecd928d0ef636eb4e2231fbe8b5e3c1153b80fe",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java": "8493d1efbd195b63aa247f045c2d21b87e0c4ffb891963247700a5922f323ab6",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TrapDiscoveryDeviceTest.java": "6e25c59fcfd26f2b012f9af7135656351120659b9c9a52a1efffdeaad81da16f"
+  },
+  "draft_files": {
+    ".github/workflows/apd-candidate-442.yml": {
+      "sha256": "ba5300c90d134b0a988422b54a5309f828fe8bab430c9167bee28261884f81ed",
+      "bytes": 6916
+    },
+    "tools/apd_candidate442.py": {
+      "sha256": "1e761a51736ca555f5a339daa46ccf0568731896d7abb5a01fb3168ddd0d9940",
+      "bytes": 29140
+    },
+    "docs/APD-442-BUILD-PLAN.json": {
+      "sha256": "7eb92f8c4581664bf61d78e87fae8f413183f322500482625be11337979ddb02",
+      "bytes": 2429
+    },
+    "README.md": {
+      "sha256": "c7c92799e808c0c661d85b98d8fedf97d55cb3142f23544a98ca0e23da5ef9c2",
+      "bytes": 9874
+    }
+  },
+  "actions_not_performed": [
+    "GitHub mutation",
+    "workflow dispatch",
+    "Android compilation",
+    "application APK assembly",
+    "native test execution",
+    "source scan execution",
+    "upload",
+    "publication"
+  ]
+}

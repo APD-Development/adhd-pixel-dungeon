@@ -1,0 +1,7 @@
+Local UIMSD rollback-timeline performance improvement; not committed or Android-verified yet.
+
+RunTimeline.of rescanned the entire event list for every matched rollback and repeatedly boxed already-abandoned indices. It now collects exclusive rollback ranges, merges actual overlaps and classifies an ordered log once, retaining recording metadata, canonical ordering and uncertainty semantics. Unordered caller input explicitly retains the original scan behavior. Public API, serialized events, set membership and statistics rules are unchanged; no data/query limits or cache version change.
+
+2new cases and8existing timeline cases pass0.238s. The new deterministic200seed/300event classification comparison covers overlapping/separated rollbacks, save/session/gap metadata and uncertainty, plus the original unordered-input fallback.17existing recorder rollback/item-safety cases pass1.396s.27unique targeted passes,2newJUnit cases.
+
+A warmed actual RunTimeline.of stress fixture (40000game events,1save,1000matched rollbacks;41001events total) retains40000abandoned/1001canonical/1000rollback counts and outputhash-6835895199601675244. Across three analyses in separate256MB-host JVMs, allocation falls2887086632 to19366624bytes. Observed time1.790709s to0.059234s is a fixture measurement, not an Android/general speedup guarantee. Source-input lists and event payloads remain unchanged. Full application checks and native save/continue still required before delivery; whole UIMSD audit remains incomplete.

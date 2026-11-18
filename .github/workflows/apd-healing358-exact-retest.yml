@@ -1,0 +1,102 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Verify actual TEST358 toggle with corrected test-only expectation
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-HEALING358-EXACT-RETEST.txt]
+permissions: {contents: read, actions: read}
+jobs:
+  same-apk:
+    name: same-apk-${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: api34, api: 34, target: default}
+          - {name: api36, api: 36, target: google_apis}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify exact existing APK and unchanged application source
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];source='51a0819552a1b8d6c888cb273057f50dc79f2635';run=41596335602
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{sha}?recursive=1') for sha in (source,os.environ['GITHUB_SHA'])]
+          assert all(not t.get('truncated') for t in trees) and application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          jobs=api(f'repos/{repo}/actions/runs/{run}/jobs')['jobs'];assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          artifacts=api(f'repos/{repo}/actions/runs/{run}/artifacts')['artifacts'];a,=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact.zip','wb') as f:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{a["id"]}/zip'],stdout=f,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact.zip').read_bytes()).hexdigest()==a['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact.zip') as z:z.extractall('application')
+          apk,=pathlib.Path('application').glob('*.apk');checksum,=pathlib.Path('application').glob('*.apk.sha256');digest=hashlib.sha256(apk.read_bytes()).hexdigest();assert checksum.read_text().split()[0]==digest
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':run,'application_sha256':digest,'application_rebuilt':False,'application_inputs_unchanged':True,'test_source':os.environ['GITHUB_SHA']},indent=2))
+          with zipfile.ZipFile(apk) as z:
+            for name in z.namelist():
+              if name.startswith('assets/apd/history/') and name.endswith('.tsv'):
+                target=pathlib.Path('core/src/main/assets')/name.removeprefix('assets/');target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(z.read(name))
+          PY
+      - name: Compile instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C358
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Free API36 emulator disk space
+        if: matrix.api == 36
+        run: |
+          apd_gradle_cache="${GRADLE_USER_HOME:-$HOME/.gradle}"
+          rm -rf "$apd_gradle_cache/caches" "$apd_gradle_cache/wrapper/dists"
+          sudo rm -rf /usr/share/dotnet
+      - name: Enable acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Recheck exact APK on API34 or API36
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api }}
+          arch: x86_64
+          target: ${{ matrix.target }}
+          profile: pixel_7
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: bash tools/run-healing358-exact.sh '${{ matrix.name }}'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-healing358-${{ matrix.name }}
+          path: |
+            acceptance-source.json
+            existing-apk-instrumentation.txt
+            codex-logcat.txt
+            codex-visual-evidence/
+            title-evidence/
+            title-logcat.txt
+          retention-days: 14

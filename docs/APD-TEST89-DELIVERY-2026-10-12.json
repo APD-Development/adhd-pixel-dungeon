@@ -1,0 +1,63 @@
+{
+  "source": "b529832d07a1a2ba30453427edbd346dbf8b4124",
+  "verification_run": 38324730902,
+  "delivery_run": 38325133880,
+  "delivery_commit": "fa2281644074e9b55c43a22307c529b271a48f90",
+  "published_utc": "2026-10-13T00:09:13Z",
+  "published_new_york": "2026-10-12 20:09:13 EDT",
+  "core": {
+    "tests": 1239,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "platform": "API34 emulator, not physical phone"
+  },
+  "screenshots": 18,
+  "apk_sha256": "b0f7e925bba2c095d3ca769e5bddd83dda0f5d458b5736a2348d4bb7b2295ce8",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-89.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/ADHD-Pixel-Dungeon-CODEX-TEST-89.apk",
+      "digest": "sha256:b0f7e925bba2c095d3ca769e5bddd83dda0f5d458b5736a2348d4bb7b2295ce8",
+      "size": 38435086
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-89.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/ADHD-Pixel-Dungeon-CODEX-TEST-89.apk.sha256",
+      "digest": "sha256:68608084cc23db03351f673c48698309f5cdaf5ace0ba580ed7f522872a3abd3",
+      "size": 103
+    },
+    {
+      "name": "APD-Bug-Fixes-2026-10-12-TEST89.pdf",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/APD-Bug-Fixes-2026-10-12-TEST89.pdf",
+      "digest": "sha256:7f563841dc93ed5382c137bf2c3a267526bd82fc230174d1456f221fc2c2bba3",
+      "size": 5263
+    },
+    {
+      "name": "APD-Source-Line-Counts.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/APD-Source-Line-Counts.json",
+      "digest": "sha256:b21fbe7c6beda66331c2579b8e351dbe7adac3e0e0cb8f5b310cea55ba143b8b",
+      "size": 3562
+    },
+    {
+      "name": "TEST89-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/TEST89-Verification.json",
+      "digest": "sha256:e4a27d07b38d720ffad69a576816fc6dfd20e0e7ad616423b4a35f98ab4bc156",
+      "size": 256566
+    }
+  ],
+  "limitations": [
+    "Existing generated floors are untouched.",
+    "Physical-phone and owner's original save not verified.",
+    "Complete approved backlog still unfinished.",
+    "Empty-string query round-trip fix is local prototype only, not in TEST89."
+  ]
+}

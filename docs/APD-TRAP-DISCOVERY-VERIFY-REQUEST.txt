@@ -1,0 +1,3 @@
+2026-11-07 authorized trap-discovery feature verification. Run full core2909/447, required desktop/Android compilation and three actual API34 cases with process restart. Build one internal WIP debug application for verification only, preserving signing/application ID. Owner hold remains active: NO APK delivery/publication/application artifact upload. Save actual evidence including failures; do not claim phone testing.
+
+Attempt 2: first run42399787845 assembled successfully and full2909 passed, but receipt parser assumed obsolete signer prefix. Match the actual certificate-digest label, still require the identical known digest; preserve raw public certificate output. No production source change from0b4e890de. Second internal WIP game APK, no delivery/upload.

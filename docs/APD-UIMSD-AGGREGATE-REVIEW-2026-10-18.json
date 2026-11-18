@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-18T11:44:48Z",
+  "status": "complete",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Aggregate.java",
+    "blob": "1a18f2ef823d6a0eaa351e682476c0fae4c31bff",
+    "lines": 129,
+    "complete": true,
+    "new_production_defect_confirmed": false
+  },
+  "reviewed_contracts": [
+    "constructor null normalization",
+    "inactive where-value normalization",
+    "COUNT/of/rate/distinct/ratio factories",
+    "where/perDistinct/labeled immutable refinements",
+    "stable semantic id generation",
+    "label-neutral equality and hashCode",
+    "QueryCodec round trip",
+    "GroupBy and Query equality",
+    "QueryEngine aggregate validation/evaluation",
+    "report heading and aggregate-sort consumers"
+  ],
+  "retained_test": {
+    "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/AggregateContractTest.java",
+    "blob": "5a1d8aee8f0a4d2c3caccb44e9da93b5fef82156",
+    "source_commit": "6dd34188e6ed009e5859aab927085cdd40e16abe",
+    "methods": 3
+  },
+  "core_verification": {
+    "run_id": 39124288162,
+    "conclusion": "success",
+    "started_at": "2026-10-18T11:41:56Z",
+    "completed_at": "2026-10-18T11:44:48Z",
+    "tests": 1824,
+    "suites": 361,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 3,
+    "focused_seconds": 0.001,
+    "artifact_id": 12135716399,
+    "artifact_bytes": 853048,
+    "artifact_digest": "sha256:c408c2ae284576b32eb0574d8e1bc4bfb4cb149adbe854c37852d7a0bc3193cf",
+    "downloaded_zip_digest_match": true
+  },
+  "application_source_changed": false,
+  "apk_rebuild_needed": false,
+  "latest_verified_private_candidate": 278,
+  "latest_published_owner_build": 262,
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

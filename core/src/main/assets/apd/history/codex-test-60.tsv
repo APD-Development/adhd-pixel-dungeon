@@ -1,0 +1,16 @@
+Testing	ICON_INFO	About Device Test	Updated Android checks and fixtures for about device. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Screens Device Test	Updated Android checks and fixtures for statistics screens device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_STATS	Result Table	Aligned numeric table values using presentation metadata without changing queries.
+Statistics / UIMSD	ICON_STATS	Statistics Home	Kept direct Home navigation and displayed zero abandoned runs.
+Quality of Life	ICON_STATS	Statistics screen	Put every advanced-table condition in a scrollable list and used two control rows on narrow screens.
+Quality of Life	ICON_STATS	Statistics Home Pane	Kept direct Home navigation and displayed zero abandoned runs.
+Quality of Life	ICON_STATS	Statistics Table	Aligned numeric table values using presentation metadata without changing queries.
+Quality of Life	ICON_STATS	Statistics List	Used native Pixel Dungeon picker and run-action controls with optional explanation popups.
+Testing	ICON_STATS	Statistics Home Presentation Test	Added a test covering zero Abandoned Runs Remain Visible And Outcome Drilldowns Match Records. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Table Alignment Test 1	Added a test covering numeric Columns Align Without Treating Enums As Numbers Or Unknown As Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Table Alignment Test 2	Added a test covering grouped Counts And Aggregates Align But Retain Exact Values And Coverage. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Choices Test	Updated automated checks and fixtures for statistics choices. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Updated apd-next-build-history accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Aligned numeric table values using presentation metadata without changing queries. Kept direct Home navigation and displayed zero abandoned runs.

@@ -1,0 +1,57 @@
+{
+  "recorded_utc": "2026-11-11T16:57:33.577750+00:00",
+  "fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+  "production_java_inputs": 1718,
+  "production_hashes_match_frozen_classes": true,
+  "frozen_compile_manifest": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/compile-provenance.json",
+  "frozen_compile_manifest_sha256": "1dc880a2c4308da303488944ef8202b0b4586758774ba46fa0e1898196f17ac3",
+  "dependency_jars_verified": 9,
+  "whole_fixture_type_compile": {
+    "exit_code": 0,
+    "command": [
+      "java",
+      "com.sun.tools.javac.Main",
+      "-encoding",
+      "UTF-8",
+      "-source",
+      "11",
+      "-target",
+      "11",
+      "-classpath",
+      "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/main:/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/test:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-006/junit-4.13.2.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-007/gdx-backend-headless-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-008/gdx-platform-1.14.0-natives-desktop.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-009/json-20240303.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-010/gdx-controllers-core-2.2.4.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-011/gdx-freetype-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-012/gdx-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-013/hamcrest-core-1.3.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-014/gdx-jnigen-loader-2.5.2.jar",
+      "-d",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/classes",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/PylonPreferenceLifecycleLocalCheck.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/android/app/Activity.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/android/os/SystemClock.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/androidx/test/core/app/ActivityScenario.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/androidx/test/ext/junit/runners/AndroidJUnit4.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/com/shatteredpixel/shatteredpixeldungeon/android/AndroidLauncher.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/src/com/shatteredpixel/shatteredpixeldungeon/android/TopScoresDeviceTest.java"
+    ],
+    "log_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/compile.log",
+    "log_sha256": "1ea034f4dc1fb08054e9217ce3b9ab05ef1793f931ad7346e38747537c84a63a",
+    "android_types_are_explicit_compile_only_stubs": true
+  },
+  "real_preferences_guards": {
+    "exact_draft_capture_and_restore_blocks_extracted": true,
+    "source_sha256": "18ebd38c047b1089047aa09f20be9010782b1da60b1e79d0e6c1ec7ae46973a6",
+    "command": [
+      "java",
+      "-classpath",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/classes:/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/main:/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/test:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-006/junit-4.13.2.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-007/gdx-backend-headless-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-008/gdx-platform-1.14.0-natives-desktop.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-009/json-20240303.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-010/gdx-controllers-core-2.2.4.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-011/gdx-freetype-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-012/gdx-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-013/hamcrest-core-1.3.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-014/gdx-jnigen-loader-2.5.2.jar",
+      "org.junit.runner.JUnitCore",
+      "PylonPreferenceLifecycleLocalCheck"
+    ],
+    "exit_code": 0,
+    "log_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/preference-capture-correction/local-check-1/guards.log",
+    "log_sha256": "ed6e5b21037040b344ecd1ee9766e0658d85f0f791196e46364d4d14f432aded",
+    "expected_methods": 3
+  },
+  "limits": [
+    "The whole source Java type check uses explicit Android/lifecycle/helper stand-ins and is not SDK/Gradle Android compilation.",
+    "The three guards execute the exact draft preference blocks against actual compiled SPDSettings/GameSettings and real temporary HeadlessPreferences. They do not execute Android ActivityScenario, rendering or the pylon fixture.",
+    "No application source was changed, no APK was built and no native rerun occurred."
+  ]
+}

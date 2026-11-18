@@ -1,0 +1,39 @@
+// APD private, credential-free test runtime export for offline regression work.
+// Copyright (C) 2026 Chris Charlton. SPDX-License-Identifier: GPL-3.0-or-later
+import groovy.json.JsonOutput
+
+gradle.projectsEvaluated {
+    def core = gradle.rootProject.project(':core')
+    core.tasks.register('apdExportTestKit') {
+        dependsOn core.tasks.named('test')
+        doLast {
+            def output = System.getenv('APD_TEST_KIT_OUT')
+            if (!output) throw new GradleException('APD_TEST_KIT_OUT is required')
+            def root = new File(output)
+            if (root.exists()) throw new GradleException('Never overwrite an existing test kit')
+            root.mkdirs()
+            def classpath = []
+            core.sourceSets.test.runtimeClasspath.files.eachWithIndex { entry, index ->
+                if (entry.exists()) {
+                    if (entry.isFile() && !entry.name.endsWith('.jar')) {
+                        throw new GradleException('Unexpected non-JAR classpath entry: ' + entry.name)
+                    }
+                    def name = String.format('cp-%03d', index)
+                    if (entry.isDirectory()) {
+                        core.copy { from entry; into new File(root, name) }
+                        classpath.add(name)
+                    } else {
+                        core.copy { from entry; into new File(root, name) }
+                        classpath.add(name + '/' + entry.name)
+                    }
+                }
+            }
+            new File(root, 'manifest.json').text = JsonOutput.prettyPrint(JsonOutput.toJson([
+                source_commit: System.getenv('GITHUB_SHA'), classpath: classpath,
+                java_version: System.getProperty('java.version'),
+                working_directory: 'core/src/main/assets',
+                scope: 'Compiled test runtime only. No signing material, credentials, caches or APKs.'
+            ])) + '\n'
+        }
+    }
+}

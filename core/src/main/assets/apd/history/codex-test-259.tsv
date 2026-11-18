@@ -1,0 +1,8 @@
+Bug Fixes	ICON_STATS	Literal text in report exports	Markdown tables preserve backslashes in headings and values, including text next to pipes or formatting characters.
+Testing	ICON_CHECKED	Report export regressions	Check literal backslashes, pipes, line breaks and empty cells while preserving original report values and other export formats.
+Testing	ICON_CHECKED	Reliable native touch assertions	Native menu tests wait for actual preference changes after touch input, retaining the same assertions and exact application APK.
+Infrastructure	ICON_INFO	Complete native evidence	Retain all screenshots and derive test reports from actual Android execution records; exact display checks reject mismatched screen sizes.
+Infrastructure	ICON_INFO	Exact tall-display verification	Verify a real 1080×2408 emulator display after dismissing Android's first-use full-screen notice.
+Infrastructure	ICON_INFO	Verified private delivery	Verify source, signing, test identities and download checksums before privately publishing existing APK and report assets.
+Infrastructure	ICON_INFO	Same-APK Android reruns	Reuse one signed application APK for complete native regression and representative display checks.
+Infrastructure	ICON_INFO	Build evidence and audit continuity	Preserve the previous APK's exact source, failures, delivery receipt and unfinished audit checkpoints; record this build's reviewed changes separately.

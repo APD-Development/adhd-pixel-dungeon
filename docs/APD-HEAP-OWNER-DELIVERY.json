@@ -1,0 +1,29 @@
+{
+  "number": 350,
+  "source": "1d4bd7268fdb01dedadecddd1fcfd19d72ffa05c",
+  "developer": 41540278341,
+  "display": 41540278325,
+  "compile": 41540278341,
+  "native": 41542190077,
+  "stable": 41547017507,
+  "core_tests": 2302,
+  "android_tests": 1,
+  "variants": [
+    "Developer"
+  ],
+  "title": "APD Alpha Preview 350 \u2014 Developer: searched walls and memory retention",
+  "visual_review": {
+    "qol-searched-wall.png": "ce07773c9d46d77d41cd36b8b72ac1fa731cba04f3281127480f80a7b8c6037e",
+    "qol-sharpshooting-weapon.png": "e6538b80ca5461aed49e42e5221435d8464247e585db912938ecf384a340fc1f",
+    "qol-offline-license.png": "91eeceeb0d75e56050c56b6a435ee6b2c3485bbbbdb0c44eac08891f4332c173",
+    "qol-dew-settings.png": "5534de4e235aed8724172d556b56140901c33031545c7d530dbf7bcdbeab26bd",
+    "qol-force-weapon.png": "8f808e48418496f41ab7660433ae7e0d3fe2d5ad6a6e4e135c5ae3b55fa99101"
+  },
+  "stable_visual_review": {
+    "qol-searched-wall.png": "f8220d8fc652393c91c266b55c4d69cd981df073dfa96c04fe9b2a10e6a30d53",
+    "qol-sharpshooting-weapon.png": "04385cf03b465025a696f2f587b5d3cac7803e9281262541f96f4c46d4e5f529",
+    "qol-offline-license.png": "514dc04a272cc301547ca5828030d859056d1177364162d52091584298943fe3",
+    "qol-dew-settings.png": "456cdf5aabdc0f330eae785dddcf44874eb29672e723fede8608c5dbbb2c00fc",
+    "qol-force-weapon.png": "4e0e78a6ecc94f412cea7d65ea5037634b61276a3c7fd0640a3ba66c149225cf"
+  }
+}

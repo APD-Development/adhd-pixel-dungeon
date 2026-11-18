@@ -1,0 +1,29 @@
+name: Count verified APD source differences
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-source-difference-report.yml
+      - tools/apd_fork_diff_counts.py
+      - tools/test_apd_fork_diff_counts.py
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate diff parsing and component totals
+        run: python3 -m unittest discover -s tools -p test_apd_fork_diff_counts.py
+      - name: Fetch the pinned reference and actually delivered application source
+        run: |
+          git fetch --no-tags --depth=1 origin 2bb34a4e91d29c8785a9363cad6ddfe5122b1d4f
+          git fetch --no-tags --depth=1 origin b529832d07a1a2ba30453427edbd346dbf8b4124
+      - name: Count exact tree differences without building or publishing
+        run: python3 tools/apd_fork_diff_counts.py 2bb34a4e91d29c8785a9363cad6ddfe5122b1d4f b529832d07a1a2ba30453427edbd346dbf8b4124 evidence/APD-TEST89-SPD-Reference-Diff.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-test89-spd-reference-diff
+          path: evidence/APD-TEST89-SPD-Reference-Diff.json
+          retention-days: 7

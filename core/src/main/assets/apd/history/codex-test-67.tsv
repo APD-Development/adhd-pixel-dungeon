@@ -1,0 +1,12 @@
+Changes	ICON_INFO	actors	Updated actors resources bundled with this APK.
+Changes	ICON_INFO	Hero actions	Explained active Lost Inventory pickup restrictions instead of implying the backpack is full.
+Quality of Life	ICON_STATS	Statistics Content	Made clear-after-destroy a safe no-op rather than accessing a destroyed member list.
+Testing	ICON_BACKPACK	Inventory Pickup Message Test 1	Added a test covering normal Capacity Failure Keeps Original Message. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Message Test 2	Added a test covering lost Backpack Explains All Reported Pickup Failures With Free Slots. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Message Test 3	Added a test covering retained Items Do Not Receive The Wrong Restriction Message. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Message Test 4	Added a test covering recovery Removes Lost Backpack Explanation. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Destroyed Content Test	Added a test covering late Clear After Destruction Keeps Native Group No Op Behavior. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Updated apd-next-build-history accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated actors resources bundled with this APK. Explained active Lost Inventory pickup restrictions instead of implying the backpack is full.

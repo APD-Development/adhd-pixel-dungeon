@@ -1,0 +1,3 @@
+Changes	ICON_CHALLENGE_COLOR	Future class scoring notice	Custom Rules explains that all six classes share today's provisional multipliers and that class, subclass and crown-class scoring is only being explored.
+Testing	ICON_CHECKED	Verify six-class saved scoring	Independent Android checks confirm all six classes keep their locked rules and provisional scoring when saving and continuing.
+Infrastructure	ICON_INFO	Prepare verified private downloads	Private delivery preparation reuses verified APKs, records exact test evidence and preserves an install-compatible fallback.

@@ -1,0 +1,7 @@
+Changes	V063_MAGICMISSILE	Burning	Accept one explicit immutable origin for delayed Dragon's Breath burning without changing legacy environmental behavior.
+Bug Fixes	V061_BUGFIX	PotionOfDragonsBreath	Reuse the actual activation user for direct Burning and both primary and adjacent fire fields.
+Changes	V061_BUGFIX	DragonBreathProvenanceTest	Retain full-range role, environmental exclusion, neutral RNG and real caller-wiring regressions.
+Changes	V061_BUGFIX	Dragon's Breath evidence	Record scope, preserved behavior, pending checks and remaining offensive-source gaps.
+Changes	V061_BUGFIX	Handoff and ledger	Record verified TEST148 evidence and the TEST149 candidate checkpoint.
+Changes	V061_BUGFIX	Build request	Require exact-current-source core, debug, Android and history verification without delivery.
+Changes	V061_BUGFIX	Exact build history	Compare every reviewed TEST149 path against the immediately preceding TEST148 APK.

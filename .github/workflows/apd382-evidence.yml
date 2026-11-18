@@ -1,0 +1,37 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Report382 raw item-window acceptance evidence
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-382-EVIDENCE-REQUEST.txt]
+permissions: {contents: read, actions: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {name: apd382-native-Developer, run-id: 42534873950, github-token: '${{ github.token }}', path: evidence/Developer}
+      - uses: actions/download-artifact@v4
+        with: {name: apd382-native-Alpha-Testers, run-id: 42534873950, github-token: '${{ github.token }}', path: evidence/Alpha}
+      - name: Print actual instrumentation failure without changing application APKs
+        run: |
+          python3 - <<'PYREPORT'
+          import pathlib
+          for p in pathlib.Path('evidence').rglob('*-qol.txt'):
+            print(p)
+            print(p.read_text())
+          PYREPORT

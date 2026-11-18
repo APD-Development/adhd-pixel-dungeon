@@ -1,0 +1,21 @@
+{
+  "number": 432,
+  "source_commit": "a3d08081eea0b03475c9093423da60e84fc509be",
+  "run_id": 42862026382,
+  "independently_verified_utc": "2026-11-10T17:40:31.530062+00:00",
+  "accepted": true,
+  "apks_rebuilt": false,
+  "core_tests": 3165,
+  "core_suites": 457,
+  "core_failures": 0,
+  "core_errors": 0,
+  "core_skips": 0,
+  "targeted_api34_tests": 12,
+  "source_manifest_files": 4851,
+  "manually_reviewed_native_frames": 80,
+  "all_original_apk_and_source_and_evidence_hashes_verified": true,
+  "original_signer_and_application_id_and_version_code_verified": true,
+  "prior_compiled_history_files_preserved": 435,
+  "physical_phone_verified": false,
+  "acoustic_verified": false
+}

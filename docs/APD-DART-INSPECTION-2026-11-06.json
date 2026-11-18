@@ -1,0 +1,25 @@
+{
+  "issue": "Dart.info overwrote static bow retained by a pending shot; unknown-bow temporary context could also survive a formatter error.",
+  "baseline": "/workspace/apd-dart-crossbow-inspection-before.log: expected pending Crossbow identity, was null",
+  "fix": "Thread-local inspection crossbow selected from current equipment and sanitized when unknown; no write to pending shot reference. Normal, ring, expanded and tipped-wear previews share it. Actual proc and throw-preparation context remain unchanged.",
+  "checks": [
+    "Actual known crossbow damage matches ordinary tooltip for Dart/PoisonDart/RotDart",
+    "Unknown crossbow levels0/7 give identical normal/expanded text and saved Hero state",
+    "Ring contribution remains in ordinary item text, not duplicated in expanded details",
+    "Second thread observes actual pending crossbow during UI inspection",
+    "Formatter failure clears only UI context",
+    "Real throwPos still refreshes actual crossbow",
+    "289-item inspection catalog preserves save/RNG state"
+  ],
+  "initial_test_correction": "One new assertion incorrectly expected ordinary ring text duplicated in expanded details; corrected test to require it in ordinary text, preserving source/value/privacy checks.",
+  "full_local": {
+    "suites": 446,
+    "tests": 2845,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "raw_junit": "/workspace/apd-dart-crossbow-local-junit.zip",
+  "apk_status": "Newer source only; not in368. No fourth pair requested.",
+  "physical_phone_tested": false
+}

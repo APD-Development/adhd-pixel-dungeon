@@ -1,0 +1,23 @@
+{
+  "number": 431,
+  "source_commit": "5a8fe508d6d3f2a449c5a9b8fa9632e22f86dcb3",
+  "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/untagged-ac0fdf93e9651d690697",
+  "published_utc": null,
+  "delivery_workflow_run": "42867181054",
+  "downloaded_back_verified": true,
+  "rebuilt": false,
+  "core_tests": 3164,
+  "core_suites": 457,
+  "android_tests": 12,
+  "manual_frames": 3,
+  "source_manifest_files": 4839,
+  "apk_hashes": {
+    "Developer": "a8d6bac9652bde976771d82fa014e2a8ecf50ab4f4933551ed5b493ca639c675",
+    "Alpha-Testers": "6a330d64dd84398a21522d1585284528878e2be6fa2fd40116e75b81ae31c405"
+  },
+  "source_sha256": "e24a20b5fbb8d76cefd308cb69592390220f2ed38052d9d74bee183152f0dd22",
+  "physical_phone_verified": false,
+  "accepted": false,
+  "private_archive_only": true,
+  "verified_utc": "2026-11-10T17:40:56.654483+00:00"
+}

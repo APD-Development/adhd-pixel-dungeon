@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "number": 446,
+  "recorded_utc": "2026-11-11T19:09:45.569995+00:00",
+  "status": "ready_for_verification_only_recovery_request",
+  "base_head": "6eaa346b38e17c93abffade923875b37596f2ee3",
+  "original_application_and_instrumentation_source": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "original_run": 43077773970,
+  "original_attempt": 1,
+  "original_run_conclusion": "failure",
+  "original_failure_preserved": true,
+  "plan_before": {
+    "sha256": "af49d6f9290639a6c5d8af30068d55834ddcfe9f3b177ab58f47cac06911cad5",
+    "status": "draft"
+  },
+  "plan_after": {
+    "sha256": "0cc17ab213decd76acbba0c9ec2189b0063008278b3751c22a82facbd4cbbb92",
+    "status": "ready_for_recovery",
+    "pending_review": []
+  },
+  "plan_only_changed_fields": [
+    "status",
+    "pending_review"
+  ],
+  "ready_plan_validated_by_actual_helper": true,
+  "reviewed_source_hashes": {
+    "tools/apd_recover446_developer.py": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25",
+    "tools/test_apd_recover446_developer.py": "6c372e9c86db6b491013df6d5b3cf9878dabaafbe3ae811a6eec1fc1fbf8d941",
+    ".github/workflows/apd-recover446-developer.yml": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127"
+  },
+  "independent_review_sha256": "d36b9c477fed53b49ac546734023322370442491713332f0240edbbd000a7714",
+  "local_checks_sha256": "d2bca9bc7bc3dbcac92123af1832b45b6e6a53390292cfb602083b4548e5d32a",
+  "root_review": "Read the plan, operational helper, exact frozen-input and original-run checks, same-attempt artifact selector, separate cohort/device validation, immutable owner path mapping, workflow and rejection guards. No remaining concrete blocker.",
+  "execution_scope": {
+    "fresh_native_cases": [
+      "seed-history",
+      "pylon"
+    ],
+    "fresh_variant": "Developer",
+    "original_developer_images": 1457,
+    "required_recovery_images": 12,
+    "logical_cases_required": 18,
+    "game_rebuild": false,
+    "instrumentation_rebuild": false,
+    "source_archive_rebuild": false,
+    "original_images_copied_to_fresh_device": false,
+    "manual_acceptance_claimed": false,
+    "delivery_claimed": false,
+    "release_publication": false
+  },
+  "authorization": "The owner explicitly authorized continued verified coding, build verification, GitHub pushes and private delivery during this active session. This request implements only the necessary transport recovery."
+}

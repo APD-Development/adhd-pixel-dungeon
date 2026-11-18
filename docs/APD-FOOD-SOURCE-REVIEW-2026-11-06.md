@@ -1,0 +1,5 @@
+# Food leaf-source review
+
+Read the complete behavior bodies of ChargrilledMeat, SmallRation, StewedMeat and PhantomMeat; compare the shared Food.info/eating/satisfaction and FoodExplanation nutrition/effect paths. Chargrilled/Small/Stewed inherit their actual half-HUNGRY nutrition and ordinary eating behavior. Stewed batch recipe counts/costs are explicit in source. Phantom grants all four supported effects, unlike Frozen Carpaccio's random initial choice; its quarter-maximum-HP and Barkskin values agree with the current description.
+
+No application change or new test/build was needed for this source review. Existing SmallRation/Chargrilled actual satisfaction/On Diet and special-food inspection tests are already part of the recorded full suite. No new per-variant consumption, batch recipe, translation or native/phone acceptance is claimed. The matching narrow facets and file hashes are recorded in APD-MECHANICS-DESCRIPTION-AUDIT.json. Whole audit remains in progress; owner APK hold remains active.

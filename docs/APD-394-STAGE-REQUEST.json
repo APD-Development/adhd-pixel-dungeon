@@ -1,0 +1,5 @@
+{
+  "run_id": 42560789608,
+  "source_commit": "b68cd4a96b355640c2a45355aa454dfdcd75d69f",
+  "scope": "Wait for complete acceptance, stage immutable pair/source/test evidence only; root hash and actual screenshot review before publishing."
+}

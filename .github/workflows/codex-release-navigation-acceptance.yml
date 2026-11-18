@@ -1,0 +1,100 @@
+name: APD release history native navigation acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-release-navigation-acceptance.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: apd-release-navigation-acceptance
+  cancel-in-progress: false
+jobs:
+  existing-apk-navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 3e886234e69ab128a861cfbc17bca549ba3a3456
+      - uses: actions/checkout@v4
+        with:
+          path: acceptance-fixture
+          sparse-checkout-cone-mode: false
+          sparse-checkout: android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/ReleaseNotesNavigationDeviceTest.java
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Reuse the exact verified TEST224 APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,zipfile
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          source='3e886234e69ab128a861cfbc17bca549ba3a3456'
+          run_id='38823705331'
+          run=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id]))
+          assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==source
+          protected=['core/src/main','SPD-classes/src/main','services/src/main','android/src/main','android/build.gradle','core/build.gradle','SPD-classes/build.gradle','services/build.gradle','build.gradle','settings.gradle','gradle.properties','gradle','android/debug.keystore']
+          subprocess.run(['git','diff','--exit-code',source,'HEAD','--']+protected,check=True)
+          artifacts=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/artifacts']))['artifacts']
+          matching=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert len(matching)==1
+          with open('verified-application.zip','wb') as output:
+              subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(matching[0]['id'])+'/zip'],stdout=output,check=True)
+          with zipfile.ZipFile('verified-application.zip') as archive:
+              names=[n for n in archive.namelist() if n.endswith('.apk')]
+              assert len(names)==1
+              apk=archive.read(names[0])
+          digest=hashlib.sha256(apk).hexdigest()
+          assert digest=='8d88ef02cb82af29cb2bb0aefc1a847726d7e95310768be59263ee78c8cb2579'
+          pathlib.Path('verified-test224.apk').write_bytes(apk)
+          pathlib.Path('navigation-source.json').write_text(json.dumps({'application_source':source,'application_run':int(run_id),'application_sha256':digest,'test_source':os.environ['GITHUB_SHA'],'application_reused':True,'published':False,'physical_device':False},indent=2))
+          PY
+          cp acceptance-fixture/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/ReleaseNotesNavigationDeviceTest.java android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile instrumentation only
+        run: ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C224
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise native touch and Android Back
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb shell settings put secure immersive_mode_confirmations confirmed
+            adb shell wm size 320x640
+            adb shell wm density 160
+            adb install -r verified-test224.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb logcat -c
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.ReleaseNotesNavigationDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > release-navigation.txt 2>&1
+            adb logcat -d -v time > release-navigation-logcat.txt
+            adb exec-out cat /sdcard/Pictures/APD-Test-Visuals/release-notes-navigation.png > release-notes-navigation.png
+            adb exec-out cat /sdcard/Pictures/APD-Test-Visuals/release-notes-reopened.png > release-notes-reopened.png
+            python3 -c "import json,pathlib,re,struct,subprocess; text=pathlib.Path('release-navigation.txt').read_text(); print(text); assert re.search(r'OK \(1 test\)',text); assert not any(x in text for x in ['FAILURES!!!','INSTRUMENTATION_FAILED','Process crashed.']); images={p.name:struct.unpack('>II',p.read_bytes()[16:24]) for p in pathlib.Path('.').glob('release-notes-*.png') if p.read_bytes()[:8]==b'\x89PNG\r\n\x1a\n'}; assert len(images)==2; sdk=int(subprocess.check_output(['adb','shell','getprop','ro.build.version.sdk'])); assert sdk==34; pathlib.Path('navigation-result.json').write_text(json.dumps({'tests':1,'passed':1,'failures':0,'errors':0,'skipped':0,'api_level':sdk,'native_android_motion_events':True,'system_back':True,'release_and_technical_views':True,'version_picker':True,'public_view_restored_after_back':True,'images':images,'physical_device':False},indent=2))"
+      - name: Preserve evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-release-navigation-test224
+          path: |
+            navigation-source.json
+            navigation-result.json
+            release-navigation*.txt
+            release-notes-*.png
+          retention-days: 7
+          if-no-files-found: warn

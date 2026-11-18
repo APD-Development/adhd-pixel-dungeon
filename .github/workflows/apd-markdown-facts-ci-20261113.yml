@@ -1,0 +1,50 @@
+name: APD Markdown fact-line exact-source verification
+on:
+  push:
+    branches: [chatgpt/apd-markdown-facts-boundary-20261113-0630]
+    paths:
+      - .github/workflows/apd-markdown-facts-ci-20261113.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportRenderer.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportMarkdownFactsBoundaryTest.java
+permissions: {contents: read}
+concurrency:
+  group: apd-markdown-facts-20261113
+  cancel-in-progress: false
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Complete core JUnit and desktop/Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Verify exact-source regressions and zero skipped tests
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          files = list(Path('core/build/test-results/test').glob('TEST-*.xml'))
+          assert files, 'missing JUnit XML'
+          roots = [ET.parse(f).getroot() for f in files]
+          totals = {k: sum(int(root.get(k, '0')) for root in roots)
+                    for k in ('tests', 'failures', 'errors', 'skipped')}
+          assert totals['tests'] >= 3432, totals
+          assert all(totals[k] == 0 for k in ('failures', 'errors', 'skipped')), totals
+          cases = {c.get('name') for root in roots for c in root.findall('testcase')}
+          for name in ('multilineFactSectionsLabelsValuesAndDetailsCannotCreateNewMarkdownEntries',
+                       'ordinaryFactsAndCanonicalNoticeStayIdentical'):
+              assert name in cases, name
+          print('EXACT_APD_MARKDOWN_FACTS_JUNIT', totals, 'suites', len(files))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-markdown-facts-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,1 @@
+2026-11-10 owner explicitly requests publication of independently verified APD435 Developer and Alpha-Testers APKs to GitHub Releases. Reverify run 42920537849, source, original signing certificate and both native results, publish only if all gates pass, preserve existing releases and source, verify downloadable files after publication.

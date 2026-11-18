@@ -1,0 +1,1 @@
+Owner active verified cadence through09:30UTC.3049core457suites pass.12nativecases required with all expanded actual windows; checked-exception test wrappers fixed.389 rejected, preserve its source/failure evidence;388verifiedfallback. Compile instrumentation first and archive raw APK output on any failure. No fullaudit/phone/audio/newpanel claim.

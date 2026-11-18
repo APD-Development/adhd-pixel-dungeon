@@ -1,0 +1,1 @@
+Verify the original377 pair from successful build job in42491383670. Compile corrected instrumentation only, no game APK build. Run all12native cases and prepare signed identity/source/checksum evidence. Keep original producing source tag52e00c273; corrected native test source is a distinct verification commit. Preserve all failure/cancellation evidence.

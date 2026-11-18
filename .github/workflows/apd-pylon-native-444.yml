@@ -1,0 +1,116 @@
+# ADHD Pixel Dungeon; Copyright (C) 2026 Chris Charlton
+# SPDX-License-Identifier: GPL-3.0-or-later
+name: Supplemental pylon native checks on the frozen APD444 applications
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-444-PYLON-NATIVE-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd444-supplemental-pylon-native, cancel-in-progress: false}
+jobs:
+  instrument:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check supplemental provenance and scope guards
+        run: python3 tools/apd444_pylon_native.py self-test
+      - name: Require unchanged application source and verify the exact frozen original pair
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd444_pylon_native.py prepare
+      - name: Build a separate test APK without packaging any game APK
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          set -o pipefail
+          ./gradlew :android:assembleDebugAndroidTest -x :android:packageDebug -x :android:assembleDebug -PapdTestBuild -PapdBuild=C444 2>&1 | tee pylon444-instrumentation/instrumentation-build.log
+          python3 tools/check_android_json_abi.py . | tee pylon444-instrumentation/android-json-abi.log
+          python3 tools/apd444_pylon_native.py freeze
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd444-pylon-instrumentation-attempt-${{ github.run_attempt }}
+          path: pylon444-instrumentation/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd444-pylon-instrumentation-failure-attempt-${{ github.run_attempt }}
+          path: |
+            pylon444-instrumentation/
+            pylon444-failure/
+            pylon444-original/checked-original.json
+            pylon444-original/artifact-metadata.json
+          if-no-files-found: warn
+          retention-days: 30
+  native:
+    needs: instrument
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify the original APKs and exact same-attempt supplemental test artifact
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd444_pylon_native.py fetch
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run only the supplemental pylon case and verify every capture transfer
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: python3 tools/apd444_pylon_native.py native --variant '${{ matrix.variant }}'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd444-pylon-native-${{ matrix.variant }}-attempt-${{ github.run_attempt }}
+          path: pylon444-native/
+          if-no-files-found: warn
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd444-pylon-native-failure-${{ matrix.variant }}-attempt-${{ github.run_attempt }}
+          path: |
+            pylon444-failure/
+            pylon444-test-artifact.json
+            pylon444-instrumentation/instrumentation-verification.json
+            pylon444-original/checked-original.json
+          if-no-files-found: warn
+          retention-days: 30
+  supplemental-evidence:
+    needs: [instrument, native]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Require both exact supplemental cases without changing primary build acceptance
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd444_pylon_native.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd444-pylon-supplemental-evidence-attempt-${{ github.run_attempt }}
+          path: |
+            pylon444-supplemental/
+            pylon444-failure/
+          if-no-files-found: warn
+          retention-days: 30

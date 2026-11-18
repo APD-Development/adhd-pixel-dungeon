@@ -1,0 +1,95 @@
+{
+  "record_type": "APD_TEST255_VERIFICATION",
+  "recorded_at_utc": "2026-10-16T21:07:59Z",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "source_commit": "a11b32f8067765e6229830c929d07d262de34800",
+  "correction": "UIMSD group comparisons pair same-schema non-section rows by definition order so repeated display labels retain their own values",
+  "reproduction": {
+    "commit": "df6d2a4f0e898f52c0e1227ed19c7c71b23b2c63",
+    "workflow_run": 38964285358,
+    "junit": {
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "expected": "20",
+      "actual": "200"
+    },
+    "artifact_id": 12073194262,
+    "artifact_zip_sha256": "137c7a8b59b13049b65e0bee815c57069668bb0bb1f69dcb67d95479d7ea9669",
+    "workflow_conclusion": "failure",
+    "note": "The diagnostic wrapper also failed its overly literal JUnit-message check; no failure was relabeled."
+  },
+  "verification": {
+    "workflow_run": 38964629976,
+    "started_at_utc": "2026-10-16T20:46:15Z",
+    "completed_at_utc": "2026-10-16T21:01:40Z",
+    "conclusion": "success",
+    "core": {
+      "tests": 1737,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12074118076,
+      "artifact_digest": "sha256:c3edd523764e186eac6b6dbd5a30d3f6914f5eb2b9bf1efaaea356148972147b"
+    },
+    "api34": {
+      "tests": 36,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12073874781,
+      "artifact_digest": "sha256:38a7f49e8a8facd2b4ba07ab1de85b5e3b7ba30578568fe8526b38cb11fbd1ba"
+    },
+    "visuals": {
+      "png_count": 49,
+      "width": 320,
+      "height": 640,
+      "manually_reviewed": 49,
+      "blank_or_corrupt": 0,
+      "obvious_clipped_regressions": 0
+    },
+    "apk": {
+      "artifact_id": 12073883782,
+      "artifact_digest": "sha256:8d19fa3cd704e5ab6500ee8b4e11fca7dd0d22d83fbdeb306212179c6f0ed21b",
+      "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-255.apk",
+      "bytes": 38611585,
+      "sha256": "71f0f1d77a0952f9fca121ba5e7ac31bf3488900023109dfe9bcea5812da32d5"
+    },
+    "debug_assembly": true,
+    "immediate_previous_history": {
+      "label": "Codex TEST 254",
+      "source": "832c1a5679a8cd216e8c57638f1bc0fe2442fdfe",
+      "workflow_run": 38949555542,
+      "complete": true
+    }
+  },
+  "staging": {
+    "workflow_run": 38964630161,
+    "attempts": 2,
+    "conclusion": "failure",
+    "packaging_skipped": true,
+    "publication_skipped": true,
+    "failure": "Stale preparation artifacts produced unequal application trees; tools/apd_existing_build_evidence.py line 67 asserted 'Publication commit changes application/build inputs'.",
+    "next_safe_step": "Do not rerun unchanged; correct the staging evidence selector only if publication is requested."
+  },
+  "delivery": {
+    "test255_published": false,
+    "test255_distributed": false,
+    "current_published_label": "TEST254",
+    "current_published_tag": "apd-alpha-preview-254"
+  },
+  "limitations": {
+    "physical_phone": false,
+    "owner_save_install_over": false,
+    "full_human_boss_class_playthrough": false
+  },
+  "invariants": [
+    "raw history unchanged",
+    "saves unchanged",
+    "all 18 sliders preserved",
+    "active v2.6R 357 lookup values and ordinary multiplication unchanged",
+    "original scores preserved",
+    "gameplay RNG and turns unchanged"
+  ]
+}

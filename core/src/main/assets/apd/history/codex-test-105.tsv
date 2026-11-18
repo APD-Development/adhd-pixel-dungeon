@@ -1,0 +1,4 @@
+Bug Fixes	ICON_DATA	Exact grouped-record drilldown	Opening a statistics group now shows exactly its records, keeping lower bounds and differently capitalized text separate.
+Testing	ICON_CHECKED	Group selection and saved queries	Added regression coverage for group membership, persisted drilldowns and real touch interaction in native group sheets.
+Development	ICON_INFO	Verified build evidence	Recorded TEST104's actual verified delivery and this build's changes, tests and compatibility limits.
+Developer Commentary	V074_SHPX	Developer Commentary	I fixed grouped statistics that could open the wrong records. Ordinary filters still work the same way, while drilldowns retain the exact group you selected.

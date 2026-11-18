@@ -1,0 +1,22 @@
+name: Verify APD native image transport resilience
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/apd-native-transfer-ci.yml
+      - tools/apd_native_screenshot_transfer.py
+      - tools/test_apd_native_screenshot_transfer.py
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and run native screenshot transport regression tests
+        run: |
+          python3 -m py_compile tools/apd_native_screenshot_transfer.py tools/test_apd_native_screenshot_transfer.py
+          python3 -m unittest discover -s tools -p 'test_apd_native_screenshot_transfer.py' -v
+      - name: Check preserved APD recovery safeguards
+        run: python3 -m unittest discover -s tools -p 'test_apd_recover439_440.py' -v

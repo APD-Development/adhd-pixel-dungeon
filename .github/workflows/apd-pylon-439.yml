@@ -1,0 +1,147 @@
+# ADHD Pixel Dungeon; Copyright (C) 2026 Chris Charlton
+# SPDX-License-Identifier: GPL-3.0-or-later
+name: Build APD439 DM300 pylon targeting correction
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-439-BUILD-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd439-verified-build, cancel-in-progress: false}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Recover exact previous compiled history without changing previous builds
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 tools/apd_owner_delivery_policy.py
+          python3 - <<'PY'
+          import json,pathlib,subprocess,sys
+          sys.path.insert(0,'tools')
+          from apd_build_history import merge_previous_apk,embed
+          repo='APD-Development/ShieldingShouldHaveWorked'
+          artifact=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/artifacts/13818269157']))
+          assert not artifact['expired']
+          assert artifact['digest']=='sha256:156426713cb5efb31d8c59ca153d551b64a536a26da30f48f53ff2d509b3833c'
+          assert artifact['workflow_run']['head_sha']=='92114c09957aaae0c9900aee52aac0c193b1365a'
+          subprocess.run(['gh','run','download','42936338766','--repo',repo,'--name','apd438-built-pair','--dir','fallback'],check=True)
+          previous=list(pathlib.Path('fallback').rglob('APD-Developer-438.apk'))
+          assert len(previous)==1
+          merge_previous_apk(pathlib.Path.cwd(),previous[0],'Codex TEST 438')
+          changed=subprocess.check_output(['git','diff','--name-only','92114c09957aaae0c9900aee52aac0c193b1365a','HEAD'],text=True).splitlines()
+          assert 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java' in changed
+          assert 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/BossPylonTargeting.java' in changed
+          assert 'core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/BossPylonTargetingTest.java' in changed
+          # The owner-approved fix changes only target selection in Hero, never boss damage or phase rules.
+          assert 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/DM300.java' not in changed
+          assert 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Pylon.java' not in changed
+          ledger={'date':'2026-11-10','changes':[{'category':'Bug Fixes','sprite':'ICON_PREFS','title':'DM300 pylon targeting','text':'During the DM-300 invulnerable supercharge phase the auto-target prefers an active visible aimable pylon. Inactive pylons and boss phase mechanics remain untouched. No balance or save changes.','paths':changed}]}
+          embed(pathlib.Path.cwd(),ledger,439)
+          index=pathlib.Path('core/src/main/assets/apd/history/index.tsv').read_text()
+          assert 'Codex TEST 438' in index and 'Codex TEST 439' in index
+          pathlib.Path('evidence').mkdir(exist_ok=True)
+          pathlib.Path('evidence/source.json').write_text(json.dumps({'source_commit':__import__('os').environ['GITHUB_SHA'],'previous_source':'92114c09957aaae0c9900aee52aac0c193b1365a','changed_paths':changed},indent=2)+'\n')
+          PY
+      - name: Run core suite and compile all required variants before building
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac -PapdTestBuild -PapdBuild=C439
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as E
+          roots=[E.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          totals={key:sum(int(r.get(key,0)) for r in roots) for key in ('tests','failures','errors','skipped')}
+          assert len(roots)==461 and totals=={'tests':3179,'failures':0,'errors':0,'skipped':0},(len(roots),totals)
+          print(totals)
+          PY
+      - name: Assemble Developer and Alpha-Testers; verify original signature and built-in history
+        run: |
+          mkdir -p owner-delivery
+          ./gradlew :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C439
+          cp android/build/outputs/apk/debug/android-debug.apk owner-delivery/APD-Developer-439.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk evidence/instrumentation.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P439
+          cp android/build/outputs/apk/debug/android-debug.apk owner-delivery/APD-Alpha-Testers-439.apk
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess,os,sys
+          sys.path.insert(0,'tools')
+          from apd_build_history import verify_compiled
+          from apd_existing_build_evidence import certificates
+          root=pathlib.Path('.')
+          signer=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          aapt=signer.parent/'aapt'
+          signatures={}
+          for variant in ('Developer','Alpha-Testers'):
+              p=root/'owner-delivery'/('APD-'+variant+'-439.apk')
+              assert p.exists() and p.stat().st_size>1000000
+              result=subprocess.check_output([str(signer),'verify','--print-certs',str(p)],text=True)
+              cert=certificates(result)
+              assert cert==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'],cert
+              metadata=subprocess.check_output([str(aapt),'dump','badging',str(p)],text=True)
+              assert 'com.charltonchris29.adhdpixeldungeon.indev' in metadata
+              verify_compiled(root,p)
+              import zipfile
+              with zipfile.ZipFile(p) as packed:
+                  feature_lines=packed.read('assets/apd/features.txt').decode('utf-8').splitlines()
+                  if variant=='Alpha-Testers':
+                      assert 'grudge' in feature_lines and 'extendedPlayback' in feature_lines
+                      assert 'testBuild' not in feature_lines and 'demoUnlock' not in feature_lines and 'clericPlayable' not in feature_lines
+                  else:
+                      assert 'grudge' in feature_lines and 'testBuild' in feature_lines
+              signatures[variant]={'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size,'cert':cert[0]}
+          (root/'evidence'/'apks.json').write_text(json.dumps(signatures,indent=2)+'\n')
+          print(json.dumps(signatures))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd439-built-pair
+          path: |
+            owner-delivery/
+            evidence/
+            core/build/test-results/test/
+          retention-days: 30
+  native:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: apd439-built-pair}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run actual item-window acceptance on the built APK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            mkdir -p evidence
+            adb install -r owner-delivery/APD-${{ matrix.variant }}-439.apk
+            adb install -r evidence/instrumentation.apk
+            timeout 1800 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/${{ matrix.variant }}-qol.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/${{ matrix.variant }}-qol.txt grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd439-native-${{ matrix.variant }}
+          path: evidence/
+          retention-days: 30

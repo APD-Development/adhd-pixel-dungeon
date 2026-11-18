@@ -1,0 +1,43 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Preserve rejected389 source and test evidence in private owner draft
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-389-EVIDENCE-REQUEST.txt]
+permissions: {contents: write, actions: read}
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Attach permanent failure and core evidence without publishing an APK
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PYVERIFY'
+          import json,pathlib,hashlib,subprocess
+          repo='APD-Development/ShieldingShouldHaveWorked';assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          d=json.loads(pathlib.Path('docs/APD-389-LOCAL-CORE-EVIDENCE.json').read_text());assert hashlib.sha256(pathlib.Path('docs/evidence/'+d['asset']).read_bytes()).hexdigest()==d['sha256']
+          PYVERIFY
+          gh run download 42550674646 --repo "$GITHUB_REPOSITORY" --name apd389-built-pair --dir original-failed-build
+          gh run view 42550674646 --repo "$GITHUB_REPOSITORY" --log-failed > original-failed-build/android-test-compilation-failure.log
+          python3 - <<'PYZIP'
+          import pathlib,zipfile
+          with zipfile.ZipFile('APD-389-Original-CI-Evidence.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in sorted(pathlib.Path('original-failed-build').rglob('*')):
+              if p.is_file():z.write(p,p.relative_to('original-failed-build'))
+          PYZIP
+          gh release upload apd-alpha-preview-389 --repo "$GITHUB_REPOSITORY" docs/evidence/APD-389-Local-Core-Evidence.zip docs/evidence/APD-389-Rejected-Build-Evidence.zip APD-389-Original-CI-Evidence.zip

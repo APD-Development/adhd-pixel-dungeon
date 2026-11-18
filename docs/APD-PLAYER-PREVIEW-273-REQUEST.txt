@@ -1,0 +1,5 @@
+APD private matching PLAYER build request for TEST273 (2026-10-17)
+Owner wants two separately named APK files, Developer and Player, both carrying the new upstairs/downstairs one-tap auto-enter behavior.
+Use exactly developer-tested application source df0c9be3b3d52bb9b82e6453491bbfdac7d90e69 from full verification run 39068952497 (1786 core methods and successful API34 Android checks). The Developer download artifact is already compiled and must be reused, not rebuilt.
+Compile a matching normal/debug PLAYER preview without -PapdTestBuild. Preserve exact previous compiled history from the verified Developer APK. Prove player package excludes developer feature marker and includes stair setting; verify known signing certificate. Labels are file names, not new package IDs; they update/replace each other and share existing saves.
+Only private Actions artifacts. No public GitHub release, distribution, alpha invitation or file publication. A separate production-ready player release is not claimed; physical-player build installation still needs acceptance.

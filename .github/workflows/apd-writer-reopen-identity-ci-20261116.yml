@@ -1,0 +1,63 @@
+name: APD writer reopen identity scan exact-source CI
+on:
+  push:
+    branches: [chatgpt/apd-writer-reopen-identity-20261116-1023]
+    paths:
+      - .github/workflows/apd-writer-reopen-identity-ci-20261116.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogWriter.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogAppendIdentityScanTest.java
+permissions: {contents: read}
+concurrency:
+  group: apd-writer-reopen-identity-20261116
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify append-only metadata scan and regression present
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogWriter.java').read_text()
+          test=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogAppendIdentityScanTest.java').read_text()
+          reopen=src.split('public static RunLogWriter openForAppend( File file, TelemetryVersion version, Options options )',1)[1].split('private static RunLogWriter disabledWriter(',1)[0]
+          assert 'ReadOptions reopenScan = new ReadOptions().onlyRunStartEvents(true);' in reopen
+          assert reopen.count('RunLogReader.read(file, reopenScan)') == 2
+          assert 'RunLogReader.read(file);' not in reopen
+          assert 'longUnsealedHistoryReopensWithoutLosingPriorEventsStringsOrClocks' in test
+          assert 'assertArrayEquals(originalBytes, Arrays.copyOf(afterBytes, originalBytes.length))' in test
+          PY
+      - name: Full core JUnit and desktop/Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require entire clean JUnit suite and append/recovery coverage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          suites=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert suites, 'missing JUnit results'
+          totals={k:sum(int(s.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3530, totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0, totals
+          names={t.get('name') for s in suites for t in s.findall('testcase')}
+          for name in ('longUnsealedHistoryReopensWithoutLosingPriorEventsStringsOrClocks',
+                       'reopeningADamagedLogRecoversRecordsAGapAndContinues',
+                       'sealedMissingAndUnreadableLogsAreNotAppendedTo',
+                       'identityOnlyReadValidatesLargeGameplayEventsWithoutCopyingTheirTails'):
+              assert name in names, name
+          print(totals, 'suites', len(suites))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-writer-reopen-identity-junit-20261116
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

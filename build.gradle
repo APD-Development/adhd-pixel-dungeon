@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:9.2.0'
+    }
+}
+
+allprojects {
+
+    ext {
+        appName = 'ADHD Pixel Dungeon'
+        appPackageName = 'com.charltonchris29.adhdpixeldungeon'
+
+        //Full releases gets +2 on version code, needed for an F-Droid quirk
+        appVersionCode = 921
+        appVersionName = '4.0.9-apd'
+
+        appJavaCompatibility = JavaVersion.VERSION_11
+
+        appAndroidCompileSDK = 36   //Android 16
+        appAndroidMinSDK = 26       //Android 8.0 (APD supports Android 8.0+; upstream SPD still supports 5.0+)
+        appAndroidTargetSDK = 36    //Android 16: Google Play requires API 36 for new apps and updates since Aug 31 2026
+
+        gdxVersion = '1.14.0'
+        gdxControllersVersion = '2.2.4'
+        robovmVersion = '2.3.24'
+    }
+    version = appVersionName
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://central.sonatype.com/repository/maven-snapshots/' }
+    }
+
+}

@@ -1,0 +1,167 @@
+Testing	ICON_STATS	Statistics Screens Device Test	Updated Android checks and fixtures for statistics screens device. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Combat actions	Recorded the existing Char actions through the generic fact hooks.
+Changes	ICON_INFO	Buff	Recorded the existing Buff actions through the generic fact hooks.
+Changes	ICON_INFO	Hero actions	Recorded the existing Hero actions through the generic fact hooks.
+Changes	ICON_INFO	Armor Ability	Recorded the existing ArmorAbility actions through the generic fact hooks.
+Changes	ICON_INFO	Shopkeeper	Recorded the existing Shopkeeper actions through the generic fact hooks.
+Statistics / UIMSD	ICON_INFO	Log Redactor	Carried generic fact-series metadata through recording, redaction and cached statistics.
+Statistics / UIMSD	ICON_STATS	Dataset Store	Added fact/event datasets and per-run, floor, turn and hour statistics to the existing query system.
+Statistics / UIMSD	ICON_STATS	Event Datasets	Added Floors, attacks, damage, healing, shielding, experience, kills and equipment event tables.
+Statistics / UIMSD	ICON_STATS	Fact Datasets	Added the datasets generated from the fact-kind registry (see FactKinds): one dataset per kind, one row per observation.
+Statistics / UIMSD	ICON_STATS	Per Unit	Added the denominators of "per run / per floor / per turn / per hour" answers.
+Statistics / UIMSD	ICON_JOURNAL	Question	Added a question in the player's words, before it is turned into a query: "the average [mana spent] of [spell casts] per [floor visit], by [spell], only where [run class is Cleric]".
+Statistics / UIMSD	ICON_JOURNAL	Questions	Added turns a Question into a query and an answer, and offers the choices the question builder shows.
+Statistics / UIMSD	ICON_STATS	Apd Facts	Added the game's entry point for recording ANY registered kind of fact (see FactKinds).
+Statistics / UIMSD	ICON_STATS	Apd Play	Added the game's one-line entry points for recording what the hero does and what happens around them (movement, items, status effects, talents, spells, gold, shops, traps).
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Recorded the existing ApdRecorder actions through the generic fact hooks.
+Statistics / UIMSD	ICON_TARGET	Combat Tracker	Connected lossless generic facts and equipment/action tracking to the recorder.
+Statistics / UIMSD	ICON_STATS	Fact Tracker	Added writes the generic fact observations of a run (see FactKinds).
+Statistics / UIMSD	ICON_STATS	Play Tracker	Added turns what the hero does and what happens around them into generic fact observations (see FactKinds, GameFacts): steps, rests, searches, item actions, status effects, talents, spells, abilities, gold, trades, traps, and the time actually spent playing.
+Statistics / UIMSD	ICON_STATS	Builtin Fact Kinds	Added the kinds of fact the game itself declares.
+Statistics / UIMSD	ICON_STATS	Fact Events	Added encoders and decoders for the generic fact events of telemetry 1.8 (FACT, FACT_INTERNAL, FACT_SERIES, FACT_SERIES_INTERNAL).
+Statistics / UIMSD	ICON_STATS	Fact Kind	Added the declaration of one KIND of observable fact: "the hero took a step", "a spell was cast", "a status effect began", "gold was spent".
+Statistics / UIMSD	ICON_STATS	Fact Kinds	Added the registry of every kind of fact APD records.
+Statistics / UIMSD	ICON_STATS	Game Facts	Added the kinds of fact the game's own mechanics declare (see FactKinds).
+Changes	ICON_BACKPACK	Gold	Recorded the existing Gold actions through the generic fact hooks.
+Changes	ICON_BACKPACK	Heap	Recorded the existing Heap actions through the generic fact hooks.
+Changes	ICON_BACKPACK	Item lifecycle	Recorded the existing Item actions through the generic fact hooks.
+Changes	ICON_BACKPACK	Kings Crown	Recorded the existing KingsCrown actions through the generic fact hooks.
+Changes	ICON_BACKPACK	Tengus Mask	Recorded the existing TengusMask actions through the generic fact hooks.
+Changes	ICON_BACKPACK	Overgrowth	Recorded the existing Overgrowth actions through the generic fact hooks.
+Changes	ICON_TALENT	Holy Tome	Recorded the existing HolyTome actions through the generic fact hooks.
+Changes	ICON_STAIRS	Trap	Recorded the existing Trap actions through the generic fact hooks.
+Quality of Life	ICON_STATS	Statistics screen	Added the question builder and access to the newly generated fact tables.
+Quality of Life	ICON_TALENT	Cleric Spells	Recorded the existing WndClericSpells actions through the generic fact hooks.
+Quality of Life	ICON_BACKPACK	Trade Item	Recorded the existing WndTradeItem actions through the generic fact hooks.
+Quality of Life	ICON_STATS	Statistics Ask	Added the question builder, the friendly front door to everything UIMSD has recorded.
+Testing	ICON_CHECKED	Play Wiring Test	Added a test covering every Hook Is Still In The Game Source. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test	Updated automated checks and fixtures for dataset builders. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 1	Added a test covering every Observation Is A Row With Its Floor And Its Runs Facts. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 2	Added a test covering the Usual Questions Are Answered By The Normal Engine With No Special Code. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 3	Added a test covering a Series Gives One Row Per Observation Nothing Summarised. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 4	Added a test covering a Hidden Kind Is Never A Public Row And Only A Finished Run Shows It When Hidden Information Is On. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 5	Added a test covering a Kind This Build Does Not Know Is Skipped Not An Error. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 6	Added a test covering older Logs Have No Fact Rows And Are Not Broken. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Datasets Test 7	Added a test covering the Row Cache Survives And Rebuilds When The Registry Changes. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 1	Added a test covering every Floor Visit Is A Row Even A Quiet One. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 2	Added a test covering each Event Is A Row Of Its Own Dataset. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 3	Added a test covering casts Per Floor Are Measured Against Every Floor Not Just The Ones With Casts. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 4	Added a test covering keys That Are Not Context Do Not Narrow The Denominator. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 5	Added a test covering context Filters Narrow The Denominator Too. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 6	Added a test covering time Played Is Unknown Not Zero When It Was Never Recorded. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 7	Added a test covering time Played On A Floor Comes From The Running Total And Survives A Restart. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floors And Per Unit Test 8	Added a test covering what Was Worn And For How Long Is A Dataset. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 1	Added a test covering a Count Is Answered In One Line. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 2	Added a test covering any Recorded Column Can Be Average Grouped And Filtered. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 3	Added a test covering casts Per Floor Use Every Floor Of The Group As The Denominator. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 4	Added a test covering per Only Goes With Counts And Totals. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 5	Added a test covering the Choices Are Generated From The Datasets. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 6	Added a test covering a Question With Nothing To Answer Says Why. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Questions Test 7	Added a test covering complexity Grows With Everything Asked. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Synthetic Log	Updated automated checks and fixtures for synthetic log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test	Updated automated checks and fixtures for statistics home tour. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Tracker Test 1	Added a test covering every Step Of A Long Walk Is Kept Across The Automatic Pieces. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Tracker Test 2	Added a test covering nothing Of A Series Is Written Until It Is Flushed And Flushing Twice Adds Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Tracker Test 3	Added a test covering a Plain Kind Is Written At Once With Its Subject And Tags. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Tracker Test 4	Added a test covering a Careless Call Is Fitted To The Declared Shape. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Play Tracker Test 1	Added a test covering every Gold Change Is Recorded With Its Cause And Nothing Else Is. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Play Tracker Test 2	Added a test covering played Time Is Recorded As A Running Total That Counts Only Short Gaps. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Rollback Test	Updated automated checks and fixtures for rollback. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Events Test 1	Added a test covering a Single Fact Round Trips With Everything. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Events Test 2	Added a test covering a Series Expands To Exactly The Observations That Went In. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Events Test 3	Added a test covering a Series Of Slowly Changing Steps Is Much Smaller Than Separate Events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Events Test 4	Added a test covering internal Facts Are Hidden By Their Event Type. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Events Test 5	Added a test covering a Damaged Payload Is Refused Not Trusted. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Events Test 6	Added a test covering empty Series Writes Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Kinds Test 1	Added a test covering a Kind Can Be Registered And Found. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Kinds Test 2	Added a test covering the Same Key Cannot Be Registered For Two Meanings. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Kinds Test 3	Added a test covering bad Keys Are Refused. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Kinds Test 4	Added a test covering internal Kinds Use The Internal Event Types. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Kinds Test 5	Added a test covering the Fingerprint Changes When The Registry Does. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Kinds Test 6	Added a test covering every Key Of The Manifest Is Still Registered With The Same Shape. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Storage Test 1	Added a test covering every Step Of A Long Run Costs A Few Bytes And Comes Back Exactly. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Storage Test 2	Added a test covering a Whole Long Run Of Facts Stays Small. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test	Updated automated checks and fixtures for item events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test	Updated automated checks and fixtures for telemetry version handling. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	fact kind manifest	Added automated checks and fixtures for fact kind manifest. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_STATS	APD-UIMSD-UNIVERSAL	Added apd-uimsd-universal accompanying this build.
+Statistics / UIMSD	ICON_STATS	Run difficulty	Added the Run difficulty statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Run	Added the Run statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Turn	Added the Turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Floor	Added the Floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Branch	Added the Branch statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Visit	Added the Visit statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	How you arrived	Added the How you arrived statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Kind of floor	Added the Kind of floor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Feeling	Added the Feeling statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Entered on turn	Added the Entered on turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Left on turn	Added the Left on turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Turns spent	Added the Turns spent statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	How it ended	Added the How it ended statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Time played here (ms)	Added the Time played here (ms) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero attacks	Added the Hero attacks statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero hits	Added the Hero hits statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Attacks on hero	Added the Attacks on hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hits on hero	Added the Hits on hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage dealt by hero	Added the Damage dealt by hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage taken by hero	Added the Damage taken by hero statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Enemies that died	Added the Enemies that died statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	HP healed	Added the HP healed statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Shield gained	Added the Shield gained statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Experience gained	Added the Experience gained statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Levels gained	Added the Levels gained statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero deaths	Added the Hero deaths statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items seen	Added the Items seen statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Items picked up	Added the Items picked up statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Attacker is	Added the Attacker is statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Attacker	Added the Attacker statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Defender	Added the Defender statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hit	Added the Hit statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Spell or bolt	Added the Spell or bolt statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Thrown	Added the Thrown statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Weapon	Added the Weapon statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage rolled	Added the Damage rolled statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Armor took off	Added the Armor took off statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage after armor	Added the Damage after armor statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True attacker	Added the True attacker statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True defender	Added the True defender statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Target is	Added the Target is statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Target	Added the Target statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Caused by	Added the Caused by statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Cause kind	Added the Cause kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Damage	Added the Damage statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Killed it	Added the Killed it statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero HP after	Added the Hero HP after statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Hero max HP	Added the Hero max HP statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Absorbed by shield	Added the Absorbed by shield statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	HP after	Added the HP after statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Max HP	Added the Max HP statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Worked out afterwards	Added the Worked out afterwards statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	What healed	Added the What healed statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Shield after	Added the Shield after statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	From	Added the From statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Experience	Added the Experience statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Level before	Added the Level before statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Item	Added the Item statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Kind	Added the Kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Worn as	Added the Worn as statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Level you could see	Added the Level you could see statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Curse known	Added the Curse known statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Identified	Added the Identified statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Item id	Added the Item id statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Floor put on	Added the Floor put on statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Put on at turn	Added the Put on at turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Taken off at turn	Added the Taken off at turn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Turns worn	Added the Turns worn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Still worn	Added the Still worn statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Victim is	Added the Victim is statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Victim	Added the Victim statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Killed by	Added the Killed by statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True kind	Added the True kind statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	XP it was worth	Added the XP it was worth statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Who	Added the Who statistics field; unrecorded values remain unknown.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the recording-format history bundled with this APK. Recorded the existing Char actions through the generic fact hooks.

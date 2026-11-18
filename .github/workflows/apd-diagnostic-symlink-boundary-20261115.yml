@@ -1,0 +1,60 @@
+name: Verify APD diagnostic file alias boundary
+on:
+  pull_request:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - SPD-classes/src/main/java/com/watabou/utils/SupportDiagnostics.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/diagnostics/SupportDiagnosticsTest.java
+      - .github/workflows/apd-diagnostic-symlink-boundary-20261115.yml
+permissions: {contents: read}
+concurrency:
+  group: apd-diagnostic-symlink-boundary-20261115
+  cancel-in-progress: false
+jobs:
+  exact-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Run full core tests and desktop/Android Java compilation
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac --no-daemon
+      - name: Require clean full suite and alias safety regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=list(Path('core/build/test-results/test').glob('TEST-*.xml'))
+          assert reports,'Missing core JUnit results'
+          roots=[ET.parse(p).getroot() for p in reports]
+          totals={k:sum(int(root.get(k,0)) for root in roots)
+                  for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3466,totals
+          assert all(totals[k]==0 for k in ('failures','errors','skipped')),totals
+          cases={case.get('name') for root in roots for case in root.findall('testcase')}
+          required={
+            'diagnosticSymlinkAliasesCannotLeakOrOverwriteExternalFiles',
+            'diagnosticTemporarySymlinkDoesNotTruncateExternalFile',
+            'canonicalizedSymlinkedDiagnosticsDirectoryStillWorks',
+            'eventAndExceptionLineBreaksCannotForgeDiagnosticRecords',
+            'androidMemoryPressureSeveritySurvivesNoisyInputHistory'
+          }
+          assert required<=cases,required-cases
+          print('APD diagnostic alias verification',totals,'suites',len(roots))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-diagnostic-symlink-boundary-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

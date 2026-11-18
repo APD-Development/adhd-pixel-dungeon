@@ -1,0 +1,67 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Link exact existing candidate verification runs (no build)
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-CANDIDATE-STATUS-REQUEST.json]
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+jobs:
+  link-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs=require('fs');
+            const request=JSON.parse(fs.readFileSync('docs/APD-CANDIDATE-STATUS-REQUEST.json','utf8'));
+            const {owner,repo}=context.repo;
+            if(`${owner}/${repo}`!=='APD-Development/ShieldingShouldHaveWorked'||! /^[0-9a-f]{40}$/.test(request.source))throw new Error('Unexpected repository or source');
+            const permitted=new Map([
+              ['codex-sprint-check.yml','APD candidate Developer run link'],
+              ['codex-player-with-every-test.yml','APD candidate Alpha run link'],
+              ['codex-menu-layout-matrix.yml','APD candidate display run link']
+            ]);
+            if(request.tester_source){
+              if(! /^[0-9a-f]{40}$/.test(request.tester_source))throw new Error('Unexpected tester source');
+              permitted.set('apd-corrective-tester-check.yml','APD candidate Alpha acceptance run link');
+            }
+            if(request.qol_source){
+              if(! /^[0-9a-f]{40}$/.test(request.qol_source))throw new Error('Unexpected QoL source');
+              permitted.set('apd-qol-exact-candidate-acceptance.yml','APD candidate panel acceptance run link');
+            }
+            if(request.delivery_source){
+              if(! /^[0-9a-f]{40}$/.test(request.delivery_source))throw new Error('Unexpected delivery source');
+              permitted.set('apd-corrective-pair-delivery.yml','APD candidate private delivery run link');
+            }
+            if(request.prepared_delivery_source){
+              if(! /^[0-9a-f]{40}$/.test(request.prepared_delivery_source))throw new Error('Unexpected prepared delivery source');
+              permitted.set('apd-prepared-pair-delivery.yml','APD prepared private delivery run link');
+            }
+            for(const [workflow_id,statusContext] of permitted){
+              const observed=workflow_id==='apd-prepared-pair-delivery.yml'?request.prepared_delivery_source:workflow_id==='apd-corrective-tester-check.yml'?request.tester_source:workflow_id==='apd-qol-exact-candidate-acceptance.yml'?request.qol_source:workflow_id==='apd-corrective-pair-delivery.yml'?request.delivery_source:request.source;
+              const response=await github.rest.actions.listWorkflowRuns({owner,repo,workflow_id,head_sha:observed,branch:'codex/apd-phone-fixes-2026-10-09',event:'push',per_page:10});
+              const runs=response.data.workflow_runs.filter(r=>r.head_sha===observed&&r.head_branch==='codex/apd-phone-fixes-2026-10-09');
+              if(runs.length!==1)throw new Error(`Expected one existing exact-source run for ${workflow_id}; found ${runs.length}`);
+              const run=runs[0];
+              await github.rest.repos.createCommitStatus({owner,repo,sha:request.source,state:'pending',context:statusContext,description:'Discovery link only; inspect actual jobs and artifacts. No verification or delivery claimed.',target_url:run.html_url});
+              console.log(JSON.stringify({workflow:workflow_id,id:run.id,source:run.head_sha,status:run.status,conclusion:run.conclusion,discovery_only:true,application_rebuilt:false}));
+            }

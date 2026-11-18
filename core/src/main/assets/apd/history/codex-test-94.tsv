@@ -1,0 +1,6 @@
+Bug Fixes	ICON_DATA	Imported-history cache	Recorded runs and imported rankings with matching filenames no longer reuse each other's cached records.
+Statistics / UIMSD	ICON_DATA	Run-detail cleanup	Removed an unused internal row-label helper while preserving the existing detail labels and actions.
+Statistics / UIMSD	ICON_DATA	Merge cleanup	Removed an unused counter from statistics merging without changing totals or their accuracy labels.
+Testing	ICON_CHECKED	Cache-source regression	Added a real archive round-trip check for matching filenames, preserved raw logs and safe cache reloads.
+Development	ICON_INFO	Verified batch evidence	Recorded the preceding APK's delivery and the reproduced imported-history cache failure and fix.
+Developer Commentary	V074_SHPX	Developer Commentary	I fixed an edge case where a history cache could display a recorded run in place of an imported ranking. The original logs remain untouched, and I removed two unused internal helpers.

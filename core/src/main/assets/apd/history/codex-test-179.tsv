@@ -1,0 +1,3 @@
+Testing	V061_PAGE	UIMSD column-dialog recreation	Recreate Column order and Move column independently, require exact single restoration, and exercise Make first through the restored callback.
+Bug Fixes	V061_BUGFIX	Column restoration status	Replace the stale open-item wording with the exact guarded workflow and retain physical-phone acceptance as unclaimed.
+Changes	V061_PAGE	TEST178 evidence and TEST179 handoff	Preserve verified tipped-dart evidence and record the pending UIMSD recreation checkpoint.

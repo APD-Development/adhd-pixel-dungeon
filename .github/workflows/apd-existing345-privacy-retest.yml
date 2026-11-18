@@ -1,0 +1,108 @@
+name: Retest exact TEST345 UIMSD Privacy restoration
+
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-existing345-privacy-retest.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-existing345-privacy-retest
+  cancel-in-progress: false
+
+jobs:
+  exact-apk-privacy-api34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Download exact TEST345 APK and prove application inputs are unchanged
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY']
+          source='207ed6819ed2a36cd4f6ccd02eaca5d7b9aa1457'
+          run_id=41344574181
+          expected_apk='a6c5653d5eaf182c65a5352146ce8660cdfd0f71ad70796049a87dc35b3e5b46'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1') for s in (source,os.environ['GITHUB_SHA'])]
+          assert all(not tree.get('truncated') for tree in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          run=api(f'repos/{repo}/actions/runs/{run_id}')
+          assert run['head_sha']==source and run['run_number']==345
+          jobs=api(f'repos/{repo}/actions/runs/{run_id}/jobs')['jobs']
+          assert any(job['name']=='verify-and-build' and job['conclusion']=='success' for job in jobs)
+          artifacts=api(f'repos/{repo}/actions/runs/{run_id}/artifacts')['artifacts']
+          artifact,=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert artifact['id']==13097999436
+          with open('exact345.zip','wb') as out:
+              subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{artifact["id"]}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact345.zip').read_bytes()).hexdigest()==artifact['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact345.zip') as archive:
+              apk,=[name for name in archive.namelist() if name.endswith('.apk')]
+              data=archive.read(apk)
+              digest=hashlib.sha256(data).hexdigest()
+              checksum,=[name for name in archive.namelist() if name.endswith('.apk.sha256')]
+              assert archive.read(checksum).decode().split()[0]==digest==expected_apk
+              pathlib.Path('application/exact345.apk').write_bytes(data)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({
+              'application_source':source,
+              'application_run':run_id,
+              'application_artifact':artifact['id'],
+              'application_sha256':expected_apk,
+              'application_rebuilt':False,
+              'application_inputs_unchanged':True,
+              'test_source':os.environ['GITHUB_SHA'],
+              'physical_device':False,
+              'published':False
+          },indent=2))
+          print('EXACT_TEST345_APK_SHA256',expected_apk)
+          PY
+      - name: Compile corrected instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C345
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Restore every Privacy subflow on API34 without queueing or sending
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb logcat -c
+            adb logcat -v time > privacy-logcat.txt &
+            adb install -r application/exact345.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.UimsdRestoreDeviceTest#privacySubflowsRestoreExactLocalStateWithoutQueueingOrSending com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner | tee privacy-result.txt
+            ! grep -q 'FAILURES!!!' privacy-result.txt
+            grep -Fq 'OK (1 test)' privacy-result.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-test345-privacy-restoration-retest
+          path: |
+            acceptance-source.json
+            privacy-result.txt
+            privacy-logcat.txt
+            android/build/reports/androidTests/
+            android/build/outputs/androidTest-results/
+          if-no-files-found: warn
+          retention-days: 7

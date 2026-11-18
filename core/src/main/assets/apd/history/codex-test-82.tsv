@@ -1,0 +1,4 @@
+Bug Fixes	ICON_RANKINGS	Saved-query Sort menu crash	Opening Sort no longer crashes when a saved query contains more than eight sort keys.
+Testing	ICON_DATA	Large sort-key regression	Android checks now open the Sort menu with nine distinct public keys and capture it without dropping the query's keys.
+Development	ICON_INFO	Source-reviewed audit evidence	Recorded exact reviewed source files, cache and filter evidence, and a reproduced saved-query crash.
+Developer Commentary	V074_SHPX	Developer Commentary	I removed an unused array that could crash the Sort menu for a larger saved query. Sorting and saved-query formats remain unchanged.

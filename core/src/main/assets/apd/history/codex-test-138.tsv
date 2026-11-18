@@ -1,0 +1,13 @@
+Changes	V063_MAGICMISSILE	Potion effect attribution	Keep thrown potion effects attributed while treating triggered terrain traps as environmental.
+Changes	V063_MAGICMISSILE	Potion cloud origin	Retain known potion ownership when creating corrosive clouds.
+Changes	V063_MAGICMISSILE	Caustic brew ownership	Preserve the thrower of caustic-brew effects across saves.
+Bug Fixes	V061_BUGFIX	Nested effect safety	Restore effect attribution after nested effects and exceptions without retaining actor references.
+Changes	V061_BUGFIX	Caustic effect source	Allow caustic effects to record a known creator without changing an existing effect on invalid input.
+Changes	V061_BUGFIX	Throw callback ownership	Capture offensive ownership when a throw begins, without relying on a later current-user value.
+Changes	V061_BUGFIX	Throw and trap regressions	Test real caustic effects, persisted ownership, environmental traps and exception cleanup.
+Changes	V061_BUGFIX	Throw verification record	Document throw-boundary checks and remaining damage-source work.
+Changes	V061_BUGFIX	Development checkpoint	Preserve verified source evidence and the unfinished damage-slider checkpoint.
+Bug Fixes	V061_BUGFIX	Score scrolling verification	Require an overflowing small-window fixture before testing native touchscreen scrolling.
+Changes	V061_BUGFIX	TEST136 verification record	Record the passing core build and failed native score-scrolling check.
+Changes	V061_BUGFIX	Private build checks	Require full source and Android checks for the next private candidate.
+Changes	V061_BUGFIX	Complete history validation	Require the build-history ledger itself to be included in the reviewed changes.

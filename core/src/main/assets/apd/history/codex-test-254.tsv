@@ -1,0 +1,3 @@
+Bug Fixes	ICON_INFO	Readable narrow-screen messages	Dungeon messages stay above the quickslot page switch on narrow screens.
+Testing	ICON_CHECKED	Message and native-input checks	Native layout checks include rendered messages; setup closes its own modal and waits for actual touch delivery before checking live previews.
+Infrastructure	ICON_INFO	Keep verification failures traceable	Keep exact APK provenance, unsuccessful native checks, corrected test results and compatible fallback evidence in the preparation records.

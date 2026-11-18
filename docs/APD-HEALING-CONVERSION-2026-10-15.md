@@ -1,0 +1,12 @@
+# Healing-to-Shielding slider correction — October 15, 2026
+The owner's clarified setting overrides only the minimum chance that a generated Potion of Healing becomes a Potion of Shielding. Vanilla Exotic Crystals still affects other potion and scroll conversions normally.
+## Confirmed cause and change
+The APD override was placed in ExoticCrystals.consumableExoticChance() without considering item type. Both Generator paths used that global result for every potion and scroll. A retained seeded test reproduced Potion of Strength incorrectly becoming Potion of Mastery with no trinket and an 80% override.
+Restore the vanilla generic chance and apply the APD floor only when the regular item is PotionOfHealing. Both ordinary and default generation paths use the item-aware helper. Reword the existing slider and explanation; retain its key, range, increments and frozen per-run value.
+Nonzero live rules include an explicit healing-only scope so corrected mechanics are not silently combined with older global-conversion rules. Historical of() identities, stored records and unknown settings remain intact; the zero-override identity is unchanged.
+## Verification
+Original source: two retained conversion tests ran, one failed with the unrelated Strength-to-Mastery conversion. Corrected source: four retained methods pass, plus two existing ruleset identity methods. Checks cover trinket absent and levels 0–3, all other mapped potion/scroll types, both generator paths, seeded conversion thresholds, next RNG value and frozen run settings. No added RNG draws.
+The separate all-18-controls API34 acceptance succeeded on the exact TEST217 APK; this does not verify the later conversion source. A fresh complete core/debug/history/API34 gate is required before delivery. Physical-phone acceptance remains pending.
+## Preserved behavior and risks
+No slider boundary, scoring, inventory capacity, save encoding or raw history changes. Other trinket conversions retain vanilla behavior. Existing active runs with a nonzero override use the corrected healing-only rule; the recorder can distinguish its new scope without rewriting older events.
+The preceding TEST218 candidate was already running from a source before this correction; it must not be credited with the correction. The next APK must carry its own exact source, prior-APK diff and successful evidence. Published TEST206 remains the fallback until actual private delivery.

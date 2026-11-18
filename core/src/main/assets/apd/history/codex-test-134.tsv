@@ -1,0 +1,10 @@
+Changes	V061_BUGFIX	Ooze	Prepared source-aware ooze ticks with compatible saves and unchanged neutral behavior.
+Changes	V061_BUGFIX	Acidic	Prepared attribution for ooze caused by acidic scorpios.
+Changes	V061_BUGFIX	Caustic Slime	Prepared attribution for caustic-slime ooze.
+Changes	V080_YOG	Goo	Prepared boss attribution for Goo's ooze attacks.
+Changes	V061_BUGFIX	Fetid Rat	Prepared enemy attribution for fetid-rat ooze.
+Changes	V063_MAGICMISSILE	Wand Of Corrosion	Prepared attacker attribution for corrosion-staff ooze.
+Changes	V080_YOG	Yog Fist	Prepared boss attribution for the rotting fist's ooze.
+Changes	V063_MAGICMISSILE	Cursed Wand	Prepared caster attribution for cursed-wand ooze effects.
+Changes	V061_BUGFIX	Attributed Ooze Integration Test	Added ooze checks across depths, damage settings, water removal and save compatibility.
+Changes	V061_PAGE	Delayed damage verification	Recorded ooze regression results and the remaining alpha release blockers.

@@ -1,0 +1,117 @@
+name: Deliver factual owner status with unchanged verified fallback
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-owner-afternoon-status.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish-factual-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Verify existing fallback and generate truthful current report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0
+          gh release download apd-alpha-preview-250 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-Alpha-Preview-250.apk --dir fallback
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,re,subprocess,sys
+          from pypdf import PdfReader
+          repo=os.environ['GITHUB_REPOSITORY'];api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          final=api(f'repos/{repo}/actions/runs/38956379747')
+          now=datetime.datetime.now(datetime.timezone.utc)
+          assert final['conclusion'] in ('failure','cancelled','timed_out') or final['status']!='completed', 'Snapshot must identify actual unfinished acceptance'
+          source='832c1a5679a8cd216e8c57638f1bc0fe2442fdfe'
+          fallback_source='adb1bcdd420ff5639f4a65d2d9b456b0cfe08474';expected='06531de071cbe89a5b0c3260f5c5fb6e6368fbfdf388f8f18bb0fcd983532535'
+          apk=pathlib.Path('fallback/ADHD-Pixel-Dungeon-Alpha-Preview-250.apk');assert hashlib.sha256(apk.read_bytes()).hexdigest()==expected
+          sys.path.insert(0,'tools');from apd_existing_build_evidence import certificates
+          signer=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          cert=certificates(subprocess.check_output([str(signer),'verify','--print-certs',str(apk)],text=True))
+          assert cert==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          package=subprocess.check_output([str(signer.parent/'aapt'),'dump','badging',str(apk)],text=True)
+          assert "name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bC250-TEST'" in package
+          old=api(f'repos/{repo}/releases/tags/apd-alpha-preview-250')
+          asset=next(a for a in old['assets'] if a['name']==apk.name);assert asset['digest']=='sha256:'+expected
+          primary=api(f'repos/{repo}/actions/runs/38949555542');assert primary['conclusion']=='success' and primary['head_sha']==source
+          ids=[38949555542,38949555538,38950078074,38951417636,38952725527,38953589679,38954130127,38955341493,38956301873,38956379747]
+          evidence={str(i):api(f'repos/{repo}/actions/runs/{i}') for i in ids}
+          status={'prepared_at':now.isoformat(),'candidate_source':source,'candidate_build':254,'candidate_delivered':False,'candidate_fully_verified':False,'final_gate':final['html_url'],'final_gate_status':final['status'],'final_gate_conclusion':final['conclusion'],'fallback_build':250,'fallback_source':fallback_source,'fallback_apk_url':asset['browser_download_url'],'fallback_sha256':expected,'fallback_signing_certificate':cert,'fallback_download_verified_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'physical_phone_tested':False,'unfinished_work':True,'tester_distribution':False,'application_rebuilt':False,'workflow_evidence':evidence}
+          pathlib.Path('delivery').mkdir()
+          pathlib.Path('delivery/APD-Afternoon-Status-2026-10-16.json').write_text(json.dumps(status,indent=2))
+          error="Latest corrected Title-readiness run38956379747 is pending. The preceding isolated run38955341493 passed actual pager/play/save/continue/end, but the preview fixture read a destroyed window and threw Collection.toArray NullPointerException. The correction requires a new settled Title before attaching the preview. Native acceptance is not complete; no application source or APK was rebuilt."
+          assert '__FINAL_FAILURE__' not in error
+          report=f"""# APD current owner status — October16,2026
+
+          ## Delivery status
+          Updated candidate TEST254 is NOT delivered as verified. Its full primary core and Android14 checks passed, but additional native Android16 acceptance remains unsuccessful or incomplete. The unchanged last published verified playable fallback is TEST250. That is an older build, not a new release of the requested changes.
+
+          ## Implemented code not included in the fallback
+          TEST251 added the optional native scoring-vision popup, separate from sliders. It explains my future ideas for interactions, character classes, subclasses, crown choices and progression without changing today's357 values or rewarding random loot. TEST252 fixed a reproduced daily calendar bug: original133 and earned266 displayed133. Optional long-score metadata retains frozen earned values and original history. TEST253 raised an overflowing quickslot pager on135-logical-pixel screens; manual review rejected it because it covered messages. TEST254 reserves message space above that pager. These changes are present in source {source}, not in delivered TEST250.
+
+          ## Actual tests and unresolved failures
+          TEST254 completed1,736 unique core tests and36 Android14 methods, zero failures/errors/skips in that primary run. Debug assembly and history checks passed;49 primary images were reviewed. Six classes passed a separate generated-dungeon save/continue check. An Android16 eight-method retry passed, but later stricter/repeated native checks exposed unresolved pager behavior. A real held-finger screenshot verifies Enemy HP350% and Combined1.7062x, so that preview is implemented; this does not make the entire candidate verified.
+
+          Failed attempts remain retained: first Android16 swipe check7/8; later pager repeat7/8; a single-method attempt blocked by a photographed System UI ANR and an InputManager wrong-window rejection; acknowledged-pager attempt1/2. Google Play services ANRs also appear in emulator logs, but they do not establish the exact pager cause. The resource-isolated diagnostic stopped the unused Gradle daemon and disabled only crashing Google Play services on a disposable emulator. It passed the actual pager and play/save/continue/end scenario, but the preview fixture read a destroyed window and failed with Collection.toArray NullPointerException. The current correction requires a fresh settled Title scene before attaching that fixture. It preserves all native assertions and the same APK; its result remains pending at this report snapshot.
+
+          Final gate: {final['html_url']}. Status {final['status']}; conclusion {final['conclusion']}. Specific current failure or pending boundary: {error}
+
+          ## What is still unfinished
+          Reliable additional native pager acceptance is unfinished. Physical-phone install-over, the owner's active-save continuity, physical touchscreen testing and full human-played boss strategies are unverified. Broader UIMSD audit/storage research, original armor-playthrough reproduction and inherited audio investigation remain open. I am not claiming every task was completed by4pm.
+
+          ## Compatibility, source and timing
+          Candidate source: {source}. Fallback source: {fallback_source}. TEST250 APK SHA-256: {expected}. Its existing private asset was downloaded and rehashed, signing verified and application ID/version checked. No new APK was built for this fallback delivery. Install over existing APD; never uninstall or clear player data.
+
+          Report prepared {now.isoformat()}. Candidate primary workflow started {primary['run_started_at']} and completed/update {primary['updated_at']}. Workflow times are not developer-active hours; unknown idle durations are not invented. Today's earlier lunch PDF published11:55:49EDT and TEST250 APK12:01:23EDT,49 and83 seconds late. This afternoon report does not retroactively satisfy exact lunch scheduling. Publication, verified download and chat-link delivery are separate events.
+
+          Original scores, all357 multipliers, challenge factors, all18 slider mechanics, saves and raw player history are preserved. No public release, automatic tester distribution, paid service or unfinished online feature is enabled.
+          """
+          report='\n'.join(line[10:] if line.startswith('          ') else line for line in report.splitlines())
+          pathlib.Path('delivery/current-status.md').write_text(report)
+          pdf=pathlib.Path('delivery/APD-Afternoon-Status-2026-10-16.pdf')
+          subprocess.run(['python3','tools/apd_bug_report_pdf.py','delivery/current-status.md',str(pdf)],check=True)
+          reader=PdfReader(pdf);text='\n'.join(p.extract_text() for p in reader.pages)
+          assert 'NOT delivered as verified' in text and source in text and 1<=len(reader.pages)<=10
+          pathlib.Path(str(pdf)+'.sha256').write_text(hashlib.sha256(pdf.read_bytes()).hexdigest()+'  '+pdf.name+'\n')
+          pathlib.Path('fallback-result.json').write_text(json.dumps({'apk_url':asset['browser_download_url'],'apk_sha256':expected,'fallback':True,'unchanged':True,'candidate_delivered':False},indent=2))
+          PY
+      - name: Publish current PDF privately while preserving existing assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,subprocess
+          from pypdf import PdfReader
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-owner-afternoon-status-2026-10-16'
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          names=['APD-Afternoon-Status-2026-10-16.pdf','APD-Afternoon-Status-2026-10-16.pdf.sha256','APD-Afternoon-Status-2026-10-16.json']
+          releases=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases?per_page=100']))
+          assert not any(r['tag_name']==tag for r in releases),'Preserve an existing report; do not overwrite it'
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD owner status — October16 afternoon; unchanged fallback','--notes','Current factual status. Candidate254 acceptance is unfinished at this report snapshot; it is not delivered as verified. Existing TEST250 remains the unchanged playable fallback. No automatic tester distribution.']+['delivery/'+n for n in names],check=True)
+          release=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}']))
+          assert release['prerelease'] and not release['draft']
+          for name in names:
+              asset=next(a for a in release['assets'] if a['name']==name);assert asset['digest']=='sha256:'+hashlib.sha256(pathlib.Path('delivery/'+name).read_bytes()).hexdigest()
+          subprocess.run(['gh','release','download',tag,'--repo',repo,'--pattern',names[0],'--dir','published'],check=True)
+          assert hashlib.sha256(pathlib.Path('published/'+names[0]).read_bytes()).hexdigest()==hashlib.sha256(pathlib.Path('delivery/'+names[0]).read_bytes()).hexdigest()
+          assert PdfReader('published/'+names[0]).pages
+          result=json.loads(pathlib.Path('fallback-result.json').read_text())
+          result.update({'pdf_url':next(a for a in release['assets'] if a['name']==names[0])['browser_download_url'],'published_at':release['published_at'],'download_verified_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'chat_link_sent':False})
+          pathlib.Path('publication-result.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-afternoon-fallback-publication
+          path: |
+            publication-result.json
+            delivery/
+          retention-days: 7

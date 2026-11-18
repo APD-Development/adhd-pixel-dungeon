@@ -1,0 +1,149 @@
+{
+  "build": 267,
+  "status": "verified_and_staged_private_candidate",
+  "application_source": "d76178a015b68344adfbeab2edfd701201c752a7",
+  "workflow_source": "c761afc25902954060daf5fffbd87e728b8b1887",
+  "run": 39014635516,
+  "run_conclusion": "success",
+  "started_at": "2026-10-17T07:42:30Z",
+  "completed_at": "2026-10-17T07:57:47Z",
+  "defect": {
+    "surface": "RowBuilders.parseDate legacy import",
+    "behavior": "Impossible Gregorian dates were normalized into later valid dates and could set false run.startMillis values",
+    "raw_history_rewritten": false
+  },
+  "reproduction": {
+    "test_source": "c48ed80c538695356dbda05b8faab51aca6d456c",
+    "request_commit": "c799b5155a7eceec3bd0e7055f23ba16ff3616b2",
+    "run": 39014149854,
+    "conclusion": "failure",
+    "tests": 1774,
+    "failures": 1,
+    "artifact_id": 12093313933,
+    "artifact_bytes": 832953,
+    "artifact_digest": "sha256:ad6ac3f02ff85ecdb0b630004f1ba6b44433c85e264dd60f4e844e2e1c6881c9"
+  },
+  "correction": {
+    "application_commit": "d76178a015b68344adfbeab2edfd701201c752a7",
+    "request_commit": "d1afd06241b198fdcf8cf317c33ad15dd6898e17",
+    "core_run": 39014400159,
+    "tests": 1774,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12094346515,
+    "artifact_bytes": 830170,
+    "artifact_digest": "sha256:d3f775a284752db59b2118cabbd23cbe7686e24bc41d67f268fd3ac17a2d5dcc"
+  },
+  "core": {
+    "artifact_id": 12094058905,
+    "digest": "sha256:e61492c44e1f7f4f2f710a0a5dddcb5a20c0b70081b137cae17c51d4b09af627",
+    "bytes": 828041,
+    "suites": 350,
+    "tests": 1774,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "artifact_id": 12093634842,
+    "digest": "sha256:6725223165d3f7f392dd361655fc4216b03df16e49eb9b5fab53f3150befc532",
+    "bytes": 5001912,
+    "suites": 14,
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "required_images": 57,
+    "image_dimensions": "320x640",
+    "images_reviewed": true
+  },
+  "apk": {
+    "artifact_id": 12093874225,
+    "digest": "sha256:f5ccfb2f66dfcc52eff2a13095711b4ba34102132b59750d7f18a291a53ad654",
+    "artifact_bytes": 36103698,
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-267.apk",
+    "sha256": "f5fc7189d981709cf46e740d1966814c64b5ed29a7e32bca921739ce4e04009f"
+  },
+  "history": {
+    "previous_compiled_build": 266,
+    "previous_full_source": "e678d38c4c34bc755ed0cd501f7f44c88bc3c465",
+    "previous_application_source": "09ba71aab8fd2cb426679add9c9d0ed2e4d72fb7",
+    "strict_guard": "passed"
+  },
+  "display": {
+    "run": 39014635513,
+    "conclusion": "failure",
+    "attempts": 3,
+    "accepted_profiles": [
+      "small-virtual",
+      "square-virtual",
+      "m53-representative",
+      "compact-virtual"
+    ],
+    "failed_profile": "short-landscape",
+    "failure": "After returning from Changes, Hide UI did not make btnChanges inactive at TitleMenuLayoutDeviceTest.java:83; non-PNG failure placeholder retained",
+    "successful_artifacts": [
+      {
+        "id": 12094665308,
+        "name": "apd-title-display-small-virtual",
+        "digest": "sha256:2671a2bbaaf45be190015b655517bea9dfa3f0dc6f935a771048d8be29419a57"
+      },
+      {
+        "id": 12094348396,
+        "name": "apd-title-display-square-virtual",
+        "digest": "sha256:c186d15d440c3d0fd6373fc6606a5aa89c96e9a6bb57f42d0dcbb87a6ed60234"
+      },
+      {
+        "id": 12095195919,
+        "name": "apd-title-display-m53-representative",
+        "digest": "sha256:0f7a79e245654efc80f01ee219862fc452c8d955bfb74cdd4eb0717fa4391521"
+      },
+      {
+        "id": 12095335865,
+        "name": "apd-title-display-compact-virtual",
+        "digest": "sha256:3da64d6d3c53e5ba9c41c62744a532d096ea49748bfaad93621cb3e1b5f2f5ba"
+      }
+    ],
+    "latest_failed_artifact": {
+      "id": 12094408633,
+      "name": "apd-title-display-short-landscape",
+      "digest": "sha256:6959bf0346e5206d5b518caf72f0315a947d030250abf33a49aa892422098f4f"
+    }
+  },
+  "latest_published_owner_build": 262,
+  "preceding_staged_build": 266,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "automatic_tester_distribution": false,
+  "publication": false,
+  "all_backlog_complete": false,
+  "staging": {
+    "run": 39016526869,
+    "conclusion": "success",
+    "wrapper_source": "87ce1ac4b10f27a2ca07db0529debd1139e38d0c",
+    "started_at": "2026-10-17T08:13:02Z",
+    "completed_at": "2026-10-17T08:13:43Z",
+    "application_rebuilt": false,
+    "staged_preview": {
+      "artifact_id": 12094921683,
+      "bytes": 44588415,
+      "digest": "sha256:58a3e9e7e14ec1493038787b68a3674edf3db2b28aa28d5fbfb8367a95c399a6"
+    },
+    "staged_evidence": {
+      "artifact_id": 12095106256,
+      "bytes": 8485020,
+      "digest": "sha256:df3021f1e8cd3fae7268e15ed5ac90b8421b0c20056b37784d4f69c29560048b"
+    },
+    "apk_sha256": "f5fc7189d981709cf46e740d1966814c64b5ed29a7e32bca921739ce4e04009f",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_name": "4.0.8-apd-INDEV-bC267-TEST",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_matches_latest_published_owner_build": true,
+    "install_over_version_compatible": true,
+    "cleric_lore_feature_marker_verified": true,
+    "required_screenshots_verified": 57,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "number": 429,
+  "reviewed_utc": "2026-11-09T20:47:16.435600+00:00",
+  "variant": "Developer",
+  "source_commit": "fe077c5845b8f4c0781502c0359b827f77e46fc9",
+  "selected_full_frames": [
+    {
+      "name": "qol-existing-status-clear-concise-Bleeding-bottom.png",
+      "sha256": "3ab3b1f3f011d0ac5a28794e39584a2c61fc264f307816ec5c574f1bc590c1a1"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bleeding-normal.png",
+      "sha256": "c660d985d31ab98ad207d4fa1f7b8cd5afa5c13c76dd76a3ad9a5278dd125c3a"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bleeding.png",
+      "sha256": "3ab3b1f3f011d0ac5a28794e39584a2c61fc264f307816ec5c574f1bc590c1a1"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Poison-bottom.png",
+      "sha256": "ab5a1f291ea8647ee58e28457e43ff7a956075ee5552cb86e3c53ce3df9ae26c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Poison-normal.png",
+      "sha256": "53474084d660dd34430f72480117cc76ad6acd3d32e211af264a943eb93f91bf"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Poison.png",
+      "sha256": "ab5a1f291ea8647ee58e28457e43ff7a956075ee5552cb86e3c53ce3df9ae26c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Speed-bottom.png",
+      "sha256": "bfec06a61cd254b55d9487afcba853ae6328d0ae73c3a40912e7ebc613616d26"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Speed-normal.png",
+      "sha256": "071db5e171fc0639bca92d9d9cf9ffa557b57f5fca89b33f28468b8153047aea"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Speed.png",
+      "sha256": "bfec06a61cd254b55d9487afcba853ae6328d0ae73c3a40912e7ebc613616d26"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-HeroicLeap-bottom.png",
+      "sha256": "b081c234166fc1cf3db84fa8710ac340aca7f8adc5f19aa2470900ec987882c7"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-HeroicLeap-normal.png",
+      "sha256": "466f554106ea0d38e46df153569a9d27c22a53fe22c4aa204547fa622ca24a1a"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-HeroicLeap.png",
+      "sha256": "3aaa72b22cddeed371c685cf24d51305e6adca1c164ae475c9cd763748e4e511"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Ratmogrify-bottom.png",
+      "sha256": "660f8c51f3fca3e667574afa00595dcfbfbc0bd4781caa178191999b7172e9a9"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Ratmogrify-normal.png",
+      "sha256": "27ad14456d7248688148ac9c52258c3b90f0e708c75de8668034d933d6b7dc73"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Ratmogrify.png",
+      "sha256": "ea94e49e6c12d28a496b7d05cedfeb44db4c80cac2029bc0cc01798a13ab328a"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Trinity-bottom.png",
+      "sha256": "be169035d366e57d97a8f0b1119c667d748bf96d927469b8e372b4111d58b277"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Trinity-normal.png",
+      "sha256": "b77b5efcf507391da38a1a828aecb5ee31d79f3088e1cf967a2eaff6dec0b7db"
+    },
+    {
+      "name": "qol-reviewed-ability-charge-Trinity.png",
+      "sha256": "e712535d61b1db949636be1d9e4f72ec630f5c2a590de4ddae0b88033ceb139b"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight-bottom.png",
+      "sha256": "858e52b4204e4702c4b9b76851e61280956315fb4ed3589c021ba81eba7522b7"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight-normal.png",
+      "sha256": "76264e0950e3cec317b52dc8d8f1a22effac8d1bea4350780b86a5c30aba6924"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight.png",
+      "sha256": "fea5bd0d868a31defd57f1276c8e728473d823b5a6fa460fcd1c7eeac9754cd9"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Stasis-bottom.png",
+      "sha256": "5e038814bf34bf55708410c13018dbd09306e87efbbdb3f50dffc75acc3c3452"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Stasis-normal.png",
+      "sha256": "853c0f3ce993697b940b542c0db623a63733a1d3ad818197df6061edf4dae0ad"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Stasis.png",
+      "sha256": "51a141138be969cbad2d9d170a5b9e92e2fd27d978887397cc0ee40817b37d1a"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-BOUNTY_HUNTER-bottom.png",
+      "sha256": "82c58e4beb715be13794ea29ce03164aa732c043ea9789e0d87b099783e2cdd9"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-BOUNTY_HUNTER-normal.png",
+      "sha256": "52a8a44ffee8125f249e2073fe6f3d4950a6df08d623fb2461054d179c8bd2c5"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-BOUNTY_HUNTER.png",
+      "sha256": "7b94d68f050be6201018aeba3b4800ac7d8bf71db5dd9fe47a90682247491c60"
+    }
+  ],
+  "sheets_viewed": 7,
+  "scope": "Actual normal/expanded/bottom Poison, Bleeding, Speed, ShieldOfLight, Stasis, BountyHunter and representative ability header windows. Shield shows5/4, Speed labels exist, all buttons reachable and text scrolls.",
+  "limitations": "Existing ability effects still contain technical wording; simplification now verified on source branch for430. Existing mechanic panels retained pending owner review. Physical phone/audio not tested. Priest grammar is source/unit checked, not separately manually captured here."
+}

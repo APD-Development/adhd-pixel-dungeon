@@ -1,0 +1,6 @@
+Changes	ITEM_SCROLL_GYFU	Choose the same talent position	Metamorphosis now offers the matching talent position from all five other classes instead of random alternatives.
+Quality of Life	ICON_INFO	Clear talent-source details	Talent details show their source class, and already-owned alternatives remain visible with replacement disabled.
+Testing	ICON_CHECKED	Metamorphosis regression coverage	Added class-position, point-transfer, duplicate, alias, save and native-touch checks with chooser screenshots.
+Development	ICON_DATA	UIMSD audit checkpoint	Recorded reviewed statistics components and the remaining review scope; the whole-system audit is still in progress.
+Development	ICON_INFO	Verified build evidence	Recorded TEST106's actual delivery and the next build's changes, checks and compatibility limits.
+Developer Commentary	V074_SHPX	Developer Commentary	I replaced random metamorphosis alternatives with the matching position from every other class. Existing points and duplicate protection stay intact, and each choice names its source class.

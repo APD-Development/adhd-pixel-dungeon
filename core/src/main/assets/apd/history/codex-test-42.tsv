@@ -1,0 +1,26 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Testing	ICON_CHECKED	Play Run Device Test	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature.
+Changes	ICON_PREFS	Saved settings	Saved one-to-four Cleric quick-cast positions and assigned spell preferences.
+Changes	ICON_TALENT	Cleric Quick Casts	Added an older run's single quick spell remains usable until this preference is explicitly edited.
+Changes	ICON_TALENT	Holy Tome	Kept assigned quick-casts on the existing spell cost, availability and targeting paths.
+Quality of Life	ICON_INFO	Game Scene	Placed saved Cleric spells in a vertical stack above the backpack with safe control spacing.
+Quality of Life	ICON_INFO	Action Indicator	Kept attack and spell indicators from overlapping the new quick-cast stack.
+Quality of Life	ICON_TALENT	Cleric Quick Cast Tag	Cast the selected saved spell and safely replaced its targeting indicator.
+Quality of Life	ICON_BACKPACK	Category Hotbar	Added long-press slot selection, replacement and removal while retaining locked spell preferences.
+Testing	ICON_TALENT	Cleric Quick Casts Test 1	Added a test covering count Defaults To One And Clamps To Four. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 2	Added a test covering four Assignments Replace And Remove Independently. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 3	Added a test covering preferences Survive Restart And New Run. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 4	Added a test covering decreasing Count Preserves Hidden Assignments. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 5	Added a test covering locked Talent Spell Is Retained Until Unlocked. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 6	Added a test covering unknown Future Preference Is Not Instantiated Or Deleted. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 7	Added a test covering older Single Quick Spell Bundle Stays Compatible. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 8	Added a test covering assigning Does Not Cast Spend Turn Or Consume Rng. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 9	Added a test covering unavailable Caster Does Not Spend Resources. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 10	Added a test covering cursed Tome And Insufficient Charge Reject Normal Cast. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 11	Added a test covering restored First Preference Does Not Unlock An Unavailable Spell. These are development checks, not a gameplay feature.
+Testing	ICON_TALENT	Cleric Quick Casts Test 12	Added a test covering fifth Position Is Rejected. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-TEST41-DELIVERY-2026-10-10	Added apd-test41-delivery-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-TEST41-REPORT-2026-10-10	Added apd-test41-report-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Saved one-to-four Cleric quick-cast positions and assigned spell preferences. Added an older run's single quick spell remains usable until this preference is explicitly edited.

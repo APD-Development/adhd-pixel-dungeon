@@ -1,0 +1,15 @@
+{
+  "requested_utc": "2026-11-09T16:13:28.995Z",
+  "candidate": 420,
+  "original_run": 42650360251,
+  "original_built_pair_artifact": 13688819221,
+  "application_source": "7143d16bc481045b49ec4a60624128b0dcccc6b1",
+  "correction": "One exact Android test expectation: Level-ups remaining 5 of 5 -> Level-ups remaining 5.",
+  "requirements": [
+    "Do not rebuild application APKs",
+    "Rebuild instrumentation only",
+    "Rerun the complete Developer and Alpha-Testers API34 grid",
+    "Preserve original failed native artifacts",
+    "Do not publish automatically"
+  ]
+}

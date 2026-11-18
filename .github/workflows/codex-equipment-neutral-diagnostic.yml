@@ -1,0 +1,69 @@
+name: Diagnose neutral equipment generation against verified TEST121
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-equipment-neutral-diagnostic.yml]
+permissions:
+  contents: read
+jobs:
+  compare-original-and-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 010c44c877ef03dca7fe5ac2987cde309471d089
+          path: original
+      - uses: actions/checkout@v4
+        with:
+          path: candidate
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install compilation platform
+        run: '"$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"'
+      - name: Run identical neutral fixture against exact original and candidate source
+        run: |
+          cp candidate/core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomEquipmentGenerationTest.java original/core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/
+          cp candidate/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomEquipmentHooks.java original/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/
+          cat > neutral.init.gradle <<'GRADLE'
+          allprojects {
+            afterEvaluate {
+              if (project.name == 'core') {
+                tasks.register('equipmentNeutral', JavaExec) {
+                  dependsOn tasks.named('testClasses')
+                  classpath = sourceSets.test.runtimeClasspath
+                  mainClass = 'com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CustomEquipmentGenerationTest'
+                  workingDir = file('src/main/assets')
+                }
+              }
+            }
+          }
+          GRADLE
+          (cd original && ./gradlew -I ../neutral.init.gradle :core:equipmentNeutral) > neutral-original.txt
+          (cd candidate && ./gradlew -I ../neutral.init.gradle :core:equipmentNeutral) > neutral-candidate.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          records={}
+          for name in ['original','candidate']:
+              records[name]=[x for x in Path('neutral-'+name+'.txt').read_text().splitlines() if x.startswith(('FLOOR ','SHOP '))]
+              assert len(records[name])==24
+              Path('neutral-'+name+'.sha256').write_text('\n'.join(hashlib.sha256(x.encode()).hexdigest() for x in records[name])+'\n')
+          assert records['original']==records['candidate'], 'Neutral candidate changes exact original contents or next RNG'
+          print('Identical 24 original/candidate floor/shop contents and next RNG records. No APK build.')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: equipment-neutral-diagnostic
+          path: neutral-*.txt
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: equipment-neutral-hashes
+          path: neutral-*.sha256
+          retention-days: 7

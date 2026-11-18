@@ -1,0 +1,28 @@
+{
+  "number": 431,
+  "accepted": false,
+  "hold_reason": "Actual Developer screenshots show 1 weapon-ability charges, 1 Tome charges and +1 points in the three affected meal talent contexts. Corrected source is being verified as APD432.",
+  "source_commit": "5a8fe508d6d3f2a449c5a9b8fa9632e22f86dcb3",
+  "original_build_run": 42859611090,
+  "reviewed_utc": "2026-11-10T17:22:43.950004+00:00",
+  "reviewed_images": [
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-native-bottom.png",
+      "sha256": "c3978e5284f97fd9c3523227e638742ebe32a9d93cd68d45fd98779621a1ce91"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-ENLIGHTENING_MEAL-native-bottom.png",
+      "sha256": "1559469a3a73955f3422f099bcbb79489e81fec7387a6bd2d2e3682adda334fd"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-talent-clear-FOCUSED_MEAL-alternate-bottom.png",
+      "sha256": "86918c21272f12a21bdbf9042723839b2a83b1c394328d5554055ac8e7cd46e7"
+    }
+  ],
+  "scope": "Three actual bottom views manually inspected to confirm the source-detected grammar defect. This is a rejection review, not acceptance of the full candidate.",
+  "native_developer_artifact": {
+    "id": 13786167825,
+    "sha256": "ff4eb0b183f838150f4095fbb5bc6c1a4c44d9a79208fa69c093f0de3c0f90bc"
+  },
+  "physical_phone_verified": false
+}

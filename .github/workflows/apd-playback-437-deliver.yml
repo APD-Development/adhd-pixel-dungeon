@@ -1,0 +1,91 @@
+# ADHD Pixel Dungeon; Copyright (C) 2026 Chris Charlton
+# SPDX-License-Identifier: GPL-3.0-or-later
+name: Deliver verified APD437 private owner APK pair
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-437-DELIVERY-REQUEST.txt]
+permissions: {contents: write, actions: read}
+concurrency: {group: apd437-private-delivery, cancel-in-progress: false}
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify owner policy, exact producing workflow, APKs, tests, signatures and UI screenshots
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh run watch 42927955467 --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+          python3 tools/apd_owner_delivery_policy.py
+          python3 - <<'PY'
+          import json, pathlib, subprocess, hashlib, os, zipfile, re, sys
+          repo='APD-Development/ShieldingShouldHaveWorked'
+          api=lambda path:json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          run=api('repos/'+repo+'/actions/runs/42927955467')
+          assert run['conclusion']=='success' and run['status']=='completed',run['conclusion']
+          assert run['head_sha']=='4da1ef4cf0e116c7a5187236b5c61e53600e241b',run['head_sha']
+          assert run['path']=='.github/workflows/apd-playback-437.yml'
+          assert len([j for j in api('repos/'+repo+'/actions/runs/42927955467/jobs')['jobs'] if j['conclusion']=='success'])==3
+          pathlib.Path('proof').mkdir()
+          for name in ('apd437-built-pair','apd437-native-Developer','apd437-native-Alpha-Testers'):
+              artifacts=[a for a in api('repos/'+repo+'/actions/runs/42927955467/artifacts')['artifacts'] if a['name']==name and not a['expired']]
+              assert len(artifacts)==1,name
+              dest=pathlib.Path('proof')/name;dest.mkdir()
+              subprocess.run(['gh','run','download','42927955467','--repo',repo,'--name',name,'--dir',str(dest)],check=True)
+          root=pathlib.Path('proof/apd437-built-pair')
+          tests=list(root.rglob('TEST-*.xml'))
+          import xml.etree.ElementTree as ET
+          suites=[ET.parse(p).getroot() for p in tests]
+          counts={k:sum(int(s.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
+          assert len(suites)==460 and counts=={'tests':3177,'failures':0,'errors':0,'skipped':0},counts
+          data=json.loads(next(root.rglob('apks.json')).read_text())
+          signer=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          from importlib.util import spec_from_file_location,module_from_spec
+          s=spec_from_file_location('evidence',str(pathlib.Path('tools/apd_existing_build_evidence.py')));m=module_from_spec(s);s.loader.exec_module(m)
+          for variant in ('Developer','Alpha-Testers'):
+              apk=root/'owner-delivery'/('APD-'+variant+'-437.apk')
+              assert apk.exists() and apk.stat().st_size>1000000
+              digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+              assert digest==data[variant]['sha256']
+              cert=m.certificates(subprocess.check_output([str(signer),'verify','--print-certs',str(apk)],text=True))
+              assert cert==[expected]
+              assert data[variant]['cert']==expected
+              with zipfile.ZipFile(apk) as z:
+                  history=z.read('assets/apd/history/index.tsv').decode()
+                  assert 'Codex TEST 437' in history and 'Codex TEST 436' in history
+                  features=z.read('assets/apd/features.txt').decode().splitlines()
+                  assert 'grudge' in features
+                  if variant=='Alpha-Testers':
+                      assert 'extendedPlayback' in features and 'testBuild' not in features and 'demoUnlock' not in features and 'clericPlayable' not in features
+              native=pathlib.Path('proof')/('apd437-native-'+variant)
+              results=list(native.rglob('*-qol.txt'))
+              assert len(results)==1 and 'OK (1 test)' in results[0].read_text()
+              images=list(native.rglob('qol-automatic-inventory-*.png'))
+              assert len(images)>=5,(variant,len(images))
+              assert all(p.stat().st_size>2000 for p in images)
+          pathlib.Path('release-notes.md').write_text('APD437: All ten existing visual animation playback speeds from 0.5x to 1000x are now available to every player regardless of Developer, Alpha-Testers or ordinary public build. This is a visual-only option; no changes to turn advancement, gameplay balance or save format. Verified 3177 core tests, signed Android Developer and Alpha-Testers APKs, and native emulator checks. Emulator testing does not establish physical-phone testing.\\n')
+          PY
+      - name: Publish new tag without modifying existing APKs or releases
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          if gh release view apd-alpha-preview-437 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "APD437 release already exists; refusing to overwrite it"
+            exit 1
+          fi
+          gh release create apd-alpha-preview-437 --repo "$GITHUB_REPOSITORY" \
+            --target 4da1ef4cf0e116c7a5187236b5c61e53600e241b --prerelease --latest=false \
+            --title "APD437: extended playback for every player" --notes-file release-notes.md \
+            proof/apd437-built-pair/owner-delivery/APD-Developer-437.apk \
+            proof/apd437-built-pair/owner-delivery/APD-Alpha-Testers-437.apk
+          mkdir -p downloaded
+          gh release download apd-alpha-preview-437 --repo "$GITHUB_REPOSITORY" --pattern 'APD-*-437.apk' --dir downloaded
+          for variant in Developer Alpha-Testers; do
+            cmp "proof/apd437-built-pair/owner-delivery/APD-${variant}-437.apk" "downloaded/APD-${variant}-437.apk"
+          done
+          gh release view apd-alpha-preview-437 --repo "$GITHUB_REPOSITORY" --json url,isDraft,isPrerelease,assets

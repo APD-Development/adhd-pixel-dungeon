@@ -1,0 +1,32 @@
+{
+  "source_commit": "a3d08081eea0b03475c9093423da60e84fc509be",
+  "build_run": 42862026382,
+  "build_artifact_id": 13785731714,
+  "build_artifact_sha256": "8c6dd26ff5860846782d2968c412819c43c486211c1d2b15acf32efa13655cfa",
+  "core": {
+    "tests": 3165,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "variants": {
+    "Developer": {
+      "sha256": "4f8b4c87a315c4568bbc5ee28efe1e921e6aab32a3c7ffef3bbfe181ce80cd0e",
+      "version_name": "4.0.8-apd-INDEV-bC432-TEST",
+      "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+      "version_code": 920,
+      "prior_history_files_preserved": 435,
+      "history_index_preserved": true,
+      "signature_verified": true
+    },
+    "Alpha-Testers": {
+      "sha256": "4a2f975e2b52dbf278c72cf34135aa276a3bc1ada652c13f4cd1412f19608d34",
+      "version_name": "4.0.8-apd-INDEV-bP432",
+      "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+      "version_code": 920,
+      "prior_history_files_preserved": 435,
+      "history_index_preserved": true,
+      "signature_verified": true
+    }
+  }
+}

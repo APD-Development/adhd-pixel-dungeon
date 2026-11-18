@@ -1,0 +1,21 @@
+{
+  "source_commit": "78dad7cac55eef5707a28328ec8aa58eee11ca95",
+  "workflow_run": 41579017024,
+  "job": 125729182389,
+  "completed_at_utc": "2026-11-03T04:38:39Z",
+  "suites": 434,
+  "tests": 2331,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "android_debug_java": "passed",
+  "android_release_java": "passed",
+  "android_instrumentation_java": "passed",
+  "desktop_classes": "passed",
+  "local_history_tool_tests": 20,
+  "apk_assembled": false,
+  "native_feature_acceptance": "not run",
+  "physical_phone_tested": false,
+  "latest_delivered_pair": 354,
+  "application_inputs_changed_since_354": 8
+}

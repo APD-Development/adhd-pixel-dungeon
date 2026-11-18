@@ -1,0 +1,130 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Verify backpack-owned item windows on unchanged APD386 APKs
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-386-RETRY-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd386-owned-native, cancel-in-progress: false}
+jobs:
+  instrumentation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, ref: fbdffb752ab71636cd94788f0366ded2d25e99a7}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/download-artifact@v4
+        with: {name: apd386-built-pair, run-id: 42542256886, github-token: '${{ github.token }}'}
+      - name: Verify unchanged production source and compile instrumentation only
+        run: |
+          test "$(git rev-parse HEAD)" = fbdffb752ab71636cd94788f0366ded2d25e99a7
+          git show "$GITHUB_SHA":tools/apd386-native-fixture.patch > /tmp/apd-native-fixture.patch
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          git apply --check /tmp/apd-native-fixture.patch
+          git apply /tmp/apd-native-fixture.patch
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C386
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk evidence/instrumentation.apk
+          ./gradlew --stop
+      - uses: actions/upload-artifact@v4
+        with: {name: apd386-owned-inputs, path: 'evidence/instrumentation.apk', retention-days: 14}
+  native:
+    needs: instrumentation
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {variant: Developer, label: developer}
+          - {variant: Alpha-Testers, label: alpha}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd386-built-pair, run-id: 42542256886, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd386-owned-inputs, path: fresh-instrumentation}
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > evidence/${{ matrix.label }}-qol-logcat.txt &
+            adb install -r owner-delivery/APD-${{ matrix.variant }}-386.apk
+            adb install -r fresh-instrumentation/instrumentation.apk
+            timeout 600 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/${{ matrix.label }}-qol.txt
+            cat evidence/${{ matrix.label }}-qol.txt
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+            python3 tools/apd_check_single_instrumentation.py evidence/${{ matrix.label }}-qol.txt grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd386-owned-${{ matrix.variant }}
+          path: |
+            evidence/${{ matrix.label }}-qol.txt
+            evidence/${{ matrix.label }}-qol-logcat.txt
+            evidence/${{ matrix.variant }}-visuals/
+          retention-days: 14
+  stage_evidence:
+    needs: [instrumentation, native]
+    runs-on: ubuntu-latest
+    permissions: {contents: write, actions: read}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require original core/native/source gates
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: gh run watch 42542256886 --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+      - uses: actions/download-artifact@v4
+        with: {name: apd386-prepared-owner-pair, run-id: 42542256886, github-token: '${{ github.token }}', path: original}
+      - uses: actions/download-artifact@v4
+        with: {name: apd386-owned-Developer, path: evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: apd386-owned-Alpha-Testers, path: evidence}
+      - name: Preserve expanded checks against the original immutable pair
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 tools/apd_check_single_instrumentation.py evidence/developer-qol.txt grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest
+          python3 tools/apd_check_single_instrumentation.py evidence/alpha-qol.txt grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest
+          python3 - <<'PYOWNED'
+          import pathlib,json,os,hashlib,zipfile,subprocess,datetime
+          original=json.loads(pathlib.Path('original/APD-Preview-386-Verification.json').read_text());assert original['source_commit']=='fbdffb752ab71636cd94788f0366ded2d25e99a7'
+          for name,digest in original['apk_hashes'].items():assert hashlib.sha256(pathlib.Path('original/APD-'+name+'-386.apk').read_bytes()).hexdigest()==digest
+          proof=dict(number=386,application_source=original['source_commit'],original_apk_build_run=42542256886,application_apk_hashes=original['apk_hashes'],verification_harness_source=os.environ['GITHUB_SHA'],expanded_native_run=os.environ['GITHUB_RUN_ID'],additional_game_apks_created=0,repeated_qol_cases_passed=2,unique_targeted_native_cases=12,scope='Full Qol repeated on original pair with temporary backpack ownership, exercising real action rows for darts, potions, trinkets, Duelist and other inspected items. Existing assertions preserved. Other ten native cases accepted from original run. Not a physical-phone test.',verified_utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
+          pathlib.Path('APD-386-Owned-Inventory-Verification.json').write_text(json.dumps(proof,indent=2)+'\n')
+          with zipfile.ZipFile('APD-386-Owned-Inventory-Native-Visuals.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in pathlib.Path('evidence').rglob('*'):
+              if p.is_file():z.write(p)
+            z.write('tools/apd386-native-fixture.patch')
+          repo=os.environ['GITHUB_REPOSITORY'];meta=json.loads(subprocess.check_output(['gh','api','repos/'+repo]));assert meta['private']
+          releases=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases?per_page=100']));release=next(r for r in releases if r['tag_name']=='apd-alpha-preview-386');assert release['draft']
+          subprocess.run(['gh','release','upload','apd-alpha-preview-386','APD-386-Owned-Inventory-Verification.json','APD-386-Owned-Inventory-Native-Visuals.zip','--repo',repo],check=True)
+          print(json.dumps(proof))
+          PYOWNED

@@ -1,0 +1,73 @@
+{
+  "build": "Codex TEST86",
+  "source_sha": "beefe620896ca1f29ecb67e039817f97ba4e1854",
+  "verification_run": 38314568910,
+  "delivery_commit": "9a7c31996bab3532ae963eb0b8d46b108cbbf44f",
+  "delivery_run": 38315871454,
+  "published_at": "2026-10-12T22:19:03Z",
+  "published_edt": "2026-10-12 18:19:03 EDT",
+  "apk_sha256": "cb2eb063a667927c0784c719adcbe3db5f724093c7245d673d9b2038465a22c2",
+  "apk_bytes": 38433734,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "core": {
+    "tests": 1231,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "api": 34,
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "physical_phone_tested": false
+  },
+  "screenshots": 18,
+  "visually_reviewed": [
+    "blacksmith-rewards.png",
+    "blacksmith-reward-detail.png"
+  ],
+  "assets": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-86.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/ADHD-Pixel-Dungeon-CODEX-TEST-86.apk",
+      "size": 38433734,
+      "digest": "sha256:cb2eb063a667927c0784c719adcbe3db5f724093c7245d673d9b2038465a22c2"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-86.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/ADHD-Pixel-Dungeon-CODEX-TEST-86.apk.sha256",
+      "size": 103,
+      "digest": "sha256:b0b32e6d00ff4a3346ae71bde3d7b1dec3aa82471cec5b52aca7bd0e2cd1025e"
+    },
+    {
+      "name": "APD-Bug-Fixes-2026-10-12-TEST86.pdf",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/APD-Bug-Fixes-2026-10-12-TEST86.pdf",
+      "size": 8270,
+      "digest": "sha256:a1f83086a3436c2c234a74749c1ef6536ac1aea37582e44598b135fb0b6af847"
+    },
+    {
+      "name": "APD-Source-Line-Counts.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/APD-Source-Line-Counts.json",
+      "size": 3562,
+      "digest": "sha256:76efa371820b587659728ac4e56c19b057e83cd9aa2b9a7d9e1c4a973e7b970b"
+    },
+    {
+      "name": "TEST86-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/TEST86-Verification.json",
+      "size": 254932,
+      "digest": "sha256:5d2e9fded258ca7a327955dfc0be9871734fc2e1f390e1846dfc8384a3671565"
+    }
+  ],
+  "install": "Install over existing APD; never uninstall or clear data.",
+  "limits": [
+    "Whole UIMSD audit and visual overhaul incomplete",
+    "DerivedStore valid-ASCII cache corruption reproduced, unfixed",
+    "Custom rules/full headless simulator/live Community Hub/full SPD audit/fork-diff report incomplete",
+    "Original owner TEST50 save and physical phone not tested",
+    "Continuous unattended Codex coding not demonstrated"
+  ]
+}

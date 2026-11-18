@@ -1,0 +1,79 @@
+name: APD distinct key uncertainty checks
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-distinct-key-uncertainty-acceptance.yml]
+permissions:
+  contents: read
+concurrency:
+  group: apd-distinct-key-uncertainty-acceptance
+  cancel-in-progress: false
+jobs:
+  reproduce-and-check-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 6182b042b1d93b64341f41a516a49ef3d12c93ee
+          path: original-application
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK for Gradle project configuration
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reproduce distinct-key uncertainty failures in unchanged TEST239
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,subprocess,xml.etree.ElementTree as E
+          base=pathlib.Path('original-application')
+          fixture=pathlib.Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/AggregateExtensionsTest.java')
+          (base/fixture).write_bytes(fixture.read_bytes())
+          cls='com.shatteredpixel.shatteredpixeldungeon.apd.query.AggregateExtensionsTest.'
+          methods=['rowsWithNoValueToShareAreNotMergedByTheDistinctRule','lowerBoundDistinctKeysAreNotTreatedAsExactIdentities']
+          command=['./gradlew',':core:test']
+          for method in methods: command += ['--tests',cls+method]
+          result=subprocess.run(command,cwd=base)
+          roots=[E.parse(p).getroot() for p in (base/'core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          failures={c.get('name') for c in cases if c.find('failure') is not None}
+          assert len(cases)==2 and result.returncode!=0 and failures==set(methods),(len(cases),result.returncode,failures)
+          pathlib.Path('original-distinct-key-result.json').write_text(json.dumps({
+            'source':'6182b042b1d93b64341f41a516a49ef3d12c93ee',
+            'tests':2,'expected_failures':sorted(failures),'original_production_changed':False},indent=2))
+          PY
+      - name: Run the complete corrected core suite
+        run: |
+          ./gradlew :core:test
+          python3 - <<'PY'
+          import json,os,pathlib,xml.etree.ElementTree as E
+          roots=[E.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          methods={'rowsWithNoValueToShareAreNotMergedByTheDistinctRule','lowerBoundDistinctKeysAreNotTreatedAsExactIdentities'}
+          names={c.get('name') for c in cases}
+          assert totals['tests']==len(cases)==len({(c.get('classname'),c.get('name')) for c in cases})==1707,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0
+          assert methods <= names
+          pathlib.Path('corrected-distinct-key-result.json').write_text(json.dumps({
+            'source':os.environ['GITHUB_SHA'],'counts':totals,'retained_methods':2,
+            'application_built':False,'android_verified':False,'published':False},indent=2))
+          PY
+      - name: Retain original and corrected evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-distinct-key-before-after
+          path: |
+            original-distinct-key-result.json
+            corrected-distinct-key-result.json
+            original-application/core/build/test-results/test/
+            core/build/test-results/test/
+            core/build/reports/tests/test/
+          retention-days: 7
+          if-no-files-found: warn

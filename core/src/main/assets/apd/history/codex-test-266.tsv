@@ -1,0 +1,2 @@
+Bug Fixes	ICON_PREFS	Keep hidden questions consistent	When Hidden details is turned off, remove internal measures, split fields and conditions before redrawing or answering so the displayed question and executed query remain identical.
+Testing	ICON_CHECKED	Retain post-TEST264 acceptance	Preserve verified and staged TEST264 receipts plus the accepted UIMSD self-test, Home scope, query-formatting and query-serialization checkpoints with their exact core-only evidence.

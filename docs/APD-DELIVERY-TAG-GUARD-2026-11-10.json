@@ -1,0 +1,20 @@
+{
+  "recorded_utc": "2026-11-10T20:14:00Z",
+  "implementation_commit": "ebc2fceb7b7010ee8b79077c6f281e728576abfb",
+  "regression_commit": "0f6025f1bc773567716908850e73b34a884528de",
+  "workflow_commit": "a28c8ad8a18cbb1949757146ded9060570816ea3",
+  "scope": "Private APK delivery tooling only. Application, saves, balance and APD433 producing source remain unchanged.",
+  "defect": "A conflicting existing source tag was checked only after the release publication command. A mocked regression reproduced the command being called before the mismatch raised an assertion. This was not a live incorrect release.",
+  "correction": "Read exact matching tag before publishing; reject different source, annotated or duplicate exact tag, malformed inventory and lookup errors. Keep the existing post-publication source-tag readback. Held drafts never publish or perform the new lookup.",
+  "red": {"tests": 6, "failures_including_subtests": 4},
+  "focused_green": {"tests": 13, "failures": 0, "errors": 0, "skipped": 0},
+  "expanded_green": {"tests": 34, "failures": 0, "errors": 0, "skipped": 0},
+  "verification": "Actual local Python unittest execution. Original seven visibility tests retained. Expanded run includes existing build-evidence, owner-hold and instrumentation-output suites. Two setup attempts lacked local fixture/import files; after restoring the existing module search path, all 34 passed. CI reruns the 13 focused tests before actual delivery. Test publication commands were mocked.",
+  "sha256": {
+    "tools/apd_deliver_reviewed_pair.py": "05af5d81ff25e3fc5c428ebd8b0fd0b4dc843f60e71a71c80f9b147651b44804",
+    "tools/test_apd_deliver_reviewed_pair.py": "dd469ea49f93dc81fa1ff5de515b1898d4990e4a7071b76b2cd97ca7095b8b0a",
+    "tools/test_apd_delivery_tag_guard.py": "63ff22ccf7954a267da1cd1521ecc6bedff8ff40c384385173046bbd2f758e1f",
+    "original_red_log": "f2d8f938be9811361aea82bfc7b8f3cec4b9cbeadcd84cfba23639573f5e494f",
+    "focused_green_log": "ad7e5061ed61488d6ff159f23df0e61c119f4721e597f4ba41e3ada090d604fa"
+  }
+}

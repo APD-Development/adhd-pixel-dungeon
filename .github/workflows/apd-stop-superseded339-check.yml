@@ -1,0 +1,43 @@
+name: Stop superseded pre-compilation339 checks
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-stop-superseded339-check.yml]
+permissions:
+  actions: write
+  contents: read
+jobs:
+  stop-superseded:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Preserve refusals and stop duplicate pending verification only
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          branch='codex/apd-phone-fixes-2026-10-09'
+          failed=api(f'repos/{repo}/actions/runs/40968838706')
+          assert failed['head_sha']=='f5c84a9d4e8d95f85936e14a0db40d25419c97a4' and failed['conclusion']=='failure'
+          assert not any(a['name']=='apd-codex-private-test-apk' for a in api(f'repos/{repo}/actions/runs/40968838706/artifacts')['artifacts'])
+          current=api(f'repos/{repo}/actions/runs/40969096256')
+          assert current['head_sha']=='f45313cc27db0f754778e264e1bfc990110af1ee'
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in api(f'repos/{repo}/actions/runs/40969096256/jobs')['jobs'])
+          evidence={'failed339':failed,'compiled340':current,'cancel_requested':[]}
+          for rid,name in [(40968838454,'Verify responsive title menu on Android display configurations'),(40968838587,'Stage verified APD alpha preview candidate')]:
+              r=api(f'repos/{repo}/actions/runs/{rid}')
+              assert r['head_sha']==failed['head_sha'] and r['head_branch']==branch and r['name']==name
+              evidence[str(rid)]={'run':r,'jobs':api(f'repos/{repo}/actions/runs/{rid}/jobs')}
+              if r['status']!='completed':
+                  subprocess.run(['gh','api','-X','POST',f'repos/{repo}/actions/runs/{rid}/cancel'],check=True)
+                  evidence['cancel_requested'].append(rid)
+          pathlib.Path('superseded339.json').write_text(json.dumps(evidence,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: superseded339-retained-status
+          path: superseded339.json
+          retention-days: 7

@@ -1,0 +1,350 @@
+{
+  "schema": 1,
+  "number": 442,
+  "status": "passed",
+  "verified_at_utc": "2026-11-11T15:40:08.488386+00:00",
+  "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+  "producing_run": 43045170286,
+  "scope": "Independent local mechanical acceptance of frozen owner/native/source-scan archives; no rebuild or publication",
+  "artifacts": {
+    "apd442-owner-review-pair": {
+      "id": 13868253084,
+      "sha256": "99b7186089c94c2942137bd183876d8b36f06d0ddd279fcd9c2b4a4863ee1276",
+      "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd442-owner-review-pair.zip",
+      "bytes": 183069569,
+      "all_extracted_files_match_archive": true,
+      "files_verified": 8
+    },
+    "apd442-native-Developer": {
+      "id": 13869630143,
+      "sha256": "3e141c4fff87c625fd71d2a60d2fe2e4b2262cfa8c78ec9d684b055cb7aa0228",
+      "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer.zip",
+      "bytes": 44984241,
+      "all_extracted_files_match_archive": true,
+      "files_verified": 1440
+    },
+    "apd442-native-Alpha-Testers": {
+      "id": 13869355574,
+      "sha256": "b3bea0b5bafa654e12d37e572bc8d41e8b4f4f52f9cb174dff611a9f6efe2410",
+      "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers.zip",
+      "bytes": 57359273,
+      "all_extracted_files_match_archive": true,
+      "files_verified": 1440
+    },
+    "apd442-prepared-source-scan-evidence": {
+      "id": 13867935220,
+      "sha256": "5895cfcf315db45c1db786bd741cf4cbea0f73316ca2075a3de32abd6b46064b",
+      "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd442-source-checkpoint/exact-source-scan-artifact.zip",
+      "bytes": 11364,
+      "all_extracted_files_match_archive": true,
+      "files_verified": 8
+    }
+  },
+  "metadata_path": "/workspace/scratch/db82734c9c44/recovery/apd442-final-artifact-metadata.json",
+  "metadata_sha256": "70744b7d107ac1b4d8c4ab5a63a14a7e2e6a5d8290a90a2d6241b29fca29eef7",
+  "all_five_recorded_ci_jobs_success": true,
+  "owner_receipt_sha256": "dfd7359c193e194f337f4b45c2367f2dcbb5ae16a3e68ebb6a23b89bf732999b",
+  "native": {
+    "Developer": {
+      "raw_exact_cases_passed": 6,
+      "reports": [
+        {
+          "case": "qol",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest",
+          "method": "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+          "sha256": "1341c1b771e116dcaca3c2470d4744477f0658637a7cee194fa6d9d0ac77a39c",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/qol.txt"
+        },
+        {
+          "case": "wall",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest",
+          "method": "observedGeometryAndRetainedMarksUseTheActualAndroidLayer",
+          "sha256": "3f8187b915c96d7275df354d878d475d2336e316e4bd4a3a5a874a0b6007b78b",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/wall.txt"
+        },
+        {
+          "case": "seed",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "a_controlWritesEnabledPreference",
+          "sha256": "02fb86df35b64e1764e93dac288b210c88847857badb5c6378754be75efb19ab",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/seed.txt"
+        },
+        {
+          "case": "restart",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "b_freshProcessReadsEnabledAndCanDisable",
+          "sha256": "276914870b0edcc55bf2ecb0a71113c6cab77d86176477e942637046500507ca",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/restart.txt"
+        },
+        {
+          "case": "gameplay",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "c_runtimeDiscoveryRouteAndActualTrapEffect",
+          "sha256": "04aba283b19a918036415a9526adcc2bec40f5b0a4a3aee50b3eb3415bb761f1",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/gameplay.txt"
+        },
+        {
+          "case": "freeze",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest",
+          "method": "cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending",
+          "sha256": "efd3caadb0402bd97d75c90e038daa5dcfacee6771508ecd4ad1fc48b5a4f6c4",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/freeze.txt"
+        }
+      ],
+      "image_count": 1425,
+      "all_png_structure_crc_decompression_rows_dimensions_passed": true,
+      "complete_image_hash_manifest_matches_receipt": true,
+      "all_required_affected_images_present": true,
+      "all_case_transfers_verified": true,
+      "final_device_manifest_equals_complete_local_manifest": true,
+      "transfers": {
+        "qol": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/qol-transfer.json",
+          "sha256": "5083f84c2da029f265badf23edc5a55ba6ed5d92aea4b1b544faf4e64395ad4f",
+          "remote_image_count": 1413,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "wall": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/wall-transfer.json",
+          "sha256": "c7342339835da0d8f0f7ea18d8436782c2b79ef3f7e3b0c5555f626338d67b2f",
+          "remote_image_count": 1418,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "seed": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/seed-transfer.json",
+          "sha256": "f80df7acfd3dbcf923bdd7f5ea3874e572e69b4e45947a63cb4c3dbe8930bd13",
+          "remote_image_count": 1419,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "restart": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/restart-transfer.json",
+          "sha256": "7127929cfeab3d459562aadfaca90e4052c29a929bf669634c176e87ffab7fc7",
+          "remote_image_count": 1421,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "gameplay": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/gameplay-transfer.json",
+          "sha256": "5c6047dfb66d7c7083b2a7806f6f11d4e5c04a2b826cef253bf92458fdac0362",
+          "remote_image_count": 1425,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "freeze": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/freeze-transfer.json",
+          "sha256": "47410869afcb61f4acc4cd391665d7997f694364632824bcf1ff43230c4ae3b6",
+          "remote_image_count": 1425,
+          "every_recorded_hash_matches_final_local_image": true
+        }
+      },
+      "receipt_sha256": "93ece35c3802fb7d80aee4b003112985b6f1c5ad06018bedb280614a764f3a75",
+      "instrumentation_sha256": "5ac08c348e0a47c3220aa6dd39ceed6a4be15ea610b48cd53becb84a63ba5f11",
+      "apk_sha256": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+      "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+      "seed_pid": 4949,
+      "restart_pid": 5145,
+      "distinct_process_ids": true,
+      "logcat_sha256": "34aa0e5825a4a66208e0e92405802a890b01ba8b315f83dcdf2aee671124b186"
+    },
+    "Alpha-Testers": {
+      "raw_exact_cases_passed": 6,
+      "reports": [
+        {
+          "case": "qol",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest",
+          "method": "grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively",
+          "sha256": "06827c99584032630b329e4c1edd3c02fe58cfce96ac40c6664a4d46d4f9748a",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/qol.txt"
+        },
+        {
+          "case": "wall",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest",
+          "method": "observedGeometryAndRetainedMarksUseTheActualAndroidLayer",
+          "sha256": "2d5ed30359e10a4e95c31168fa7a4e063f01305fe14a3ac4176339e31f8e3fea",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/wall.txt"
+        },
+        {
+          "case": "seed",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "a_controlWritesEnabledPreference",
+          "sha256": "fa9e4aed892e63da87b4112d1af4f7bcb650842193661a8a004ce99e4b5472cd",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/seed.txt"
+        },
+        {
+          "case": "restart",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "b_freshProcessReadsEnabledAndCanDisable",
+          "sha256": "623e333ea269834c7de32f7b654052e1a5497f787966134a3ade952b53a35327",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/restart.txt"
+        },
+        {
+          "case": "gameplay",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest",
+          "method": "c_runtimeDiscoveryRouteAndActualTrapEffect",
+          "sha256": "7ee75470bdb3db2df1a1fee0596acae356f7a2142d4464ace0186aac9e5967b6",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/gameplay.txt"
+        },
+        {
+          "case": "freeze",
+          "class": "com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest",
+          "method": "cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending",
+          "sha256": "31d67a0036a55a25abd11bdc003742cf51cec75a664a91714ff705ad1e9f430d",
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/freeze.txt"
+        }
+      ],
+      "image_count": 1425,
+      "all_png_structure_crc_decompression_rows_dimensions_passed": true,
+      "complete_image_hash_manifest_matches_receipt": true,
+      "all_required_affected_images_present": true,
+      "all_case_transfers_verified": true,
+      "final_device_manifest_equals_complete_local_manifest": true,
+      "transfers": {
+        "qol": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/qol-transfer.json",
+          "sha256": "84393795f6c387fa6ab30189048cdb4eb20b4f4667cc6bde82f531f14a5ac48f",
+          "remote_image_count": 1413,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "wall": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/wall-transfer.json",
+          "sha256": "c8bb1529219f1f5c625bafaf65e01b1ddfd15f3bda451aab89fad79a2e114f63",
+          "remote_image_count": 1418,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "seed": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/seed-transfer.json",
+          "sha256": "b116ed7f1ada5495e92ef5f7ccfacf0d35e902a673b8299fb27c70eb9e71c853",
+          "remote_image_count": 1419,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "restart": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/restart-transfer.json",
+          "sha256": "2170b08d8eec5971014b9e7f5da6510833ccf13465705d2c360f2d409f9302d1",
+          "remote_image_count": 1421,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "gameplay": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/gameplay-transfer.json",
+          "sha256": "2ca2696653526ad0e76f0713d7275b2e60ff3d68dbf7a190e58a40c9d506a0c6",
+          "remote_image_count": 1425,
+          "every_recorded_hash_matches_final_local_image": true
+        },
+        "freeze": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/freeze-transfer.json",
+          "sha256": "248f20a218042aff961372b02ec6f2a9f054d2d9f32f82cd533a94f6428d212a",
+          "remote_image_count": 1425,
+          "every_recorded_hash_matches_final_local_image": true
+        }
+      },
+      "receipt_sha256": "fbc4f6a9a0c253e0fc6e5cee0ee43704472347b0b62193c56c3470e902b5413e",
+      "instrumentation_sha256": "5ac08c348e0a47c3220aa6dd39ceed6a4be15ea610b48cd53becb84a63ba5f11",
+      "apk_sha256": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed",
+      "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+      "seed_pid": 4931,
+      "restart_pid": 5123,
+      "distinct_process_ids": true,
+      "logcat_sha256": "317191fabc3f0bf104a14412c7d247fe20cdb894c236fddd410fa1f05cd311a7"
+    }
+  },
+  "all_12_exact_native_cases_passed": true,
+  "all_2850_pngs_validated_and_hash_bound": true,
+  "source_archive": {
+    "manifest_file_count": 4964,
+    "manifest_sha256": "7974d4a1fa2896bb9c08e52165b2482da2d8123a48552052768be3123db3ce65",
+    "source_sha256": "967a55fa95e42d7ce8b51c8a5f556fde2ae628f3653b9be649a497c57fdc4ae4",
+    "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc"
+  },
+  "source_scan": {
+    "receipt_sha256": "7be272e142537170119836f1528ca43f1c9bcad9a9a3a3738f5c33630c8f2c7d",
+    "report_sha256": "1b5a486fe05427a450275343ae9fd3e210ad4987949ca850134cd0b5f2fa3c6f",
+    "source_candidates": 72,
+    "history_candidates": 23,
+    "all_source_findings_reviewed": true,
+    "all_historical_findings_retained_and_disclosed": true,
+    "scanner_version": "8.30.1",
+    "scanner_binary_sha256": "88f91962aa2f93ac6ab281d553b9e125f5197bbbce38f9f2437f7299c32e5509",
+    "existing_scanner_script_sha256": "436dcfc230412e39e53b95e7301a7a8c78228ebb63a7db5f1afca070026c7734",
+    "exact_scan_archive_and_source_zip_binding_verified": true,
+    "scanner_rerun_locally": false
+  },
+  "compiled_apks": {
+    "Developer": {
+      "apk_sha256": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+      "previous_apk_sha256": "ca3133202969f2c2e7fe58d751fbac4a767207aaa0b96b902c05d5e7d2af0fde",
+      "previous_441_compiled_history_preserved": true,
+      "all_history_and_player_release_assets_match_frozen_source": true,
+      "compiled_history_records": 447,
+      "new_history_entries": 5,
+      "new_history_exactly_matches_approved_scope": true,
+      "features": [
+        "testBuild",
+        "grudge",
+        "demoUnlock",
+        "clericPlayable"
+      ],
+      "features_exact": true,
+      "common_runtime_assets_match_corresponding_source": 930,
+      "actors_properties_sha256": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+      "ordinary_descriptions": {
+        "veterans_intuition": "_+1:_ The Warrior identifies weapons _1.75x faster_ and armor _2x faster_.\\n\\n_+2:_ The Warrior identifies weapons _2.5x faster_ and armor _when he equips it_.",
+        "provoked_anger": "_+1:_ When any shielding buff applied to the Warrior is broken by damage, his next physical attack will deal _3 bonus damage_.\\n\\n_+2:_ When any shielding buff applied to the Warrior is broken by damage, his next physical attack will deal _5 bonus damage_.\\n\\nThe bonus lasts _5 turns_. Another shield break adds 5 turns to its remaining duration.",
+        "lingering_magic": "_+1:_ When the Mage zaps with a wand or staff, his next physical attack deals _1-2 bonus damage_.\\n\\n_+2:_ When the Mage zaps with a wand or staff, his next physical attack deals _2 bonus damage_.\\n\\nThe bonus lasts _5 turns_. Another zap refreshes that duration.",
+        "speedy_stealth": "_+1:_ While invisible, the Freerunner gains 2 stacks of momentum per turn, up to 10, when freerunning is inactive and off cooldown.\\n\\n_+2:_ In addition to the benefits of +1, freerunning no longer counts down while the Freerunner is invisible.\\n\\n_+3:_ In addition to the benefits of +1 and +2, the Freerunner moves at 2x speed while invisible, regardless of whether he is freerunning or not."
+      },
+      "gpl_license_matches_original_source": true
+    },
+    "Alpha-Testers": {
+      "apk_sha256": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed",
+      "previous_apk_sha256": "f4fc33b038331969729a5d0bca5c6b52bb36d1ac451e19deb877f9c5f7f66370",
+      "previous_441_compiled_history_preserved": true,
+      "all_history_and_player_release_assets_match_frozen_source": true,
+      "compiled_history_records": 447,
+      "new_history_entries": 5,
+      "new_history_exactly_matches_approved_scope": true,
+      "features": [
+        "extendedPlayback",
+        "grudge"
+      ],
+      "features_exact": true,
+      "common_runtime_assets_match_corresponding_source": 930,
+      "actors_properties_sha256": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+      "ordinary_descriptions": {
+        "veterans_intuition": "_+1:_ The Warrior identifies weapons _1.75x faster_ and armor _2x faster_.\\n\\n_+2:_ The Warrior identifies weapons _2.5x faster_ and armor _when he equips it_.",
+        "provoked_anger": "_+1:_ When any shielding buff applied to the Warrior is broken by damage, his next physical attack will deal _3 bonus damage_.\\n\\n_+2:_ When any shielding buff applied to the Warrior is broken by damage, his next physical attack will deal _5 bonus damage_.\\n\\nThe bonus lasts _5 turns_. Another shield break adds 5 turns to its remaining duration.",
+        "lingering_magic": "_+1:_ When the Mage zaps with a wand or staff, his next physical attack deals _1-2 bonus damage_.\\n\\n_+2:_ When the Mage zaps with a wand or staff, his next physical attack deals _2 bonus damage_.\\n\\nThe bonus lasts _5 turns_. Another zap refreshes that duration.",
+        "speedy_stealth": "_+1:_ While invisible, the Freerunner gains 2 stacks of momentum per turn, up to 10, when freerunning is inactive and off cooldown.\\n\\n_+2:_ In addition to the benefits of +1, freerunning no longer counts down while the Freerunner is invisible.\\n\\n_+3:_ In addition to the benefits of +1 and +2, the Freerunner moves at 2x speed while invisible, regardless of whether he is freerunning or not."
+      },
+      "gpl_license_matches_original_source": true
+    }
+  },
+  "helper_hashes": {
+    "tools/apd_candidate442.py": "1e761a51736ca555f5a339daa46ccf0568731896d7abb5a01fb3168ddd0d9940",
+    "tools/apd_candidate441.py": "a59674f3f55d5d79e6a19264de94e8c26c644c81b3469383fc07ab01d6719997",
+    "tools/apd_recover439_440.py": "15ed9518882591e81881a015db2d3bf64cef6e343229dca7bc78428ca51e3bc5",
+    "tools/apd_scan_prepared_sources.py": "fc0f14dcbbfed96e8e17b4636ad19ce3df2050d512166b69bcf828fba66268fd",
+    "tools/validate_android_visuals.py": "86fab85f843464f68034334dbfc73fb04c8076058565c2535190866708fbe049",
+    "tools/apd_native_screenshot_transfer.py": "bdc1312ad65ecc69e90a8614d38d4ec469bf8b92e03d4ac45c8e59a2fb8dc713",
+    "tools/apd_build_history.py": "a957d5d859277a9f5f76d5bfbfb7ffdd7db8f6e8377fbd40c39e0e55171101de"
+  },
+  "signing": {
+    "certificate_sha256_from_ci_receipt": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "exact_apk_hashes_match_ci_verified_receipt": true,
+    "sdk_apksigner_run_locally": false,
+    "instrumentation_sha256_from_bound_native_and_owner_receipts": "5ac08c348e0a47c3220aa6dd39ceed6a4be15ea610b48cd53becb84a63ba5f11",
+    "instrumentation_binary_rehashed_locally": false
+  },
+  "core": {
+    "verified_ci_receipt_tests": 3197,
+    "verified_ci_receipt_suites": 464,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "core_not_rerun_during_this_acceptance": true,
+    "raw_ci_core_xml_not_in_these_owner_native_source_scan_archives": true
+  },
+  "limitations": [
+    "No Android SDK or apksigner is installed locally; signature, package/version and instrumentation target checks remain CI results tied to the independently verified exact APK digests. check_pair was not called.",
+    "The frozen instrumentation APK itself is not in these selected local archives. Its digest agrees in both native receipts and the exact owner receipt; this acceptance does not claim to have rehashed that binary.",
+    "Source/history scanners were not rerun locally. Their exact artifact, report, reviewed findings and unchanged scanner contract were verified against the corresponding source ZIP. The 23 historical findings remain disclosed.",
+    "PNG mechanical checks validate file structure, CRCs, dimensions, complete decompressed scanlines and legal row filters; manual visual review is recorded separately and is not exhaustive.",
+    "No application rebuild, upload, release publication, physical-phone or audio test occurred in this independent check."
+  ]
+}

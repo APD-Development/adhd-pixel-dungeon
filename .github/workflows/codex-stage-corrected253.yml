@@ -1,0 +1,186 @@
+name: Stage existing TEST253 with corrected complete Android evidence
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-stage-corrected253.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: apd-stage-corrected253
+  cancel-in-progress: false
+jobs:
+  verify-and-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Bind original successful producer and corrected complete native run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,subprocess,time,sys
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];source='6d9162f5946311728b1723a3b02d688072a8da79'
+          api=lambda path:json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          original=api(f'repos/{repo}/actions/runs/38943900747')
+          assert original['head_sha']==source and original['run_number']==253 and original['status']=='completed'
+          jobs=api(f'repos/{repo}/actions/runs/38943900747/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          assert {j['name'] for j in jobs if j['conclusion']=='failure'}=={'android-smoke-check'}
+          deadline=time.monotonic()+1800
+          while True:
+              retest=api(f'repos/{repo}/actions/runs/38948655465')
+              assert retest['head_sha']=='8ec678a7d13d12797b0e5ed64062dbe7a31c5901'
+              if retest['status']=='completed':
+                  assert retest['conclusion']=='success','Corrected native acceptance failed; retain fallback'
+                  break
+              if time.monotonic()>deadline:raise SystemExit('Corrected native acceptance still pending; no verified claim')
+              time.sleep(20)
+          rjobs=api(f'repos/{repo}/actions/runs/38948655465/jobs')['jobs']
+          for name in ('reuse-and-check (34)','reuse-and-check (36)'):
+              assert any(j['name']==name and j['conclusion']=='success' for j in rjobs)
+          roster_jobs=api(f'repos/{repo}/actions/runs/38944665726/jobs')['jobs']
+          assert any(j['name']=='reuse-and-check (34)' and j['conclusion']=='success' for j in roster_jobs)
+          trees=[]
+          for commit in (source,retest['head_sha'],os.environ['GITHUB_SHA']):
+              tree=api(f'repos/{repo}/git/trees/{commit}?recursive=1')
+              assert not tree.get('truncated');trees.append(application_inputs(tree['tree']))
+          assert trees[0]==trees[1]==trees[2],'Changed application inputs; do not reuse APK'
+          expected={12064716016:('apd-codex-private-test-apk','64b401770227301b71b85e8a06947b54bd5177b49698b136be648963e29dabc0'),12064770866:('apd-codex-core-tests','bf1a38a6f7029d01a38c530046b20347ff4cbda162994603216f81a15c263bc7')}
+          for aid,(name,digest) in expected.items():
+              art=api(f'repos/{repo}/actions/artifacts/{aid}')
+              assert art['name']==name and not art['expired'] and art['workflow_run']['head_sha']==source and art['digest']=='sha256:'+digest
+          pathlib.Path('stage-provenance.json').write_text(json.dumps({'application_source':source,'original_build_run':38943900747,'original_build_job':next(j for j in jobs if j['name']=='verify-and-build'),'original_run_conclusion':original['conclusion'],'android_retest_run':38948655465,'android_retest_source':retest['head_sha'],'android_retest_conclusion':retest['conclusion'],'roster_run':38944665726,'stage_commit':os.environ['GITHUB_SHA'],'protected_application_inputs_identical':True,'application_rebuilt':False,'physical_phone':False},indent=2))
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          run-id: '38943900747'
+          github-token: ${{ github.token }}
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          run-id: '38943900747'
+          github-token: ${{ github.token }}
+          path: core-reports
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          run-id: '38943900747'
+          github-token: ${{ github.token }}
+          path: original-rejected-android
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api34
+          run-id: '38948655465'
+          github-token: ${{ github.token }}
+          path: corrected-android
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api36
+          run-id: '38948655465'
+          github-token: ${{ github.token }}
+          path: android36
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-final-alpha-api34
+          run-id: '38944665726'
+          github-token: ${{ github.token }}
+          path: roster
+      - name: Recheck all methods, signing identity, source, checksum and captures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download apd-alpha-preview-250 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-Alpha-Preview-250.apk --dir rollback
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,shutil,struct,subprocess,sys,xml.etree.ElementTree as E
+          from pypdf import PdfReader
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import certificates,xml_summary
+          root=pathlib.Path('delivery');source='6d9162f5946311728b1723a3b02d688072a8da79';sha='f1f3a297543ca8b717d7a41b537eaf0e91d7bd0e06f48052045930f2aa65b907'
+          core=xml_summary('core-reports');native=xml_summary('corrected-android/native-test-results');a36=xml_summary('android36/native-test-results')
+          assert core['tests']==1736 and native['tests']==36 and a36['tests']==8
+          oldcases=[c for p in pathlib.Path('original-rejected-android').rglob('TEST-*.xml') for c in E.parse(p).getroot().iter('testcase')]
+          assert len(oldcases)==36 and sum(c.find('failure') is not None for c in oldcases)==1
+          assert {(c.get('classname'),c.get('name')) for c in oldcases}=={(c['classname'],c['name']) for c in native['cases']},'Missing original method'
+          failed=next(c for c in oldcases if c.find('failure') is not None)
+          assert failed.get('name')=='aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded'
+          assert 'Native pager touch switches page' in failed.find('failure').text
+          for folder,count in [('corrected-android',36),('android36',8),('roster',1)]:
+              origin=json.loads(pathlib.Path(folder,'acceptance-source.json').read_text())
+              result=json.loads(pathlib.Path(folder,'device-acceptance-result.json').read_text())
+              assert origin['application_source']==source and origin['application_sha256']==sha and origin['protected_application_inputs_identical'] and not origin['application_rebuilt']
+              assert result['instrumented_methods']==count and result['failures']==result['errors']==result['skipped']==0 and not result['physical_device']
+          images={}
+          for folder,label,count,size in [('corrected-android','api34',49,(320,640)),('android36','api36',13,(540,960)),('roster','roster',6,(320,640))]:
+              pictures=list(pathlib.Path(folder,'acceptance-screenshots').glob('*.png'));assert len(pictures)==count
+              target=root/'screenshots'/label;target.mkdir(parents=True,exist_ok=True)
+              for picture in pictures:
+                  data=picture.read_bytes();assert data[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',data[16:24])==size
+                  shutil.copyfile(picture,target/picture.name);images[label+'/'+picture.name]={'size':size,'sha256':hashlib.sha256(data).hexdigest()}
+          apk=root/'ADHD-Pixel-Dungeon-CODEX-TEST-253.apk';old=pathlib.Path('rollback/ADHD-Pixel-Dungeon-Alpha-Preview-250.apk')
+          assert hashlib.sha256(apk.read_bytes()).hexdigest()==sha==(root/(apk.name+'.sha256')).read_text().split()[0]
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=='06531de071cbe89a5b0c3260f5c5fb6e6368fbfdf388f8f18bb0fcd983532535'
+          signer=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1];aapt=signer.parent/'aapt'
+          cert=[certificates(subprocess.check_output([str(signer),'verify','--print-certs',str(p)],text=True)) for p in (apk,old)]
+          assert cert[0]==cert[1]==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          package=[re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']+)'",subprocess.check_output([str(aapt),'dump','badging',str(p)],text=True)).groups() for p in (apk,old)]
+          assert package[0][0]==package[1][0]=='com.charltonchris29.adhdpixeldungeon.indev' and int(package[0][1])>=int(package[1][1])
+          assert package[0][2]=='4.0.8-apd-INDEV-bC253-TEST'
+          provenance=json.loads(pathlib.Path('stage-provenance.json').read_text())
+          evidence={'source':source,'publication_commit':os.environ['GITHUB_SHA'],'publication_app_tree_matches_source':True,'run':'38943900747','apk_sha256':sha,'certificate_sha256':cert[0],'package':package[0],'core':core,'android':native,'android36':a36,'provenance':provenance,'screenshot_checksums':images,'screenshots_generated':68,'manual_visual_review':'pending','physical_phone':False,'application_rebuilt':False}
+          (root/'TEST253-Verification.json').write_text(json.dumps(evidence,indent=2))
+          subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True)
+          subprocess.run(['git','archive','--format=zip','--output='+str(root/'APD-Verified-Source.zip'),source],check=True)
+          z=root/'APD-Verified-Source.zip';pathlib.Path(str(z)+'.sha256').write_text(hashlib.sha256(z.read_bytes()).hexdigest()+'  '+z.name+'\n')
+          for folder,label in [('core-reports','core'),('corrected-android/native-test-results','corrected-api34'),('android36/native-test-results','api36'),('original-rejected-android','rejected-original-api34')]:
+              target=root/'test-evidence'/label;target.mkdir(parents=True,exist_ok=True)
+              for i,p in enumerate(pathlib.Path(folder).rglob('TEST-*.xml')):shutil.copyfile(p,target/(str(i)+'-'+p.name))
+          for folder,label in [('corrected-android','api34'),('android36','api36'),('roster','roster')]:
+              for name in ('acceptance-source.json','device-acceptance-result.json','instrumentation.txt'):
+                  target=root/'test-evidence'/label;target.mkdir(parents=True,exist_ok=True);shutil.copyfile(pathlib.Path(folder,name),target/name)
+          modal=pathlib.Path('original-rejected-android/codex-visual-evidence/hotbar-controls.png')
+          assert modal.is_file();shutil.copyfile(modal,root/'test-evidence/rejected-original-api34/setup-modal.png')
+          text=f"TEST253 application source {source}; APK SHA-256 {sha}. No application APK rebuild during retest or staging.\n\nOriginal run38943900747 successfully completed the producer/core/debug/history job with1736unique core methods. Its initial Android run was rejected:35passed/1failed because the setup left its empty-hotbar modal over the HUD. Corrected instrumentation source8ec678a7d13d12797b0e5ed64062dbe7a31c5901/run38948655465 retested ALL36original methods successfully on the SAME APK, plus8Android16 methods; zero failures/errors/skips. Original and corrected case identities match exactly.\n\nThe same APK passed the six-class save/continue method in38944665726. There are37unique Android methods across45successful executions in the accepted evidence, not45unique tests.68PNG captures have valid dimensions/checksums; manual visual review remains pending at this staging checkpoint. No physical-phone claim.\n\nSigning/applicationID/versioncode match published TEST250. All357values/formula/gameplay remain unchanged except the bounded toolbar placement correction. Install over; never uninstall or clear data. Published250and231assets remain preserved."
+          (root/'verification.txt').write_text(text)
+          body="""# Current acceptance checkpoint
+          ## Implemented changes
+          The optional scoring-vision popup explains future interaction-aware and class/progression ideas without changing today's357provisional values. The daily calendar shows and preserves already-earned scores using additive compatible long metadata. Narrow toolbars move only the existing pager above the slots when a140-pixel row cannot fit135pixels.
+          ## Actual verification and failures
+          The original253core/debug/history producer passed. Its initial native run failed because the test left a Hotbar/No available items modal open. Only test setup, execution and native-input synchronization changed afterward. The application source and signed APK did not change. The complete corrected native run now passes all36original cases and8Android16cases; all6classes also passed save/continue on this APK. Earlier emulator disk, diagnostic-script and cold-process fixture failures remain documented in HANDOFF.
+          ## Remaining boundaries
+          The generated captures still require agent review before publication. Physical-phone install-over, the owner's actual save, physical touch and full human boss playthroughs remain unverified. No automatic tester distribution or public release. The original rejected run is never described as successful.
+          """
+          (root/'stage-report.md').write_text(body)
+          subprocess.run(['python3','tools/apd_bug_report_pdf.py',str(root/'stage-report.md'),str(root/'APD-Alpha-Preview-253.pdf'),'--verification',str(root/'verification.txt')],check=True)
+          pdf=root/'APD-Alpha-Preview-253.pdf';pages=PdfReader(pdf);assert 1<=len(pages.pages)<=8 and source in '\n'.join(p.extract_text() for p in pages.pages)
+          evidence['staged_pdf_sha256']=hashlib.sha256(pdf.read_bytes()).hexdigest();(root/'TEST253-Verification.json').write_text(json.dumps(evidence,indent=2))
+          print(json.dumps({'source':source,'apk_sha256':sha,'core':core['tests'],'corrected_api34':native['tests'],'api36':a36['tests'],'images':len(images),'certificate':cert[0],'staged_pdf_sha256':evidence['staged_pdf_sha256'],'manual_visual_review':'pending','physical_phone':False},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staged-alpha-preview253
+          path: delivery/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staged-alpha-preview253-evidence
+          path: |
+            delivery/*.json
+            delivery/*.pdf
+            delivery/*.txt
+            delivery/*.sha256
+            delivery/APD-Verified-Source.zip
+            delivery/screenshots/
+            delivery/test-evidence/
+          retention-days: 7

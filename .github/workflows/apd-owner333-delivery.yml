@@ -1,0 +1,29 @@
+name: Deliver exact verified TEST333 owner APK pair
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-owner333-delivery.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install pillow
+      - name: Verify exact existing APKs and publish privately
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/apd_publish_owner333.py
+      - name: Retain actual delivery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-owner333-delivery-evidence
+          path: owner333-delivery/
+          if-no-files-found: warn
+          retention-days: 7
+# Require corrected tooltip compilation; retain historical TEST314-only preflight failures separately.
+# Gate on complete66-method same-APK rerun with actual async/window readiness; preserve failed initial65 run.

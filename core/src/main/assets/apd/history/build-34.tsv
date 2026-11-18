@@ -1,0 +1,5 @@
+Testing	ICON_CHECKED	Archive Migration Device Test	Updated Android checks and fixtures for archive migration device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_INFO	Archive Importer	Stopped truncated archive reads instead of spinning while holding the import lock.
+Testing	ICON_CHECKED	Archive Hostile Test	Updated automated checks and fixtures for archive hostile. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-ARCHIVE	Updated apd-stats-archive accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Stopped truncated archive reads instead of spinning while holding the import lock.

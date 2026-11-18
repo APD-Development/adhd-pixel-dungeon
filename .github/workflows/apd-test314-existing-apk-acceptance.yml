@@ -1,0 +1,83 @@
+name: APD TEST314 matched exact-APK Cleric acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-test314-existing-apk-acceptance.yml, tools/run-test314-exact-android.sh, android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/RunSetupDifficultyDeviceTest.java]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {variant: player, artifact: 12679246357, digest: b0166515e74180d627faf78e2bbbbc6f15ac7546a6c3416847d8c7445f82e22f}
+          - {variant: developer, artifact: 12679410898, digest: 43517d2fb23163fc69d635e35c24a8b5d438df85a54824d93108c4571a78db55}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 20}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Assert test-only changes since compiled TEST314
+        run: |
+          git diff --name-only eda307d567bd7eacd1b304042747b65d0ea4ed72 HEAD > test-only-diff.txt
+          python3 - <<'PY'
+          p=set(open('test-only-diff.txt').read().splitlines())
+          allow={'.github/workflows/apd-test314-existing-apk-acceptance.yml','android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/RunSetupDifficultyDeviceTest.java','tools/run-test314-exact-android.sh'}
+          assert p<=allow, p-allow
+          PY
+      - name: Download and hash check existing compiled APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ID: ${{ matrix.artifact }}
+          SHA: ${{ matrix.digest }}
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          gh api repos/${{ github.repository }}/actions/artifacts/$ID/zip > exact-application.zip
+          python3 - <<'PY'
+          import zipfile,os,hashlib,pathlib,io
+          with zipfile.ZipFile('exact-application.zip') as z:
+              p=[n for n in z.namelist() if n.endswith('.apk')]
+              assert len(p)==1
+              apk=z.read(p[0])
+          digest=hashlib.sha256(apk).hexdigest()
+          assert digest==os.environ['SHA'],(digest,os.environ['SHA'])
+          with zipfile.ZipFile(io.BytesIO(apk)) as z:
+              assert ('assets/apd/features.txt' in z.namelist())==(os.environ['VARIANT']=='developer')
+          pathlib.Path('exact.apk').write_bytes(apk)
+          print(os.environ['VARIANT'],len(apk),digest)
+          PY
+      - name: Compile ONLY changed Android instrumentation tests
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C314
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+      - name: Enable emulator KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Verify Cleric Start on previously accepted compact display
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          profile: pixel_7
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: bash tools/run-test314-exact-android.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test314-${{ matrix.variant }}-native-evidence
+          path: |
+            test-only-diff.txt
+            native-result.txt
+            exact-logcat.txt
+            native-screens/
+          retention-days: 7

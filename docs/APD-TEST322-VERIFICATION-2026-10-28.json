@@ -1,0 +1,95 @@
+{
+  "source": "0ad7f6c5e2bbef3f57341cf0cc2c4aef6cebf04a",
+  "core": {
+    "tests": 2121,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 410,
+  "developer_apk": {
+    "path": "/workspace/scratch/24ddd29a55a4/verification/apks/ADHD-Pixel-Dungeon-CODEX-TEST-322.apk",
+    "sha256": "f77743bdc50d04fcaa2e6cd99ec8fe9ba2f2e35711860b0c32aa91f41bce4c94",
+    "bytes": 38785802
+  },
+  "indexed_history": 349,
+  "preserved_record_tsv": 348,
+  "player_apk": {
+    "path": "/workspace/scratch/24ddd29a55a4/verification/apks/APD-Player-TEST322.apk",
+    "sha256": "01745867da364ef34163be9f00b21a01c3e024aac265f091f7462662dd48428d",
+    "bytes": 38785625
+  },
+  "player_core_xml": {
+    "tests": 2121,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "matching_history_tsvs": 350,
+  "preserved_index_rows": 348,
+  "display_review_partial": {
+    "reviewed_profiles": [
+      "square-virtual",
+      "compact-virtual",
+      "short-landscape",
+      "m53-representative"
+    ],
+    "captures_per_profile": 5,
+    "expected_application_states_per_profile": 4,
+    "notes": [
+      "All four completed profiles reuse exact source0ad7f6c5 and developer APK hashf77743bdc50d04fcaa2e6cd99ec8fe9ba2f2e35711860b0c32aa91f41bce4c94 without rebuilding.",
+      "Title layout and Hide UI hide/restore states are visible and consistent with the approved geometry.",
+      "The m53 options-confirmations capture shows the preceding title frame; native window/touch assertions passed, but this individual capture does not prove the modal pixels.",
+      "final-screen captures occur after ActivityScenario closes and show launcher/transition, not an application acceptance image."
+    ]
+  },
+  "status": "rejected native acceptance; not delivered",
+  "native_totals": {
+    "tests": 61,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native_failures": [
+    {
+      "test": "warmUimsdTapDrawsTheComplete72RunHomeWithin250ms",
+      "message": ""
+    },
+    {
+      "test": "ordinarySettingsBackClosesOnlyTheWindowWithoutRebuildingTheScene",
+      "message": ""
+    }
+  ],
+  "menu_back_ms": {
+    "About": 68,
+    "Journal": 27,
+    "Top Scores": 36,
+    "Play slots": 50,
+    "Hero selection": 29,
+    "News": 44,
+    "Changes": 128,
+    "Community": 24,
+    "UIMSD": 58
+  },
+  "uimsd_home_draw_ms": [
+    288
+  ],
+  "display_profiles_passed": 5,
+  "build": 322,
+  "developer_run": 40730420742,
+  "developer_job": 122970534749,
+  "android_job": 122972693214,
+  "player_run": 40730420605,
+  "player_job": 122964912971,
+  "display_run": 40730420562,
+  "developer_artifact": 12835721247,
+  "core_artifact": 12835037788,
+  "player_artifact": 12835582402,
+  "android_artifact": 12836407466,
+  "native_failure_messages": [
+    "native tap to complete Home exceeded 250ms: 288",
+    "ordinary Settings Back must leave the current scene intact"
+  ],
+  "delivery": "none",
+  "next_correction": "Build Home text with its final width once; preserve oversized-token fallback. Synchronize initial title completion and capture the Settings scene atomically with window creation, retaining the identity assertion and adding a pre-Back fixture assertion."
+}

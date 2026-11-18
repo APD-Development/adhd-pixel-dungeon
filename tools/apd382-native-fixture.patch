@@ -1,0 +1,42 @@
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -280,7 +280,7 @@
+         String[] curseExpected={"10% chance","except Remove Curse and Anti-Magic","20% chance","stops normal seed"};
+         try{for(int i=0;i<items.length;i++)for(boolean cursed:new boolean[]{false,true})for(boolean use:new boolean[]{false,true}){
+             Item item=items[i];String required=cursed?curseExpected[i]:expected[i];AtomicReference<WndInfoItem> shown=new AtomicReference<>();
+-            TopScoresDeviceTest.render(()->{Dungeon.hero.belongings.misc=(com.shatteredpixel.shatteredpixeldungeon.items.KindofMisc)item;item.levelKnown=item.cursedKnown=true;item.cursed=cursed;assertTrue(item.info(),item.info().contains(required));assertFalse(item.info().contains("base action time"));WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);assertDescriptionViewport(window);shown.set(window);});Thread.sleep(300);
++            TopScoresDeviceTest.render(()->{Dungeon.hero.belongings.misc=(com.shatteredpixel.shatteredpixeldungeon.items.KindofMisc)item;item.levelKnown=item.cursedKnown=true;item.cursed=cursed;assertTrue(item.info(),item.info().contains(required));assertFalse(item.info().contains("base action time"));WndInfoItem window=use?new WndUseItem(null,item):new WndInfoItem(item);GameScene.show(window);shown.set(window);});Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
+             if(use)TopScoresDeviceTest.screenshot("qol-retained-artifact-"+i+(cursed?"-cursed":"-normal")+"-description.png");
+             TopScoresDeviceTest.render(()->shown.get().hide());
+         }}finally{TopScoresDeviceTest.render(()->Dungeon.hero.belongings.misc=previous);}
+@@ -322,16 +322,26 @@
+         for(boolean cursed:new boolean[]{false,true})for(boolean use:new boolean[]{false,true}){
+             AtomicReference<WndInfoItem> shown=new AtomicReference<>();
+             TopScoresDeviceTest.render(()->{
+-                ring.anonymize();ring.level(3);ring.levelKnown=ring.cursedKnown=true;ring.cursed=cursed;
++                ring.anonymize();ring.level(cursed?0:3);ring.levelKnown=ring.cursedKnown=true;ring.cursed=cursed;
+                 assertTrue(ring.info(),ring.info().contains(cursed?"more damage taken":"less damage"));
+-                WndInfoItem window=use?new WndUseItem(null,ring):new WndInfoItem(ring);GameScene.show(window);assertDescriptionViewport(window);shown.set(window);
+-            });Thread.sleep(300);
++                WndInfoItem window=use?new WndUseItem(null,ring):new WndInfoItem(ring);GameScene.show(window);shown.set(window);
++            });Thread.sleep(300);TopScoresDeviceTest.render(()->assertDescriptionViewport(shown.get()));
+             if(use)TopScoresDeviceTest.screenshot(cursed?"qol-tenacity-curse-concise.png":"qol-tenacity-protection-concise.png");
+             TopScoresDeviceTest.render(()->shown.get().hide());
+         }
+     }
+     private static void questDescriptionsRender()throws Exception{
+-        Item[] items={new com.shatteredpixel.shatteredpixeldungeon.items.quest.CeremonialCandle(),new com.shatteredpixel.shatteredpixeldungeon.items.quest.CorpseDust(),new com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal()};
++        com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal escape=new com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal();
++        TopScoresDeviceTest.render(()->{
++            escape.storedItems=new com.watabou.utils.Bundle();
++            com.watabou.utils.Bundle gear=new com.watabou.utils.Bundle(),slots=new com.watabou.utils.Bundle();
++            Dungeon.hero.belongings.storeInBundle(gear);Dungeon.quickslot.storePlaceholders(slots);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.BELONGINGS,gear);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.QUICKSLOTS,slots);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.GOLD,Dungeon.gold);
++            escape.storedItems.put(com.shatteredpixel.shatteredpixeldungeon.items.quest.EscapeCrystal.ENERGY,Dungeon.energy);
++        });
++        Item[] items={new com.shatteredpixel.shatteredpixeldungeon.items.quest.CeremonialCandle(),new com.shatteredpixel.shatteredpixeldungeon.items.quest.CorpseDust(),escape};
+         String[] expected={"north, east, south and west","banishes its wraiths","returns your original equipment"};
+         for(int i=0;i<items.length;i++)showItem(items[i],expected[i],"qol-quest-"+i+"-concise.png",true);
+     }

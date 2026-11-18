@@ -1,0 +1,47 @@
+name: APD C466R6 Developer test release
+on:
+  push:
+    branches: [fix/apd-adaptive-wall-search-rules-20261115]
+    paths: [.github/workflows/apd-wall-search-rules-release-20261115.yml]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Prepare Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - name: Core tests and Developer APK
+        run: ./gradlew :core:test :android:assembleDebug -PapdTestBuild -PapdBuild=C466R6
+      - name: Verify signer
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          cp android/build/outputs/apk/debug/android-debug.apk out/APD-C466R6-Developer-TEST.apk
+          tools=$(ls -d $ANDROID_HOME/build-tools/* | sort | tail -1)
+          $tools/apksigner verify --print-certs out/*.apk | tr -d ':' | grep -i 067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e
+      - name: Publish prerelease
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh release create apd-C466R6-test out/APD-C466R6-Developer-TEST.apk \
+            --target "$GITHUB_SHA" --prerelease \
+            --title "APD C466R6 Developer TEST" \
+            --notes "Developer test build from fix/apd-adaptive-wall-search-rules-20261115.
+
+          - Adaptive Wall Search follows real search reach; rooms that cannot hide a door, and floors 1/10/15/20, always use normal Search
+          - Hold the adaptive search button to do the opposite action
+          - Throwables aim around corners at any enemy in view
+          - Difficulty selector fades with character select
+          - Katana guard scales: 3 + half level
+          - Full backpack: swap an item for the one underfoot (same turn cost)
+          - Scroll of Metamorphosis restored to original; new Greater Metamorphosis spell (alchemy)
+          - New weapons: Tanto, Wakizashi, Tachi, Nodachi, Buckler, Targe, Kite Shield"

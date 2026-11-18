@@ -1,0 +1,162 @@
+name: APD paired regular-player APK
+
+# Every owner-requested Codex build must produce two separate private APKs:
+# the developer/test variant (codex-sprint-check.yml) and this PLAYER variant.
+# Both are built from the exact same GITHUB_SHA. No publication is permitted.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - docs/APD-CODEX-BUILD-REQUEST.txt
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-private-player-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  build-player:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Check out the same game source as developer build
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Wait for matching developer APK and restore identical offline history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,time,zipfile
+          sha=os.environ["GITHUB_SHA"]
+          repo=os.environ["GITHUB_REPOSITORY"]
+          deadline=time.monotonic()+38*60
+          matched=None
+          while time.monotonic()<deadline:
+              runs=json.loads(subprocess.check_output(
+                  ["gh","api",f"repos/{repo}/actions/runs?head_sha={sha}&per_page=30"]
+              ))["workflow_runs"]
+              matches=[r for r in runs if r["head_sha"]==sha
+                  and r["name"]=="Codex APD sprint verification"
+                  and r["head_branch"]=="codex/apd-phone-fixes-2026-10-09"]
+              if matches:
+                  run=max(matches,key=lambda r:r["id"])
+                  jobs=json.loads(subprocess.check_output(
+                      ["gh","api",f"repos/{repo}/actions/runs/{run['id']}/jobs"]
+                  ))["jobs"]
+                  verify=[j for j in jobs if j["name"]=="verify-and-build"]
+                  if verify and verify[0]["conclusion"]=="failure":
+                      raise SystemExit("Developer build failed: refusing unmatched player APK")
+                  if verify and verify[0]["conclusion"]=="success":
+                      artifacts=json.loads(subprocess.check_output(
+                          ["gh","api",f"repos/{repo}/actions/runs/{run['id']}/artifacts"]
+                      ))["artifacts"]
+                      candidates=[a for a in artifacts
+                          if a["name"]=="apd-codex-private-test-apk" and not a["expired"]]
+                      if len(candidates)==1:
+                          matched=(run,candidates[0])
+                          break
+              time.sleep(12)
+          if matched is None: raise SystemExit("Exact-source developer artifact is not available")
+          run,artifact=matched
+          pathlib.Path("reference").mkdir(exist_ok=True)
+          archive=pathlib.Path("reference/developer-artifact.zip")
+          with archive.open("wb") as f:
+              subprocess.run(["gh","api",f"repos/{repo}/actions/artifacts/{artifact['id']}/zip"],
+                             stdout=f,check=True)
+          with zipfile.ZipFile(archive) as z:
+              apks=[n for n in z.namelist() if n.endswith(".apk")]
+              sums=[n for n in z.namelist() if n.endswith(".apk.sha256")]
+              assert len(apks)==len(sums)==1,"Ambiguous developer artifact"
+              dev=z.read(apks[0])
+              expected=z.read(sums[0]).decode().split()[0]
+              assert hashlib.sha256(dev).hexdigest()==expected,"Developer checksum mismatch"
+              pathlib.Path("reference/developer.apk").write_bytes(dev)
+          with zipfile.ZipFile("reference/developer.apk") as z:
+              assert "assets/apd/features.txt" in z.namelist(),"Reference is not developer build"
+              names=[n for n in z.namelist() if n.startswith("assets/apd/history/") and n.endswith(".tsv")]
+              assert len(names)>100,"Embedded developer history missing"
+              for n in names:
+                  dest=pathlib.Path("core/src/main/assets")/n.removeprefix("assets/")
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  dest.write_bytes(z.read(n))
+          testnum=run["run_number"]
+          with open(os.environ["GITHUB_ENV"],"a") as env:
+              env.write(f"APD_TEST_NUMBER={testnum}\n")
+              env.write(f"APD_DEVELOPER_SHA256={expected}\n")
+          print("Pairing player with developer TEST",testnum,"source",sha)
+          PY
+
+      - name: Test and compile regular player APK without developer features
+        run: |
+          test ! -e core/src/main/assets/apd/features.txt
+          ./gradlew :core:test :android:assembleDebug -PapdBuild=P${{ env.APD_TEST_NUMBER }}
+
+      - name: Prove both variants keep the same data, identity and signing
+        run: |
+          python3 - <<'PY'
+          import hashlib,os,pathlib,zipfile
+          dev=pathlib.Path("reference/developer.apk")
+          player=pathlib.Path("android/build/outputs/apk/debug/android-debug.apk")
+          assert player.stat().st_size>30_000_000,"Player APK too small"
+          with zipfile.ZipFile(dev) as d,zipfile.ZipFile(player) as p:
+              assert "assets/apd/features.txt" in d.namelist()
+              assert p.read("assets/apd/features.txt")==b"extendedPlayback\n","Only approved playback flag belongs in Alpha Testers"
+              history=[n for n in d.namelist() if n.startswith("assets/apd/history/") and n.endswith(".tsv")]
+              assert all(n in p.namelist() and p.read(n)==d.read(n) for n in history),"History differs"
+              dex=[p.read(n) for n in p.namelist() if n.startswith("classes") and n.endswith(".dex")]
+              for text in (b"Waterskin Starting Hotbar Slot",b"WndInfoPile",b"WndRunTurnBrowser"):
+                  assert any(text in part for part in dex),f"Missing shared player feature {text!r}"
+          dest=pathlib.Path("APD-Player-TEST"+os.environ["APD_TEST_NUMBER"]+".apk")
+          dest.write_bytes(player.read_bytes())
+          digest=hashlib.sha256(dest.read_bytes()).hexdigest()
+          pathlib.Path(str(dest)+".sha256").write_text(digest+"  "+dest.name+"\n")
+          pathlib.Path("APD-Player-Provenance.txt").write_text(
+              "Private regular-player companion to developer TEST"+os.environ["APD_TEST_NUMBER"]+"\n"
+              +"Developer source: "+os.environ["GITHUB_SHA"]+"\n"
+              +"Developer APK SHA-256: "+os.environ["APD_DEVELOPER_SHA256"]+"\n"
+              +"Player APK SHA-256: "+digest+"\n"
+              +"Developer-only feature flags disabled. Original save data never modified.\n"
+              +"Not publicly released; separate player emulator testing may still be required.\n")
+          print("Player APK built:",dest,"sha256",digest)
+          PY
+          APK_SIGNER="$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)"
+          test -n "$APK_SIGNER"
+          "$APK_SIGNER" verify --print-certs reference/developer.apk > developer-signer.txt
+          "$APK_SIGNER" verify --print-certs "APD-Player-TEST${APD_TEST_NUMBER}.apk" > player-signer.txt
+          diff -u <(grep 'Signer #1 certificate SHA-256 digest:' developer-signer.txt) <(grep 'Signer #1 certificate SHA-256 digest:' player-signer.txt)
+          AAPT="$(find "$ANDROID_HOME/build-tools" -type f -name aapt | sort -V | tail -1)"
+          test -n "$AAPT"
+          "$AAPT" dump badging reference/developer.apk | grep '^package:' | sed -E "s/ versionName='[^']*'//g" > developer-package.txt
+          "$AAPT" dump badging "APD-Player-TEST${APD_TEST_NUMBER}.apk" | grep '^package:' | sed -E "s/ versionName='[^']*'//g" > player-package.txt
+          diff -u developer-package.txt player-package.txt
+
+      - name: Save player APK as private artifact, never publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-player-matching-developer
+          path: |
+            APD-Player-TEST*.apk
+            APD-Player-TEST*.apk.sha256
+            APD-Player-Provenance.txt
+            player-signer.txt
+            core/build/test-results/test/
+          if-no-files-found: error
+          retention-days: 7

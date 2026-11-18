@@ -1,0 +1,29 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_CHANGES	Changes Visual Device Test	Added a device test covering categories Use Spd Columns And Every Icon Opens Its Exact Build Popup. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	codex-test-51	Added codex-test-51 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-54	Added codex-test-54 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-55	Added codex-test-55 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-58	Added codex-test-58 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-60	Added codex-test-60 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-61	Added codex-test-61 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-62	Added codex-test-62 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-63	Added codex-test-63 resources bundled with this APK.
+Changes	ICON_CHANGES	codex-test-64	Added codex-test-64 resources bundled with this APK.
+Changes	ICON_CHANGES	index	Updated index resources bundled with this APK.
+Changes	ICON_CHANGES	Apd History	Grouped each category once while retaining every individual change entry.
+Statistics / UIMSD	ICON_STATS	Run log writer	Reserved close-control queue space so saturated flush requests cannot prevent writer termination and sealing.
+Quality of Life	ICON_INFO	APD Text Scene	Used paired SPD category columns, specific sprites, exact-build popups and bounded build navigation.
+Testing	ICON_CHANGES	Apd History Grouping Test 1	Added a test covering repeated Categories Keep Every Entry Without Repeating Headings. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	Apd History Grouping Test 2	Added a test covering commentary Keeps Its Own Description. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	Apd History Grouping Test 3	Added a test covering rendering Cannot Remove Historical Entries. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	Apd History Grouping Test 4	Added a test covering empty Build Does Not Invent A Change. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Saturated Close Test 1	Added a test covering timed Out Close Still Finishes After Disk Resumes. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Saturated Close Test 2	Added a test covering close Preserves Accepted Events And Reports Drops Under Flush Overload. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-HISTORY-APK-ATTRIBUTION-2026-10-12	Added apd-history-apk-attribution-2026-10-12 accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Updated apd-next-build-history accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_CHANGES	apd build history	Updated the apd build history development tool.
+Infrastructure	ICON_INFO	run-codex-android-checks	Added the run-codex-android-checks development tool.
+Infrastructure	ICON_CHANGES	test apd build history	Updated the test apd build history development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Added codex-test-51 resources bundled with this APK. Added codex-test-54 resources bundled with this APK.

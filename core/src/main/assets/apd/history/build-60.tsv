@@ -1,0 +1,13 @@
+Statistics / UIMSD	ICON_STATS	Datasets	Grouped challenge statistics by difficulty and balance revision as well as challenge settings.
+Statistics / UIMSD	ICON_STAIRS	Seed Floors	Refused unreliable mixed-ruleset replay and kept recorded/canonical provenance explicit.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Blocked drill-down into hidden groups from unfinished runs.
+Statistics / UIMSD	ICON_STATS	Run recorder	Recorded ruleset changes when saving or ending a run.
+Statistics / UIMSD	ICON_INFO	Report Builder	Labeled recorded-versus-canonical comparison reports as containing both data sources.
+Quality of Life	ICON_STATS	Statistics screen	Displayed the active run’s actual challenge and difficulty context.
+Testing	ICON_STATS	Aggregate First Views Test	Updated automated checks and fixtures for aggregate first views. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test	Updated automated checks and fixtures for seed floors. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test	Updated automated checks and fixtures for recorder lifecycle. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test	Updated automated checks and fixtures for report. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Statistics / UIMSD	ICON_STATS	Challenges view	Updated the Challenges statistics view.
+Developer Commentary	V074_SHPX	Developer Commentary	Grouped challenge statistics by difficulty and balance revision as well as challenge settings. Refused unreliable mixed-ruleset replay and kept recorded/canonical provenance explicit.

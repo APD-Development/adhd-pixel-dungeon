@@ -1,0 +1,29 @@
+{
+  "release_id": 431975450,
+  "source_commit": "0d938a994359b6a0e5cb2533b1207d5722df6cab",
+  "delivery_workflow_run": 41526510993,
+  "published_at": "2026-11-02T21:16:04Z",
+  "download_verified_utc": "2026-11-02T21:16:11.979111+00:00",
+  "links_sent_in_owner_commentary": true,
+  "links_recorded_utc": "2026-11-02T21:17:41.456730+00:00",
+  "scheduler_causation_claimed": false,
+  "apk_hashes": {
+    "Developer": "83f750df05a32c0006544590b53dd527fd7b57ad767cf042b65e1493a21742ec",
+    "Alpha-Testers": "25136d72b0db1ca09095708060c2cad8da1c377640084cffa374a0a12e1430e2"
+  },
+  "source_sha256": "e46b2b1fbe098f74d337000089a910095274ed87ae6accbe8dd2d75fb003ed14",
+  "receipt_sha256": "920ab09098d2f59d6eff1f78ef622b531a28d7d0dac3352552d26ed141a08125",
+  "original_native_failure": {
+    "job": 125536302553,
+    "tests": 69,
+    "failures": 1,
+    "method": "everyAboutPopupOpensScrollsAndCloses",
+    "resolution": "Corrected test for existing Source & Licenses menu; complete 69-case retest passed against the exact original APK, without rebuilding"
+  },
+  "failed_delivery_attempts": {
+    "41524810346": "CLI ANSI log-output refusal, corrected raw log parsing flag",
+    "41526069371": "Draft lookup by tag returned404; existing draft preserved and uploaded by release ID"
+  },
+  "physical_phone_verified": false,
+  "new_application_apks": 2
+}

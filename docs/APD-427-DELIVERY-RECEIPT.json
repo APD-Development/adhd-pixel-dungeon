@@ -1,0 +1,42 @@
+{
+  "prepared_eastern": "2026-11-09T14:46:05.838569-05:00",
+  "source_commit": "209277bdabbb9520bba60717f3fa3927f80d5eb6",
+  "number": 427,
+  "tag": "apd-alpha-preview-427",
+  "core_tests": 3157,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "3ccc1721ca64608160455388b5b9ff3c4a888adaaec9497d6f657e2f3e82bb20",
+    "Alpha-Testers": "c0d06cb798d36bce5b08ff59fb576cc9479394d604754ec81a57aace2325e27c"
+  },
+  "source_sha256": "968aa37ce345f5489e89297adacc1d93c2799d223e8f1a06f46409fa8026324b",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "generic_item_panel_removal_preserved": true,
+  "existing_mechanic_panels_pending_owner_review": true,
+  "new_application_apks_created": 2,
+  "prepared_utc": "2026-11-09T19:46:05.949961+00:00",
+  "workflow_run": "42683626942",
+  "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+  "fallback_preserved": true,
+  "original_apk_build_run": 42679430170,
+  "retry_new_application_apks_created": 0,
+  "retry_scope": "Original Developer six cases reused; unchanged Alpha APK/instrumentation rerun for all six cases",
+  "retry_reason": "The enlarged actual UI capture suite reached the old900second command cap in427Alpha. This wrapper gives the same assertions a finite1800second budget; no app/harness rebuild or skips. Original evidence is preserved, not counted as success.",
+  "stage_run": 42683836519,
+  "published_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-427",
+  "independent": {
+    "number": 427,
+    "source_commit": "209277bdabbb9520bba60717f3fa3927f80d5eb6",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4770,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": true,
+    "manual_full_frames": 80,
+    "known_dormant_Speed_message_gap_tracked": true
+  },
+  "manual_review_file": "docs/APD-427-MANUAL-VISUAL-REVIEW.json"
+}

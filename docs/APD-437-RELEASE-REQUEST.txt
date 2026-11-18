@@ -1,0 +1,1 @@
+Owner requested APD437 on GitHub Releases. Publish exact previously verified build run 42927955467 APKs for Developer and Alpha-Testers, after independently validating original signing, 3177 tests, two native successes, APK checksums, and the embedded build history. Never replace an existing release. Verify resulting direct downloads.

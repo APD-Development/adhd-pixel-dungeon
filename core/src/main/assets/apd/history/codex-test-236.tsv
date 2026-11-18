@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Record verified TEST235 evidence	Retain the exact TEST235 targeted, core, Android, visual, APK, application-ID and signature evidence, including the rejected first Android capture and accepted rerun, without publishing unchanged source.
+Statistics	ICON_WARNING	Recover archive run-start identity	Archive export and import now use the first readable typed run start after malformed starts, preserving correct logical run identity and rejecting a header-only mismatch.

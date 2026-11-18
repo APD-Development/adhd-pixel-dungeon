@@ -1,0 +1,38 @@
+name: Diagnose full-suite neutral generation state
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-equipment-suite-diagnostic.yml]
+permissions:
+  contents: read
+jobs:
+  core-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install compilation platform
+        run: '"$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"'
+      - name: Add diagnostic output without changing assertions or application source
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomEquipmentGenerationTest.java')
+          s=p.read_text()
+          s=s.replace('for(String record:neutralRecords()){','for(String record:neutralRecords()){ System.err.println("NEUTRAL "+record);')
+          s=s.replace('java.util.List<String> records=new ArrayList<>();','java.util.List<String> records=new ArrayList<>(); System.err.println("CONTEXT exotic="+SPDSettings.apdExoticSetting()+" replay="+com.shatteredpixel.shatteredpixeldungeon.apd.replay.ReplayContext.active()+" guide="+com.shatteredpixel.shatteredpixeldungeon.journal.Document.ADVENTURERS_GUIDE.allPagesFound()+" sewers="+com.shatteredpixel.shatteredpixeldungeon.journal.Document.SEWERS_GUARD.allPagesFound());')
+          p.write_text(s)
+          PY
+      - name: Run complete core suite with original assertions
+        run: ./gradlew :core:test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: equipment-suite-diagnostic
+          path: core/build/test-results/test/
+          retention-days: 7

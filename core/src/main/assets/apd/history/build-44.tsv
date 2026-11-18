@@ -1,0 +1,6 @@
+Testing	ICON_STAIRS	Floor Replay Device Test	Updated Android checks and fixtures for floor replay device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Suspended recording hooks while rebuilding canonical floors and restored them afterward.
+Statistics / UIMSD	ICON_STAIRS	Floor Replay	Refused replay during live gameplay instead of merely when recording is enabled.
+Testing	ICON_STAIRS	Replay Recorder Isolation Test	Added a test covering replay Writes Nothing To An Open Run And Restores The Hooks. These are development checks, not a gameplay feature.
+Development	ICON_STAIRS	APD-FLOOR-REPLAY	Updated apd-floor-replay accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Suspended recording hooks while rebuilding canonical floors and restored them afterward. Refused replay during live gameplay instead of merely when recording is enabled.

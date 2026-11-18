@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.shatteredpixel.shatteredpixeldungeon.android'
+    compileSdk appAndroidCompileSDK
+    compileOptions.sourceCompatibility = compileOptions.targetCompatibility = appJavaCompatibility
+
+    // Share only the isolated simulation test helpers; none enter the playable APK.
+    sourceSets.androidTest.java.srcDir(new File(project(':core').projectDir,
+            'src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/simulation'))
+    // That additional source root contains desktop JUnit fixtures alongside the shared helpers.
+    // Exclude its root-level *Test.java files; packaged Android device tests remain included.
+    sourceSets.androidTest.java.exclude('*Test.java')
+
+    sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
+
+    //APD: a PRIVATE TEST BUILD (-PapdTestBuild) adds one generated asset, apd/features.txt, that turns the owner-approved test features on
+    //(see core/.../apd/ApdFeatures.java). The normal build has no such file, so every one of them stays off.
+    if (project.hasProperty('apdTestBuild')) {
+        def apdFeaturesDir = project.layout.buildDirectory.dir('apdTestAssets').get().asFile
+        def apdFeaturesFile = new File(apdFeaturesDir, 'apd/features.txt')
+        apdFeaturesFile.parentFile.mkdirs()
+        apdFeaturesFile.text = "testBuild\ngrudge\ndemoUnlock\nclericPlayable\n"
+        sourceSets.main.assets.srcDir(apdFeaturesDir)
+    } else if ((project.findProperty('apdBuild') ?: '').toString().startsWith('P')) {
+        // Owner-approved Alpha Testers playback and hidden Grudge, without Developer switches.
+        def apdPlaybackDir = project.layout.buildDirectory.dir('apdAlphaPlaybackAssets').get().asFile
+        def apdPlaybackFile = new File(apdPlaybackDir, 'apd/features.txt')
+        apdPlaybackFile.parentFile.mkdirs()
+        apdPlaybackFile.text = "extendedPlayback\ngrudge\n"
+        sourceSets.main.assets.srcDir(apdPlaybackDir)
+    }
+
+    androidResources {
+        localeFilters += ['en', 'zh-rCN', 'ko', 'ru', 'es', 'pt', 'fr', 'de', 'zh-rTW', 'ja', 'pl',
+                          'it', 'tr', 'vi', 'uk', 'id', 'cs', 'nl', 'sv', 'hu', 'fi', 'el', 'be', 'eo' ]
+    }
+
+    defaultConfig {
+        manifestPlaceholders = [appName:appName]
+        applicationId appPackageName
+
+        versionCode appVersionCode
+        versionName appVersionName
+
+        minSdkVersion appAndroidMinSDK
+        targetSdkVersion appAndroidTargetSDK
+
+        //APD: instrumented tests, see .github/workflows/android-tests.yml
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        //APD: committed keystore so every debug build is signed with the same key, see docs/SIGNING.md
+        //Alpha/Developer key. Read from the APD_DEBUG_* environment variables (CI writes them from GitHub secrets);
+        //the committed keystore is only a fallback until those secrets exist, then it is deleted from the repo.
+        apdDebug {
+            if (System.getenv('APD_DEBUG_KEYSTORE')) {
+                storeFile file(System.getenv('APD_DEBUG_KEYSTORE'))
+                storePassword System.getenv('APD_DEBUG_STORE_PASSWORD')
+                keyAlias System.getenv('APD_DEBUG_KEY_ALIAS') ?: 'apd'
+                keyPassword System.getenv('APD_DEBUG_KEY_PASSWORD') ?: System.getenv('APD_DEBUG_STORE_PASSWORD')
+            }
+        }
+        //APD: Play upload key. Never committed: CI writes it from GitHub secrets and passes these environment variables.
+        //Without them the release build is left unsigned (it can still be signed afterwards with apksigner/jarsigner).
+        if (System.getenv('APD_UPLOAD_KEYSTORE')) {
+            apdUpload {
+                storeFile file(System.getenv('APD_UPLOAD_KEYSTORE'))
+                storePassword System.getenv('APD_UPLOAD_STORE_PASSWORD')
+                keyAlias System.getenv('APD_UPLOAD_KEY_ALIAS') ?: 'apd-upload'
+                keyPassword System.getenv('APD_UPLOAD_KEY_PASSWORD') ?: System.getenv('APD_UPLOAD_STORE_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.apdDebug
+            applicationIdSuffix ".indev"
+            //APD: CI passes -PapdBuild=<run number> so the installed app says which build it is (shown in UIMSD and in Android's app info)
+            versionNameSuffix '-INDEV' + (project.hasProperty('apdBuild') ? '-b' + project.property('apdBuild') : '') + (project.hasProperty('apdTestBuild') ? '-TEST' : '')
+            dependencies {
+                debugImplementation project(':services:updates:debugUpdates')
+                debugImplementation project(':services:news:debugNews')
+            }
+        }
+        release {
+            if (System.getenv('APD_UPLOAD_KEYSTORE')) signingConfig signingConfigs.apdUpload
+
+            //These lines enable R8, which is a code shrinker/optimizer/obfuscator.
+            //This makes release APKs smaller and more efficient, but also makes debugging trickier
+            //as the information produced in stack traces must be de-obfuscated.
+            //See here: https://developer.android.com/studio/build/shrink-code#decode-stack-trace
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            dependencies {
+                releaseImplementation project(':services:updates:noUpdates')
+                releaseImplementation project(':services:news:noNews')
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+configurations { natives }
+
+dependencies {
+    implementation project(':core')
+
+    implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
+    implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-armeabi-v7a"
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-arm64-v8a"
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
+    natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
+    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-android:$gdxControllersVersion"
+    //APD: Community's 16+ gate asks Google Play for an age range first (see PlayAgeSignals)
+    implementation 'com.google.android.play:age-signals:0.0.4'
+    //APD: Community "Sign in with Google" (see GoogleCommunitySignIn)
+    implementation 'androidx.credentials:credentials:1.5.0'
+    implementation 'androidx.credentials:credentials-play-services-auth:1.5.0'
+    implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
+
+    androidTestImplementation "androidx.test.ext:junit:1.2.1"
+    androidTestImplementation "androidx.test:core:1.6.1"
+    androidTestImplementation "androidx.test:runner:1.6.2"
+}
+
+// called every time gradle gets executed, takes the native dependencies of
+// the natives configuration, and extracts them to the proper libs/ folders
+// so they get packed with the APK.
+task copyAndroidNatives() {
+    doFirst {
+        file("libs/armeabi-v7a/").mkdirs()
+        file("libs/arm64-v8a/").mkdirs()
+        file("libs/x86/").mkdirs()
+        file("libs/x86_64/").mkdirs()
+
+        configurations.natives.copy().files.each { jar ->
+            def outputDir = null
+            if (jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
+            if (jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
+            if (jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
+            if (jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
+            if (outputDir != null) {
+                copy {
+                    from zipTree(jar)
+                    into outputDir
+                    include "*.so"
+                }
+            }
+        }
+    }
+}
+
+tasks.matching { it.name.contains("merge") && it.name.contains("JniLibFolders") }.configureEach { packageTask ->
+    packageTask.dependsOn 'copyAndroidNatives'
+}

@@ -1,0 +1,46 @@
+{
+  "testedBuild": 79,
+  "testedSource": "a611c841e64a8bca592831d3200a5a65e1735b61",
+  "currentSource": "9d3ce21bfc4209d5a54c0fd6c7c54409aed9f936",
+  "baseline": "2bb34a4e91d29c8785a9363cad6ddfe5122b1d4f",
+  "outputs": {
+    "apd-results.txt": [
+      "REGION 0 [0, 0, 75007, 19957, 4036, 1000]",
+      "REGION 1 [0, 0, 25002, 49934, 20065, 4999]",
+      "REGION 2 [0, 0, 0, 40010, 50084, 9906]",
+      "REGION 3 [0, 0, 0, 19972, 39939, 40089]",
+      "REGION 4 [0, 0, 0, 0, 20091, 79909]",
+      "RESULT n=1000 noHigh=0 tiers=[0, 0, 2103, 3345, 3728, 2610] noByDepth=[0, 862, 709, 590, 477, 477, 292, 170, 89, 33, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] seconds=51.15423817"
+    ],
+    "spd-generator-results.txt": [
+      "REGION 0 [0, 0, 75007, 19957, 4036, 1000]",
+      "REGION 1 [0, 0, 25002, 49934, 20065, 4999]",
+      "REGION 2 [0, 0, 0, 40010, 50084, 9906]",
+      "REGION 3 [0, 0, 0, 19972, 39939, 40089]",
+      "REGION 4 [0, 0, 0, 0, 20091, 79909]",
+      "RESULT n=1000 noHigh=0 tiers=[0, 0, 2103, 3345, 3728, 2610] noByDepth=[0, 862, 709, 590, 477, 477, 292, 170, 89, 33, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] seconds=49.797856311"
+    ],
+    "apd-detailed-results.txt": [
+      "REGION 0 [0, 0, 75007, 19957, 4036, 1000]",
+      "REGION 1 [0, 0, 25002, 49934, 20065, 4999]",
+      "REGION 2 [0, 0, 0, 40010, 50084, 9906]",
+      "REGION 3 [0, 0, 0, 19972, 39939, 40089]",
+      "REGION 4 [0, 0, 0, 0, 20091, 79909]",
+      "RESULT n=10000 noHigh=0 noFreeHigh=0 noReachableFreeHigh=184 tiers=[0, 0, 20845, 33771, 36894, 26458] noByDepth=[0, 8555, 6846, 5626, 4582, 4582, 2838, 1568, 911, 448, 448, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] seconds=368.753420353"
+    ],
+    "difficulty5-results.txt": [
+      "REGION 0 [0, 0, 75007, 19957, 4036, 1000]",
+      "REGION 1 [0, 0, 25002, 49934, 20065, 4999]",
+      "REGION 2 [0, 0, 0, 40010, 50084, 9906]",
+      "REGION 3 [0, 0, 0, 19972, 39939, 40089]",
+      "REGION 4 [0, 0, 0, 0, 20091, 79909]",
+      "RESULT n=1000 noHigh=0 noFreeHigh=0 noReachableFreeHigh=27 tiers=[0, 0, 1920, 3103, 3541, 2474] noByDepth=[0, 872, 721, 608, 496, 496, 305, 192, 109, 56, 56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] seconds=49.720026532"
+    ]
+  },
+  "notes": [
+    "Headless generation, not player encounter simulation.",
+    "100000 full sequences not completed.",
+    "SPD comparison replaces Generator only inside the same APD world.",
+    "No gameplay source changed."
+  ]
+}

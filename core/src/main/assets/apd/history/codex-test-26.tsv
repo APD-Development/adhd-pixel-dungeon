@@ -1,0 +1,47 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-simulator-check	Updated the codex-simulator-check development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Testing	ICON_CHECKED	Warrior Simulation Device Test	Added a device test covering simulate Reckless Warrior Early Healing. These are development checks, not a gameplay feature.
+Changes	ICON_BACKPACK	items	Updated items resources bundled with this APK.
+Changes	ICON_INFO	Enemy events	Identified guaranteed normal Healing or exotic Shielding drops immediately, while leaving ambiguous and bonus loot unidentified.
+Changes	ICON_INFO	Guaranteed Loot Identification	Added called only for normal source loot, never wealth/lucky bonus drops.
+Changes	ICON_TARGET	Spirit Bow	Kept Spirit Bow information consistent with the compact accuracy display.
+Changes	ICON_TARGET	Weapon	Calculated compact strength-adjusted accuracy descriptions without exposing unknown upgrades.
+Changes	ICON_TARGET	Melee Weapon	Displayed the existing weapon accuracy modifiers in melee and throwing-weapon information.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 1	Added a test covering normal Healing Drop Identifies Every Matching Appearance Immediately. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 2	Added a test covering actual Exotic Replacement Uses The Existing Shared Appearance Mapping. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 3	Added a test covering ambiguous Sources And Unrelated Potions Remain Unidentified. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 4	Added a test covering actual Normal Loot Roll Places An Identified Potion Before Pickup. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 5	Added a test covering actual Lucky Bonus Healing Drop From Swarm Remains Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 6	Added a test covering identification Consumes No Random Draws And Does Not Change Loot Chance Or Limited Drops. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Guaranteed Loot Identification Test 7	Added a test covering drop Hook Precedes Placement And Is Absent From Bonus Loot Branch. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Weapon Accuracy Display Test 1	Added a test covering strength Deficit Uses Combat Penalty Without Inventing Hit Chance. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Weapon Accuracy Display Test 2	Added a test covering unknown Melee And Missile Upgrades Use Visible Base Requirement. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Weapon Accuracy Display Test 3	Added a test covering disclosed Percentage Matches Actual Strength Penalty Across Weapon Types. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Weapon Accuracy Display Test 4	Added a test covering descriptions Do Not Reveal Hidden Upgrades Or Consume Rng Or Resources. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Weapon Accuracy Display Test 5	Added a test covering throwing Description Computes Both Ranges Without Inventing Hit Chance. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Weapon Accuracy Display Test 6	Added a test covering ranged Values Match Actual Combat At Both Distances And Point Blank Levels. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Normal Fly Healing Recorder Test	Added a test covering classifier Reads Actual Serialized Loot And Rejects Shielding And Bonus Loot. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Known Map Explorer	Added automated checks and fixtures for known map explorer. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Known Map Explorer Test 1	Added a test covering ignores Unseen And Blocked Cells. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Known Map Explorer Test 2	Added a test covering avoids Row Wrapping And Forbidden Stairs. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Known Map Explorer Test 3	Added a test covering prefers Unvisited Cells And Returns Only One Step. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Known Map Explorer Test 4	Added a test covering handles No Reachable Destination And Rejects Invalid Dimensions. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Normal Fly Healing Evidence	Added automated checks and fixtures for normal fly healing evidence. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Normal Fly Healing Evidence Test 1	Added a test covering accepts Actual Recorder Names And Rejects Simple Names. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Normal Fly Healing Evidence Test 2	Added a test covering bonus Loot And Other Sources Are Not Normal Fly Healing. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Normal Fly Healing Evidence Test 3	Added a test covering exotic Shielding Does Not Become A Healing Observation. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Readiness	Added automated checks and fixtures for simulation readiness. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Readiness Test 1	Added a test covering pending Command Must Not Reuse The Previous Ready Flag. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Readiness Test 2	Added a test covering free Pickup Or Interrupted Move Can Release Input Without Turn Advance. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Readiness Test 3	Added a test covering paid Action Death And Floor Transition Release The Initial Wait. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-DAILY-PREPARATION-2026-10-10	Updated apd-daily-preparation-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SIMULATOR-2026-10-10	Added apd-simulator-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-TEST25-REPORT-2026-10-10	Added apd-test25-report-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	run-warrior-instrumentation	Added the run-warrior-instrumentation development tool.
+Infrastructure	ICON_INFO	run-warrior-simulation	Added the run-warrior-simulation development tool.
+Infrastructure	ICON_INFO	test-warrior-instrumentation	Added the test-warrior-instrumentation development tool.
+Infrastructure	V011_ANKH	test-warrior-trace-recovery	Added the test-warrior-trace-recovery development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated items resources bundled with this APK. Identified guaranteed normal Healing or exotic Shielding drops immediately, while leaving ambiguous and bonus loot unidentified.

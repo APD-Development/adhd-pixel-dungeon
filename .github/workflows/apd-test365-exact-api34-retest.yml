@@ -1,0 +1,92 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+name: Verify exact TEST365 with actual banner expiry and unchanged250ms latency limit
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-TEST365-EXACT-API34-RETEST.txt]
+permissions: {contents: read, actions: read}
+concurrency:
+  group: apd-test365-exact-api34
+  cancel-in-progress: false
+jobs:
+  same-apk-api34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify exact TEST365 APK and unchanged application inputs
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];source='6d55fec660389195b492f1ce2974781cfbc27bcc';run=42120844540
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          built=api(f'repos/{repo}/actions/runs/{run}');assert built['head_sha']==source
+          trees=[api(f'repos/{repo}/git/trees/{sha}?recursive=1') for sha in (source,os.environ['GITHUB_SHA'])]
+          assert all(not t.get('truncated') for t in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          jobs=api(f'repos/{repo}/actions/runs/{run}/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          artifacts=api(f'repos/{repo}/actions/runs/{run}/artifacts')['artifacts']
+          artifact,=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact.zip','wb') as f:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{artifact["id"]}/zip'],stdout=f,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact.zip').read_bytes()).hexdigest()==artifact['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact.zip') as z:z.extractall('application')
+          apk,=pathlib.Path('application').glob('*.apk');sidecar,=pathlib.Path('application').glob('*.apk.sha256')
+          digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert sidecar.read_text().split()[0]==digest
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':run,'application_sha256':digest,'application_rebuilt':False,'application_inputs_unchanged':True,'test_source':os.environ['GITHUB_SHA']},indent=2))
+          PY
+      - name: Compile instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C365
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run the complete 72-case inventory on exact TEST365 with occurrence-timeline acceptance
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb logcat -c
+            adb logcat -v time > codex-logcat.txt &
+            adb install -r application/ADHD-Pixel-Dungeon-CODEX-TEST-365.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            APD_EXISTING_APK=1 bash tools/run-codex-android-checks.sh 365
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-test365-exact-api34
+          path: |
+            acceptance-source.json
+            existing-apk-instrumentation.txt
+            codex-logcat.txt
+            codex-visual-evidence/
+          retention-days: 14

@@ -1,0 +1,146 @@
+{
+  "source_commit": "2c3f736887c92c133e2623448768ae8635054eda",
+  "number": 376,
+  "tag": "apd-alpha-preview-376",
+  "core_tests": 2956,
+  "android_tests": 10,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "d8daca8d50bed28f4a2be64194f5c46d364788f8414fe2239a90d58587645ca3",
+    "Alpha-Testers": "7a54ef6ec0858e5dd68b470f17a37e45925de385d590f2f5ce6b2f2216187017"
+  },
+  "source_sha256": "bba16e20cb9166b9b2ed13926711ade9e001e0c64490f3e2a4ceb4aeb1d535c8",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "selective_calculations_scope_corrected": true,
+  "new_application_apks_created": 2,
+  "prepared_utc": "2026-11-08T00:28:07.034338+00:00",
+  "workflow_run": "42429291798",
+  "native_scope": "API34: actual Arcana percentage/Lucky increase and selective item-inspection/glyph UI, wall-layer regression and three trap-setting/persistence/movement cases in each variant. Ten targeted cases; not a complete Android suite.",
+  "fallback_preserved": true,
+  "prepared_artifact_reuse": {
+    "artifact_id": 13597465413,
+    "archive_sha256": "49490872483a9c7fe04ce89d9909cf0a6daca23c4938a819ab7d575012f02ddd",
+    "reverified_utc": "2026-11-08T00:31:13.344523+00:00",
+    "application_rebuilt": false,
+    "prior_test_results_reused": true
+  },
+  "release_id": 437933783,
+  "asset_publication": [
+    {
+      "id": 722400301,
+      "name": "APD-Alpha-Testers-376.apk",
+      "digest": "sha256:7a54ef6ec0858e5dd68b470f17a37e45925de385d590f2f5ce6b2f2216187017",
+      "created_at": "2026-11-08T00:31:48Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Alpha-Testers-376.apk"
+    },
+    {
+      "id": 722400145,
+      "name": "APD-Alpha-Testers-376.apk.sha256",
+      "digest": "sha256:b854df85dfed11cba086b75580da33f7ddba2e8c68ba14de82f1bc7dc00c6129",
+      "created_at": "2026-11-08T00:31:43Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Alpha-Testers-376.apk.sha256"
+    },
+    {
+      "id": 722400189,
+      "name": "APD-Developer-376.apk",
+      "digest": "sha256:d8daca8d50bed28f4a2be64194f5c46d364788f8414fe2239a90d58587645ca3",
+      "created_at": "2026-11-08T00:31:45Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Developer-376.apk"
+    },
+    {
+      "id": 722400277,
+      "name": "APD-Developer-376.apk.sha256",
+      "digest": "sha256:0ee2380612bb4af95ac68b29e7c3797eb9aa923d0d792d4f751a74d901f57f67",
+      "created_at": "2026-11-08T00:31:47Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Developer-376.apk.sha256"
+    },
+    {
+      "id": 722400418,
+      "name": "APD-Source-376.zip",
+      "digest": "sha256:bba16e20cb9166b9b2ed13926711ade9e001e0c64490f3e2a4ceb4aeb1d535c8",
+      "created_at": "2026-11-08T00:31:51Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Source-376.zip"
+    },
+    {
+      "id": 722400161,
+      "name": "APD-Source-376.zip.sha256",
+      "digest": "sha256:777fd4fe84b4365f9763c2d0843ed192e55efb69c988fedeb21b8051faeb4ffe",
+      "created_at": "2026-11-08T00:31:44Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Source-376.zip.sha256"
+    },
+    {
+      "id": 722400407,
+      "name": "APD-Source-Scan.json",
+      "digest": "sha256:ff62126c6add2daef9d7c83889ca6c205b9e183392577cd707fd9c5e8012d3eb",
+      "created_at": "2026-11-08T00:31:51Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Source-Scan.json"
+    }
+  ],
+  "published_at": "2026-11-08T00:31:55Z",
+  "downloaded_back_verified": true,
+  "link_sent": false,
+  "delivery_workflow_run": "42430072321",
+  "download_verified_utc": "2026-11-08T00:32:03.574032+00:00",
+  "published_utc": "2026-11-08T00:31:55Z",
+  "receipt_recorded_utc": "2026-11-08T00:33:27.459373+00:00",
+  "delivery_job": 128576789145,
+  "independent_local_downloads": "/workspace/apd376-delivered",
+  "independent_downloads_verified": true,
+  "links_sent": "Actual direct Developer/Alpha APK links sent in task commentary after independent verification. Exact message timestamp unavailable.",
+  "scheduled_invocation": false,
+  "prepared_artifact_id": 13597465413,
+  "prepared_artifact_sha256": "49490872483a9c7fe04ce89d9909cf0a6daca23c4938a819ab7d575012f02ddd",
+  "native_artifacts": {
+    "Developer": 13597077257,
+    "Alpha_Testers": 13597211091
+  },
+  "source_evidence_artifact": 13597301832,
+  "assets": [
+    {
+      "name": "APD-Alpha-Testers-376.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Alpha-Testers-376.apk",
+      "size": 39176384
+    },
+    {
+      "name": "APD-Alpha-Testers-376.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Alpha-Testers-376.apk.sha256",
+      "size": 92
+    },
+    {
+      "name": "APD-Developer-376.apk",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Developer-376.apk",
+      "size": 39176420
+    },
+    {
+      "name": "APD-Developer-376.apk.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Developer-376.apk.sha256",
+      "size": 88
+    },
+    {
+      "name": "APD-Preview-376-Verification.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Preview-376-Verification.json",
+      "size": 4304
+    },
+    {
+      "name": "APD-Source-376.zip",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Source-376.zip",
+      "size": 72701482
+    },
+    {
+      "name": "APD-Source-376.zip.sha256",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Source-376.zip.sha256",
+      "size": 85
+    },
+    {
+      "name": "APD-Source-Scan.json",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-376/APD-Source-Scan.json",
+      "size": 28360
+    }
+  ],
+  "quota_authorization": "Owner explicitly states failed deliveries do not count against limit, authorizing corrections. No unlimited-release permission inferred.",
+  "unpublished375": "Superseded after additional clipping report. Build/core passed and native retry passed after emulator disconnect; packaging artifact-selection attempts failed. No375 APK delivered; preserve old tag/draft/evidence.",
+  "full_description_audit_complete": false
+}

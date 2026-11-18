@@ -1,0 +1,79 @@
+name: Recheck small display on unchanged TEST261 after launcher ANR
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-retest-small261.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  title-display:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: small-virtual, size: 320x480, density: 160}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Find the exact application producer without building another APK
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess,time,pathlib,zipfile
+          import hashlib,sys
+          repo=os.environ['GITHUB_REPOSITORY'];source='7368f13940690e599ca05c47a1cf29cca6beed09'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          run=api(f'repos/{repo}/actions/runs/38975391839')
+          assert run['head_sha']==source
+          jobs=api(f'repos/{repo}/actions/runs/38975391839/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          trees=[application_inputs(api(f'repos/{repo}/git/trees/{sha}?recursive=1')['tree']) for sha in (source,os.environ['GITHUB_SHA'])]
+          assert trees[0]==trees[1],'Test wrapper changed application inputs'
+          artifacts=api(f'repos/{repo}/actions/runs/38975391839/artifacts')['artifacts']
+          item=next(a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired'])
+          with open('application.zip','wb')as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{item["id"]}/zip'],stdout=out,check=True)
+          assert hashlib.sha256(pathlib.Path('application.zip').read_bytes()).hexdigest()==item['digest'].removeprefix('sha256:')
+          with zipfile.ZipFile('application.zip')as z:z.extractall('application')
+          apk=next(pathlib.Path('application').glob('*.apk'));digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert next(pathlib.Path('application').glob('*.apk.sha256')).read_text().split()[0]==digest
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':38975391839,'application_sha256':digest,'protected_application_inputs_identical':True,'application_rebuilt':False,'test_source':os.environ['GITHUB_SHA']},indent=2))
+          with open(os.environ['GITHUB_ENV'],'a')as out:out.write('APD_BUILD=261\n')
+
+          PY
+      - name: Compile only instrumentation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild "-PapdBuild=C$APD_BUILD"
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise actual touchscreen and capture this display
+        env: {APD_ENFORCE_DISPLAY: 'true'}
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: adb shell settings put secure immersive_mode_confirmations confirmed && bash tools/run-title-display-check.sh '${{ matrix.size }}' '${{ matrix.density }}' '${{ matrix.mode }}'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-title-display-${{ matrix.name }}
+          path: |
+            title-evidence/
+            title-instrumentation.txt
+            title-logcat.txt
+          retention-days: 7

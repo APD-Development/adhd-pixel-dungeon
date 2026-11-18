@@ -1,0 +1,2 @@
+Bug Fixes	ICON_PREFS	Reject impossible imported dates	Keep malformed legacy calendar dates unknown instead of normalizing them into false later dates; valid Gregorian leap days remain accepted.
+Testing	ICON_CHECKED	Preserve TEST266 and date evidence	Retain the complete TEST266 verification and staging records, the exact one-failure legacy-date reproduction, the corrected full core pass and the current review handoff.

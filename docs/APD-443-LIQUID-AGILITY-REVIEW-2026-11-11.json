@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "verified_utc": "2026-11-11T15:26:12.051312+00:00",
+  "scope": "Liquid Agility occupied-target throw evasion timing repair for the source cutoff after APD442.",
+  "apd442_separation": "The APD442 remote run remains pinned to its original producing source df0c0b44. This repair is not present in that frozen build.",
+  "original_expected_red": {
+    "directory": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/attempt-2",
+    "summary": {
+      "suites": 1,
+      "tests": 6,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.427,
+      "fresh_current_source": true
+    },
+    "failures": [
+      {
+        "method": "occupiedPotionThrowRetainsRankTwoEvasionForTheEnemyTurn",
+        "message": "java.lang.AssertionError: Rank 2 potion throw should protect the following enemy turn expected:<1000000> but was:<5>"
+      },
+      {
+        "method": "occupiedPotionThrowRetainsRankOneEvasionForTheEnemyTurn",
+        "message": "java.lang.AssertionError: Rank 1 potion throw should protect the following enemy turn expected:<15> but was:<5>"
+      }
+    ],
+    "behavior": "Real Item.cast occupied-target callback creates a zero-duration EVA tracker before charging the throw. Real Actor.process expires it before the MOB_PRIO observer calls real Hero.defenseSkill. Both ranks return base defense 5 instead of15 /1000000.",
+    "controls": "Four methods passed: empty throws at both ranks, real ordinary/factor 2 drinks, actual multi-output Aqua proc/no-proc casts, and excluded Strength throw."
+  },
+  "initial_fixture_failure": {
+    "directory": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/attempt-1",
+    "summary": {
+      "suites": 1,
+      "tests": 6,
+      "failures": 4,
+      "errors": 1,
+      "skipped": 0,
+      "seconds": 0.683,
+      "fresh_current_source": true
+    },
+    "explanation": "In addition to the two intended timing failures, the first fixture had two control failures because its observer blocked the empty throw ray, and one Strength-drink error because Badges.global was uninitialized. The fixture moved the observer off that ray and called normal Badges.loadGlobal. Production was unchanged."
+  },
+  "repair": {
+    "item": "Protected completion hook runs on the detached item after the occupied callback resolves its original paid/free decision and before next(). Paid action retains busy()+spend(delay); Lethal Momentum is still consumed only after impact and still skips spending.",
+    "potion": "Throw-start clears temporary context. Only the existing successful eligible potion-talent hook can record the exact EVA tracker and existing extra-factor time. Completion clears context first, requires the same tracker still in the user buff list, and uses existing max/prolong behavior with actual post-cost cooldown.",
+    "unchanged": "No eligibility, random roll, chance, potion splash/hit, accuracy-use, other potion-talent formula or save field was changed.",
+    "production_patch": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/production-fix.patch"
+  },
+  "fixed_validation": {
+    "fresh_compilation_directory": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd443-liquid-agility-first",
+    "main_java_files": 1718,
+    "test_java_files": 493,
+    "targeted": {
+      "suites": 1,
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.552,
+      "fresh_current_source": true
+    },
+    "full": {
+      "suites": 465,
+      "tests": 3210,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 49.675,
+      "fresh_current_source": true
+    },
+    "full_raw_xml_directory": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd443-liquid-agility-first/full",
+    "new_test_class": "com.shatteredpixel.shatteredpixeldungeon.apd.LiquidAgilityThrowTimingTest",
+    "new_method_count": 13,
+    "additional_guards": [
+      "Removed tracker is not recreated despite retained Buff.target",
+      "Replacement tracker keeps its independent deadline",
+      "Longer existing deadline is preserved on a stacked throw",
+      "Occupied chance-failed Aqua does not extend an unrelated tracker",
+      "One-shot completion and real Item Bundle round-trip",
+      "Actual Slow, Speed and combined action costs",
+      "Free Lethal Momentum and actual Time Freeze / Time Bubble interception"
+    ],
+    "preservation_assertions": [
+      "Exactly one consumed item",
+      "Original action costs",
+      "Real fire clearing and Aqua water",
+      "Identification retained on throws and performed on drinks",
+      "Normal accuracy duration/uses",
+      "Independent Liquid Willpower Barrier"
+    ],
+    "aqua_baseline_comparison": {
+      "baseline_aqua_observations": 64,
+      "fixed_aqua_observations": 64,
+      "exact_observation_equality": true,
+      "successful_rolls": 3,
+      "failed_rolls": 61,
+      "meaning": "Observed deterministic multi-output behavior and all recorded outcomes stayed identical across the frozen baseline and fixed source. This is not a statistical probability estimate."
+    }
+  },
+  "source_files": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Item.java": {
+      "sha256": "359c61ca8fabf485292ce05fccd2c8c35e51ff95b37a3814a0227b2972c145db",
+      "preserved_copy": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/fixed-source/Item.java",
+      "before_sha256": "39b729cc3c92af7daa281825673cd0959209b7a5bfa6a5b7cb209ad647cb8112"
+    },
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/Potion.java": {
+      "sha256": "728edbcede58ad0acbff766141313586a1c628c6e0024992a9fd0e93c0838bc3",
+      "preserved_copy": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/fixed-source/Potion.java",
+      "before_sha256": "349c7c1066d4295c889dfb23d30caac9bd7956fda0e2cbb47dc0ef7bd12b709f"
+    },
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/LiquidAgilityThrowTimingTest.java": {
+      "sha256": "6c5a7fa90a4e1e001bf6190fdfeedfcf442dc1251862073eaf6821d98ecee2de",
+      "preserved_copy": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/fixed-source/LiquidAgilityThrowTimingTest.java"
+    }
+  },
+  "root_owned_ordinary_wording_sha256": {
+    "path": "core/src/main/assets/messages/actors/actors.properties",
+    "sha256": "ad6020c8d1e69cd4833ff2388ab32c1461b2337f7938389cb7cb0c494df2b179"
+  },
+  "evidence_sha256": {
+    "baseline_xml": "9158211d363386d8b2a134902dd8b9ea6f57a66088a38734fa3fdffce41973a9",
+    "baseline_probe_source": "61f8619aa4608736d9d75b3c1f01e44821bf157be184fa5d4e4cf444cbfba35b",
+    "fixed_targeted_xml": "a057acf9e6b00f5675e17312528c5cc8d6e1f920644b00e2b60a53240be02e5e",
+    "fixed_full_summary": "9591672da508a4f787e750e2fe62f055a82781e65877f9dade1b4692104ca760",
+    "fixed_full_log": "6011b23ecd003c38fd64e50a670c345137ec322b6ed328c3c00b8139036f370f",
+    "fresh_compilation_manifest": "b90e7bd026509d468d3a55a04f0eb6bd0f3c1c75f977fe1b0aed16c93b185a7f",
+    "aqua_comparison": "591699ddc5debb0f9640fcda949361a36eaf7315e161edcd94b4b88c6228467f"
+  },
+  "current_limits": [
+    "Headless rendering substitutes only texture/animation operations; real production completion callbacks, potion effects, scheduler and defense lookup execute.",
+    "The scheduler observer reads the real defense score rather than performing a randomized damaging attack.",
+    "The new suite directly covers excluded Strength and failed Aqua; well/pit/anonymous eligibility gates were preserved and source-reviewed, without new dedicated cases.",
+    "Native Android execution, affected screenshot review and APK acceptance for this next cutoff remain pending.",
+    "No GitHub operations were performed by this agent."
+  ],
+  "independent_review": "Agent apd_lineage reported no blocker after reviewing the production diff and all 13 new methods."
+}

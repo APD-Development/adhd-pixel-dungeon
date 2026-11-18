@@ -1,0 +1,3 @@
+Changes	V064_CHALLENGES	All 18 Custom Dungeon Rules controls	Make Player, Enemy and Boss Damage available for next-run drafts after the bounded offensive-source audit; active runs remain locked and scoring remains unchanged.
+Testing	V061_BUGFIX	Extreme rule-combination acceptance	Retain all-six-class high-HP/defense/low-upgrade combat, enemy-versus-boss damage/healing and exact all-18-value save/load checks.
+Changes	V061_PAGE	TEST166 evidence and TEST167 handoff	Record verified TEST166 artifacts, retained TEST165 failure evidence and the pending all-controls acceptance checkpoint.

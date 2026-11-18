@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Cross-instance run-index saves	Serialize atomic replacement across RunIndex objects so they cannot concurrently truncate or move the same derived temp file.
+Testing	V061_PAGE	Controlled concurrent index regression	Hold one temp stream open, prove a second instance waits, then require both saves and a complete final index without rebuild.
+Changes	V061_PAGE	TEST170 evidence and TEST171 handoff	Preserve verified TEST170 evidence, refresh the UIMSD audit status and record the pending RunIndex concurrency checkpoint.

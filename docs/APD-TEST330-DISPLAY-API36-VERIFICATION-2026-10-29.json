@@ -1,0 +1,207 @@
+{
+  "schema": "apd.test330.display-api36-verification.v1",
+  "recorded_at": "2026-10-29T14:58:47Z",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "application": {
+    "source_commit": "35e1c85fcea93381a4f107cafd4f89f5264af391",
+    "sprint_run_id": 40800528756,
+    "developer_apk_sha256": "3e38b1164169e404c6606d2baa6d23f61fdb4e1625bb1be53c1424ba41c20842",
+    "protected_application_inputs_identical": true,
+    "application_rebuilt": false,
+    "build_request_unchanged": true,
+    "build_request_blob": "c68c2e2a4f37df1bcd36e21f80321d066787af86",
+    "core": {
+      "methods": 2192,
+      "suites": 422,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "main_api34": {
+      "methods": 65,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "uimsd_opening_budget_ms": 250,
+    "uimsd_observed_ms": [
+      225,
+      114
+    ]
+  },
+  "exact_api36_confirmation": {
+    "test_source": "0c6c2bda3af4483b112b4775a824eea23cf76cc4",
+    "run_id": 40888336955,
+    "job_id": 123497983610,
+    "conclusion": "success",
+    "methods": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 85.938,
+    "display": {
+      "width": 1216,
+      "height": 2688,
+      "density": 442,
+      "api": 36,
+      "physical_device": false
+    },
+    "artifact": {
+      "id": 12903563239,
+      "name": "apd-existing330-scale-retest",
+      "zip_sha256": "bd7eaf1b859503164593d541e8af525cb76e22ad5a174699ab4d89a99e2c6fc6"
+    },
+    "screenshots": 6
+  },
+  "final_matrix": {
+    "test_source": "cf8b24fb33955d925d2266beedc1f91e9ca14af8",
+    "run_id": 40895514618,
+    "created_at": "2026-10-29T14:50:32Z",
+    "completed_at": "2026-10-29T14:57:38Z",
+    "conclusion": "success",
+    "physical_device": false,
+    "jobs": [
+      {
+        "id": 123523401711,
+        "name": "m53-representative",
+        "display": "1080x2408@420",
+        "api": 34,
+        "methods": 1,
+        "conclusion": "success",
+        "artifact": {
+          "id": 12907022347,
+          "zip_sha256": "1857ad95167a28e2c465dca227356580492b0f0eccbadcf8dea3a031cd202451"
+        }
+      },
+      {
+        "id": 123523402261,
+        "name": "compact-virtual",
+        "display": "360x560@160",
+        "api": 34,
+        "methods": 1,
+        "conclusion": "success",
+        "artifact": {
+          "id": 12907765837,
+          "zip_sha256": "ca31e7e3a389693e80eda94cd18e73bd8fb70e7d20f57ef875797a6440988354"
+        }
+      },
+      {
+        "id": 123523402584,
+        "name": "small-virtual",
+        "display": "320x480@160",
+        "api": 34,
+        "methods": 1,
+        "conclusion": "success",
+        "artifact": {
+          "id": 12906154377,
+          "zip_sha256": "49d597b50324f16f932c0cf97cdb50efa0e7b30550e679f9e824fdd455e55a5f"
+        }
+      },
+      {
+        "id": 123523402434,
+        "name": "square-virtual",
+        "display": "720x720@320",
+        "api": 34,
+        "methods": 1,
+        "conclusion": "success",
+        "artifact": {
+          "id": 12906029052,
+          "zip_sha256": "a2e439ceca48ad4ab55ccdab877b74a33fd50123f81f05ecc999542ad071dff0"
+        }
+      },
+      {
+        "id": 123523402314,
+        "name": "short-landscape",
+        "display": "960x320@160",
+        "api": 34,
+        "methods": 1,
+        "duration_seconds": 15.141,
+        "conclusion": "success",
+        "artifact": {
+          "id": 12907950500,
+          "zip_sha256": "8436c51164f36f0313e191873f4c492e756c0a64c1ac90ea5ecd2e53a4efc81a"
+        }
+      },
+      {
+        "id": 123523402398,
+        "name": "redmagic-representative-api36",
+        "display": "1216x2688@442",
+        "api": 36,
+        "methods": 3,
+        "duration_seconds": 106.684,
+        "conclusion": "success",
+        "artifact": {
+          "id": 12908175317,
+          "zip_sha256": "b36c1508188bb67540a9f8a4d06b4ce5988919e02c77b084c7f7b90303d2202c"
+        }
+      }
+    ],
+    "screenshots": {
+      "total": 26,
+      "valid_png": 26,
+      "visual_reviewed": [
+        "short-landscape/options-confirmations.png",
+        "redmagic-representative-api36/scale-phone-six.png"
+      ]
+    }
+  },
+  "bounded_fixes": [
+    {
+      "commit": "6c7b7144932385eb1b6d8bf46f19026e76beb336",
+      "scope": "test/workflow only",
+      "result": "recorded exact pointer geometry; reused proven API36 disposable-cache cleanup"
+    },
+    {
+      "commit": "cf8b24fb33955d925d2266beedc1f91e9ca14af8",
+      "scope": "instrumentation only",
+      "result": "mapped GDX-local targets through live Android content origin; retained exact targets and strict DOWN/UP assertions"
+    }
+  ],
+  "retained_failures": [
+    {
+      "run_id": 40888020978,
+      "job_id": 123496862351,
+      "result": "instrumentation compile failed before emulator; Component visible-bound diagnostic used an unavailable method"
+    },
+    {
+      "run_id": 40888337192,
+      "result": "six jobs failed producer lookup before emulator; exact-head lookup could not reuse protected-input-identical APK"
+    },
+    {
+      "run_id": 40891314735,
+      "result": "four API34 profiles passed; short landscape failed first toggle; API36 failed before APD launch",
+      "details": [
+        "short native Y154 delivered as GDX Y136 because content origin was 18px",
+        "API36 had 6787.44MB available but required 7372.80MB userdata partition"
+      ]
+    },
+    {
+      "run_id": 40893904691,
+      "result": "five profiles including API36 passed; short landscape strict diagnostic failed with observedDown=0/observedUp=0 before coordinate mapping correction"
+    }
+  ],
+  "publication": {
+    "test330_published": false,
+    "test330_distributed": false,
+    "latest_actual_private_release": {
+      "label": "TEST329 owner diagnostic prerelease",
+      "published_at": "2026-10-29T00:30:41Z",
+      "source_commit": "16cb3c2de72595239573fe87bb72ad46a90d0fb0",
+      "developer_sha256": "617812461000e81f2b2f70caabd21c885fa9e35058dadcb200048e551da068f7",
+      "player_sha256": "d961d8e9540372c8ecbcc9e07be4d8b02249a555e9122cc559af253c75d8f677"
+    },
+    "verified_playable_fallback": {
+      "label": "TEST323",
+      "source_commit": "51fe6b502bee67893b9773eacddeb01eac778547",
+      "developer_sha256": "f599e05202277cc2056255e1e6c8ca915eca68a8849af4959e633b678e515467",
+      "player_sha256": "ad5a2febbccc6460c5644fdd7fbc8c7f35d4cc26ed917c0730b09ed815b14d24"
+    }
+  },
+  "boundaries": {
+    "emulator_evidence": true,
+    "physical_phone_verified": false,
+    "public_release": false,
+    "paid_infrastructure": false
+  },
+  "next_safe_step": "Owner physical-phone verification of the exact TEST330 APK/source; publish/distribute only with explicit authorization. If no phone action is available, continue the documented post-acceptance backlog without rebuilding unchanged application source."
+}

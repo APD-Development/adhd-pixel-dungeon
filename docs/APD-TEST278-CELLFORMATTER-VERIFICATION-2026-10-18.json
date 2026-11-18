@@ -1,0 +1,108 @@
+{
+  "recorded_at": "2026-10-18T10:59:19Z",
+  "status": "verified_private_candidate",
+  "source_commit": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+  "request_commit": "87254f62f5430e1da050fdd77108e94495e78e77",
+  "workflow": {
+    "run_id": 39120394227,
+    "conclusion": "success",
+    "started_at": "2026-10-18T10:43:44Z",
+    "completed_at": "2026-10-18T10:59:19Z",
+    "verify_and_build_job": 117654646737,
+    "android_smoke_job": 117655363421,
+    "private_delivery": "skipped"
+  },
+  "correction": {
+    "component": "CellFormatter.parseFixed",
+    "defect": "Binary-double drift changed typed fixed-point filters at rounding and long-range boundaries",
+    "implementation": "Exact BigDecimal scaling with Math.round-compatible floor(value + 0.5) and explicit long-range validation",
+    "preserved": [
+      "stored/query values",
+      "aggregate math",
+      "raw history",
+      "saves",
+      "scoring",
+      "gameplay",
+      "mitigation",
+      "turns",
+      "RNG"
+    ]
+  },
+  "core": {
+    "tests": 1821,
+    "suites": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12133953164,
+    "artifact_bytes": 851663,
+    "artifact_digest": "sha256:1d65bb29be0f49321f557872182b61623028d4b1b83e5839f00199c74dc129d4",
+    "downloaded_digest_match": true
+  },
+  "android": {
+    "api": 34,
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12133859780,
+    "artifact_bytes": 4958627,
+    "artifact_digest": "sha256:fa5fb60aea30d498ba5760f7e463d652f79feaceb085ac4b9c92f4c1b2e33366",
+    "downloaded_digest_match": true,
+    "required_images": 57,
+    "decoded_images": 57,
+    "dimensions": "320x640",
+    "contact_sheets_reviewed": 3,
+    "visual_result": "no blank, corrupt or obvious clipping regression"
+  },
+  "apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-278.apk",
+    "bytes": 38615171,
+    "sha256": "3f7782068e1be78b9fc1f1e0e69b5ca2e880f0d9bacfc84c00a2ea0a476dbd30",
+    "embedded_checksum_match": true,
+    "artifact_id": 12133194546,
+    "artifact_bytes": 36116555,
+    "artifact_digest": "sha256:12c196dc60657c17b18583a02d8db326c977a345202586fb4b3c8ee717509809",
+    "downloaded_digest_match": true,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_public_key_sha256": "efc113902c65a6825990ab9e496601fd9e08a55612238d0641de04e5c15ce288",
+    "identity_matches_test277": true
+  },
+  "history": {
+    "immediate_previous_test": 277,
+    "previous_application_source": "10df853e6d505ea080abaecde98c793f76397e12",
+    "previous_request_commit": "ec373bc8d52f682d12799b0b7e1d78afa83deead",
+    "previous_run_id": 39094336421,
+    "compiled_history_validation": "passed"
+  },
+  "supplemental_display": {
+    "run_id": 39120394228,
+    "conclusion": "failure",
+    "passed_profiles": [
+      "short-landscape 960x320@160",
+      "m53-representative 1080x2408@420",
+      "square-virtual 720x720@320",
+      "compact-virtual 360x560@160"
+    ],
+    "failed_profile": "small-virtual 320x480@160",
+    "failure": "Native title condition did not become true; post-failure screenshot was not a valid PNG",
+    "required_api34_gate_affected": false
+  },
+  "staging": {
+    "run_id": 39120394215,
+    "conclusion": "failure",
+    "preparation_source": "abbd936515873384a6d299f037ec925cc5185f51",
+    "failure": "Publication commit changes application/build inputs",
+    "staged": false
+  },
+  "publication": {
+    "published": false,
+    "distributed": false,
+    "latest_owner_published_test": 262,
+    "latest_owner_published_tag": "apd-alpha-preview-262",
+    "latest_owner_published_sha256": "5ad5beb717673a51a10a646c28b887ed54a4f78f8d25ee351834a39a29ecf8d2"
+  },
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

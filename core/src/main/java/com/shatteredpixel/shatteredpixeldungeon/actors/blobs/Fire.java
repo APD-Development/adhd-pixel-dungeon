@@ -1,0 +1,182 @@
+/*
+ * Pixel Dungeon
+ * Copyright (C) 2012-2015 Oleg Dolya
+ *
+ * Shattered Pixel Dungeon
+ * Copyright (C) 2014-2026 Evan Debenham
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+package com.shatteredpixel.shatteredpixeldungeon.actors.blobs;
+
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Burning;
+import com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.CellDamageOrigins;
+import com.shatteredpixel.shatteredpixeldungeon.effects.BlobEmitter;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.FlameParticle;
+import com.shatteredpixel.shatteredpixeldungeon.items.Heap;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.plants.Plant;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+
+public class Fire extends Blob {
+
+	private CellDamageOrigins apdOrigins = new CellDamageOrigins();
+	private static final String APD_ORIGINS = "apd_fire_origins";
+
+	public static Fire seedAttributed(int cell, int amount, com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveDamageOrigin origin) {
+		try (com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveEffectContext ignored = com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveEffectContext.enter(origin)) {
+			return Blob.seed(cell, amount, Fire.class);
+		}
+	}
+
+	/** Preserve a mixed creator sample while leaving the original field seed untouched. */
+	public static Fire seedAttributedMixture(int cell, int amount, double[] shares) {
+        CellDamageOrigins.validateShares(shares);
+        try(com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveEffectContext ignored=
+            com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveEffectContext.enter(com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveDamageOrigin.UNATTRIBUTED)){
+            Fire fire = Blob.seed(cell, amount, Fire.class);
+            if (fire != null) fire.apdOrigins.attributeLatestSeed(fire.cur, cell, amount, shares);
+            return fire;
+        }
+	}
+
+	@Override
+	public void seed(com.shatteredpixel.shatteredpixeldungeon.levels.Level level, int cell, int amount) {
+		apdOrigins.seed(cur, level.length(), cell, amount, com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveEffectContext.current());
+		super.seed(level, cell, amount);
+	}
+
+	@Override public void clear(int cell) { super.clear(cell); apdOrigins.clear(cell); }
+	@Override public void fullyClear() { super.fullyClear(); apdOrigins.clearAll(); }
+	@Override public void storeInBundle(com.watabou.utils.Bundle bundle) { super.storeInBundle(bundle); if (volume > 0) apdOrigins.store(bundle, APD_ORIGINS, cur); else CellDamageOrigins.clearMetadata(bundle, APD_ORIGINS); }
+	@Override public void restoreFromBundle(com.watabou.utils.Bundle bundle) { super.restoreFromBundle(bundle); apdOrigins = CellDamageOrigins.restore(bundle, APD_ORIGINS, cur); }
+
+	@Override
+	protected void evolve() {
+
+		apdOrigins.synchronize(cur);
+		boolean[] flamable = Dungeon.level.flamable;
+		int cell;
+		int fire;
+		
+		Freezing freeze = (Freezing)Dungeon.level.blobs.get( Freezing.class );
+
+		boolean observe = false;
+
+		for (int i = area.left-1; i <= area.right; i++) {
+			for (int j = area.top-1; j <= area.bottom; j++) {
+				cell = i + j*Dungeon.level.width();
+				if (cur[cell] > 0) {
+					
+					if (freeze != null && freeze.volume > 0 && freeze.cur[cell] > 0){
+						freeze.clear(cell);
+						apdOrigins.clear(cell);
+						off[cell] = cur[cell] = 0;
+						continue;
+					}
+
+					burnAttributed( cell );
+
+					fire = cur[cell] - 1;
+					if (fire <= 0 && flamable[cell]) {
+
+						Dungeon.level.destroy( cell );
+
+						observe = true;
+						GameScene.updateMap( cell );
+
+					}
+
+				} else if (freeze == null || freeze.volume <= 0 || freeze.cur[cell] <= 0) {
+
+					if (flamable[cell]
+							&& (cur[cell-1] > 0
+							|| cur[cell+1] > 0
+							|| cur[cell-Dungeon.level.width()] > 0
+							|| cur[cell+Dungeon.level.width()] > 0)) {
+						fire = 4;
+						apdOrigins.inheritFromNeighbours(cur, cell, fire, Dungeon.level.width());
+						burnAttributed( cell );
+						area.union(i, j);
+					} else {
+						fire = 0;
+					}
+
+				} else {
+					fire = 0;
+				}
+
+				volume += (off[cell] = fire);
+			}
+		}
+
+		apdOrigins.synchronize(off);
+		apdOrigins.discardIfUnattributed();
+
+		if (observe) {
+			Dungeon.observe();
+		}
+	}
+	
+	private void burnAttributed( int pos ) {
+		burnAttributed(pos, apdOrigins, pos);
+	}
+
+	/** Ignite from another field while preserving that field's current cell mixture. */
+	public static void burnAttributed( int pos, CellDamageOrigins origins, int originCell ) {
+		Char ch = Actor.findChar( pos );
+		if (ch != null && !ch.isImmune(Fire.class)) {
+			Burning.affectAttributed(ch, origins, originCell);
+		}
+		burnObjects(pos);
+	}
+
+	public static void burn( int pos ) {
+		Char ch = Actor.findChar( pos );
+		if (ch != null && !ch.isImmune(Fire.class)) {
+			Buff.affect( ch, Burning.class ).reignite( ch );
+		}
+		
+		burnObjects(pos);
+	}
+
+	private static void burnObjects( int pos ) {
+		Heap heap = Dungeon.level.heaps.get( pos );
+		if (heap != null) {
+			heap.burn();
+		}
+
+		Plant plant = Dungeon.level.plants.get( pos );
+		if (plant != null){
+			plant.wither();
+		}
+	}
+	
+	@Override
+	public void use( BlobEmitter emitter ) {
+		super.use( emitter );
+		emitter.pour( FlameParticle.FACTORY, 0.03f );
+	}
+	
+	@Override
+	public String tileDesc() {
+		return Messages.get(this, "desc");
+	}
+}
+

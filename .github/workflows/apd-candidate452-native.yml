@@ -1,0 +1,81 @@
+name: Qualify APD452 Developer and Alpha Search on Android
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/apd-candidate452-native.yml
+      - tools/apd452_native_postcheck.py
+permissions: {contents: read, actions: read}
+concurrency: {group: apd452-native-candidate, cancel-in-progress: false}
+jobs:
+  android-native:
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [Developer, Alpha-Testers]
+        case: [WallGeometryDeviceTest, SearchContextDeviceTest, SeedHistoryDeviceTest]
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Require exact completed source-bound candidate, never rebuild
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,time
+          expected='ff9228222af28f56f3ddb112708d186a7bf532b1'
+          for retry in range(150):
+              run=json.loads(subprocess.check_output(['gh','api','repos/APD-Development/ShieldingShouldHaveWorked/actions/runs/43120608192']))
+              assert run['head_sha']==expected,'Unexpected APD452 producer source'
+              if run['status']=='completed':
+                  assert run['conclusion']=='success','Frozen APD452 producer not successful'
+                  break
+              time.sleep(10)
+          else: raise RuntimeError('APD452 candidate still not built')
+          PY
+          mkdir -p candidate452
+          gh run download 43120608192 --repo "$GITHUB_REPOSITORY" --name apd452-unaccepted-gated-room-candidate --dir candidate452
+          python3 - <<'PY'
+          import pathlib,hashlib,json
+          folder=pathlib.Path('candidate452')
+          receipt=json.loads((folder/'receipt.json').read_text())
+          assert receipt['source']=='faca42c894c096892a7e21bd8c04107558d786be'
+          assert receipt['build']==452 and receipt['native_accepted'] is False
+          for kind,entry in receipt['files'].items():
+              name='APD-Instrumentation-452.apk' if kind=='Instrumentation' else f'APD-{kind}-452.apk'
+              f=folder/name
+              assert f.stat().st_size==entry['bytes']
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==entry['sha256']
+          PY
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise existing wall, search and seed Android cases without rebuilding game
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            mkdir -p native452
+            adb install -r candidate452/APD-${{ matrix.variant }}-452.apk
+            adb install -r candidate452/APD-Instrumentation-452.apk
+            adb logcat -c
+            timeout 1200 adb shell am instrument -w -r -e class 'com.shatteredpixel.shatteredpixeldungeon.android.${{ matrix.case }}' com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > native452/instrumentation.txt 2>&1
+            cat native452/instrumentation.txt
+            python3 tools/apd452_native_postcheck.py --variant '${{ matrix.variant }}' --case '${{ matrix.case }}' --directory native452
+            adb logcat -d -v time > native452/logcat.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd452-native-${{ matrix.variant }}-${{ matrix.case }}
+          path: native452/
+          if-no-files-found: warn
+          retention-days: 30

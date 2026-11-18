@@ -1,0 +1,6 @@
+Bug Fixes	ICON_DATA	Damaged statistics text	Malformed encoded text is reported as damaged instead of being silently replaced with different identities or build information.
+Statistics / UIMSD	ICON_DATA	Refresh derived statistics	Existing rebuildable indexes and statistics caches refresh once so old replacement text cannot remain trusted.
+Testing	ICON_CHECKED	Raw-text integrity	Added malformed and valid Unicode checks, including byte-for-byte preservation of a repaired tail backup.
+Testing	ITEM_POTION_HOLDER	Healing screenshots	Android verification now archives both the healing confirmation and threshold-setting screenshots.
+Development	ICON_INFO	Verification records	Recorded TEST99's passing tests and its missing archived images, plus this batch's reproduced data-integrity failures.
+Developer Commentary	V074_SHPX	Developer Commentary	I tightened damaged-text handling so statistics do not invent identities from corrupted recordings. Existing caches rebuild from the original logs, and the Android checks now retain the new healing screenshots.

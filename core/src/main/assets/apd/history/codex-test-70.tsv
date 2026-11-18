@@ -1,0 +1,9 @@
+Quality of Life	ICON_PREFS	Hotbar settings removed	Removed the withdrawn hotbar layout and food-placement settings; Cleric spell-button settings remain directly accessible.
+Testing	ICON_PREFS	Cleric settings preserved	Android checks now verify the hotbar settings are absent and the four Cleric spell-button choices still respond to taps.
+Development	ICON_INFO	Development evidence	Updated the development report and verification request for the removed hotbar settings and historical reconstruction.
+Bug Fixes	V061_BUGFIX	Historical private-test navigation	Corrected obsolete private-test references that could prevent Change History from opening after reconstruction.
+Testing	ICON_CHECKED	Missing-record regressions	Added permanent checks that recovered private-test entries supersede obsolete aliases and missing historical files block preparation.
+Infrastructure	ICON_CHANGES	Produced APK attribution	History preservation can recover an APK produced before a later Android failure without labeling that earlier APK playable or verified.
+Quality of Life	ICON_CHANGES	Exact recent build records	Preserved TEST68's produced APK changes and identified TEST69's stopped preparation without assigning changes to a nonexistent APK.
+Development	ICON_INFO	Failure and verification records	Recorded the failed Android history check, blocked preparation, fix and new verification request.
+Developer Commentary	V074_SHPX	Developer Commentary	I removed the withdrawn hotbar settings while keeping Cleric controls available. I also corrected old private-test history references caught by the Android checks.

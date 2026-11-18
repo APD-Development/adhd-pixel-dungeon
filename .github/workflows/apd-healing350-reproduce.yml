@@ -1,0 +1,114 @@
+name: Reproduce healing threshold settings on exact TEST350 without rebuilding
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-healing350-reproduce
+  cancel-in-progress: false
+
+jobs:
+  exact-apk-full-api34:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Download exact TEST350 APK and prove application inputs are unchanged
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY']
+          source='1d4bd7268fdb01dedadecddd1fcfd19d72ffa05c'
+          run_id=41540278341
+          artifact_id=13187125902
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1') for s in (source,os.environ['GITHUB_SHA'])]
+          assert all(not tree.get('truncated') for tree in trees)
+          assert application_inputs(trees[0]['tree'])==application_inputs(trees[1]['tree'])
+          run=api(f'repos/{repo}/actions/runs/{run_id}')
+          assert run['head_sha']==source and run['run_number']==350 and run['conclusion']=='failure'
+          jobs=api(f'repos/{repo}/actions/runs/{run_id}/jobs')['jobs']
+          assert any(job['name']=='verify-and-build' and job['conclusion']=='success' for job in jobs)
+          artifacts=api(f'repos/{repo}/actions/runs/{run_id}/artifacts')['artifacts']
+          artifact,=[a for a in artifacts if a['id']==artifact_id and a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact350.zip','wb') as out:
+              subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{artifact_id}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact350.zip').read_bytes()).hexdigest()==artifact['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact350.zip') as archive:
+              apk,=[name for name in archive.namelist() if name.endswith('.apk')]
+              data=archive.read(apk)
+              digest=hashlib.sha256(data).hexdigest()
+              checksum,=[name for name in archive.namelist() if name.endswith('.apk.sha256')]
+              assert archive.read(checksum).decode().split()[0]==digest
+              pathlib.Path('application/exact350.apk').write_bytes(data)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({
+              'application_source':source,
+              'application_run':run_id,
+              'application_artifact':artifact_id,
+              'application_artifact_digest':artifact['digest'],
+              'application_sha256':digest,
+              'application_rebuilt':False,
+              'application_inputs_unchanged':True,
+              'test_source':os.environ['GITHUB_SHA'],
+              'failed_predecessor_job':125604494459,
+              'failed_predecessor_reason':'APD targeted test passed; host wrapper lacked rg and never copied screenshots',
+              'physical_device':False,
+              'published':False
+          },indent=2))
+          print('EXACT_TEST350_APK_SHA256',digest)
+          PY
+      - name: Compile current instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C350
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise actual healing settings and potion-use path on API34
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: |
+            adb logcat -c
+            adb logcat -v time > exact350-retry-logcat.txt &
+            adb install -r application/exact350.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb shell settings put global hide_error_dialogs 1
+            adb shell settings put secure immersive_mode_confirmations confirmed
+            adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.HealingSettingsDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > healing-instrumentation.txt
+            cat healing-instrumentation.txt
+            python3 -c "import pathlib; assert 'OK (1 test)' in pathlib.Path('healing-instrumentation.txt').read_text()"
+            mkdir -p healing-visuals
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. healing-visuals/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-test350-healing-reproduction
+          path: |
+            acceptance-source.json
+            healing-instrumentation.txt
+            exact350-retry-logcat.txt
+            healing-visuals/
+            android/build/reports/androidTests/
+            android/build/outputs/androidTest-results/
+          if-no-files-found: warn
+          retention-days: 7

@@ -1,0 +1,12 @@
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Testing	ICON_CHECKED	Golden Cases	Added automated checks and fixtures for golden cases. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Golden Child Main	Added automated checks and fixtures for golden child main. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Golden Level Hash Test	Added a test covering generated Levels Match Golden Baseline. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Headless Test Support	Added automated checks and fixtures for headless test support. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Level Generation Harness	Added automated checks and fixtures for level generation harness. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Level Generation Smoke Test	Added a test covering headless Level Generation Works. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	golden levels	Added automated checks and fixtures for golden levels. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-PHASE0	Added apd-stats-phase0 accompanying this build.
+Development	ICON_STATS	APD-STATS-SCHEMA	Added apd-stats-schema accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the recording-format history bundled with this APK.

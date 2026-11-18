@@ -1,0 +1,1 @@
+Changes	V061_PAGE	Native empty Home regression	Require the real API34 first-run Home to render the separate finished-run and runs-still-going guidance, then retain its screenshot before demo data is loaded.

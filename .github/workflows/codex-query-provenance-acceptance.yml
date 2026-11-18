@@ -1,0 +1,75 @@
+name: APD typed-payload provenance regression checks
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-query-provenance-acceptance.yml]
+permissions:
+  contents: read
+concurrency:
+  group: apd-query-provenance-acceptance
+  cancel-in-progress: false
+jobs:
+  reproduce-and-check-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: a6e2f5e9aafb370ced629db01be300f6fab3f31e
+          path: original-application
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK for Gradle project configuration
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reproduce unreadable-payload inconsistency in unchanged TEST226 production
+        run: |
+          python3 - <<'PY'
+          import pathlib,subprocess,xml.etree.ElementTree as E,json
+          base=pathlib.Path('original-application')
+          fixture=pathlib.Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/MalformedPayloadProvenanceTest.java')
+          (base/fixture).write_bytes(fixture.read_bytes())
+          names=('healthyTypedEventsKeepExactCounts','unreadableAttackMakesItemAndEnemyTotalsLowerBounds','unreadableEquipmentEventMakesItemAndEnemyTotalsLowerBounds')
+          command=['./gradlew',':core:test']
+          for name in names: command+=['--tests','*.MalformedPayloadProvenanceTest.'+name]
+          result=subprocess.run(command,cwd=base)
+          roots=[E.parse(p).getroot() for p in (base/'core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          assert len(cases)==3
+          assert not any(c.find('error') is not None or c.find('skipped') is not None for c in cases)
+          failures={c.get('name') for c in cases if c.find('failure') is not None}
+          assert result.returncode!=0 and failures==set(names[1:]),(result.returncode,failures)
+          pathlib.Path('original-provenance-result.json').write_text(json.dumps({'source':'a6e2f5e9aafb370ced629db01be300f6fab3f31e','tests':3,'expected_failures':sorted(failures),'clean_control_passed':True,'original_production_changed':False},indent=2))
+          PY
+      - name: Run the complete corrected core suite including retained collection fix
+        run: |
+          ./gradlew :core:test
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as E,json,os
+          roots=[E.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          cases=[c for root in roots for c in root.iter('testcase')]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']==len(cases)==len({(c.get('classname'),c.get('name')) for c in cases})==1691,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0
+          assert not any(c.find(t) is not None for c in cases for t in ('failure','error','skipped'))
+          assert sum(c.get('classname','').endswith('.MalformedPayloadProvenanceTest') for c in cases)==4
+          pathlib.Path('corrected-provenance-result.json').write_text(json.dumps({'source':os.environ['GITHUB_SHA'],'counts':totals,'new_regression_methods':4,'application_built':False,'android_verified':False,'published':False},indent=2))
+          PY
+      - name: Retain original and corrected evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-query-provenance-before-after
+          path: |
+            original-provenance-result.json
+            corrected-provenance-result.json
+            original-application/core/build/test-results/test/
+            core/build/test-results/test/
+            core/build/reports/tests/test/
+          retention-days: 7
+          if-no-files-found: warn

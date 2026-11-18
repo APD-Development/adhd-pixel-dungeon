@@ -1,0 +1,15 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Warrior Simulation Device Test	Updated Android checks and fixtures for warrior simulation device. These are development checks, not a gameplay feature.
+Quality of Life	ICON_STATS	Statistics Text	Preserved preview and Guide scroll positions through scene recreation and resizing.
+Testing	ICON_CHECKED	Headless Actor Loop Probe Test 1	Added a test covering one Hundred Real First Floors Need No Android Runtime. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Headless Actor Loop Probe Test 2	Added a test covering real Actor Clock Reaches The Next Hero Turn Without Rendering. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-HEADLESS-SIMULATOR-2026-10-10	Added apd-headless-simulator-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-TEST31-REPORT-2026-10-10	Added apd-test31-report-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Infrastructure	ICON_INFO	Java Syntax Check	Added the java syntax check development tool.
+Infrastructure	ICON_INFO	test java syntax check	Added the test java syntax check development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Preserved preview and Guide scroll positions through scene recreation and resizing.

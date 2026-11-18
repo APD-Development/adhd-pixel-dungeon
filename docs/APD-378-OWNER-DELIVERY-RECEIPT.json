@@ -1,0 +1,101 @@
+{
+  "source_commit": "5c225bdf7c6a181f7a4d0ee16b1edbdbae2a3e4d",
+  "number": 378,
+  "tag": "apd-alpha-preview-378",
+  "core_tests": 2986,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "a797647b475f016fb28d0dce957d40cb8f5624faadbfb527f3917467fbbff957",
+    "Alpha-Testers": "ec0f56a8dea569bb3c37ee2d2feef444ec29db11a27c4a7b40e26abcbc91dd4d"
+  },
+  "source_sha256": "9a9fcc64b17b364120842db534d4eed09ebe096deba6bed2f32294ef3e02496f",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "selective_calculations_scope_corrected": true,
+  "new_application_apks_created": 2,
+  "prepared_utc": "2026-11-08T18:41:51.074688+00:00",
+  "workflow_run": "42511240773",
+  "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+  "fallback_preserved": true,
+  "original_apk_build_run": 42509916901,
+  "native_developer_artifact_id": 13628947277,
+  "native_alpha_retry_run": 42510732550,
+  "first_prepare_failure": "Verifier certificate pin accidentally changed during build-number text substitution. Actual APK certificate remained original; corrected verifier reran full cryptographic identity check without rebuilding.",
+  "first_alpha_attempt": "Partial native run: adb error closed during wall test; emulator TCP5554 then refused connection. Initial artifact13629825028 preserved. Original APK and instrumentation reused without rebuilding.",
+  "verification_harness_source": "f0ce26423e459e30b6766eebddd6de205539385e",
+  "release_id": 438434538,
+  "published_at": "2026-11-08T18:46:07Z",
+  "delivery_workflow_run": 42511537277,
+  "delivery_workflow_conclusion": "success",
+  "asset_publication": [
+    {
+      "id": 724861242,
+      "name": "APD-Alpha-Testers-378.apk",
+      "digest": "sha256:ec0f56a8dea569bb3c37ee2d2feef444ec29db11a27c4a7b40e26abcbc91dd4d",
+      "created_at": "2026-11-08T18:45:58Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Alpha-Testers-378.apk"
+    },
+    {
+      "id": 724861483,
+      "name": "APD-Alpha-Testers-378.apk.sha256",
+      "digest": "sha256:59388917dd919954dc9b059866f09376bb93fda063ffe1a81a8f1b5e02edc22b",
+      "created_at": "2026-11-08T18:46:06Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Alpha-Testers-378.apk.sha256"
+    },
+    {
+      "id": 724861124,
+      "name": "APD-Developer-378.apk",
+      "digest": "sha256:a797647b475f016fb28d0dce957d40cb8f5624faadbfb527f3917467fbbff957",
+      "created_at": "2026-11-08T18:45:55Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Developer-378.apk"
+    },
+    {
+      "id": 724861347,
+      "name": "APD-Developer-378.apk.sha256",
+      "digest": "sha256:cf14f94de9b0461d1141538c2de2ca75e2beccbf2b413dc042fc23e7b6a4de9d",
+      "created_at": "2026-11-08T18:46:00Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Developer-378.apk.sha256"
+    },
+    {
+      "id": 724861795,
+      "name": "APD-Preview-378-Verification.json",
+      "digest": "sha256:41733a5c763c261ddaee7dfc0e8cdcfaacb46bc8978c2fb544c932ac5251a37c",
+      "created_at": "2026-11-08T18:46:15Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Preview-378-Verification.json"
+    },
+    {
+      "id": 724861385,
+      "name": "APD-Source-378.zip",
+      "digest": "sha256:9a9fcc64b17b364120842db534d4eed09ebe096deba6bed2f32294ef3e02496f",
+      "created_at": "2026-11-08T18:46:02Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Source-378.zip"
+    },
+    {
+      "id": 724861226,
+      "name": "APD-Source-378.zip.sha256",
+      "digest": "sha256:117c98adaae46798622512e04e2ed4a32008760101824d1351baa4152ede7d68",
+      "created_at": "2026-11-08T18:45:57Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Source-378.zip.sha256"
+    },
+    {
+      "id": 724861368,
+      "name": "APD-Source-Scan.json",
+      "digest": "sha256:1c266f36bec0bcb78a91366c83fb0a0bfbde3a38f58e2b0443ba0d48caf10473",
+      "created_at": "2026-11-08T18:46:01Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-378/APD-Source-Scan.json"
+    }
+  ],
+  "downloaded_back_independently_verified": true,
+  "link_sent": true,
+  "link_sent_channel": "commentary after completed local release downloads; final repeats direct links",
+  "link_sent_after_utc": "2026-11-08T18:47:10.984933+00:00",
+  "link_sent_recorded_by_utc": "2026-11-08T18:52:57.875429+00:00",
+  "invocation": "Active owner inventory implementation request, followed by separate investigation-only audio request. Not scheduled delivery. Exact platform invocation/message timestamps unavailable; link-send observation is bounded by real download completion and receipt time.",
+  "visual_review": "docs/APD-378-VISUAL-REVIEW.json",
+  "audio_issue_verified_fixed": false,
+  "audio_code_changed_for_investigation": false,
+  "audio_report": "docs/APD-AUDIO-STATUS-2026-11-08.md"
+}

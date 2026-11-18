@@ -1,0 +1,5 @@
+Statistics / UIMSD	ICON_DATA	Resumed item-history accuracy	Combining run segments no longer treats uncertain 'never equipped' history as an exact observation.
+Statistics / UIMSD	ICON_DATA	Accurate per-unit comparisons	Exact-depth and at-least-depth groups now use their own run, floor and turn denominators.
+Testing	ICON_CHECKED	Comparison integrity regressions	Added checks for resumed-log uncertainty, preserved raw records, cached history and exact versus lower-bound comparisons.
+Development	ICON_INFO	Verified build evidence	Recorded TEST103's verified delivery and the next build's actual changes and checks.
+Developer Commentary	V074_SHPX	Developer Commentary	I fixed two comparisons that could misrepresent incomplete run history. The recorded history stays intact, and uncertain values remain distinguishable from exact ones.

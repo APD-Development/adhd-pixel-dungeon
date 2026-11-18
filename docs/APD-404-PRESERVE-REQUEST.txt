@@ -1,0 +1,1 @@
+Preserve unaccepted immutable404originalAPKpair and raw both-variant failures in explicitly rejected PRIVATE DRAFT only. No rebuild/publication/success claim. Source3b247dec53962815ff9895998285d268b28eaaad.403verifiedfallback;405test-only originalpair retry pending.

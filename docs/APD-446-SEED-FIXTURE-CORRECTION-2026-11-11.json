@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "released_utc": "2026-11-11T18:24:59.392097+00:00",
+  "status": "fixture_only_correction_frozen_type_checked_and_peer_reviewed_pending_native",
+  "owned_source": {
+    "path": "/workspace/scratch/db82734c9c44/apd/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java",
+    "sha256": "45208417464da8397aea86c94953caaec30fec88a6b5b264be0098ad4f732bfd"
+  },
+  "baseline": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/baseline/SeedHistoryDeviceTest.java",
+    "sha256": "498d78b5bbb836f9ff3f7edbc6403e7fcb6f4d521e39f21c3c50a1567525a636"
+  },
+  "baseline_manifest": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/baseline-manifest.json",
+    "sha256": "3340a5c98be2adabdd5d3feb9b91c80b8d17f315e3b0eea51f1ae224ba6a62c1"
+  },
+  "patch": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/setup-order-correction.patch",
+    "sha256": "06546c28219a420a0452845c8b50b0130d24c73bcb92a368e1783043f7280ee0"
+  },
+  "preserved_initial_minimal_reorder": {
+    "SeedHistoryDeviceTest.java": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/attempt-1-minimal-reorder/SeedHistoryDeviceTest.java",
+      "sha256": "a87ef53bcfbd3671a24b2d408ed084de27831035fc20ba29393fea767777ebcd"
+    },
+    "setup-order-correction.patch": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/attempt-1-minimal-reorder/setup-order-correction.patch",
+      "sha256": "cdb99e359e4e44ecb71958158957fbe2bbaeaa804841979ace9743ee5ffffaed"
+    }
+  },
+  "original445_failure_evidence": [
+    {
+      "variant": "Developer",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/failure-evidence/Developer-seed-history.txt",
+        "sha256": "7575c4a3d589a9a94eb5e32a8f3ede0aaed88ecf6102b23fdb8eabab4245cb3b"
+      },
+      "tests": 1,
+      "failures": 1,
+      "unchanged_original_log_count": 3,
+      "added_derived_rows": {
+        "/derived/rows/runs-seed445-attempt-one.apdr": "83e6f717fee248d430da2f040d16b65ec0c3673fdb5f80b9076e5f7dad9b8e28",
+        "/derived/rows/runs-seed445-attempt-two.apdr": "3ed2bb2c6864f4f8b420c495395a362e0e9b9043cb7d92c45d152f4d2300d5d1",
+        "/derived/rows/runs-seed445-exact-copy.apdr": "aa2011b53bb29535c299d253b6e8c493af49618fa3061bac1e375e2653db3241"
+      },
+      "meaning": "Existing fixture froze its whole-tree baseline before visiting TitleScene; subsequent prewarming added only derived rows. The strict assertion correctly failed."
+    },
+    {
+      "variant": "Alpha-Testers",
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/failure-evidence/Alpha-Testers-seed-history.txt",
+        "sha256": "0db67f13541dd30d46ad3298df6ee749c32c65b8fcf5f6b27956e6e20be1fbf6"
+      },
+      "tests": 1,
+      "failures": 1,
+      "unchanged_original_log_count": 3,
+      "added_derived_rows": {
+        "/derived/rows/runs-seed445-attempt-one.apdr": "83e6f717fee248d430da2f040d16b65ec0c3673fdb5f80b9076e5f7dad9b8e28"
+      },
+      "meaning": "Existing fixture froze its whole-tree baseline before visiting TitleScene; subsequent prewarming added only derived rows. The strict assertion correctly failed."
+    }
+  ],
+  "original445_terminal_diagnostics": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/terminal-native-diagnostics.json",
+    "sha256": "cbd6e25a888adf2e9560d353e66ae27a9d6e64eb27e41b6c6c747f7f3eeb8ea4"
+  },
+  "entry_capture_evidence": [
+    {
+      "variant": "Developer",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/visuals/seed-history-entry.png",
+      "sha256": "1dce010d74feaf361ca64b69140bd8b7e02cd6785e60719de52ee39c614f0076",
+      "observation": "Entry appeared blank in build_failure diagnostic review.",
+      "viewer": "/root/apd_build_failure",
+      "reviewed_here": "Hash binding only; no duplicate manual image review."
+    },
+    {
+      "variant": "Alpha-Testers",
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/visuals/seed-history-entry.png",
+      "sha256": "10f078cf80c82394a98ec985d25b1f68d8e37030e0f8df34c42d0d90ba8f7818",
+      "observation": "Entry displayed the assigned seed in build_failure diagnostic review.",
+      "viewer": "/root/apd_build_failure",
+      "reviewed_here": "Hash binding only; no duplicate manual image review."
+    }
+  ],
+  "changes": [
+    {
+      "change": "Setup ordering",
+      "detail": "Move the single existing OwnedFixture.start(WARRIOR,false) before selecting seeds, creating logs and freezing the full-tree baseline. No game startup was added or removed."
+    },
+    {
+      "change": "Observable prewarm quiescence",
+      "detail": "After start/readyFrame, use the existing bounded off-render waitFor until no live thread has the actual uimsd-title-prewarm or uimsd-load name. Assert the initialized hero is still ready in GameScene before logs. No worker reset, kill, cancel override or production mutation."
+    },
+    {
+      "change": "Presented first-entry frame",
+      "detail": "After entry(knownCode), wait at least four renderer frame IDs plus the existing150ms stabilization interval, then assert actual TextInput.getText equals the assigned code and its control remains visible/on-screen before the original capture."
+    }
+  ],
+  "source_trace": {
+    "files": {
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/TitleScene.java": "4a650976fa59d76cc1a01cb06e506dc9ccad29563174236f97832b130a57f9a7",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/UimsdScene.java": "c1d5660549647b92c83a5ee7a002929c32c72f445d487f47f0fe6e3f203264ec",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/InterlevelScene.java": "2a16d111417c20cff807a7e2d7482993a0d0fa8a2f59bed80a1205c298bac260",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/GameScene.java": "f1e504a5becd9cf87a8d1ec1d80d8696eeb8235bc7634109797cd5fbf7daf7bc",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdWarmCache.java": "308c9ab65ff40b4bc33032bfc7c945ac90867f9024e6d7a3b557970bfca08803",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdModel.java": "6b92c95243a4aa9fd27f0d71825df5f6a82369fa95dcb34d89f54fd60b177b89",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetStore.java": "813fda7775bfaf6a4135c626fd20f8ca5d0ba13115a19525c57c8911d8d3e355",
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SearchContextDeviceTest.java": "23275ae2cebae2e258cf3c5ddb13a8e094db01619e0336d18e2c0c38efba65fe",
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolStableCaptureDeviceTest.java": "30f0c7d938c34e3b8b04fa31fe41a81f8c611a147e106d3f78d96410e4c19622"
+    },
+    "reason": "TitleScene creates a UIMSD prewarm; DatasetStore.rowsFor writes derived rows. InterlevelScene and GameScene retire prewarm/model workers using synchronized generation changes. No later TitleScene occurs before the measured full-tree assertions. The fixture additionally waits for actual worker termination before creating logs."
+  },
+  "preservation": {
+    "test_count": 1,
+    "capture_count": 7,
+    "capture_filenames_unchanged": true,
+    "captured_filenames": [
+      "seed-history-unfinished-record.png",
+      "seed-history-entry.png",
+      "seed-history-matching-records.png",
+      "seed-history-latest-unknown-selection.png",
+      "seed-history-cleared-generated-selection.png",
+      "seed-history-ranking-copy-confirm.png",
+      "seed-history-ranking-copy-result.png"
+    ],
+    "only_removed_executable_line_is_relocated_start": true,
+    "unfinished_helper_byte_identical": true,
+    "both_original_full_tree_equalities_unchanged": true,
+    "original_owned_cleanup_unchanged": true,
+    "callbacks_retained": [
+      "HeroSelect Set",
+      "clear",
+      "latest queued selection",
+      "ranking Copy",
+      "unfinished exact seed Set"
+    ]
+  },
+  "focused_type_check": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/type-check-1/receipt.json",
+    "sha256": "ea2effffbb711430f84c4cdbb907ae74eabd58493e84017a76b6c5e461b39404"
+  },
+  "independent_source_review": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-seed/setup-order-correction/independent-review.json",
+    "sha256": "2172df288b17ea677e6779f1a4c456f9ecb083bee37f7fd93ab98e862268545f"
+  },
+  "source_ci_boundary": {
+    "run_id": 43075480141,
+    "source_commit": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+    "fixture_sha256": "498d78b5bbb836f9ff3f7edbc6403e7fcb6f4d521e39f21c3c50a1567525a636",
+    "status": "Successful preceding source gate; not SDK proof for this subsequent fixture edit."
+  },
+  "verification": {
+    "fresh446_java_inputs_hash_checked": 2217,
+    "fresh446_assets_hash_checked": 902,
+    "focused_java_type_check_exit": 0,
+    "core_tests_rerun": 0,
+    "production_files_edited": 0,
+    "native_tests_run": 0,
+    "new_images_viewed": 0,
+    "apks_built": 0,
+    "remote_mutations": 0
+  },
+  "remaining_limits": [
+    "The next build must SDK-compile and execute this exact corrected fixture. No corrected native pass is claimed yet.",
+    "The first-entry screenshot must be visually checked after the new native run; frame/text readiness does not itself prove the captured pixels.",
+    "The inherited cleanup behavior and exact whole-tree assertions remain intact. No concrete remaining lifecycle blocker was found in the bounded review.",
+    "Frozen445 artifacts and prior sourceCI evidence remain preserved and unchanged."
+  ]
+}

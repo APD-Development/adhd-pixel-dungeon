@@ -1,0 +1,56 @@
+/*
+ * Pixel Dungeon
+ * Copyright (C) 2012-2015 Oleg Dolya
+ *
+ * Shattered Pixel Dungeon
+ * Copyright (C) 2014-2026 Evan Debenham
+ *
+ * ADHD Pixel Dungeon
+ * Copyright (C) 2026 Chris Charlton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+package com.shatteredpixel.shatteredpixeldungeon.actors.buffs;
+
+import com.shatteredpixel.shatteredpixeldungeon.ui.BuffIndicator;
+
+public class Bless extends FlavourBuff {
+
+	public static final float ROLL_FACTOR = 1.25f;
+	
+	public static final float DURATION	= 30f;
+	
+	{
+		type = buffType.POSITIVE;
+		announced = true;
+	}
+
+    @Override
+    public String desc() {
+        return com.shatteredpixel.shatteredpixeldungeon.messages.Messages.get(this, "desc", dispTurns(),
+                com.shatteredpixel.shatteredpixeldungeon.messages.Messages.decimalFormat("0.##", 100 * (ROLL_FACTOR - 1)));
+    }
+
+	@Override
+	public int icon() {
+		return BuffIndicator.BLESS;
+	}
+
+	@Override
+	public float iconFadePercent() {
+		return Math.max(0, (DURATION - visualcooldown()) / DURATION);
+	}
+
+}

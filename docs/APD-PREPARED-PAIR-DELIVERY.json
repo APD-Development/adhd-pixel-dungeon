@@ -1,0 +1,25 @@
+{
+  "number": 378,
+  "core_tests": 2986,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "a797647b475f016fb28d0dce957d40cb8f5624faadbfb527f3917467fbbff957",
+    "Alpha-Testers": "ec0f56a8dea569bb3c37ee2d2feef444ec29db11a27c4a7b40e26abcbc91dd4d"
+  },
+  "source_sha256": "9a9fcc64b17b364120842db534d4eed09ebe096deba6bed2f32294ef3e02496f",
+  "source": "5c225bdf7c6a181f7a4d0ee16b1edbdbae2a3e4d",
+  "artifact_id": 13629308308,
+  "artifact_sha256": "b61088b1c88419168e27140dae6cfa4fe9b0aa659c03a4c6d21bef626c81a760",
+  "prepared_run": 42511240773,
+  "prepared_source": "f0ce26423e459e30b6766eebddd6de205539385e",
+  "status_note": "docs/APD-378-DELIVERY-BOUNDARIES.md",
+  "title": "APD378 \u2014 automatic inventory sorting",
+  "variants": [
+    "Developer",
+    "Alpha-Testers"
+  ],
+  "visual_review": "docs/APD-378-VISUAL-REVIEW.json"
+}

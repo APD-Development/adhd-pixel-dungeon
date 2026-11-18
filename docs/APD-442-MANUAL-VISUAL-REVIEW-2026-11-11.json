@@ -1,0 +1,730 @@
+{
+  "number": 442,
+  "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+  "producing_run": 43045170286,
+  "manual_visual_review_complete": true,
+  "variants": {
+    "Developer": {
+      "original_receipt_name": "apd442-manual-Developer.json",
+      "original_receipt_sha256": "1262f7bc8b955459e8bf2861fca0ca2203f8954518d1c2699f1d6dc73f41cbf0",
+      "receipt": {
+        "schema": 1,
+        "number": 442,
+        "variant": "Developer",
+        "review_status": "accepted_with_documented_capture_limitations",
+        "manual_visual_review_complete": true,
+        "reviewer": "/root/apd_build_failure",
+        "completed_utc": "2026-11-11T15:36:42.112359+00:00",
+        "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+        "producing_run": 43045170286,
+        "native_artifact": {
+          "id": 13869630143,
+          "name": "apd442-native-Developer",
+          "sha256": "3e141c4fff87c625fd71d2a60d2fe2e4b2262cfa8c78ec9d684b055cb7aa0228",
+          "bytes": 44984241,
+          "archive_sha256_independently_verified": true
+        },
+        "apk_sha256": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+        "owner_package_apk_sha256_verified": true,
+        "instrumentation_sha256": "5ac08c348e0a47c3220aa6dd39ceed6a4be15ea610b48cd53becb84a63ba5f11",
+        "native_verification_sha256": "93ece35c3802fb7d80aee4b003112985b6f1c5ad06018bedb280614a764f3a75",
+        "native_manifest_image_count": 1425,
+        "actual_original_size_images_viewed": 25,
+        "required_affected_originals_viewed": 17,
+        "trap_originals_viewed": 4,
+        "additional_bounded_samples_viewed": 4,
+        "six_terminal_case_reports_verified": [
+          "qol",
+          "wall",
+          "seed",
+          "restart",
+          "gameplay",
+          "freeze"
+        ],
+        "complete_transfer_receipts_checked": true,
+        "seed_pid": 4949,
+        "restart_pid": 5145,
+        "seer_probe_log_lines": [
+          "11-11 15:32:12.941 I/System.out( 5393): SEER_SHOT_BRANCH_PROBE stage=before depth=1 branch=1 target=715 visible=false screen=160,320",
+          "11-11 15:32:13.495 I/System.out( 5393): SEER_SHOT_BRANCH_PROBE stage=side-branch-revealed depth=1 branch=1 target=715 visible=true screen=160,320",
+          "11-11 15:32:14.045 I/System.out( 5393): SEER_SHOT_BRANCH_PROBE stage=foreign-branch-hidden depth=1 branch=0 target=715 visible=false screen=160,320"
+        ],
+        "seer_visual_conclusion": "The same target is dark before, visibly lit as a 3x3 floor patch in branch1, then dark again in branch0.",
+        "blocking_visual_defects_observed": [],
+        "reviewed_images": [
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-VETERANS_INTUITION.png",
+            "filename": "qol-ordinary-talent-VETERANS_INTUITION.png",
+            "sha256": "b99530e55ffaaf6f83e93d1b91e1ff6ed8569266e7ef9c0da2dd77c9a102036b",
+            "bytes": 23100,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "The normal window visibly states +1 weapon identification 1.75x and armor 2x; +2 states weapon 2.5x and armor identification when equipped. Both captures show the complete description and calculation button with no missing glyphs or clipped final line."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+            "filename": "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+            "sha256": "5736312d289da41abe2b308d47ae9cefab93e1e43b9f02d8997e6ac4bc205156",
+            "bytes": 23104,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "The normal window visibly states +1 weapon identification 1.75x and armor 2x; +2 states weapon 2.5x and armor identification when equipped. Both captures show the complete description and calculation button with no missing glyphs or clipped final line."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-PROVOKED_ANGER.png",
+            "filename": "qol-ordinary-talent-PROVOKED_ANGER.png",
+            "sha256": "079a48a1e1f3bc76f1b555e033ef0146c51fae83a469edf0ffe6e53735037c60",
+            "bytes": 28747,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "The +2 title and both ranks are readable: 3 and 5 bonus damage, a 5-turn duration, and another shield break adding 5 turns to the remaining duration. The last sentence and calculation button fit in both captures."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+            "filename": "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+            "sha256": "117587fdaf4304e57a6b0b5cb927cfdd288edde54da064e5de378424a24aec2c",
+            "bytes": 28754,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "The +2 title and both ranks are readable: 3 and 5 bonus damage, a 5-turn duration, and another shield break adding 5 turns to the remaining duration. The last sentence and calculation button fit in both captures."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-LINGERING_MAGIC.png",
+            "filename": "qol-ordinary-talent-LINGERING_MAGIC.png",
+            "sha256": "6308398a5c726d4c3552eeb4fd4380bbc2307be63e0e1072401dd5b4bf118738",
+            "bytes": 28570,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "Both ranks and final duration paragraph are visible: 1-2 or 2 bonus damage, 5 turns, and another zap refreshing the duration. No missing glyphs or clipped final line in either capture."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+            "filename": "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+            "sha256": "14b5725317724326346c31b9c1436908df71fcf4845be23bcff70af077671046",
+            "bytes": 28560,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "Both ranks and final duration paragraph are visible: 1-2 or 2 bonus damage, 5 turns, and another zap refreshing the duration. No missing glyphs or clipped final line in either capture."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-SPEEDY_STEALTH.png",
+            "filename": "qol-ordinary-talent-SPEEDY_STEALTH.png",
+            "sha256": "054ff9fa6439dd106d16455f768b782312eb036f96aaafb6a78b465d757d2386",
+            "bytes": 29658,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "All three rank paragraphs are readable. +1 states two momentum stacks per invisible turn up to 10 while freerunning is inactive and off cooldown; +2 pauses freerunning countdown; +3 states 2x speed. The final paragraph and calculation button fit."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+            "filename": "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+            "sha256": "862ebea1f32fc9029c20ba8f0e8e9c56b1f9eb9013af450853d41dc960cf0fe4",
+            "bytes": 29669,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "ordinary talent",
+            "visible_observation": "All three rank paragraphs are readable. +1 states two momentum stacks per invisible turn up to 10 while freerunning is inactive and off cooldown; +2 pauses freerunning countdown; +3 states 2x speed. The final paragraph and calculation button fit."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-seer-shot-side-branch-before.png",
+            "filename": "trap-discovery-seer-shot-side-branch-before.png",
+            "sha256": "47020b8de733cf7f1f647b809652297b9a8670293a912bc81b5ddf5f3b7b4109",
+            "bytes": 47785,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "Seer Shot",
+            "visible_observation": "The target patch near the viewport center is black before the throw; nearby floor and the hero remain visible."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-seer-shot-side-branch-revealed.png",
+            "filename": "trap-discovery-seer-shot-side-branch-revealed.png",
+            "sha256": "0050fe3373e19fb76018f20c5906bd5593be89fd93dcd5f91f2c71278197b1d7",
+            "bytes": 49582,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "Seer Shot",
+            "visible_observation": "The same target patch is visibly lit as a 3 by 3 floor area after the side-branch throw. Its position matches the before frame, with the hero and surrounding room retaining their positions."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-seer-shot-foreign-branch-hidden.png",
+            "filename": "trap-discovery-seer-shot-foreign-branch-hidden.png",
+            "sha256": "3371127e5f16ab5129ca8c8b2d9ac819edef6994f5d034809d45267e535ab172",
+            "bytes": 47810,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "Seer Shot",
+            "visible_observation": "The same target patch returns to black after changing to the foreign branch. The nearby room and hero remain visible, so this is not a wholly black or missing screenshot."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "filename": "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "sha256": "632b57781ed72638997e545372613f5f1f32c94be0d2a430392665f11c6be32c",
+            "bytes": 39251,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "retained talent",
+            "visible_observation": "Normal Excess Charge shows 0.67, 1.34 and 2.01 shielding per effective imbued-wand level. Temporary levels, whole-point rounding and retaining a stronger Barrier without adding amounts are readable. Final lines and button are visible."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "filename": "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "sha256": "6c082c9d74120049c70e10ab0b1ebf2d52eee0084106bd0afff194bbd6c9cbf5",
+            "bytes": 39251,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "retained talent",
+            "visible_observation": "Normal Excess Charge shows 0.67, 1.34 and 2.01 shielding per effective imbued-wand level. Temporary levels, whole-point rounding and retaining a stronger Barrier without adding amounts are readable. Final lines and button are visible."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "filename": "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "sha256": "07fb2f8ca93f98f4d1c9029220b59643634cf5ed62c7884cf5ecde3d3405b844",
+            "bytes": 33727,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "retained talent",
+            "visible_observation": "Expanded Excess Charge shows current rank 2/3, the shielding calculation and effective-wand-level explanation. A thin fragment of preceding scrolled text remains at the top viewport edge, matching the previously documented scroll-edge limitation; later content continues below this viewport."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "filename": "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "sha256": "e2abe4c66bd73cb23433273eeef1b0053983d5caefdae54e0cd8dde319dca390",
+            "bytes": 32609,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "retained talent",
+            "visible_observation": "Expanded bottom view reaches the final explanation that normal wand modifiers apply and the spell still consumes its usual time and charges. The full final lines and Hide calculations button are visible; no missing glyphs observed."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-counter-ability-normal.png",
+            "filename": "qol-counter-ability-normal.png",
+            "sha256": "852b6fc769c22f511c79f3ebcfdecda9a342a462aa27d6afcc14a13e27d7f2c7",
+            "bytes": 36088,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "retained talent",
+            "visible_observation": "All four Counter Ability rank paragraphs fit and show 0.38, 0.75, 1.13 and 1.5 regained charges. Title, icons, numbers and final line are readable."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-counter-ability-normal-bottom.png",
+            "filename": "qol-counter-ability-normal-bottom.png",
+            "sha256": "852b6fc769c22f511c79f3ebcfdecda9a342a462aa27d6afcc14a13e27d7f2c7",
+            "bytes": 36088,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "retained talent",
+            "visible_observation": "All four Counter Ability rank paragraphs fit and show 0.38, 0.75, 1.13 and 1.5 regained charges. Title, icons, numbers and final line are readable."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-setting-on.png",
+            "filename": "trap-discovery-setting-on.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "bytes": 66776,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "trap setting",
+            "visible_observation": "The Continue when traps are revealed row is onscreen with a filled yellow checked box; the explanatory paragraph is readable."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-setting-restarted.png",
+            "filename": "trap-discovery-setting-restarted.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "bytes": 66776,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "trap setting",
+            "visible_observation": "The same row is onscreen and remains checked after the separate-process restart case."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-setting-off.png",
+            "filename": "trap-discovery-setting-off.png",
+            "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4",
+            "bytes": 66724,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "trap setting",
+            "visible_observation": "The same row is onscreen with an empty checkbox after disabling/reopening; the explanatory paragraph remains visible."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/trap-discovery-runtime-actual-ooze.png",
+            "filename": "trap-discovery-runtime-actual-ooze.png",
+            "sha256": "521a1e32e2163696462fcf239bc2d8f6f8284f633863b0678b2e9feb9b1d2c56",
+            "bytes": 24314,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "trap runtime",
+            "visible_observation": "The screenshot shows a dark, offset synthetic room/corridor view. It does not clearly depict the asserted Ooze effect or its text. The passing gameplay report is the runtime assertion evidence; this frame alone is not a direct visual proof of that effect."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/wall-geometry-valid-searched-face.png",
+            "filename": "wall-geometry-valid-searched-face.png",
+            "sha256": "f2346e9a8674d1d8bbc157e0062dd52e99844178bcf5d9333eba5a264c089e7e",
+            "bytes": 28361,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "wall sample",
+            "visible_observation": "A searched horizontal wall face and nearby hero are visible with intact scene geometry and UI."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/wall-geometry-door-no-stale-check.png",
+            "filename": "wall-geometry-door-no-stale-check.png",
+            "sha256": "25c929269976a3b86ad19afc0f1654944e401fa1aeef76a2da41613c975109a0",
+            "bytes": 31709,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "wall sample",
+            "visible_observation": "The corresponding wall location shows a central door opening and the hero. No obvious stray check overlay remains across the opening."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-automatic-inventory-0.png",
+            "filename": "qol-automatic-inventory-0.png",
+            "sha256": "1cf03d0c13b3d9d9d4e12384f73540f8a0995951e35e0b7f34aba8156032964f",
+            "bytes": 15914,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "inventory sample",
+            "visible_observation": "The backpack grid, item sprites and colored numeric labels are visible and remain inside their cells. The two captures show different ordering without obvious overlap or missing glyphs."
+          },
+          {
+            "file": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Developer/visuals/qol-automatic-inventory-4.png",
+            "filename": "qol-automatic-inventory-4.png",
+            "sha256": "6f39d2355fbce55205d79c133daf66a178a6080f8198f13c98939a4a87114ea8",
+            "bytes": 15600,
+            "pixels": [
+              320,
+              640
+            ],
+            "viewed_original_size": true,
+            "group": "inventory sample",
+            "visible_observation": "The backpack grid, item sprites and colored numeric labels are visible and remain inside their cells. The two captures show different ordering without obvious overlap or missing glyphs."
+          }
+        ],
+        "limitations": [
+          "Only the listed 25 original images were visually reviewed; no blanket full-size review of all 1,425 images is claimed.",
+          "Expanded Excess Charge intermediate scroll view retains a thin fragment of preceding text at the top edge; the bottom capture shows the full final content.",
+          "Runtime Ooze screenshot is dark/offset and does not itself clearly show the effect; its passing native assertions remain the runtime evidence.",
+          "No physical phone, acoustic, or actual install-over validation was performed."
+        ],
+        "app_or_source_changed": false,
+        "native_tests_rerun": false
+      }
+    },
+    "Alpha-Testers": {
+      "original_receipt_name": "apd442-manual-Alpha-Testers.json",
+      "original_receipt_sha256": "836c9ea7dfcd81ce24b62993b0eb7440803631bd5c83fb82e3c7c9065063781c",
+      "receipt": {
+        "schema": 1,
+        "number": 442,
+        "variant": "Alpha-Testers",
+        "reviewed_at_utc": "2026-11-11T15:37:13.951454+00:00",
+        "result": "accepted_for_bounded_visual_scope_with_explicit_retained_capture_limit",
+        "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+        "producing_run": 43045170286,
+        "native_artifact": {
+          "id": 13869355574,
+          "name": "apd442-native-Alpha-Testers",
+          "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers.zip",
+          "sha256": "b3bea0b5bafa654e12d37e572bc8d41e8b4f4f52f9cb174dff611a9f6efe2410",
+          "archive_sha_verified": true
+        },
+        "binding": {
+          "source_commit_matches_native_owner_and_artifact": true,
+          "apk_path": "/workspace/scratch/db82734c9c44/recovery/apd442-owner-review/APD-Alpha-Testers-442.apk",
+          "apk_sha256": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed",
+          "apk_bytes_independently_hashed": true,
+          "source_zip_path": "/workspace/scratch/db82734c9c44/recovery/apd442-owner-review/APD-Source-442.zip",
+          "source_zip_sha256": "967a55fa95e42d7ce8b51c8a5f556fde2ae628f3653b9be649a497c57fdc4ae4",
+          "source_zip_bytes_independently_hashed": true,
+          "instrumentation_sha256": "5ac08c348e0a47c3220aa6dd39ceed6a4be15ea610b48cd53becb84a63ba5f11",
+          "instrumentation_hash_matches_native_and_owner_receipts": true,
+          "instrumentation_binary_rehashed_in_this_review": false,
+          "native_receipt_sha256": "fbc4f6a9a0c253e0fc6e5cee0ee43704472347b0b62193c56c3470e902b5413e",
+          "owner_receipt_sha256": "dfd7359c193e194f337f4b45c2367f2dcbb5ae16a3e68ebb6a23b89bf732999b"
+        },
+        "scope": {
+          "individual_original_images_viewed": 25,
+          "all_8_new_ordinary_talent_images": true,
+          "all_3_seer_shot_images": true,
+          "all_6_retained_441_affected_images": true,
+          "all_4_trap_images": true,
+          "representative_wall_images": 2,
+          "representative_inventory_images": 2,
+          "native_inventory_count": 1425,
+          "all_native_images_manually_reviewed": false,
+          "all_individually_reviewed_hashes_match_native_receipt": true,
+          "physical_phone_review": false,
+          "audio_review": false
+        },
+        "trap_processes": {
+          "seed_pid": 4931,
+          "restart_pid": 5123,
+          "distinct": true,
+          "log_path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/native-logcat.txt",
+          "log_sha256": "317191fabc3f0bf104a14412c7d247fe20cdb894c236fddd410fa1f05cd311a7"
+        },
+        "reports": {
+          "qol": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/qol.txt",
+            "sha256": "06827c99584032630b329e4c1edd3c02fe58cfce96ac40c6664a4d46d4f9748a",
+            "terminal_tests": 1
+          },
+          "wall": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/wall.txt",
+            "sha256": "2d5ed30359e10a4e95c31168fa7a4e063f01305fe14a3ac4176339e31f8e3fea",
+            "terminal_tests": 1
+          },
+          "seed": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/seed.txt",
+            "sha256": "fa9e4aed892e63da87b4112d1af4f7bcb650842193661a8a004ce99e4b5472cd",
+            "terminal_tests": 1
+          },
+          "restart": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/restart.txt",
+            "sha256": "623e333ea269834c7de32f7b654052e1a5497f787966134a3ade952b53a35327",
+            "terminal_tests": 1
+          },
+          "gameplay": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/gameplay.txt",
+            "sha256": "7ee75470bdb3db2df1a1fee0596acae356f7a2142d4464ace0186aac9e5967b6",
+            "terminal_tests": 1
+          },
+          "freeze": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/freeze.txt",
+            "sha256": "31d67a0036a55a25abd11bdc003742cf51cec75a664a91714ff705ad1e9f430d",
+            "terminal_tests": 1
+          }
+        },
+        "images": {
+          "qol-ordinary-talent-VETERANS_INTUITION.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-VETERANS_INTUITION.png",
+            "sha256": "a21c68e9ceeb5a6b325d0ad16c702da85d94a88f6e414ce2fd9bad3caa1cf693",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window reads rank +1 weapons 1.75x faster and armor 2x faster; rank +2 weapons 2.5x faster and armor when equipped. Both ranks and the Show calculations button fit. No clipped words or missing glyphs observed. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-VETERANS_INTUITION-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+            "sha256": "87bc994254fab108b5155046ebaa005132117ac64ccd39b1c3022008f99061e5",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window reads rank +1 weapons 1.75x faster and armor 2x faster; rank +2 weapons 2.5x faster and armor when equipped. Both ranks and the Show calculations button fit. No clipped words or missing glyphs observed. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-PROVOKED_ANGER.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-PROVOKED_ANGER.png",
+            "sha256": "0611c032e879d6e10d7f330700eae0622bb638e9a9842cb8f7d1697d00eca6df",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window shows 3/5 bonus damage, a 5-turn duration and another shield break adding 5 turns. Both ranks, duration paragraph and button fit. No clipped words or missing glyphs observed. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-PROVOKED_ANGER-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+            "sha256": "596649ad76d5820d2b8e2265caf70bfa2a2a2a76057e31e824e697b19ffb7212",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window shows 3/5 bonus damage, a 5-turn duration and another shield break adding 5 turns. Both ranks, duration paragraph and button fit. No clipped words or missing glyphs observed. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-LINGERING_MAGIC.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-LINGERING_MAGIC.png",
+            "sha256": "a62ba87eb79f3fe222bcfb22748cd4e3cc73583555b50a0bb387a3cbe092b37e",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window shows 1-2/2 bonus damage, a 5-turn duration and another zap refreshing that duration. Both ranks, duration paragraph and button fit. No clipped words or missing glyphs observed. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-LINGERING_MAGIC-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+            "sha256": "41b08912a517e2eb4caceb35eff71ad7e6928c08086f855f7dd96f27d89a5b05",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window shows 1-2/2 bonus damage, a 5-turn duration and another zap refreshing that duration. Both ranks, duration paragraph and button fit. No clipped words or missing glyphs observed. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-SPEEDY_STEALTH.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-SPEEDY_STEALTH.png",
+            "sha256": "c7753d92439d1067c18fdaad5d2b9fde108bfd04959b7ff9e0bd0ea35cda04cd",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window reads +1 invisible momentum 2 per turn, up to 10, when freerunning is inactive and off cooldown. +2 and +3 wording remains readable. All three ranks and button fit without clipped words or missing glyphs. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+            "sha256": "bfed34dbd318802eff8fd70f3b4fab60be6bb3f46ab5731d81aa5f5c1c50690f",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "new_ordinary_talent",
+            "visible_observation": "Normal window reads +1 invisible momentum 2 per turn, up to 10, when freerunning is inactive and off cooldown. +2 and +3 wording remains readable. All three ranks and button fit without clipped words or missing glyphs. The top/bottom pair is visually identical because the entire description already fits."
+          },
+          "trap-discovery-seer-shot-side-branch-before.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-seer-shot-side-branch-before.png",
+            "sha256": "2b21cfcde3aa44d2d666b09e6d8c7824940f27000a938ff589c5db13b4cce79d",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "seer_shot",
+            "visible_observation": "The framed target region is a black 3x3 square within the otherwise remembered floor. Hero and Ooze feedback are visible to its left."
+          },
+          "trap-discovery-seer-shot-side-branch-revealed.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-seer-shot-side-branch-revealed.png",
+            "sha256": "4f7afa0506b21fbbb578eee1880eff37dddbc2f7657030620069fac1d53a462f",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "seer_shot",
+            "visible_observation": "The same target region is a lit 3x3 floor patch, while the surrounding remembered floor stays dim. The reveal buff icon is visible."
+          },
+          "trap-discovery-seer-shot-foreign-branch-hidden.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-seer-shot-foreign-branch-hidden.png",
+            "sha256": "4c0ad4dd165f6b3fe98a410a114151578388b1d83c388a8251bdcef425f9ce9f",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "seer_shot",
+            "visible_observation": "The same target region is black again; the reveal icon remains visible. This matches the native fixture's foreign-branch guard.",
+            "limit": "A screenshot alone does not encode Dungeon.branch; branch identity comes from the frozen native fixture and successful gameplay report."
+          },
+          "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "sha256": "967e17d835d966eab840a6e8193d25f19a09ec5c8c463970cfd388761f7aa175",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_excess_charge",
+            "visible_observation": "All three ranks read 0.67/1.34/2.01 shielding per effective imbued-wand level. Temporary bonuses, nearest whole-point rounding and keeping a stronger Barrier without adding are visible. The normal description fits above the button without missing glyphs."
+          },
+          "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "sha256": "be83b6b4ee94392e51560949197c4a50842afa3cb6032349cc2e177b79dcf650",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_excess_charge",
+            "visible_observation": "All three ranks read 0.67/1.34/2.01 shielding per effective imbued-wand level. Temporary bonuses, nearest whole-point rounding and keeping a stronger Barrier without adding are visible. The normal description fits above the button without missing glyphs."
+          },
+          "qol-reviewed-talent-clear-EXCESS_CHARGE.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "sha256": "c51b0f2592781f4c5594195eb8b9844667821e3314273760f3ec6ab0ecdde13f",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_excess_charge",
+            "visible_observation": "Expanded top shows current rank 2/3 and the formula using effective wand level x 0.67 x rank, including the 1.34 factor. Text is readable and the button is visible.",
+            "limit": "The paragraph continues below the normal scroll viewport; the paired bottom frame shows its ending."
+          },
+          "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "sha256": "b71b4e4fe8df19dc0e02b62b37cbf2c9ac42d325b47e5cef93b0bc6b93bdcf74",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_excess_charge",
+            "visible_observation": "Expanded bottom shows the stronger-existing-Barrier rule, other effective-level modifiers, no hidden-level reveal and usual zap time/charges. The final text is reachable above the button without overlap.",
+            "limit": "Beginning of the expanded content is intentionally above this scrolled viewport."
+          },
+          "qol-counter-ability-normal.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-counter-ability-normal.png",
+            "sha256": "1d96b9310b93f72a186c74ba6ea1189e7652b0e167524716cd782f3d10e75f13",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_counter_ability",
+            "visible_observation": "All four ordinary ranks fit and read 0.38/0.75/1.13/1.5 charges within 3 turns of the afterimage being attacked. Rank +2 is 0.75. No clipped words or missing glyphs observed."
+          },
+          "qol-counter-ability-normal-bottom.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-counter-ability-normal-bottom.png",
+            "sha256": "4235732b3ef130358dd6244ade176814f49d1898f9cc138bacb2c346c8e73be1",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_counter_ability",
+            "visible_observation": "All four ordinary ranks fit and read 0.38/0.75/1.13/1.5 charges within 3 turns of the afterimage being attacked. Rank +2 is 0.75. No clipped words or missing glyphs observed."
+          },
+          "trap-discovery-setting-on.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-setting-on.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "trap_setting",
+            "visible_observation": "Gameplay pane is scrolled to Continue when traps are revealed. Label, yellow checked box and supporting text are visible."
+          },
+          "trap-discovery-setting-restarted.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-setting-restarted.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "trap_setting",
+            "visible_observation": "Gameplay pane is scrolled to Continue when traps are revealed. Label, yellow checked box and supporting text are visible."
+          },
+          "trap-discovery-setting-off.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-setting-off.png",
+            "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "trap_setting",
+            "visible_observation": "Gameplay pane is scrolled to Continue when traps are revealed. Label, empty checkbox and supporting text are visible."
+          },
+          "trap-discovery-runtime-actual-ooze.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/trap-discovery-runtime-actual-ooze.png",
+            "sha256": "84bfe1e307cc3a942759b323cbef3928ea73c9ab635749eb78a0aeb7413ecfa8",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "retained_trap_runtime",
+            "visible_observation": "The image shows a dim room, HUD and initial dungeon log. The active hero/effect are not framed.",
+            "limit": "This original does not itself visually prove the Ooze effect. The subsequent Seer Shot before frame visibly shows the hero/Ooze state and Caustic Ooze feedback; the actual effect assertion passed in gameplay.txt."
+          },
+          "wall-geometry-valid-searched-face.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/wall-geometry-valid-searched-face.png",
+            "sha256": "2656ac41c6965e76e414bbac89f9cef1742f62fc87da70f4a978b62316762fcf",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "sample_wall",
+            "visible_observation": "The searched wall band, central searched face and hero beneath it are visible. No broken map geometry is apparent in this sample."
+          },
+          "wall-geometry-door-no-stale-check.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/wall-geometry-door-no-stale-check.png",
+            "sha256": "d6c4c6b33ce161546d5fb904c15667048b5df82270735fa66d74cdfe0836ad44",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "sample_wall",
+            "visible_observation": "The corresponding central door opening is visible without a stale searched-face mark over the opening. Surrounding wall geometry stays coherent."
+          },
+          "qol-automatic-inventory-0.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-automatic-inventory-0.png",
+            "sha256": "967d891ba14429aa77bfe2da7fe945c60074712fd9b2bd6750792857970100d4",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "sample_inventory",
+            "visible_observation": "Backpack grid, equipment, item labels/modifiers and bottom bag tabs are visible. The two item arrangements are readable without overlapping cells or missing glyphs.",
+            "limit": "Only automatic-inventory cases 0 and 4 were manually sampled; no visual conclusion about unviewed inventory frames."
+          },
+          "qol-automatic-inventory-4.png": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd442-native-Alpha-Testers/visuals/qol-automatic-inventory-4.png",
+            "sha256": "e77a26874c02c916fb6c3527737c3842dcf0ce7f74544e6110ad3ee334c19854",
+            "width": 320,
+            "height": 640,
+            "viewed_original_individually": true,
+            "category": "sample_inventory",
+            "visible_observation": "Backpack grid, equipment, item labels/modifiers and bottom bag tabs are visible. The two item arrangements are readable without overlapping cells or missing glyphs.",
+            "limit": "Only automatic-inventory cases 0 and 4 were manually sampled; no visual conclusion about unviewed inventory frames."
+          }
+        },
+        "limitations": [
+          "Manual review covers the 25 listed 320x640 originals only, not all 1,425 native PNGs.",
+          "The retained actual-ooze screenshot does not frame the hero/effect. The subsequent Seer Shot before frame provides visible Ooze state and the successful gameplay case contains the actual trap-effect assertion.",
+          "Branch numbers and the exact nine-cell boolean state are established by the frozen fixture assertions, not by labels embedded in screenshots.",
+          "No physical-device, audio or exhaustive gameplay claim is made.",
+          "The full instrumentation binary was not independently available to this manual reviewer; its hash was matched between the native and final owner receipts."
+        ]
+      }
+    }
+  },
+  "root_additional_review": {
+    "original_size_images_viewed": 3,
+    "variant": "Developer",
+    "filenames": [
+      "trap-discovery-seer-shot-side-branch-before.png",
+      "trap-discovery-seer-shot-side-branch-revealed.png",
+      "trap-discovery-seer-shot-foreign-branch-hidden.png"
+    ],
+    "observation": "The target square is dark before, visibly lit as a 3x3 floor patch after the side-branch throw, and dark again after changing to the foreign branch. Hero and room framing stay consistent.",
+    "limits": "Branch identity comes from the native assertions and frozen source; a screenshot alone does not encode it."
+  }
+}

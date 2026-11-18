@@ -1,0 +1,24 @@
+Testing	ICON_STATS	Statistics Device Timing Test	Updated Android checks and fixtures for statistics device timing. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Android File Provider	Added report file types and sharing through the existing document-provider boundary.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Statistics / UIMSD	ICON_INFO	Apd Files	Added report file types and sharing through the existing document-provider boundary.
+Statistics / UIMSD	ICON_INFO	Report	Added a report: a readable document built from UIMSD data (never a picture of a table).
+Statistics / UIMSD	ICON_INFO	Report Builder	Added builds Reports from the existing UIMSD architecture: the Home model, QueryResults, ResultTables, GroupDetails and the datasets.
+Statistics / UIMSD	ICON_INFO	Report Export	Added getting a Report out of the app: as text handed to the system share sheet, or as a file the player saves wherever they choose (the same file picker the history archive uses).
+Statistics / UIMSD	ICON_INFO	Report Renderer	Added turns a Report into text: Markdown, plain text, a self-contained web page, or CSV.
+Quality of Life	ICON_STATS	Statistics screen	Added report actions for summaries, tables, runs, groups and seed floors.
+Quality of Life	ICON_STATS	Statistics Report	Added where a player turns what UIMSD shows into a report to share or keep.
+Testing	ICON_STATS	Report Table Test 1	Added a test covering a Huge Table Is Cut And Says How Much Is Missing. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Report Table Test 2	Added a test covering unfinished Runs Keep Their Secrets Out Of A Report Even When Asked For. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 1	Added a test covering lifetime Report Has The Home Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 2	Added a test covering every State Keeps Its Mark And The Legend Names Only The Marks Used. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 3	Added a test covering run Report Shows The Public Run And Hides Secrets Of Unfinished Runs. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 4	Added a test covering view Group And Comparison Reports Use The Tables Own Numbers. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 5	Added a test covering seed Floors Report Keeps Recorded And Canonical Apart Everywhere. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 6	Added a test covering renderers Escape And Quote Safely. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 7	Added a test covering save Goes Through The File Picker And Sharing Falls Back Cleanly. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 8	Added a test covering folder Fallback Writes The File. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Test 9	Added a test covering the Report Package Stays Free Of Game Code. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_INFO	APD-REPORTS	Added apd-reports accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added report file types and sharing through the existing document-provider boundary. Updated the change descriptions bundled with this APK.

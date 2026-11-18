@@ -1,0 +1,120 @@
+name: APD Player Preview (private)
+
+# Produce only a privately downloadable PLAYER APK from the exact TEST285
+# developer-tested game source. Do not publish, stage or change the game sources.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-player-preview-285.yml
+      - docs/APD-PLAYER-PREVIEW-285-REQUEST.txt
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-player-preview-285
+  cancel-in-progress: false
+
+jobs:
+  build-player:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out exact TEST285 developer-verified source
+        uses: actions/checkout@v4
+        with:
+          ref: 0652d715cea86fb0242f4470cf870b3761672d0f
+
+      - name: Prove source matches verified TEST285
+        run: |
+          test "$(git rev-parse HEAD)" = "0652d715cea86fb0242f4470cf870b3761672d0f"
+          test ! -e core/src/main/assets/apd/features.txt
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Recover exact TEST285 build history from verified developer APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p previous-dev
+          gh run download 39187804530 --repo "$GITHUB_REPOSITORY" --name apd-codex-private-test-apk --dir previous-dev
+          python3 - <<'PY'
+          import hashlib,pathlib,zipfile
+          dev=pathlib.Path('previous-dev/ADHD-Pixel-Dungeon-CODEX-TEST-285.apk')
+          assert dev.is_file(), 'Missing verified TEST285 developer APK'
+          assert hashlib.sha256(dev.read_bytes()).hexdigest() == '9429245a7ef5c01e5b36baf50a17b4f6b0ebfb67dfd90810160ba958a22a2a4b', 'Developer source artifact checksum changed'
+          with zipfile.ZipFile(dev) as archive:
+              assert 'assets/apd/features.txt' in archive.namelist(), 'Reference APK is not developer mode'
+              names=[n for n in archive.namelist() if n.startswith('assets/apd/history/') and n.endswith('.tsv')]
+              assert len(names)>100, 'Verified reference build history missing'
+              assert b'Codex TEST 285' in archive.read('assets/apd/history/index.tsv')
+              for name in names:
+                  target=pathlib.Path('core/src/main/assets')/name.removeprefix('assets/')
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  target.write_bytes(archive.read(name))
+          print('Preserved verified developer history in matching player APK source')
+          PY
+
+      - name: Run full core tests and compile PLAYER debug APK without experimental build flag
+        run: |
+          ./gradlew :core:test :android:assembleDebug -PapdBuild=P285
+
+      - name: Verify PLAYER APK gates, history and matching signer
+        run: |
+          python3 - <<'PY'
+          import hashlib,pathlib,zipfile
+          player=pathlib.Path('android/build/outputs/apk/debug/android-debug.apk')
+          dev=pathlib.Path('previous-dev/ADHD-Pixel-Dungeon-CODEX-TEST-285.apk')
+          assert player.stat().st_size > 30_000_000, 'APK unexpectedly small'
+          with zipfile.ZipFile(player) as p,zipfile.ZipFile(dev) as d:
+              assert 'assets/apd/features.txt' not in p.namelist(), 'Experimental developer feature marker leaked into PLAYER'
+              names=[n for n in d.namelist() if n.startswith('assets/apd/history/') and n.endswith('.tsv')]
+              assert all(n in p.namelist() and p.read(n)==d.read(n) for n in names),'Compiled player history differs from verified developer history'
+              code=[p.read(n) for n in p.namelist() if n.startswith('classes') and n.endswith('.dex')]
+              assert any(b'Auto-enter Stairs on Arrival' in b for b in code),'Staircase setting missing from player classes'
+              assert any(b'StairNavigation' in b for b in code),'Stair routing class missing from player'
+          output=pathlib.Path('APD-Player-TEST285.apk')
+          output.write_bytes(player.read_bytes())
+          digest=hashlib.sha256(output.read_bytes()).hexdigest()
+          pathlib.Path('APD-Player-TEST285.apk.sha256').write_text(digest+'  '+output.name+'\n')
+          pathlib.Path('APD-Player-TEST285-PROVENANCE.txt').write_text(
+              'Private PLAYER preview, not a public release.\n'
+              'Game source: 0652d715cea86fb0242f4470cf870b3761672d0f (verified TEST285).\n'
+              'Developer reference: workflow 39187804530, APK SHA256 9429245a7ef5c01e5b36baf50a17b4f6b0ebfb67dfd90810160ba958a22a2a4b.\n'
+              'Compiled without -PapdTestBuild: no developer-only speed options.\n'
+              'Stair shortcut and optional Auto-enter Stairs on Arrival included.\n'
+              'Debug package/signing unchanged so it installs over previous APD debug builds;\n'
+              'cannot coexist with matching-package developer build. Preserve player saves.\n'
+              'Android emulator behavior for this separate PLAYER build has not been verified.\n'
+              'PLAYER APK SHA256 '+digest+'\n')
+          print('Private PLAYER APK',output.name,'sha256',digest)
+          PY
+          APK_SIGNER="$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)"
+          test -n "$APK_SIGNER"
+          "$APK_SIGNER" verify --print-certs APD-Player-TEST285.apk | tee player-signer.txt
+          grep -i '067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e' player-signer.txt
+
+      - name: Retain private PLAYER APK and verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-player-preview-285
+          path: |
+            APD-Player-TEST285.apk
+            APD-Player-TEST285.apk.sha256
+            APD-Player-TEST285-PROVENANCE.txt
+            player-signer.txt
+            core/build/test-results/test/
+          if-no-files-found: error
+          retention-days: 7

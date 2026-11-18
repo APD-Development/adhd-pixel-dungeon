@@ -1,0 +1,266 @@
+{
+  "source": "51fe6b502bee67893b9773eacddeb01eac778547",
+  "core": {
+    "tests": 2121,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 410,
+  "developer_apk": {
+    "path": "/workspace/scratch/24ddd29a55a4/verification/apks/ADHD-Pixel-Dungeon-CODEX-TEST-323.apk",
+    "sha256": "f599e05202277cc2056255e1e6c8ca915eca68a8849af4959e633b678e515467",
+    "bytes": 38786669
+  },
+  "indexed_history": 350,
+  "preserved_index_rows": 349,
+  "preserved_record_tsv": 349,
+  "status": "accepted emulator candidate; matched APKs available to owner",
+  "player_apk": {
+    "path": "/workspace/scratch/24ddd29a55a4/verification/apks/APD-Player-TEST323.apk",
+    "bytes": 38786500,
+    "sha256": "ad5a2febbccc6460c5644fdd7fbc8c7f35d4cc26ed917c0730b09ed815b14d24"
+  },
+  "player_core": {
+    "tests": 2121,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "matching_history_tsvs": 351,
+  "native_totals": {
+    "tests": 62,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native_failures": [],
+  "menu_back_ms": {
+    "About": 29,
+    "Journal": 36,
+    "Top Scores": 32,
+    "Play slots": 26,
+    "Hero selection": 64,
+    "News": 25,
+    "Changes": 15,
+    "Community": 23,
+    "UIMSD": 23
+  },
+  "uimsd_home_draw_ms": [
+    162
+  ],
+  "uimsd_phase_ns": {
+    "createDurationNanos": [
+      35965591
+    ],
+    "rebuildDurationNanos": [
+      34891849
+    ],
+    "firstHomeDrawDurationNanos": [
+      76289067
+    ]
+  },
+  "native_png_count": 82,
+  "display_profiles_passed": 5,
+  "display_png_count": 25,
+  "display_application_states_reviewed": 20,
+  "physical_phone_verified": false,
+  "developer_run": 40737013809,
+  "developer_job": 122988180001,
+  "android_job": 122990508456,
+  "player_run": 40737013887,
+  "player_job": 122988179609,
+  "display_run": 40737013998,
+  "visual_review": {
+    "native_pngs_reviewed": 82,
+    "display_records": 25,
+    "display_application_states_reviewed": 20,
+    "post_close_display_captures": 5,
+    "notes": "All20 intended display states are visible in TEST323, including the m53 Options modal. All82 main native screenshots were reviewed. No placeholder image was accepted."
+  },
+  "identity": [
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-320.apk",
+      "bytes": 38783840,
+      "sha256": "bd3782190d25506543404780036986b8d323545318ae95e2782f13746c7c4800",
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "package": "com.charltonchris29.adhdpixeldungeon.indev"
+    },
+    {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-323.apk",
+      "bytes": 38786669,
+      "sha256": "f599e05202277cc2056255e1e6c8ca915eca68a8849af4959e633b678e515467",
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "package": "com.charltonchris29.adhdpixeldungeon.indev"
+    },
+    {
+      "name": "APD-Player-TEST323.apk",
+      "bytes": 38786500,
+      "sha256": "ad5a2febbccc6460c5644fdd7fbc8c7f35d4cc26ed917c0730b09ed815b14d24",
+      "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+      "package": "com.charltonchris29.adhdpixeldungeon.indev"
+    }
+  ],
+  "artifacts": {
+    "main": [
+      {
+        "id": 12837582368,
+        "name": "test323-dev",
+        "sha": "64edab27ee3d7bd389975e29c40b7673a6d00b2d43000e0dbd6292c02135f10f"
+      },
+      {
+        "id": 12837542520,
+        "name": "test323-core",
+        "sha": "aebae9c3def6bf340d24e937e5debbdc0f09e2ea0a8073d43d58d34190049a49"
+      }
+    ],
+    "player": {
+      "id": 12838192551,
+      "name": "apd-player-matching-developer",
+      "size_in_bytes": 36700182,
+      "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12838192551",
+      "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12838192551/zip",
+      "expired": false,
+      "created_at": "2026-10-28T17:41:47Z",
+      "expires_at": "2026-11-04T17:41:44Z",
+      "updated_at": "2026-10-28T17:41:47Z",
+      "digest": "sha256:df4a5f14ac3624ae18a0466cfa0decdff8eae155a07f864f26c799084db7df15",
+      "workflow_run": {
+        "id": 40737013887,
+        "repository_id": 1402541795,
+        "head_repository_id": 1402541795,
+        "head_branch": "codex/apd-phone-fixes-2026-10-09",
+        "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+      }
+    },
+    "native": {
+      "id": 12837893787,
+      "name": "apd-codex-android-checks",
+      "size_in_bytes": 7717418,
+      "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12837893787",
+      "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12837893787/zip",
+      "expired": false,
+      "created_at": "2026-10-28T17:51:17Z",
+      "expires_at": "2026-11-04T17:51:15Z",
+      "updated_at": "2026-10-28T17:51:17Z",
+      "digest": "sha256:81fbe8d0febeeabc97c911110dac50b8c4000bf973e59f89fa4064a069b058f3",
+      "workflow_run": {
+        "id": 40737013809,
+        "repository_id": 1402541795,
+        "head_repository_id": 1402541795,
+        "head_branch": "codex/apd-phone-fixes-2026-10-09",
+        "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+      }
+    },
+    "displays": [
+      {
+        "id": 12839165156,
+        "name": "apd-title-display-m53-representative",
+        "size_in_bytes": 2160091,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12839165156",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12839165156/zip",
+        "expired": false,
+        "created_at": "2026-10-28T17:43:15Z",
+        "expires_at": "2026-11-04T17:43:14Z",
+        "updated_at": "2026-10-28T17:43:15Z",
+        "digest": "sha256:f292c52ed6b053550f4ceb9758ded6faf87e10c015669f3805b8a9506c39bc4b",
+        "workflow_run": {
+          "id": 40737013998,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+        }
+      },
+      {
+        "id": 12838585922,
+        "name": "apd-title-display-small-virtual",
+        "size_in_bytes": 487277,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12838585922",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12838585922/zip",
+        "expired": false,
+        "created_at": "2026-10-28T17:43:27Z",
+        "expires_at": "2026-11-04T17:43:26Z",
+        "updated_at": "2026-10-28T17:43:27Z",
+        "digest": "sha256:b80ccea8912f4efff3073e4049d6813fcd99b3cb86a4845f53cdbb88ff9cd192",
+        "workflow_run": {
+          "id": 40737013998,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+        }
+      },
+      {
+        "id": 12838186849,
+        "name": "apd-title-display-short-landscape",
+        "size_in_bytes": 719270,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12838186849",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12838186849/zip",
+        "expired": false,
+        "created_at": "2026-10-28T17:42:47Z",
+        "expires_at": "2026-11-04T17:42:46Z",
+        "updated_at": "2026-10-28T17:42:47Z",
+        "digest": "sha256:ddb989102d7a76fee565c1f821898c027bd0b6227cc04e2c00e9903faf4ddc97",
+        "workflow_run": {
+          "id": 40737013998,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+        }
+      },
+      {
+        "id": 12837927512,
+        "name": "apd-title-display-compact-virtual",
+        "size_in_bytes": 818628,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12837927512",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12837927512/zip",
+        "expired": false,
+        "created_at": "2026-10-28T17:43:17Z",
+        "expires_at": "2026-11-04T17:43:16Z",
+        "updated_at": "2026-10-28T17:43:17Z",
+        "digest": "sha256:62d9040d866c8d327543b00481f55ba8dfbdcfae1f051295199b232c278b3d72",
+        "workflow_run": {
+          "id": 40737013998,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+        }
+      },
+      {
+        "id": 12837319344,
+        "name": "apd-title-display-square-virtual",
+        "size_in_bytes": 1097967,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12837319344",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/12837319344/zip",
+        "expired": false,
+        "created_at": "2026-10-28T17:42:59Z",
+        "expires_at": "2026-11-04T17:42:57Z",
+        "updated_at": "2026-10-28T17:42:59Z",
+        "digest": "sha256:6c7594a872f4a698385a12b1e1724c8f318345e3c5b1ee4619a29fc267f84855",
+        "workflow_run": {
+          "id": 40737013998,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "51fe6b502bee67893b9773eacddeb01eac778547"
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "API34 emulator timing from one native tap on a separately marked72-run synthetic source; Home retains its ordinary finished-run/rules filtering.",
+    "create, rebuild and first-draw phase durations overlap and are not additive.",
+    "No physical REDMAGIC verification, GitHub release, main merge or tester distribution.",
+    "Separate legacy death-order and hotbar/cold-restart workflows still fail before tests on the old shallow-checkout comparison; staging still fails closed before producer artifacts are ready. These are not passing acceptance gates."
+  ],
+  "delivery": {
+    "developer_filename": "ADHD-Pixel-Dungeon-CODEX-TEST-323.apk",
+    "player_filename": "APD-Player-TEST323.apk",
+    "owner_files_saved": true,
+    "github_release": false,
+    "tester_distribution": false
+  }
+}

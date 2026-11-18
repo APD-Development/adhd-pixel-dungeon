@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T17:05:05.078805+00:00",
+  "stage": "corrected_compiled_artifact_checked_native_and_images_pending",
+  "compiled_artifact_accepted": true,
+  "corrected_native_accepted": false,
+  "corrected_manual_review_complete": false,
+  "instrumentation_source": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+  "instrumentation_run": 43063913542,
+  "instrumentation_attempt": 1,
+  "original_application_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_application_run": 43057716359,
+  "fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+  "ready_plan_sha256": "c448aae4a688c98703bd7e3f27b3169812a41f2c86f43010c7859b0dda2a56a0",
+  "test_apk": {
+    "sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+    "bytes": 923865,
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "package": "com.charltonchris29.adhdpixeldungeon.indev.test",
+    "target_package": "com.charltonchris29.adhdpixeldungeon.indev",
+    "runner": "androidx.test.runner.AndroidJUnitRunner",
+    "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.BossPylonTargetingDeviceTest",
+    "method": "nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons"
+  },
+  "test_apk_differs_from_original_and_first_supplemental": true,
+  "dex_contains_exact_class_method_and_both_new_preference_markers": true,
+  "artifact": {
+    "id": 13874667875,
+    "name": "apd444-pylon-instrumentation-attempt-1",
+    "size_in_bytes": 923633,
+    "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13874667875",
+    "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13874667875/zip",
+    "expired": false,
+    "created_at": "2026-11-11T17:02:47Z",
+    "expires_at": "2026-12-11T17:02:46Z",
+    "updated_at": "2026-11-11T17:02:47Z",
+    "digest": "sha256:ad87165255953829200d5bdab4b77f1f105fabd1be3a05fe99b12c17bcc3767d",
+    "workflow_run": {
+      "id": 43063913542,
+      "repository_id": 1402541795,
+      "head_repository_id": 1402541795,
+      "head_branch": "codex/apd-phone-fixes-2026-10-09",
+      "head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57"
+    }
+  },
+  "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-instrumentation-attempt-1.zip",
+  "archive_bytes": 923633,
+  "archive_sha256": "ad87165255953829200d5bdab4b77f1f105fabd1be3a05fe99b12c17bcc3767d",
+  "all9_extracted_members_match_archive": true,
+  "files": {
+    "BossPylonTargetingDeviceTest.java": {
+      "sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+      "bytes": 20226
+    },
+    "android-json-abi.log": {
+      "sha256": "3128e2fd8c54947cfa0ea86d87f070368419dbd619e2f6eb539430db6644e42b",
+      "bytes": 62
+    },
+    "instrumentation-build.log": {
+      "sha256": "28691f39bfdb0407687e3750f95e9624f051f74ea664097ed84ffa1e259f09e5",
+      "bytes": 5349
+    },
+    "instrumentation-verification.json": {
+      "sha256": "18555baad41383f883f581db5d65f3ad1939274fb3b3cfc0a6b3edc948633a7e",
+      "bytes": 5910
+    },
+    "original-artifact.json": {
+      "sha256": "bf6e4a5f08ee842c11834abf602936a17ed82a1bdb95b45443c0f8e9f4711a94",
+      "bytes": 841
+    },
+    "original-verification.json": {
+      "sha256": "06a36c9c399447cbe186f4e769c073fa530046d2f2de1d39de28e4d1c0589e84",
+      "bytes": 1102
+    },
+    "pylon-instrumentation.apk": {
+      "sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+      "bytes": 923865
+    },
+    "reviewed-plan.json": {
+      "sha256": "c448aae4a688c98703bd7e3f27b3169812a41f2c86f43010c7859b0dda2a56a0",
+      "bytes": 1080
+    },
+    "scope-verification.json": {
+      "sha256": "db522544409a7aa5f7f087884a5856dc64178300678c5f7c856421c38312edb6",
+      "bytes": 3803
+    }
+  },
+  "scope": {
+    "instrumentation_source": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+    "instrumentation_run": 43063913542,
+    "instrumentation_attempt": 1,
+    "original_game_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+    "zero_application_delta": true,
+    "changed_paths": [
+      [
+        "A",
+        ".github/workflows/apd-pylon-native-444.yml"
+      ],
+      [
+        "M",
+        "AGENTS.md"
+      ],
+      [
+        "A",
+        "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java"
+      ],
+      [
+        "A",
+        "docs/APD-444-DELIVERY-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-INDEPENDENT-ACCEPTANCE-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-MANUAL-VISUAL-REVIEW-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PRE-NATIVE-ACCEPTANCE-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-COMPILED-TEST-ACCEPTANCE-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-FIRST-NATIVE-ACCEPTANCE-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-FIRST-ROOT-REVIEW-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-FIXTURE-LOCAL-VERIFICATION-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-FIXTURE-REVIEW-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-PIPELINE-INDEPENDENT-REVIEW-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-PIPELINE-LOCAL-VERIFICATION-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-PLAN.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-REQUEST.txt"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-NATIVE-ROOT-REVIEW-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-PREFERENCE-FIX-LOCAL-CHECK-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-PREFERENCE-FIX-ROOT-REVIEW-2026-11-11.json"
+      ],
+      [
+        "A",
+        "docs/APD-444-PYLON-PREFERENCE-FIX-VERIFICATION-2026-11-11.json"
+      ],
+      [
+        "M",
+        "docs/APD-CURRENT-STATE-2026-11-11.json"
+      ],
+      [
+        "M",
+        "docs/APD-PLAYER-DESCRIPTION-AUDIT.json"
+      ],
+      [
+        "M",
+        "docs/APD-SESSION-CONTINUATION-2026-11-11.md"
+      ],
+      [
+        "M",
+        "docs/WORK-COMPLETED-LEDGER.md"
+      ],
+      [
+        "A",
+        "tools/apd444_pylon_native.py"
+      ],
+      [
+        "A",
+        "tools/apd444_pylon_native_guards.py"
+      ]
+    ],
+    "fixture_path": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+    "fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+    "class_name": "com.shatteredpixel.shatteredpixeldungeon.android.BossPylonTargetingDeviceTest",
+    "method": "nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons",
+    "plan_sha256": "c448aae4a688c98703bd7e3f27b3169812a41f2c86f43010c7859b0dda2a56a0",
+    "helper_sha256": {
+      "tools/apd_candidate444.py": "c0fa2e4d92ccef7c69612c764fa26f9acc889989b727250bbec1f63af01acf9c",
+      "tools/apd_candidate441.py": "a59674f3f55d5d79e6a19264de94e8c26c644c81b3469383fc07ab01d6719997",
+      "tools/apd_recover439_440.py": "15ed9518882591e81881a015db2d3bf64cef6e343229dca7bc78428ca51e3bc5",
+      "tools/apd_scan_prepared_sources.py": "fc0f14dcbbfed96e8e17b4636ad19ce3df2050d512166b69bcf828fba66268fd",
+      "tools/apd_existing_build_evidence.py": "07c23a6093b0bd3eb203c0d2558df3c3d5c2e43524056bb089c444dcf504f15d",
+      "tools/apd_native_screenshot_transfer.py": "bdc1312ad65ecc69e90a8614d38d4ec469bf8b92e03d4ac45c8e59a2fb8dc713",
+      "tools/validate_android_visuals.py": "86fab85f843464f68034334dbfc73fb04c8076058565c2535190866708fbe049",
+      "tools/check_android_json_abi.py": "53299017cefff8a37dbb04769c9feda7cc7625002101a46cb07102ac549a3896"
+    }
+  },
+  "frozen_primary444_files_rehashed": {
+    "archive": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built-pair.zip",
+      "sha256": "9bf2e5ecd2fc705f1d481f863c0321c7e290f062dac06e4f7ef8757abb55fb45",
+      "bytes": 184694131
+    },
+    "Developer": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/built/owner-delivery/APD-Developer-444.apk",
+      "sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "bytes": 39205618
+    },
+    "Alpha-Testers": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/built/owner-delivery/APD-Alpha-Testers-444.apk",
+      "sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "bytes": 39205594
+    },
+    "original_instrumentation": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/built/evidence/instrumentation.apk",
+      "sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+      "bytes": 916201
+    },
+    "source_archive": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-built/source/APD-Source-444.zip",
+      "sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076",
+      "bytes": 110815290
+    }
+  },
+  "metadata": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/snapshot-2026-11-11T17-03-52-653Z.json",
+    "sha256": "4df1c65fc86c457ffef2d89280038127c67634c65e9e1775a84163bafb2dc59a",
+    "successful_producer_job": 130673613026,
+    "source_tree": "32823786daa2a4e79bfb79fa3a5850fe54857430",
+    "producer_job_log": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/instrument-job-130673613026.log",
+      "sha256": "02d3f076ce16f26860bc873469aec4bc12f73ecd9ebf1dd0111a2f57e49bc4f5",
+      "logged_interval": [
+        "2026-11-11T17:00:45.4057021Z",
+        "2026-11-11T17:02:48.7956709Z"
+      ],
+      "artifact_created_within_successful_producer_log_interval": true,
+      "exact_upload_digest_line": "2026-11-11T17:02:47.6434791Z SHA256 digest of uploaded artifact zip is ad87165255953829200d5bdab4b77f1f105fabd1be3a05fe99b12c17bcc3767d"
+    }
+  },
+  "actual_compile": {
+    "outer_android_test_compile_passed": true,
+    "build_successful": true,
+    "game_packaging_task_absent": true,
+    "new_application_apks_created": 0,
+    "new_test_apks_created": 1,
+    "production_class_abi_count": 4122,
+    "json_reference_count": 38,
+    "abi_log_sha256": "3128e2fd8c54947cfa0ea86d87f070368419dbd619e2f6eb539430db6644e42b",
+    "workflow_sha256": "968cd06371903c126a3cc5b6c0bdd473ca14ef729eee010b1a1d5dc5d43f7661",
+    "command": "./gradlew :android:assembleDebugAndroidTest -x :android:packageDebug -x :android:assembleDebug -PapdTestBuild -PapdBuild=C444"
+  },
+  "first_run_qualified_proof_preserved": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/supplemental-native-independent-acceptance.json",
+    "sha256": "3c3d5fcc07d0ba7d84705758d80fe9f21f2d273192a056938553c762ee06ee2b"
+  },
+  "pending": [
+    "Both actual native artifacts, exact case reports, full image and transfer manifests, and all10 original image views.",
+    "Matching capture/restore intro values and absence of the previous pre-launch preference exception.",
+    "Final same-attempt package and successful native producer job/upload timing checks."
+  ],
+  "limits": [
+    "Actual corrected Android test compilation is demonstrated by the bound CI artifact and successful instrument job; no local SDK rebuild was performed.",
+    "CI verified signer/package/runner metadata. Local verification binds that proof to exact binary bytes and DEX contents, without unavailable SDK tools.",
+    "No corrected native result or screenshot has been observed or accepted at this compiled-only stage."
+  ],
+  "reviewer_actions": {
+    "source_edits": false,
+    "remote_mutations": false,
+    "new_builds": 0,
+    "test_reruns": 0
+  }
+}

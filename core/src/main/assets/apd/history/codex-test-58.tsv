@@ -1,0 +1,35 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_INFO	About Device Test 1	Added a device test covering every About Popup Opens Scrolls And Closes. These are development checks, not a gameplay feature.
+Testing	ICON_INFO	About Device Test 2	Added a device test covering offline News Cards Open Dated Sprite Popups. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	index	Added index resources bundled with this APK.
+Changes	ICON_NEWS	news	Added news resources bundled with this APK.
+Changes	ICON_CHANGES	Apd History	Added separate offline APK records with clickable categorized changes and explicit missing-history status.
+Changes	ICON_NEWS	Apd News	Added locally published/draft news records, newest-first ordering and offline availability.
+Statistics / UIMSD	ICON_STATS	Statistics Home Navigation	Linked Home summaries and destinations to existing queries rather than duplicate calculations.
+Quality of Life	ICON_INFO	APD Text Scene	Presented News as dated sprite cards and Changes as navigable build/icon sections.
+Quality of Life	ICON_INFO	About screen	Added six information popups, dynamic version/build display and preserved original credits.
+Quality of Life	ICON_INFO	Main menu	Kept the statistics shortcut permanently visible and clickable after ten genuine runs.
+Quality of Life	ICON_STATS	Statistics screen	Used compact native Home controls, aligned totals and wins/deaths/abandoned drill-downs.
+Testing	ICON_STATS	Statistics Wiring Test	Updated automated checks and fixtures for statistics wiring. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 1	Added a test covering newest First And Drafts Hidden. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 2	Added a test covering date Uses Stable Player Format. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 3	Added a test covering duplicate Ids Rejected. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 4	Added a test covering invalid Dates Rejected. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 5	Added a test covering thousands Of Articles Render Only One Page. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 6	Added a test covering build Identifiers Stay Separate And Navigation Clamps. These are development checks, not a gameplay feature.
+Testing	ICON_NEWS	Apd News Test 7	Added a test covering commentary And Changes Stay In Popups. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Permanent Statistics Link Test	Added a test covering nine Ten And Visited Restart Use Real History. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Navigation Test 1	Added a test covering each Outcome Uses Normal Run Filtering. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Navigation Test 2	Added a test covering mixed Scope Keeps Default Isolation. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Navigation Test 3	Added a test covering invalid Destination Cannot Become An Unfiltered Table. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Demo Notice Test	Updated automated checks and fixtures for statistics demo notice. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test	Updated automated checks and fixtures for statistics gate. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Statistics Settings Persistence Test	Updated automated checks and fixtures for statistics settings persistence. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-HISTORY-EVIDENCE-2026-10-11	Added apd-history-evidence-2026-10-11 accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Added apd-next-build-history accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_STATS	UIMSD-VISUAL-CHECKLIST	Added uimsd-visual-checklist accompanying this build.
+Infrastructure	ICON_CHANGES	apd build history	Added the apd build history development tool.
+Infrastructure	ICON_CHANGES	test apd build history	Added the test apd build history development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Added index resources bundled with this APK. Added news resources bundled with this APK.

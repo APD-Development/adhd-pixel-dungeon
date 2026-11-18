@@ -1,0 +1,13 @@
+Changes	V061_BUGFIX	Bomb	Expose the captured explosion creator to secondary fire fields.
+Changes	V061_BUGFIX	Firebomb	Preserve the bomb creator in flames left by its explosion.
+Changes	V063_MAGICMISSILE	CursedWand	Preserve the actual caster in cursed-wand fire fields.
+Changes	V063_MAGICMISSILE	ElementalBlast	Mark Elemental Blast fire with its actual hero.
+Changes	V063_MAGICMISSILE	ElementalStrike	Carry the activating hero into Elemental Strike's delayed fire effects.
+Changes	V061_BUGFIX	FireCallerProvenanceTest	Test actual Firebomb flames, saved creators, neutral RNG and known fire-caller boundaries.
+Changes	V061_BUGFIX	APD-TEST147-FIRE-CALLERS-2026-10-14	Record fire-caller verification and remaining coverage.
+Changes	V061_BUGFIX	HANDOFF	Record fully passing TEST146 evidence and the next fire checkpoint.
+Changes	V061_BUGFIX	APD-CODEX-BUILD-REQUEST	Require current-source, Android, assembly and compiled history checks.
+Changes	V061_BUGFIX	APD-Implemented-Features-2026-10-14	Add the requested feature inventory and availability categories.
+Changes	V061_BUGFIX	APD-NEXT-BUILD-HISTORY	Review all changes against the preceding produced APK.
+Changes	V061_BUGFIX	APD-TEST145-FIRE-SOURCE-2026-10-14	Preserve the verified mixed-fire and chained-bomb evidence.
+Changes	V061_BUGFIX	WORK-COMPLETED-LEDGER	Record the verified TEST146 implementation checkpoint.

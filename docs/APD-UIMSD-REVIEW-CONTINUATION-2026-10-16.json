@@ -1,0 +1,46 @@
+{
+  "source": "60852b6e5986c7f08d07d34c53bcf906a02d2885",
+  "recorded_at": "2026-10-16 21:56:27 UTC",
+  "complete": false,
+  "prior_checkpoint_preserved": "docs/APD-UIMSD-REVIEW-CHECKPOINT-2026-10-13.json",
+  "count_note": "Two explicit source reads supplement prior checkpoints. No aggregate reviewed count is asserted because later review records still require reconciliation by blob.",
+  "entries": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/GenerationEvents.java",
+      "sha": "4b89e388e172d6cabf2fc4504fc233e1518438aa",
+      "reviewed": true,
+      "basis": "Complete current-source read of level/item/mob generation and ID assignment codecs. Emit/decode field order matches; list reads grow only on successfully decoded fields. ByteSource/PayloadReader throw FormatException on malformed or exhausted payload; no speculative unbounded-loop correction. Visibility enforcement is in callers and remains separate coverage."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/GameFacts.java",
+      "sha": "3d94953cf56261c80ee6a0ba059a4fbd58bd6ba6",
+      "reviewed": true,
+      "basis": "Complete current-source read of registered movement, exploration, economy, class and status fact declarations. Public/internal truth fields and version annotations retained. Actual emission completeness and every visibility caller are separate integration review; no assertion of all gameplay coverage."
+    }
+  ],
+  "supporting_reads": [
+    "PayloadReader.java",
+    "ApdEvent.java",
+    "ByteSource.java"
+  ],
+  "existing_test_evidence": {
+    "run": 38968356419,
+    "source": "f2b19b2534ad9e701823012e1c84b31bebd9c225",
+    "new_execution": false,
+    "suites": {
+      "GenerationProvenanceTest": 9,
+      "GenerationSafetyTest": 5,
+      "FactKindsTest": 8,
+      "FactRegistryInitializationTest": 1,
+      "GenerationEventsTest": 2
+    },
+    "total": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "note": "Subset of the 1752 passed core methods, not extra tests."
+  },
+  "confirmed_new_defects": 0,
+  "application_changes": false,
+  "new_apk_needed": false
+}

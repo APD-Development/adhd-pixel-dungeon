@@ -1,0 +1,5 @@
+Testing	ICON_STAIRS	Floor Replay Device Test	Updated Android checks and fixtures for floor replay device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_STAIRS	Replay Context	Used deterministic shop-bag ordering during canonical replay.
+Changes	ICON_STAIRS	Shop Room	Used deterministic shop-bag ordering during canonical replay.
+Testing	ICON_STAIRS	Floor Replay Test	Updated automated checks and fixtures for floor replay. These are development checks, not a gameplay feature.
+Developer Commentary	V074_SHPX	Developer Commentary	Used deterministic shop-bag ordering during canonical replay. Used deterministic shop-bag ordering during canonical replay.

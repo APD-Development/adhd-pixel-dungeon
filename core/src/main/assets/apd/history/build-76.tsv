@@ -1,0 +1,41 @@
+Testing	ICON_CHECKED	Play Run Device Test	Updated Android checks and fixtures for play run device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Privacy And Hero Back Device Test 1	Added a device test covering character Selection Answers Back One Step At A Time. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Privacy And Hero Back Device Test 2	Added a device test covering the Privacy Menu Works And Sending Is Off By Default. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Privacy And Hero Back Device Test 3	Added a device test covering every Screen Opened From The Title Goes Back To The Title. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Blacksmith	Recorded quest stages when NPC quests are given, ready and completed.
+Infrastructure	ICON_DATA	Community Messages	Added wire forms for what a signed-in player sends to take part: a ballot and a report.
+Infrastructure	ICON_DATA	Evidence Messages	Added offline evidence-request mailbox and consent-gated reply handling.
+Infrastructure	ICON_DATA	Mailbox	Added the other direction of the Gateway: things the server has for this player (for now, evidence requests).
+Infrastructure	ICON_DATA	Mailbox Codec	Added wire form of a list of envelopes in one response: for each one a header line "schema major.minor", then its payload lines, then a line "--".
+Infrastructure	ICON_DATA	Evidence Flow	Added the player's answer to an evidence request.
+Infrastructure	ICON_DATA	Evidence Inbox	Added evidence requests a server has made that the player has not answered yet.
+Infrastructure	ICON_DATA	Privacy Report	Added a report the player can read, share or keep that shows exactly what APD holds for sending: the plain-language summary, each queued item as it would be sent, what has already been sent, and the evidence requests waiting.
+Infrastructure	ICON_DATA	Session Store	Added the signed-in player's session on this device: their player id and the server's session token with its expiry.
+Infrastructure	ICON_DATA	Submission Queue	Kept queue changes serialized without holding the queue lock during network calls.
+Infrastructure	ICON_DATA	Submitted Ledger	Added what this device has actually sent: run id, the digest of the log it was built from, and when.
+Infrastructure	ICON_DATA	Tab File	Added small local record files: one line per record, fields base64 and tab separated, written to a temp file and renamed over the old one.
+Statistics / UIMSD	ICON_STATS	Apd Play	Added quest-step facts to recorded history.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.10.
+Quality of Life	ICON_INVESTIGATE	Sad Ghost	Centralized the existing Ghost reward upgrade-level reveal.
+Quality of Life	ICON_STATS	Statistics Options	Added session, evidence-request and shareable Privacy-report controls.
+Testing	ICON_INVESTIGATE	Ghost Transparency Test 1	Added a test covering offered Gear Shows Its Real Level And Nothing Else. These are development checks, not a gameplay feature.
+Testing	ICON_INVESTIGATE	Ghost Transparency Test 2	Added a test covering revealing With No Offer Is Harmless. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Play Wiring Test	Updated automated checks and fixtures for play wiring. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Community Messages Test 1	Added a test covering a Ballot Round Trips Without Naming The Voter. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Community Messages Test 2	Added a test covering a Report Round Trips With A Bounded Single Line Note. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Mailbox Codec Test	Added a test covering envelopes Round Trip And A Damaged Item Is Skipped. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	End To End Submission Test	Updated automated checks and fixtures for end to end submission. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Evidence Flow Test 1	Added a test covering what Was Sent Is Remembered Once And Asked Requests Are Stored Without Duplicates. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Evidence Flow Test 2	Added a test covering agreeing Queues The Log For Sending And Declining Queues Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Evidence Flow Test 3	Added a test covering late Changed Unsubmitted And Unsupported Requests Are Answered With Nothing Sent. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Session Store Test 1	Added a test covering a Session Is Kept Until It Expires Or The Player Signs Out. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Session Store Test 2	Added a test covering unusable Sessions Are Refused And Never Written. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test	Updated automated checks and fixtures for submission queue. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Quest Recording Test	Added a test covering quest Steps Are Recorded By Giver And Step. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	fact kind manifest	Updated automated checks and fixtures for fact kind manifest. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Updated apd-backend accompanying this build.
+Development	ICON_STATS	APD-UIMSD-UNIVERSAL	Updated apd-uimsd-universal accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the recording-format history bundled with this APK. Recorded quest stages when NPC quests are given, ready and completed.

@@ -1,0 +1,164 @@
+name: Deliver verified Healing and clean-language owner APK TEST222
+
+# Delivery only: reuse the already tested APK; no Gradle or app rebuild.
+# Accept verified SDK signer labels; retain compatibility refusal diagnostics.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-healing-apk-delivery.yml]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: apd-existing-test222-delivery
+  cancel-in-progress: false
+
+env:
+  APD_SOURCE_SHA: 182155b7e2906357fa3006ae3af70a7e472bb0bb
+  APD_SOURCE_RUN: '38809007695'
+  APD_TEST_NUMBER: '222'
+  APD_CORE_TEST_COUNT: '1668'
+  APD_ANDROID_TEST_COUNT: '31'
+  APD_ROLLBACK_NUMBER: '206'
+  APD_ROLLBACK_SHA256: '566e29174c17c19f9a19f7429410d872a097c09c2aa4a1e4835548617a6c809c'
+  APD_REQUIRED_ANDROID_METHODS: 'menusSurviveSceneRecreationAndNarrowActionsStayInsideTheirWindow,aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded,aWonRunIsRecordedAsWonAndSealed,difficultyIsChosenOnTheCharacterScreenAndNotInSettings,communityMenuOpensEveryPreviewAndReturnsWithoutStackingWindows,adultHumorControlWorksWithoutAnAgeProviderAndReopensWithSavedChoice,textAndGuideScrollSurviveRepeatedResetsAndClampAfterResize,validationEmptyHistoryGroupedAndReportMessagesSurviveWithoutRepeatingActions,tourChoicesSurviveWithoutStartingATourOrRepeatingTheOffer,heroButtonsStayAboveNavigationBarAndRemainSelectable,navigationOverlapReservesVisibleBarsEvenWithFullscreenRequested,clericQuickCastsPersistAndKeepNormalCostsAndTargeting,arcanaItemDescriptionsRequireKnownEquippedRingsAndFitWindows,demoUnlockKeepsTenRunNoticeVisibleOnTitle,offlineNewsCardsOpenDatedSpritePopups,everyAboutPopupOpensScrollsAndCloses,everyUimsdScreenAndDialogCanBeBuilt,replacingHomeContentsDisposesPreviouslyDrawnImages,categoriesUseSpdColumnsAndEveryIconOpensItsExactBuildPopup,largeAndNamedHistoricalBuildsKeepAllIconsInScrollableNativeSections,tileVisibilityAndStairNavigationKeepNormalTurnsFogAndControls,clericLoreFirstRunPopupIsVisibleAndBackContinuesExactlyOnce'
+
+jobs:
+  validate-and-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 182155b7e2906357fa3006ae3af70a7e472bb0bb
+      - uses: actions/checkout@v4
+        with:
+          path: lunch-preparation
+      - name: Wait for exact TEST222 verification and resolve actual artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, time
+          repo=os.environ['GITHUB_REPOSITORY']
+          run=os.environ['APD_SOURCE_RUN']
+          deadline=time.monotonic()+1800
+          while True:
+              data=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run}']))
+              assert data['head_sha']==os.environ['APD_SOURCE_SHA']
+              if data['status']=='completed':
+                  assert data['conclusion']=='success', 'Source verification failed: no publication'
+                  break
+              if time.monotonic()>=deadline:
+                  raise SystemExit('Source verification still pending: no publication')
+              time.sleep(20)
+          data=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run}/artifacts']))['artifacts']
+          names=('apd-codex-core-tests','apd-codex-private-test-apk','apd-codex-android-checks')
+          result={}
+          for name in names:
+              matches=[a for a in data if a['name']==name and not a['expired']]
+              assert len(matches)==1
+              result[name]=matches[0]['id']
+          with open(os.environ['GITHUB_ENV'],'a') as target:
+              target.write('APD_SOURCE_ARTIFACTS_JSON='+json.dumps(result)+'\n')
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: core-reports
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: android-reports
+      - name: Retrieve rollback APK for direct compatibility comparison
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download apd-codex-test-206 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-CODEX-TEST-206.apk --dir rollback
+      - name: Check source, tests, checksum, signing and application ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m unittest discover -s tools -p test_apd_existing_build_evidence.py
+          GITHUB_SHA="$APD_SOURCE_SHA" python3 tools/apd_existing_build_evidence.py
+      - name: Verify the delivered APK enables the owner's Cleric lore
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          apks=list(Path('delivery').glob('*.apk'))
+          assert len(apks)==1
+          with zipfile.ZipFile(apks[0]) as z:
+              flags=set(z.read('assets/apd/features.txt').decode('utf-8').splitlines())
+          assert {'testBuild','grudge','clericPlayable'}.issubset(flags)
+          print('Actual delivered APK explicitly enables private Cleric lore and Cleric play.')
+          PY
+      - name: Stage the thirty-nine verified Android screenshots
+        run: |
+          mkdir -p delivery/screenshots
+          cp android-reports/codex-visual-evidence/*.png delivery/screenshots/
+          test "$(find delivery/screenshots -name '*.png' | wc -l)" -eq 39
+          sha256sum delivery/screenshots/*.png > delivery/Android-Screenshot-Checksums.sha256
+      - name: Count exact verified source for owner chat breakdown
+        run: |
+          git fetch --no-tags --depth=1 origin "$APD_SOURCE_SHA"
+          python3 tools/apd_source_line_counts.py "$APD_SOURCE_SHA" delivery
+          git archive --format=zip --output=delivery/APD-Verified-Source.zip "$APD_SOURCE_SHA" SPD-classes/src/main/java core/src/main/java core/src/test/java android/src/main/java android/src/androidTest/java
+          sha256sum delivery/APD-Verified-Source.zip > delivery/APD-Verified-Source.zip.sha256
+      - name: Produce today's report from verified evidence
+        run: |
+          python3 -m pip install reportlab==4.2.5
+          python3 -m unittest discover -s tools -p test_apd_bug_report_pdf.py
+          python3 tools/apd_bug_report_pdf.py lunch-preparation/docs/APD-CLEAN-LANGUAGE-2026-10-15.md delivery/APD-Bug-Fixes-2026-10-15-TEST222.pdf --verification delivery/verification.txt --appendix lunch-preparation/docs/APD-HEALING-CONVERSION-2026-10-15.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-test222-delivery
+          path: delivery/
+          retention-days: 7
+
+# Owner explicitly requested the corrected Healing slider APK.
+# Separate daily lunch schedules are unchanged. No app rebuild in this delivery workflow.
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-test222-evidence
+          path: |
+            delivery/*.json
+            delivery/*.txt
+            delivery/*.pdf
+            delivery/*.csv
+            delivery/*.md
+            delivery/*.sha256
+            delivery/screenshots/
+            delivery/APD-Verified-Source.zip
+          retention-days: 7
+
+      - name: Publish verified owner APK only to private repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,json,subprocess
+          from pathlib import Path
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-codex-test-222'
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          v=json.loads(Path('delivery/TEST222-Verification.json').read_text())
+          assert v['source']==os.environ['APD_SOURCE_SHA'] and v['core']['tests']==1668 and v['android']['tests']==31
+          assert v['certificate_sha256']==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          notes=Path('delivery/verification.txt').read_text()
+          notes+='\n\nHealing-to-Shielding slider correction: override applies only to generated Potions of Healing; other potion/scroll conversions preserve vanilla Exotic Crystals behavior. Includes TEST218 all-control and full-field export acceptance. Includes clean About and English authored messages plus the first 25 reviewed alternatives. Expanded translated-language review found further variants after this source; full game-wide localization audit remains open and those later changes are NOT included. This is an owner test APK, not the tester-distribution candidate. No automatic distribution to alpha testers.\n'
+          Path('delivery/release-notes.txt').write_text(notes)
+          assert subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True).returncode!=0, 'Preserve existing release'
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['APD_SOURCE_SHA'],'--prerelease','--latest=false','--title','APD PRIVATE CODEX TEST222 — Healing slider and clean language','--notes-file','delivery/release-notes.txt','delivery/ADHD-Pixel-Dungeon-CODEX-TEST-222.apk','delivery/ADHD-Pixel-Dungeon-CODEX-TEST-222.apk.sha256','delivery/TEST222-Verification.json','delivery/APD-Bug-Fixes-2026-10-15-TEST222.pdf'],check=True)
+          PY

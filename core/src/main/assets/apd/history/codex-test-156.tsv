@@ -1,0 +1,8 @@
+Changes	V061_BUGFIX	Vault boss provenance	Apply Boss Damage exactly once to the elemental boss's direct and delayed offensive sources while retaining original mechanics.
+Changes	V061_BUGFIX	Vault boss regression	Retain all-percentage, neutral, caller-completeness and environmental-exclusion coverage.
+Changes	V061_BUGFIX	TEST156 evidence	Record the bounded implementation and pending verification boundary.
+Changes	V061_BUGFIX	Verified TEST155 evidence	Preserve the reviewed TEST155 plant verification record in compiled history.
+Changes	V061_BUGFIX	Handoff	Record the candidate and remaining acceptance work.
+Changes	V061_BUGFIX	Completed ledger	Record exact bounded work and pending checks.
+Changes	V061_BUGFIX	Build request	Require exact-source core, Android, debug and history verification.
+Changes	V061_BUGFIX	History manifest	Compare every reviewed path against the immediate previous TEST155 APK.

@@ -1,0 +1,99 @@
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Statistics / UIMSD	ICON_STATS	Apd Event	Added one decoded event.
+Statistics / UIMSD	ICON_STATS	Byte Sink	Added a growable byte buffer for building frames and payloads.
+Statistics / UIMSD	ICON_STATS	Byte Source	Added reads the primitives written by ByteSink from a byte array.
+Statistics / UIMSD	ICON_STATS	Event Builder	Added builds one event and hands it to the writer.
+Statistics / UIMSD	ICON_STATS	Event Types	Added the registry of event type IDs.
+Statistics / UIMSD	ICON_STATS	Format Exception	Added thrown inside the codec when bytes do not follow the format.
+Statistics / UIMSD	ICON_STATS	Log Format	Added byte layout of a run log ("container format 1").
+Statistics / UIMSD	ICON_STATS	Log Header	Added the fixed start of every run log.
+Statistics / UIMSD	V011_ANKH	Log Recovery	Added cuts a damaged tail off a run log so it ends on its last valid frame again.
+Statistics / UIMSD	ICON_STATS	Payload Reader	Added reads the fields of one event payload in the order EventBuilder wrote them.
+Statistics / UIMSD	ICON_STATS	Read Options	Added after a damaged frame, scan forward for the next valid frame and keep reading, instead of stopping.
+Statistics / UIMSD	ICON_STATS	Read Result	Added everything learned from reading one run log.
+Statistics / UIMSD	ICON_STATS	Read Status	Added how reading a run log ended.
+Statistics / UIMSD	ICON_STATS	Run Index	Added a small file listing every run log with a summary line, so a list of runs does not need every log to be opened.
+Statistics / UIMSD	ICON_STATS	Run Index Entry	Added one line of the run index: a summary of one run log.
+Statistics / UIMSD	ICON_STATS	Run Log Reader	Added reads a run log.
+Statistics / UIMSD	ICON_STATS	Run log writer	Added appends events to one run log on a background thread.
+Statistics / UIMSD	ICON_STATS	Stats Store	Added the run-history folder layout and rebuildable run index.
+Statistics / UIMSD	ICON_STATS	String Lookup	Added resolves string table references found in event payloads.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Added the version of APD's telemetry/statistics recording system itself, written as "Telemetry major.minor".
+Statistics / UIMSD	ICON_STATS	Utf8	Added strict UTF-8 handling for recorded text.
+Testing	ICON_STATS	Contract Tests 1	Added a test covering event Type Registry Matches The Checked In Manifest. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Contract Tests 2	Added a test covering library Uses No Randomness No Game Classes And No Apis Missing On Android5. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Contract Tests 3	Added a test covering records History Describes The Current Telemetry Version. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Contract Tests 4	Added a test covering a Run Survives A Crash And Can Be Continued And Sealed. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 1	Added a test covering cutting The File At Every Byte Gives The Valid Prefix And Never Throws. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 2	Added a test covering a Sealed Log Cut Before The Seal Is Just Unsealed. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 3	Added a test covering flipped Byte In The Middle Stops There But Keeps Everything Before. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 4	Added a test covering resync Recovers Later Events And Marks The Gap. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 5	Added a test covering garbage Appended To An Unsealed Log Is Corrupt Tail. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 6	Added a test covering garbage After The Seal Leaves The Run Sealed. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 7	Added a test covering damaged Header Makes The File Unreadable But Never Throws. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 8	Added a test covering seal With The Wrong Event Count Is Reported. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 9	Added a test covering random Damage Never Throws And Events Are Always The Real Ones. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 10	Added a test covering repair Cuts The Tail Saves It And Leaves A Clean Log. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 11	Added a test covering repair Leaves Healthy Sealed And Unreadable Logs Alone. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 12	Added a test covering repair Trims Junk After The Seal Too. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 13	Added a test covering reopening A Damaged Log Recovers Records A Gap And Continues. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Damage Recovery Test 14	Added a test covering sealed Missing And Unreadable Logs Are Not Appended To. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 1	Added a test covering unwritable Location Gives A Disabled Writer Not An Exception. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 2	Added a test covering existing Log Is Never Overwritten. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 3	Added a test covering bad Run Ids Are Refused. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 4	Added a test covering invalid Events Are Ignored Not Fatal. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 5	Added a test covering a Disk Failure Mid Write Disables The Writer And Leaves A Recoverable Log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 6	Added a test covering a Listener That Throws Does Not Matter. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Failure Isolation Test 7	Added a test covering reader Never Throws On Arbitrary Files. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 1	Added a test covering every Field Type Round Trips. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 2	Added a test covering many Events Keep Order Clocks And Payloads. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 3	Added a test covering clock Can Go Backwards. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 4	Added a test covering events Without A Clock Keep The Previous One. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 5	Added a test covering clock Frames Are Written Periodically. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 6	Added a test covering large Payloads Survive. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 7	Added a test covering unresolved String Reference Reads As Null. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Round Trip Test 8	Added a test covering unsealed Log Reads Normally. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Log Test Support	Added automated checks and fixtures for log test support. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 1	Added a test covering entries Describe Each Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 2	Added a test covering list Is Ordered By Creation Time. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 3	Added a test covering save And Load Round Trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 4	Added a test covering missing Index Is Rebuilt From The Logs And Matches. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 5	Added a test covering damaged Index Files Are Rebuilt Not Trusted. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 6	Added a test covering leftover Temp File From An Interrupted Save Is Harmless. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 7	Added a test covering refresh Tracks A Changing Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 8	Added a test covering entry Decoder Ignores Fields Added By Later Versions. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Test 9	Added a test covering recover All Repairs Damaged Logs And Never Deletes Them. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 1	Added a test covering old Version Stays Old When Read By A Newer Build. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 2	Added a test covering newer Minor Is Readable And Flagged. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 3	Added a test covering newer Major Is Readable At Frame Level And Flagged Incompatible. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 4	Added a test covering reading Never Modifies The File. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 5	Added a test covering append Requires The Same Telemetry Version. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 6	Added a test covering future Container Format Is Refused Not Misread. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Handling Test 7	Added a test covering new Runs Are Recorded With The Current Version. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test 1	Added a test covering current Version Is Telemetry1 Point0. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test 2	Added a test covering parses And Prints. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test 3	Added a test covering rejects Garbage. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test 4	Added a test covering orders Major Before Minor. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Unknown Content Test 1	Added a test covering unknown Event Types Are Delivered And Counted. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Unknown Content Test 2	Added a test covering known Types Only Leaves Unknown Events Out But Still Counts Them. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Unknown Content Test 3	Added a test covering unknown Frame Types Are Skipped. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Unknown Content Test 4	Added a test covering unknown Trailing Header Bytes Are Ignored. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Varint Codec Test 1	Added a test covering unsigned Round Trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Varint Codec Test 2	Added a test covering signed Round Trip Including Extremes. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Varint Codec Test 3	Added a test covering small Magnitudes Stay Small. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Varint Codec Test 4	Added a test covering random Values Round Trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Varint Codec Test 5	Added a test covering other Primitives Round Trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Varint Codec Test 6	Added a test covering malformed Input Throws Format Exception Never Anything Else. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 1	Added a test covering flush Makes Everything Visible In The File. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 2	Added a test covering close Seals Stops The Thread And Refuses Later Events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 3	Added a test covering close Without Seal Leaves A Resumable Log. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 4	Added a test covering concurrent Producers Lose Nothing And Keep Per Thread Order. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 5	Added a test covering a Full Queue Drops Events Counts Them And Writes A Gap. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 6	Added a test covering dropped Events Are Still Reported If The Log Is Closed First. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 7	Added a test covering strings In A Dropped Event Do Not Break Later Events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test 8	Added a test covering many Open And Close Cycles Leak No Threads. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Added automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-SCHEMA	Updated apd-stats-schema accompanying this build.
+Development	ICON_STATS	APD-STATS-STORAGE	Added apd-stats-storage accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the recording-format history bundled with this APK. Added one decoded event.

@@ -1,0 +1,56 @@
+name: Verify allocation-free adaptive Search and complete APD core
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd457-search-allocation-ci.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Require allocation-free room check and preserved cardinal order
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java')
+          s=p.read_text()
+          method=s.split('public static boolean openRoomInterior(',1)[1].split('public static boolean hasMeaningfulWall(',1)[0]
+          assert 'new int[]{' not in method, 'Room context still allocates a temporary neighbor array'
+          assert 'direction<4' in method
+          for fragment in ('hero.pos-width','hero.pos+width','hero.pos-1','hero.pos+1',
+                           'level.heroFOV[neighbour]','DoorSearchEligibility.candidate(level, neighbour)'):
+              assert fragment in method, fragment
+          print('Exact original N/S/W/E geometry and visibility preserved, no temporary array.')
+          PY
+      - name: Run complete core tests and compile desktop and Android variants
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require all tests and specifically adaptive search regressions
+        run: |
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as ET
+          roots=[ET.parse(p).getroot() for p in pathlib.Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert roots,'Missing core test results'
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3262 and totals['failures']==totals['errors']==totals['skipped']==0,totals
+          matches=[r for r in roots if r.get('name','').endswith('.SearchControlContextTest')]
+          assert len(matches)==1
+          cases={x.get('name') for x in matches[0].findall('testcase')}
+          assert {'floorTwoOrdinaryRoomCenterPrefersSearchEvenWhenWideSearchReachesWall',
+              'actualSearchInMiddleOfFloorTwoRoomDoesNotMakeWallCheckmarks',
+              'actualSearchFromInsideKeyedRoomDoesNotCreateCheckmarks'} <= cases
+          print('Verified',totals,'across',len(roots),'suites')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd457-search-allocation-core-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

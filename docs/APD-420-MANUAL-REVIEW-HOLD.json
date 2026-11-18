@@ -1,0 +1,15 @@
+{
+  "reviewed_utc": "2026-11-09T17:02:54.692782+00:00",
+  "selected_full_frames_manually_viewed": 46,
+  "source_commit": "55d8e9adfb05756e4b6a854e43d2b836748772fd",
+  "automated_checks": "3143core,12native,4671sourcehashes passed; this does not imply visual acceptance",
+  "accepted": false,
+  "defects": [
+    "Ready Endure appended future talent-dependent hit counts to fixed stored state and showed 1 hits.",
+    "Soul Mark unescaped literal40% caused message formatting fallback, exposing %s in duration."
+  ],
+  "inherited_by": [
+    421
+  ],
+  "published_fallback": 418
+}

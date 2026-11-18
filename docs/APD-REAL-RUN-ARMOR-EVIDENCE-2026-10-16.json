@@ -1,0 +1,37 @@
+{
+  "source": "user uploaded completed run; not synthetic",
+  "raw_log_sha256": "008cd75a5a2d4f20b6c59a573c1e7a9349e6a1678c046da03016f9b3beb8484f",
+  "raw_bytes_unchanged": true,
+  "seed": 383073447724,
+  "class": "DUELIST",
+  "difficulty": 3,
+  "challenges": 0,
+  "deepest_recorded_floor": 24,
+  "ended_outcome": "abandoned",
+  "read_status": "clean",
+  "decode_errors": 0,
+  "rollback_count": 0,
+  "includes_test79_sessions": true,
+  "recorded_circle_room": {
+    "depth": 19,
+    "branch": 1
+  },
+  "armor_evidence": "Contains generated and public seen/acquired mail, scale and plate records; does not reproduce absence of higher-tier armor",
+  "limits": [
+    "Not proven to be the specific run reported for missing armor",
+    "Generated event identity can reappear on later floors; do not infer original floor from a last-generation map",
+    "Recorded public seen/acquired events are distinct from physically observing a phone session",
+    "No loot probabilities changed; no owner save accessed or modified"
+  ],
+  "session_versions": [
+    "C10",
+    "C22",
+    "C24",
+    "C31",
+    "C50",
+    "C63",
+    "C73",
+    "C79"
+  ],
+  "interpretation": "This is an actual completed exported run spanning TEST79, but matching it to the specific missing-armor complaint is unconfirmed. It records higher-tier armor; no loot-probability change is justified from this export."
+}

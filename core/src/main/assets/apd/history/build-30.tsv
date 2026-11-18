@@ -1,0 +1,11 @@
+Testing	ICON_CHECKED	Archive Migration Device Test 1	Added a device test covering a Realistic History Migrates To A Clean Install Losslessly And Safely. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Migration Device Test 2	Added a device test covering demo Data Can Neither Be Exported Nor Imported. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Migration Device Test 3	Added a device test covering damaged Archives Leave The History Exactly As It Was. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Migration Device Test 4	Added a device test covering cancellation And Errors Change Nothing And Say What Happened. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Migration Device Test 5	Added a device test covering the Apd Self Test Passes After A Migration. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Device Logs	Added Android checks and fixtures for device logs. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Android File Provider	Handled document-picker cancellation and stream-opening failures consistently.
+Statistics / UIMSD	ICON_INFO	Archive Importer	Staged and validated every archive entry before committing an all-or-nothing import.
+Testing	ICON_CHECKED	Archive Hostile Test	Updated automated checks and fixtures for archive hostile. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-ARCHIVE	Updated apd-stats-archive accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Handled document-picker cancellation and stream-opening failures consistently. Staged and validated every archive entry before committing an all-or-nothing import.

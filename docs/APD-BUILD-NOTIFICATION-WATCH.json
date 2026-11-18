@@ -1,0 +1,14 @@
+{
+  "id": "Automation_7f32bb1446548191b8e88c0c04ace2f0",
+  "title": "Send new APD builds",
+  "enabled": true,
+  "timing_mode": "condition_watch",
+  "schedule": "BEGIN:VEVENT\nDTSTART:20261110T174516Z\nRRULE:FREQ=HOURLY\nEND:VEVENT",
+  "timezone": "America/New_York",
+  "scope": "Read-only notification of newly published accepted APD builds; no background development or builds",
+  "already_delivered_builds": [
+    430,
+    432
+  ],
+  "created_utc": "2026-11-10T17:44:16.446715+00:00"
+}

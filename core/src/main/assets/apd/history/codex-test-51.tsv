@@ -1,0 +1,18 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-lunch-pdf-delivery	Added the codex-lunch-pdf-delivery development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Statistics / UIMSD	ICON_INFO	Report Builder	Calculated extreme run-comparison differences without signed-number overflow.
+Quality of Life	ICON_STATS	Statistics Gate	Kept the ten-genuine-run notice visible after demo access.
+Testing	ICON_CHECKED	Run Comparison Difference Test 1	Added a test covering positive Difference Beyond Long Range Is Exact. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Run Comparison Difference Test 2	Added a test covering negative Difference Beyond Long Range Is Exact. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Run Comparison Difference Test 3	Added a test covering normal Positive Negative And Equal Differences Keep Their Formatting. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Run Comparison Difference Test 4	Added a test covering unknown Operands Never Become An Invented Difference. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Demo Notice Test 1	Added a test covering demo Access Does Not Hide The Ten Real Run Notice. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Demo Notice Test 2	Added a test covering genuine Progression And Normal Build Keep The Notice Retired. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test	Updated automated checks and fixtures for statistics gate. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-TEST50-REPORT-2026-10-11	Added apd-test50-report-2026-10-11 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	apd bug report pdf	Updated the apd bug report pdf development tool.
+Infrastructure	ICON_INFO	test apd bug report pdf	Added the test apd bug report pdf development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Calculated extreme run-comparison differences without signed-number overflow. Kept the ten-genuine-run notice visible after demo access.

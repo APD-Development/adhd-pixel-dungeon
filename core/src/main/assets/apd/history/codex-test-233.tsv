@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Record verified TEST232 evidence	Retain the exact TEST232 core, Android, visual, APK and targeted-reproduction evidence without rebuilding or publishing unchanged application source.
+Statistics	ICON_WARNING	Exclude long idle gaps from active-play time	Active-time telemetry no longer credits 30 seconds after an app-background or long-pause gap; normal short gaps and all gameplay remain unchanged.

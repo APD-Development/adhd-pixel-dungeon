@@ -1,0 +1,110 @@
+name: APD Android16 Adult Humor cold restart acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-adult-restart-acceptance.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: codex-adult-restart-acceptance
+  cancel-in-progress: false
+jobs:
+  existing-apk-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 182155b7e2906357fa3006ae3af70a7e472bb0bb
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Reuse the exact verified TEST222 application
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,zipfile
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          source='182155b7e2906357fa3006ae3af70a7e472bb0bb'
+          run_id='38809007695'
+          run=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id]))
+          assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==source
+          subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True)
+          protected=['core/src/main','SPD-classes/src/main','services/src/main','android/src/main','android/build.gradle','core/build.gradle','SPD-classes/build.gradle','services/build.gradle','build.gradle','settings.gradle','gradle.properties','gradle','android/debug.keystore']
+          subprocess.run(['git','diff','--exit-code',source,'HEAD','--']+protected,check=True)
+          artifacts=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/artifacts']))['artifacts']
+          apk_assets=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert len(apk_assets)==1
+          with open('existing-application.zip','wb') as output:
+              subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(apk_assets[0]['id'])+'/zip'],stdout=output,check=True)
+          with zipfile.ZipFile('existing-application.zip') as archive:
+              names=[n for n in archive.namelist() if n.endswith('.apk')]
+              assert len(names)==1
+              apk=archive.read(names[0])
+          digest=hashlib.sha256(apk).hexdigest()
+          assert digest=='c4fe922f32c7b07f94666ae01591a04384fa5c801afcb4f869aca9a5c0e6aea5'
+          pathlib.Path('existing-test222.apk').write_bytes(apk)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':int(run_id),'application_sha256':digest,'test_source':os.environ['GITHUB_SHA'],'application_reused':True,'published':False,'physical_device':False},indent=2))
+          PY
+      - name: Add only the cold-restart instrumentation fixture
+        run: |
+          git fetch --no-tags --depth=1 origin 46551cf86fa5885dacbba8c65a22375a560dfc8f
+          git show 46551cf86fa5885dacbba8c65a22375a560dfc8f:android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/AdultHumorRestartDeviceTest.java > android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/AdultHumorRestartDeviceTest.java
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile the updated instrumentation APK
+        run: ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C222
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise every control through native Android touch
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 36
+          arch: x86_64
+          # The lean API 36 image keeps the AVD within the hosted runner's
+          # measured free space; API level and acceptance assertions are unchanged.
+          target: default
+          disk-size: 4G
+          disable-animations: true
+          script: |
+            # Disable only the emulator's first-use fullscreen tip, which obscured both prior captures.
+            adb shell settings put secure immersive_mode_confirmations confirmed
+            adb install -r existing-test222.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb shell wm size 320x640
+            adb shell wm density 160
+            adb logcat -c
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.AdultHumorRestartDeviceTest#aWriteOffPreferenceAndCheckAboutBeforeRestart com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > restart-write.txt 2>&1
+            python3 -c "import pathlib,re; s=pathlib.Path('restart-write.txt').read_text(); print(s); assert re.search(r'OK \(1 test\)',s); assert not any(x in s for x in ['FAILURES!!!','INSTRUMENTATION_FAILED','Process crashed.'])"
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.AdultHumorRestartDeviceTest#bReadOffPreferenceAndCheckAboutAfterRestart com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > restart-read.txt 2>&1
+            adb logcat -d -v time > restart-logcat.txt
+            adb exec-out cat /sdcard/Pictures/APD-Test-Visuals/adult-off-before-restart.png > adult-off-before-restart.png
+            adb exec-out cat /sdcard/Pictures/APD-Test-Visuals/adult-off-after-restart.png > adult-off-after-restart.png
+            python3 -c "import json,pathlib,re,struct,subprocess; s=pathlib.Path('restart-read.txt').read_text(); print(s); assert re.search(r'OK \(1 test\)',s); assert not any(x in s for x in ['FAILURES!!!','INSTRUMENTATION_FAILED','Process crashed.']); images={p.name:struct.unpack('>II',p.read_bytes()[16:24]) for p in pathlib.Path('.').glob('adult-off-*.png') if p.read_bytes()[:8]==b'\x89PNG\r\n\x1a\n'}; assert len(images)==2; sdk=int(subprocess.check_output(['adb','shell','getprop','ro.build.version.sdk'])); assert sdk==36; pathlib.Path('restart-result.json').write_text(json.dumps({'tests':2,'passed':2,'failures':0,'errors':0,'skipped':0,'api_level':sdk,'actual_force_stop_between_phases':True,'preference_restored':True,'images':images,'physical_device':False},indent=2))"
+      - name: Preserve acceptance evidence even if a check fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-adult-humor-cold-restart
+          path: |
+            acceptance-source.json
+            restart-result.json
+            restart-write.txt
+            restart-read.txt
+            restart-logcat.txt
+            adult-off-*.png
+            android/build/reports/
+          if-no-files-found: warn
+          retention-days: 7
+

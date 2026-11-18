@@ -1,0 +1,1 @@
+Corrective turn-queue release when a waiting actor is removed; actual phone root cause unconfirmed. Includes verified description work so far, not the completed whole-item audit. API34 emulator evidence only; no physical-phone acceptance or source reconstruction build claimed. Install over; never clear data or uninstall. One pair, private owner only.

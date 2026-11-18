@@ -1,0 +1,3 @@
+Bug Fixes	ICON_RANKINGS	Accurate daily scores	The daily calendar shows the run's earned Custom Rules score and retains large values without covering the date.
+Testing	ICON_CHECKED	Daily score and save checks	Regression checks cover real daily scoring, large-score persistence, older records, optional metadata and Android calendar layout.
+Infrastructure	ICON_INFO	Record the acceptance finding	Keep the reproduced score mismatch, corrected results and remaining physical-device limits with the build's verification record.

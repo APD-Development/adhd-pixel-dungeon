@@ -1,0 +1,30 @@
+name: Read-only APD complete historical APK census
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-history-audit.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect-existing-apks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-complete-history-evidence
+          run-id: '38251610456'
+          github-token: ${{ github.token }}
+          path: previous-history
+      - name: Inspect remaining artifact APKs; reuse successful binary evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/apd_history_artifact_audit.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-complete-history-evidence
+          path: history-evidence/
+          retention-days: 7

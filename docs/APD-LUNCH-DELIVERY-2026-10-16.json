@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-16",
+  "prepared_utc": "2026-10-16T15:23:31Z",
+  "status": "prepared_not_delivered",
+  "timezone": "America/New_York",
+  "pdf_delivery_local": "11:55",
+  "apk_delivery_local": "12:00",
+  "do_not_publish_early": true,
+  "application": {
+    "build": 249,
+    "source_sha": "37a8f6d16cd497e13ed581e887ed9d4858fe97aa",
+    "verification_run": 38914965700,
+    "core": {
+      "tests": 1729,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "android": {
+      "tests": 34,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "api": 34,
+      "screenshots": 44
+    },
+    "supplemental_six_class_run": 38918464322,
+    "supplemental_methods": 1,
+    "physical_phone_verified": false,
+    "apk_bytes": 38608287,
+    "apk_sha256": "dcda79a5c6c83b1ac88e5294b3b134c8e1483109929b3a8da5365e7eadc8536e",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "owner_draft_release_id": 415070992,
+    "owner_draft_apk_asset_id": 647633624,
+    "published": false,
+    "rebuilt_during_preparation": false
+  },
+  "staging": {
+    "source_sha": "9d5ee9b4ab6cb94fc112b2a34468717ef0decc77",
+    "run": 38923317616,
+    "conclusion": "success",
+    "full_artifact": 12055292937,
+    "full_zip_sha256": "0f99b111410f42f0f1c94b1573f30403c8dc205f18ab793c68e545f30cd4cd85",
+    "evidence_artifact": 12055796952,
+    "evidence_zip_sha256": "c2f746a4428c84779d1d9cc57a2f942bb6a918fd15ab57ff00aabc7ef0a19253",
+    "pdf_name": "APD-Alpha-Preview-249.pdf",
+    "pdf_bytes": 34514,
+    "pdf_pages": 11,
+    "pdf_sha256": "3fc26372fe1dd1852364e00b2e4873545b5f86f5dd7205574a4d1356e047b77e"
+  },
+  "published_fallback": {
+    "build": 231,
+    "release_id": 414468599,
+    "apk": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-231/ADHD-Pixel-Dungeon-Alpha-Preview-231.apk",
+    "apk_sha256": "20f1d87ab58afd21cd37ae4027e6ebb79c01fcf802d0869801e6ffa03943bff9",
+    "pdf": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-231/APD-Alpha-Preview-231.pdf",
+    "preserve_assets": true
+  },
+  "delivery_instructions": [
+    "At11:55 publish only the factual PDF to the private repository, retaining existing assets; verify direct download then send link.",
+    "At noon recheck candidate checksum/source/signature and publish existing draft415070992 without rebuilding or replacing assets; verify actual published download URL then send link.",
+    "If candidate or publication unavailable, deliver existing verified TEST231 APK clearly labeled unchanged fallback. If PDF publication blocked, provide existing PDF fallback plus current factual corrections.",
+    "Install over only. Never uninstall or clear data. Do not distribute automatically to testers. Preparation/schedule metadata does not establish delivery or guarantee platform execution."
+  ]
+}

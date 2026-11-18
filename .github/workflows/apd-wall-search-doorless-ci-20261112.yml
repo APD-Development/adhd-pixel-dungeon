@@ -1,0 +1,60 @@
+name: Verify APD wall-search chooser on doorless floors
+on:
+  push:
+    branches: [chatgpt/apd-wall-search-boss-floor-20261112-1644]
+    paths: [.github/workflows/apd-wall-search-doorless-ci-20261112.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check scoped wall-resume guard and regression
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java').read_text()
+          body=src.split('public static Action[] choices(',1)[1].split('public static boolean openRoomInterior(',1)[0]
+          assert 'saved && DoorSearchEligibility.supportsDoors(level)' in body
+          assert 'action == Action.WALL_SEARCH && !wallResume' in body
+          assert 'Action[] options = new Action[2 + (saved ? 2 : 0) + (wallResume ? 1 : 0) + (movement ? 1 : 0)]' in body
+          assert body.count('new Action[') == 1, 'Chooser must keep its single result-array allocation'
+          test=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContextTest.java').read_text()
+          assert 'doorlessFloorsOmitWallResumeButKeepNormalSearchAndSavedPosition' in test
+          assert 'new int[]{1, 10, 15, 20, 25, 26}' in test
+          window=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndWallSearchResume.java').read_text()
+          assert 'DoorSearchEligibility.supportsDoors(level)' in window
+          assert 'Resume wall search is unavailable on this floor.' in window
+          print('Doorless-floor chooser, dialog and regression present')
+          PY
+      - name: Run complete core tests and compile desktop and Android Java
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require clean test reports and new floor regression
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports,'No core JUnit reports'
+          totals={k:sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests'] >= 3319,totals
+          assert all(totals[k]==0 for k in ('failures','errors','skipped')),totals
+          suites=[r for r in reports if r.get('name','').endswith('.SearchControlContextTest')]
+          assert len(suites)==1,'Missing chooser test suite'
+          cases=[t.get('name') for t in suites[0].findall('testcase')]
+          assert cases.count('doorlessFloorsOmitWallResumeButKeepNormalSearchAndSavedPosition')==1,cases
+          print('Verified',totals,'across',len(reports),'suites')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-wall-search-doorless-core-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

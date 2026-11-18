@@ -1,0 +1,201 @@
+{
+  "status": "corrected_supplemental_ci_and_preference_log_checks_passed",
+  "verified_at_utc": "2026-11-11T17:09:39.935326+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "corrected_test_source_commit": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+  "corrected_test_source_tree": "32823786daa2a4e79bfb79fa3a5850fe54857430",
+  "run": {
+    "id": 43063913542,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43063913542",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-11T17:00:40Z",
+    "updated_at": "2026-11-11T17:06:22Z"
+  },
+  "original_application_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_application_run": 43057716359,
+  "original_application_apk_sha256": {
+    "Developer": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+    "Alpha-Testers": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162"
+  },
+  "corrected_instrumentation_sha256_in_both_raw_native_receipts": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+  "jobs": [
+    {
+      "id": 130673613026,
+      "name": "instrument",
+      "conclusion": "success",
+      "started_at": "2026-11-11T17:00:44Z",
+      "completed_at": "2026-11-11T17:02:52Z",
+      "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/instrument-job-130673613026.log",
+      "log_sha256": "02d3f076ce16f26860bc873469aec4bc12f73ecd9ebf1dd0111a2f57e49bc4f5",
+      "log_bytes": 62232
+    },
+    {
+      "id": 130674898651,
+      "name": "native (Developer)",
+      "conclusion": "success",
+      "started_at": "2026-11-11T17:02:55Z",
+      "completed_at": "2026-11-11T17:05:21Z",
+      "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/native-Developer-job-130674898651.log",
+      "log_sha256": "ed3eaace0845d4bf11afad35724cae9f91f52b2e3c32e8d3cc1eb43222a7b99a",
+      "log_bytes": 62722
+    },
+    {
+      "id": 130674898652,
+      "name": "native (Alpha-Testers)",
+      "conclusion": "success",
+      "started_at": "2026-11-11T17:02:55Z",
+      "completed_at": "2026-11-11T17:05:41Z",
+      "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/native-Alpha-Testers-job-130674898652.log",
+      "log_sha256": "b22bc59d80d7d1c288aad5d1b3289052db6ce75d5fb1432639e559e511f44edb",
+      "log_bytes": 61911
+    },
+    {
+      "id": 130676589898,
+      "name": "supplemental-evidence",
+      "conclusion": "success",
+      "started_at": "2026-11-11T17:05:44Z",
+      "completed_at": "2026-11-11T17:06:22Z",
+      "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/supplemental-evidence-job-130676589898.log",
+      "log_sha256": "8cb113b2c66a396ef7d050cbb74e85f9861c232ddbe7e45f5b2291b93323d584",
+      "log_bytes": 40950
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13875836115,
+      "name": "apd444-pylon-native-Alpha-Testers-attempt-1",
+      "bytes": 204983,
+      "github_archive_sha256": "6fac3ba7365e5e9c9419466440d040498d3708a38be73326902633a06268f71f",
+      "created_at": "2026-11-11T17:05:39Z",
+      "expires_at": "2026-12-11T17:05:39Z"
+    },
+    {
+      "id": 13874877525,
+      "name": "apd444-pylon-supplemental-evidence-attempt-1",
+      "bytes": 791155,
+      "github_archive_sha256": "2e197c55fb9a2b8fd72dd47544284de5e75dc333e4f063c3acae1e0e224be271",
+      "created_at": "2026-11-11T17:06:19Z",
+      "expires_at": "2026-12-11T17:06:18Z"
+    },
+    {
+      "id": 13874667875,
+      "name": "apd444-pylon-instrumentation-attempt-1",
+      "bytes": 923633,
+      "github_archive_sha256": "ad87165255953829200d5bdab4b77f1f105fabd1be3a05fe99b12c17bcc3767d",
+      "created_at": "2026-11-11T17:02:47Z",
+      "expires_at": "2026-12-11T17:02:46Z"
+    },
+    {
+      "id": 13874288955,
+      "name": "apd444-pylon-native-Developer-attempt-1",
+      "bytes": 189065,
+      "github_archive_sha256": "6c27c7cecdb06cea10ae4e1506c3c695a91daa13f40e2dab53d27f93336abf37",
+      "created_at": "2026-11-11T17:05:19Z",
+      "expires_at": "2026-12-11T17:05:18Z"
+    }
+  ],
+  "instrumentation_build_log_checks": {
+    "assembleDebugAndroidTest_task_count": 1,
+    "packageDebugAndroidTest_task_count": 1,
+    "application_assembly_or_packaging_tasks_observed": [],
+    "gradle_success": "BUILD SUCCESSFUL in 1m 10s",
+    "abi_check": "Checked production classes: 4122 distinct JSON references: 38"
+  },
+  "actual_native_preference_evidence": {
+    "Developer": {
+      "artifact_id": 13874288955,
+      "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1.zip",
+      "archive_sha256": "6c27c7cecdb06cea10ae4e1506c3c695a91daa13f40e2dab53d27f93336abf37",
+      "archive_bytes": 189065,
+      "archive_hash_size_matches_github_metadata": true,
+      "log_report_native_receipt_bytes_match_archive": true,
+      "logcat_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/native-logcat.txt",
+      "logcat_sha256": "a79f819c0bd788807ce845ee09c5126f3c3deb429fb110d80e32ee86af5dbabe",
+      "logcat_bytes": 581457,
+      "process_pid": 2296,
+      "preference_markers": [
+        "11-11 17:05:01.506 I/System.out( 2296): NATIVE_PYLON_PREFERENCE stage=captured intro=true stored=false",
+        "11-11 17:05:09.648 I/System.out( 2296): NATIVE_PYLON_PREFERENCE stage=restored intro=true"
+      ],
+      "captured_and_restored_values_equal": true,
+      "captured_intro_value": true,
+      "intro_key_present_at_capture": false,
+      "markers_within_exact_job_interval": true,
+      "prior_exception_signature_counts_in_complete_captured_logcat": {
+        "NullPointerException": 0,
+        "GameSettings.get(": 0,
+        "GameSettings.getBoolean(": 0
+      },
+      "raw_report_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/pylon.txt",
+      "raw_report_sha256": "d60a2a4eecb9785139b4ae1973c1656ed68fb5dadd65c00b51045a38fe3023f2",
+      "raw_report_passed_one_exact_case": true,
+      "native_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/native-verification.json",
+      "native_receipt_sha256": "67ed60038f280c0117250ee4275b6ead82c3fc0a88d28edb8a45558d6fddf246",
+      "original_application_sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "supplemental_test_apk_sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083"
+    },
+    "Alpha-Testers": {
+      "artifact_id": 13875836115,
+      "archive_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1.zip",
+      "archive_sha256": "6fac3ba7365e5e9c9419466440d040498d3708a38be73326902633a06268f71f",
+      "archive_bytes": 204983,
+      "archive_hash_size_matches_github_metadata": true,
+      "log_report_native_receipt_bytes_match_archive": true,
+      "logcat_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/native-logcat.txt",
+      "logcat_sha256": "a643571066783bbbeef66bd36bcc668d5b496bb95a45d1d869fe887f8c84b707",
+      "logcat_bytes": 636856,
+      "process_pid": 2290,
+      "preference_markers": [
+        "11-11 17:05:28.615 I/System.out( 2290): NATIVE_PYLON_PREFERENCE stage=captured intro=true stored=false",
+        "11-11 17:05:35.572 I/System.out( 2290): NATIVE_PYLON_PREFERENCE stage=restored intro=true"
+      ],
+      "captured_and_restored_values_equal": true,
+      "captured_intro_value": true,
+      "intro_key_present_at_capture": false,
+      "markers_within_exact_job_interval": true,
+      "prior_exception_signature_counts_in_complete_captured_logcat": {
+        "NullPointerException": 0,
+        "GameSettings.get(": 0,
+        "GameSettings.getBoolean(": 0
+      },
+      "raw_report_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/pylon.txt",
+      "raw_report_sha256": "e167607a98ecd2087ed8f6f2a898aa413a6c9e192c56d7e2e63974fda0fceb8e",
+      "raw_report_passed_one_exact_case": true,
+      "native_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/native-verification.json",
+      "native_receipt_sha256": "83b998e9a805d0500c2ba387065d06beb6d4b4423c128836d82aaeeafa25e6d8",
+      "original_application_sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "supplemental_test_apk_sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083"
+    }
+  },
+  "native_coverage_limit": "Both corrected Android runs captured initialized default true with intro key absent, then restored true. They do not independently establish the stored-false Android path; previously recorded headless preference guards remain separate evidence.",
+  "preserved_evidence": {
+    "first_supplemental_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-ci/final-automated-acceptance.json",
+    "first_supplemental_receipt_sha256": "b18d0a76e5c6cdfac9de5626ea676ca5e5c3156f688ab19624e0101581ece8d3",
+    "primary_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd444-build/final-automated-acceptance.json",
+    "primary_receipt_sha256": "0867ff9988dfd789f6bc7f2fa2dda9dbfab43ca6c64f637004a16138a65d5ba7"
+  },
+  "metadata_evidence": {
+    "terminal_snapshot_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/snapshot-2026-11-11T17-07-39-967Z.json",
+    "terminal_snapshot_sha256": "1d51ee507d2aa368a69aceba32d06017cf7b9ebbf7e2ddc38017b6a5a07b8b5d",
+    "full_job_metadata_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/terminal-jobs-full.json",
+    "full_job_metadata_sha256": "696e1d81f9d535d3c3d8be9379f8c81eef8abf07f0e67700d30a186db9e0b296",
+    "pinned_workflow_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/workflow-at-b5ba1c0.yml",
+    "pinned_workflow_sha256": "968cd06371903c126a3cc5b6c0bdd473ca14ef729eee010b1a1d5dc5d43f7661"
+  },
+  "limits": {
+    "artifact_downloads_by_monitor": false,
+    "native_archive_bytes_rehashed_after_root_download": true,
+    "application_binary_rehash_or_execution_by_monitor": false,
+    "screenshots_viewed_or_decoded_by_monitor": false,
+    "test_apk_binary_rehashed_by_monitor": false,
+    "signature_or_source_scan_rerun": false,
+    "manual_visual_acceptance_claimed_by_monitor": false,
+    "new_game_apks_created_in_corrected_workflow": 0,
+    "remote_mutations_or_workflow_reruns_by_monitor": false,
+    "first_supplemental_evidence_overwritten": false
+  },
+  "log_retrieval_note": "First instrument-job log GET returned a transient connector internal error; the subsequent read succeeded. This was not a workflow rerun or CI failure."
+}

@@ -1,0 +1,30 @@
+name: Deliver verified private character notification correction TEST262
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-owner-unlock-delivery.yml]
+permissions: {contents: write, actions: read}
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Reverify existing APK, complete native evidence and private-only publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0 pillow
+          python3 tools/publish_owner_unlocks262.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-unlocks262-publication
+          path: |
+            publication-result.json
+            delivery/APD-Alpha-Preview-262.pdf
+            delivery/TEST262-Verification.json
+          retention-days: 7
+

@@ -1,0 +1,51 @@
+diff --git a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+index e4995c448..b733b055f 100644
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -59,6 +59,9 @@ public class QolItemFeedbackDeviceTest {
+         showItem(item,expected,image,false);
+     }
+     private static void showItem(Item item,String expected,String image,boolean captureBottom)throws Exception{
++        showItem(item,expected,image,captureBottom,false);
++    }
++    private static void showItem(Item item,String expected,String image,boolean captureBottom,boolean retainedPanel)throws Exception{
+         for(boolean useWindow:new boolean[]{false,true}){
+             AtomicReference<WndInfoItem> shown=new AtomicReference<>();boolean[] temporarilyOwned={false};
+             float[] time=new float[1];int[] hp=new int[1];String[] saved=new String[1];
+@@ -86,14 +89,17 @@ public class QolItemFeedbackDeviceTest {
+                 }
+ 
+                 java.util.List<RedButton> buttons=TopScoresDeviceTest.find(window,RedButton.class);
++                int retainedExpanders=0;
+                 for(RedButton button:buttons){
+-                    assertNotEquals("No unnecessary expander on these ordinary summaries","Show calculations",button.text());
++                    if(retainedPanel&&button.text().equals("Show calculations"))retainedExpanders++;
++                    else assertNotEquals("No unnecessary expander on these ordinary summaries","Show calculations",button.text());
+                     assertNotEquals("No unnecessary expander on these ordinary summaries","Hide calculations",button.text());
+                     Point a=button.camera().cameraToScreen(button.left(),button.top()),z=button.camera().cameraToScreen(button.right(),button.bottom());
+                     assertTrue("Item action remains visible",a.x>=0&&a.y>=0&&z.x<=Game.width&&z.y<=Game.height);
+                 }
+                 int expectedButtons=useWindow&&Dungeon.hero.isAlive()&&Dungeon.hero.belongings.contains(item)?item.actions(Dungeon.hero).size():0;
+-                assertEquals("Only existing item actions appear",expectedButtons,buttons.size());
++                assertEquals("Only the explicitly retained panel appears",retainedPanel?1:0,retainedExpanders);
++                assertEquals("Only existing item actions and the retained control appear",expectedButtons+(retainedPanel?1:0),buttons.size());
+                 assertEquals(time[0],Dungeon.hero.cooldown(),0);assertEquals(hp[0],Dungeon.hero.HP);
+                 com.watabou.utils.Bundle after=new com.watabou.utils.Bundle();item.storeInBundle(after);assertEquals(saved[0],after.toString());
+             }catch(Exception e){throw new RuntimeException(e);}});
+@@ -337,13 +343,14 @@ public class QolItemFeedbackDeviceTest {
+         showItem(lightning,"allies are safe unless directly targeted","qol-lightning-concise.png",true);
+         TopScoresDeviceTest.render(()->lightning.levelKnown=false);showItem(lightning,"Unupgraded example (+0)","qol-lightning-unknown.png",true);
+         showItem(fireblast,"Charge cost: _1_","qol-fireblast-one-charge.png",true);
+-        showItem(regrowth,"Charge cost: _1_","qol-regrowth-one-charge.png",true);
+-        TopScoresDeviceTest.render(()->regrowth.curCharges=7);showItem(regrowth,"Charge cost: _3_","qol-regrowth-three-charges.png",true);
++        showItem(regrowth,"Charge cost: _1_","qol-regrowth-one-charge.png",true,true);
++        TopScoresDeviceTest.render(()->{regrowth.level(5);regrowth.curCharges=7;});showItem(regrowth,"Charge cost: _3_","qol-regrowth-three-charges.png",true,true);
+         HeroClass previousClass=Dungeon.hero.heroClass;com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass previousSubclass=Dungeon.hero.subClass;
+         com.watabou.utils.Bundle previousRules=new com.watabou.utils.Bundle();
+         TopScoresDeviceTest.render(()->Dungeon.apdStoreCustomRules(previousRules));
+         try{
+             TopScoresDeviceTest.render(()->{Dungeon.hero.heroClass=HeroClass.MAGE;Dungeon.hero.subClass=com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass.BATTLEMAGE;lightning.levelKnown=true;});
++            TopScoresDeviceTest.render(()->{regrowth.level(3);regrowth.curCharges=regrowth.maxCharges;});
+             for(com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand wand:new com.shatteredpixel.shatteredpixeldungeon.items.wands.Wand[]{lightning,regrowth}){
+                 com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff staff=new com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff();
+                 TopScoresDeviceTest.render(()->{try{wand.charge(Dungeon.hero);staff.level(3);staff.levelKnown=staff.cursedKnown=true;java.lang.reflect.Field field=staff.getClass().getDeclaredField("wand");field.setAccessible(true);field.set(staff,wand);}catch(Exception e){throw new RuntimeException(e);}});

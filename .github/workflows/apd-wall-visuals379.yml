@@ -1,0 +1,39 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Stage retained wall lifecycle screenshots for actual review
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-WALL-VISUAL-REVIEW-REQUEST.txt]
+permissions: {contents: write, actions: read}
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Preserve completed or failed wall evidence without rebuilding
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh run watch 42528440686 --repo "$GITHUB_REPOSITORY" --interval 15 || true
+          gh run download 42528440686 --repo "$GITHUB_REPOSITORY" --name apd379-wall-pixel-lifecycle-evidence --dir wall-evidence
+          cat wall-evidence/wall.txt
+          python3 - <<'PYZIP'
+          import pathlib,zipfile,subprocess,json,os
+          repo=os.environ['GITHUB_REPOSITORY'];matches=[r for r in json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases?per_page=100'])) if r['tag_name']=='apd-alpha-preview-379'];assert len(matches)==1;d=matches[0];assert d['draft'];images=list(pathlib.Path('wall-evidence').rglob('*.png'));assert images
+          with zipfile.ZipFile('APD379-Wall-Lifecycle-Visuals.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in images:z.write(p,p.relative_to('wall-evidence'))
+          subprocess.run(['gh','release','upload','apd-alpha-preview-379','APD379-Wall-Lifecycle-Visuals.zip','--repo',repo],check=True)
+          PYZIP

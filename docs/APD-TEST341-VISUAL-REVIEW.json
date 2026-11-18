@@ -1,0 +1,31 @@
+{
+  "application_source": "acb69c653033ee0d8df68264395ca27e08eb566d",
+  "application_run": 40976774216,
+  "native_acceptance_run": 40977742908,
+  "test_source": "5b0191ed33bc8c3704fa614d140a595c177718ce",
+  "reviewed": true,
+  "image_sha256": {
+    "resource-strength-current.png": "d8fef3cf1f1308ba87a3b24e2682a2cd2d37347b01a15de95c6df66ca0f130ef",
+    "resource-upgrade-current.png": "d273dfcbb1403a3262fa3099b943e669c3c65fec4db6179da74fed1383f1930e",
+    "resource-strength-legacy.png": "81774334576346b7a2fc19645bf6d2775009e53a4cdfb69c0c89175746b88929",
+    "resource-upgrade-legacy.png": "6bea5c73de9c332c6f47cc94b36cb05416561f79a3dc51f4f3292dfd2a75ee96",
+    "loot-scroll-gather-description.png": "f1eb5b1a7df5f37fdb60e1e061b5fe6b297d7acae419f4acd3a111f53db21a6c",
+    "main-title-layout.png": "275cf23810b3c1d96e5fc6de26dcef30041cea12a707bcaf3043d9bc9bc77b19",
+    "options-confirmations.png": "c4dd106687619e581ea4873edde59253ac0326ae172cc9b03075a169665c2d15"
+  },
+  "findings": [
+    "All seven actual current-candidate images visually inspected.",
+    "Gathering has a distinct cyan/parchment body icon.",
+    "Current Strength quantities and exact early/late region pairs are readable; action buttons fit.",
+    "Upgrade regional counts are readable; action buttons fit.",
+    "Legacy provenance clearly remains partial/unknown; no invented missing pickups.",
+    "Title controls and original styled frames are separated; Options confirmations fit.",
+    "Additional actual API36 restored-title image viewed; footer and menu controls remain separate."
+  ],
+  "limitations": [
+    "Emulator evidence only; no physical phone acceptance.",
+    "Shared old-save warning on Upgrade mentions unrecorded floor pairs; cosmetic wording remains unchanged.",
+    "Reported sustained phone freeze cause remains unconfirmed."
+  ],
+  "reviewed_utc": "2026-10-30T00:23:58.558089+00:00"
+}

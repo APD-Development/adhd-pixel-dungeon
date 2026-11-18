@@ -1,0 +1,9 @@
+APD371 fixes the reproduced optimistic-geometry wall-marker path: positive marks require observed/remembered structural side frames and an observed approach; unobserved backing is never queried for its hidden contents. Saved uncertainty stays separate from proof of impossibility. Search history, ordinary costs/rolls, generation and save schema remain unchanged. This is not a universal claim that every possible wall report has been eliminated.
+
+Application source is 5b7e7250b63072e52c5cebd1a45ea9bbf1132aa4; the two delivered game APKs were built only once in42404197897. That run passed the full2918/447 core/build stage and completed the Developer QoL case, but later lost its emulator connection (adb closed, TCP5554 refused). Exact host-disconnect root cause was not established; no app/OOM cause is invented.
+
+Run42405439725 completed both variant native jobs successfully. Its coordinator was deliberately cancelled before publication because an achievement banner obscured the wall screenshots. The six completed same-APK trap/preference cases remain valid and are reused. This cancelled whole run is not described as a successful publication.
+
+The clean-capture test adds only an instrumentation banner wait and correct discoverable flags for its edited synthetic region. Normal game source and both APK hashes stay unchanged. The Android fixture is explicitly synthetic, not a naturally generated room or seed. Final wall captures must be reviewed before the prepared-pair delivery request is written. Physical-phone acceptance and the wider description/translations audit remain open.
+
+Install over existing APD; never uninstall or clear data. Existing370/369 releases/assets, signing identity, application ID and versionCode920 remain intact. Private owner publication only, with no external tester posting or online activation.

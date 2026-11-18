@@ -1,0 +1,3 @@
+Changes	V061_BUGFIX	Keep missing combat details with the correct event	Stop detail lookup at later combat events or recording gaps so missing identities remain unknown instead of becoming another enemy or boss.
+Testing	ICON_CHECKED	Check missing attack damage and kill details	Retain complete controls, missing-event cases and cache rebuilding without changing raw history.
+Development	V061_PAGE	Record completed provenance checks and continued audit	Preserve actual source verification and new component reviews while distinguishing pending checks from completed work.

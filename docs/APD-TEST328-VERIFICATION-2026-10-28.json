@@ -1,0 +1,87 @@
+{
+  "build": 328,
+  "status": "rejected native acceptance candidate",
+  "source": "26843d1a3c648b52c821a60b5a058b7b3e6047f2",
+  "application_source": "26843d1a3c648b52c821a60b5a058b7b3e6047f2",
+  "sprint_run": 40788009163,
+  "producer_job": 123165954672,
+  "android_job": 123167476916,
+  "core": {
+    "tests": 2185,
+    "suites": 419,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "developer_apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-328.apk",
+    "sha256": "83d3ebbbc9a6fcd623d6c3115c9e8992cf7ff4b4acdf8338a4018a44d5d9f116",
+    "artifact": 12860995337,
+    "artifact_zip_sha256": "b3b9206cc85951df51a60049e9fe72c39569fd8e02fa0b5bea068e9331771b23"
+  },
+  "player": {
+    "run": 40788009287,
+    "apk_sha256": "c9a5e25b8d52f092e239b8f49938482e46066e4d69c4baf2a58a80bee33ca0f5",
+    "artifact": 12860063748,
+    "artifact_zip_sha256": "35930fc16b1c1a6cdafe6c30600fd73f428d95d7c08d07426ce4b5965addd52c",
+    "conclusion": "success"
+  },
+  "native": {
+    "tests": 64,
+    "passed": 62,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0,
+    "artifact": 12860524210,
+    "artifact_zip_sha256": "eaed14b5214ed9157b4836456e99671a7b05b9a8a85a8a0e0960d7a1f2563e3f",
+    "failed_methods": [
+      {
+        "method": "AndroidBackDeviceTest.warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms",
+        "reason": "fixture compared the private cache Entry wrapper directly to the contained UimsdModel after Home drew"
+      },
+      {
+        "method": "DiagnosticReportDeviceTest.actualReportButtonSavesDeviceEvidenceAndMenusSurvivePauseResume",
+        "reason": "fixture did not scroll the root-setting report button into the live ScrollPane viewport before touchscreen injection; export completion timed out"
+      }
+    ],
+    "visual_validation": "failed closed because the failed export method did not produce diagnostic-report-saved.png"
+  },
+  "displays": {
+    "run": 40788009308,
+    "profiles_passed": 5,
+    "application_images": 20,
+    "artifacts": [
+      {
+        "profile": "small-virtual",
+        "id": 12860901344,
+        "zip_sha256": "c6595459afb558c3c6f29039929621978592bd906f3e10fdc857a5d1ea7328ad"
+      },
+      {
+        "profile": "short-landscape",
+        "id": 12860377682,
+        "zip_sha256": "525a3bf01115b0e89a09faae6b6d62007b4be6fe7784ffeb3fc761d4baa85493"
+      },
+      {
+        "profile": "m53-representative",
+        "id": 12860732020,
+        "zip_sha256": "be11bb1236087fa3b9935085f4f196b57a5bec0a45a336effa9b2406f87147f1"
+      },
+      {
+        "profile": "square-virtual",
+        "id": 12860567364,
+        "zip_sha256": "acd0a115aa8faeb0e144b258b8e556fc22d0546c96ecfb7d273f1acd94ed0d7d"
+      },
+      {
+        "profile": "compact-virtual",
+        "id": 12860627090,
+        "zip_sha256": "500ea6e9dc5acde07c11c15b7a352248350b5b38afeb1d532aa0f4b08034b0f9"
+      }
+    ]
+  },
+  "latest_verified_fallback": "TEST323",
+  "latest_published_release": "TEST262",
+  "physical_phone_verified": false,
+  "automatic_tester_distribution": false,
+  "public_release": false,
+  "recorded_at_utc": "2026-10-28T23:53:00Z"
+}

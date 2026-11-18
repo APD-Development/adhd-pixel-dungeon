@@ -1,0 +1,1 @@
+Bug Fixes	ICON_CHECKED	Wall-edge alignment and safe statistics preload	Searched-wall checks align with the visible lower wall lip. Statistics preparation keeps the normal quick-opening path within its corrected memory budget. Gameplay releases unused statistics tables and stops stale preloads, preserving saved history and search mechanics.

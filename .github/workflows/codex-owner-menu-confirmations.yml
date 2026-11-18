@@ -1,0 +1,191 @@
+name: Deliver TEST258 after corrected native acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-owner-menu-confirmations.yml]
+permissions: {contents: write, actions: read}
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Require exact successful producer and all corrected native checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          original=api(f'repos/{repo}/actions/runs/38968356419');assert original['head_sha']=='f2b19b2534ad9e701823012e1c84b31bebd9c225'
+          jobs=api(f'repos/{repo}/actions/runs/38968356419/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          native=api(f'repos/{repo}/actions/runs/38969701536')
+          assert native['head_sha']=='ca42a8d4b2d688c15b14cb8618a275d897e2192f' and native['conclusion']=='success'
+          jobs=api(f'repos/{repo}/actions/runs/38969701536/jobs')['jobs'];assert len(jobs)==6 and all(j['conclusion']=='success'for j in jobs)
+          exact=api(f'repos/{repo}/actions/runs/38971503819');assert exact['head_sha']=='1a4cede28c4906f59444c4701f773c3f72244f3c' and exact['conclusion']=='success'
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          run-id: '38968356419'
+          github-token: ${{ github.token }}
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          run-id: '38968356419'
+          github-token: ${{ github.token }}
+          path: core-evidence
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          run-id: '38968356419'
+          github-token: ${{ github.token }}
+          path: previous-native-evidence
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: apd-title-display-*
+          run-id: '38969701536'
+          github-token: ${{ github.token }}
+          path: displays
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-title-display-m53-exact
+          run-id: '38971503819'
+          github-token: ${{ github.token }}
+          path: displays/apd-title-display-m53-exact
+      - name: Recheck source, signing, XML identities and actual images
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.1.0 pillow
+          gh release download apd-alpha-preview-254 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-Alpha-Preview-254.apk --dir fallback
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,re,subprocess,sys,zipfile
+          from PIL import Image
+          from pypdf import PdfReader
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs,certificates,xml_summary
+          repo=os.environ['GITHUB_REPOSITORY'];source='f2b19b2534ad9e701823012e1c84b31bebd9c225';root=pathlib.Path('delivery')
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          inputs=[]
+          for sha in [source,'ca42a8d4b2d688c15b14cb8618a275d897e2192f',os.environ['GITHUB_SHA']]:
+              t=api(f'repos/{repo}/git/trees/{sha}?recursive=1');assert not t.get('truncated');inputs.append(application_inputs(t['tree']))
+          assert inputs[0]==inputs[1]==inputs[2]
+          apk=root/'ADHD-Pixel-Dungeon-CODEX-TEST-258.apk';expected=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert expected=='37f38f0c6532c8a3b1357dd58747ae6a723b616992376ad6b0f6fcfcb76febc5'
+          assert next(root.glob('*.apk.sha256')).read_text().split()[0]==expected
+          old=pathlib.Path('fallback/ADHD-Pixel-Dungeon-Alpha-Preview-254.apk')
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=='131d205b17a2c118abd794cf49631c21b52166cb3b4586fb2545cbbab3e53a72'
+          signer=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          cert='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          for p in [apk,old]:
+              assert certificates(subprocess.check_output([str(signer),'verify','--print-certs',str(p)],text=True))==[cert]
+              package=subprocess.check_output([str(signer.parent/'aapt'),'dump','badging',str(p)],text=True)
+              assert "name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920'" in package
+          package=subprocess.check_output([str(signer.parent/'aapt'),'dump','badging',str(apk)],text=True);assert "versionName='4.0.8-apd-INDEV-bC258-TEST'" in package
+          core=xml_summary('core-evidence');assert core['tests']==len(core['cases'])==1752 and core['failures']==core['errors']==core['skipped']==0
+          # Preserve unsuccessful original XML without feeding it to the pass-only validator.
+          import xml.etree.ElementTree as ET
+          original_roots=[ET.parse(p).getroot()for p in pathlib.Path('previous-native-evidence').rglob('TEST-*.xml')]
+          assert original_roots,'Original failed native evidence missing'
+          old_native={k:sum(int(r.get(k,0))for r in original_roots)for k in ['tests','failures','errors','skipped']}
+          old_native['cases']=[c.attrib for r in original_roots for c in r.iter('testcase')]
+          assert old_native['tests']==len(old_native['cases'])==37 and old_native['failures']==1 and old_native['errors']==old_native['skipped']==0
+          full=pathlib.Path('displays/apd-title-display-full-regression/title-evidence')
+          android=xml_summary(str(full));assert android['tests']==len(android['cases'])==37 and android['failures']==android['errors']==android['skipped']==0
+          ids=lambda d:{(c['classname'],c['name'])for c in d['cases']}
+          assert len(ids(core))==1752 and len(ids(android))==37 and ids(old_native)<=ids(android)
+          assert any(c['name']=='titleControlsStaySeparateAndNativeChangesAndHideUiRemainUsable' for c in android['cases'])
+          details={}
+          for name,count,images in [('full-regression',37,55),('m53-representative',1,4),('compact-virtual',1,4),('small-virtual',1,4),('square-virtual',1,4),('short-landscape',1,4),('m53-exact',1,4)]:
+              folder=pathlib.Path('displays')/('apd-title-display-'+name);e=folder/'title-evidence'
+              origin=json.loads((e/'acceptance-source.json').read_text());assert origin['application_source']==source and origin['application_sha256']==expected and not origin['application_rebuilt'] and origin['protected_application_inputs_identical']
+              data=json.loads((e/'device-acceptance-result.json').read_text());assert data['methods']==count and data['failures']==data['errors']==data['skipped']==0 and len(data['images'])==images
+              assert re.search(r'OK \('+str(count)+r' tests?\)',(folder/'title-instrumentation.txt').read_text())
+              for image in data['images']:
+                  p=e/image
+                  with Image.open(p)as im:im.verify()
+              if name=='m53-exact':assert all(pixels==[1080,2408] for pixels in data['images'].values()),'Exact tall display must actually be captured'
+              details[name]={'origin':origin,'result':data,'display':(e/'display.txt').read_text()}
+          before=api(f'repos/{repo}/actions/runs/38968356419')
+          now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          verification={'source':source,'application_run':38968356419,'application_run_conclusion':before['conclusion'],'producer_job_conclusion':'success','core':core,'android':android,'original_android':old_native,'native_run':38969701536,'native_test_source':'ca42a8d4b2d688c15b14cb8618a275d897e2192f','apk_sha256':expected,'certificate_sha256':cert,'application_inputs_identical':True,'physical_device_tested':False}
+          (root/'TEST258-Verification.json').write_text(json.dumps(verification,indent=2))
+          status={'application_source':source,'apk_sha256':expected,'core_methods':1752,'unique_android_methods':37,'accepted_android_executions':43,'accepted_images':79,'displays':details,'original_android':old_native,'original_display_run':38968356394,'corrected_native_run':38969701536,'exact_m53_display_run':38971503819,'physical_m53_tested':False,'tester_virtual_environment_tested':False,'application_rebuilt_for_publication':False,'images_reviewed_by_agent':True,'prepared_at':now,'all_backlog_complete':False,'automatic_tester_distribution':False}
+          (root/'APD-Tester-Feedback-258.json').write_text(json.dumps(status,indent=2))
+          report="""# APD Alpha Preview258 — tester feedback
+          
+          ## What changed
+          Hide UI now has its own reserved safe-area footer. TEST254 placed Changes at266–286 over HideUI264–280 in a180×280 logical viewport. The corrected row ends260, leaving4pixels. Menu space is allocated before decorative logo/flames; short landscape moves the same clickable progression guidance beside the grid. Android already recreates the scene when its window changes size. The existing pixel-art buttons and actions are preserved.
+          
+          Options > Interface has independent default-on Confirm Waterskin and Warn about traps toggles. Waterskin asks before Item.execute or any resource/turn consumption. Cancel and Back spend no dew or turn; Confirm dispatches the existing action once. Empty-skin behavior and Ankh blessing remain unchanged.
+          
+          Intentional walking stops before a currently visible, revealed, armed trap. Secret, hidden, disarmed and unseen traps are excluded, as are blind/flying heroes. One transient permit belongs to the exact step, trap, level, source cell and action. Confirm resumes normal movement once; cancel leaves the route stopped. Interruptions or changed state invalidate consent. Forced movement and teleportation bypass this voluntary hook. Existing stair-navigation hazard stops, damage, movement costs, saves, scores and statistics remain unchanged.
+          
+          ## Actual tests
+          The complete core suite passed1752 unique methods. The corrected complete Android suite passed37 methods on the same signed APK, including real Waterskin Cancel/Confirm, disabled immediate use and known-trap Cancel/Confirm with actual movement and trap activation. Six additional display runs passed the same menu method, checked all12 controls and labels, tapped Changes and HideUI and verified both Options toggles independently and after reopening.
+          
+          Accepted coverage is37 distinct Android methods across43 executions, with55 full-suite and24 display screenshots reviewed. The34 focused host checks overlap the1752 and are not counted again. Core tests cover exact cancellation/no-turn behavior, real longer-path resumption and movement cost, stale actions, single-use permissions, hidden/unseen traps and persisted independent preferences.
+          
+          Effective display checks:1080×2408/density420 on a tall Pixel7-profile emulator for the M53-sized configuration;1080×1920/density420;360×560/density160;320×480/density160;720×720/density320;960×320/density160. The first M53-labelled job requested2408 but Android applied1920; it is reported as a high-density virtual window, not a successful exact-size M53 check. A separate job verifies and captures the full1080×2408 instead. Actual override output and image dimensions are in the attached JSON. These are emulators, not the tester's physical Samsung or his security virtual Android environment.
+          
+          ## Unsuccessful preparation retained
+          TEST256 failed a history guard before tests/APK assembly; no256APK exists. TEST257 ran1752 core methods with1751 passes and one frozen-title-source mismatch; no APK or Android result followed. The exact source snapshots were updated for the explicitly requested responsive layout while preserving the guard. TEST258 then passed the complete core/debug/history producer.
+          
+          The initial TEST258 native/menu attempts failed on an immediate Options-preference assertion after sending input. The corrected fixture waits for the actual UI change while retaining every assertion. The capture script was also corrected to retain all49 previous images plus6 new images; a stale local copy had omitted5 previous capture names. The same APK was reused for all corrected checks; no application code or new build number was created for these test-only corrections. Original reports are retained in the evidence archive and JSON. XML for the manual native rerun is derived from actual Android start/completion status records; raw instrumentation output is preserved.
+          
+          The first exact tall-display attempt (run38970664423) failed while Android's first-use immersive education overlay covered the application. Its screenshot and log were inspected. The test wrapper dismisses that system overlay before the repeated acceptance check; this is a test setup correction, not an application change.
+          
+          Initial broad local test invocations on an incomplete working copy failed with missing native/resource setup and are not passing full-suite evidence. Targeted fixture corrections removed a headless localization dependency and isolated only sprite rendering. GitHub also returned a GraphQL update error; the real branch was reread and intervening TEST255 work/evidence preserved. TEST255's UIMSD comparison-label fix remains attributed to255.
+          
+          ## Compatibility and limits
+          Application ID, version compatibility, certificate and raw APK checksum are checked against retained TEST254. Install over APD; never uninstall or clear data. No physical phone is attached. The tester's exact virtual window and owner active-save install-over remain pending, as do broader UIMSD audit/storage work, armor-playthrough reproduction, inherited audio, historical gaps and full human boss/class strategies. This package does not complete the entire backlog.
+          
+          All357 scoring values,18 slider mechanics, original scores, raw history, unrelated gameplay and existing release assets are preserved. Private owner prerelease only; no automatic tester distribution, public release, paid service or unfinished online feature.
+          """
+          report='\n'.join(l[10:]if l.startswith('          ')else l for l in report.splitlines())
+          (root/'report.md').write_text(report);(root/'verification.txt').write_text('Application source: '+source+'\nCore/APK run:38968356419\nNative run:38969701536\nAPK SHA-256: '+expected+'\nReport prepared: '+now)
+          subprocess.run(['python3','tools/apd_bug_report_pdf.py',str(root/'report.md'),str(root/'APD-Alpha-Preview-258.pdf'),'--verification',str(root/'verification.txt')],check=True)
+          assert 1<=len(PdfReader(root/'APD-Alpha-Preview-258.pdf').pages)<=12
+          target=root/'ADHD-Pixel-Dungeon-Alpha-Preview-258.apk';apk.rename(target);pathlib.Path(str(target)+'.sha256').write_text(expected+'  '+target.name+'\n')
+          with zipfile.ZipFile(root/'APD-Android-Evidence-258.zip','w',zipfile.ZIP_DEFLATED)as z:
+              for folder in ['displays','core-evidence','previous-native-evidence']:
+                  for p in pathlib.Path(folder).rglob('*'):
+                      if p.is_file():z.write(p,str(p))
+          PY
+      - name: Publish once privately, then verify actual downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];root=pathlib.Path('delivery');tag='apd-alpha-preview-258'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          names=['ADHD-Pixel-Dungeon-Alpha-Preview-258.apk','ADHD-Pixel-Dungeon-Alpha-Preview-258.apk.sha256','APD-Alpha-Preview-258.pdf','TEST258-Verification.json','APD-Tester-Feedback-258.json','APD-Android-Evidence-258.zip']
+          assert not any(r['tag_name']==tag for r in api(f'repos/{repo}/releases?per_page=100')),'Preserve existing assets'
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD Alpha Preview258 — tester safety and responsive menu','--notes','Private owner test: optional default-on Waterskin and known-trap confirmations in Options; responsive menu footer. Full core and corrected Android evidence, failures and display boundaries are documented in the PDF. Install over APD; never uninstall or clear data. No automatic tester distribution.']+[str(root/n)for n in names],check=True)
+          release=api(f'repos/{repo}/releases/tags/{tag}');assert release['prerelease'] and not release['draft']
+          for n in names:
+              a=next(a for a in release['assets']if a['name']==n);assert a['digest']=='sha256:'+hashlib.sha256((root/n).read_bytes()).hexdigest()
+          for n in [names[0],names[2]]:
+              subprocess.run(['gh','release','download',tag,'--repo',repo,'--pattern',n,'--dir','published'],check=True)
+              assert hashlib.sha256(pathlib.Path('published',n).read_bytes()).hexdigest()==hashlib.sha256((root/n).read_bytes()).hexdigest()
+          result={'published_at':release['published_at'],'download_verified_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'apk_url':next(a['browser_download_url']for a in release['assets']if a['name']==names[0]),'pdf_url':next(a['browser_download_url']for a in release['assets']if a['name']==names[2]),'application_source':'f2b19b2534ad9e701823012e1c84b31bebd9c225','native_source':'ca42a8d4b2d688c15b14cb8618a275d897e2192f','native_run':38969701536,'apk_sha256':hashlib.sha256((root/names[0]).read_bytes()).hexdigest(),'chat_link_sent':False,'physical_device_tested':False}
+          pathlib.Path('publication-result.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-tester-feedback258-publication
+          path: |
+            publication-result.json
+            delivery/APD-Alpha-Preview-258.pdf
+            delivery/APD-Tester-Feedback-258.json
+            delivery/TEST258-Verification.json
+          retention-days: 7

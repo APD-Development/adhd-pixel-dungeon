@@ -1,0 +1,2 @@
+Stage synthetic disposable-emulator wall lifecycle screenshots, including the retained failure if any, in the private379 draft for actual review. No game APK rebuild or publication. Local Actions artifact storage download returns Forbidden; GitHub release downloads are verified accessible.
+Find the existing draft via release listing; release-by-tag is for published releases and returns404 for this draft.

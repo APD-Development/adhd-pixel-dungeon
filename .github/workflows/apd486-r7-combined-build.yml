@@ -1,0 +1,187 @@
+name: APD486 complete R7 plus C485 source and signed candidates
+on:
+  push:
+    branches: [chatgpt/apd486-complete-r7-integration-20261116]
+    paths:
+      - .github/workflows/apd486-r7-combined-build.yml
+      - tools/apd486_resolve_r7.py
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/R7IntegrationCompletenessTest.java
+permissions:
+  contents: write
+concurrency:
+  group: apd486-complete-r7-integration
+  cancel-in-progress: false
+jobs:
+  integrate-test-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Prepare verification evidence and Android platform
+        run: |
+          mkdir -p evidence deliverable
+          date -u +%FT%TZ > evidence/started-utc.txt
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          git config user.name 'APD integration'
+          git config user.email 'apd-integration@users.noreply.github.com'
+      - name: Prove missing R7 regression fails on C485 before merging
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git merge-base --is-ancestor 34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7 HEAD; then
+            echo 'R7 already integrated on this isolated branch; earlier red evidence retained.' > evidence/baseline-reused.txt
+          else
+            set +e
+            ./gradlew :core:test --tests '*R7IntegrationCompletenessTest.requiredR7ClassesCannotDisappearFromACombinedBuild' --no-daemon > evidence/baseline-red.log 2>&1
+            result=$?
+            set -e
+            test "$result" -ne 0
+            cp core/build/test-results/test/TEST-*R7IntegrationCompletenessTest.xml evidence/baseline-red.xml
+            python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+          r=ET.parse('evidence/baseline-red.xml').getroot()
+          assert int(r.get('tests'))==1 and int(r.get('failures'))==1 and int(r.get('errors'))==0, r.attrib
+          assert 'Required R7 feature missing: items.weapon.melee.Tanto' in ET.tostring(r,encoding='unicode')
+          print('RED confirmed: C485 fails the permanent missing-R7-feature regression.')
+          PY
+          fi
+      - name: Reconcile every exact R7 change with C485
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! git merge-base --is-ancestor 34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7 HEAD; then
+            set +e
+            git merge --no-commit --no-ff 34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7 > evidence/merge.log 2>&1
+            result=$?
+            set -e
+            test "$result" -eq 1
+            test "$(git diff --name-only --diff-filter=U | wc -l)" -eq 8
+            python3 tools/apd486_resolve_r7.py
+            git add -u
+            test -z "$(git diff --name-only --diff-filter=U)"
+          fi
+          git diff --check
+          python3 - <<'PY'
+          import subprocess,pathlib,hashlib,json
+          def git(*a): return subprocess.check_output(['git',*a])
+          old='18c8c3e74209fcaa6434399f5bbb681214455733'
+          r7='34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7'
+          ancestor='8c74997210585191d12603ad5e2ee398b1c54fe7'
+          paths=git('diff','--name-only',ancestor,r7).decode().splitlines()
+          resolved={
+            'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java',
+            'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/WallSearchSession.java',
+            'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/effects/CellEmitter.java',
+            'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/GameScene.java',
+            'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndWallSearchResume.java'}
+          rows=[]
+          for p in paths:
+            data=pathlib.Path(p).read_bytes();original=git('show',r7+':'+p)
+            if p.startswith('core/src/main/') and p not in resolved: assert data==original,p
+            rows.append({'path':p,'r7_sha256':hashlib.sha256(original).hexdigest(),'combined_sha256':hashlib.sha256(data).hexdigest(),'identical_to_r7':data==original,'reviewed_resolution':p in resolved})
+          actual=git('diff','--name-only',old).decode().splitlines()
+          production=lambda p: '/src/main/' in p or p.endswith('build.gradle') or p.endswith('gradle.properties') or p=='settings.gradle'
+          assert all(p in paths for p in actual if production(p)),actual
+          for p in git('ls-tree','-r','--name-only',old).decode().splitlines():
+            if production(p) and p not in paths:
+              assert pathlib.Path(p).read_bytes()==git('show',old+':'+p),p
+          pathlib.Path('evidence/completeness.json').write_text(json.dumps({'r7_source':r7,'c485_head':old,'common_ancestor':ancestor,'r7_changed_paths':len(paths),'paths':rows,'all_other_c485_production_files_unchanged':True},indent=2))
+          print('All R7 changed paths accounted for; all unrelated C485 production files byte-identical.')
+          PY
+      - name: Full combined core suite and desktop/Android Java compilation
+        run: |
+          set -o pipefail
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac --no-daemon 2>&1 | tee evidence/combined-tests.log
+      - name: Require complete clean suite and both lines of regression coverage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET,json
+          suites=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          totals={k:sum(int(s.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3533 and totals['failures']==totals['errors']==totals['skipped']==0,totals
+          names={t.get('name') for s in suites for t in s.findall('testcase')}
+          for name in ('requiredR7ClassesCannotDisappearFromACombinedBuild','exactR7WeaponTiersGuardScalingSpritesAndDropWeightsArePreserved','combinedBuildKeepsExactC485RationalScoringAndR7RecipeCost','longUnsealedHistoryReopensWithoutLosingPriorEventsStringsOrClocks','staleSavedFloorNeverOffersWallResumeEvenBesideCandidate','singleResultArrayPreservesEveryChooserStateWithoutGapsOrAliases','cachedForesightScanMatchesOrdinaryCoverageForEveryClassAndAcquiredRank'):
+            assert name in names,name
+          totals['suites']=len(suites)
+          Path('evidence/junit-summary.json').write_text(json.dumps(totals,indent=2));print(totals)
+          PY
+      - name: Commit tested two-parent integration on isolated branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch=chatgpt/apd486-complete-r7-integration-20261116
+          test "$(git ls-remote origin refs/heads/$branch | cut -f1)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/codex/apd-phone-fixes-2026-10-09 | cut -f1)" = "18c8c3e74209fcaa6434399f5bbb681214455733"
+          if test -f .git/MERGE_HEAD; then
+            git commit -m 'Integrate all exact C466R7 changes with C485 after full combined verification'
+            git push origin HEAD:refs/heads/$branch
+          fi
+          git rev-parse HEAD > evidence/verified-source-sha.txt
+          git rev-parse HEAD^{tree} > evidence/verified-source-tree.txt
+          git archive --format=zip --output=deliverable/APD-Source-CompleteR7-C486-P486.zip HEAD
+      - name: Assemble both original-signed C486/P486 candidates
+        run: |
+          set -euo pipefail
+          ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=C486 --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Developer-CompleteR7-C486.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P486 --no-daemon
+          cp android/build/outputs/apk/debug/android-debug.apk deliverable/APD-Alpha-Testers-CompleteR7-P486.apk
+      - name: Verify signer, identity, both editions, R7 classes and sprite assets
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess,zipfile
+          tools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1].parent
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          r7='34a1471ccd2f56ee21bb8c2579cb154ceb5e21c7'
+          receipt={'source_sha':pathlib.Path('evidence/verified-source-sha.txt').read_text().strip(),'source_tree':pathlib.Path('evidence/verified-source-tree.txt').read_text().strip(),'r7_source':r7,'c485_source':'c266b30559a7427b435749837006907ec1a682f6','run_id':int(os.environ['GITHUB_RUN_ID']),'junit':json.loads(pathlib.Path('evidence/junit-summary.json').read_text()),'native_android_accepted':False,'install_over_save_verified':False,'published':False,'variants':{}}
+          required=['items/weapon/melee/'+x for x in ['Tanto','Wakizashi','Tachi','Nodachi','Buckler','Targe','KiteShield']]+['apd/qol/FullPackSwap','apd/qol/ThrowAim','items/spells/GreaterMetamorphosis','items/spells/GreaterMetamorphosis$Recipe']
+          for variant,name,marker in [('Developer','APD-Developer-CompleteR7-C486.apk','-bC486-TEST'),('Alpha Testers','APD-Alpha-Testers-CompleteR7-P486.apk','-bP486')]:
+            p=pathlib.Path('deliverable')/name
+            assert p.stat().st_size>30000000
+            cert=subprocess.check_output([str(tools/'apksigner'),'verify','--print-certs',str(p)],text=True)
+            fingerprint=re.search(r'SHA-256 digest:\s*([0-9a-fA-F:]+)',cert).group(1).replace(':','').lower()
+            assert fingerprint==expected,cert
+            badge=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(p)],text=True)
+            package=next(x for x in badge.splitlines() if x.startswith('package:'))
+            assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package and "versionCode='920'" in package and marker in package,package
+            with zipfile.ZipFile(p) as z:
+              flags=z.read('assets/apd/features.txt').decode().strip().splitlines()
+              assert flags==(['testBuild','grudge','demoUnlock','clericPlayable'] if variant=='Developer' else ['extendedPlayback','grudge']),flags
+              dex=b''.join(z.read(n) for n in z.namelist() if re.fullmatch(r'classes\d*\.dex',n))
+              for cls in required: assert ('Lcom/shatteredpixel/shatteredpixeldungeon/'+cls+';').encode() in dex,cls
+              for asset in ['sprites/items.png','messages/items/items.properties','messages/misc/misc.properties']:
+                original=subprocess.check_output(['git','show',r7+':core/src/main/assets/'+asset])
+                assert z.read('assets/'+asset)==original,asset
+            receipt['variants'][variant]={'name':name,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'signer_sha256':fingerprint,'package':package,'flags':flags,'r7_required_descriptors_present':required,'r7_modified_assets_identical':True}
+          pathlib.Path('deliverable/receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          sha256sum deliverable/*.apk deliverable/*.zip > deliverable/sha256sums.txt
+          cp evidence/completeness.json deliverable/source-completeness.json
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: APD486-Complete-R7-and-C485-Original-Signed
+          path: deliverable/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Retain current test and merge evidence including failed attempts
+        if: always()
+        run: |
+          mkdir -p evidence/junit
+          cp core/build/test-results/test/TEST-*.xml evidence/junit/ 2>/dev/null || true
+          git status --porcelain=v1 > evidence/final-worktree-status.txt
+          git diff --binary HEAD > evidence/uncommitted-integration.diff
+          date -u +%FT%TZ > evidence/ended-utc.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: APD486-integration-test-evidence
+          path: evidence/
+          if-no-files-found: error
+          retention-days: 14

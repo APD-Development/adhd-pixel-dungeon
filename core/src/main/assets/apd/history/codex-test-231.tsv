@@ -1,0 +1,6 @@
+Statistics / UIMSD	ICON_WARNING	Incomplete table totals	Item and enemy counts retain incomplete-data warnings when a framed event cannot be decoded; recorded values and raw history remain unchanged.
+Changes	ICON_CHANGES	Rebuild outdated derived rows	Reject version14 derived row caches so corrected data-quality warnings appear without changing original history.
+Testing	ICON_CHECKED	Unreadable-event and cache regressions	Retain original-source failure controls, four permanent payload/cache cases and the complete combined core suite.
+Development	ICON_INFO	Record exact regression scope and remaining checks	Preserve concurrent collection and saved-layout corrections, local failures and corrected evidence, and pending Android/build/physical-device limitations.
+Development	ICON_CHECKED	Verify TEST228 and preserve later core evidence	Record exact core, APK, Android, screenshot and identity evidence for TEST228 while keeping the newer typed-payload source and its core-only acceptance explicitly separate.
+Reliability	ICON_WARNING	Keep public combat and heals when hidden details are malformed	Readable attacks, damage, kills and heals remain in enemy and per-event statistics even if optional hidden identity/source detail is unreadable; hidden metadata stays unknown and disposable rows rebuild from unchanged history.

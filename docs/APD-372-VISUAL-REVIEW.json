@@ -1,0 +1,16 @@
+{
+  "source": "65cf38c03b5527d4d79eb506885e3aed1652b476",
+  "run": 42412846345,
+  "reviewed": true,
+  "images": {
+    "Developer/qol-force-weapon.png": "6770c097e95c6be9730061fe1c164ae906b829a4a51fcaf9b21e349a4bef4226",
+    "Developer/qol-sharpshooting-weapon.png": "4b14f6a0d6966404e59de9b799a09478071f8f8b4a85b68d897487cff47ee6ca",
+    "Developer/qol-arcana-calculations-retained.png": "e22e342bce8989df268982a60c4590b2c900b289d3842a8750ac7d5dbfc42dfc",
+    "Developer/qol-obfuscation-calculations-retained.png": "3bfe5795834d2d0c9a548ec3964b12afd7b62f1cde34f9d950bc074ba3aec3f9",
+    "Alpha-Testers/qol-force-weapon.png": "e86c5ee58271f58518cc5e4ea6965a8e86ecfaaa49331db8f3c4c3f071dd5acd",
+    "Alpha-Testers/qol-sharpshooting-weapon.png": "c7886b8129eebddf3d0a21ca185889bf482b5962efbd327b3a24f96c8a1bd830",
+    "Alpha-Testers/qol-arcana-calculations-retained.png": "9d318ba90afbf27e79ef003415ca94ac3a594947bf388865aae99b4038472ec9",
+    "Alpha-Testers/qol-obfuscation-calculations-retained.png": "04613591686fffa6d4651a5e065c6c6cd0fadd3182955e095a52e2a0402b6442"
+  },
+  "finding": "Both variants: ordinary Sword/Knife show retained live ring text without a calculations control; Arcana and Obfuscation expanded detail scrolls render with a visible collapse control and no action overlap. Native assertions independently passed. Eight actual PNGs visually inspected; other retained PNGs not claimed manually inspected."
+}

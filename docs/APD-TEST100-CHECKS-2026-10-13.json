@@ -1,0 +1,14 @@
+{
+  "source": "624f6991bae64c3f9437be6a5e6e16535cff374d",
+  "run": 38344486604,
+  "core": 1270,
+  "android": 21,
+  "screenshots": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "delivered": false,
+  "visual_acceptance": "Healing dialog image captured before drawing; slider screenshot used direct setter without UI caption callback. Native checks strengthened for next build.",
+  "created": "2026-10-13T04:01:47Z",
+  "completed": "2026-10-13T04:13:10Z"
+}

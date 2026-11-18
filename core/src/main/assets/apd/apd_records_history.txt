@@ -1,0 +1,180 @@
+APD records history, format 2
+One block per milestone, newest first. Not shown in the game yet: the UIMSD (Ultimate Infinite Mega Statistics Database) screen will display this
+later. Each block is a header line with four fields separated by vertical bars (milestone id, telemetry version or a dash,
+APD version, date) followed by "- " lines. Never edit or reuse an old milestone id, add a new block at the top.
+
+The telemetry version is the version of APD's recording system (Telemetry 1.0, 1.1, 2.0, ...). It is separate from the
+APD game version, and every recorded run keeps the telemetry version that recorded it. "-" means the milestone is not
+tied to a version of the recorded data. Minor versions only add things, a new major version changes what existing
+data means.
+
+custom-rules-provisional-v26r | - | APD 4.0.8-apd | 2026-10-16
+- New runs record the exact provisional v2.6R scoring multiplier and its version, alongside original and adjusted scores.
+- Existing runs retain their previously recorded scoring authority and earned scores.
+
+telemetry-1.16-boss-phases | telemetry 1.16 | APD 4.0.8-apd | 2026-10-15
+- Records the visible phase transitions of Goo, Tengu, DM-300, Dwarf King and Yog, with the displayed boss name, boss-specific phase number, floor and visible phase state.
+- Restore-time reconstruction records nothing. Runs recorded before 1.16 show boss phases as unknown, never zero.
+
+telemetry-1.15-movement-commands | telemetry 1.15 | APD 4.0.8-apd | 2026-10-15
+- Records each manual step, point-to-point travel or safe stair-navigation command once, with its public destination and floor width.
+- Existing move.step history is unchanged: its travelling field distinguishes physical walking from instantaneous relocation, not manual from automated movement.
+- This source contains no general auto-explore mechanic. Runs recorded before 1.15 show movement-command mode as unknown, never zero.
+
+telemetry-1.14-alchemy-crafts | telemetry 1.14 | APD 4.0.8-apd | 2026-10-15
+- Records each successful alchemy recipe using only the displayed ingredient and result names, their quantities, the floor and the exact total/carried/toolkit energy split.
+- True unidentified item classes remain confined to existing INTERNAL item history. Failed brews and restore-time reconstruction emit no public craft fact.
+- Runs recorded before 1.14 show alchemy crafts as unknown, never zero.
+
+telemetry-1.13-ally-summons | telemetry 1.13 | APD 4.0.8-apd | 2026-10-15
+- Records player-owned allies when their explicit offensive creator is the hero or another ally the player can see.
+- Public history contains only the displayed ally and creator names plus the floor. Enemy, boss, unattributed and off-screen-creator summons emit no public event.
+- Runs recorded before 1.13 show ally summons as unknown, never zero.
+
+telemetry-1.12-npc-interactions | telemetry 1.12 | APD 4.0.8-apd | 2026-10-15
+- Records each accepted hero interaction with an NPC using only the name already shown to the player and the current floor.
+- Quest state changes remain separate; runs recorded before 1.12 show NPC interactions as unknown, never zero.
+
+custom-rules-scoring-1-11 | telemetry 1.11 | APD 4.0.8-apd | 2026-10-13
+- Records all selected custom settings and frozen scoring status without changing earned scores.
+- Historical settings that were not recorded remain unknown.
+
+uimsd-name | - | APD 4.0.8-apd | 2026-10-06
+- The statistics / records / query system is named UIMSD, the Ultimate Infinite Mega Statistics Database. The title
+  screen button that used to say "Statistics" now says "UIMSD". This changes a name only, no recorded data.
+
+uimsd-first-screen | - | APD 4.0.8-apd | 2026-10-07
+- UIMSD gets its first usable screen (opened from APD Settings for now). It reads the raw recorded history and the imported ranking records
+  and shows them as datasets: Runs, Items, Enemies and Deaths, with views for Weapons, Armor, Rings, Trinkets, Artifacts, Characters and
+  Challenges. No new data is recorded: everything shown is built from the raw logs and can be rebuilt.
+- Values nobody recorded show as unknown and are never turned into zero. Totals say how many values they are made of, a number that is only
+  a lower bound (a log with gaps, or an older recording version) is marked as one, and inferred numbers such as healing are marked as
+  inferred. Every table says how many of its runs could contain each statistic at all.
+- Information the player could not have known stays hidden: an item you never saw, an enemy you never met or the truth about an unidentified
+  item is never shown for a run that is still going, even with hidden information switched on. After a run is over it can be revealed.
+- Runs played under different rules are never mixed unless you choose to; rows whose ruleset is unknown are kept apart and counted.
+
+telemetry-1.10-quest-steps | telemetry 1.10 | APD 4.0.8-apd | 2026-10-08
+- Telemetry 1.10 records each step of the Sad ghost, Wandmaker, Blacksmith and Imp quests: when it was given, when what it asked for was found or
+  beaten, and when the reward stage was reached.
+- Runs recorded before 1.10 have no such record: they show as unknown (?), never as "no quest".
+
+telemetry-1.9-hero-state | telemetry 1.9 | APD 4.0.8-apd | 2026-10-08
+- Telemetry 1.9 records the hero's health, maximum health, shield and hunger at the start of every turn the hero takes, at full detail
+  (stored compactly, one observation per turn). It makes questions like "how often was I below a third of my health" possible.
+- Runs recorded before 1.9 have no such record: they show as unknown (?), never as zero.
+
+telemetry-1.8-facts | telemetry 1.8 | APD 4.0.8-apd | 2026-10-07
+- Telemetry 1.8 adds a general way to record anything the game can observe: a "fact" names what happened (a spell cast, a step, a status effect),
+  what it was about, and a few numbers. New kinds of fact can be added without changing how history is stored or queried.
+- Facts are kept at full detail: even something that happens every turn, such as taking a step, is written down one observation at a time,
+  just stored compactly. Nothing is summarised away.
+- Runs recorded before 1.8 have no such facts: they show as unknown (?), never as zero.
+
+telemetry-1.7-difficulty | telemetry 1.7 | APD 4.0.8-apd | 2026-10-07
+- Telemetry 1.7 records the difficulty (1-5) a run was started with, and which balance revision that difficulty had. Difficulty is part of the
+  run's rules: runs at different difficulties are different rulesets and are never mixed unless you choose to. Difficulty 3 is the game as it is.
+- A run recorded before 1.7 shows its difficulty as unknown (?), never as 3: it was played at the baseline balance, but its difficulty was not
+  recorded. UIMSD can filter and group runs by difficulty.
+
+telemetry-1.6-exact-healing | telemetry 1.6 | APD 4.0.8-apd | 2026-10-07
+- Telemetry 1.6 records healing exactly. Every way the game heals the hero (natural regeneration, the Healing effect of potions,
+  food, Sungrass, Dewdrops, the Chalice of Blood, Vampiric weapons, talents and abilities that heal, wands, wells) now reports the HP
+  it really gave, instead of APD guessing from the hero's HP bar between turns. What healed the hero is kept apart from what you could
+  see: the amount is visible history, the exact source is hidden information that only finished runs show.
+- A heal the game does not report to APD is still noticed and marked as inferred, so no healing is ever missed. Runs recorded before
+  1.6 keep their inferred healing exactly as it was, marked with a ~.
+- UIMSD shows "Healed" (exact when nothing was guessed), the guessed part, and, for finished runs, the healing by kind of source.
+
+telemetry-1.5-legacy-import | telemetry 1.5 | APD 4.0.8-apd | 2026-10-06
+- Telemetry 1.5 lets APD keep the entries of its own rankings table. "Import APD rankings" in APD Settings copies the records in APD's
+  own rankings file (class, outcome, depth, level, score, killer, date and version when the record has them, the saved game
+  statistics and the final equipment) into APD's history as raw import records. Importing twice adds nothing new. This covers runs
+  finished in APD only: the separately installed official Shattered Pixel Dungeon is a different app and its data cannot be read.
+- The rankings file keeps only the best 11 runs, so older runs are already gone. The import can only preserve what is still there,
+  and it keeps the file's played/won counters as separate aggregate information. APD copies the rankings automatically around the
+  end of every run, right before the table is trimmed, so no APD record can fall out of the top 11 unseen. The file is only ever read.
+- A field a ranking record did not contain stays unknown. It is never turned into zero, and nothing is guessed. Imported numbers are
+  marked as coming from the rankings file, and screens that show statistics will say how many runs actually contain each one.
+- Runs recorded by APD now note the id their ranking entry was given, so a recorded run and its ranking record are recognised as the
+  same run and never counted twice. Older recorded runs are matched by class, outcome, depth, level and score only when exactly one
+  run fits.
+- From the raw logs and import records APD derives a table of facts per run (rebuildable at any time, never the source of truth).
+  Statistics a run's telemetry version could not record are unknown rather than zero, and counts from logs with gaps are marked as
+  possibly too low.
+
+telemetry-1.4-generation-provenance | telemetry 1.4 | APD 4.0.8-apd | 2026-10-06
+- Telemetry 1.4 records where everything in a level came from. When a level is built for the first time, every item placed in it
+  (on the floor, in chests, in mimics, held by statues, as quest rewards) gets its apd_uid and an ITEM_GENERATED event with its
+  true class, level, curse and enchant, where it lay and in which room, and how it was drawn from the item generator (which
+  category, which kind of draw). Items created later by creature deaths or bonus drops are recorded the same way.
+- LEVEL_GENERATED keeps the context the build depended on next to the seed: the intro flag, the exotic chance setting, challenges,
+  how many guide pages were found, what the hero carried, every room (secret and special ones included), the guaranteed-drop
+  counters, how many tries painting needed and how many generator draws were made. MOB_GENERATED lists the creatures placed.
+- All of these are INTERNAL events (they include what the player has not found). Player-facing views must not show them; what
+  the player later sees of an item is in the public item events, joined by apd_uid.
+- A bug found while building this: reading a creature's id the ordinary way hands out the next game id. The recorder now reads ids
+  without assigning them, so recording leaves the game's id counter and level contents exactly as they were.
+- Not recorded: the level seed itself (it follows from the run seed and the depth), per-room contents of rooms that never held items.
+
+telemetry-1.3-combat-health | telemetry 1.3 | APD 4.0.8-apd | 2026-10-06
+- Telemetry 1.3 records fights and the hero's health. ATTACK (hit or miss, with the weapon the player sees), DAMAGE (what the
+  game shows, plus the hero's own HP and shield after), KILL, XP_GAIN, LEVEL_UP, HERO_DEATH and HERO_REVIVED (ankh).
+- Hunger: HUNGER_CHANGE (eating and effects, exact) and HUNGER_STATE (well fed, normal, hungry, starving).
+- Healing, shield gains, max HP changes and unexplained HP losses are INFERRED from the hero's state between turns and every
+  such event carries the inferred flag. Exact healing sources arrive in a later version.
+- Starvation damage shows how much of it shielding absorbed (APD-0001).
+- The truth behind a fight (true monster classes, ids, exact enemy HP, armor and rolled damage) is in separate INTERNAL
+  events (ATTACK_DETAIL, DAMAGE_DETAIL, KILL_DETAIL). A fight the player could not see has no public events at all.
+- Not recorded: movement, per-turn state, enemy AI state, individual status effects.
+
+telemetry-1.2-item-identity | telemetry 1.2 | APD 4.0.8-apd | 2026-10-06
+- Telemetry 1.2 adds item identity and lineage. Items get a persistent id (apd_uid, saved with the item) the first time
+  the recorder meets them. Ids are random and never touch the game's seeded random numbers.
+- New events: ITEM_SEEN (an item became visible where it lay), ITEM_ACQUIRED and ITEM_LEFT (it entered or left the
+  hero's hands, with why when known), ITEM_EQUIPPED and ITEM_UNEQUIPPED (each wearing interval is kept, with the slot),
+  ITEM_KNOWLEDGE (the player learned its level or curse), ITEM_CLASS_KNOWN (the player learned what a whole potion colour,
+  scroll rune or ring gem is).
+- Those events only contain what the player could see at that moment (the name shown, "unidentified ring" stays that way
+  in old events even after it is identified later). Hidden truth and identity links live in separate INTERNAL events:
+  ITEM_REGISTERED (true class and level), ITEM_LINEAGE (split, merge, copy, transform, craft) and ITEM_TRUTH_CHANGED.
+  Player-facing views and player exports must leave INTERNAL events out.
+- A run in progress that was recorded under telemetry 1.1 continues in a new log segment after updating, because a run
+  keeps the telemetry version that recorded it.
+- Still not recorded: combat, health, hunger, loot generation provenance (arrive in later 1.x versions).
+
+telemetry-1.1-run-lifecycle | telemetry 1.1 | APD 4.0.8-apd | 2026-10-06
+- Telemetry 1.1 is the first version that records real runs. Each run now has a log with: RUN_START (APD version, seed,
+  seed type, challenges, hero class, ruleset id), SAVE markers, LEVEL_ENTER and LEVEL_EXIT, compact CHECKPOINTs (hero
+  stats, equipment and a backpack list), SESSION_START for every time the app opened the run, and RUN_END.
+- Each run is identified by a run id that is also stored in the game save (apd_run_id), so a run can be followed across
+  app restarts.
+- When a game is loaded from an older save than the end of its log, the play after that save is kept but marked as an
+  abandoned branch (ROLLBACK event). Normal statistics leave abandoned branches out, history tools can still read them.
+- Runs that were already in progress when recording started are recorded as partial runs and never get invented history.
+- A ruleset id describes the gameplay-affecting rules in force (APD-0001 shield rule, Cleric blocked, exotic crystal
+  chance, challenges). A RULESET_CHANGE event is written if one changes during a run.
+- Still not recorded: combat, health, hunger, item and loot events. They arrive in later 1.x versions.
+
+telemetry-1.0-storage | telemetry 1.0 | APD 4.0.8-apd | 2026-10-06
+- Telemetry 1.0 defines how a run is stored: one append-only log per run whose header names the telemetry version, made
+  of individually checksummed, length-prefixed frames, with a per-log string table and a seal frame at the end of a
+  completed run.
+- Logs that were cut off or damaged at the end recover to their last valid frame, and the damaged bytes are kept.
+- A small run index lists the logs. It can always be rebuilt from the logs, which are the evidence.
+- Telemetry 1.0 records no game events yet. Runs are recorded from a later build, and the events they contain are added
+  in later 1.x versions.
+
+phase0-baseline | - | APD 4.0.8-apd | 2026-10-06
+- Test harness and golden seeded-level baseline added before any recorder code, so later builds can prove that
+  recording does not change how dungeons are generated.
+
+why-apd-keeps-history | - | APD 4.0.8-apd | 2026-10-06
+- Shattered Pixel Dungeon only keeps a top-11 list of runs, a total and win count, lifetime item-use and enemy-kill
+  totals, and which badges are unlocked. Every other run, and all detail about how a run went, is lost when it ends.
+- APD is being built to keep the raw history of every run so that statistics can be calculated from it, including
+  statistics nobody has thought of yet.
+- Runs that were played before APD recorded history can only ever contain what SPD kept, so they hold less
+  information than runs recorded by APD itself. Missing information stays missing, it is never guessed.
+
+

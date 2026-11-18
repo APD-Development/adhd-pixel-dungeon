@@ -1,0 +1,17 @@
+# TEST124 offensive creator ownership foundation — October13,2026
+
+## Problem and correction
+The existing offensive-origin bridge could accept an explicit creator origin, but actual summoned creatures did not store or forward that information. Allied alignment alone does not establish player ownership; boss-created ordinary minions would otherwise resolve as ordinary enemies.
+Char now has an optional creator-origin snapshot with explicit creation-time inheritance. The existing origin resolver reads that snapshot before falling back to Hero/enemy/boss classification. Origin is additive optional save metadata, omitted for unattributed ordinary actors; legacy missing metadata remains unattributed rather than invented. Unsupported metadata rejects without rewriting the input.
+Fourteen production components preserve creator ownership for prismatic images, earth guardians, shadow clones, spirit hawks, Dried Rose ghosts, necromancer skeletons, Dwarf subjects, Yog summons/fists, swarm/ghoul offspring, demon-spawner offspring and Ratmogrify summons/transformations.
+No offensive damage amount, cooldown, RNG, boss mechanics, stat calculation, loot or score changes in this foundation. It does not enable any of the three pending Damage sliders. Full direct/spell/explosion/DOT/shared-damage wiring, overlapping attribution and permanent custom UIMSD acceptance remain incomplete.
+
+## Regression evidence
+Four permanent new methods use real actor bundle store/restore: multiple summon generations and player/enemy/boss origins; absent legacy ownership and omitted ordinary fields; creator disappearance/alignment changes and neutral RNG; invalid future origin rejection without input rewriting.
+Eight ownership/previous-attribution checks passed0.222s. After expanding creation sites, seventeen combined ownership/attribution/neutral-generation/gesture checks passed1.894s. All fourteen modified production sources compiled against exact current existing classes.
+Actual run38436407054/source7b77d91a98bfb77a56ace2eb827523ff3d58dcde succeeded. Downloaded XML confirms1388unique core and24API34cases,zero failures/errors/skips;27validPNG,debug assembly andcompiledhistory checks passed. Existingtouch screenshot reviewed asreadable. CI1:09:45–1:21:09p.m.NewYork,11m24s;not active-time accounting. APKartifact11832688393 isprivatelystaged;signing/publication/physicalphoneacceptancepending. Android evidence must distinguish emulator checks from physical-phone acceptance. No claim of completed damage sliders.
+
+## Compatibility and risks
+Player save/history files are not edited, deleted or reset. Optional actor metadata can be ignored by old readers; new readers preserve absent old ownership. No active-run custom settings, scoring coefficients or provisional bounds change.
+New ownership must not be inferred for every friendly actor. Additional delayed-effect/blob/shared-damage paths and converted-actor semantics require continued investigation before offensive sliders are enabled. Native play/save/continue checks and all existing core regressions must pass.
+TEST123 remains owner-delivered verified fallback: source19b358d1a8a46f197837401b83fe836cba88988d/run38432306523,1384core/24API34/27PNG/debug/signing passed. This new build compares against that actual source,not its delivery tag. Prior private assets,signer andapplicationID preserved. No automatic tester distribution or public release.

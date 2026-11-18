@@ -1,0 +1,89 @@
+{
+  "feature": "Regional Upgrade Scroll / Strength Potion first-collection tooltips",
+  "implementation_source": "6114e6226e4c6c00ab0bb7e075130e6720ead0f5",
+  "verified_source": "3bd2f73c2dc06f7828c72838ce15c9819af77603",
+  "implemented": true,
+  "released_in_apk": false,
+  "counts": "First successful hero inventory collection by original source region; independent of amount still carried",
+  "strength_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      21,
+      22
+    ],
+    [
+      23,
+      24
+    ]
+  ],
+  "pair_tracking": "Only guaranteed generation marks a pair; bonus potions count regionally without masking a missed guaranteed potion",
+  "legacy": "Partial counts; unknown unrecorded pairs, never fabricated history",
+  "save_compatibility": "Optional versioned sparse per-item origin field and optional per-run Statistics bundle. Original fields and historical UIMSD files remain unchanged.",
+  "gameplay_changes": false,
+  "healing_tooltip_literal_backslash_n_fixed": true,
+  "automated": {
+    "run": 40940107162,
+    "job": 123680924162,
+    "tests": 2206,
+    "suites": 423,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "added_tests": 14,
+    "golden_comparison": {
+      "stable": 242,
+      "total": 286,
+      "recorder_off": true,
+      "recorder_on": true,
+      "baseline_files_changed": false,
+      "legacy_only_exclusion": "apd_progression_origins_v1; every other serialized gameplay field remains exact, real save data remains intact"
+    },
+    "english_message_audit": 5076,
+    "artifact": 12927106418,
+    "artifact_zip_sha256": "d38f0fb6e9143e186477016b7b13a73bd80692129c3d41ad5ad1f021dbe061df"
+  },
+  "retained_failed_run": {
+    "run": 40939067035,
+    "tests": 2205,
+    "failures": 3,
+    "cause": "Two legacy snapshots incorporated new collection metadata; reviewed English inventory count needed seven new neutral keys. Fixed narrow test snapshots/audit; original generation hashes and every-string profanity checks preserved."
+  },
+  "pending": [
+    "Android description layout/device acceptance",
+    "New APK packaging/signing/delivery"
+  ],
+  "last_published_verified_apk": "TEST330; does not contain this feature",
+  "test332": "Source94fb6d predates this feature; no claim that TEST332 contains the new counters",
+  "latest_concurrent_work": "Preserve exact-model UIMSD correction07e6fbd; this report covers exact regional-feature source3bd2, not acceptance of subsequent production changes."
+}

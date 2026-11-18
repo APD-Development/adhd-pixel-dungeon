@@ -1,0 +1,9 @@
+Quality of Life	ITEM_BACKPACK	Independent quickslot capacity	Quickslot storage can expand independently while the mobile interface continues to show six controls.
+Bug Fixes	ITEM_BACKPACK	Invalid shortcut assignment	An invalid shortcut position no longer clears an existing valid assignment before failing.
+Bug Fixes	ITEM_PASTY	Inventory restoration safety	Invalid saved shortcut positions no longer prevent the associated inventory item from loading.
+Bug Fixes	ITEM_BACKPACK	Placeholder restoration	Sparse extended placeholders restore through the existing save format, and malformed placement arrays no longer crash loading.
+Performance	ICON_DATA	Rollback history processing	Overlapping rollback ranges are merged before classifying events, reducing repeated scans while preserving history.
+Testing	ICON_CHECKED	Shortcut and timeline regressions	Added expanded-slot, save-reference and rollback-equivalence cases, with native six-control and extended save/load checks.
+Testing	ITEM_POTION_HOLDER	Rendered healing evidence	Android checks use an actual slider touch and wait for rendered dialog pixels before capturing healing screenshots.
+Development	ICON_INFO	Build verification evidence	Recorded TEST100's successful tests and incomplete screenshot acceptance alongside this batch's reproductions.
+Developer Commentary	V074_SHPX	Developer Commentary	I separated the six-button mobile layout from quickslot storage and protected item loading from invalid shortcut references. Rollback-heavy statistics also avoid repeated history scans.

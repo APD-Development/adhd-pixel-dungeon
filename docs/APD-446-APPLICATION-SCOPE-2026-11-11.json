@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "exact_eight_application_paths_since_last_accepted444",
+  "verified_utc": "2026-11-11T18:35:07.364531+00:00",
+  "accepted_baseline": {
+    "number": 444,
+    "source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+    "source_zip_sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076"
+  },
+  "candidate": {
+    "number": 446,
+    "source": "1968913a441f53ab3652cffc05e131427d0c3703",
+    "run": 43077773970,
+    "source_zip_sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5"
+  },
+  "compared_main_and_build_files": {
+    "baseline": 2269,
+    "candidate": 2272
+  },
+  "actual_changed_application_paths": [
+    "core/src/main/assets/messages/scenes/scenes.properties",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/ResumeIndicator.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndRanking.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndWallSearchResume.java"
+  ],
+  "unchanged_protected_files": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java": "e0b65cd63a84ea63592517cdd775b552ca5837f5bce88bc74052681268769ea8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDSettings.java": "2b42b235314dc19367d0d31bc99e16e4f35dffe760399842930c213fe8f7a435",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Rankings.java": "289a1eab39e6ffef4ed1e4fc5e270c970d257d60726c0b4afdf45c2534d22642",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java": "b9cc70a15c3b4128e2df83a18bba09b03f0c968f7fbb7d3a886d0a306de0224a",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/Toolbar.java": "8e3daf10215fb3e0761cc14c6e0b6ee1160b60c34500e2b01c9b7584c544747d",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/WallSearchSession.java": "6b47951e3f8351e67e6d1ab4c499f59624e170a23628662b81b7d44af01ca198",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/DoorSearchEligibility.java": "0762b1c1c92fa29566137091a02f8aa6d47184f20f54d8bbbd2927acb3bb7d0c",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchedWalls.java": "3666195bd4862c239bb132329afcf2e5c5b74c8f7f9371b9c4a1c5c2c9d2b146",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/CustomScoreSnapshot.java": "a4c5ede1e985cfc05f8acd5f48f79e55b952b304e0211b2779d696559e80683e"
+  },
+  "generated_history": "Excluded from this application projection; separately checked against every retained compiled445 history entry in independent pre-native acceptance.",
+  "new_runtime_permission_or_build_configuration_changes": false,
+  "physical_install_over_claimed": false,
+  "native_or_manual_acceptance_claimed": false
+}

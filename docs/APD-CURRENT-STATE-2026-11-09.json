@@ -1,0 +1,138 @@
+{
+  "recorded_utc": "2026-11-09T20:19:16.555017+00:00",
+  "authorization_end_utc": "2026-11-09T22:00:00Z",
+  "latest_verified_published_build": 428,
+  "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-428",
+  "source_fix_commit": "28013435e236058ec9945ab5968ec258c4c380aa",
+  "local_full_core": {
+    "tests": 3158,
+    "suites": 457,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "last_completed_android_source_compile": {
+    "commit": "a9e1ecf6f",
+    "run": 42681249224,
+    "scope": "3158core/debug/release/instrumentation/desktoppassed; later Rat copy/native factory included in428appbuildcompiledbeforeassembly."
+  },
+  "latest_source_compile": {
+    "commit": "7143d16bc481045b49ec4a60624128b0dcccc6b1",
+    "run": 42649700318,
+    "status": "success; current application and instrumentation source compiled, noAPK"
+  },
+  "held_private_builds": {
+    "404": "Native fixture failed before-render camera check; original unacceptedAPKs/rawfailures preserved in explicitprivatearchives.",
+    "405": "3112core/12nativepassed with test-only timingretry, independenthashes+4453sourcefilehashes,32manualcaptures. Rejected manual Tenacity zero-value prose; originals preserved.",
+    "406": "3113core/12nativepassed, independenthashes+4463sourcefilehashes,10newbuffcapturesreadable. Same bad Tenacity provider; originalpairheldprivate.",
+    "416": "3136core and all12native passed,4616sourcehashes checked,47inspection captures reviewed; rejected new ordinary Drowsy 1 turns copy. Full original APK/source/evidence remains draft and source branch preserved.415latestpublished.",
+    "417": "Android instrumentation compile failed from new grammar-test Java escapes, before any APK assembly. Original bcaade3 branch preserved; raw log committed. Corrected using escape-free character classes; next418.",
+    "419": "Native popup-fixture Java compile failed (checked exception from UI reflection helper not caught). Production compilation and3142core passed; APK assembly not reached. Correcting test callback handling and will source-compile before next candidate.",
+    "420": "3143core,12native,4671sourcehashes passed.46selectedfullframes manually viewed; rejected Endure stored-count/future-count contradiction plus 1 hits and SoulMark raw %s from unescaped40%. Assets remain private.",
+    "421": "3144core/457suites and all12 targeted API34 cases plus preparation passed, but compiled history used APD418 instead of immediate previous compiled APD420. Held; no manual visual acceptance/publication. Also inherits420 manually rejected Endure and SoulMark display defects.",
+    "422": "Original source5e2908ff0/run42660866454 automated build/core3144/all12native/preparation successful; inherits manually rejected Endure/SoulMark. Preserve private assets; do NOT publish.",
+    "423": "Original3149core/all12native passed; packaging-only history recovery42666702358passed and assets staged42667109583. Independent4714sourcehashes/originalAPKbytes matched.28manualframes caught unsupported fraction glyph; keepprivate.",
+    "424": "Inherits unsupported fraction glyph from423; originalpair running42667109736. Preserve all results/assets privately even if automated checks pass.",
+    "426": "Original native fixture expects old HolyWeapon sentence; both variants rejected. Originalsource/APKs/failure evidence retained. Test-only retry pending."
+  },
+  "newest_source_not_in_any_apk": [],
+  "audit": {
+    "source_units": 445,
+    "completed_units": 441,
+    "unresolved_units": 4,
+    "corrected_units": 359,
+    "message_inventory_entries": 5353
+  },
+  "remaining": [
+    "Four own-source reviews still incomplete: AbilityExplanation remainingeffects,TalentExplanation,TalentnormalEnglish,CursedWandownerwordingdecision",
+    "Normalwordingfollowup02060b4ff/3159core+Androidsourcepassed stillneeds actualnativeverification; absent428",
+    "Furthernormalmechanicresource wording audit remains; nofullitemauditcompletionclaimed",
+    "SPD-only audio physical/acoustic reproduction remainsunverified; no provedAPDfix"
+  ],
+  "preservation": "All source pushed to codex/apd-phone-fixes-2026-10-09; published403 and priorreleases retained.405/406privateassets include completeAPK/source/tests;404rejectedarchivesretained. Raw local full suites and committed evidence ZIPs retained.",
+  "physical_phone_or_acoustic_audio_verified": false,
+  "background_development_after_window_claimed": false,
+  "active_build": {},
+  "recovered_failed_attempts": {
+    "415": {
+      "original": "Original42625074280 incomplete because Developer emulator transport closed after QoL/preferences. Alpha/build passed. Exact original source failurebranch preserved; private archive42628501288 succeeded. Retry42628501030 requires all12 fresh unmodified cases.",
+      "accepted_retry": 42628501030,
+      "staging": 42629205720,
+      "original_and_accepted_apps_and_test_binary_unchanged": true
+    },
+    "418": {
+      "original_held_status": "Original compile/core3140 passed; both QoL cases stopped at test-only MindVision expected1tile versus source default2/correct displayed2. Exact source branch preserved; originals archival running. All12 retry pending on unchanged APKs.",
+      "resolution": "Exact-app native fixture retry andindependent/manual acceptance succeeded;418published earlier andnowpreserved aspreviousfallback.425latestpublished."
+    }
+  },
+  "new_timer_regressions": "Red evidence preserved; full3138 green. Description-only linked Power and Shadows timer fixes with actual attack/protection/expiry coverage; no engine changes.",
+  "metadata_erratum_418": {
+    "run": 42654896450,
+    "status": "success; live release notes corrected, original proof retained, APD-418-Verification-Erratum.json attached"
+  },
+  "apd420": {
+    "status": "MANUAL REJECTED;46fullframes viewed, actual Endure and SoulMark display defects, private draft",
+    "run": 42654395502,
+    "stage_run": 42654896218
+  },
+  "apd421": {
+    "status": "held after automated success because compiled history skipped immediate previous APD420; also inherits420 manual defects",
+    "run": 42656324353,
+    "report": "docs/APD-421-HELD-HISTORY-2026-11-09.json"
+  },
+  "current_work": "425published with verifiedcorrectedfont/14spellcutoff. Full27spellhelper review completeinnewersource,3155core andAndroidcompile42675254523passed.426pairpreparing. Overall439complete6open; continue remaining approvedhelper reviews.",
+  "apd423": {
+    "source": "2a98ed3e4d050d2eaa1c34a54a2ca09facde08d9",
+    "original_run": 42662501545,
+    "original_results": "3149core and all12native passed; prepare failed on stale reject421history check",
+    "packaging_only_recovery_run": 42666702358,
+    "recovery_result": "success, no application/instrumentation rebuild or native rerun; require all420421422 entries",
+    "status": "MANUAL HOLD:28fullframes viewed; unsupported SharedUpgrades fraction glyph.4714sourcehashes and originalAPKbytechecks passed, but do not publish."
+  },
+  "apd425": {
+    "source": "75809609745851368fe81f2dced1b69eb63cdfdf",
+    "original_run": 42669136432,
+    "original_results": "build/core3153 andall12native passed; no prepare jobstarted, failed-onlyrerunrefused, causeunresolved",
+    "packaging_only_recovery_run": 42673560388,
+    "recovery": "success; exact original apps/evidence reused, no assembly/native rerun",
+    "stage_run": 42674685237,
+    "status": "PUBLISHED2026-11-09T18:39:38Z; core3153/all12native,4739sourcehashes,37selectedfullframesmanuallyreviewed,originalAPKsbyte-identical",
+    "receipt": "docs/APD-425-DELIVERY-RECEIPT.json"
+  },
+  "active_builds": {},
+  "latest_delivery": {
+    "number": 429,
+    "core_tests": 3160,
+    "core_suites": 457,
+    "native_tests": 12,
+    "manual_new_Developer_frames": 27,
+    "published_utc": "2026-11-09T20:47:21Z",
+    "source_commit": "fe077c5845b8f4c0781502c0359b827f77e46fc9"
+  },
+  "followup_source_branch": {
+    "branch": "codex/apd-description-followup-20261109T1933",
+    "commit": "cb75401789010dfbd84c8e7c8bc343fdbb0e6700",
+    "source_check_run": 42688225690,
+    "status": "Latest3160core/457 all0, actual BountyHunter24tier/rank/Wealth+guards; latestAndroidsourcecheckrunning. Prior02060b4ff3159core andAndroidsourcepassed42685979663. Actual newnativefollowup stillpending; not in428.",
+    "english_entries": 5355,
+    "new_features": false
+  },
+  "normal_resource_followups": "Someexistingnormalmechanic wording remains in the comprehensiveaudit; latestnormalwording fixes on separate3159branch, not inAPKs426\u2013428.",
+  "latest_main_source_verification": {
+    "tests": 3158,
+    "suites": 457,
+    "native": 12,
+    "scope": "Exactpublished428source; later3159followup separatebranch",
+    "manifest_files": 4781
+  },
+  "delivery_427": {
+    "published_utc": "2026-11-09T19:50:38Z",
+    "core": 3157,
+    "native": 12,
+    "manual_frames": 80,
+    "source_manifest_files": 4770
+  },
+  "authorization_boundary": "Owner renewed authorization to17:00Eastern /22:00UTC Nov9. Same rules: verifiedAPK pairs whenvalid about30minutes; preserveallsource/builds/evidence; no newfeatures or balancechanges.",
+  "merged_followup": "cb7540178merged preserving428metadata;3160coreandAndroidsourcepassed42688225690. Newnativeplaceholder/Shield/Bountyguards toverifyin429.",
+  "ability_followup": "62dbd0d35: all19 own-source effects reviewed;3160core green, Androidfixture sourcecheck42696131036 running; forthcoming430, not429."
+}

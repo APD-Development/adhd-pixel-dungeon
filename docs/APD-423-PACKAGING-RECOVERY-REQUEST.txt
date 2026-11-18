@@ -1,0 +1,2 @@
+2026-11-09T17:39:04.137570+00:00
+Packaging only on exact2a98 source/apps and original3149core/all12passednative. No builds or native reruns. Correct stale421history assertion; require420/421/422 and preserve original failure.

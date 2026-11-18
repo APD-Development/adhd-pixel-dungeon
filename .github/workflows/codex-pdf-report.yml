@@ -1,0 +1,60 @@
+name: Update verified APD test report
+
+#Documentation-only refresh; never rebuilds or replaces the verified APK.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-pdf-report.yml
+      - docs/APD-PDF-UPDATE.txt
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Read the verified private release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/${{ github.repository }}/releases/tags/apd-codex-test-20 > verified-release.json
+      - name: Require unchanged application source and successful build evidence
+        env:
+          APD_DOCUMENTATION_SHA: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess
+          source = 'e4ad30fd84362589db3ba1180a785ee35344472e'
+          release = json.loads(pathlib.Path('verified-release.json').read_text())
+          if not release['prerelease'] or release['draft'] or release['target_commitish'] != source:
+              raise SystemExit('Unexpected release/source; do not replace its report')
+          body = release['body']
+          if source not in body or '913 tests, 0 failures, 0 errors, 0 skipped' not in body or '4 instrumented checks, 0 failures, 0 errors, 0 skipped' not in body:
+              raise SystemExit('Missing successful verification evidence')
+          changed = subprocess.check_output(['git', 'diff', '--name-only', source, 'HEAD'], text=True).splitlines()
+          if any(not (p.startswith('docs/') or p == '.github/workflows/codex-pdf-report.yml') for p in changed):
+              raise SystemExit('Application/tool source changed; obtain a new verified build')
+          pathlib.Path('delivery').mkdir()
+          body += '\n\nReport documentation source: ' + os.environ['APD_DOCUMENTATION_SHA'] + '. Application source and the verified APK are unchanged.'
+          pathlib.Path('delivery/verification.txt').write_text(body)
+          PY
+      - name: Render the complete updated report
+        run: |
+          python3 -m pip install reportlab==4.2.5
+          python3 tools/apd_bug_report_pdf.py docs/APD-BUG-FIX-REPORT-2026-10-09.md delivery/APD-Bug-Fixes-2026-10-09.pdf --verification delivery/verification.txt --appendix docs/APD-SPRINT-REPORT-2026-10-09.md
+      - name: Replace only the PDF on the private prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload apd-codex-test-20 delivery/APD-Bug-Fixes-2026-10-09.pdf --clobber --repo ${{ github.repository }}
+      - name: Keep a downloadable report and verification record
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-complete-development-report
+          path: delivery/
+          retention-days: 7

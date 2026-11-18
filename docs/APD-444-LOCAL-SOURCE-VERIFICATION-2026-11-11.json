@@ -1,0 +1,36 @@
+{
+  "number": 444,
+  "recorded_utc": "2026-11-11T15:50:54.115715+00:00",
+  "phase": "Fresh local complete core verification, before source CI or APK build.",
+  "base_source": "a2960688e02468817914f006ff4c563b844c80c5",
+  "main_java_files": 1718,
+  "test_java_files": 493,
+  "external_dependency_jars": 9,
+  "historical_game_test_spd_services_classes_excluded": true,
+  "compile_provenance_sha256": "78b005a7edced726bf513cc31d1b63b9254b52d675eaf061fead18f8c3913ec5",
+  "full": {
+    "suites": 465,
+    "tests": 3211,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 45.36,
+    "fresh_current_source": true
+  },
+  "all_raw_xml_independently_reparsed": true,
+  "raw_xml_files": 465,
+  "new_method_present_in_complete_suite": true,
+  "all_current_core_sources_assets_match_compilation": true,
+  "full_log_sha256": "e4f2992a50b2b4198959c1c3afa170e1bac25d92d7cdb5d5d0c8ce9874243f00",
+  "source_hashes": {
+    "core/src/main/assets/messages/actors/actors.properties": "3bd96b8dc316e867fe7ed2847dc83805fa23f70cc0bcf2af48e3f9d4c65fc9cb",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java": "a4e75aa4a1a68ad40a9483592aeaec378547fcfe288e42365975e524c2c14197",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java": "4debad71719b23eb288cd394dba8e0df7dc1b6437577ce9efc2dfddc59d243f4",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TrapDiscoveryDeviceTest.java": "9595559f114a434b2bef7a97a5fd281b6b8db591d35572cbd031608f62945dc4"
+  },
+  "production_java_changed_from443": false,
+  "source_ci_completed": false,
+  "android_compile_completed": false,
+  "android_native_completed": false,
+  "application_apk_assembled": false
+}

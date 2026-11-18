@@ -1,0 +1,12 @@
+{
+  "asset": "APD-389-Local-Core-Evidence.zip",
+  "sha256": "6b5f7d73379aa7d43c3cfac5d123120b02155be545d27f0cd8012290b73bde1a",
+  "source": "be8ea9856711d82fabd7cf4cf7ba20aa56f19c26",
+  "latest_tests": 3047,
+  "suites": 457,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "files": 3672,
+  "initial_failed_fixtures_preserved": true
+}

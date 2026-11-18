@@ -1,0 +1,23 @@
+# APD Markdown report table carriage-return fix: verified final continuation
+
+Friday, November 13, 2026 (America/New_York). Work occurred approximately **04:19–04:26 EST** in the original regular ChatGPT APD conversation.
+
+## Verified start and bounded finding
+
+Authoritative development branch `codex/apd-phone-fixes-2026-10-09` was freshly verified at starting SHA `b99f459e583f435fd34ecd223d2041e36af6158b`, following completed PR #104/#105. Inspected `AGENTS.md`, completed-work ledger, relevant Markdown/report notes, active draft PR claims, release records, source and existing verification workflows. Isolated feature branch `chatgpt/apd-markdown-cr-table-boundary-20261113-0419`; no main or unrelated-branch edits.
+
+`ReportRenderer.md(String)` already flattened LF and escaped backslashes/pipes, but did not flatten carriage returns. Embedded CR or CRLF in actual report table headers/cells could split a Markdown row. The earlier Markdown audit had solved backslash loss, a different problem. The fix preserves previous backslash/pipe escaping and canonicalizes CRLF and standalone CR to one space only for Markdown table cells/headers. Other renderers, stored report text, metadata, gameplay, balance, scoring, wire/history, signing/app identities, and releases are unchanged. This is a source-evidenced rendering defect, not an assertion about a particular owner's history.
+
+## Actual commits and verification
+
+- Start `b99f459e583f435fd34ecd223d2041e36af6158b`, isolated claim `dd8e942a51b09ce764f780ff2128c1053f26c0a4`.
+- Production source commit `53891f9e60ee7126a5fe671d4ba835dbab77b325`; two new JUnit methods in test commit `a1cbf80b43db2126684466adc6d81fb80765dab3`; exact CI source/test/workflow commit `b32effb1c61bca7be14c882962cc4ba98adcb101`.
+- [Exact source Actions run 43400621437](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/43400621437), attempt 1, concluded **success** on exact SHA `b32effb1...` at about 04:24 EST. Real job logs report `BUILD SUCCESSFUL in 2m 12s`; parsed JUnit XML **3,414 core tests / 503 suites / zero failures, errors, or skipped**. Both new tests were individually required by the gate. `:core:test`, `:desktop:classes`, `:android:compileDebugJavaWithJavac`, `:android:compileReleaseJavaWithJavac`, and `:android:compileDebugAndroidTestJavaWithJavac` passed. JUnit artifact `14025550550`, `apd-markdown-cr-table-junit`, size 553,345 bytes, SHA-256 `e5ed82469737cb1dfa735bb1a9e8da6117cc1ec416268b0b71bb65b2fc58292c`.
+- Supplementary local Pandoc GFM parser sample reproduced the boundary: a table sample retaining CR/CRLF generated no HTML table, while its normalized equivalent generated one with expected cells. This is supporting parser evidence, not an Android/device test or an additional source JUnit run.
+- [PR #106](https://github.com/APD-Development/ShieldingShouldHaveWorked/pull/106) was merged through a guarded **expected-head, non-force** authoritative branch update. A two-parent integration commit `1c22339f6a1957772b8e85d37cc7b5a8093acade` preserved exact CI-tested application/test/workflow tree, with parents prior authoritative `b99f459e...` and feature `b32effb1...`. Immediately before the update the live base still matched expected SHA, feature was four commits ahead/zero behind, and only four intended files changed. The guarded update returned success. Independent remote readback confirmed authoritative head `1c22339f6a1957772b8e85d37cc7b5a8093acade`, #106 merged, and production blob `e8324db116e0e83c7490b10c002461d6271045f4` contains the fix.
+
+## Honest build/release boundary and next safe work
+
+No new Android APK was assembled, original-signed, natively exercised, installed-over-save, screenshot-reviewed or published in this source-only execution. This runtime had no configured Android SDK (`ANDROID_HOME` unset and no `sdkmanager` found) or demonstrated original private signing materials. Java compilation in GitHub Actions does **not** establish native acceptance or a deliverable APK. Previously released APD464 and all known-good/blocked candidates remain unchanged; APD464 does not include this correction.
+
+No recurring APD automations were modified. This final documentation-only receipt does not rerun source tests or claim coding continues between executions. Next safe work: read the new live authoritative head and open work claims; select a distinct evidenced approved bug/performance package, or allow the established original-signer/native acceptance owner to qualify a new APK under its existing gated release procedure. Never redo this Markdown/CSV boundary fix or overwrite separate playback, hero selection, search, GPL, signing or release work.

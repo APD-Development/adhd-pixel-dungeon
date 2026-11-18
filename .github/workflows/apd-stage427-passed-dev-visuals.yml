@@ -1,0 +1,32 @@
+# ADHD Pixel Dungeon, Copyright (C) 2026 Chris Charlton; GPL-3.0-or-later.
+name: Preserve passed427 Developer visual evidence privately ahead of Alpha retry
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-427-DEV-VISUALS-REQUEST.txt]
+permissions: {contents: write, actions: read}
+jobs:
+  visuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require original Developer passed and preserve exact screenshot evidence
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PY'
+          import pathlib,json,subprocess,zipfile,hashlib,os
+          repo=os.environ['GITHUB_REPOSITORY'];run=42679430170;tag='apd-alpha-preview-427'
+          d=json.loads(subprocess.check_output(['gh','run','view',str(run),'--repo',repo,'--json','headSha,jobs']));assert d['headSha']=='209277bdabbb9520bba60717f3fa3927f80d5eb6';assert next(j for j in d['jobs'] if j['name']=='native (Developer)')['conclusion']=='success'
+          subprocess.run(['gh','run','download',str(run),'--repo',repo,'--name','apd427-native-Developer','--dir','passed'],check=True)
+          for suffix in ['qol','wall','seed','restart','gameplay','freeze']:
+              t=pathlib.Path('passed/developer-'+suffix+'.txt').read_text();assert 'OK (1 test)' in t and 'INSTRUMENTATION_CODE: -1' in t and 'FAILURES' not in t
+          images=list(pathlib.Path('passed').rglob('*.png'));assert images
+          out=pathlib.Path('APD-427-Passed-Developer-Visuals.zip')
+          with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as z:
+              for p in sorted(images):z.write(p,pathlib.Path('evidence')/p.relative_to('passed'))
+              z.writestr('passed-developer-source.json',json.dumps({'source_commit':d['headSha'],'original_run':run,'developer_six_passed':True,'alpha_and_publication_pending':True},indent=2))
+          release=json.loads(subprocess.check_output(['gh','release','view',tag,'--repo',repo,'--json','isDraft,assets']));assert release['isDraft'];existing={a['name']:a for a in release['assets']}
+          if out.name in existing:assert existing[out.name].get('digest')=='sha256:'+hashlib.sha256(out.read_bytes()).hexdigest()
+          else:subprocess.run(['gh','release','upload',tag,str(out),'--repo',repo],check=True)
+          PY

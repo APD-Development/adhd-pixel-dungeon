@@ -1,0 +1,474 @@
+{
+  "status": "terminal_failed_candidate_diagnostics_preserved_not_accepted",
+  "observed_at_utc": "2026-11-11T18:20:59.976182+00:00",
+  "run_id": 43072342086,
+  "run_attempt": 1,
+  "source_commit": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "terminal_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/snapshot-2026-11-11T18-18-05-850Z.json",
+    "bytes": 38874,
+    "sha256": "762e505d68e856c2fa15715334e1f8f6773cacd291465094bd59b2943b41b455"
+  },
+  "run_conclusion": "failure",
+  "jobs": [
+    {
+      "id": 130703240880,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-11T17:52:38Z",
+      "completed_at": "2026-11-11T17:57:47Z"
+    },
+    {
+      "id": 130706066876,
+      "name": "native (Alpha-Testers)",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-11T17:57:55Z",
+      "completed_at": "2026-11-11T18:17:20Z"
+    },
+    {
+      "id": 130706066909,
+      "name": "source-scan",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-11T17:57:50Z",
+      "completed_at": "2026-11-11T17:59:17Z"
+    },
+    {
+      "id": 130706066945,
+      "name": "native (Developer)",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-11T17:57:49Z",
+      "completed_at": "2026-11-11T18:17:41Z"
+    },
+    {
+      "id": 130717182587,
+      "name": "prepare-owner-review",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-11T18:17:41Z",
+      "completed_at": "2026-11-11T18:17:41Z"
+    }
+  ],
+  "live_log_attempt": "The one requested live-log fetch coincided with completion. Both returned completed logs, so no partial log is claimed.",
+  "variants": {
+    "Alpha-Testers": {
+      "artifact_id": 13882661781,
+      "job_id": 130706066876,
+      "archive": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers-artifact-13882661781.zip",
+        "bytes": 59424470,
+        "sha256": "9bcda519b4d959e0c4b70fa1c58ece1232f45b48034632f2bc9479a7a9713fa3"
+      },
+      "transport_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/artifact-13882661781-download-verification.json",
+        "bytes": 1339,
+        "sha256": "2a920cedecee4991f17e0fa53abb3bf560206e8d2bfa73ea678afcce09ca8d67"
+      },
+      "terminal_job_log": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/native-Alpha-Testers-job-130706066876.log",
+        "bytes": 43496,
+        "sha256": "b8af2e6653f628c2e8325b595c5700d290169938c664857615b2ee255b7adea2"
+      },
+      "raw_logcat": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/native-logcat.txt",
+        "bytes": 6228633,
+        "sha256": "b85b425a3eb5366f37b007d0a3b01ea77da64d487828e58c50a881d2fe09f55e"
+      },
+      "cases": [
+        {
+          "case": "qol",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/qol.txt",
+            "bytes": 1091,
+            "sha256": "caabe8b61d54722f1318017815de96daad075251ec5ead4595a4f8df78c3375c"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/qol-transfer.json",
+            "bytes": 166840,
+            "sha256": "4254c419878db4948d9428c71e1be402f3e925a1b5d2f965df749ff2e0191dda"
+          },
+          "verified_device_image_count": 1419,
+          "started": "2026-11-11T17:59:52.608302+00:00",
+          "completed": "2026-11-11T18:15:45.378115+00:00"
+        },
+        {
+          "case": "wall",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/wall.txt",
+            "bytes": 1047,
+            "sha256": "288134cf0ac343eeb8013a395221f4d355e0164673cd1f3745a300830d11db84"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/wall-transfer.json",
+            "bytes": 167415,
+            "sha256": "d5f4a476c766dc54eadd030071a978b670320a041ea57fb417e8f9c6eb8ebe8e"
+          },
+          "verified_device_image_count": 1424,
+          "started": "2026-11-11T18:15:45.411039+00:00",
+          "completed": "2026-11-11T18:15:58.683193+00:00"
+        },
+        {
+          "case": "seed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/seed.txt",
+            "bytes": 1001,
+            "sha256": "118eae211aeea6ed86011af40e9d20eb69d7e95a422eefd6960c1c85b28e8330"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/seed-transfer.json",
+            "bytes": 167520,
+            "sha256": "62a74fa5afd9910e548f674bb549486d767ce0170fc60bf95a91ba06f1565b16"
+          },
+          "verified_device_image_count": 1425,
+          "started": "2026-11-11T18:15:58.718026+00:00",
+          "completed": "2026-11-11T18:16:03.787797+00:00"
+        },
+        {
+          "case": "restart",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/restart.txt",
+            "bytes": 1015,
+            "sha256": "57a2de3b33425b36ca0c5a7df0e25d1294e0280f1d74236f9c603354e8ca6ee7"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/restart-transfer.json",
+            "bytes": 167738,
+            "sha256": "85aa05377b4a727b0a0e2331955b87b3adcfcb285cd693015464c67951d9c8b8"
+          },
+          "verified_device_image_count": 1427,
+          "started": "2026-11-11T18:16:03.823353+00:00",
+          "completed": "2026-11-11T18:16:10.609462+00:00"
+        },
+        {
+          "case": "gameplay",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/gameplay.txt",
+            "bytes": 1020,
+            "sha256": "53b9da1103049f098e525ab8bb587e05d4e85e8995340a6f8678c2c5771ecb4e"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/gameplay-transfer.json",
+            "bytes": 168979,
+            "sha256": "32aade649a950c46dfc8708930731682dbcffdfc54baeff4a20bf004ef1d0771"
+          },
+          "verified_device_image_count": 1437,
+          "started": "2026-11-11T18:16:10.643545+00:00",
+          "completed": "2026-11-11T18:16:20.650913+00:00"
+        },
+        {
+          "case": "freeze",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/freeze.txt",
+            "bytes": 910,
+            "sha256": "f6d9b6fe6412efbad9480e245426078d1174672a360552a08c3f714630187717"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/freeze-transfer.json",
+            "bytes": 168979,
+            "sha256": "d20d74e3b628c769ed1861fc3e95c8fd7a3e29b1f5ec0766b09bfa644f1f7b1c"
+          },
+          "verified_device_image_count": 1437,
+          "started": "2026-11-11T18:16:20.684743+00:00",
+          "completed": "2026-11-11T18:16:23.812538+00:00"
+        },
+        {
+          "case": "search-context",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/search-context.txt",
+            "bytes": 1058,
+            "sha256": "ad3c9dcdec5402e2aa406d284b1936faee046cac8659cae32dc2b7d351c84e98"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/search-context-transfer.json",
+            "bytes": 171212,
+            "sha256": "fc768f62fb2058d2545cfcd1b9c53d4495040cec05ab778dc3612c3e5b03b3ca"
+          },
+          "verified_device_image_count": 1457,
+          "started": "2026-11-11T18:16:23.846995+00:00",
+          "completed": "2026-11-11T18:17:00.672724+00:00"
+        },
+        {
+          "case": "seed-history",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Alpha-Testers/seed-history.txt",
+            "bytes": 4641,
+            "sha256": "0db67f13541dd30d46ad3298df6ee749c32c65b8fcf5f6b27956e6e20be1fbf6"
+          },
+          "status": "failed",
+          "assertion": "java.lang.AssertionError: The lookup writes no fixture log, cache or derived index expected:<{/runs/seed445-attempt-one.apdlog=8d54a9f07330cbcf56c4c85f1b0afc3954b51235443ca9acf2099cebd546c054, /runs/seed445-attempt-two.apdlog=d520cb212d1a639a47a9680a17181b8e898249d95d4ba5a49fded53871d16e03, /runs/seed445-exact-copy.apdlog=c1123625c4689dd6b188dc81e8ce9545627d8799bb4ec6e8f1060927f2b6871b}> but was:<{/derived/rows/runs-seed445-attempt-one.apdr=83e6f717fee248d430da2f040d16b65ec0c3673fdb5f80b9076e5f7dad9b8e28, /runs/seed445-attempt-one.apdlog=8d54a9f07330cbcf56c4c85f1b0afc3954b51235443ca9acf2099cebd546c054, /runs/seed445-attempt-two.apdlog=d520cb212d1a639a47a9680a17181b8e898249d95d4ba5a49fded53871d16e03, /runs/seed445-exact-copy.apdlog=c1123625c4689dd6b188dc81e8ce9545627d8799bb4ec6e8f1060927f2b6871b}>",
+          "original_owned_raw_log_hashes_unchanged": true,
+          "added_derived_rows": {
+            "/derived/rows/runs-seed445-attempt-one.apdr": "83e6f717fee248d430da2f040d16b65ec0c3673fdb5f80b9076e5f7dad9b8e28"
+          },
+          "class_method_reached_final_post_ranking_copy_assertion": true
+        },
+        {
+          "case": "pylon",
+          "status": "not_run_no_report"
+        }
+      ],
+      "retained_png_count": 1461,
+      "last_successful_complete_transfer_image_count": 1457,
+      "failed_case_partial_images_without_final_device_manifest": {
+        "seed-history-matching-records.png": "390971f5b9705ae12963051db39dca1328b72a7df8703c6fde6820c8b5f5a5fa",
+        "seed-history-latest-unknown-selection.png": "2ccabd9858fca85eeebfc918cce2ba804bf2abdb457985db80c1dc706807002e",
+        "seed-history-cleared-generated-selection.png": "5e78a4a33d71485faee665dd9db52a5c969832e91402897e13c0402d224a1fca",
+        "seed-history-entry.png": "10f078cf80c82394a98ec985d25b1f68d8e37030e0f8df34c42d0d90ba8f7818"
+      },
+      "missing_seed_capture_files": [
+        "seed-history-ranking-copy-confirm.png",
+        "seed-history-ranking-copy-result.png"
+      ],
+      "native_verification_receipt_exists": false,
+      "emulator_connected_after_assertion_failure": true,
+      "owned_fixture_cleanup_markers": [
+        "11-11 18:16:58.630 I/System.out( 5899): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true",
+        "11-11 18:17:13.293 I/System.out( 6320): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true"
+      ],
+      "complete_native_gate_passed": false
+    },
+    "Developer": {
+      "artifact_id": 13879969472,
+      "job_id": 130706066945,
+      "archive": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer-artifact-13879969472.zip",
+        "bytes": 51225255,
+        "sha256": "6836c78f75ae02c398ea0775a28aa8b99ba34355effbcf9363d98b7c6554b942"
+      },
+      "transport_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/artifact-13879969472-download-verification.json",
+        "bytes": 1327,
+        "sha256": "fa66c37771a96215ab4b1b5d58e28b56430dc26457136cfaf1ba091aa64363ce"
+      },
+      "terminal_job_log": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/native-Developer-job-130706066945.log",
+        "bytes": 42918,
+        "sha256": "376493d93e5e5fb20d20a9f294eef9b16cfee657fe1760f94daa8f8ddb75b8b4"
+      },
+      "raw_logcat": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/native-logcat.txt",
+        "bytes": 6188675,
+        "sha256": "9164c724861fdc565552ffaf81e3cc51b2f287beccfb84ac547632f30bc3c777"
+      },
+      "cases": [
+        {
+          "case": "qol",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/qol.txt",
+            "bytes": 1091,
+            "sha256": "2eb5043ec784813907da19cd81f69bfcd8a81fb0e9c6e266672ab32753ad166a"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/qol-transfer.json",
+            "bytes": 166840,
+            "sha256": "ed0f34ef8a180697c07022c88fd82ded2a1e9b472fba840ddf9da1c14f87c3fc"
+          },
+          "verified_device_image_count": 1419,
+          "started": "2026-11-11T18:00:44.684893+00:00",
+          "completed": "2026-11-11T18:16:12.653269+00:00"
+        },
+        {
+          "case": "wall",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/wall.txt",
+            "bytes": 1046,
+            "sha256": "d7467dc52b9650e5ff9d7ce60e5ebb8137af5de9a53492f063aa22691e6ab09b"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/wall-transfer.json",
+            "bytes": 167415,
+            "sha256": "2c7fbe591bead34bc7fd51b33920d6cca34d669db3cf25acfdcea4e6d4ca8b09"
+          },
+          "verified_device_image_count": 1424,
+          "started": "2026-11-11T18:16:12.685971+00:00",
+          "completed": "2026-11-11T18:16:24.630600+00:00"
+        },
+        {
+          "case": "seed",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/seed.txt",
+            "bytes": 1001,
+            "sha256": "118eae211aeea6ed86011af40e9d20eb69d7e95a422eefd6960c1c85b28e8330"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/seed-transfer.json",
+            "bytes": 167520,
+            "sha256": "95c14cc3675374c8e19bea453420887e5e3f9c7abbc1c11668d28e7b4be3d2e0"
+          },
+          "verified_device_image_count": 1425,
+          "started": "2026-11-11T18:16:24.663446+00:00",
+          "completed": "2026-11-11T18:16:29.539544+00:00"
+        },
+        {
+          "case": "restart",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/restart.txt",
+            "bytes": 1015,
+            "sha256": "78c3fdeb5758257528250c7416d72c37e2751690ec12d7d0871289acf80da29b"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/restart-transfer.json",
+            "bytes": 167738,
+            "sha256": "ecca1c4bb682fcb7d0ce8b333e6a3b8c10b6e6210d07cd059f202576463be165"
+          },
+          "verified_device_image_count": 1427,
+          "started": "2026-11-11T18:16:29.573942+00:00",
+          "completed": "2026-11-11T18:16:36.251951+00:00"
+        },
+        {
+          "case": "gameplay",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/gameplay.txt",
+            "bytes": 1021,
+            "sha256": "083d9afd6802a0c85e1300dc3afb8f31bb63e493df138e77ea8175ce3f98ad68"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/gameplay-transfer.json",
+            "bytes": 168979,
+            "sha256": "9dc6cde18c8b58f7b2d4285b8ca4b642f96430383253b6ba8346da5f24ab8a4e"
+          },
+          "verified_device_image_count": 1437,
+          "started": "2026-11-11T18:16:36.284708+00:00",
+          "completed": "2026-11-11T18:16:45.745886+00:00"
+        },
+        {
+          "case": "freeze",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/freeze.txt",
+            "bytes": 910,
+            "sha256": "deff74edecbb42f9eebd9bd2a0347adb3e386fde2f0c90d43913cbb4741d0fbe"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/freeze-transfer.json",
+            "bytes": 168979,
+            "sha256": "bf2917fadcaee1e53981f306c9f9f62281548903b4b3804789e46d796c2dfa05"
+          },
+          "verified_device_image_count": 1437,
+          "started": "2026-11-11T18:16:45.778634+00:00",
+          "completed": "2026-11-11T18:16:48.550155+00:00"
+        },
+        {
+          "case": "search-context",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/search-context.txt",
+            "bytes": 1058,
+            "sha256": "0c3bb9998e1b338a31defae5a2dbbb1a80482d5aa14831936fd6605144763fea"
+          },
+          "status": "passed",
+          "transfer": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/search-context-transfer.json",
+            "bytes": 171212,
+            "sha256": "98e4200855c9add3fb42344725a1c51950e79b61fed7e610cc8a91b21079cdae"
+          },
+          "verified_device_image_count": 1457,
+          "started": "2026-11-11T18:16:48.568045+00:00",
+          "completed": "2026-11-11T18:17:23.048229+00:00"
+        },
+        {
+          "case": "seed-history",
+          "report": {
+            "path": "/workspace/scratch/db82734c9c44/recovery/apd445-native-Developer/seed-history.txt",
+            "bytes": 5298,
+            "sha256": "7575c4a3d589a9a94eb5e32a8f3ede0aaed88ecf6102b23fdb8eabab4245cb3b"
+          },
+          "status": "failed",
+          "assertion": "java.lang.AssertionError: The lookup writes no fixture log, cache or derived index expected:<{/runs/seed445-attempt-one.apdlog=8d54a9f07330cbcf56c4c85f1b0afc3954b51235443ca9acf2099cebd546c054, /runs/seed445-attempt-two.apdlog=d520cb212d1a639a47a9680a17181b8e898249d95d4ba5a49fded53871d16e03, /runs/seed445-exact-copy.apdlog=c1123625c4689dd6b188dc81e8ce9545627d8799bb4ec6e8f1060927f2b6871b}> but was:<{/derived/rows/runs-seed445-attempt-one.apdr=83e6f717fee248d430da2f040d16b65ec0c3673fdb5f80b9076e5f7dad9b8e28, /derived/rows/runs-seed445-attempt-two.apdr=3ed2bb2c6864f4f8b420c495395a362e0e9b9043cb7d92c45d152f4d2300d5d1, /derived/rows/runs-seed445-exact-copy.apdr=aa2011b53bb29535c299d253b6e8c493af49618fa3061bac1e375e2653db3241, /runs/seed445-attempt-one.apdlog=8d54a9f07330cbcf56c4c85f1b0afc3954b51235443ca9acf2099cebd546c054, /runs/seed445-attempt-two.apdlog=d520cb212d1a639a47a9680a17181b8e898249d95d4ba5a49fded53871d16e03, /runs/seed445-exact-copy.apdlog=c1123625c4689dd6b188dc81e8ce9545627d8799bb4ec6e8f1060927f2b6871b}>",
+          "original_owned_raw_log_hashes_unchanged": true,
+          "added_derived_rows": {
+            "/derived/rows/runs-seed445-attempt-one.apdr": "83e6f717fee248d430da2f040d16b65ec0c3673fdb5f80b9076e5f7dad9b8e28",
+            "/derived/rows/runs-seed445-attempt-two.apdr": "3ed2bb2c6864f4f8b420c495395a362e0e9b9043cb7d92c45d152f4d2300d5d1",
+            "/derived/rows/runs-seed445-exact-copy.apdr": "aa2011b53bb29535c299d253b6e8c493af49618fa3061bac1e375e2653db3241"
+          },
+          "class_method_reached_final_post_ranking_copy_assertion": true
+        },
+        {
+          "case": "pylon",
+          "status": "not_run_no_report"
+        }
+      ],
+      "retained_png_count": 1461,
+      "last_successful_complete_transfer_image_count": 1457,
+      "failed_case_partial_images_without_final_device_manifest": {
+        "seed-history-matching-records.png": "390971f5b9705ae12963051db39dca1328b72a7df8703c6fde6820c8b5f5a5fa",
+        "seed-history-latest-unknown-selection.png": "2ccabd9858fca85eeebfc918cce2ba804bf2abdb457985db80c1dc706807002e",
+        "seed-history-cleared-generated-selection.png": "5e78a4a33d71485faee665dd9db52a5c969832e91402897e13c0402d224a1fca",
+        "seed-history-entry.png": "1dce010d74feaf361ca64b69140bd8b7e02cd6785e60719de52ee39c614f0076"
+      },
+      "missing_seed_capture_files": [
+        "seed-history-ranking-copy-confirm.png",
+        "seed-history-ranking-copy-result.png"
+      ],
+      "native_verification_receipt_exists": false,
+      "emulator_connected_after_assertion_failure": true,
+      "owned_fixture_cleanup_markers": [
+        "11-11 18:17:21.834 I/System.out( 5876): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true",
+        "11-11 18:17:34.720 I/System.out( 6285): APD445_OWNED_FIXTURE restored intro=false original_history_and_rankings_unchanged=true"
+      ],
+      "complete_native_gate_passed": false
+    }
+  },
+  "native_totals": {
+    "required": 18,
+    "passed_raw_reports": 14,
+    "failed_raw_reports": 2,
+    "not_run": 2
+  },
+  "source_traced_explanation": {
+    "runtime_fact": "Both final seed-history tree assertions failed on added derived rows; all three raw log digests remained identical.",
+    "call_chain": "The fixture creates logs and freezes a tree manifest before OwnedFixture.start() enters TitleScene. TitleScene invokes UimsdScene.prewarmTitle() for ApdRecorder.historyRoot(); UimsdWarmCache loads UimsdModel/DatasetStore, whose rowsFor() writes derived/rows/*.apdr.",
+    "attribution_limit": "The writer is identified by the frozen-source call path and exact derived-file naming, not an added runtime writer trace.",
+    "recommended_narrow_correction": "Initialize the owned hero and leave TitleScene before creating the owned seed logs and manifest. Preserve the full no-write assertion and all real UI callbacks. Review cleanup prewarm quiescence when integrating the fixture correction.",
+    "seed_lookup_production_change_indicated_by_this_failure": false,
+    "source_archive": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd445-built/source/APD-Source-445.zip",
+      "bytes": 110989450,
+      "sha256": "cce08754cd7ad4ee74eeff0ff5afebe4372e4ad6810eb8d22b23b0e7d46e9ec8"
+    },
+    "frozen_source_file_sha256": {
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java": "780d4dee6f28c42821a267c8396b821d07b7d97eb4ff484fd3ac37c60e2d3cf1",
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SearchContextDeviceTest.java": "23275ae2cebae2e258cf3c5ddb13a8e094db01619e0336d18e2c0c38efba65fe",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/TitleScene.java": "4a650976fa59d76cc1a01cb06e506dc9ccad29563174236f97832b130a57f9a7",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/UimsdScene.java": "c1d5660549647b92c83a5ee7a002929c32c72f445d487f47f0fe6e3f203264ec",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdWarmCache.java": "308c9ab65ff40b4bc33032bfc7c945ac90867f9024e6d7a3b557970bfca08803",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetStore.java": "813fda7775bfaf6a4135c626fd20f8ca5d0ba13115a19525c57c8911d8d3e355",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java": "551d180381d65943640ae2afd9dc603195c9869cef5c4f15654bd7accb164ea8",
+      "tools/apd_recover439_440.py": "18151f49436836d79edc3aa53d995272ee0c89c07c90e03b95f199bbfc010382",
+      "tools/apd_native_screenshot_transfer.py": "bdc1312ad65ecc69e90a8614d38d4ec469bf8b92e03d4ac45c8e59a2fb8dc713"
+    }
+  },
+  "failed_capture_limit": "The seed case reached the final assertion after ranking-copy callbacks and capture calls. On assertion failure, the collector stops before mandatory final sync; only four seed captures were retained. No complete failed-case image-transfer claim is made.",
+  "separate_available_history_scope_hold": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/acceptance-hold-available-seed-history.json",
+    "bytes": 1107,
+    "sha256": "03a1f79c088a149a3371aa7e487aa46ef106893a4c60990b104e31717639696a"
+  },
+  "owner_review_job_skipped": true,
+  "owner_artifact_exists": false,
+  "manual_visual_acceptance_performed": false,
+  "apks_rebuilt": false,
+  "workflow_retried": false,
+  "source_modified": false,
+  "github_mutated": false,
+  "publication_or_delivery_performed": false,
+  "inspection_script": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd445-build/inspect_terminal_diagnostics.py",
+    "bytes": 11530,
+    "sha256": "1bb2f214371f9de5446fbd721e43a62e8f345ab6405f2f43691dbd4107da4d7b"
+  }
+}

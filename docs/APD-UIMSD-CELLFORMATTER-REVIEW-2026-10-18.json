@@ -1,0 +1,90 @@
+{
+  "recorded_at": "2026-10-18T10:59:19Z",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellFormatter.java",
+    "previous_blob": "a9d19d87168490baae2e9df28c75d5afbfe1d6b5",
+    "corrected_blob": "a07b2d8a66ab75398917038695ac52835aa65482",
+    "lines": 323,
+    "complete": true,
+    "new_production_defect_confirmed": true
+  },
+  "defect": {
+    "reproduction": "Double parsing turns typed 1.005 hundredths into 100.49999999999999 and raw 100; the exact Long.MAX_VALUE hundredths text rounds to binary 2^63 and is rejected.",
+    "correction": "Exact BigDecimal scaling with Java Math.round-compatible floor(value + 0.5), followed by explicit long-range validation.",
+    "preserved": [
+      "stored/query numeric representation",
+      "aggregate math",
+      "raw history",
+      "saves",
+      "scoring",
+      "gameplay and RNG"
+    ]
+  },
+  "retained_test": {
+    "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellFormatterTest.java",
+    "blob": "b9a54b8d82024ea18cacd7143e925a783ca3325b",
+    "commit": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+    "methods": 7,
+    "new_method": "decimalFiltersUseTheTypedValueInsteadOfBinaryApproximation"
+  },
+  "core_verification": {
+    "run_id": 39120107057,
+    "conclusion": "success",
+    "started_at": "2026-10-18T10:39:23Z",
+    "completed_at": "2026-10-18T10:41:43Z",
+    "tests": 1821,
+    "suites": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 7,
+    "focused_seconds": 0.002,
+    "artifact_id": 12133164096,
+    "artifact_bytes": 849132,
+    "artifact_digest": "sha256:41cb9ac7c558ff55ec45dd57dbdfaacfb43fbc578f566413384fe822e065e635",
+    "downloaded_zip_digest_match": true
+  },
+  "application_source_changed": true,
+  "apk_rebuild_needed": false,
+  "full_candidate": "TEST278 verified private candidate",
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "full_verification": {
+    "request_commit": "87254f62f5430e1da050fdd77108e94495e78e77",
+    "run_id": 39120394227,
+    "conclusion": "success",
+    "completed_at": "2026-10-18T10:59:19Z",
+    "core": {
+      "tests": 1821,
+      "suites": 360,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12133953164,
+      "artifact_bytes": 851663,
+      "artifact_digest": "sha256:1d65bb29be0f49321f557872182b61623028d4b1b83e5839f00199c74dc129d4"
+    },
+    "android": {
+      "tests": 38,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "images_reviewed": 57,
+      "image_dimensions": "320x640",
+      "artifact_id": 12133859780,
+      "artifact_bytes": 4958627,
+      "artifact_digest": "sha256:fa5fb60aea30d498ba5760f7e463d652f79feaceb085ac4b9c92f4c1b2e33366"
+    },
+    "apk": {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-278.apk",
+      "bytes": 38615171,
+      "sha256": "3f7782068e1be78b9fc1f1e0e69b5ca2e880f0d9bacfc84c00a2ea0a476dbd30",
+      "artifact_id": 12133194546,
+      "artifact_bytes": 36116555,
+      "artifact_digest": "sha256:12c196dc60657c17b18583a02d8db326c977a345202586fb4b3c8ee717509809"
+    },
+    "history_previous_test": 277
+  }
+}

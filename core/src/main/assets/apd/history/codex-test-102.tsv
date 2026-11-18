@@ -1,0 +1,4 @@
+Quality of Life	ICON_INFO	TEST100 build date	Corrected TEST100's date to October 13 using its actual APK and successful build record.
+Testing	ITEM_POTION_HOLDER	Reliable native screenshots	Healing and statistics-input images are saved from the exact frames whose native buttons were verified as painted.
+Development	ICON_INFO	Verified artifact evidence	Recorded TEST101's delivered APK and extracted TEST100's original history without rebuilding it.
+Developer Commentary	V074_SHPX	Developer Commentary	I corrected TEST100's recorded date while retaining every original change. Visual checks now save the exact frame they inspected.

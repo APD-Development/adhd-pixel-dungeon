@@ -1,0 +1,19 @@
+{
+  "number": 431,
+  "source_commit": "5a8fe508d6d3f2a449c5a9b8fa9632e22f86dcb3",
+  "run_id": 42859611090,
+  "disposition": "HOLD: do not publish",
+  "reason": "The exact helper text says 1 weapon-ability charges and 1 Tome charges at rank two, and alternate Focused Meal can say +1 points. First defect confirmed by the new failing regression; native captures still pending. Correction is description-only.",
+  "original_artifact": {
+    "id": 13784282641,
+    "sha256": "537ef70c6a987ac6da63ef95ee0225de76321e3d5d775dea1b151d46f34602ac"
+  },
+  "core_tests": 3164,
+  "native_status": "in_progress at record time",
+  "manual_acceptance": false,
+  "original_apks_preserved": true,
+  "next_candidate": 432,
+  "manual_confirmation": "Actual Developer screenshots show 1 weapon-ability charges, 1 Tome charges and +1 points in the three affected meal talent contexts. Corrected source is being verified as APD432.",
+  "manual_review": "docs/APD-431-MANUAL-REJECTION.json",
+  "native_developer_status": "All six targeted cases passed on the exact original Developer APK"
+}

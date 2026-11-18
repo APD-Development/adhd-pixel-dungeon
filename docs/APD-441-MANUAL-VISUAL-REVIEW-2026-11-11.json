@@ -1,0 +1,752 @@
+{
+  "source_commit": "748f9c990284b61f74b39c5111646bcb1d395183",
+  "producing_run": 43026044936,
+  "variants": {
+    "Developer": {
+      "original_receipt_name": "APD441-Developer-Manual-Visual-Review.json",
+      "original_receipt_sha256": "38756ada963c921e28eb79455863c50f8ce9bfca83a8831184dc4f447c739102",
+      "receipt": {
+        "number": 441,
+        "variant": "Developer",
+        "accepted": true,
+        "acceptance_scope": "Targeted manual visual review of the six affected talent captures and thirteen required trap, wall and inventory regression captures, with the runtime-fixture limitation recorded below.",
+        "reviewed_utc": "2026-11-11T13:44:42.040232+00:00",
+        "source_commit": "748f9c990284b61f74b39c5111646bcb1d395183",
+        "producing_run": 43026044936,
+        "workflow": ".github/workflows/apd-excess-charge-441.yml",
+        "artifact_id": 13860259144,
+        "artifact_name": "apd441-native-Developer",
+        "artifact_file": "APD441-Developer-native.zip",
+        "artifact_bytes": 55108725,
+        "artifact_sha256": "9c896112bb836d92b50c7d0f5ce3c25e78570a39e51db5cd530c189d42c0167d",
+        "native_evidence_root": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer",
+        "native_verification_sha256": "497c87b3760042da8a22f5de5d5a8239b1c3511fb39a76e39ea5add3df04216a",
+        "candidate_provenance_sha256": "562a9dc1fafdf55fb0e6c40f9382711991055f60e1ba8e1c28e297e8fe91e62c",
+        "source_provenance_sha256": "30e68918d18481109d56ac99d497ae0e983f6b084221c95966b7c1ae54cec11a",
+        "apk_file": "/workspace/scratch/db82734c9c44/recovery/apd441-built/built/owner-delivery/APD-Developer-441.apk",
+        "apk_bytes": 39203933,
+        "apk_sha256": "ca3133202969f2c2e7fe58d751fbac4a767207aaa0b96b902c05d5e7d2af0fde",
+        "instrumentation_file": "/workspace/scratch/db82734c9c44/recovery/apd441-built/built/evidence/instrumentation.apk",
+        "instrumentation_sha256": "cb840ea9f690092e06e59c32a47507474ecb525b6e93299b15134660fbf186e3",
+        "binding_scope": "The exact downloaded native artifact hash was independently verified. Native, candidate and source receipts identify the same source commit. Actual APK and instrumentation bytes were independently hashed and match the native and candidate receipts. Each reviewed original image was independently hashed against the native image manifest.",
+        "native_image_count": 1414,
+        "full_size_review_count": 19,
+        "unique_images_seen": 19,
+        "contact_sheet_triage_count": 0,
+        "reviewed_images": [
+          {
+            "path": "visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "sha256": "be20af156e1bee247416d7f1ea518545a100ead2dc26f9435a9161a0f665eb13",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "sha256": "4b13c722b034d8795ebc818d816b1af8ff4e21d4ab6bbaf36fed4aa6ab9519ca",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "sha256": "75aee313f935be642db006fc641f7d2ad65f847f52e07a8a3d354d5f3113203c",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "sha256": "80e385cbb3621dc4b44237601f1e8e23d240a87fc9743eee21ab6d6dc23d986c",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-counter-ability-normal.png",
+            "sha256": "ee6a05fe06a7cd099f59e9cb5943d532a6df7fa3033a980aae1c5926b044b84d",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-counter-ability-normal-bottom.png",
+            "sha256": "e4178d41251f27d5f5098dc97739ac7f83d02c62be9f382270160f275dbefb29",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/trap-discovery-setting-on.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/trap-discovery-setting-restarted.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/trap-discovery-setting-off.png",
+            "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/trap-discovery-runtime-actual-ooze.png",
+            "sha256": "808638ccab763e2fe966912c5bab2428e1885441d0c85d7e4f6a3a4455101c28",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/wall-geometry-corner-no-false-check.png",
+            "sha256": "ce16e14d48b1d15321c202629a4c0cac16fdaa61ee2f91e93edbdd5140ce0afb",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/wall-geometry-valid-searched-face.png",
+            "sha256": "22b959fd98969211b8a0efe325f45eedadd14f23c444091dd93d73e75ddb43dc",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/wall-geometry-retained-after-zoom-pan-pause-rebuild.png",
+            "sha256": "81afe30bd81c708e23571394974f5bb1715c87c5e0b3073eb390132e908cd337",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/wall-geometry-door-no-stale-check.png",
+            "sha256": "1e274e973e6de1496064c507dcc5d7cdc5eac163d6355c0fc88c91297d7214be",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-automatic-inventory-0.png",
+            "sha256": "19943fd849a3a544246857f26ce31da26ec375a51f0dfd27af18133ef195703c",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-automatic-inventory-1.png",
+            "sha256": "09454e3db56c4e9f122a62b14e59570c53f5b5614e474b840eaaebcb6b06aeb4",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-automatic-inventory-2.png",
+            "sha256": "e29157664e31e39b78ca4785519da79e619bb1fefa7d2568efd4ecf2b239fc2d",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-automatic-inventory-3.png",
+            "sha256": "eab7abcccecb0f04650e11f520b599edf325cd694aa4c78309468aac19577e00",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          },
+          {
+            "path": "visuals/qol-automatic-inventory-4.png",
+            "sha256": "82615f7c960b37e86f6b879c122cb87206804a4bd838942ee964868e8336e081",
+            "width": 320,
+            "height": 640,
+            "review_mode": "full_size"
+          }
+        ],
+        "findings": [
+          {
+            "scope": "Excess Charge ordinary and ordinary-bottom captures",
+            "result": "All three ranks are readable in the ordinary window: 0.67, 1.34 and 2.01 shielding per effective level of the imbued wand. The last paragraph visibly includes temporary wand-level bonuses, rounding to the nearest whole shield point, and retaining a stronger existing Barrier instead of adding amounts. The whole ordinary body fits the viewport; the normal-bottom capture remains readable with the Show calculations control below it."
+          },
+          {
+            "scope": "Excess Charge expanded and expanded-bottom captures",
+            "result": "The expanded section shows current rank 2/3, round(effective wand level x 0.67 x rank), the 1.34 rank-two factor, and the effective imbued-wand level distinction. The bottom view includes stronger Barrier retention, no hidden-level revelation, and usual time/charge consumption, with its final line visible above Hide calculations. The intermediate expanded view has a partial preceding-text fragment at the top edge of the scroll viewport; the bottom view makes the final text fully reachable. No final-line obstruction or inaccessible description was observed."
+          },
+          {
+            "scope": "Counter Ability ordinary and ordinary-bottom captures",
+            "result": "The normal window visibly lists all four ranks as 0.38, 0.75, 1.13 and 1.5 charges. Rank two shows 0.75, not 0.77. The final rank and its last charges line are completely visible with bottom padding. No calculation section, raw formatting placeholder or final-line clipping appears in these two captures."
+          },
+          {
+            "scope": "Trap On, restarted and Off captures",
+            "result": "All three screenshots now show the actual Continue when traps are revealed row and its help. On and the fresh-process restarted view visibly show a checked control; Off visibly shows an unchecked control. The previous offscreen-row capture limitation is corrected for these APD441 images."
+          },
+          {
+            "scope": "Trap runtime Ooze capture",
+            "result": "The synthetic fixture image contains the gameplay HUD, a dark offset dungeon view and the floor-entry message. No readable Caustic ooze message or visible effect on the hero can be established from this frame. The passing gameplay report supports the runtime assertions; this image alone does not visually prove the Ooze effect, movement sequence or a natural generated-room route."
+          },
+          {
+            "scope": "Four wall captures",
+            "result": "The magenta searched-face mark is visible at the eligible wall and remains in the lifecycle capture. The corner and doorway captures have no stale mark at the fixture. All four original images were viewed at full size."
+          },
+          {
+            "scope": "Five inventory captures",
+            "result": "Backpack, Magical Holster, Potion Bandolier and Velvet Pouch contents, quantity/upgrade labels and bag controls are visible. The final Backpack view remains readable. No clipped inventory control or broken glyph was observed. Ordering semantics are supported by the native assertions rather than established solely from screenshots."
+          }
+        ],
+        "affected_description_checks": {
+          "excess_charge_factors": [
+            0.67,
+            1.34,
+            2.01
+          ],
+          "effective_imbued_wand_level_visible": true,
+          "temporary_bonuses_visible": true,
+          "nearest_whole_rounding_visible": true,
+          "stronger_barrier_retained_visible": true,
+          "excess_charge_final_text_reachable": true,
+          "counter_ability_rank_two": 0.75,
+          "counter_ability_all_four_ranks_and_final_line_visible": true
+        },
+        "trap_visible_states": {
+          "on": "checked",
+          "restarted": "checked",
+          "off": "unchecked"
+        },
+        "trap_process_evidence": {
+          "log_path": "native-logcat.txt",
+          "log_sha256": "4105158adf7be5e77d9632048b63c4f744c483a21eadc4ccca7dc2103ab7712a",
+          "seed_pid": 4926,
+          "restart_pid": 5116,
+          "different_processes": true,
+          "marker_lines": [
+            "11-11 13:41:26.500 I/System.out( 4926): TRAP_PERSIST_SEED_PID=4926",
+            "11-11 13:41:32.004 I/System.out( 5116): TRAP_PERSIST_VERIFY_PID=5116"
+          ],
+          "fatal_exception_marker_count": 0
+        },
+        "native_case_output_binding": [
+          {
+            "case": "qol",
+            "path": "qol.txt",
+            "sha256": "ace4de57668aedd9d345d7eccf09c1110bb48c9224dd25952bd58c79c059c54f",
+            "terminal": "OK (1 test); INSTRUMENTATION_CODE: -1"
+          },
+          {
+            "case": "wall",
+            "path": "wall.txt",
+            "sha256": "5dd5443b0a8cadd48002020859c865a9d03b15c217229cd84099ef11a43e8f20",
+            "terminal": "OK (1 test); INSTRUMENTATION_CODE: -1"
+          },
+          {
+            "case": "seed",
+            "path": "seed.txt",
+            "sha256": "f6dadc0f38b5ca2e050656c6dc97b58d5bf3067a86087f391132fa659c3c017a",
+            "terminal": "OK (1 test); INSTRUMENTATION_CODE: -1"
+          },
+          {
+            "case": "restart",
+            "path": "restart.txt",
+            "sha256": "4e8c703f49cf5e6a828a0f48966df429d3c170d81c4d0dd523e326d4174e7c87",
+            "terminal": "OK (1 test); INSTRUMENTATION_CODE: -1"
+          },
+          {
+            "case": "gameplay",
+            "path": "gameplay.txt",
+            "sha256": "03e8e737c49d9e447990f9cc3f0dfc42576cf16b19c3d8645be1c3b7652393a4",
+            "terminal": "OK (1 test); INSTRUMENTATION_CODE: -1"
+          },
+          {
+            "case": "freeze",
+            "path": "freeze.txt",
+            "sha256": "84677231e67fb60a8f62e64a93940e5f194476bb6021151687284ca4e9a13f00",
+            "terminal": "OK (1 test); INSTRUMENTATION_CODE: -1"
+          }
+        ],
+        "pylon_specific_native_screenshot_names": [],
+        "targeted_native_pylon_behavior_verified_by_this_review": false,
+        "limitations": [
+          "19 original captures were viewed at full size. This review does not claim full-size inspection of all 1414 images.",
+          "The runtime Ooze frame does not independently depict the asserted effect clearly; runtime correctness is supported by the passing native assertions.",
+          "The intermediate expanded Excess Charge viewport clips a preceding-text fragment at its top edge during scrolling; the final text is fully visible in the bottom capture.",
+          "Synthetic emulator fixtures only; no physical-phone, acoustic-audio, full gameplay audit or natural-seed claim.",
+          "No targeted native pylon gameplay verification is established by this manual review."
+        ],
+        "application_rebuilt_during_native_verification": false,
+        "instrumentation_rebuilt_during_native_verification": false,
+        "physical_phone_verified": false
+      }
+    },
+    "Alpha-Testers": {
+      "original_receipt_name": "APD441-Alpha-Testers-Manual-Visual-Review.json",
+      "original_receipt_sha256": "7bd6d06d3aedab74b5d06a4c68fea5fde72466f9dfbec837a2f85e7e255c1973",
+      "receipt": {
+        "build": 441,
+        "variant": "Alpha-Testers",
+        "review_completed_utc": "2026-11-11T13:43:21.816275+00:00",
+        "producing_run": 43026044936,
+        "source_commit": "748f9c990284b61f74b39c5111646bcb1d395183",
+        "source_archive_sha256": "41b4ca10a168a49c3afcf4afc4f66c2facfff53b22668444c47ab9f5c303d1d0",
+        "apk_sha256": "f4fc33b038331969729a5d0bca5c6b52bb36d1ac451e19deb877f9c5f7f66370",
+        "instrumentation_sha256": "cb840ea9f690092e06e59c32a47507474ecb525b6e93299b15134660fbf186e3",
+        "native_artifact_id": 13859164934,
+        "native_artifact_name": "apd441-native-Alpha-Testers",
+        "native_artifact_zip": "/workspace/scratch/db82734c9c44/recovery/APD441-Alpha-Testers-native.zip",
+        "native_artifact_sha256": "019802f33855597c410320488ec4f6c83d703527e2b23e3320b6f04fc4f0d99a",
+        "producer_receipt": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd441-built/built/evidence/candidate-provenance.json",
+          "sha256": "562a9dc1fafdf55fb0e6c40f9382711991055f60e1ba8e1c28e297e8fe91e62c"
+        },
+        "native_receipt": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/native-verification.json",
+          "sha256": "86641b56d3a016c0c14f2fea5bcc340f57a1729ea8134a9bdad39654c99750a3"
+        },
+        "technical_verification_receipt": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/APD441-Alpha-Testers-Independent-Verification.json",
+          "sha256": "72d9a12bfc8aa8b6410150c29e13c74715c074b8eb4995fcae335b600332f281",
+          "all_png_decoding_and_transfer_manifests_verified_by": "apd_build_failure"
+        },
+        "native_cases": [
+          {
+            "case": "qol",
+            "report": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/qol.txt",
+            "sha256": "275f2473e2db2f97c09f6d29963b2613a55426919ccbb21ee3c272b13c8ed171",
+            "result": "passed one original native test"
+          },
+          {
+            "case": "wall",
+            "report": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/wall.txt",
+            "sha256": "3dae3e42462e9bacbd014045c8ec09b6b8d21e97d5f835c3df60caae5a4a7067",
+            "result": "passed one original native test"
+          },
+          {
+            "case": "seed",
+            "report": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/seed.txt",
+            "sha256": "4e7b2d95cea4c3480fafe7456a201272490f822dba0e427fc1d88aec0c88299e",
+            "result": "passed one original native test"
+          },
+          {
+            "case": "restart",
+            "report": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/restart.txt",
+            "sha256": "81928a6fd5a716c3bde5e0721faf2370c30ec1f9ee24a44ea02ec1396376740a",
+            "result": "passed one original native test"
+          },
+          {
+            "case": "gameplay",
+            "report": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/gameplay.txt",
+            "sha256": "21c4808f90b3805c0f023739dcf6ed675b7adcd16ee8f909664b8044ccaf3e43",
+            "result": "passed one original native test"
+          },
+          {
+            "case": "freeze",
+            "report": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/freeze.txt",
+            "sha256": "33d0608cec1170ba04ab9ad0f7264838aea2940a13229ec7e2349003d3d5ee4d",
+            "result": "passed one original native test"
+          }
+        ],
+        "png_inventory_count": 1414,
+        "all_png_hashes_rechecked_against_native_receipt": true,
+        "trap_persistence": {
+          "seed_pid": 4883,
+          "restart_pid": 5076,
+          "distinct_processes_verified": true,
+          "log_path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/native-logcat.txt",
+          "log_sha256": "f8642b28a06704a29c4e8d04802b22d75c175fbf6043ffcd89e76d684adc7596",
+          "enabled_and_restarted_checkbox_visibly_checked": true,
+          "reopened_off_checkbox_visibly_unchecked": true
+        },
+        "review_method": "Actually viewed each listed original 320x640 PNG through image viewing, without resizing or screenshot replacement. No contact-sheet-only acceptance for these 25 frames.",
+        "original_size_images_reviewed": 25,
+        "required_images_reviewed": 19,
+        "bounded_regression_images_reviewed": 6,
+        "reviewed_images": [
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "name": "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "sha256": "6188c9547e848a43224b34eeea2f93d71844903ee3c35a820daa7dba89624351",
+            "width": 320,
+            "height": 640,
+            "category": "Excess Charge required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "name": "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "sha256": "6188c9547e848a43224b34eeea2f93d71844903ee3c35a820daa7dba89624351",
+            "width": 320,
+            "height": 640,
+            "category": "Excess Charge required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "name": "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "sha256": "4b5aa85c2332a3d3fb4cb5393d83e415c591bbd13753eab721e2dc52b9441ac0",
+            "width": 320,
+            "height": 640,
+            "category": "Excess Charge required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "name": "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "sha256": "f597f90537fc6713029a531a26e1ded309b8067ca347e606085e45c2c07428c4",
+            "width": 320,
+            "height": 640,
+            "category": "Excess Charge required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-counter-ability-normal.png",
+            "name": "qol-counter-ability-normal.png",
+            "sha256": "e62aa34a76e6509f0c96bf3f577d5a43ca565ddbe5073da432f5d0b3ce30359f",
+            "width": 320,
+            "height": 640,
+            "category": "Counter Ability required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-counter-ability-normal-bottom.png",
+            "name": "qol-counter-ability-normal-bottom.png",
+            "sha256": "e62aa34a76e6509f0c96bf3f577d5a43ca565ddbe5073da432f5d0b3ce30359f",
+            "width": 320,
+            "height": 640,
+            "category": "Counter Ability required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/trap-discovery-setting-on.png",
+            "name": "trap-discovery-setting-on.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "width": 320,
+            "height": 640,
+            "category": "Trap required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/trap-discovery-setting-restarted.png",
+            "name": "trap-discovery-setting-restarted.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac",
+            "width": 320,
+            "height": 640,
+            "category": "Trap required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/trap-discovery-setting-off.png",
+            "name": "trap-discovery-setting-off.png",
+            "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4",
+            "width": 320,
+            "height": 640,
+            "category": "Trap required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/trap-discovery-runtime-actual-ooze.png",
+            "name": "trap-discovery-runtime-actual-ooze.png",
+            "sha256": "617e1a24b070ce630efd147d80b24c445033674020b567adb73eca612b74dc18",
+            "width": 320,
+            "height": 640,
+            "category": "Trap required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/wall-geometry-valid-searched-face.png",
+            "name": "wall-geometry-valid-searched-face.png",
+            "sha256": "aaa0ba28519f882d1496bf82dcfa04f024b5842f4f728f807b694c34f1cbf81e",
+            "width": 320,
+            "height": 640,
+            "category": "Wall required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/wall-geometry-corner-no-false-check.png",
+            "name": "wall-geometry-corner-no-false-check.png",
+            "sha256": "b8750626a6a2d41bfc4ff49725e275673c4f58f8a475d0f70f72d3b82dc7f060",
+            "width": 320,
+            "height": 640,
+            "category": "Wall required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/wall-geometry-door-no-stale-check.png",
+            "name": "wall-geometry-door-no-stale-check.png",
+            "sha256": "ae249f9e9460a0c45aba0030410852b81e30e0081339c955514035832be234b5",
+            "width": 320,
+            "height": 640,
+            "category": "Wall required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/wall-geometry-retained-after-zoom-pan-pause-rebuild.png",
+            "name": "wall-geometry-retained-after-zoom-pan-pause-rebuild.png",
+            "sha256": "a6797df922079ca46f482a282b3bbda4284c911412a35a86a9b446ee48a26985",
+            "width": 320,
+            "height": 640,
+            "category": "Wall required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-automatic-inventory-0.png",
+            "name": "qol-automatic-inventory-0.png",
+            "sha256": "734d436c7f0da7b99e3cf977fa92ab835b0de430454473b68d02b59cac01bd9f",
+            "width": 320,
+            "height": 640,
+            "category": "Inventory required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-automatic-inventory-1.png",
+            "name": "qol-automatic-inventory-1.png",
+            "sha256": "afe46eff853544d504cea35c4d222eae6937c5cf09b91e786513965e85bb2161",
+            "width": 320,
+            "height": 640,
+            "category": "Inventory required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-automatic-inventory-2.png",
+            "name": "qol-automatic-inventory-2.png",
+            "sha256": "cc39ebef0825676b7acd8ebb656f72a6b8c8d96a126c380f9b66bae847533384",
+            "width": 320,
+            "height": 640,
+            "category": "Inventory required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-automatic-inventory-3.png",
+            "name": "qol-automatic-inventory-3.png",
+            "sha256": "03a4fc22ecb80896da958b095407a9e50e71c1a34a1eadbb8aea23a27c1606d3",
+            "width": 320,
+            "height": 640,
+            "category": "Inventory required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-automatic-inventory-4.png",
+            "name": "qol-automatic-inventory-4.png",
+            "sha256": "fb9fb16071cf876a2ded7cdab09b8af4d7cdfe1469e9ac319bb53fe5dd2f2926",
+            "width": 320,
+            "height": 640,
+            "category": "Inventory required",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-known-sword-hidden-twin-upgrade.png",
+            "name": "qol-known-sword-hidden-twin-upgrade.png",
+            "sha256": "c760aba52afe52ffd2937ea650bba844e4822a4ea3c9694b119e260eaaea7414",
+            "width": 320,
+            "height": 640,
+            "category": "Bounded existing-panel regression",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-known-sword-hidden-twin-upgrade-bottom.png",
+            "name": "qol-known-sword-hidden-twin-upgrade-bottom.png",
+            "sha256": "78ef918e7e7c2c99aff3198a768ca5242177bf883b39050db20bb5dac29f50d4",
+            "width": 320,
+            "height": 640,
+            "category": "Bounded existing-panel regression",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-wand-open-preserves-infusion-WandOfMagicMissile.png",
+            "name": "qol-wand-open-preserves-infusion-WandOfMagicMissile.png",
+            "sha256": "67af8dd37602b9be95d1c062ea9ab6539769325b30bb9feb6c8c9e8469daf369",
+            "width": 320,
+            "height": 640,
+            "category": "Bounded existing-panel regression",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-wand-open-preserves-infusion-WandOfMagicMissile-bottom.png",
+            "name": "qol-wand-open-preserves-infusion-WandOfMagicMissile-bottom.png",
+            "sha256": "699bcf9fc642bfed87710c145256ca8c3b0e06bcc47a400b3e098bf3dd1abbf9",
+            "width": 320,
+            "height": 640,
+            "category": "Bounded existing-panel regression",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-reviewed-ability-all-Feint-normal.png",
+            "name": "qol-reviewed-ability-all-Feint-normal.png",
+            "sha256": "99672872a98ba7829d80206a70a22ec79cc1fee379f5b3c0db7e71350673f513",
+            "width": 320,
+            "height": 640,
+            "category": "Bounded existing-panel regression",
+            "actually_viewed_original_size": true
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Alpha-Testers/visuals/qol-reviewed-ability-all-Feint-bottom.png",
+            "name": "qol-reviewed-ability-all-Feint-bottom.png",
+            "sha256": "067f69959380e2de03e2bf6b6d1f470c66994cc40072cb616d2abb5eb606039d",
+            "width": 320,
+            "height": 640,
+            "category": "Bounded existing-panel regression",
+            "actually_viewed_original_size": true
+          }
+        ],
+        "visual_findings": [
+          {
+            "scope": "Excess Charge normal and normal-bottom",
+            "result": "pass",
+            "observation": "All three rank values 0.67, 1.34 and 2.01 visibly appear with shielding per effective level of its imbued wand. Temporary wand-level bonuses, nearest-whole-point rounding, stronger existing Barrier preservation and amounts not adding together are readable. The whole ordinary description fits in both captures, including its final line and Show calculations button."
+          },
+          {
+            "scope": "Excess Charge expanded and bottom",
+            "result": "pass",
+            "observation": "Expanded view visibly gives current rank 2/3 and the existing effective-wand formula with the 1.34 factor. Its longer body scrolls; the bottom capture shows the stronger-Barrier rule and final usual time and charges line above the Hide calculations button. Cropped text at the opposite scroll edge is expected; no unreachable ending was observed."
+          },
+          {
+            "scope": "Counter Ability normal and normal-bottom",
+            "result": "pass",
+            "observation": "Rank +2 visibly reads 0.75 charges. Other ranks visibly retain 0.38, 1.13 and 1.5. No 0.77 or expanded-calculation prose appears. All four rank paragraphs and their final lines fit inside the ordinary window in both captures."
+          },
+          {
+            "scope": "Trap on, restarted and Off",
+            "result": "pass",
+            "observation": "The Continue when traps are revealed checkbox and its complete description are now visible in all three settings frames. On and restarted show a filled checked box; reopened Off shows an empty unchecked box. Adjacent sections are partly outside the scrolled viewport, as expected; the reviewed setting is not clipped."
+          },
+          {
+            "scope": "Trap runtime",
+            "result": "pass",
+            "observation": "The live gameplay capture visibly shows Caustic Ooze feedback and its green effect below the hero. Actual runtime assertions and the distinct process IDs are recorded separately from this visual observation."
+          },
+          {
+            "scope": "Four wall geometry frames",
+            "result": "pass",
+            "observation": "The searched-face and retained-state images show the continuous wall face; corner and door variants show their distinct gap/door geometry without an unexpected overlay bridging it. No visible rendering break was observed in these four selected frames; the original native wall assertions also passed."
+          },
+          {
+            "scope": "Five automatic-inventory frames",
+            "result": "pass",
+            "observation": "Backpack, Magical Holster, Potion Bandolier and Velvet Pouch headings, item grids, numeric indicators and selected tabs remain visible. The final Backpack frame also renders its reordered items. No unexpected window clipping or overlapping controls was observed."
+          },
+          {
+            "scope": "Six bounded regression frames",
+            "result": "pass",
+            "observation": "Hidden Twin Upgrades sword top/bottom retain readable explanation and action buttons; Magic Missile wand top/bottom retain the visible +5 title, damage text and buttons. Feint normal/bottom remain readable, including four-turn Haste/Weakness/Vulnerable values and the existing 0.75 weapon-ability refund. These are sampled existing-panel regressions, not new gameplay features."
+          }
+        ],
+        "native_assertion_support": "The passing QoL case asserts actual talent text, final-line reachability and unchanged hero HP/time; visual review independently checked the pixels in the listed captures.",
+        "blocking_visual_defects_found": [],
+        "manual_visual_review_complete": true,
+        "limits": [
+          "Only the 25 listed images received actual original-size manual review; no claim that all 1414 images were read visually.",
+          "Image hashing and decoding do not replace visual review; the independent receipt covers all 1414 PNGs technically.",
+          "This acceptance uses Android emulator captures, not physical-phone installation or install-over testing.",
+          "No acoustic or listening test was performed.",
+          "No dedicated native DM300/pylon gameplay capture is claimed by this review; targeting behavior is covered separately by actual-handler core tests.",
+          "This receipt does not claim APD441 delivery or GitHub release publication."
+        ],
+        "code_or_rules_modified": false,
+        "application_or_instrumentation_rebuilt_by_review": false,
+        "github_or_library_mutation_performed": false
+      }
+    }
+  },
+  "root_affected_review": {
+    "receipt_sha256": "8a6ce89bc83f1fdcb7cee914e8cedd4af2b00f240282f991d693232d7d9bb308",
+    "receipt": {
+      "Developer": {
+        "actually_viewed_original_size_images": 8,
+        "images": [
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "sha256": "be20af156e1bee247416d7f1ea518545a100ead2dc26f9435a9161a0f665eb13"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "sha256": "4b13c722b034d8795ebc818d816b1af8ff4e21d4ab6bbaf36fed4aa6ab9519ca"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "sha256": "75aee313f935be642db006fc641f7d2ad65f847f52e07a8a3d354d5f3113203c"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "sha256": "80e385cbb3621dc4b44237601f1e8e23d240a87fc9743eee21ab6d6dc23d986c"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/qol-counter-ability-normal.png",
+            "sha256": "ee6a05fe06a7cd099f59e9cb5943d532a6df7fa3033a980aae1c5926b044b84d"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/qol-counter-ability-normal-bottom.png",
+            "sha256": "e4178d41251f27d5f5098dc97739ac7f83d02c62be9f382270160f275dbefb29"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/trap-discovery-setting-restarted.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac"
+          },
+          {
+            "path": "/workspace/scratch/db82734c9c44/recovery/native-441-Developer/visuals/trap-discovery-setting-off.png",
+            "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4"
+          }
+        ],
+        "findings": [
+          "Ordinary Excess Charge factors and effective wand-level wording readable; full ordinary text fits.",
+          "Expanded bottom scroll reaches final sentence.",
+          "Counter Ability rank +2 visibly shows 0.75 and all four ranks fit.",
+          "Trap Restarted checked and Off unchecked, complete setting description visible."
+        ],
+        "limitations": [
+          "Root review covers these eight frames; other manual scope is recorded by the assigned reviewers.",
+          "No physical phone, audio, or install-over test."
+        ]
+      },
+      "Alpha-Testers": {
+        "actually_viewed_original_size_images": 8,
+        "images": [
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+            "sha256": "6188c9547e848a43224b34eeea2f93d71844903ee3c35a820daa7dba89624351"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+            "sha256": "6188c9547e848a43224b34eeea2f93d71844903ee3c35a820daa7dba89624351"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+            "sha256": "4b5aa85c2332a3d3fb4cb5393d83e415c591bbd13753eab721e2dc52b9441ac0"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+            "sha256": "f597f90537fc6713029a531a26e1ded309b8067ca347e606085e45c2c07428c4"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/qol-counter-ability-normal.png",
+            "sha256": "e62aa34a76e6509f0c96bf3f577d5a43ca565ddbe5073da432f5d0b3ce30359f"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/qol-counter-ability-normal-bottom.png",
+            "sha256": "e62aa34a76e6509f0c96bf3f577d5a43ca565ddbe5073da432f5d0b3ce30359f"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/trap-discovery-setting-restarted.png",
+            "sha256": "e8330090d6bda121b72b9c190f019a98791a2f7e8875114907e185e575b34aac"
+          },
+          {
+            "path": "recovery/native-441-Alpha-Testers/visuals/trap-discovery-setting-off.png",
+            "sha256": "e6a0763b81028bbdb02bebd5fc349986d82b6cac24be1058db06d187fae6b2a4"
+          }
+        ],
+        "findings": [
+          "Ordinary Excess Charge factors and effective wand-level wording readable; full ordinary text fits.",
+          "Expanded bottom scroll reaches final sentence.",
+          "Counter Ability rank +2 visibly shows 0.75 and all four ranks fit.",
+          "Trap Restarted checked and Off unchecked, complete setting description visible."
+        ],
+        "limitations": [
+          "Root review covers these eight frames; other manual scope is recorded by the assigned reviewers.",
+          "No physical phone, audio, or install-over test."
+        ]
+      }
+    }
+  },
+  "physical_phone_or_audio_verified": false
+}

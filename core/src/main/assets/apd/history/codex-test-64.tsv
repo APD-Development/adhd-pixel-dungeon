@@ -1,0 +1,16 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Infrastructure	ICON_STATS	codex-uimsd-resource-check	Added the codex-uimsd-resource-check development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Resources Device Test	Added a device test covering replacing Home Contents Disposes Previously Drawn Images. These are development checks, not a gameplay feature.
+Quality of Life	ICON_STATS	Statistics Content	Added snapshot because destroying a child may detach it from its parent.
+Quality of Life	ICON_STATS	Statistics Home Pane	Destroyed replaced owned graphics contents to release previously drawn image buffers.
+Testing	ICON_STATS	Statistics Content Test 1	Added a test covering replaced Children Are Disposed Once. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Content Test 2	Added a test covering replacement Container Remains Reusable. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Content Test 3	Added a test covering nested Resources Are Disposed. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Content Test 4	Added a test covering child Detaching During Destruction Does Not Skip Sibling. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Content Test 5	Added a test covering removed Children Are Not Destroyed By Former Owner. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Updated apd-next-build-history accompanying this build.
+Development	ICON_INFO	APD-TEST63-REPORT-2026-10-12	Added apd-test63-report-2026-10-12 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added snapshot because destroying a child may detach it from its parent. Destroyed replaced owned graphics contents to release previously drawn image buffers.

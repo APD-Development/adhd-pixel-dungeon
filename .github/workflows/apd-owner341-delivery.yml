@@ -1,0 +1,31 @@
+name: Deliver verified APD341 APK pair
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-owner341-delivery.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - run: python3 -m pip install pillow
+      - name: Verify accepted existing APKs and privately publish without rebuilding
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APD_OWNER_SOURCE: acb69c653033ee0d8df68264395ca27e08eb566d
+          APD_ACCEPTANCE_SOURCE: 5b0191ed33bc8c3704fa614d140a595c177718ce
+          APD_OWNER_RUNS: '{"developer":40976774216,"player":40976774195,"display":40977742855,"native":40977742908}'
+        run: python3 tools/apd_publish_owner341.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-owner341-delivery-evidence
+          path: owner341-delivery/
+          if-no-files-found: warn
+          retention-days: 7

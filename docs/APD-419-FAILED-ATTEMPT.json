@@ -1,0 +1,11 @@
+{
+  "source": "8366b181eff3f8d45450cb94552109ee78ec2b65",
+  "run": 42647322788,
+  "core_tests": 3142,
+  "core_passed": true,
+  "stage": "Android instrumentation Java compilation",
+  "reason": "Two calls to TopScoresDeviceTest.find in new popup-test Runnable callbacks did not catch its checked Exception.",
+  "application_apks_produced": 0,
+  "published": false,
+  "correction": "Wrap those two test render callbacks using existing RuntimeException pattern. No production calculation changes. Run separate no-APK source verification before next numbered candidate."
+}

@@ -1,0 +1,31 @@
+Quality of Life	ICON_PREFS	Enhanced Tile Visibility	Added an optional stronger native tile-shading setting while preserving the original terrain art and visual preference.
+Quality of Life	ICON_STAIRS	Automatic Stair Navigation	Added normal walking routes to discovered upstairs and downstairs, stopping at the destination without changing floors.
+Changes	ICON_STAIRS	Safe stair movement	Stair navigation stops for enemies, damage, blocked routes and known hazards; ordinary movement remains unchanged.
+Quality of Life	ICON_STAIRS	Compact stair controls	Added one native staircase control with Up and Down choices alongside the existing dungeon controls.
+Quality of Life	ICON_TARGET	Known stair highlight	Selecting discovered stairs briefly highlights their exact tile without exposing undiscovered terrain or replacing combat warnings.
+Changes	ICON_PREFS	Saved accessibility choices	Added persistent Enhanced Tile Visibility and Automatic Stair Navigation choices, both off by default.
+Testing	ICON_STAIRS	Android travel and visibility	Added real-touch stair-menu checks, travel and interruption checks, save/reload checks and original/enhanced screenshots at two zoom levels.
+Testing	ICON_STAIRS	Cleric and stair layout	Extended Android overlap checks to include the stair control alongside all four Cleric spell buttons.
+Infrastructure	ICON_CHECKED	Android visual evidence	Added six required gameplay screenshots to the artifact checks alongside the existing five history comparisons.
+Infrastructure	ICON_CHECKED	Verified private staging	Staged the tested preceding APK with exact signer, checksum, source and test evidence before preparing the new features.
+Development	ICON_INFO	Current verification record	Updated the shared handoff, reports and full build request, including the blocked TEST71 attempt without an APK.
+Testing	ICON_PREFS	Original Visuals And Existing Controls Are The Defaults	Added a check that both new options preserve the original visuals and controls by default.
+Testing	ICON_PREFS	Both Options Persist Across Preference Reload	Added a check that both choices remain saved across preference reloads.
+Testing	ICON_PREFS	Turning Enhancement Off Preserves The Original Grid Choice	Added a check that disabling tile enhancement restores the player's original visual-grid choice.
+Testing	ICON_STAIRS	Damage Cancels Even When Normal Damage Interruption Was Disabled	Added a regression check that taking damage cancels stair travel even when ordinary damage interruption was disabled.
+Testing	ICON_STAIRS	Restored Hero Does Not Resume Transient Navigation	Added a save regression check that the hero's position and health survive reload without restarting transient stair travel.
+Testing	ICON_STAIRS	Walking Pays The Normal Movement Cost Without Changing Floors	Added a real movement check for normal turn cost and unchanged floor depth.
+Testing	ICON_STAIRS	Offscreen And Obscured Known Stairs Still Have Exact Destinations	Added a check that known stairs outside the current field of view remain valid destinations while unknown stairs remain concealed.
+Testing	ICON_STAIRS	Both Directions Choose Only Their Own Stair	Added a check that upstairs and downstairs resolve to their corresponding destinations.
+Testing	ICON_STAIRS	Undiscovered Stair Does Not Expose Its Location	Added a check that undiscovered stairs cannot expose a destination.
+Testing	ICON_STAIRS	Mapped Stairs Are Already Known	Added a check that previously mapped stairs count as discovered.
+Testing	ICON_STAIRS	Missing Direction Cannot Fall Back To Other Stair	Added a check that a missing staircase cannot silently select the opposite direction.
+Testing	ICON_STAIRS	Known Traps And Pits Are Unsafe But Secret Traps Are Not Revealed	Added a check that known active traps and pits are avoided without revealing secret traps.
+Testing	ICON_STAIRS	Blocked Avoided And Unknown Tiles Are Unsafe	Added a check that blocked, unsafe and unexplored tiles cannot enter a stair route.
+Testing	ICON_STAIRS	Visible Fire Is Unsafe Without Revealing Unseen Gas	Added a check that visible environmental danger blocks travel without exposing unseen effects.
+Testing	ICON_STAIRS	Enemy Prevents Navigation Without Using A Turn	Added a check that a visible enemy prevents stair travel without consuming a turn.
+Testing	ICON_STAIRS	Normal Move Is Selected Instead Of Floor Transition	Added a check that selecting stairs creates a normal movement action instead of a floor-transition action.
+Testing	ICON_STAIRS	Manual Cancellation Cannot Resume A Stale Stair Route	Added a check that cancelled stair travel cannot be resumed as a stale route.
+Testing	ICON_STAIRS	Blocked Stair Has No Route	Added a check that blocked stairs return an unavailable-route message.
+Testing	ICON_STAIRS	Navigation Does Not Consume Randomness Or Change Terrain	Added a check that selecting a stair route leaves gameplay randomness and terrain unchanged.
+Developer Commentary	V074_SHPX	Developer Commentary	I added optional tile contrast and a shortcut for walking to known stairs. Both preserve ordinary game turns and saves, with new checks for interruption, layout and visual behavior.

@@ -1,0 +1,12 @@
+Changes	V061_BUGFIX	CellDamageOrigins	Carry the strongest electrical field's exact mixed ownership into connected water.
+Changes	V063_MAGICMISSILE	Electricity	Preserve electrical source contributions through water spread, clearing and saves.
+Changes	V063_MAGICMISSILE	Player electrical fields	Mark Shocking Brew, Elemental Blast and Elemental Strike electricity as player-created.
+Changes	V061_BUGFIX	Boss electrical fields	Apply Boss Damage once to Tengu shockers and DM-300 pylon energy.
+Changes	V061_BUGFIX	ElectricityDamageProvenanceTest	Retain source, spread, save, legacy, neutral and actual-caller regressions.
+Changes	V061_BUGFIX	TEST140 evidence	Retain exact TEST140 verification and scheduling checkpoint.
+Changes	V061_BUGFIX	TEST141 report	Record the electricity candidate, limits and pending checks.
+Changes	V061_BUGFIX	Handoff and ledger	Record exact candidate scope and keep unresolved damage work visible.
+Changes	V061_BUGFIX	Build request	Request one complete exact-source TEST141 verification without publication.
+Changes	V061_BUGFIX	Exact build history	Compare every reviewed path with the immediately preceding TEST140 APK.
+Changes	V061_BUGFIX	TEST142 fixture correction	Use the actual nested Tengu ShockerBlob type without changing assertions or production behavior.
+Changes	V061_BUGFIX	TEST143 headless electricity fixture	Initialize the headless level's heap registry and move electrical assertions to a safe central cell after TEST142 exposed fixture-only null and edge assumptions.

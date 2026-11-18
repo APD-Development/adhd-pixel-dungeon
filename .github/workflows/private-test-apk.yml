@@ -1,0 +1,100 @@
+name: Private test APK
+
+# MANUAL ONLY. Run it only with the owner's explicit authorization, every time.
+# Default (publish = false): build the private test APK (all owner-approved test features on) and keep it as a workflow
+# artifact only. Publishes nothing.
+# publish = true: also create a GitHub Release, marked PRE-RELEASE and titled TEST, with the .apk attached directly
+# (the same Releases page as builds 69-80, no zip). Tag: apd-test-<run number>. Never touches main, never overwrites a release.
+# from_run = <run id>: do NOT rebuild; take the APK already built by that earlier run of this workflow and publish exactly it
+# (needs publish = true).
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Create the GitHub pre-release with the APK attached (owner must have authorized publishing)"
+        type: boolean
+        default: false
+      from_run:
+        description: "Run id of an earlier run whose APK to publish without rebuilding (leave empty to build)"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse a from_run without publish
+        if: ${{ inputs.from_run != '' && !inputs.publish }}
+        run: echo "from_run only makes sense with publish=true" && exit 1
+      - uses: actions/setup-java@v4
+        if: ${{ inputs.from_run == '' }}
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK
+        if: ${{ inputs.from_run == '' }}
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+        if: ${{ inputs.from_run == '' }}
+        with:
+          cache-disabled: false
+      - name: Build private test APK
+        if: ${{ inputs.from_run == '' }}
+        run: ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=T${{ github.run_number }}
+      - name: Name the APK
+        if: ${{ inputs.from_run == '' }}
+        run: cp android/build/outputs/apk/debug/android-debug.apk ADHD-Pixel-Dungeon-PRIVATE-TEST-${{ github.run_number }}.apk
+      - uses: actions/upload-artifact@v4
+        if: ${{ inputs.from_run == '' }}
+        with:
+          name: private-test-apk
+          path: ADHD-Pixel-Dungeon-PRIVATE-TEST-${{ github.run_number }}.apk
+          retention-days: 7
+      - name: Fetch the already built APK (no rebuild)
+        if: ${{ inputs.from_run != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "${{ inputs.from_run }}" --repo "${{ github.repository }}" --name private-test-apk --dir fetched
+          ls -l fetched
+          test "$(ls fetched/*.apk | wc -l)" = 1
+      - name: Work out tag, notes and the commit that APK was built from
+        if: ${{ inputs.publish }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -n "${{ inputs.from_run }}" ]; then
+            APK=$(ls fetched/*.apk)
+            SRC_SHA=$(gh run view "${{ inputs.from_run }}" --repo "${{ github.repository }}" --json headSha -q .headSha)
+            N="${{ inputs.from_run }}"
+          else
+            APK=ADHD-Pixel-Dungeon-PRIVATE-TEST-${{ github.run_number }}.apk
+            SRC_SHA="${{ github.sha }}"
+            N="${{ github.run_number }}"
+          fi
+          echo "APK=$APK" >> "$GITHUB_ENV"
+          echo "SRC_SHA=$SRC_SHA" >> "$GITHUB_ENV"
+          echo "TAG=apd-test-${{ github.run_number }}" >> "$GITHUB_ENV"
+          echo "BUILT_FROM=$N" >> "$GITHUB_ENV"
+      - name: Publish pre-release (APK attached directly)
+        if: ${{ inputs.publish }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }}
+          name: "ADHD Pixel Dungeon 4.0.8-apd PRIVATE TEST ${{ github.run_number }} (not a stable release)"
+          target_commitish: ${{ env.SRC_SHA }}
+          prerelease: true
+          make_latest: false
+          body: |
+            PRIVATE TEST BUILD, not a stable or public release.
+            Cleric playable and Demo Unlock are ON in this test build only (off in normal builds). The Cleric Grudge/Lore feature is postponed and OFF.
+            Built from commit ${{ env.SRC_SHA }} (workflow run ${{ env.BUILT_FROM }}).
+            Installs over the previous debug builds and keeps saved data (same signing key and app id). Do not uninstall first.
+          files: ${{ env.APK }}

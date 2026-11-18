@@ -1,0 +1,5 @@
+Bug Fixes	ICON_DATA	All comparisons reachable	Run and group comparisons now include every eligible record through compact pages instead of stopping at the first 40.
+Statistics / UIMSD	ICON_DATA	Seed-floor memory	Removed temporary objects from seed-floor row assembly without changing recorded or canonical values.
+Testing	ICON_CHECKED	Comparison-page checks	Added page-boundary coverage and Android touch checks for later comparisons, previous pages and the final record.
+Development	ICON_INFO	Audit and delivery evidence	Recorded verified delivery and the current partial UIMSD audit, including storage checks and measured allocation savings.
+Developer Commentary	V074_SHPX	Developer Commentary	I made older run and group comparisons reachable without loading every choice onto the screen. I also removed unnecessary seed-floor allocations while preserving the statistics.

@@ -1,0 +1,169 @@
+{
+  "release": {
+    "assets": [
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725681681",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T00:37:00Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQYR",
+        "label": "",
+        "name": "APD-385-Native-Visuals.zip",
+        "size": 10395832,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:01Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-385-Native-Visuals.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725681742",
+        "contentType": "application/vnd.android.package-archive",
+        "createdAt": "2026-11-09T00:37:02Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQZO",
+        "label": "",
+        "name": "APD-Alpha-Testers-385.apk",
+        "size": 39189568,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:04Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Alpha-Testers-385.apk"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725681856",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T00:37:05Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQbA",
+        "label": "",
+        "name": "APD-Alpha-Testers-385.apk.sha256",
+        "size": 92,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:05Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Alpha-Testers-385.apk.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725681913",
+        "contentType": "application/vnd.android.package-archive",
+        "createdAt": "2026-11-09T00:37:06Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQb5",
+        "label": "",
+        "name": "APD-Developer-385.apk",
+        "size": 39189596,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:09Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Developer-385.apk"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725682073",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T00:37:10Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQeZ",
+        "label": "",
+        "name": "APD-Developer-385.apk.sha256",
+        "size": 88,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:10Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Developer-385.apk.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725682143",
+        "contentType": "application/json",
+        "createdAt": "2026-11-09T00:37:11Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQff",
+        "label": "",
+        "name": "APD-Preview-385-Verification.json",
+        "size": 1263,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:11Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Preview-385-Verification.json"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725682205",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T00:37:12Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQgd",
+        "label": "",
+        "name": "APD-Source-385.zip",
+        "size": 72999334,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:15Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Source-385.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725682321",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T00:37:16Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQiR",
+        "label": "",
+        "name": "APD-Source-385.zip.sha256",
+        "size": 85,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:16Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Source-385.zip.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/725682341",
+        "contentType": "application/json",
+        "createdAt": "2026-11-09T00:37:17Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rQQil",
+        "label": "",
+        "name": "APD-Source-Scan.json",
+        "size": 36563,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T00:37:18Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-385/APD-Source-Scan.json"
+      }
+    ],
+    "isDraft": false,
+    "publishedAt": "2026-11-09T00:38:53Z",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-385"
+  },
+  "verification": {
+    "source_commit": "9943ffafaf207d38f57f593e5d2bf2b605ef2558",
+    "number": 385,
+    "tag": "apd-alpha-preview-385",
+    "core_tests": 3038,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "1e1c86439172f642ba43a0c2fa1051aa5e591fa3e5ac5f4e01b629306fe16590",
+      "Alpha-Testers": "2d62de26b0e89e9c3eeb3ad2405fb99a712d53b1d5b57d174c00e080e8b89a11"
+    },
+    "source_sha256": "14c90acc00a9a8efbaf754d8d41e59157b5465d252d9184efe16df0061a45f89",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-09T00:36:05.140790+00:00",
+    "workflow_run": "42540168844",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "build_run": 42540168844,
+  "stage_run": 42540292480,
+  "hashes_independently_checked": true,
+  "source_scan_supplemental_review_checked": true,
+  "native_pngs_reviewed": [
+    "Developer: cursed prequest Rose",
+    "Alpha: Holy Dart",
+    "Developer: unidentified DAMAGE-augmented Sickle",
+    "Alpha: cursed legacy Cape",
+    "Developer: Arcana percentage/no calculation button",
+    "Alpha: Rot Dart"
+  ],
+  "remaining_capture_finding": "Generic Sharpshooting durability row is inapplicable to RotDart fixed5uses. Disclosed in release notes; source-only followup underway. No full audit or phone/audio claim.",
+  "previous_rejected_build": {
+    "number": 384,
+    "run": 42539268859,
+    "diagnostic_run": 42540094934,
+    "published": false,
+    "cause": "Prequest equipped cursed DriedRose early-return hid curse warning. Production prose branch corrected in385; assertions preserved."
+  }
+}

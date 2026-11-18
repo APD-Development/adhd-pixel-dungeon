@@ -1,0 +1,75 @@
+{
+  "recorded_at": "2026-10-18T01:42:01Z",
+  "label": "Codex TEST 276",
+  "published": false,
+  "distributed": false,
+  "application_source": "b6d3a8be0f4337d4bd8d1a1bbe38dc1981d99bf3",
+  "request_commit": "d44903bbc138ac653e43e58341e7b7a33de12581",
+  "run": {
+    "id": 39086579292,
+    "conclusion": "success",
+    "started_at": "2026-10-18T01:27:55Z",
+    "completed_at": "2026-10-18T01:42:01Z",
+    "core_tests": 1802,
+    "core_suites": 355,
+    "android_api": 34,
+    "android_tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "apk": {
+    "artifact_id": 12121081485,
+    "artifact_bytes": 36114648,
+    "artifact_digest": "sha256:04bb52efa85f4f05391e33186b3127a0e9d377bf0913bbd8b0377df12b50d7bc",
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-276.apk",
+    "bytes": 38613689,
+    "sha256": "6e0996d4a51d53a816ab2851556766188d72dbaf81fe3464d4512d04266b0725"
+  },
+  "core_artifact": {
+    "id": 12120418428,
+    "bytes": 838614,
+    "digest": "sha256:638d2171ea3865a58b40f3496b87dd0f6b0100370aab0dff60ec5005badfe446"
+  },
+  "android_artifact": {
+    "id": 12121158561,
+    "bytes": 4955806,
+    "digest": "sha256:0434d0e4134bf76ea36a799ebf30ac4361b9e5baacd067e858829aa3c08708e5",
+    "pngs": 57,
+    "dimensions": "320x640",
+    "manual_contact_sheet_review": "pass: no blank, corrupt or obvious clipping regression"
+  },
+  "immediate_previous_compiled": {
+    "label": "Codex TEST 275",
+    "application_source": "dcdec4a936a0b159f6dcf1a60da6a8c5e663d6a1",
+    "run_id": 39076194628
+  },
+  "supplemental_display": {
+    "run_id": 39086579298,
+    "conclusion": "failure",
+    "passed_profiles": [
+      "small-virtual",
+      "compact-virtual",
+      "square-virtual",
+      "short-landscape"
+    ],
+    "failed_profiles": [
+      {
+        "name": "m53-representative",
+        "failure": "Native title condition did not become true"
+      }
+    ]
+  },
+  "staging": {
+    "run_id": 39086579303,
+    "conclusion": "failure",
+    "accepted": false
+  },
+  "owner_publication": {
+    "latest_label": "Codex TEST 262",
+    "tag": "apd-alpha-preview-262",
+    "published_at": "2026-10-16T23:14:03Z"
+  },
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}\n

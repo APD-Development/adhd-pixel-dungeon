@@ -1,0 +1,473 @@
+{
+  "date": "2026-10-12",
+  "method": "APK artifact metadata plus source diffs between adjacent artifact-producing workflow runs; failed or cancelled runs without an APK are not attributed changes. Historical binary contents not independently downloaded.",
+  "records": [
+    {
+      "build": 50,
+      "run": 38151255573,
+      "source": "14226785732470e5241daaabe92ba4dc7d399df3",
+      "created": "2026-10-11T15:26:09Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11706063940,
+          "name": "apd-codex-private-test-apk",
+          "size": 35800845,
+          "expired": false,
+          "digest": "sha256:13a9ab11df96c8df0e9f9429ccf9bc678269d1be8b4ddead02f34a2fa069a468"
+        }
+      ]
+    },
+    {
+      "build": 51,
+      "run": 38172194787,
+      "source": "dd6ce8b3e048d7890915098b118d66ded6208c95",
+      "created": "2026-10-11T20:26:08Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11714541331,
+          "name": "apd-codex-private-test-apk",
+          "size": 35800868,
+          "expired": false,
+          "digest": "sha256:582600fbb093a49ebc5580bc6405b2b3b0056f82600d6f242be12dcdfd0f1bbf"
+        }
+      ]
+    },
+    {
+      "build": 52,
+      "run": 38172563286,
+      "source": "e21642b6f75ba4d6054f9ece3c2a3304e152f921",
+      "created": "2026-10-11T20:31:24Z",
+      "conclusion": "cancelled",
+      "apk": []
+    },
+    {
+      "build": 53,
+      "run": 38172769561,
+      "source": "a5350f4837f098cc6ab2a7b0a508b42319cc7b4d",
+      "created": "2026-10-11T20:34:21Z",
+      "conclusion": "failure",
+      "apk": []
+    },
+    {
+      "build": 54,
+      "run": 38173222070,
+      "source": "96d0edb7d7715287314ee4305042e4ad7934b716",
+      "created": "2026-10-11T20:40:49Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11714862523,
+          "name": "apd-codex-private-test-apk",
+          "size": 35800931,
+          "expired": false,
+          "digest": "sha256:45e1c5d26d87bdbd8e82b5f76aa2ee3b017784a2d74f0b06efb8f2267efddb26"
+        }
+      ]
+    },
+    {
+      "build": 55,
+      "run": 38174762218,
+      "source": "2a13f825dc5cbfd9a0118aa6d1d971f04f3537d6",
+      "created": "2026-10-11T21:03:18Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11715362560,
+          "name": "apd-codex-private-test-apk",
+          "size": 35801084,
+          "expired": false,
+          "digest": "sha256:05dbc5d51be469fde303e8d861712b7883ab1d5822ce6854910351f7662a184f"
+        }
+      ]
+    },
+    {
+      "build": 56,
+      "run": 38176234760,
+      "source": "f20f2dcc67388e47cff208faaf986b7bfc52fe76",
+      "created": "2026-10-11T21:24:29Z",
+      "conclusion": "failure",
+      "apk": []
+    },
+    {
+      "build": 57,
+      "run": 38176876759,
+      "source": "a46fb2bbecf84ddf79f0874563f300fc899d4881",
+      "created": "2026-10-11T21:33:41Z",
+      "conclusion": "failure",
+      "apk": []
+    },
+    {
+      "build": 58,
+      "run": 38177608206,
+      "source": "a51caea8475f71364d3681d54d340592169fe369",
+      "created": "2026-10-11T21:44:26Z",
+      "conclusion": "failure",
+      "apk": [
+        {
+          "id": 11716891037,
+          "name": "apd-codex-private-test-apk",
+          "size": 35809744,
+          "expired": false,
+          "digest": "sha256:5ce0353fb2b5fe42fbb73472ca3aca38f1e21e39e3874515846f90ae4e90f9ef"
+        }
+      ]
+    },
+    {
+      "build": 59,
+      "run": 38178379330,
+      "source": "c3bf5d461a80ecbb0c8dd11881e188ba36c9b6cf",
+      "created": "2026-10-11T21:56:02Z",
+      "conclusion": "failure",
+      "apk": []
+    },
+    {
+      "build": 60,
+      "run": 38178940051,
+      "source": "a9409fc9fd33ac09e8aa4eee8934b6ca7d0ea8c7",
+      "created": "2026-10-11T22:04:23Z",
+      "conclusion": "failure",
+      "apk": [
+        {
+          "id": 11716577851,
+          "name": "apd-codex-private-test-apk",
+          "size": 35811935,
+          "expired": false,
+          "digest": "sha256:a6978814800ca8941aced93c80d70207838e4ebd3b1a69de417a0f28c098b7d8"
+        }
+      ]
+    },
+    {
+      "build": 61,
+      "run": 38226397717,
+      "source": "55a96e328133fc31d96668bf4fbe662a18b9e83d",
+      "created": "2026-10-12T08:53:44Z",
+      "conclusion": "failure",
+      "apk": [
+        {
+          "id": 11736978246,
+          "name": "apd-codex-private-test-apk",
+          "size": 35811861,
+          "expired": false,
+          "digest": "sha256:7fdd6a812f744c3ef096c9aac98bd95ae583e77c769c457f5c559b8b40160e8f"
+        }
+      ]
+    },
+    {
+      "build": 62,
+      "run": 38227918084,
+      "source": "3c2820df0f0d0edf87bb52a53ef19245e1b0da7d",
+      "created": "2026-10-12T09:08:04Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11737545826,
+          "name": "apd-codex-private-test-apk",
+          "size": 35811863,
+          "expired": false,
+          "digest": "sha256:7d0ed0f7e3591b0f43bc9813dcc6f93a28cd75b88f1e311eaffa434cdb257a20"
+        }
+      ]
+    },
+    {
+      "build": 63,
+      "run": 38229156395,
+      "source": "1f0c843f510957d77702a26c458fd7336d1f56b9",
+      "created": "2026-10-12T09:19:34Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11738196705,
+          "name": "apd-codex-private-test-apk",
+          "size": 35811380,
+          "expired": false,
+          "digest": "sha256:f6bb2c75d425568d878a2f7f91fcfb56968688dda510a09705d881251866d015"
+        }
+      ]
+    },
+    {
+      "build": 64,
+      "run": 38236342645,
+      "source": "41852947416a06a9067c6e6c651ed3729969347d",
+      "created": "2026-10-12T10:26:33Z",
+      "conclusion": "success",
+      "apk": [
+        {
+          "id": 11741670386,
+          "name": "apd-codex-private-test-apk",
+          "size": 35810462,
+          "expired": false,
+          "digest": "sha256:92fb318b52d9382605e2a9a30e800ef103490c5bb7de87a3b09cc1a3a8eb9b1e"
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "build": 51,
+      "previous": 50,
+      "status": "ahead",
+      "files": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportBuilder.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/UimsdGate.java"
+      ]
+    },
+    {
+      "build": 54,
+      "previous": 51,
+      "status": "ahead",
+      "files": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/BossClasses.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowBuilders.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowCodec.java"
+      ]
+    },
+    {
+      "build": 55,
+      "previous": 54,
+      "status": "ahead",
+      "files": [
+        "SPD-classes/src/main/java/com/watabou/utils/FileUtils.java"
+      ]
+    },
+    {
+      "build": 58,
+      "previous": 55,
+      "status": "ahead",
+      "files": [
+        "core/src/main/assets/apd/history/index.tsv",
+        "core/src/main/assets/apd/news.tsv",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/history/ApdHistory.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/history/ApdNews.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdHomeNavigation.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/APDTextScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/AboutScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/TitleScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/UimsdScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/UimsdHomePane.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/UimsdGate.java"
+      ]
+    },
+    {
+      "build": 60,
+      "previous": 58,
+      "status": "ahead",
+      "files": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ResultTable.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdHome.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/UimsdScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/UimsdHomePane.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/UimsdTable.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdList.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdRow.java"
+      ]
+    },
+    {
+      "build": 61,
+      "previous": 60,
+      "status": "ahead",
+      "files": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/APDTextScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/AboutScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/UimsdScene.java"
+      ]
+    },
+    {
+      "build": 62,
+      "previous": 61,
+      "status": "ahead",
+      "files": []
+    },
+    {
+      "build": 63,
+      "previous": 62,
+      "status": "ahead",
+      "files": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/AboutScene.java"
+      ]
+    },
+    {
+      "build": 64,
+      "previous": 63,
+      "status": "ahead",
+      "files": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/UimsdContent.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/UimsdHomePane.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/UimsdTable.java"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "build": 50,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-11T15:28:38Z",
+          "end": "2026-10-11T15:29:24Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-11T15:29:24Z",
+          "end": "2026-10-11T15:29:26Z"
+        }
+      ]
+    },
+    {
+      "build": 51,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-11T20:27:51Z",
+          "end": "2026-10-11T20:28:23Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-11T20:28:23Z",
+          "end": "2026-10-11T20:28:25Z"
+        }
+      ]
+    },
+    {
+      "build": 54,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-11T20:43:02Z",
+          "end": "2026-10-11T20:43:52Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-11T20:43:52Z",
+          "end": "2026-10-11T20:43:55Z"
+        }
+      ]
+    },
+    {
+      "build": 55,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-11T21:05:34Z",
+          "end": "2026-10-11T21:06:21Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-11T21:06:21Z",
+          "end": "2026-10-11T21:06:24Z"
+        }
+      ]
+    },
+    {
+      "build": 58,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-11T21:46:40Z",
+          "end": "2026-10-11T21:47:26Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-11T21:47:27Z",
+          "end": "2026-10-11T21:47:29Z"
+        }
+      ]
+    },
+    {
+      "build": 60,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-11T22:06:31Z",
+          "end": "2026-10-11T22:07:15Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-11T22:07:16Z",
+          "end": "2026-10-11T22:07:18Z"
+        }
+      ]
+    },
+    {
+      "build": 61,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-12T08:55:59Z",
+          "end": "2026-10-12T08:56:49Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-12T08:56:49Z",
+          "end": "2026-10-12T08:56:52Z"
+        }
+      ]
+    },
+    {
+      "build": 62,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-12T09:09:51Z",
+          "end": "2026-10-12T09:10:20Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-12T09:10:20Z",
+          "end": "2026-10-12T09:10:23Z"
+        }
+      ]
+    },
+    {
+      "build": 63,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-12T09:21:54Z",
+          "end": "2026-10-12T09:22:47Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-12T09:22:47Z",
+          "end": "2026-10-12T09:22:50Z"
+        }
+      ]
+    },
+    {
+      "build": 64,
+      "steps": [
+        {
+          "name": "Build the private debug APK",
+          "result": "success",
+          "start": "2026-10-12T10:28:21Z",
+          "end": "2026-10-12T10:28:53Z"
+        },
+        {
+          "name": "Keep the APK as a private workflow artifact",
+          "result": "success",
+          "start": "2026-10-12T10:28:53Z",
+          "end": "2026-10-12T10:28:56Z"
+        }
+      ]
+    }
+  ]
+}

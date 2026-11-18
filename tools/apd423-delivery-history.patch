@@ -1,0 +1,12 @@
+--- a/tools/apd_prepare423.py
++++ b/tools/apd_prepare423.py
+@@ -48,8 +48,7 @@
+ for label in ['Developer','Alpha-Testers']:
+  history=assets[label]['apd/history/index.tsv'].decode('utf-8').splitlines()
+  assert history[0].split('\t')[1]=='Codex TEST 423'
+- assert any(line.split('\t')[1]=='Codex TEST 420' for line in history if len(line.split('\t'))==4)
+- assert not any(line.split('\t')[1]=='Codex TEST 421' for line in history if len(line.split('\t'))==4)
++ for required in (420,421,422):assert any(line.split('\t')[1]==f'Codex TEST {required}' for line in history if len(line.split('\t'))==4)
+ # Require every native command to have independently completed; no incomplete or skipped evidence.
+ for label in ['developer','alpha']:
+  for case in ['seed','restart','gameplay']:

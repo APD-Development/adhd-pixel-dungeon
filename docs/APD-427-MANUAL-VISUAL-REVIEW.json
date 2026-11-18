@@ -1,0 +1,338 @@
+{
+  "number": 427,
+  "source_commit": "209277bdabbb9520bba60717f3fa3927f80d5eb6",
+  "reviewed_utc": "2026-11-09T19:43:53.704917+00:00",
+  "developer_original_run": 42679430170,
+  "developer_original_six_passed": true,
+  "variant_manually_viewed": "Developer",
+  "full_frames_viewed": 80,
+  "contact_sheets_viewed": 20,
+  "selection": [
+    {
+      "name": "qol-existing-status-clear-concise-ArtifactRecharge-bottom.png",
+      "sha256": "d4783041708d19473e5b1a601ee402011f9674ef4a7804dbf177c828ceace52c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ArtifactRecharge-normal.png",
+      "sha256": "45a0f915bde65643597e33165d328b359fe8f5b6739f350a3744506b84a021c1"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-ArtifactRecharge.png",
+      "sha256": "d4783041708d19473e5b1a601ee402011f9674ef4a7804dbf177c828ceace52c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Barrier-bottom.png",
+      "sha256": "ebb5a6a5f628774dc05db12e27518fde870d5afbb90e75a63072010b171c9437"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Barrier-normal.png",
+      "sha256": "43b51d2abb80a425bd196fbf8167bed1429468d62b59bb02f3d29336d6021b08"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Barrier.png",
+      "sha256": "ebb5a6a5f628774dc05db12e27518fde870d5afbb90e75a63072010b171c9437"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bleeding-bottom.png",
+      "sha256": "c69fd2d4980215cbdc595739be0cfcf0b408fe40db20a96509c0936574a25edd"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bleeding-normal.png",
+      "sha256": "2caa1fe8fd89ef5d281ca82c847b10d7e37935715118252b174808251b6f412e"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Bleeding.png",
+      "sha256": "c69fd2d4980215cbdc595739be0cfcf0b408fe40db20a96509c0936574a25edd"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Blocking-bottom.png",
+      "sha256": "0e2f3fc5d6bb937dbbe4b2a0110f7f6c1ac74d6bfccb31feac8e6a3ef66f8646"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Blocking-normal.png",
+      "sha256": "db84bd96f1b95c13416da641fcb8d75af9a68c074ebe59b771910a7821e3802a"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Blocking.png",
+      "sha256": "0e2f3fc5d6bb937dbbe4b2a0110f7f6c1ac74d6bfccb31feac8e6a3ef66f8646"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Chill-bottom.png",
+      "sha256": "3ec7d49e2edc06ea963235262d6176709e4d803e1e99b69baff7b3a55cb35a8e"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Chill-normal.png",
+      "sha256": "23530b4ef6a180be4ddf320a30c30282063edfdd0dcfd76a0acc27b42596123a"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Chill.png",
+      "sha256": "3ec7d49e2edc06ea963235262d6176709e4d803e1e99b69baff7b3a55cb35a8e"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Combo-bottom.png",
+      "sha256": "b0e2b35cbfda26b2e9c7b89dfe2184a9051d910d4151a21329604850c8f4725b"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Combo-normal.png",
+      "sha256": "c6bcdeeff01e4dd2adaaea1acd9b2d07e49bea227c6116b82e27320295fdf731"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Combo.png",
+      "sha256": "633f2fd2c527aa0db229dfac5ca95cf3fcb999cdfe3494959989d327e6b3b42b"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Haste-bottom.png",
+      "sha256": "ea75f939cefa0d321321df596d05fdb6aebb2d000e11e6dd5d14dd6aee3da992"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Haste-normal.png",
+      "sha256": "9f1c00a4139c362a41823413793be786a973ff429fd443dc07e859876500444d"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Haste.png",
+      "sha256": "ea75f939cefa0d321321df596d05fdb6aebb2d000e11e6dd5d14dd6aee3da992"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Poison-bottom.png",
+      "sha256": "b9bb172982bab9a4cb6fbbb5d6597670582ff712f69cfb832e31a5c52854d74d"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Poison-normal.png",
+      "sha256": "71dab537c6590440975b77802e33a3786a3d1cbd2de4c339e80be994ea0d87b8"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Poison.png",
+      "sha256": "b9bb172982bab9a4cb6fbbb5d6597670582ff712f69cfb832e31a5c52854d74d"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Recharging-bottom.png",
+      "sha256": "3686d4e8d416fa175970168a5aebdeadf99f85bd2049efdb51592080feb37d21"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Recharging-normal.png",
+      "sha256": "b603cad19711a8d013eb6cb10c2e5c8a2444ceb166b8acf3ca6441be7904c73e"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Recharging.png",
+      "sha256": "3686d4e8d416fa175970168a5aebdeadf99f85bd2049efdb51592080feb37d21"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Slow-bottom.png",
+      "sha256": "df1d442cc1f9401573f9e7874c534a4101e7fd33b863643f1719cd8140ee72ce"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Slow-normal.png",
+      "sha256": "c4610171ba46942e17bd5e3044fe613bf7c34a703b00d609c9bbc94f6af86861"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Slow.png",
+      "sha256": "df1d442cc1f9401573f9e7874c534a4101e7fd33b863643f1719cd8140ee72ce"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Speed-bottom.png",
+      "sha256": "40f500e79f025d5aa37eee65958e40e64ed41a62f65f1c6c6760160e8b1aeaf4"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Speed-normal.png",
+      "sha256": "c68e052b65c2ccae65075aed64b317686f5a51d1e3def5e791fd58760a7ac400"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Speed.png",
+      "sha256": "40f500e79f025d5aa37eee65958e40e64ed41a62f65f1c6c6760160e8b1aeaf4"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Vulnerable-bottom.png",
+      "sha256": "7d9f3474514bbc5210fdcbf84e64ed5819d08872cb6d09662d1b2680bdd8881c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Vulnerable-normal.png",
+      "sha256": "89cdef50e04268ae4fcc57134ec05ca16a9d57b44c71cd9db71b9a9e3f334603"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Vulnerable.png",
+      "sha256": "7d9f3474514bbc5210fdcbf84e64ed5819d08872cb6d09662d1b2680bdd8881c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Weakness-bottom.png",
+      "sha256": "dec2e593a0be3b59206a8994bdc6d387bce144e3b185c0201c626c2bfd7ce8bb"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Weakness-normal.png",
+      "sha256": "88dc33e022ab7b147512ab293d089e6e2d677491e47a704010514ef90759a79c"
+    },
+    {
+      "name": "qol-existing-status-clear-concise-Weakness.png",
+      "sha256": "dec2e593a0be3b59206a8994bdc6d387bce144e3b185c0201c626c2bfd7ce8bb"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-AuraOfProtection-normal.png",
+      "sha256": "6a2e0f58e02d1aeda233bd721a6f8199cbbbe0132698fa39a5648b2882577520"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BeamingRay-normal.png",
+      "sha256": "bc40080c82766007473d711456a8ba8a89d9ae171080c925dc3daf0063d057fc"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Bless-normal.png",
+      "sha256": "d7c7875bb59ab25d6350416e63f096db2b844ef42444a63959192a7caad36d0e"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-BodyForm-normal.png",
+      "sha256": "b6b5b374f37bb322ca104952d480843083a7cd4fab4cf2655cc04a90f4d7c85d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Cleanse-normal.png",
+      "sha256": "544af90304faa2901fa4c3e9c2fe750a06a0fec76dfac1e7541023fa198d898c"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineIntervention-normal.png",
+      "sha256": "663f9643e177d258f028f77a4b0cd1e008fc462a6b80c9e2e385f0b7c53d1df3"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-DivineSense-normal.png",
+      "sha256": "0abfd8b2a153add710860d95bfab2ef5606e412995c50abaa9a662f0eef31373"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Flash-normal.png",
+      "sha256": "0604fc64c418b11499fcd069c75658c9a976e74394e845f2e7267ca914ff156f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-Priest-normal.png",
+      "sha256": "5779718a31a6ecb3890e350e3f67d7b9ac0e6c68072a6ae06f2ca4d79c0ebe7f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-GuidingLight-normal.png",
+      "sha256": "87f033752388ce298ba90a35cfe0088a919a039500af8020c7b76a8a7147f868"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HallowedGround-normal.png",
+      "sha256": "0be27fdd8ecc4d64cbb08f5c4f3b4ca42543e5b321eebbc806ad706a3c039cfe"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyIntuition-normal.png",
+      "sha256": "5e8d27f45c24613cf32588567b709f80896d8c163221cf1cc3f33f71d2544130"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyLance-normal.png",
+      "sha256": "4d60f0fa84e86a7e6a6fb5853a76d3090aaba501c2d40ab8f211283a1a387253"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWard-Paladin-normal.png",
+      "sha256": "34209a488de01befdcf50f02defbbf455bfb34e60a8b6e9612a226bb3da3baa8"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWard-normal.png",
+      "sha256": "b85128ee0078bf7ad10f6dc7281bf5cee5a8475717f53c7de254b3948214d4fd"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWeapon-Paladin-normal.png",
+      "sha256": "604a83723dc82eb45589bee664d8297b63a9492cf9ba631d82ed1897ac73b26f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-HolyWeapon-normal.png",
+      "sha256": "325b08efa661721b7dbe9f8e39a5ea9fe4cd34ad976a0404110396d48d35ae45"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Judgement-normal.png",
+      "sha256": "6058487d35dd7849f74913729f6a28f0d1ba80da57e778fb34b301b7d76f786c"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LayOnHands-normal.png",
+      "sha256": "e8b31bfacecf3f78efe106ca50b82a99df8a7852c58a30d5c48446f1ab395c8e"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-LifeLink-normal.png",
+      "sha256": "07143586a5ea38594c2586789592155e24ab484d03b4fdaadb97431fa1d2169f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MindForm-normal.png",
+      "sha256": "d146de8f6edbea9dfb0c12f74c2d352b25ca41942a805898415ba60d3b3e883a"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-MnemonicPrayer-normal.png",
+      "sha256": "19c98b11ffc6733f70f451a4df45381b1c846ebfce395ca10af82b24eac9c003"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Radiance-normal.png",
+      "sha256": "b757ce974a4807ef04e0dd269a04abf985f018c53b743f061171a6e0d760819b"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-RecallInscription-normal.png",
+      "sha256": "32feb4da85e28ad83d3109b3e7b930337e918552dc12a687645dd0dd7d85c930"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-ShieldOfLight-normal.png",
+      "sha256": "48a47099e715201b49c02c72148193c732886f76160e4822eb4890278d44370c"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Smite-normal.png",
+      "sha256": "68ef8ef2233a4b7dbcff57bec33204d5415997e0e21b4db3e4e2076514e5bc71"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-SpiritForm-normal.png",
+      "sha256": "263997ace0b41e39bb05e809198c94dfae36e863804c55d6d2d835cc4ed11e4f"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Stasis-normal.png",
+      "sha256": "c458b11ca2d8fd39b8bb7c53885040262f8b2f4e9990eeb04f7bdbb3bb82f051"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-Sunray-normal.png",
+      "sha256": "65a9c5a7641fa5efa9c7d26a69256a57d6853dd41e8b4441a6065fda7ab9398d"
+    },
+    {
+      "name": "qol-reviewed-spell-clear-WallOfLight-normal.png",
+      "sha256": "e5218a1debc3a2af7436bb947b7c26185f238257e4b14fa05195ba8b26685f43"
+    },
+    {
+      "name": "qol-reviewed-spell-magic-HolyWard-normal.png",
+      "sha256": "2cb1e777042471b402ece90d81ceab9644b800cfe739b7e3d9723a31676922bb"
+    },
+    {
+      "name": "qol-reviewed-spell-magic-HolyWeapon-normal.png",
+      "sha256": "0f7a41950799953fadd729313c7ef0d7700b10279c952139cd913592e3182a19"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-ENHANCED_RINGS-bottom.png",
+      "sha256": "c7e9b19cadf5c7c485bef83bad809fe36b7ae07d186da8ef92921c65eb31d616"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-ENHANCED_RINGS-normal.png",
+      "sha256": "3dda659ab9aa738d9e496f1cab3464adf709f013fac1baa9584b33660d9b76fe"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-ENHANCED_RINGS.png",
+      "sha256": "c7e9b19cadf5c7c485bef83bad809fe36b7ae07d186da8ef92921c65eb31d616"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-PROTECTIVE_SHADOWS-bottom.png",
+      "sha256": "28a92d6d756e896515586ae20f51ca40abefbd2763600c6c8c705e454b233442"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-PROTECTIVE_SHADOWS-normal.png",
+      "sha256": "45f81a85c9dbcde313b7cba173cc94a7d766901a0cacf168564dd1f4002ff22e"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-PROTECTIVE_SHADOWS.png",
+      "sha256": "28a92d6d756e896515586ae20f51ca40abefbd2763600c6c8c705e454b233442"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SILENT_STEPS-bottom.png",
+      "sha256": "efb71de92e44b197f135ce49c35a9873a11b443e5f8ce811d0aebecde0874d23"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SILENT_STEPS-normal.png",
+      "sha256": "c25fc48f65030b31f648368b7210c36d48eabb0551ea0209e105a6996620d987"
+    },
+    {
+      "name": "qol-reviewed-talent-clear-SILENT_STEPS.png",
+      "sha256": "efb71de92e44b197f135ce49c35a9873a11b443e5f8ce811d0aebecde0874d23"
+    }
+  ],
+  "scope": "13buff fixtures/3talent contexts normal-expanded-bottom48frames plus32spell normalframes. Spell expanded/bottom64frames reviewed426; spell source unchanged427.",
+  "assessment": "Production-facing layouts/scrolling/pinned controls and live amounts accepted. Existing dormantSpeed basefixture shows preexistingNO_TEXT_FOUND; no defaulticon/productioncreationpath found, so not a new regular-gameplay window defect. Explicitwordingfix preserved02060b4ff on separatebranch, not in427/428. NormalPoison/Bleeding/Priest furtherwording improvements also separate and pendingnative. Wholeauditunfinished.",
+  "publication_gate": "All12 strict cases complete; independent APK/source/sidecars/scan and4770source hashes checked;80selectedmanualPNGhashes match finalbundle.",
+  "known_test_only_Speed_gap": true,
+  "physical_phone_or_acoustic_verified": false,
+  "final_bundle_matches_all_80_selected_early_frames": true
+}

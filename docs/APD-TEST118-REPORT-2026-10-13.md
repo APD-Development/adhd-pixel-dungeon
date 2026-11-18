@@ -1,0 +1,18 @@
+# TEST118 native custom-rules window and scoring notice candidate
+
+The owner requested the exact notice: "Custom Dungeon Rules scoring is still being developed. Difficulty settings currently do not affect your score. A scoring multiplier will be added in a future update."
+
+No Custom Dungeon Rules window existed in TEST117's actual tree. This package adds the previously approved native window, reached from APD Settings. The exact notice is always above the scrolling controls, with existing RenderedTextBlock, OptionSlider, ScrollPane, RedButton and Window components. It never needs dismissal and does not scroll away. Save edits next-run preferences only; Back cancels draft edits. Current-run inspection is read-only and missing historical configurations remain unknown. There is no scoring or statistics-engine change.
+
+The eleven implemented gameplay effects are editable. The seven unfinished effects are explicitly marked pending and disabled, preserving their stored values. They must be completed and enabled before the mandatory eighteen-slider alpha can be accepted. This is a partial development build, not a completed early-alpha release.
+
+Added two host presentation regressions covering every permitted slider value/position, bounds rejection and all sixty whole-scroll percentage labels. Added an Android test that opens the actual window, touches the first slider, verifies draft cancellation, checks the fixed notice while scrolling and checks a narrow read-only layout. Two required screenshots are added to the existing runner. Android validation is pending, not presumed successful.
+
+Damage work adds an explicit immutable origin and single-scaled-amount bridge. Boss selects Boss Damage alone; creator origin can be retained for summons without treating every ally as player-owned; delayed origin has additive metadata, missing old origin remains unattributed and invalid future metadata rejects rather than silently losing attribution. The original source object is retained for virtual target processing, immunity, resistance and death logic. Four host methods include actual engine immunity/resistance/barrier behavior, exact-once scaling, separate simultaneous origins, neutral RNG/value parity, overflow bounds and metadata restoration. This bridge is NOT yet wired through existing attacks, spells, explosions or delayed effects. None of the three damage sliders is claimed complete.
+
+Six new host methods passed 0.216s. An exact TEST117 snapshot of 121 damage-call files contains 241 calls/definitions; this is a navigation census, not complete attribution coverage, because application-only files and merged blobs still need expansion. Poison/Burning/Corrosion/Bleeding ticks currently lose their attacker identity; effect reapplication and shared/derived damage must preserve original behavior before integration is called complete. Starvation, unattributed traps/environment and Chalice self-damage must remain unscaled.
+
+TEST117 source6cec6e00a96302b67c1dcbbf599320375a72e4cd, run38387716215: downloaded XML confirms1348unique core and21API34, zero failures/errors/skips;22validPNG and debug assembly. APK artifact11807073393 is privately staged, not delivered/signing-published/phone-tested. TEST118 must pass1354core/22API34/24PNG/debug. Original score behavior, active-run snapshot, player data and signing/application ID are unchanged. UIMSD work remains paused as requested; recording code is not modified. Native settings do not constitute complete eighteen-slider gameplay/UIMSD/scoring acceptance.
+
+
+Verification38390168067passed: downloaded1354core/22API34,zero failures/errors/skips,24validPNG/debug. Superseded scoring-only wording by119's exact lifetime warning. No private distribution/signing receipt/phone claim.

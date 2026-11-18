@@ -1,0 +1,278 @@
+name: Codex APD sprint verification
+# Owner policy updated November6: ten APKs total per New York day, at most five Developer and five Alpha-Testers.
+
+#Owner authorized this sprint and all development actions on 2026-10-09.
+#This trigger is confined to the Codex work branch and an explicit build request.
+#It never runs for ordinary code/doc commits, main, or other developers' branches.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - docs/APD-CODEX-BUILD-REQUEST.txt
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: codex-apd-sprint-verification
+  cancel-in-progress: false
+
+jobs:
+  verify-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Preserve history from the preceding produced APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess, zipfile
+          ledger=json.load(open('docs/APD-NEXT-BUILD-HISTORY.json'))
+          repo=os.environ['GITHUB_REPOSITORY']
+          run_id=str(ledger['previous_run'])
+          previous=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id]))
+          assert previous['head_sha']==ledger['previous_source']
+          # The producing job below must have completed successfully and finalized
+          # its artifact. Other verification jobs may still be running.
+          # A prior APK can exist despite a later Android failure. Preserve its
+          # exact history without declaring that prior APK playable or verified.
+          jobs=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/jobs']))['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          artifacts=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/artifacts']))['artifacts']
+          matching=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert len(matching)==1
+          with open('previous-apk-artifact.zip','wb') as target:
+              subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(matching[0]['id'])+'/zip'],stdout=target,check=True)
+          with zipfile.ZipFile('previous-apk-artifact.zip') as archive:
+              candidates=[name for name in archive.namelist() if name.endswith('.apk')]
+              assert len(candidates)==1
+              pathlib.Path('previous-verified.apk').write_bytes(archive.read(candidates[0]))
+          PY
+      - name: Validate and embed reviewed offline build history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, subprocess, sys
+          sys.path.insert(0,'tools')
+          from apd_build_history import complete_comparison
+          ledger=json.load(open('docs/APD-NEXT-BUILD-HISTORY.json'))
+          url='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/compare/'+ledger['previous_source']+'...'+os.environ['GITHUB_SHA']
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req) as response: data=json.load(response)
+          subprocess.run(['git','fetch','--no-tags','--depth=1','origin',ledger['previous_source']],check=True)
+          data=complete_comparison(data,ledger['previous_source'],os.environ['GITHUB_SHA'])
+          with open('apd-history-comparison.json','w') as out: json.dump(data,out)
+          PY
+          python3 tools/apd_build_history.py --comparison apd-history-comparison.json --ledger docs/APD-NEXT-BUILD-HISTORY.json --build ${{ github.run_number }} --previous-apk previous-verified.apk
+      - name: Verify history and player release-note tooling
+        run: python3 -m unittest discover -s tools -p test_apd_build_history.py -v
+      - name: Complete core, Android debug/release and desktop checks
+        run: ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac
+      - name: Build the private debug APK
+        run: ./gradlew :android:assembleDebug -PapdTestBuild -PapdBuild=C${{ github.run_number }}
+      - name: Verify Android-compatible JSON method signatures
+        run: python3 tools/check_android_json_abi.py
+      - name: Verify every compiled historical record matches reviewed contents
+        run: |
+          python3 tools/apd_build_history.py --comparison apd-history-comparison.json --ledger docs/APD-NEXT-BUILD-HISTORY.json --build ${{ github.run_number }} --verify-apk android/build/outputs/apk/debug/android-debug.apk
+      - name: Name and hash the APK
+        run: |
+          cp android/build/outputs/apk/debug/android-debug.apk ADHD-Pixel-Dungeon-CODEX-TEST-${{ github.run_number }}.apk
+          sha256sum ADHD-Pixel-Dungeon-CODEX-TEST-${{ github.run_number }}.apk > ADHD-Pixel-Dungeon-CODEX-TEST-${{ github.run_number }}.apk.sha256
+      - name: Keep the APK as a private workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          path: |
+            ADHD-Pixel-Dungeon-CODEX-TEST-${{ github.run_number }}.apk
+            ADHD-Pixel-Dungeon-CODEX-TEST-${{ github.run_number }}.apk.sha256
+          retention-days: 7
+      - name: Keep the unit-test report even when tests fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          path: |
+            core/build/reports/tests/test/
+            core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 7
+
+  android-smoke-check:
+    needs: verify-and-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Preserve history from the preceding produced APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess, zipfile
+          ledger=json.load(open('docs/APD-NEXT-BUILD-HISTORY.json'))
+          repo=os.environ['GITHUB_REPOSITORY']
+          run_id=str(ledger['previous_run'])
+          previous=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id]))
+          assert previous['head_sha']==ledger['previous_source']
+          # The producing job below must have completed successfully and finalized
+          # its artifact. Other verification jobs may still be running.
+          # A prior APK can exist despite a later Android failure. Preserve its
+          # exact history without declaring that prior APK playable or verified.
+          jobs=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/jobs']))['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          artifacts=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/artifacts']))['artifacts']
+          matching=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert len(matching)==1
+          with open('previous-apk-artifact.zip','wb') as target:
+              subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(matching[0]['id'])+'/zip'],stdout=target,check=True)
+          with zipfile.ZipFile('previous-apk-artifact.zip') as archive:
+              candidates=[name for name in archive.namelist() if name.endswith('.apk')]
+              assert len(candidates)==1
+              pathlib.Path('previous-verified.apk').write_bytes(archive.read(candidates[0]))
+          PY
+      - name: Validate and embed reviewed offline build history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          ledger=json.load(open('docs/APD-NEXT-BUILD-HISTORY.json'))
+          url='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/compare/'+ledger['previous_source']+'...'+os.environ['GITHUB_SHA']
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req) as response: data=json.load(response)
+          with open('apd-history-comparison.json','w') as out: json.dump(data,out)
+          PY
+          python3 tools/apd_build_history.py --comparison apd-history-comparison.json --ledger docs/APD-NEXT-BUILD-HISTORY.json --build ${{ github.run_number }} --previous-apk previous-verified.apk
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          path: exact-application
+          github-token: ${{ github.token }}
+          run-id: ${{ github.run_id }}
+      - name: Compile instrumentation only; reuse the produced application APK
+        run: ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C${{ github.run_number }}
+      - name: Check UI restoration and play/save/continue/end on API 34
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb logcat -c
+            adb logcat -v time > codex-logcat.txt &
+            adb install -r exact-application/ADHD-Pixel-Dungeon-CODEX-TEST-${{ github.run_number }}.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            APD_EXISTING_APK=1 bash tools/run-codex-android-checks.sh ${{ github.run_number }}
+      - name: Keep Android evidence even if a check fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          path: |
+            android/build/reports/androidTests/
+            android/build/outputs/androidTest-results/
+            codex-logcat.txt
+            existing-apk-instrumentation.txt
+            codex-visual-evidence/
+          if-no-files-found: warn
+          retention-days: 7
+
+  private-delivery:
+    #Verification never publishes. Delivery separately validates signing and current reports.
+    if: ${{ false }}
+    needs: [verify-and-build, android-smoke-check]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          path: core-reports
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          path: android-reports
+      - name: Render the PDF with measured build evidence
+        env:
+          APD_SOURCE_SHA: ${{ github.sha }}
+          APD_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 -m pip install reportlab==4.2.5
+          python3 - <<'PY'
+          import os, pathlib, xml.etree.ElementTree as E
+          def summary(folder):
+              files = list(pathlib.Path(folder).rglob('TEST-*.xml'))
+              if not files: raise SystemExit('Missing test XML: ' + folder)
+              totals = {k: sum(int(E.parse(p).getroot().get(k, 0)) for p in files) for k in ('tests', 'failures', 'errors', 'skipped')}
+              if totals['failures'] or totals['errors']: raise SystemExit('Failed test report: ' + folder)
+              return totals
+          core, device = summary('core-reports'), summary('android-reports')
+          sha = os.environ['APD_SOURCE_SHA']
+          url = os.environ['APD_RUN_URL']
+          apk = next(pathlib.Path('delivery').glob('*.apk'))
+          checksum = pathlib.Path(str(apk) + '.sha256').read_text().split()[0]
+          text = f"Delivery build source: {sha}. Verification run: {url}. APK: {apk.name}. SHA-256: {checksum}.\n\n"
+          text += f"Complete core suite: {core['tests']} tests, {core['failures']} failures, {core['errors']} errors, {core['skipped']} skipped. Android debug assembly succeeded.\n\n"
+          text += f"API 34 emulator: {device['tests']} instrumented checks, {device['failures']} failures, {device['errors']} errors, {device['skipped']} skipped. The targeted checks cover UIMSD menu restoration/narrow text and existing play/save/continue/death/win behavior. This is not a physical RedMagic test or the complete Android instrumentation suite.\n\n"
+          text += 'Install over the existing APD test app; do not uninstall or clear data. This private prerelease is not a stable/public release. All physical-phone checks in this report remain pending.'
+          pathlib.Path('delivery/verification.txt').write_text(text)
+          print(text)
+          PY
+          python3 tools/apd_bug_report_pdf.py docs/APD-BUG-FIX-REPORT-2026-10-09.md delivery/APD-Bug-Fixes-2026-10-09.pdf --verification delivery/verification.txt --appendix docs/APD-SPRINT-REPORT-2026-10-09.md
+      - name: Honor today's 11:59 a.m. New York APK upload time
+        run: |
+          python3 - <<'PY'
+          import datetime, time
+          deadline = datetime.datetime(2026, 10, 9, 15, 59, tzinfo=datetime.timezone.utc).timestamp()
+          while time.time() < deadline:
+              time.sleep(min(30, deadline - time.time()))
+          PY
+      - name: Attach the APK and PDF to a private test prerelease
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apd-codex-test-${{ github.run_number }}
+          name: APD PRIVATE CODEX TEST ${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          prerelease: true
+          make_latest: false
+          body_path: delivery/verification.txt
+          files: |
+            delivery/*.apk
+            delivery/*.apk.sha256
+            delivery/APD-Bug-Fixes-2026-10-09.pdf

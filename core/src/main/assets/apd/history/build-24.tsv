@@ -1,0 +1,7 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Quality of Life	ICON_INFO	Main menu	The main-menu UIMSD button now opens the actual statistics screen.
+Quality of Life	ICON_STATS	Statistics screen	Matched main-menu entry and back navigation to the other native screens.
+Testing	ICON_STATS	Statistics Wiring Test	Updated automated checks and fixtures for statistics wiring. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-UIMSD	Updated apd-stats-uimsd accompanying this build.
+Development	ICON_INFO	APD-TITLE-SCREEN	Updated apd-title-screen accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. The main-menu UIMSD button now opens the actual statistics screen.

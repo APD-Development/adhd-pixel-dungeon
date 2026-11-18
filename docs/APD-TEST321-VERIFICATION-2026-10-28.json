@@ -1,0 +1,24 @@
+{
+  "build": 321,
+  "source": "d1529fbfd68b9f3a5a23e7277ed9a2fd0ea1b67a",
+  "developer_run": 40729078688,
+  "developer_job": 122960152646,
+  "developer_sha256": "555799ab30844fea422d4478dcda28075b1f8c911108a2b1f46bca62f6ba4f70",
+  "developer_artifact": 12833448824,
+  "developer_artifact_sha256": "5c48b9eec9e25f050e29b3087d2a696474ddd5300763e81549198db6702fd508",
+  "player_run": 40729078679,
+  "player_job": 122960151967,
+  "player_sha256": "c323bae86169ec3ea937a4f7dc212e82e68c48cf768fe339915b9e5ee91f6909",
+  "indexed_history_records": 348,
+  "status": "compiled; superseded without delivery",
+  "reason": "Review found that pre-draw scene creation could draw newly constructed cameras while their matrices were still identity. The UIMSD first-ready timestamp could therefore precede a correctly projected frame. Refresh transforms before drawing, including cameras created by draw-time UIMSD layout, without calling simulation update, advancing pans/shakes, or consuming RNG. Preserve raw native/display outcomes and do not accept a model-ready or misprojected frame as a performance result.",
+  "core": {
+    "tests": 2120,
+    "suites": 410,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native_acceptance": "not claimed; in progress when correction prepared",
+  "distribution": "none"
+}

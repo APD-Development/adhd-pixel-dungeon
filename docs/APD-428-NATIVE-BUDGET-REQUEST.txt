@@ -1,0 +1,2 @@
+2026-11-09T19:27:48.180608+00:00
+Original427Alpha hit900second command cap; Developer fullsix passed. Expanded UI screenshots justify finite1800seconds, sameapp/instrumentation bytes, no testlogic changes/skips/newAPKs. Original428stillrunning immutable900cap; do not count it successful withoutcomplete outputs. Run unchanged pair with adequatecap; preserve originals. Cancel redundant retry only if originalfull12actuallypasses. No publication until complete strict evidence and manual review.

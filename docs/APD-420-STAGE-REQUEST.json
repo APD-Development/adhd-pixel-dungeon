@@ -1,0 +1,10 @@
+{
+  "run_id": 42654395502,
+  "source_commit": "55d8e9adfb05756e4b6a854e43d2b836748772fd",
+  "number": 420,
+  "require_all_native_cases": true,
+  "publish": false,
+  "manual_review_required": true,
+  "original_failed_run_id": 42650360251,
+  "test_only_fixture_correction": "Might exact5of5 raw-text expectation includes its original highlighting markers; apps unchanged"
+}

@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-24",
+  "timestamp": "2026-10-24T14:50:39Z",
+  "status": "accepted_private_emulator_verified",
+  "source": "bcd657b8b4c524b9da00ac44211065b3eb47ab8f",
+  "application_source": "bcd657b8b4c524b9da00ac44211065b3eb47ab8f",
+  "change_scope": "Native API34 harness correction only: touch the real WndUimsdRow action without weakening eligibility, repeated-window, persistence, evidence or history assertions.",
+  "developer": {
+    "workflow_run": 40102443917,
+    "build_number": 312,
+    "verify_job": 120897185726,
+    "artifact_id": 12563596708,
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-312.apk",
+    "bytes": 38743252,
+    "sha256": "94215b09eb07ca7440ab07132af8a81a3db1801e027d998743137676ac8bb1f1"
+  },
+  "player": {
+    "workflow_run": 40102443841,
+    "job": 120897185344,
+    "artifact_id": 12563656719,
+    "file": "APD-Player-TEST312.apk",
+    "bytes": 38743079,
+    "sha256": "6480fa6124f6b576f8b7390bf64d33481ce858462ddc7829e9c7cfc0a2447179",
+    "methods": 2064,
+    "suites": 400,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "history_matches_developer": true,
+    "signer_and_application_id_match": true,
+    "developer_only_features_disabled": true
+  },
+  "core": {
+    "job": 120897185726,
+    "artifact_id": 12563248280,
+    "artifact_bytes": 975543,
+    "artifact_digest": "sha256:ed094e6fc11dc748d9dceb92174b37c137a224b8885fefe108701a5c5c8307ba",
+    "suites": 400,
+    "methods": 2064,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "debug_assembly": true
+  },
+  "api34": {
+    "job": 120898009981,
+    "artifact_id": 12564310138,
+    "artifact_bytes": 7342326,
+    "artifact_digest": "sha256:0d488be8c837df76188235c74cc610244232426c947736432d76f41a321cd71e",
+    "methods": 54,
+    "passed": 54,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "pngs": 80,
+    "visual_review": "All 80 retained images reviewed: no blank, corrupt or obviously clipped capture.",
+    "corrected_case": "recordedDamageRecoveryWindowSurvivesReloadAndRowAction passed.",
+    "new_screen": "uimsd-damage-recovery-window.png visibly shows Observed healing, next 10 turns — 7 observed (at least); the same native method also asserted the row-action 5-turn total of 4."
+  },
+  "supplemental": {
+    "display": {
+      "workflow_run": 40102443846,
+      "status": "success on all five profiles",
+      "test_source": "bcd657b8b4c524b9da00ac44211065b3eb47ab8f",
+      "reused_application_source": "413732834f2f0325ce206ad9e554747558c00a1c",
+      "reused_application_sha256": "0a934e47140eac2e79059094ab6153888d1b34d1972ae71628abb35fd2c3cd39",
+      "protected_application_inputs_identical": true,
+      "rebuilt": false,
+      "profiles": [
+        "360x560",
+        "1080x2408",
+        "960x320",
+        "320x480",
+        "720x720"
+      ],
+      "methods_per_profile": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "visual_review": "Layout, hide, restore and interface-confirmation captures reviewed without clipping or corruption."
+    },
+    "hotbar_restart": {
+      "workflow_run": 40102443827,
+      "artifact_id": 12562853870,
+      "developer_source": "bcd657b8b4c524b9da00ac44211065b3eb47ab8f",
+      "developer_sha256": "94215b09eb07ca7440ab07132af8a81a3db1801e027d998743137676ac8bb1f1",
+      "player_source": "bcd657b8b4c524b9da00ac44211065b3eb47ab8f",
+      "player_sha256": "6480fa6124f6b576f8b7390bf64d33481ce858462ddc7829e9c7cfc0a2447179",
+      "baseline_test285_reproduced": true,
+      "upgrade_from_test285_passed": true,
+      "old_disk_state_preserved_on_upgrade": true,
+      "new_save_cold_restart_passed": true,
+      "complete_process_force_stop": true,
+      "application_data_cleared": false,
+      "regular_player_settings_passed": true,
+      "developer_feature_asset_absent_from_player": true
+    },
+    "death_order": {
+      "workflow_run": 40102443842,
+      "artifact_id": 12563377076,
+      "source": "bcd657b8b4c524b9da00ac44211065b3eb47ab8f",
+      "apk_sha256": "94215b09eb07ca7440ab07132af8a81a3db1801e027d998743137676ac8bb1f1",
+      "corrected_exact_apk_passed": true
+    },
+    "staging": {
+      "workflow_run": 40102443818,
+      "job": 120897185283,
+      "status": "failed closed before publication",
+      "reason": "Publication commit changes application/build inputs",
+      "published": false,
+      "distributed": false
+    }
+  },
+  "history": {
+    "indexed_records": 339,
+    "tsv_assets_including_index": 340,
+    "immediate_previous_compiled_candidate": "TEST311",
+    "predecessor_records_compared": 338,
+    "predecessor_records_changed": 0,
+    "developer_player_bytes_identical": true,
+    "added": [
+      "assets/apd/history/codex-test-312.tsv"
+    ]
+  },
+  "acceptance": {
+    "accepted": true,
+    "latest_verified_private_pair": "TEST312",
+    "verified_fallback": "TEST310",
+    "rejected_intermediate_candidate": "TEST311",
+    "latest_owner_publication": "TEST262",
+    "physical_phone_verified": false,
+    "published": false,
+    "distributed": false
+  },
+  "unresolved": [
+    "Physical-phone Back-latency diagnosis remains pending; no lag fix is claimed.",
+    "Collect APD-BACK timing for at least 20 real edge gestures including a slow occurrence before changing navigation semantics."
+  ],
+  "next_safe_step": "Continue the approved backlog from the documented next item while retaining TEST312 as the verified private pair and TEST310 as fallback; do not rebuild solely for this verification record."
+}

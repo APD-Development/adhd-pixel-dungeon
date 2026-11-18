@@ -1,0 +1,117 @@
+name: APD TEST273 labeled pair (private)
+
+# Relabel the two already-verified private artifacts without rebuilding either APK.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-test273-labeled-pair.yml
+      - docs/APD-TEST273-PAIR-PACKAGING-REQUEST.txt
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-test273-labeled-pair
+  cancel-in-progress: false
+
+jobs:
+  package-labeled-pair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Download exact verified Developer and Player APKs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p incoming/developer incoming/player output
+          gh run download 39068952497 --repo "$GITHUB_REPOSITORY" --name apd-codex-private-test-apk --dir incoming/developer
+          gh run download 39070791688 --repo "$GITHUB_REPOSITORY" --name apd-player-preview-273 --dir incoming/player
+
+      - name: Verify identities, shared stair feature and distinct build markers
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import pathlib
+          import shutil
+          import zipfile
+
+          developer = pathlib.Path('incoming/developer/ADHD-Pixel-Dungeon-CODEX-TEST-273.apk')
+          player = pathlib.Path('incoming/player/APD-Player-TEST273.apk')
+          expected = {
+              developer: '3955b271e8ce76d01c315eb104c73b0bea7fa45dfcb2472d7349abd6b2ebdb54',
+              player: '56c586c894490398dacdfc2f4eab2c12161af4f00148a95da8ef47c00a9fbb60',
+          }
+          for path, digest in expected.items():
+              assert path.is_file(), f'Missing {path}'
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              assert actual == digest, f'Unexpected bytes for {path}: {actual}'
+
+          with zipfile.ZipFile(developer) as dev, zipfile.ZipFile(player) as play:
+              assert 'assets/apd/features.txt' in dev.namelist(), 'Developer marker missing'
+              assert 'assets/apd/features.txt' not in play.namelist(), 'Developer marker leaked into Player'
+              histories = [
+                  name for name in dev.namelist()
+                  if name.startswith('assets/apd/history/') and name.endswith('.tsv')
+              ]
+              assert len(histories) > 100, 'Developer history is incomplete'
+              assert all(name in play.namelist() and dev.read(name) == play.read(name) for name in histories), (
+                  'Developer and Player build histories differ'
+              )
+              for label, archive in [('Developer', dev), ('Player', play)]:
+                  dex = [archive.read(name) for name in archive.namelist()
+                         if name.startswith('classes') and name.endswith('.dex')]
+                  assert any(b'Auto-enter Stairs on Arrival' in part for part in dex), (
+                      f'{label} APK is missing the stair setting'
+                  )
+                  assert any(b'StairNavigation' in part for part in dex), (
+                      f'{label} APK is missing stair routing'
+                  )
+
+          outputs = {
+              developer: pathlib.Path('output/APD-Developer-TEST273.apk'),
+              player: pathlib.Path('output/APD-Player-TEST273.apk'),
+          }
+          for source, target in outputs.items():
+              shutil.copyfile(source, target)
+              assert source.read_bytes() == target.read_bytes(), f'Relabel changed {source}'
+          PY
+
+      - name: Recheck signatures and write private download map
+        run: |
+          APK_SIGNER="$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)"
+          test -n "$APK_SIGNER"
+          "$APK_SIGNER" verify --print-certs output/APD-Developer-TEST273.apk > output/APD-Developer-TEST273.signer.txt
+          "$APK_SIGNER" verify --print-certs output/APD-Player-TEST273.apk > output/APD-Player-TEST273.signer.txt
+          grep -i '067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e' output/APD-Developer-TEST273.signer.txt
+          grep -i '067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e' output/APD-Player-TEST273.signer.txt
+          (
+            cd output
+            sha256sum APD-Developer-TEST273.apk APD-Player-TEST273.apk > APD-TEST273-SHA256SUMS.txt
+          )
+          cat > output/APD-TEST273-PRIVATE-DOWNLOAD-MAP.txt <<'EOF'
+          APD TEST273 private labeled pair
+
+          APD-Developer-TEST273.apk
+          - Exact verified TEST273 developer artifact; only the filename changed.
+          - Includes developer-only experimental speed choices.
+          - SHA-256: 3955b271e8ce76d01c315eb104c73b0bea7fa45dfcb2472d7349abd6b2ebdb54
+
+          APD-Player-TEST273.apk
+          - Exact normal Player preview from the same verified game source.
+          - Excludes the developer feature marker and developer-only speed choices.
+          - SHA-256: 56c586c894490398dacdfc2f4eab2c12161af4f00148a95da8ef47c00a9fbb60
+
+          Both include the discovered-stair shortcut and optional Auto-enter Stairs on Arrival setting.
+          Both retain the same application ID, signing line and saves, so they replace each other and cannot coexist.
+          These are private CI artifacts, not a public release. Player Android-device behavior still needs acceptance.
+          EOF
+
+      - name: Retain labeled private pair without rebuilding
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-test273-developer-and-player
+          path: output/
+          if-no-files-found: error
+          retention-days: 7

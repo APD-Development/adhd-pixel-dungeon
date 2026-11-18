@@ -1,0 +1,2 @@
+Development	ICON_CHECKED	Record verified TEST237 evidence	Retain the exact TEST237 targeted, core, Android, visual, APK, application-ID and signature evidence without rebuilding or publishing unchanged source.
+Statistics	ICON_WARNING	Recover valid archive run identity	Archive export and import now skip empty or invalid typed run IDs and use the first later valid logical identity, preventing header-only mislabelling.

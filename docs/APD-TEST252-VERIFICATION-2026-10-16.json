@@ -1,0 +1,40 @@
+{
+  "build": 252,
+  "source_sha": "fa39ad824347a67624a93efbb4a3fb358c7477fe",
+  "verification_run": 38935813981,
+  "stage_run": 38935814001,
+  "core": {
+    "tests": 1734,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "api": 34,
+    "screenshots": 48,
+    "visually_reviewed": true,
+    "physical_phone": false
+  },
+  "apk_sha256": "333086ba911b7614f8562df21a8b50e1d8f18cb362b647bfa7032273d64a7f51",
+  "apk_artifact": 12060682805,
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "package": [
+    "com.charltonchris29.adhdpixeldungeon.indev",
+    "920",
+    "4.0.8-apd-INDEV-bC252-TEST"
+  ],
+  "full_staged_artifact": 12061209924,
+  "full_zip_sha256": "92d6c161054074e19869272e7f1791344f9f8053b9ec3480bd91fbaaf6d22e9a",
+  "evidence_artifact": 12062166252,
+  "evidence_zip_sha256": "de3063faa7c364ebfcb35fd8838d73d7e3a7efb6005d86e8410a8c342a41720b",
+  "pdf_sha256": "4a900b9978519eb6af4fc16105add59c3b795a4bdc74ae4319d397c095a951ef",
+  "pdf_bytes": 36119,
+  "ci_started_utc": "2026-10-16T16:56:19Z",
+  "ci_completed_utc": "2026-10-16T17:13:20Z",
+  "published": false,
+  "physical_device_verified": false
+}

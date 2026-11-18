@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "review_date": "2026-11-11",
+  "scope": "One read-only follow-up on the existing SuperNovaTracker depth/branch capture, save/restore and execution guard. No APD442 source or asset edits.",
+  "prior_review_check": {
+    "consulted": [
+      "docs/WORK-COMPLETED-LEDGER.md",
+      "docs/APD-PLAYER-DESCRIPTION-AUDIT-PROGRESS.md",
+      "docs/APD-PLAYER-DESCRIPTION-AUDIT.json",
+      "docs/APD-MECHANICS-DESCRIPTION-AUDIT.json",
+      "recovery/apd442-rogue-huntress-duelist-review/review.json"
+    ],
+    "excluded_completed": "Talisman of Foresight own save/awareness paths are explicitly marked reviewed; those were not reopened.",
+    "selected_effect": "SuperNovaTracker is marked PENDING_SEMANTIC_REVIEW in the mechanics inventory. No explicit completed SuperNova branch/save investigation or existing SuperNova test was found in the consulted records/test source.",
+    "cursed_wand_limit": "Only its existing SuperNova creation call site was read to trace this buff. No Cursed Wand description, panel or owner decision was revisited."
+  },
+  "result": "NO_NEW_PROVEN_ISSUE_IN_REVIEWED_BINDING",
+  "method": "Source-path inspection against the exact files in the completed APD442 fresh compilation; no new test or native execution.",
+  "checks": [
+    {
+      "finding": "Fresh creation captures both current depth and current branch in field initializers.",
+      "references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:45-46",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/CursedWand.java:1217-1222",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Buff.java:216-220"
+      ]
+    },
+    {
+      "finding": "The sole creation call uses Buff.append, which constructs a fresh instance rather than reusing an old tracker context. The caller supplies position and ally-harm mode.",
+      "references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/CursedWand.java:1220-1222",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Buff.java:217-220"
+      ]
+    },
+    {
+      "finding": "A branch OR depth mismatch returns from act before coordinates, FOV, halo, countdown decrement, explosion or map destruction are processed. Only actor scheduling time advances on that path.",
+      "references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:57-64",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:126-128"
+      ]
+    },
+    {
+      "finding": "fx(true) also requires matching depth and branch before creating the halo.",
+      "references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:138-150"
+      ]
+    },
+    {
+      "finding": "Position, depth, branch, turnsLeft and harmsAllies are explicitly saved and restored. Saved depth/branch replace the constructor defaults, so the global context during object allocation does not overwrite existing saved context.",
+      "references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:153-177",
+        "SPD-classes/src/main/java/com/watabou/utils/Bundle.java:143-157",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/Char.java:379-388",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java:936-941"
+      ]
+    },
+    {
+      "finding": "The runtime FOV and halo references are not serialized; newly restored objects begin with those fields unset.",
+      "references": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:51-52",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java:160-177"
+      ]
+    }
+  ],
+  "limits": [
+    "This does not complete SuperNova semantic, combat, visual or balance review.",
+    "No new runtime regression or Android claim is made.",
+    "No statement is made about unspecified historical save formats missing existing fields.",
+    "No production, test, workflow, GitHub or Library mutations were performed."
+  ],
+  "source_sha256": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/SuperNovaTracker.java": "86dc2b34e406a67446644c4b094e20af7267627c77dc421601caf6659f983749",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/CursedWand.java": "204bbb22464063d2d57f3c36f34499071b07d40158fc255179b73d32eacdf6e6",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Buff.java": "663ed832e6c159d0638ed9f6a2e194faa597e67d3f234937ecd1217e70bdc4f0",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/Char.java": "33bcd148dd3b5007fb42f19f1fb37fa886c5b9f691d9a16b1546b91a81286813",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java": "e0b65cd63a84ea63592517cdd775b552ca5837f5bce88bc74052681268769ea8",
+    "SPD-classes/src/main/java/com/watabou/utils/Bundle.java": "4ccb4d00f862d307f4829694a833971d88c39486a721c55f1812d514c38fd52d"
+  },
+  "matches_frozen_apd442_compilation_manifest": true,
+  "compilation_manifest": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-fixed-source/compile-provenance.json",
+  "compilation_manifest_sha256": "c2baa958cc3adbee94d90bec5f68e3e52a134aaf753f55da1effaa94ba1462c8"
+}

@@ -1,0 +1,316 @@
+{
+  "number": 430,
+  "accepted": true,
+  "reviewed_utc": "2026-11-10T16:51:26.547042+00:00",
+  "source_commit": "2193252bf075b8b429118262fdca8cca046e149c",
+  "original_build_run": 42696629251,
+  "reviewed_images": [
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-AscendedForm-bottom.png",
+      "sha256": "c306428659c05c94829b81889b2b5725416c01e0185157d270cad0d3f5fd4fe3"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-AscendedForm-normal.png",
+      "sha256": "ac4e48fc5aec3363d316ca518fc8357475727382da9d4c2bc19b8b23b060d955"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-AscendedForm.png",
+      "sha256": "98d0f46fbbbf660ec4dc357a3e11facf731b2bab5b8022eb4d070fd656ecd735"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Challenge-bottom.png",
+      "sha256": "d4822cfee85eb3b833a0ec45ca30f2b26f03fb13a90d36ad45fd3b199516b494"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Challenge-normal.png",
+      "sha256": "1ee1e81bd17d00b0c1e0077d7490d2f7312ad8e81eee2225e13a5c5e3c311e93"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Challenge.png",
+      "sha256": "3457ccd1da588780115ec6bc747eadf3ee025441bdc9cecfd86e17ea4dc990db"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-DeathMark-bottom.png",
+      "sha256": "e5adc537355d8e1ca454a732e048746c12491cadcf8275c189518de3b04841c8"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-DeathMark-normal.png",
+      "sha256": "c17dfd9f3626006934c55e3bba4d3288f44b0b576c4ae5471ea30d616b41d1fa"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-DeathMark.png",
+      "sha256": "6cbd2a04ebe1961efebaac5e0a488e89cc312ca86b2bf8296efe2be93df305d9"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ElementalBlast-bottom.png",
+      "sha256": "bbc61c3b041f74bd456bf79f47bf67cf480c939e776335b689e4c5798d52eb2d"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ElementalBlast-normal.png",
+      "sha256": "88d44e076e46df26ca7af1e88c00cd1a2e0de3e7f9fa664074c366c72a8d0bec"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ElementalBlast.png",
+      "sha256": "4da82828151b02ff3af3467e8ca9a2eba66373e230b0824ad8f1c6764505cae3"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ElementalStrike-bottom.png",
+      "sha256": "41e447c3231eb75876c92ca40b24ed61d7d4d7730b2c94162ebc8343785a5ceb"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ElementalStrike-normal.png",
+      "sha256": "3e5cc5905585bfe48072cf95d925e258296b658bb4dcbdfddd38eb22aeaf9e3f"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ElementalStrike.png",
+      "sha256": "1cbd2cd82477a8f427a3456eb880030edbcf89159830c6d58581315c52ad67a1"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Endure-bottom.png",
+      "sha256": "f085c6c3a73fd9977b1fde61c193df7a4a4b772f96bcca320c58f160173b3172"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Endure-normal.png",
+      "sha256": "f1b2803e9713d402a37bec30c25cdbeeff1dd96c3653a840edc46a7ed566826c"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Endure.png",
+      "sha256": "c20b027e4b48e44e2134e67330ea4557885a1b65d8f8756205c353599fd3d081"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Feint-bottom.png",
+      "sha256": "051b96adc2ce06f24da9438ec6e2150cfabf4392418cee53c9cf07960d4b5538"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Feint-normal.png",
+      "sha256": "b3dfe2936262f28661f9b6993d24166a3ded057c62b093b05e2c8328632ac89b"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Feint.png",
+      "sha256": "6f5eeef860178b985dfc7a23f6cca3e0318a489e8dd8ca204b03931f20a8357e"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-HeroicLeap-bottom.png",
+      "sha256": "6aef686fd63e1f648f7e19234a4f3fbc3ac2ccf461ea000827e94019c8c78a6e"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-HeroicLeap-normal.png",
+      "sha256": "4a2eecfed30ace5cbc025ca012f88e48ca9491b9d16e5f311d40d057ee0c33a5"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-HeroicLeap.png",
+      "sha256": "812d0d5c4650904c1677b10c5b99d1377ff0165eb736f6d4eb1ee787abaa9f39"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-NaturesPower-bottom.png",
+      "sha256": "e35bb0f0743b7e3c3ba1d6507499f275229fcb409f75676de600df01fe606f54"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-NaturesPower-normal.png",
+      "sha256": "7a541787ff9df72df3428fc5a628755d81793ad67b768639c80085a4148c850e"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-NaturesPower.png",
+      "sha256": "c3de1eacb7c81def496c98ae174a797811eda83b5fcd84f1cfae230c2103cb12"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-PowerOfMany-bottom.png",
+      "sha256": "954e88b4584a405890513a9436c47691af7a551769b8971e88d684a2f13a48b0"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-PowerOfMany-normal.png",
+      "sha256": "4fe00ca23e7882a43221482ced24fb5dc0509de5e3d753e42828fb1bbcc60030"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-PowerOfMany.png",
+      "sha256": "8e417dc8a67bc8e10d0db8ab0fefd4d9d71ac920e60743dfd7e03bf53260c846"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Ratmogrify-bottom.png",
+      "sha256": "158533263d42beec0960e201c31c038209b1064f4ec355db10bc57afce9c4179"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Ratmogrify-normal.png",
+      "sha256": "37bdf60afb1170ae8775b67c84ef1dc9734d0c00f3d445b3925267230cdb162a"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Ratmogrify.png",
+      "sha256": "f88ab7d8eafcb705d84c5defc24c230835792191d637746407660aac22a1e651"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ShadowClone-bottom.png",
+      "sha256": "3ecba7485628d39395ff45e09d63d42502358cc130e5abd76d0a15ce913d2404"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ShadowClone-normal.png",
+      "sha256": "01d96e615f5760fa893aa4594a4f33ef80c0f85f746dc4a84fbfec4e02d93d05"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-ShadowClone.png",
+      "sha256": "212afd048b72c41eae353761ec7ceb14ad8425eab1cc4705548739690d61213c"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Shockwave-bottom.png",
+      "sha256": "eced1a4926ecad9281caf9df5bfe8612c27cd33c9a596c04748ad2abac57a0e9"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Shockwave-normal.png",
+      "sha256": "f11a186ed46a285a8c3171660813e1f37c8b043d0158b41750ed62a13d7f42e3"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Shockwave.png",
+      "sha256": "0bc619e683a9bc5f4dd605c37a7650c37d0331c3696289f7638c941efe793998"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SmokeBomb-bottom.png",
+      "sha256": "d471899848e5f30705341439b1e51b3ee0f8886a8b9dd84206adb2536605f9de"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SmokeBomb-normal.png",
+      "sha256": "28a4cefb75fb8ec44e2e46085439b1d42d91568d2fb56a9f674c3cc924bee459"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SmokeBomb.png",
+      "sha256": "6b818c364b186e2c94aa46fcf51b05a443f5d53001505cb76359b07f749e6309"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SpectralBlades-bottom.png",
+      "sha256": "ef1d4d80e1c1bc1d2ddacf8a3424388f7fc5417ad32c204d697b04ed572cb5e5"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SpectralBlades-normal.png",
+      "sha256": "676898884e4035b080398ff5374a3c06093c50a24989ac2407268301a0e24c5d"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SpectralBlades.png",
+      "sha256": "16c6d1e41fcb56e75a6e304a32b6e58e05016d2b695385fcb8c03f4a92023cb9"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SpiritHawk-bottom.png",
+      "sha256": "10841f6a2faaf645806a31ab75dd0727c02c8dcc92877e70270a76c336a5e303"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SpiritHawk-normal.png",
+      "sha256": "2894a12308ab9840adf0cd685b5ab2c0e73971d62fe19f281f9d2498b4b544e3"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-SpiritHawk.png",
+      "sha256": "3c5178d5acf5e5e231b25a6f592d8ac65d40a2f5c6269641ed2edbed9e213a07"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Trinity-bottom.png",
+      "sha256": "969839d9f2a3bbc8f4c9958db8a755477548532c358ff715e6e4c3621ed7a837"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Trinity-normal.png",
+      "sha256": "d8de91461542a21eed4167ad89ce528d94ef9542ffac743a1b687b42e6d90305"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-Trinity.png",
+      "sha256": "8f4d95c08533424f9e1ab621e76a832166e3c2db27bb37c4ac535da75cd058a9"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-WarpBeacon-bottom.png",
+      "sha256": "1e9bb66637a67eba561fc673b61a6dec0a6d3ee8a0ae7494671fbb2e1cfa4a22"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-WarpBeacon-normal.png",
+      "sha256": "66345781469e23de3e0d1c7c75a14a3b7ae5b94354e61899834ad657ea9bb3c7"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-WarpBeacon.png",
+      "sha256": "a7bb1793c4dc63054fb68793e9aa6884b9f5f34b883b556bacfc5cd6bc9934ca"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-WildMagic-bottom.png",
+      "sha256": "407193efb1ad968067cd4df9d30304a9667fc25716b531f3b7d2fa9b5f3f1f6c"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-WildMagic-normal.png",
+      "sha256": "6158a1741c8b160e0f0b21f52ea89678deb353a795932971f9870fe145bd7f4f"
+    },
+    {
+      "path": "evidence/Developer-visuals/qol-reviewed-ability-all-WildMagic.png",
+      "sha256": "72c58f901bd4e144680fd8505a4ca5ea1781bb7004aabefbe5869d43b18a329d"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-AscendedForm-bottom.png",
+      "sha256": "3452e3c0f4e4e3ab0234bc341bbed6a8bbf02adfcf74b7bb5284dd6c42e75fd8"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-Challenge-bottom.png",
+      "sha256": "fea5cbf506489e90e62a4748901f5f88c3c7ad360e9cd63ced1264f69aacbb64"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-DeathMark-bottom.png",
+      "sha256": "c428ca2c31f88466524212d98ad296853d8c982e64bfbb6e5d6891d7853ed423"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-ElementalBlast-bottom.png",
+      "sha256": "1f35e9896a1652449428720f6359b37b8c4715011f0e1edbb6d6b31e93195850"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-ElementalStrike-bottom.png",
+      "sha256": "713f0e24b18bbbb3dce0897dbdb16b9407f0571d4e9c839bf4dcddbba74e86f2"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-Endure-bottom.png",
+      "sha256": "955b40da7b3b510a6235f76c956df05596a4d849a91beced5239a3656de2e830"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-Feint-bottom.png",
+      "sha256": "aa88acd7295eb5f04ceb85deca69a23708bfefbbd8d8f3e40a161a938422db48"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-HeroicLeap-bottom.png",
+      "sha256": "40fc20cf45eafc7bcbb2ac1bf79337f08efd012f3cd68141dd7574a19401cc0e"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-NaturesPower-bottom.png",
+      "sha256": "d177cf14777516e3ba30ad0585e0eb97f6595eddf35d389abbe7197abbaa6eab"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-PowerOfMany-bottom.png",
+      "sha256": "a6b4bc14aaa8e611aaffad5c05b66b0b0bca955af5c0e2a03057c783626f9637"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-Ratmogrify-bottom.png",
+      "sha256": "43bf6db24278e5ad791498c0cb82d2376c8adfaa5bc19b624b5082414d6a4f37"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-ShadowClone-bottom.png",
+      "sha256": "e28a9eaeb1fc2f8aa3a7f9b54925c69839acf5ab3a4ed703025aa3489cadc1a9"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-Shockwave-bottom.png",
+      "sha256": "83dbd6d692c703d4f3f0a81b88f9dbad4b60d1a6b4e0b4a3e4f9bd9d0e985c35"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-SmokeBomb-bottom.png",
+      "sha256": "2a2c7ac6b08846776dcdb01fd8dd7899473a8709f3b54cabfc63c1aebcb0ee78"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-SpectralBlades-bottom.png",
+      "sha256": "b649227c4fb0e17025c8c95b9e6968092be3a5e6815d0f0d3af986f66bd521ef"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-SpiritHawk-bottom.png",
+      "sha256": "38f96fd4ecd862a8164b4128bae7b034a8c661cac1327498aae9e5828ea458df"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-Trinity-bottom.png",
+      "sha256": "de2b937f1f046ca62d644b09a414ff395e0717ece984e380f0b694740ab44626"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-WarpBeacon-bottom.png",
+      "sha256": "25d6aa750116ef4e112b604f42a321daae1d6d4e07227ab2185fee5ce17fc09e"
+    },
+    {
+      "path": "evidence/Alpha-Testers-visuals/qol-reviewed-ability-all-WildMagic-bottom.png",
+      "sha256": "304e546328ee9479e34ebb8084a543a4a6b6a850a822e3dc651f010646bbb410"
+    }
+  ],
+  "sheets_viewed": 16,
+  "scope": "All 19 armor-ability windows: Developer normal/expanded/bottom views and Alpha-Testers bottom views, 76 actual emulator frames. Text remains readable in the clipped scroll area; lower effect text and existing controls are reachable. Charge values and talent effects remain in the existing windows. No missing glyph or raw placeholder observed in these frames.",
+  "limitations": "Targeted API34 emulator evidence from the original build; no physical-phone or acoustic audio verification. Broader talent/normal-text audit remains partial; source changes after 2193252 are not in this APK."
+}

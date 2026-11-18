@@ -1,0 +1,30 @@
+{
+  "release_id": 436914231,
+  "published_at": "2026-11-06T19:42:57Z",
+  "source": "b8283598a43e13a2259d65cae69bf0529b7a65e2",
+  "core_tests": 2856,
+  "native_tests": 72,
+  "downloaded_back_verified": true,
+  "actual_files_downloaded_again": true,
+  "source_sha256": "8c10e7f41e7c4d9282a390df2e776510bb40d3363c2368bcffd51827265e5e8c",
+  "asset_links": {
+    "APD-Alpha-Testers-369.apk": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Alpha-Testers-369.apk",
+    "APD-Alpha-Testers-369.apk.sha256": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Alpha-Testers-369.apk.sha256",
+    "APD-Developer-369.apk": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Developer-369.apk",
+    "APD-Developer-369.apk.sha256": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Developer-369.apk.sha256",
+    "APD-Preview-369-Verification.json": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Preview-369-Verification.json",
+    "APD-Source-369.zip": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Source-369.zip",
+    "APD-Source-369.zip.sha256": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Source-369.zip.sha256",
+    "APD-Source-Scan.json": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-369/APD-Source-Scan.json"
+  },
+  "physical_phone_tested": false,
+  "whole_semantic_audit_complete": false,
+  "link_sent": true,
+  "owner_link_message": {
+    "channel": "commentary",
+    "sent": true,
+    "utc_window_start": "2026-11-06T19:45:39Z",
+    "utc_window_end_observed": "2026-11-06T19:45:49Z",
+    "before_3pm_America_New_York": true
+  }
+}

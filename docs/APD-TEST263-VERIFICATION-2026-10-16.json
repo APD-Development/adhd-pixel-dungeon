@@ -1,0 +1,111 @@
+{
+  "build": 263,
+  "application_source": "e3b5cef026f8a9d6827d0eebb5528069c646b00d",
+  "verification_run": 38980948671,
+  "verification_started_at": "2026-10-16T23:21:01Z",
+  "verification_completed_at": "2026-10-16T23:36:31Z",
+  "core": {
+    "tests": 1761,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12080698247,
+    "artifact_digest": "sha256:d9702b578e25bacf88923846c1c2616c60bc3a1bd208b09c3e9f3b30ffc9c768"
+  },
+  "android": {
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "required_images": 57,
+    "images_decoded": true,
+    "images_contact_sheet_reviewed": true,
+    "artifact_id": 12081835229,
+    "artifact_digest": "sha256:9a0f158907ca8f64ef43a3dfd8921397eb5f394b58d2cb8c28eaab179290f78f",
+    "grudge_touch_method": "grudgeControlsRespondToActualTouches"
+  },
+  "apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-263.apk",
+    "bytes": 38591540,
+    "sha256": "3e71c975ddc7f85f22e1f42454aa9e1a420164f8c9ed6c7e226f11e40a08c20d",
+    "artifact_id": 12081246935,
+    "artifact_digest": "sha256:b58e6d0baa990111b509f6038c7721a31a3a6c98242c5ff9b3c10c3b79111dcb",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "version_name": "4.0.8-apd-INDEV-bC263-TEST",
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "compared_with_published_build": 262
+  },
+  "staging": {
+    "wrapper_source": "5c9365c866c0c55aef75eb26608f10ead948b4cc",
+    "run": 38982859447,
+    "started_at": "2026-10-16T23:42:46Z",
+    "completed_at": "2026-10-16T23:43:30Z",
+    "conclusion": "success",
+    "application_rebuilt": false,
+    "application_tree_matches_source": true,
+    "artifact_id": 12082335643,
+    "artifact_digest": "sha256:87379900b825c56097e3a600be2bbeb65ba630550c3dbd2d0a9779b6f9b3f4db",
+    "evidence_artifact_id": 12081234943,
+    "evidence_artifact_digest": "sha256:99e1dac9444285d23f5e809067e82697750b7231310bff90e8677b7b7dad0ba0"
+  },
+  "supplemental_display": {
+    "run": 38980948747,
+    "application_source": "e3b5cef026f8a9d6827d0eebb5528069c646b00d",
+    "original_attempt_conclusion": "failure",
+    "original_pass_profiles": [
+      "m53-representative",
+      "compact-virtual",
+      "small-virtual"
+    ],
+    "original_failed_profiles": [
+      "square-virtual",
+      "short-landscape"
+    ],
+    "original_failures": [
+      "square TitleScene timeout and non-PNG placeholder",
+      "short-landscape title-control overlap assertion and non-PNG placeholder"
+    ],
+    "retry_attempt": 2,
+    "retry_started_at": "2026-10-16T23:42:05Z",
+    "retry_completed_at": "2026-10-16T23:46:22Z",
+    "retry_conclusion": "success",
+    "retry_pass_profiles": [
+      "square-virtual",
+      "short-landscape"
+    ],
+    "accepted_profiles": [
+      "m53-representative",
+      "compact-virtual",
+      "small-virtual",
+      "square-virtual",
+      "short-landscape"
+    ],
+    "retry_artifacts": [
+      {
+        "profile": "square-virtual",
+        "id": 12081653912,
+        "digest": "sha256:6a277a51546eba1a4ed41cbe7c7ded6d41349ec8ab6519cc483adc810f423784",
+        "images": 5
+      },
+      {
+        "profile": "short-landscape",
+        "id": 12081483056,
+        "digest": "sha256:d4b19e76c9cee4df6067b33a944d2031bf38d43af412215b01e33bcda1ef2bd6",
+        "images": 5
+      }
+    ],
+    "retry_images_decoded": true,
+    "retry_images_reviewed": true
+  },
+  "published": false,
+  "latest_published_owner_build": 262,
+  "latest_published_owner_tag": "apd-alpha-preview-262",
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "public_release": false,
+  "automatic_tester_distribution": false,
+  "all_backlog_complete": false,
+  "recorded_at": "2026-10-16T23:48:13Z",
+  "next_safe_step": "Keep TEST262 published fallback; do not rebuild unchanged TEST263. Private owner publication requires a distinct authorized delivery action, or continue the documented backlog while preserving this staged candidate."
+}

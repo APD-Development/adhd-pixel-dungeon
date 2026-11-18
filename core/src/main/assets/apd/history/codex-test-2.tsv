@@ -1,0 +1,21 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Added a device test covering menus Survive Scene Recreation And Narrow Actions Stay Inside Their Window. These are development checks, not a gameplay feature.
+Infrastructure	ICON_DATA	Gateways	Rejected remote HTTP addresses disguised as loopback hosts.
+Quality of Life	ICON_INFO	Screen restoration	Added semantic restoration callbacks for parameterized windows after screen recreation.
+Quality of Life	ICON_STATS	Statistics screen	Bound restored tour actions to the current statistics scene.
+Quality of Life	ICON_STATS	Statistics Columns	Restored statistics menus and their current selections after screen recreation.
+Testing	ICON_DATA	Gateways Test 1	Added a test covering plain Http Requires An Exact Loopback Host. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Gateways Test 2	Added a test covering malformed Or Credential Bearing Addresses Are Rejected. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Gateways Test 3	Added a test covering secure Paths And Ipv6 Remain Usable Without Sending Anything. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test	Updated automated checks and fixtures for unlock progression. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-AGE-VERIFICATION-STATUS	Added apd-age-verification-status accompanying this build.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Added apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-DEMO-UNLOCK-CHECKLIST	Updated apd-demo-unlock-checklist accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Added apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Added apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-TEST-OUTPUT-2026-10-09	Added apd-sprint-test-output-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	KNOWN-ISSUES-AND-SOURCE-GUIDE	Updated known-issues-and-source-guide accompanying this build.
+Infrastructure	ICON_INFO	apd bug report pdf	Added the apd bug report pdf development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Added semantic restoration callbacks for parameterized windows after screen recreation. Bound restored tour actions to the current statistics scene.

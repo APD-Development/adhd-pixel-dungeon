@@ -1,0 +1,2 @@
+2026-11-10T16:54:21.966879+00:00
+Build exactly one Developer/Alpha-Testers pair from this pinned changeset. Source verification 42858513472 passed. Preserve immediate previous compiled APD430 history and files. Require all core/compilation/native/identity/source checks and manual affected-window review before delivery under the November 10 owner instruction.

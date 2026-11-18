@@ -1,0 +1,154 @@
+{
+  "number": 442,
+  "source_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+  "original_run": 43045170286,
+  "artifact_id": 13867885096,
+  "artifact_sha256": "e15284423d35dc46760b7c77c3f2205373a456ffa36f10ad117eabc5e17b5f8c",
+  "core": {
+    "tests": 3197,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 464,
+  "variants": {
+    "Developer": {
+      "sha256": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+      "bytes": 39204596,
+      "version_name": "4.0.8-apd-INDEV-bC442-TEST"
+    },
+    "Alpha-Testers": {
+      "sha256": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed",
+      "bytes": 39204572,
+      "version_name": "4.0.8-apd-INDEV-bP442"
+    }
+  },
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "instrumentation_sha256": "5ac08c348e0a47c3220aa6dd39ceed6a4be15ea610b48cd53becb84a63ba5f11",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "published": false,
+  "native_recovery_complete": true,
+  "android_tests": 12,
+  "manual_visual_review_complete": true,
+  "source_archive_sha256": "967a55fa95e42d7ce8b51c8a5f556fde2ae628f3653b9be649a497c57fdc4ae4",
+  "physical_phone_verified": false,
+  "recovery_run": "43045170286",
+  "recovery_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+  "new_application_apks_created": 2,
+  "new_candidate_build": true,
+  "previous_source": "748f9c990284b61f74b39c5111646bcb1d395183",
+  "previous_artifact_id": 13860480452,
+  "previous_artifact_sha256": "a2f9775712bbe777239ba2c220a5ee972e360e44da79a97c9f0f6d9e9950acfc",
+  "producing_run": 43045170286,
+  "scope_sha256": "7eb92f8c4581664bf61d78e87fae8f413183f322500482625be11337979ddb02",
+  "required_affected_images": [
+    "qol-counter-ability-normal-bottom.png",
+    "qol-counter-ability-normal.png",
+    "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+    "qol-ordinary-talent-LINGERING_MAGIC.png",
+    "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+    "qol-ordinary-talent-PROVOKED_ANGER.png",
+    "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+    "qol-ordinary-talent-SPEEDY_STEALTH.png",
+    "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+    "qol-ordinary-talent-VETERANS_INTUITION.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+    "trap-discovery-seer-shot-foreign-branch-hidden.png",
+    "trap-discovery-seer-shot-side-branch-before.png",
+    "trap-discovery-seer-shot-side-branch-revealed.png"
+  ],
+  "complete_remote_image_manifest_verified": true,
+  "source_scan_verified": true,
+  "source_scan_receipt_sha256": "7be272e142537170119836f1528ca43f1c9bcad9a9a3a3738f5c33630c8f2c7d",
+  "publication_authorized_by_this_workflow": false,
+  "manual_review_scope": "Each variant: 25 originals, including all 17 affected frames, all four trap frames, two wall and two inventory samples. Root additionally viewed the three Developer Seer Shot originals. All 1425 PNGs per variant are decoded and hash-verified; no blanket manual review claim.",
+  "manual_review_limits": [
+    "No physical-phone, install-over or acoustic verification.",
+    "No targeted native DM300/pylon capture; existing actual targeting headless integration regressions are retained.",
+    "The runtime Ooze original is dark and offset; passing gameplay assertions provide the direct effect evidence. Subsequent Seer Shot before captures show the hero and Ooze feedback.",
+    "The expanded Excess Charge intermediate view retains a partial preceding-text fragment at the scroll edge; its bottom view shows the complete final content."
+  ],
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_recorded_utc": "2026-11-11T15:39:25.199461+00:00",
+  "delivery_method": "Direct saved-file APK and matching source links sent immediately after exact saved-download byte readback.",
+  "github_release_published": false,
+  "owner_review_artifact": {
+    "id": 13868253084,
+    "sha256": "99b7186089c94c2942137bd183876d8b36f06d0ddd279fcd9c2b4a4863ee1276",
+    "bytes": 183069569
+  },
+  "owner_package_independent_receipt_sha256": "dfd7359c193e194f337f4b45c2367f2dcbb5ae16a3e68ebb6a23b89bf732999b",
+  "source_scan_run": 43045170286,
+  "source_scan_commit": "df0c0b44e76f2e9fbf338ee55ecc13e39745c1bc",
+  "source_scan_success": true,
+  "source_scan_artifact": {
+    "id": 13867935220,
+    "sha256": "5895cfcf315db45c1db786bd741cf4cbea0f73316ca2075a3de32abd6b46064b"
+  },
+  "source_manifest_files": 4964,
+  "source_scan_reviewed_candidates": 72,
+  "source_scan_retained_redacted_history_findings": 23,
+  "source_scan_zero_findings_claimed": false,
+  "manual_review_github_file": "docs/APD-442-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+  "saved_download_readback_sha256_verified": true,
+  "readback_verified_utc": "2026-11-11T15:38:53.642900+00:00",
+  "readback_hashes": {
+    "APD-Developer-442.apk": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+    "APD-Alpha-Testers-442.apk": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed",
+    "APD-Source-442.zip": "967a55fa95e42d7ce8b51c8a5f556fde2ae628f3653b9be649a497c57fdc4ae4"
+  },
+  "original_ci_verification_preserved_unchanged": true,
+  "files": [
+    {
+      "file_id": "file_00000000f5d08230b8f9ddc0a4a0103a",
+      "library_file_id": "libfile_fde3_f-51d88e5268c48191916d500639db1b2d_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Developer-442.apk",
+      "sha256": "16725a23f68a6249bfa3971df02e854eae229477454d513556893f6fc0f16339",
+      "bytes": 39204596,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd442-owner-review/APD-Developer-442.apk"
+    },
+    {
+      "file_id": "file_00000000bcd882128ee95407c332b08c",
+      "library_file_id": "libfile_fde3_f-d72f515b99dc8191a29ae66f13c62d14_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Alpha-Testers-442.apk",
+      "sha256": "9439597421f3ec2a8c47ba631a6476cc630b54b17966951efc8183cc448485ed",
+      "bytes": 39204572,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd442-owner-review/APD-Alpha-Testers-442.apk"
+    },
+    {
+      "file_id": "file_00000000222481f7a05aeaad98ca787f",
+      "library_file_id": "libfile_fde3_f-3d20c4890a0881918b6d9cec4ec9f77d_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Source-442.zip",
+      "sha256": "967a55fa95e42d7ce8b51c8a5f556fde2ae628f3653b9be649a497c57fdc4ae4",
+      "bytes": 110649977,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd442-owner-review/APD-Source-442.zip"
+    }
+  ],
+  "native_artifacts": {
+    "Developer": {
+      "id": 13869630143,
+      "sha256": "3e141c4fff87c625fd71d2a60d2fe2e4b2262cfa8c78ec9d684b055cb7aa0228",
+      "images": 1425,
+      "seed_pid": 4949,
+      "restart_pid": 5145
+    },
+    "Alpha-Testers": {
+      "id": 13869355574,
+      "sha256": "b3bea0b5bafa654e12d37e572bc8d41e8b4f4f52f9cb174dff611a9f6efe2410",
+      "images": 1425,
+      "seed_pid": 4931,
+      "restart_pid": 5123
+    }
+  },
+  "notes": [
+    "Original automatic CI proof retains manual_visual_review_complete=false from packaging time. This later acceptance adds completed manual review and delivery without editing that proof.",
+    "Exactly two new application APKs were created for442. Liquid Agility source committed later at83aee325935e3fda80d750aa10348e83a28ea5dd is not in this pair.",
+    "Signing was verified by Android apksigner in CI and tied to downloaded bytes by exact artifact and APK hashes. No local Android SDK or physical-phone verification is claimed."
+  ]
+}

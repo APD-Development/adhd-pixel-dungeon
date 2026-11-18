@@ -1,0 +1,145 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Capture clean371 wall evidence without rebuilding APKs
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-371-REUSE-REQUEST.txt]
+permissions: {contents: write, actions: read}
+concurrency: {group: apd371-retained-verification, cancel-in-progress: false}
+env:
+  APD_SOURCE_SHA: 5b7e7250b63072e52c5cebd1a45ea9bbf1132aa4
+  APD_REUSE_371: 'true'
+  APD_DELIVERY_SPEC: docs/APD-371-DELIVERY-SPEC.json
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Recover exact APKs, passed core and original failed attempt
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_reuse371.py
+      - name: Build instrumentation only, never an application APK
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C371
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Clean actual wall captures in an isolated emulator per variant
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > evidence/visual-${{ matrix.variant }}-logcat.txt &
+            adb install -r owner-delivery/APD-${{ matrix.variant }}-371.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            if test '${{ matrix.variant }}' = Developer; then APD_CASE_LABEL=developer; else APD_CASE_LABEL=alpha; fi; echo "$APD_CASE_LABEL" > case-label.txt
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-wall.txt
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+      - name: Require the actual complete wall result
+        env: {APD_VARIANT: '${{ matrix.variant }}'}
+        run: |
+          python3 - <<'PY'
+          import os,pathlib,re
+          label='developer' if os.environ['APD_VARIANT']=='Developer' else 'alpha'
+          text=pathlib.Path(f'evidence/{label}-wall.txt').read_text()
+          assert 'WallGeometryDeviceTest' in text and 'observedGeometryAndRetainedMarksUseTheActualAndroidLayer' in text
+          assert 'OK (1 test)' in text and 'INSTRUMENTATION_CODE: -1' in text
+          assert len(re.findall(r'^INSTRUMENTATION_STATUS_CODE: 0$',text,re.M))==1
+          assert not any(t in text for t in ['FAILURES','INSTRUMENTATION_FAILED','Process crashed','AssumptionFailure'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd371-visual-${{ matrix.variant }}
+          path: evidence/
+          retention-days: 14
+  prepare-only:
+    needs: native
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Recover the same APKs and original core results
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_reuse371.py
+      - name: Recover completed same-APK trap regressions
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_371_completed_runtime.py
+      - uses: actions/download-artifact@v4
+        with: {pattern: 'apd371-visual-*', path: retry-evidence}
+      - name: Bind and merge actual per-variant runtime evidence
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,shutil,os
+          root=pathlib.Path('retry-evidence');folders=list(root.iterdir());assert {p.name for p in folders}=={'apd371-visual-Developer','apd371-visual-Alpha-Testers'}
+          for folder in folders:
+              proof=json.loads((folder/'reuse-provenance.json').read_text())
+              assert proof['application_source']==os.environ['APD_SOURCE_SHA'] and not proof['application_rebuilt'] and proof['verification_source']==os.environ['GITHUB_SHA']
+              for p in folder.iterdir():
+                  target=pathlib.Path('evidence')/(folder.name+'-'+p.name if p.name=='reuse-provenance.json' else p.name)
+                  if p.is_dir():shutil.copytree(p,target,dirs_exist_ok=True)
+                  elif target.exists():assert target.read_bytes()==p.read_bytes(),p.name
+                  else:shutil.copy(p,target)
+          PY
+      - name: Verify exact identities, core and all nine targeted native cases; package source
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_prepare371.py
+      - name: Scan source and complete reachable history
+        run: |
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - name: Stage verified pair pending actual screenshot review
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd371-verified-prepared-pair
+          path: owner-delivery/
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd371-clean-visual-proof
+          path: |
+            evidence/
+            owner-delivery/*.json
+            owner-delivery/*.sha256
+            owner-delivery/release-notes.md
+            core/build/test-results/test/
+          retention-days: 14

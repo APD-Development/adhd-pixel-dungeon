@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "number": 443,
+  "base_head": "b912f2b083f70de5d81f2351d32c24a0d5ac129e",
+  "status": "ready_for_build",
+  "date": "2026-11-11",
+  "core_tests": 3210,
+  "core_suites": 465,
+  "application_paths": [
+    "core/src/main/assets/messages/actors/actors.properties",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Item.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/Potion.java"
+  ],
+  "additional_required_images": [
+    "qol-ordinary-talent-LIQUID_AGILITY.png",
+    "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+    "trap-discovery-liquid-agility-rank1-before.png",
+    "trap-discovery-liquid-agility-rank1-after.png",
+    "trap-discovery-liquid-agility-rank2-before.png",
+    "trap-discovery-liquid-agility-rank2-after.png",
+    "trap-discovery-liquid-agility-excluded-strength-before.png",
+    "trap-discovery-liquid-agility-excluded-strength-after.png"
+  ],
+  "changes": [
+    {
+      "category": "Bug Fixes",
+      "sprite": "ICON_PREFS",
+      "title": "Liquid Agility after throwing",
+      "text": "Eligible thrown potions now keep Liquid Agility's evasion protection until the hero's next turn. Its intended evasion values, accuracy bonus and potion eligibility are unchanged."
+    },
+    {
+      "category": "Bug Fixes",
+      "sprite": "ICON_PREFS",
+      "title": "Liquid Agility description",
+      "text": "Liquid Agility's ordinary description now states its evasion duration and explains that throwing drink-only potions or elixirs does not trigger the talent."
+    }
+  ],
+  "pending_scope_items": []
+}

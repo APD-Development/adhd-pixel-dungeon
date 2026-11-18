@@ -1,0 +1,13 @@
+{
+  "source": "d129bed4cbab2cf047a6f616dd8574e13a3b385b",
+  "checks": 38347036387,
+  "delivery": 38348190517,
+  "delivery_commit": "c621d99e53ebc179904fa5a36c7d2d259bd6614e",
+  "core": 1278,
+  "android": 21,
+  "screenshots": 20,
+  "sha256": "b258ce3d481568d8d7ca945d33ab2a69745369c116ce4b68ae89348e63b23009",
+  "published": "2026-10-13T04:48:40Z",
+  "signer": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev"
+}

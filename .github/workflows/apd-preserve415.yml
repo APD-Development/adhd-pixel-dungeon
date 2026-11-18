@@ -1,0 +1,50 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Preserve rejected415 original APKs and raw evidence in private draft only
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-415-PRESERVE-REQUEST.txt]
+permissions: {contents: write, actions: read}
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve immutable rejected files without publishing
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh run download 42625074280 --repo "$GITHUB_REPOSITORY" --name apd415-built-pair --dir original-build
+          gh run download 42625074280 --repo "$GITHUB_REPOSITORY" --name apd415-native-Developer --dir rejected-evidence/Developer
+          gh run download 42625074280 --repo "$GITHUB_REPOSITORY" --name apd415-native-Alpha-Testers --dir rejected-evidence/Alpha-Testers
+          python3 - <<'PYPRESERVE'
+          import pathlib,json,subprocess,zipfile,hashlib,os
+          repo=os.environ['GITHUB_REPOSITORY'];api=lambda p:json.loads(subprocess.check_output(['gh','api',p]));assert api('repos/'+repo)['private'];run=api('repos/'+repo+'/actions/runs/42625074280');assert run['conclusion']=='failure' and run['head_sha']=='a52bd33a8868875eb24fa2d0162ba41bdd099b0c';releases=api('repos/'+repo+'/releases?per_page=100');release=next(r for r in releases if r['tag_name']=='apd-alpha-preview-415');assert release['draft']
+          apps=sorted(pathlib.Path('original-build/owner-delivery').glob('APD-*-415.apk'));assert len(apps)==2
+          manifest={'accepted':False,'native_acceptance':'Developer emulator transport closed after QoL and preference-restart checks. Native grid incomplete; Alpha and build passed. No root-cause or physical-device claim. Exact original APKs and instrumentation will receive all12 fresh cases without test changes.','source_commit':run['head_sha'],'run':run['html_url'],'application_apks_rebuilt':False,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in apps}}
+          pathlib.Path('rejected415.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          with zipfile.ZipFile('APD-415-Native-Held-Original-APKs.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in apps:z.write(p,p.name)
+            z.write('rejected415.json','UNVERIFIED-READ-FIRST.json')
+          with zipfile.ZipFile('APD-415-Initial-Native-Held-Evidence.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in pathlib.Path('rejected-evidence').rglob('*'):
+              if p.is_file():z.write(p,p.relative_to('rejected-evidence'))
+            z.write('rejected415.json','rejected415.json')
+          for name in ['APD-415-Native-Held-Original-APKs.zip','APD-415-Initial-Native-Held-Evidence.zip']:
+            assert name not in {a['name'] for a in release['assets']};subprocess.run(['gh','release','upload','apd-alpha-preview-415',name,'--repo',repo],check=True)
+          assert next(r for r in api('repos/'+repo+'/releases?per_page=100') if r['tag_name']=='apd-alpha-preview-415')['draft'];print('Rejected immutable files preserved in private draft only; not published.')
+          PYPRESERVE

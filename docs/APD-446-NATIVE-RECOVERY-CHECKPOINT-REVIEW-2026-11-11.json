@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T19:14:27.680355+00:00",
+  "status": "passed_checkpoint_binding_only",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "original_game_source": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "original_game_run": 43077773970,
+  "recovery_source": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+  "recovery_tree": "9902c9ed66b3ebd7877ee85248bf5f46877cce45",
+  "recovery_parent": "6eaa346b38e17c93abffade923875b37596f2ee3",
+  "branch_ref_readback_matched": true,
+  "checkpoint_paths": [
+    {
+      "path": ".github/workflows/apd-recover446-developer.yml",
+      "git_blob_sha": "6ca3a421e0be2efa8797f84e22d16d1c275d4727",
+      "bytes": 3936,
+      "sha256": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127"
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob_sha": "746fb396b875473071bc3a16ad93741fbe0b6052",
+      "bytes": 25588,
+      "sha256": "ae6796c6529ddf480994a9079d95852897dfa031df5a3a28204bc25712aa212c"
+    },
+    {
+      "path": "docs/APD-446-MANUAL-ALPHA-2026-11-11.json",
+      "git_blob_sha": "1333bfbde428e3307454e441e909007515fb66f1",
+      "bytes": 78144,
+      "sha256": "4b2e963cb1b1ed227d337cd9ca30defd940d14287e6776eacba18ed1b5d4f2c2"
+    },
+    {
+      "path": "docs/APD-446-NATIVE-RECOVERY-LOCAL-CHECKS-2026-11-11.json",
+      "git_blob_sha": "e99cdee9e156ed9e0222565f89156ad0a5fc08c3",
+      "bytes": 5477,
+      "sha256": "d2bca9bc7bc3dbcac92123af1832b45b6e6a53390292cfb602083b4548e5d32a"
+    },
+    {
+      "path": "docs/APD-446-NATIVE-RECOVERY-PLAN.json",
+      "git_blob_sha": "542f48d29542f3ddbd62682d6fda2e179db2cbf8",
+      "bytes": 2439,
+      "sha256": "0cc17ab213decd76acbba0c9ec2189b0063008278b3751c22a82facbd4cbbb92"
+    },
+    {
+      "path": "docs/APD-446-NATIVE-RECOVERY-READINESS-2026-11-11.json",
+      "git_blob_sha": "df4cde8f94cea7ff0dadda8c13c62c49bb98b622",
+      "bytes": 2411,
+      "sha256": "7b8a5ea3e95de18d92ab61007fa04f9a96781c4c8c95294aa5276e68086f20b7"
+    },
+    {
+      "path": "docs/APD-446-NATIVE-RECOVERY-REQUEST.txt",
+      "git_blob_sha": "15942e1c849000dbe2f6ef9e204b24a5e1119954",
+      "bytes": 674,
+      "sha256": "83620b32a30f7893b714e5685460579c08687d309d41ea490d0c9ee3d2c2cc53"
+    },
+    {
+      "path": "docs/APD-446-NATIVE-RECOVERY-REVIEW-2026-11-11.json",
+      "git_blob_sha": "410735c6db0f247815cb8f01632bb07b17362106",
+      "bytes": 7350,
+      "sha256": "d36b9c477fed53b49ac546734023322370442491713332f0240edbbd000a7714"
+    },
+    {
+      "path": "docs/APD-446-ORIGINAL-NATIVE-TRANSPORT-FAILURE-2026-11-11.json",
+      "git_blob_sha": "3a3bf72a91f7770b433125a9c755deb896d649fa",
+      "bytes": 21935,
+      "sha256": "fb81e1829455bfedb92f4e1f1b030ada48c07947a790ca07c444d0c466d3f258"
+    },
+    {
+      "path": "docs/APD-CURRENT-STATE-2026-11-11.json",
+      "git_blob_sha": "651e384e4945881134ae682d1d74adcd9cb4529e",
+      "bytes": 48457,
+      "sha256": "e1df702978a9f593b8f128cb610907125b06a97b3154bdc1eb029461d19afce8"
+    },
+    {
+      "path": "docs/APD-SESSION-CONTINUATION-2026-11-11.md",
+      "git_blob_sha": "429ab03962b3100e5cf92357c72e328e959a03b7",
+      "bytes": 27553,
+      "sha256": "63a8c5b2c98c51266831cce311b9385d75e9b0cc89347a0a72257c943ec86a15"
+    },
+    {
+      "path": "tools/apd_recover446_developer.py",
+      "git_blob_sha": "0fa6a58a353a457ae674fe05f68e1fa733c2f492",
+      "bytes": 57226,
+      "sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25"
+    },
+    {
+      "path": "tools/test_apd_recover446_developer.py",
+      "git_blob_sha": "9662919cffaf43ce04a61273cc86948bd88bb7cb",
+      "bytes": 9061,
+      "sha256": "6c372e9c86db6b491013df6d5b3cf9878dabaafbe3ae811a6eec1fc1fbf8d941"
+    }
+  ],
+  "remote_released_code": {
+    "tools/apd_recover446_developer.py": {
+      "git_blob_sha": "0fa6a58a353a457ae674fe05f68e1fa733c2f492",
+      "sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25",
+      "bytes": 57226,
+      "released_sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25"
+    },
+    "tools/test_apd_recover446_developer.py": {
+      "git_blob_sha": "9662919cffaf43ce04a61273cc86948bd88bb7cb",
+      "sha256": "6c372e9c86db6b491013df6d5b3cf9878dabaafbe3ae811a6eec1fc1fbf8d941",
+      "bytes": 9061,
+      "released_sha256": "6c372e9c86db6b491013df6d5b3cf9878dabaafbe3ae811a6eec1fc1fbf8d941"
+    },
+    ".github/workflows/apd-recover446-developer.yml": {
+      "git_blob_sha": "6ca3a421e0be2efa8797f84e22d16d1c275d4727",
+      "sha256": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127",
+      "bytes": 3936,
+      "released_sha256": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127"
+    },
+    "docs/APD-446-NATIVE-RECOVERY-PLAN.json": {
+      "git_blob_sha": "542f48d29542f3ddbd62682d6fda2e179db2cbf8",
+      "sha256": "0cc17ab213decd76acbba0c9ec2189b0063008278b3751c22a82facbd4cbbb92",
+      "bytes": 2439,
+      "released_sha256": "af49d6f9290639a6c5d8af30068d55834ddcfe9f3b177ab58f47cac06911cad5"
+    }
+  },
+  "plan_transition": {
+    "only_changed_fields": [
+      "pending_review",
+      "status"
+    ],
+    "from_status": "draft",
+    "to_status": "ready_for_recovery",
+    "pending_review": []
+  },
+  "zero_application_and_instrumentation_delta": true,
+  "unchanged_subtrees_and_build_inputs": [
+    {
+      "path": "SPD-classes",
+      "type": "tree",
+      "git_sha": "43dc0dd37cedd4bd48a5dcee392da3827d6e1d64"
+    },
+    {
+      "path": "android",
+      "type": "tree",
+      "git_sha": "b25ac3fe9a1c0fb6f0bef597ffbd90c961c7cccd"
+    },
+    {
+      "path": "core",
+      "type": "tree",
+      "git_sha": "84e6835194313e3328fdfe1f1b9bb476b92efec4"
+    },
+    {
+      "path": "desktop",
+      "type": "tree",
+      "git_sha": "f89bdf1a3e025d035bbdf2875dacc13260752fac"
+    },
+    {
+      "path": "ios",
+      "type": "tree",
+      "git_sha": "735718c5810d4001d3e7fe227162857fc535d9a4"
+    },
+    {
+      "path": "services",
+      "type": "tree",
+      "git_sha": "f3bb7112027f4e68c7d3698692f3a01707927633"
+    },
+    {
+      "path": "build.gradle",
+      "type": "blob",
+      "git_sha": "4af70e9da899951a566083ff8926616a1505bdf2"
+    },
+    {
+      "path": "gradle.properties",
+      "type": "blob",
+      "git_sha": "682e9565f02c422e07ac58272ac6417fcad1bf38"
+    },
+    {
+      "path": "gradle",
+      "type": "tree",
+      "git_sha": "afd6a019245454b82c42f438d0e2670f5d32a678"
+    },
+    {
+      "path": "gradlew",
+      "type": "blob",
+      "git_sha": "b9bb139f790567973216cd313e69ae65789c3754"
+    },
+    {
+      "path": "gradlew.bat",
+      "type": "blob",
+      "git_sha": "24c62d56f2d4a91975bd1aa72103d2ec628e449f"
+    },
+    {
+      "path": "settings.gradle",
+      "type": "blob",
+      "git_sha": "579157ae5c5fe301569e5842dbc5cdb7603461c8"
+    },
+    {
+      "path": "keystore",
+      "type": "tree",
+      "git_sha": "2ac48cd2a3a83fd6cb92883c971f9e4dacce41ff"
+    },
+    {
+      "path": "metadata",
+      "type": "tree",
+      "git_sha": "423fae1c91e9e3777a391ffb262e3304512b4d63"
+    }
+  ],
+  "only_changed_root_entries_since_game_source": [
+    ".github",
+    "AGENTS.md",
+    "docs",
+    "tools"
+  ],
+  "full_game_source_compare_file_count": 16,
+  "recovery_run_observation": {
+    "observed_at": "2026-11-11T19:13:47.883Z",
+    "id": 43084695484,
+    "attempt": 1,
+    "head_sha": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+    "workflow": ".github/workflows/apd-recover446-developer.yml",
+    "status": "queued",
+    "conclusion": null
+  },
+  "new_tests_or_builds_executed": false,
+  "repository_or_remote_mutations_by_this_check": false,
+  "native_recovery_or_pair_delivery_accepted_by_this_check": false,
+  "evidence": [
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovery-pushed-checkpoint-review/github-read-only-inputs.json",
+      "bytes": 144549,
+      "sha256": "cf800ec2bb05c155053ae7edfbff3e6887d93d74647fffd8f230eb1929a62302"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovery-pushed-checkpoint-review/github-subtrees.json",
+      "bytes": 501971,
+      "sha256": "9ec17f1bae97548b00bfff618502300a4bb6e7028d023f677664a54b3b06ac12"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovery-pushed-checkpoint-review/github-run-observation.json",
+      "bytes": 32416,
+      "sha256": "be7bb70010ad7e07ac9cb827fb49d8d1dd458d7432a61558794b72b4fa8d4fec"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovery-pushed-checkpoint-review/verify_checkpoint.py",
+      "bytes": 8827,
+      "sha256": "2939e04ec23538a43aa482d458e624424dd964c145258d846256f122da7e1bbe"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/release-manifest.json",
+      "bytes": 2638,
+      "sha256": "1a4d35633c9ef0a58e8a4313e8ace4a4810892d6cbc0063b09ac2624810f3221"
+    }
+  ]
+}

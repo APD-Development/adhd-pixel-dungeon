@@ -1,0 +1,8 @@
+# Cleric complaints dressed up as something else: fake errors, notices, reviews and so on. Same rules as the other packs.
+# id | category | flags | requires | weight | clean wording | adult wording (optional)
+fmt.0001 | anytime | since=4.8 | - | 8 | ERROR 404: Cleric's redeeming qualities not found. | ERROR 404: Cleric's redeeming qualities not found. Also not found: my chill.
+fmt.0006 | anytime | since=4.8 | - | 8 | Holy tome opens wide / the numbers do not change much / Cleric. Ugh. Again. | Holy tome opens wide / the numbers do not change much / Cleric. Fuck. Again.
+fmt.0010 | anytime | since=4.8 | - | 8 | Cleric: one star. Would not ascend again. (I did ascend, 225 attempts later. Still one star.) | Cleric: one star. Would not ascend again. (I did ascend, 225 attempts later. Still one star, and a bruise.)
+fmt.0015 | anytime | since=4.8 | - | 8 | You have been invited to a meeting titled "Cleric: Why?". Attendees: me. Agenda: also me. | You have been invited to a meeting titled "Cleric: Why?". Attendees: me. Agenda: also me. Snacks: rage.
+fmt.0016 | anytime | since=4.8 | - | 8 | Your honor, I would like to enter into evidence that Cleric exists. The defense rests. The defense is also me. |
+fmt.0031 | anytime | since=4.8 | - | 8 | Lost and found: one Tome, slightly used, heavily regretted. Owner: Cleric. Reward: none. | Lost and found: one Tome, slightly used, heavily regretted. Owner: Cleric. Reward: none. Do not call me.

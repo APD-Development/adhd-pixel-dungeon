@@ -1,0 +1,92 @@
+name: Deliver private staged lunch TEST206
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-lunch-apk-2026-10-15.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-lunch-apk-2026-10-15
+  cancel-in-progress: false
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-test206-delivery
+          run-id: 38761060611
+          github-token: ${{ github.token }}
+          path: delivery
+      - name: Download existing fallback and current lunch PDF
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download apd-codex-test-204 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-CODEX-TEST-204.apk --dir rollback
+          gh release download apd-lunch-report-2026-10-15 --repo "$GITHUB_REPOSITORY" --pattern APD-Development-2026-10-15-TEST206.pdf --dir report
+      - name: Recheck actual staged APK source, tests, signature, package and checksum
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,re,subprocess,sys,zipfile
+          from pathlib import Path
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import certificates
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path): return json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          assert datetime.datetime.now(datetime.timezone.utc)>=datetime.datetime(2026,10,15,15,59,tzinfo=datetime.timezone.utc)
+          for run_id,sha in [('38761060611','786d6ad4e6f813490488340952303636d2ea5fab'),('38754451109','f33591d364598f75b07d62394f5a47bf6ba6432e')]:
+              run=api('repos/'+repo+'/actions/runs/'+run_id)
+              assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==sha
+          v=json.loads(Path('delivery/TEST206-Verification.json').read_text())
+          assert v['source']=='f33591d364598f75b07d62394f5a47bf6ba6432e' and str(v['run'])=='38754451109'
+          for kind,count in [('core',1636),('android',28)]:
+              assert v[kind]['tests']==count and len(v[kind]['cases'])==count
+              assert len({(c['classname'],c['name']) for c in v[kind]['cases']})==count
+              assert all(v[kind][k]==0 for k in ('failures','errors','skipped'))
+          apk=Path('delivery/ADHD-Pixel-Dungeon-CODEX-TEST-206.apk')
+          old=Path('rollback/ADHD-Pixel-Dungeon-CODEX-TEST-204.apk')
+          sha=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert sha==v['apk_sha256']=='566e29174c17c19f9a19f7429410d872a097c09c2aa4a1e4835548617a6c809c'
+          assert Path(str(apk)+'.sha256').read_text().split()[0]==sha
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=='0377d2fafe89ba6ed4741e3df18e574b46db4ff41377c75a53432e6294fb6ce3'
+          tools=sorted((Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))
+          assert tools
+          signer=tools[-1];aapt=signer.parent/'aapt'
+          signatures=[subprocess.check_output([str(signer),'verify','--print-certs',str(p)],text=True) for p in (apk,old)]
+          certs=[certificates(s) for s in signatures]
+          assert certs[0]==certs[1]==v['certificate_sha256']==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          packages=[]
+          for p in (apk,old):
+              out=subprocess.check_output([str(aapt),'dump','badging',str(p)],text=True)
+              match=re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']+)'",out)
+              assert match;packages.append(match.groups())
+          assert packages[0][0]==packages[1][0]=='com.charltonchris29.adhdpixeldungeon.indev'
+          assert int(packages[0][1])>=int(packages[1][1])
+          assert packages[0][2]=='4.0.8-apd-INDEV-bC206-TEST'
+          with zipfile.ZipFile(apk) as z: assert {'testBuild','grudge','clericPlayable'}.issubset(set(z.read('assets/apd/features.txt').decode().splitlines()))
+          pdf=Path('report/APD-Development-2026-10-15-TEST206.pdf')
+          assert hashlib.sha256(pdf.read_bytes()).hexdigest()=='c62b494b43deb328ca21619d3d1c13a03d2e5581835975820b685b1528b13b93'
+          receipt={'compiled_source':v['source'],'source_run':v['run'],'staging_run':38761060611,'delivery_wrapper':os.environ['GITHUB_SHA'],'apk_sha256':sha,'certificate_sha256':certs[0],'package':packages[0],'core_tests':1636,'api34_tests':28,'failures':0,'errors':0,'skipped':0,'physical_phone_tested':False,'rebuild':False,'verified_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          Path('delivery/TEST206-Lunch-Delivery.json').write_text(json.dumps(receipt,indent=2))
+          notes=Path('delivery/verification.txt').read_text()
+          notes+='\n\nLunch delivery reuses the existing staged APK; no rebuild. The release tag points to delivery wrapper '+os.environ['GITHUB_SHA']+', not compiled source. Later TEST207/208 source changes and the local damaged-count investigation are not included.\n\nInstall over existing APD. Never uninstall or clear player data. TEST204 remains retained fallback. Android results are emulator evidence, not physical-phone or owner-save acceptance. The complete audit remains unfinished.\n'
+          Path('delivery/lunch-release-notes.txt').write_text(notes)
+          print(json.dumps(receipt,indent=2))
+          PY
+      - name: Publish private TEST206 preserving all existing assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-codex-test-206'
+          exists=subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True)
+          assert exists.returncode!=0, 'Existing release preserved: no overwrite'
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD PRIVATE CODEX TEST206 — October 15 lunch test','--notes-file','delivery/lunch-release-notes.txt','delivery/ADHD-Pixel-Dungeon-CODEX-TEST-206.apk','delivery/ADHD-Pixel-Dungeon-CODEX-TEST-206.apk.sha256','delivery/TEST206-Verification.json','delivery/TEST206-Lunch-Delivery.json','report/APD-Development-2026-10-15-TEST206.pdf'],check=True)
+          PY

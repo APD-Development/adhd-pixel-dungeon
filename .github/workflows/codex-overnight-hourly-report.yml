@@ -1,0 +1,68 @@
+name: Publish owner-requested APD hourly overnight report
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/codex-overnight-hourly-report.yml
+      - docs/APD-Overnight-Hourly-2026-10-13.md
+      - docs/APD-Overnight-Evidence-2026-10-13.json
+permissions:
+  contents: read
+concurrency:
+  group: apd-hourly-report-2026-10-13
+  cancel-in-progress: false
+jobs:
+  render-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Render the timestamped evidence report without rebuilding APD
+        run: |
+          python3 -m pip install reportlab==4.2.5 pypdf==5.2.0
+          mkdir -p delivery
+          python3 tools/apd_bug_report_pdf.py docs/APD-Overnight-Hourly-2026-10-13.md delivery/APD-Overnight-Hourly-2026-10-13.pdf
+          cp docs/APD-Overnight-Evidence-2026-10-13.json delivery/
+          python3 - <<'PY'
+          from pathlib import Path
+          from pypdf import PdfReader
+          p=Path('delivery/APD-Overnight-Hourly-2026-10-13.pdf')
+          assert p.stat().st_size>10000 and p.read_bytes().startswith(b'%PDF-')
+          reader=PdfReader(p)
+          text='\n'.join(page.extract_text() for page in reader.pages)
+          assert len(reader.pages)>=7
+          for phrase in ['4:00–5:00','10:00–11:00','midnight–1:00','3:00–4:00','4:45:26',
+                         '976c1c2899d37d687f9978da02193c0f4543f5bd','not complete',
+                         'No exact active-coding-hours total']:
+              assert phrase in text, phrase
+          print('Verified hourly sections, actual delivered source, limitations and PDF text extraction:',len(reader.pages),'pages')
+          PY
+          sha256sum delivery/APD-Overnight-Hourly-2026-10-13.pdf > delivery/APD-Overnight-Hourly-2026-10-13.pdf.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd-hourly-overnight-report-2026-10-13
+          path: delivery/
+          retention-days: 7
+      - name: Publish only the new report assets to the private repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          tag='apd-overnight-report-2026-10-13-0450-edt'
+          existing=subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True)
+          if existing.returncode==0: raise SystemExit('Existing report assets preserved; no overwrite.')
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],
+              '--prerelease','--latest=false','--title','APD private hour-by-hour overnight report — October 12–13',
+              '--notes','Owner-requested hourly evidence report, as of approximately 04:50 EDT. Includes actual work, test and delivery evidence, unsuccessful attempts and unfinished tasks. No application rebuild.',
+              'delivery/APD-Overnight-Hourly-2026-10-13.pdf',
+              'delivery/APD-Overnight-Hourly-2026-10-13.pdf.sha256',
+              'delivery/APD-Overnight-Evidence-2026-10-13.json'],check=True)
+          PY

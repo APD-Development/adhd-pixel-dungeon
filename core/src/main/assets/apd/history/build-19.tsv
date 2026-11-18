@@ -1,0 +1,60 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected the run recorder to ranking imports and derived run facts.
+Statistics / UIMSD	ICON_STATS	Legacy Importer	Added copies what SPD's own rankings file holds into APD's history as raw import events (legacy/import-*.apdlog).
+Statistics / UIMSD	ICON_STATS	Derived Store	Added the derived fact table and its cache file (derived/runfacts.apdd).
+Statistics / UIMSD	ICON_STATS	Event Types	Registered the ranking imports and derived facts event types with stable recording identifiers.
+Statistics / UIMSD	ICON_STATS	Fact	Added one derived value about a run, with where it came from.
+Statistics / UIMSD	ICON_STATS	Fact Keys	Added the stable names of derived facts.
+Statistics / UIMSD	ICON_STATS	Fact Table	Added every derived row (APD runs and imported old records) with the links between them.
+Statistics / UIMSD	ICON_STATS	Legacy Events	Added encoders and decoders for the legacy import events of telemetry 1.5, and RANKING_LINK.
+Statistics / UIMSD	ICON_STATS	Legacy Facts	Added turns an imported old record into facts, using the same names as run facts where the meaning is the same.
+Statistics / UIMSD	ICON_STATS	Run Facts	Added the derived facts of one run (an APD run log) or one imported old record, keyed by stable field names (FactKeys).
+Statistics / UIMSD	ICON_STATS	Run Facts Builder	Added derives the facts of one run from its raw log.
+Statistics / UIMSD	ICON_STATS	Self Test	Extended on-device self-checks for ranking imports and derived facts recording.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.5.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added the local rankings-import control and import results.
+Testing	ICON_BACKPACK	Item Hook Wiring Test	Updated automated checks and fixtures for item hook wiring. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 1	Added a test covering a Record In The Games Own Format Is Imported Field By Field. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 2	Added a test covering importing Again Imports Nothing And Writes No File. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 3	Added a test covering a New Record Later Is The Only Thing Added. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 4	Added a test covering fields An Old Record Lacks Stay Unknown Not Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 5	Added a test covering an Empty Record Imports As All Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 6	Added a test covering totals That Spd Cannot Distinguish From Nothing Stay Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 7	Added a test covering daily Scores Are Imported Once. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 8	Added a test covering importing Never Changes The Rankings Data Or The Game. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 9	Added a test covering no Rankings File Means Nothing Happens. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 10	Added a test covering the Importer Never Throws On Garbage. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 11	Added a test covering a Finished Run Remembers Which Ranking Record It Produced. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 12	Added a test covering a Record That Is Not This Runs Is Not Linked. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Importer Test 13	Added a test covering a Run Ended With No Rankings Table Still Ends Cleanly. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 1	Added a test covering imported Records Keep Unknown Fields Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 2	Added a test covering a Ranking Id Links The Record To The Run Exactly. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 3	Added a test covering a Run Without An Id Is Linked Only When Exactly One Run Matches. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 4	Added a test covering a Different Score Is Not The Same Run. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 5	Added a test covering the Same Record In Two Imports Counts Once. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 6	Added a test covering the Cache Is Used While Current And Rebuilt When Anything Changes. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 7	Added a test covering a Deleted Or Damaged Cache Is Rebuilt Identically. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 8	Added a test covering rebuild Always Derives From The Raw Files. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 9	Added a test covering text With Tabs And Newlines Survives The Cache. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 10	Added a test covering coverage Says How Many Rows Contain A Fact. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 11	Added a test covering totals And Daily Scores Come From The Latest Import. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test 12	Added a test covering an Empty History Gives An Empty Table. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 1	Added a test covering a Complete Current Run Has Every Family Of Facts. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 2	Added a test covering what An Older Telemetry Version Could Not Record Is Unknown Not Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 3	Added a test covering a Run That Recorded Nothing Of A Kind Has A Known Zero. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 4	Added a test covering gaps And Partial Logs Make Counts Lower Bounds. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 5	Added a test covering an Open Run Has No Result. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 6	Added a test covering rolled Back Play Is Left Out Of The Facts But Counted. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 7	Added a test covering a Run End With Only An Outcome Keeps The Other Result Fields Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Derivation Test 8	Added a test covering an Unreadable Log Gives A Row That Says So. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Facts Performance Test	Added a test covering deriving Facts From A Full History Is Fast And The Cache Is Faster. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test	Updated automated checks and fixtures for item events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Events Test 1	Added a test covering every Legacy Event Round Trips And Unknown Stays Unknown. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Legacy Events Test 2	Added a test covering legacy Events Are Only History And The Link Is Internal. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-LEGACY	Added apd-stats-legacy accompanying this build.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

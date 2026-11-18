@@ -1,0 +1,7 @@
+Quality of Life	ICON_CHANGES	APD release notes	Show concise APD-branded preview notes by default, with native categorized icons and individual popups.
+Quality of Life	ICON_INFO	Retain complete technical history	Keep every APK build record available through Versions without placing internal development sessions in the default release view.
+Testing	ICON_CHECKED	Release notes regression coverage	Check player branding, preview dates, duplicates, categories, native icons, popup content, archive retention and compiled release-note integrity.
+Development	ICON_CHANGES	Validate future player release notes	Validate curated player notes during builds and compare their compiled contents with reviewed source without generating speculative announcements.
+Testing	ICON_CHECKED	Android 16 acceptance fixtures	Retain the separate reused-APK Android 16 runner and input-fixture work without treating unsuccessful runs as passed gameplay checks.
+Development	ICON_INFO	Record exact verification boundaries	Retain owner delivery, localized wording and release-note preparation evidence while distinguishing pending Android and physical-phone checks.
+Developer Commentary	ICON_INFO	Developer Commentary	I separated concise APD release notes from the complete technical APK archive. No historical build records or gameplay features were removed.

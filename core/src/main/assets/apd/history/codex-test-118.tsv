@@ -1,0 +1,6 @@
+Changes	ICON_INFO	Custom scoring notice	The custom-rules window explains that difficulty settings do not yet change earned scores.
+Development	V065_ARMOR_KIT	Native custom-rule controls	Added native next-run controls and locked current-run inspection; unfinished gameplay effects are visibly disabled.
+Development	ICON_INFO	Offensive ownership groundwork	Added a source-preserving damage bridge for future offensive integration; existing damage behavior is unchanged.
+Testing	ICON_CHECKED	Custom-rule display and ownership checks	Added reversible slider, whole-scroll display, real damage-defense and Android notice interaction checks.
+Development	ICON_INFO	Alpha verification records	Recorded the verified TEST117 checks and the exact remaining custom-rule integration limits.
+Developer Commentary	V074_SHPX	Developer Commentary	I added the custom-rules window with a clear notice that scores are unchanged. Seven gameplay effects and full offensive attribution still need integration before the early alpha is ready.

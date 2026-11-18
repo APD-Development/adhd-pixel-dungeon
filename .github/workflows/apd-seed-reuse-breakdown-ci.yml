@@ -1,0 +1,24 @@
+name: Verify seed reuse Score Breakdown disclosure
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/apd-seed-reuse-breakdown-ci.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndScoreBreakdown.java
+      - tools/test_apd_seed_reuse_breakdown_disclosure.py
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify seed reuse disclosure and no invented penalties
+        run: python3 -m unittest discover -s tools -p 'test_apd_seed_reuse_breakdown_disclosure.py' -v
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile Android score breakdown
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:compileDebugJavaWithJavac -PapdTestBuild -PapdBuild=C453

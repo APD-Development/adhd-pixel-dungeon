@@ -1,0 +1,24 @@
+Infrastructure	ICON_INFO	build	Added the build development workflow; it is not gameplay content.
+Development	ICON_INFO	Project information	Updated project information accompanying this build.
+Infrastructure	ICON_PREFS	build	Configured the private debug signing identity and installable APD package.
+Infrastructure	ICON_PREFS	build	Set APD branding, version and application package configuration.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_INFO	misc	Updated misc resources bundled with this APK.
+Changes	ICON_INFO	Badges	Added internal achievement tracking for the early prototype.
+Changes	ICON_PREFS	Saved settings	Saved the exotic-item chance and early prototype preferences between sessions.
+Changes	ICON_WELL_HEALTH	Shield Buff	Starvation damage now consumes shielding before health.
+Changes	ICON_BACKPACK	Exotic Crystals	Added the configurable minimum chance for exotic potion and scroll generation.
+Quality of Life	ICON_INFO	APD Text Scene	Added a plain scrolling text screen used for APD News and APD Changes.
+Quality of Life	ICON_INFO	About screen	Added APD News and Changes links to About.
+Quality of Life	ICON_INFO	Hero selection	Disabled Cleric starts in this early prototype; this is not the current class-selection behavior.
+Quality of Life	ICON_INFO	Main menu	Replaced the upstream title artwork with APD title text.
+Quality of Life	ICON_PREFS	APD Settings	Added settings that only exist in ADHD Pixel Dungeon.
+Quality of Life	ICON_INFO	Cleric Removed	Added a deliberate, permanent black screen.
+Quality of Life	ICON_INFO	Game	Added access to APD Settings from the game menu.
+Quality of Life	ICON_INVESTIGATE	Sad Ghost	Sad Ghost rewards now reveal their actual upgrade levels.
+Testing	ICON_WELL_HEALTH	Shield Hunger Test 1	Added a test covering starvation Tick Consumes Shield Before Hp. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Shield Hunger Test 2	Added a test covering starvation Only Hurts Hp Once Shield Is Gone. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-0001	Added apd-0001 accompanying this build.
+Development	ICON_INFO	SIGNING	Added signing accompanying this build.
+Infrastructure	ICON_INFO	apd-debug	Established the private debug signing identity for install-over updates.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated misc resources bundled with this APK. Added internal achievement tracking for the early prototype.

@@ -1,0 +1,26 @@
+name: Verify APD ranking Copy Seed text
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/apd-ranking-copy-seed-text.yml
+      - tools/test_apd_ranking_seed_copy_text.py
+      - core/src/main/assets/messages/windows/windows.properties
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify current English dialog and unchanged seed selection
+        run: python3 -m unittest discover -s tools -p 'test_apd_ranking_seed_copy_text.py' -v
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile APD resources into Android debug APK without publishing or changing signing
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebug -PapdBuild=C451 -PapdTestBuild
+          test -s android/build/outputs/apk/debug/android-debug.apk

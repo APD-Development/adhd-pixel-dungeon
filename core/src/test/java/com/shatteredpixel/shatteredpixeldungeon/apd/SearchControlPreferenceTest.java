@@ -1,0 +1,50 @@
+/*
+ * ADHD Pixel Dungeon
+ * Copyright (C) 2026 Chris Charlton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+package com.shatteredpixel.shatteredpixeldungeon.apd;
+import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.backends.headless.HeadlessPreferences;
+import com.badlogic.gdx.files.FileHandle;
+import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.watabou.noosa.*;
+import com.watabou.noosa.tweeners.Tweener;
+import com.watabou.utils.GameSettings;
+import org.junit.*;
+import org.junit.rules.TemporaryFolder;
+import java.io.File;
+import java.lang.reflect.Field;
+import static org.junit.Assert.*;
+
+public class SearchControlPreferenceTest {
+ @Rule public TemporaryFolder folder=new TemporaryFolder();
+ private Preferences previous; private File file; private float oldElapsed;
+ @Before public void isolate() throws Exception {
+  Field f=GameSettings.class.getDeclaredField("prefs"); f.setAccessible(true);
+  previous=(Preferences)f.get(null);file=new File(folder.getRoot(),"settings.xml");
+  GameSettings.set(new HeadlessPreferences(new FileHandle(file)));
+  oldElapsed=Game.elapsed; ApdFeatures.resetForTest(); PlaybackGroup.speed(1);
+ }
+ @After public void restore(){ApdFeatures.resetForTest();GameSettings.set(previous);Game.elapsed=oldElapsed;PlaybackGroup.speed(1);}
+ @Test public void existingInstallsKeepOriginalControlsByDefault(){assertFalse(SPDSettings.singleTapSearch());}
+ @Test public void flipSelectionSurvivesActualPreferenceFileReload(){
+  for(boolean selected:new boolean[]{true,false}){
+   SPDSettings.singleTapSearch(selected);GameSettings.set(new HeadlessPreferences(new FileHandle(file)));
+   assertEquals(selected,SPDSettings.singleTapSearch());
+  }
+ }
+}

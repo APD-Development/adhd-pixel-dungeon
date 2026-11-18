@@ -1,0 +1,16 @@
+{
+  "source": "9041b7a155f97def09648b4d277996cab0f72c58",
+  "run": 42426299732,
+  "reviewed": true,
+  "images": {
+    "Developer/qol-arcana-percentage.png": "9bbec2b6f471904c21931075f4e79845a0087f10a0430da64c55402c3d295631",
+    "Developer/qol-lucky-arcana-increase.png": "e181caad922c91b80d2617e826fa1e3fe2b2f68894c23a47b140e2effe8836f9",
+    "Developer/qol-obfuscation-calculations-retained.png": "3bb70ef0d075dfe7a535d02ad71127fd372bae52d02374c57fb7150c0e24387c",
+    "Developer/qol-force-weapon.png": "78e9156b2a7af58e9c52c454bc0ab08cb6e8ba81829f50fdd17e0bd0dbc14d68",
+    "Alpha-Testers/qol-arcana-percentage.png": "ecbdf0e7fbe79a7f0534eacdee96561fd31b635bcfda0f7b0dc52ccfbe294b0e",
+    "Alpha-Testers/qol-lucky-arcana-increase.png": "3f4d7478703023b2db94229c5cc70127021496e61a98440032bfbf7cada67060",
+    "Alpha-Testers/qol-obfuscation-calculations-retained.png": "78099f4acbe46b4e14bda96a91975cdd9d70084fb714bd97e3048ba9c20863dc",
+    "Alpha-Testers/qol-force-weapon.png": "2f6733857fcb5be921f0ef385bf259d3db3ddd58a03034641d28e34fa452d58f"
+  },
+  "finding": "Eight actual API34 emulator PNGs inspected: normal identified Arcana shows 90.61% with no calculations button; Lucky normal description shows 10% to 19.06%, adds 9.06 percentage points; Obfuscation retained details show 2 to 3.812 stealth points; ordinary Sword has no universal calculations panel. No physical-phone verification claimed."
+}

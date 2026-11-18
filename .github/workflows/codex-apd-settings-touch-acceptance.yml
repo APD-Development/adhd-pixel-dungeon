@@ -1,0 +1,105 @@
+name: APD Settings complete native touch acceptance
+
+# Test-only acceptance: reuses the exact TEST263 APK and compiles only a new
+# instrumentation APK. It never edits the executable application build request.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-apd-settings-touch-acceptance.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: codex-apd-settings-touch-acceptance
+  cancel-in-progress: false
+
+jobs:
+  existing-test263-settings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Reuse exact verified TEST263 application
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, zipfile
+          repo=os.environ['GITHUB_REPOSITORY']
+          source='e3b5cef026f8a9d6827d0eebb5528069c646b00d'
+          run_id='38980948671'
+          expected='3e71c975ddc7f85f22e1f42454aa9e1a420164f8c9ed6c7e226f11e40a08c20d'
+          run=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/actions/runs/'+run_id]))
+          assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==source
+          subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True)
+          protected=['core/src/main','SPD-classes/src/main','services/src/main','android/src/main',
+                     'android/build.gradle','core/build.gradle','SPD-classes/build.gradle',
+                     'services/build.gradle','build.gradle','settings.gradle','gradle.properties',
+                     'gradle','android/debug.keystore']
+          subprocess.run(['git','diff','--exit-code',source,'HEAD','--']+protected,check=True)
+          artifacts=json.loads(subprocess.check_output(
+              ['gh','api','repos/'+repo+'/actions/runs/'+run_id+'/artifacts']))['artifacts']
+          found=[a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          assert len(found)==1
+          with open('test263-artifact.zip','wb') as target:
+              subprocess.run(['gh','api','repos/'+repo+'/actions/artifacts/'+str(found[0]['id'])+'/zip'],
+                             stdout=target,check=True)
+          with zipfile.ZipFile('test263-artifact.zip') as archive:
+              names=[name for name in archive.namelist() if name.endswith('.apk')]
+              assert len(names)==1
+              apk=archive.read(names[0])
+          digest=hashlib.sha256(apk).hexdigest()
+          assert digest==expected
+          pathlib.Path('test263.apk').write_bytes(apk)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({
+              'application_source':source,'application_run':int(run_id),
+              'application_sha256':digest,'test_source':os.environ['GITHUB_SHA'],
+              'application_reused':True,'application_rebuilt':False,
+              'physical_device':False
+          },indent=2))
+          PY
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Compile updated instrumentation only
+        run: ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C263
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Touch previously uncovered settings and enforce ownership manifest
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb install -r test263.apk
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb logcat -c
+            timeout 420 adb shell am instrument -w -r -e class 'com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest#remainingApdSettingsControlsRespondToActualTouches,com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest#everyDeclaredSettingControlHasAnExplicitAcceptanceOwner' com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > settings-touch-instrumentation.txt 2>&1
+            adb logcat -d -v time > settings-touch-logcat.txt
+            python3 -c "import json,pathlib,re; text=pathlib.Path('settings-touch-instrumentation.txt').read_text(); print(text); assert re.search(r'OK \\(2 tests\\)',text), 'Missing successful two-method result'; assert not any(x in text for x in ['FAILURES!!!','INSTRUMENTATION_FAILED','Process crashed.']); pathlib.Path('settings-touch-result.json').write_text(json.dumps({'tests':2,'passed':2,'failures':0,'errors':0,'skipped':0,'native_touch':True,'controls_touched':['Healing to Shielding chance','Enhanced Tile Visibility','Automatic Stair Navigation','Healing confirmation','Custom Dungeon Rules'],'declared_control_ownership_manifest':True,'application_reused':True,'physical_device':False},indent=2))"
+      - name: Preserve test-only acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-settings-touch-acceptance-test263
+          path: |
+            acceptance-source.json
+            settings-touch-result.json
+            settings-touch-instrumentation.txt
+            settings-touch-logcat.txt
+            android/build/reports/
+          if-no-files-found: warn
+          retention-days: 7

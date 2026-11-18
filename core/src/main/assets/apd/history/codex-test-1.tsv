@@ -1,0 +1,74 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Added the codex-sprint-check development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	private-test-apk	Updated the private-test-apk development workflow; it is not gameplay content.
+Development	ICON_INFO	Development instructions	Added development instructions accompanying this build.
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Changes	ICON_PREFS	Saved settings	Kept Adult eligibility decisions consistent with stored humor preferences.
+Changes	ICON_INFO	Apd Features	Retried private feature-asset loading after startup instead of caching an early missing asset.
+Changes	ICON_INFO	Title Geometry	Kept the progression-only statistics annotation inside the menu layout.
+Changes	ICON_INFO	Age Eligibility	Added no verified age provider is integrated yet.
+Statistics / UIMSD	ICON_INFO	Archive Importer	Explained protected unfinished-run archive differences while preserving existing history.
+Infrastructure	ICON_DATA	Submission Queue	Rejected invalid local queue operations and preserved queued data and history.
+Changes	ICON_STATS	Statistics Unlock	Excluded fictional records from genuine ten-run progression.
+Changes	ICON_INFO	Unlock Progression	Added progression policy with real on-disk history, independent of rendering and build flags.
+Statistics / UIMSD	ICON_STATS	Cell Formatter	Rejected impossible dates and nonfinite numeric filter values.
+Statistics / UIMSD	ICON_STATS	Datasets	Kept Bosses views restricted to finished runs.
+Statistics / UIMSD	ICON_STATS	Query Codec	Preserved the finished-only restriction in saved queries.
+Statistics / UIMSD	ICON_STATS	Scope	Made finished-only views refuse unfinished-run inclusion.
+Statistics / UIMSD	ICON_STATS	Status Text	Explained records omitted by the finished-only restriction.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Saved visible-column layouts across navigation and restarts.
+Statistics / UIMSD	ICON_STATS	Window Geometry	Wrapped and sized statistics actions for narrow windows.
+Quality of Life	ICON_INFO	Main menu	Limited the original annotation to genuine progression prompts.
+Quality of Life	ICON_PREFS	APD Settings Pane	Applied the initial verified-age restriction to Adult Humor.
+Quality of Life	ICON_INFO	Demo Unlock	Used a responsive scrollable unlock-choice window.
+Quality of Life	ICON_STATS	Statistics Choices	Added uIMSD confirmations/report actions use the same wrapped, responsive rows as its other menus.
+Quality of Life	ICON_STATS	Statistics List	Added wrapped action rows and explanatory notes inside the scroll pane.
+Quality of Life	ICON_STATS	Statistics Options	Wrapped confirmations and retained the finished-only scope restriction.
+Quality of Life	ICON_STATS	Statistics Report	Used responsive scrollable report choices.
+Quality of Life	ICON_STATS	Statistics Row	Kept wrapped run actions inside the scrolling content.
+Testing	ICON_CHECKED	Apd Features Startup Test 1	Added a test covering early Check Does Not Hide The Private Build Asset. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Apd Features Startup Test 2	Added a test covering normal Build Without The Asset Stays Off. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Apd Features Startup Test 3	Added a test covering unreadable Asset Does Not Enable Private Features. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Headless Settings Storage Test	Added a test covering game Preferences Are Written Inside The Throw Away Folder. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Headless Test Support	Updated automated checks and fixtures for headless test support. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Geometry Test	Updated automated checks and fixtures for title geometry. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test	Updated automated checks and fixtures for statistics wiring. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Age Eligibility Test 1	Added a test covering eligible Adults Still Choose Whether To Enable Humor. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Age Eligibility Test 2	Added a test covering ineligible Players Never Receive Adult Humor. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Age Eligibility Test 3	Added a test covering unknown Age Never Makes A Saved Adult Preference Effective. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Age Eligibility Test 4	Added a test covering unavailable Verification Fails Closed. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Age Eligibility Test 5	Added a test covering settings And Title Are Wired Through The Policy. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test	Updated automated checks and fixtures for archive round trip. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test	Updated automated checks and fixtures for submission queue. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 1	Added a test covering the Tenth Completed Real Run Unlocks Both And Queues The Prompt. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 2	Added a test covering a Marked Demo Root Never Counts Even If Its Runs Are Finished. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 3	Added a test covering demo Unlock Never Unlocks The Tour Or Queues A Real Run Prompt. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 4	Added a test covering remembered Unlock Flags Do Not Depend On Deleted History. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 5	Added a test covering normal Build Policy Does Not Enforce The Private Gate. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 6	Added a test covering missing History And Nonpositive Caps Count Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Unlock Progression Test 7	Added a test covering imported Records And Stray Demo Logs Never Count As Real Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Bosses Finished Scope Test 1	Added a test covering summary And Instances Exclude Unfinished Even After Scope Changes. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Bosses Finished Scope Test 2	Added a test covering a Saved Boss Query Keeps Its Finished Only Restriction. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Bosses Finished Scope Test 3	Added a test covering unrelated Views Can Still Include Unfinished Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Bosses Finished Scope Test 4	Added a test covering a Fresh Scope From The Options Cannot Remove The View Restriction. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Cell Formatter Test	Updated automated checks and fixtures for cell formatter. These are development checks, not a gameplay feature.
+Testing	V011_ANKH	Saved Views Test	Updated automated checks and fixtures for saved views. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Model Test	Updated automated checks and fixtures for statistics model. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Window Geometry Test	Updated automated checks and fixtures for window geometry. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Choices Test 1	Added a test covering explanation Is A Scrolling Note And Choices Keep Their Order And Wording. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Choices Test 2	Added a test covering no Explanation Does Not Insert An Empty Row. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Choices Test 3	Added a test covering uimsd Confirmations Use Wrapped Actions Instead Of Fixed Height Options. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test	Updated automated checks and fixtures for statistics gate. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Statistics Settings Persistence Test 1	Added a test covering stored Adult Choice Is Preserved But Ineffective Without Verification. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Statistics Settings Persistence Test 2	Added a test covering an Unverified Adult Toggle Cannot Enable The Stored Preference. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Statistics Settings Persistence Test 3	Added a test covering genuine Unlock And Prompt Retirement Survive Settings Reload. These are development checks, not a gameplay feature.
+Testing	ICON_PREFS	Statistics Settings Persistence Test 4	Added a test covering demo Unlock Reload Does Not Open The Tour Or Restore The Demo Button. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Added apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-HANDOFF-FULL	Added apd-handoff-full accompanying this build.
+Development	ICON_INFO	KNOWN-ISSUES-AND-SOURCE-GUIDE	Added known-issues-and-source-guide accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Added work-completed-ledger accompanying this build.
+Development	ICON_INFO	Reserved development content	Added reserved development content accompanying this build.
+Infrastructure	ICON_INFO	run-core-tests	Added the run-core-tests development tool.
+Statistics / UIMSD	ICON_STATS	Date	Added the Date statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Decimal	Added the Decimal statistics field; unrecorded values remain unknown.
+Developer Commentary	V074_SHPX	Developer Commentary	Kept Adult eligibility decisions consistent with stored humor preferences. Retried private feature-asset loading after startup instead of caching an early missing asset.

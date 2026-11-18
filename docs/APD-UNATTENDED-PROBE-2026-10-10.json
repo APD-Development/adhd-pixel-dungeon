@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "record_type": "scheduler/GitHub read-write probe",
+  "proof_scope": "This proves one scheduled execution could inspect the connected private repository and prepare a lease-protected GitHub write. It is not proof of unattended coding, builds, continuous background activity, or future executions.",
+  "execution_id": "apd-probe-20261010183807955-44wwiqfm",
+  "requested_branch": "codex/apd-phone-fixes-2026-10-09",
+  "timestamps_utc": {
+    "execution_started": "2026-10-10T18:38:07.955Z",
+    "repository_inspection_completed": "2026-10-10T18:39:23.241Z",
+    "prior_test24_verification_started": "2026-10-10T18:25:04Z",
+    "prior_test24_verification_completed": "2026-10-10T18:35:56Z",
+    "current_test24_delivery_started": "2026-10-10T18:37:43Z",
+    "current_test24_delivery_completed": "2026-10-10T18:38:19Z",
+    "test22_release_published": "2026-10-10T17:46:56Z"
+  },
+  "repository_observation": {
+    "repository": "APD-Development/ShieldingShouldHaveWorked",
+    "visibility": "private",
+    "connector_permissions": {
+      "pull": true,
+      "push": true,
+      "triage": true,
+      "maintain": true,
+      "admin": true
+    },
+    "observed_branch_head": "7bb7c5c1de8e6d59c7431cdd183e9a44fb6c9225",
+    "observed_head_tree": "3d1041a4883f51bf886ca09177f8b6648507d03d",
+    "observed_head_parent": "f1ad8657250defd4b97cf422fa222d6c6c1f7329",
+    "observed_head_message": "Stage verified TEST24 Community APK and evidence without rebuilding",
+    "handoff_path": "docs/HANDOFF.md",
+    "handoff_blob_sha": "a452105ee323b9d0fefe71d398bb7d181c91e3bc",
+    "required_probe_path": "docs/APD-UNATTENDED-PROBE-2026-10-10.json",
+    "required_probe_was_absent": true
+  },
+  "observed_workflow_runs": [
+    {
+      "id": 38075683960,
+      "name": "Codex APD sprint verification",
+      "source_sha": "f1ad8657250defd4b97cf422fa222d6c6c1f7329",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 114282039492,
+          "name": "verify-and-build",
+          "conclusion": "success"
+        },
+        {
+          "id": 114282513596,
+          "name": "android-smoke-check",
+          "conclusion": "success"
+        },
+        {
+          "id": 114284225504,
+          "name": "private-delivery",
+          "conclusion": "skipped"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11679400654,
+          "name": "apd-codex-android-checks",
+          "digest": "sha256:b796debe5e900d99ce460f17074595504a95d5f6212be16e635c8bcc2f01b0f1"
+        },
+        {
+          "id": 11679035076,
+          "name": "apd-codex-private-test-apk",
+          "digest": "sha256:464779ce292f862506b9855c9e12bf109a8b33de2c55c2594b4d9faf712f5ea3"
+        },
+        {
+          "id": 11678034922,
+          "name": "apd-codex-core-tests",
+          "digest": "sha256:d3fca460ba83378025704c113ee16a2bd1c12aac9e05d3119f08e1ff54a048e2"
+        }
+      ],
+      "verification_claim_from_repository_handoff": "947 core tests in 151 suites and 6 API 34 checks, with zero failures/errors/skips; this probe inspected run state and identifiers but did not independently execute or download those test suites."
+    },
+    {
+      "id": 38076542746,
+      "name": "Deliver verified existing APD TEST24",
+      "head_sha": "7bb7c5c1de8e6d59c7431cdd183e9a44fb6c9225",
+      "status": "completed",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "id": 114284606560,
+          "name": "validate-and-stage",
+          "conclusion": "success"
+        },
+        {
+          "id": 114284683542,
+          "name": "private-publication",
+          "conclusion": "failure"
+        }
+      ],
+      "staged_artifact": {
+        "id": 11679005726,
+        "name": "verified-test24-delivery",
+        "digest": "sha256:e4ae17cf180b873b87cc928b7c43bc7580c7b99df42ee0cdf2535e38641a29d1"
+      },
+      "observed_failure": "GitHub release creation returned HTTP 403 Resource not accessible by integration. TEST24 publication did not complete."
+    }
+  ],
+  "observed_private_test22_release": {
+    "release_id": 409105935,
+    "tag": "apd-codex-test-22",
+    "name": "APD PRIVATE CODEX TEST 22",
+    "prerelease": true,
+    "published_at_utc": "2026-10-10T17:46:56Z",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-codex-test-22",
+    "assets": [
+      {
+        "id": 628599969,
+        "name": "ADHD-Pixel-Dungeon-CODEX-TEST-22.apk",
+        "size_bytes": 38225942,
+        "digest": "sha256:3ca4d27dd1f339d49d7f621b0befb108cf982c656270b989dae5e3eaf6f5ee04"
+      },
+      {
+        "id": 628599966,
+        "name": "ADHD-Pixel-Dungeon-CODEX-TEST-22.apk.sha256",
+        "size_bytes": 103,
+        "digest": "sha256:d104c02a954e07072995e461b07a943b842a58f6590e749c90cf2b3bac4591aa"
+      },
+      {
+        "id": 628599971,
+        "name": "APD-Bug-Fixes-2026-10-10-TEST22.pdf",
+        "size_bytes": 11980,
+        "digest": "sha256:d8296f5924a87331334b683fbb9fbaf4dc1f71f35ecfcabe8afaa70ed5a95789"
+      },
+      {
+        "id": 628599970,
+        "name": "TEST22-Verification.json",
+        "size_bytes": 189143,
+        "digest": "sha256:1d0e7b83d8c10a187c46a7d603ab4646e9cf319ddcefb85a6bad7763231d9c15"
+      }
+    ],
+    "delivery_run": {
+      "id": 38073091764,
+      "source_sha": "0e2b4309cfbfc1fb1eb904a5c4041f899ec5e636",
+      "status": "completed",
+      "conclusion": "success",
+      "artifact_id": 11678015300
+    }
+  },
+  "execution_workspace": {
+    "exists": true,
+    "path": "/workspace/scratch/391efb8fc6b1",
+    "repository_checkout_present": false,
+    "files_present": 0,
+    "available_commands": [
+      "git",
+      "java"
+    ],
+    "unavailable_commands": [
+      "gradle",
+      "adb"
+    ],
+    "build_or_test_executed_by_this_probe": false,
+    "workflow_triggered_by_this_probe": false
+  },
+  "completed_tool_actions": [
+    "Read private repository metadata and connector permissions.",
+    "Read the approved branch list and resolved its real head.",
+    "Read docs/HANDOFF.md and the docs directory.",
+    "Confirmed the required probe path returned GitHub 404 on the approved branch.",
+    "Read recent workflow runs, TEST24 verification jobs/artifacts, TEST24 delivery jobs/artifact/failure log, and TEST22 delivery artifact.",
+    "Read the private TEST22 prerelease and its asset identifiers/digests.",
+    "Inspected the execution workspace and command availability."
+  ],
+  "application_mutations": [],
+  "safeguards": {
+    "application_source_changed": false,
+    "main_changed": false,
+    "claude_branch_changed": false,
+    "player_saves_or_statistics_changed": false,
+    "signing_identity_changed": false,
+    "application_id_changed": false,
+    "force_push_used": false,
+    "synthetic_local_history_pushed": false,
+    "paid_service_or_runner_added": false,
+    "release_or_deployment_performed_by_this_probe": false
+  },
+  "timing_accounting": {
+    "measured_probe_start_utc": "2026-10-10T18:38:07.955Z",
+    "measured_repository_inspection_end_utc": "2026-10-10T18:39:23.241Z",
+    "continuous_background_activity_claimed": false,
+    "active_time_outside_this_execution": "unknown",
+    "idle_time_outside_this_execution": "unknown"
+  },
+  "next_run_handoff": [
+    "Treat this record only as a scheduler/GitHub read-write probe.",
+    "Re-read the approved branch head and docs/HANDOFF.md before any work.",
+    "Do not repeat this probe unless its evidence is invalidated.",
+    "Investigate the TEST24 release HTTP 403 only if private publication is still approved and needed; do not bypass permissions or replace existing releases.",
+    "Continue the highest-priority approved bounded backlog item only with a real execution workspace, relevant tests, and a lease-protected commit."
+  ]
+}

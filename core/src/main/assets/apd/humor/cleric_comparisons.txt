@@ -1,0 +1,4 @@
+# Cleric next to the other classes. Other classes are named, praised and used as comparisons; Cleric is the only one ever roasted.
+# id | category | flags | requires | weight | clean wording | adult wording (optional)
+cmp.0004 | anytime | since=4.8 | - | 8 | Huntress keeps a safe distance from danger. I keep a safe distance from Cleric. Both are well-reasoned tactical decisions. | Huntress keeps a safe distance from danger. I keep a safe distance from Cleric. Both are well-reasoned tactical decisions, and mine involves a restraining order.
+cmp.0010 | menu | since=4.8 | - | 8 | The character-selection screen is a lovely lineup of heroes, and then there is Cleric, standing at the end like a dentist's appointment. | The character-selection screen is a lovely lineup of heroes, and then there is Cleric, standing at the end like a prostate exam.

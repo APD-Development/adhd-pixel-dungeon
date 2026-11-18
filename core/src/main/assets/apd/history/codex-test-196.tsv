@@ -1,0 +1,4 @@
+Changes	V061_PAGE	Retain NPC and shop evidence	Retain verified NPC-interaction evidence and the shop-stock hidden-information regression completed after the immediate previous compiled APK.
+Changes	V063_HUNTRESS_CLOTH	Ally summon history	Record player-owned allied summons once from their explicit creator while exposing only displayed names and the current floor.
+Testing	ICON_CHECKED	Summon visibility boundaries	Add retained checks for exact-once player summons, actual visible creators, enemy and boss exclusion, off-screen secrecy and restoration suppression.
+Development	V061_PAGE	TEST200 fixture correction	Retain TEST199's exact 1,612/1,613 core failure and correct only the telemetry parse fixture's mistaken expected value before rerunning the complete gate.

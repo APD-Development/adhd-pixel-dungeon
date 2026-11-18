@@ -1,0 +1,14 @@
+Statistics / UIMSD	ICON_STATS	Run Index	Rejected counts that overflow the supported index range and rebuilt from raw history.
+Statistics / UIMSD	ICON_STATS	Run Log Reader	Rejected overflowing frame lengths and excessive recovery string allocations.
+Statistics / UIMSD	ICON_STATS	Run log writer	Preserved a competing existing log and reported actual queued-write completion on close.
+Testing	ICON_STATS	Run Index Count Validation Test 1	Added a test covering unsigned Count Outside Signed Range Rebuilds From Logs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Index Count Validation Test 2	Added a test covering legitimate Empty Index Remains Valid Without Rebuilding. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Close Completion Test	Added a test covering timeout And Repeated Close Do Not Claim Queued Writes Completed. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Creation Race Test	Added a test covering a Log Appearing After Existence Check Is Never Truncated. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Frame Length Validation Test 1	Added a test covering unsigned Frame Length Cannot Wrap Into An Empty Valid Frame. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Frame Length Validation Test 2	Added a test covering valid Future Frame Remains Readable And Skipped. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Run Log Resync Allocation Test	Added a test covering enormous Sparse String Id Is Rejected During Recovery. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_STATS	UIMSD-AUDIT-BUG-LOG	Updated uimsd-audit-bug-log accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Rejected counts that overflow the supported index range and rebuilt from raw history. Rejected overflowing frame lengths and excessive recovery string allocations.

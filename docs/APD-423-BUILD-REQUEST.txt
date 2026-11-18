@@ -1,0 +1,2 @@
+2026-11-09T17:13:23.368844+00:00
+Build exactly one Developer/Alpha pair after3149core and latest Android source compile42661877621passed. Includes actual Endure/SoulMark display fixes; preserve422and421compiledhistory/artifacts. All12 native, scanner/hash/source identity and manual visual acceptance required; no automatic publication.

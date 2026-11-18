@@ -1,0 +1,64 @@
+name: APD archive valid run-start privacy exact source gate
+
+on:
+  push:
+    branches: [chatgpt/apd-run-start-privacy-20261113-0338]
+    paths:
+      - .github/workflows/apd-archive-start-proof-ci-20261113.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveExporter.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveRunStartPrivacyTest.java
+  workflow_dispatch:
+
+permissions: {contents: read}
+concurrency:
+  group: apd-run-start-privacy-20261113
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Confirm bounded source guard and regression cases
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveExporter.java').read_text()
+          tests=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveRunStartPrivacyTest.java').read_text()
+          assert 'if (started && r.sealed && r.status.isClean()' in src
+          for case in ('sealedTerminalEndWithoutAnyRunStartCannotExportSecrets',
+                       'malformedTypedRunStartCannotCertifyFinishedRun',
+                       'validTypedRunStartAndNormalRankingTrailerStayLossless'):
+              assert 'void ' + case + '(' in tests, case
+          PY
+      - name: Full core JUnit plus desktop and Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Validate complete JUnit XML and regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports, 'missing core JUnit report'
+          counts={k:sum(int(x.get(k,0)) for x in reports) for k in ('tests','failures','errors','skipped')}
+          assert counts['tests'] >= 3409, counts
+          assert all(counts[k] == 0 for k in ('failures','errors','skipped')), counts
+          cases={c.get('name') for r in reports for c in r.findall('testcase')}
+          for case in ('sealedTerminalEndWithoutAnyRunStartCannotExportSecrets',
+                       'malformedTypedRunStartCannotCertifyFinishedRun',
+                       'validTypedRunStartAndNormalRankingTrailerStayLossless'):
+              assert case in cases, case
+          print('Full core JUnit:', counts, 'suites:', len(reports))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-run-start-privacy-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

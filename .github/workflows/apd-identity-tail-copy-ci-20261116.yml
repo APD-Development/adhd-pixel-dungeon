@@ -1,0 +1,69 @@
+name: APD identity-only event-tail allocation exact-source validation
+on:
+  push:
+    branches: [chatgpt/apd-identity-tail-copy-20261116-0000]
+    paths:
+      - .github/workflows/apd-identity-tail-copy-ci-20261116.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/ReadOptions.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogReader.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporter.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporterRunStartOnlyTest.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogStreamingReadTest.java
+permissions: {contents: read}
+concurrency:
+  group: apd-identity-tail-copy-20261116
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Assert importer uses opt-in reader and default readers remain unchanged
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          opts=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/ReadOptions.java').read_text()
+          reader=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunLogReader.java').read_text()
+          importer=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporter.java').read_text()
+          assert 'public boolean onlyRunStartEvents = false;' in opts
+          assert 'else if (!options.onlyRunStartEvents || type == EventTypes.RUN_START)' in reader
+          assert 'r.events.add(new ApdEvent(index, type, flags, clock, p.readRemaining()));' in reader
+          assert 'byte[] payload = p.readRemaining();' not in reader
+          assert 'RunLogReader.read(tmp, new ReadOptions().onlyRunStartEvents(true))' in importer
+          assert 'RunLogReader.read(tmp);' not in importer
+          PY
+      - name: Full core tests and desktop/Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Confirm all tests, full suite and compatibility regression
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          suites=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert suites
+          totals={k:sum(int(s.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3518,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0,totals
+          names={t.get('name') for s in suites for t in s.findall('testcase')}
+          for name in ('identityOnlyReadValidatesLargeGameplayEventsWithoutCopyingTheirTails',
+                       'thousandsOfGameplayEventsDoNotNeedToRemainInImportIdentityRead',
+                       'noRunStartLegacyLogAndDefaultReaderStillKeepExistingBehavior',
+                       'mixedSizeAndHashComparisonsKeepEveryOriginalHistoryFile',
+                       'repeatedExistingHashChecksPreserveSkipCollisionAndNewLogBytes',
+                       'corruptFinalMemberStillRollsBackAllPriorStagedLogs'):
+              assert name in names,name
+          print(totals,'suites',len(suites))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-identity-tail-copy-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

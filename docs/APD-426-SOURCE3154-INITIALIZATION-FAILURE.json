@@ -1,0 +1,9 @@
+{
+  "run": 42671531873,
+  "source": "6bc52e86a5f3662277d7968209637f28556c162f",
+  "conclusion": "failure",
+  "jobs": [],
+  "failed_step_log": "empty",
+  "code_failure_established": false,
+  "action": "Preserve evidence and verify complete latest3155 source in a fresh triggered run. Expected test count explicitly typed as a string; root cause unconfirmed."
+}

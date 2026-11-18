@@ -1,0 +1,11 @@
+--- a/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
++++ b/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java
+@@ -484,7 +484,7 @@
+         touch(spellAt[0]);AtomicReference<Window> spellWindow=new AtomicReference<>();
+         TopScoresDeviceTest.render(()->{try{java.util.List<WndTitledMessage> windows=TopScoresDeviceTest.find(Game.scene(),WndTitledMessage.class);assertEquals("Actual spell button opens its information",1,windows.size());spellWindow.set(windows.get(0));StringBuilder normal=new StringBuilder();for(RenderedTextBlock text:TopScoresDeviceTest.find(windows.get(0),RenderedTextBlock.class))normal.append(text.text()).append('\n');assertTrue(normal.toString(),normal.toString().contains("Charge cost: 2"));assertEquals("One live charge cost in the ordinary spell window",1,normal.toString().split("Charge cost:",-1).length-1);assertFalse(normal.toString().contains("Current cost:"));}catch(Exception e){throw new RuntimeException(e);}});
+         TopScoresDeviceTest.screenshot("qol-cleric-one-normal-charge-cost.png");
+-        checkCalculationWindow(spellWindow.get(),"multiplied by weapon enchantment power and rounded","qol-mechanics-spell-expanded.png");TopScoresDeviceTest.render(()->menu.get().hide());
++        checkCalculationWindow(spellWindow.get(),"scaled by enchantment power and rounded","qol-mechanics-spell-expanded.png");TopScoresDeviceTest.render(()->menu.get().hide());
+     }
+     private static void ordinaryEffectsMatchOwnerScreenshots()throws Exception{
+         KindofMisc[] previous=new KindofMisc[2];

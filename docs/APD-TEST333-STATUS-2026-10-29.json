@@ -1,0 +1,100 @@
+{
+  "checked_utc": "2026-10-29T20:18:22Z",
+  "status": "TEST333 rejected; bounded TEST334 source candidate pending core",
+  "application_source": "07e6fbd4e7ca5d643883efdcd71d99e97ccc469d",
+  "request_source": "3dfd3d3b51cab4794e921da579e6856d68da0758",
+  "apks": {
+    "developer": {
+      "sha256": "fe33e93eebf752ffb41411877a9962ded10e640c0d9d17cbad6e8d85100ca87c",
+      "artifact_id": 12926992340
+    },
+    "player": {
+      "sha256": "47df127a4c9fc44e596de46ec3738f35a0bbab1e423d1038b8bd4556866e70f3",
+      "artifact_id": 12927821818
+    }
+  },
+  "core": {
+    "tests": 2206,
+    "suites": 423,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "run_id": 40940696881,
+    "job_id": 123682994645
+  },
+  "acceptance": [
+    {
+      "run_id": 40941203300,
+      "job_id": 123686757359,
+      "tests": 65,
+      "passed": 63,
+      "failures": [
+        "multipleColumnTapsRemainAboveTableUntilDone",
+        "evidenceBackRestoresEachTableAndSurvivesSceneRecreation"
+      ],
+      "classification": "synthetic fixture opened before asynchronous READY Home"
+    },
+    {
+      "run_id": 40944791119,
+      "job_id": 123697208657,
+      "tests": 66,
+      "passed": 64,
+      "failures": [
+        "warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms: 295ms",
+        "titleControlsStaySeparateAndNativeChangesAndHideUiRemainUsable: Settings window not drawn"
+      ],
+      "timing_ms": {
+        "create": 83.826787,
+        "rebuild": 77.501951,
+        "first_draw": 117.172988
+      },
+      "artifact_id": 12929736320,
+      "artifact_digest": "sha256:92f1e5dc36302b6252eaba6e008b8d36b68a81ef8282db9af54be1b04504087a"
+    },
+    {
+      "run_id": 40945375203,
+      "job_id": 123699233151,
+      "tests": 66,
+      "passed": 65,
+      "failures": [
+        "warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms: 300ms"
+      ],
+      "timing_ms": {
+        "create": 87.646206,
+        "rebuild": 84.147214,
+        "first_draw": 116.349663
+      },
+      "artifact_id": 12929428043,
+      "artifact_digest": "sha256:ba1f9189b9d0f970877c60d608b214aa52e6535b7898316a8fbb9b0e7ec96f8c"
+    }
+  ],
+  "display": {
+    "run_id": 40945375099,
+    "passed_profiles": 5,
+    "total_profiles": 6,
+    "api36": "scale and stale-input passed; title fixture raced incomplete post-Back scene"
+  },
+  "delivery": {
+    "run_id": 40945701688,
+    "conclusion": "failure",
+    "published": false,
+    "tester_distribution": false
+  },
+  "latest_published": {
+    "tag": "apd-alpha-preview-330",
+    "published_at": "2026-10-29T16:02:45Z",
+    "developer_sha256": "3e38b1164169e404c6606d2baa6d23f61fdb4e1625bb1be53c1424ba41c20842",
+    "player_sha256": "7cb850696d46ba5fe3d0c8c7185d783615f4d9e790d0795978fc9116ff57bcdf"
+  },
+  "source_candidate": {
+    "parent": "c0878e9d45181365739b73afd1781b600e3507cd",
+    "changes": [
+      "defer READY Home layout from create() to pre-draw rebuild",
+      "guard first-visible-draw ordering in core",
+      "wait for fully restored TitleScene after Android Back"
+    ],
+    "core_pending": true,
+    "build_request_changed": false
+  },
+  "physical_phone_verified": false
+}

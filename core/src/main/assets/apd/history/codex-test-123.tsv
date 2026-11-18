@@ -1,0 +1,43 @@
+Changes	PD_RAT	Ordinary floor equipment	Ordinary floor loot and hidden-book loot follow Equipment Availability while scheduled progression items remain unchanged.
+Changes	PD_RAT	Hermit crab equipment	Hermit crab's generated armor follows Equipment Availability.
+Changes	PD_RAT	Mimic bonus equipment	Newly generated mimic bonus equipment follows Equipment Availability; carried prizes and stolen items are not filtered again.
+Changes	PD_RAT	Monster equipment drops	Generated monster equipment, wealth bonuses and lucky drops follow Equipment Availability; existing item instances remain intact.
+Changes	ICON_INFO	Armored statue loot	Armored statue armor drops follow Equipment Availability without changing the armor used in combat.
+Changes	ICON_INFO	Statue loot	Statue weapon drops follow Equipment Availability without changing the weapon used in combat.
+Changes	ICON_INFO	Grave equipment	Random equipment in grassy graves follows Equipment Availability.
+Changes	ICON_INFO	Blacksmith room loot	Incidental floor equipment in the blacksmith room follows Equipment Availability; quest reward selection is unchanged.
+Changes	ICON_INFO	Mass-grave equipment	Incidental mass-grave equipment follows Equipment Availability while corpse dust and quest progression remain unchanged.
+Changes	ICON_INFO	Maze equipment	Secret-maze equipment follows Equipment Availability.
+Changes	ICON_INFO	Summoning-room equipment	Random equipment in secret summoning rooms follows Equipment Availability.
+Changes	ICON_INFO	Artillery equipment	Secret-artillery missile equipment follows Equipment Availability; bombs are unchanged.
+Changes	ICON_INFO	Chasm chest equipment	Random equipment in chasm chests follows Equipment Availability; key placement remains intact.
+Changes	ICON_INFO	Pit equipment	Pit-room equipment follows Equipment Availability while haunted remains and keys keep their existing behavior.
+Changes	ICON_INFO	Trap-room equipment	Trap-room equipment follows Equipment Availability without changing traps.
+Changes	ICON_INFO	Pool equipment	Pool-room equipment follows Equipment Availability.
+Changes	ICON_INFO	Shop equipment	Shop equipment stock follows Equipment Availability while consumables, bags and other progression stock remain unchanged.
+Changes	ICON_INFO	Sentry-room equipment	Sentry-room equipment follows Equipment Availability; sentry timing is unchanged.
+Changes	ICON_INFO	Armory equipment	Armory equipment follows Equipment Availability while bombs and the catalyst retain their original behavior.
+Changes	ICON_INFO	Optional chest equipment	Optional crystal-choice chest equipment follows Equipment Availability while its exploration treatment and keys remain intact.
+Changes	ICON_INFO	Crypt equipment	Crypt armor follows Equipment Availability while tomb behavior remains intact.
+Changes	ICON_INFO	Crystal-vault equipment	Crystal-vault equipment follows Equipment Availability, including newly generated crystal-mimic prizes.
+Development	ICON_INFO	Equipment Availability	Enabled Equipment Availability at ordinary generation boundaries; fresh extra items are generated without filtering player inventory or general item drops.
+Bug Fixes	ICON_INFO	Chest batch placement	Generated batches are added before sealing their chest, preventing extra items from searching forever for an adjacent placement cell.
+Testing	ICON_CHECKED	Equipment boundaries	Added checks for all eight percentages, neutral RNG, distinct extra items and protected progression items.
+Testing	ICON_CHECKED	Generated equipment regressions	Added real floor and shop checks for all classes, neutral source snapshots and isolated crystal-chest batch placement.
+Testing	ICON_CHECKED	Monster and stolen-item checks	Added actual monster-drop checks proving fresh equipment expands while existing loot and stolen player items remain intact.
+Testing	ICON_INFO	Equipment control on Android	Added an Android touch-and-save check for Equipment Availability that preserves active-run rules and earned scores.
+Development	ICON_INFO	Verification records	Recorded verified TEST121 checks, equipment implementation and remaining alpha limitations.
+Developer Commentary	V074_SHPX	Developer Commentary	I added equipment availability across ordinary loot sources and caught a chest-placement hang before release. Offensive damage attribution and permanent custom-rules statistics integration still need work; this is not the completed early alpha.
+Bug Fixes	V031_MENU_BUTTON	Scrolling over sliders	Vertical swipes over Custom Dungeon Rules sliders scroll the list without changing values; horizontal swipes adjust values and taps still work.
+Quality of Life	V031_MENU_BUTTON	Gesture direction lock	Custom-rules sliders wait for the dominant direction and retain that direction until the touch ends, including short and diagonal gestures.
+Bug Fixes	V061_PAGE	Stable neutral generation checks	Neutral equipment checks isolate and restore introductory guide discovery so unrelated tests cannot add a Guidebook to each expected floor.
+Bug Fixes	V061_INVENTORY	Equipment drop callbacks	Expanded equipment drops retain the original identification and statistics-provenance callbacks.
+Changes	V061_BUGFIX	Gesture regression coverage	Added direction-lock, tap, short-swipe, diagonal, zoom and rapid-gesture regressions.
+Changes	V031_MENU_BUTTON	Android touchscreen checks	Added actual Android touchscreen-event swipes, taps and cancellation checks while preserving unsaved preferences, locked run settings and score.
+Changes	V061_BUGFIX	Original-source comparison	Development checks compare neutral floor and shop contents and subsequent random values against the exact preceding verified source.
+Changes	V061_BUGFIX	Full-suite failure diagnostics	Development checks capture shared fixture state and original failing records without weakening assertions.
+Changes	V061_INVENTORY	Verified fallback staging	Lunch preparation reuses verified APKs and checks signing, source, tests and checksums before staging.
+Changes	V061_INVENTORY	Private fallback delivery	Private lunch delivery preserves prior assets and refuses unchecked or early publication.
+Changes	V061_PAGE	Lunch evidence report	Recorded the actual verified fallback, failed candidate, remaining work and honest timing in the lunch report.
+Changes	V061_PAGE	Remaining-work estimates	Recorded outstanding alpha tasks and engineering estimates without presenting them as completed work.
+Changes	V061_PAGE	Touch-fix verification report	Recorded slider-touch root cause, test coverage, compatibility and pending Android acceptance.

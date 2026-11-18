@@ -1,0 +1,1 @@
+Changes	V061_PAGE	Retain empty Home screenshot	Collect and validate the native empty-history Home screenshot that the passing API34 test already writes, so the reviewed evidence set includes all 35 expected images.

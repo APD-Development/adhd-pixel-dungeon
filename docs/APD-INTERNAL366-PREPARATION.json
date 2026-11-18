@@ -1,0 +1,56 @@
+{
+  "status": "WITHHELD_RENDERING_FAILURE_NOT_DELIVERED",
+  "source": "89663e4c0c29bb1867c58f32a999e80b5fed5b06",
+  "build": 366,
+  "developer_run": 42205507851,
+  "alpha_run": 42205507813,
+  "native_followup_run": 42205750375,
+  "source_gate": 42205507799,
+  "core_tests": 2665,
+  "physical_phone_tested": false,
+  "signature_and_package_verification": "Developer signature verified by actual apksigner; appID/versionCode920 and original certificate confirmed in targeted native receipt; Alpha signature still pending",
+  "whole_game_audit": "incomplete",
+  "fallback": "private released TEST365 preserved",
+  "artifacts": [
+    {
+      "variant": "developer",
+      "path": "/workspace/apd-internal366-developer.apk",
+      "bytes": 39023237,
+      "sha256": "ba82e29f0003992ed22b87edf6b8a6d97758327cb20d7e44fc079b24964a4c68",
+      "sidecar_matches": true
+    },
+    {
+      "variant": "alpha",
+      "path": "/workspace/apd-internal366-alpha.apk",
+      "bytes": 39023205,
+      "sha256": "2eebaf59167ae7912eb711734ed01594cfc699039585363ebbe173a03c3d7c8f",
+      "sidecar_matches": true
+    }
+  ],
+  "targeted_native": {
+    "run": 42206857449,
+    "methods": 3,
+    "passed": 3,
+    "artifact": 13495919968,
+    "artifact_sha256": "b414cae9e827dff7d08cfb99fd900dcd60bee1b67f4ce2c68db1f7cf9557f2a9",
+    "screenshots_visually_inspected": "Calculation text displaced outside window; passing touch assertions were insufficient",
+    "physical_phone_tested": false
+  },
+  "complete_native": {
+    "run": 42205507851,
+    "tests": 72,
+    "failures": 2,
+    "status": "FAILED",
+    "failures_under_investigation": [
+      "Metamorphosis source-class lookup expected direct text child, now nested inside pane",
+      "Blacksmith fixture clicked first RedButton, now calculations instead of actual reward confirmation"
+    ]
+  },
+  "display_matrix": {
+    "run": 42205507796,
+    "workflow_conclusion": "success",
+    "configurations": 6,
+    "artifact_inspection": "pending"
+  },
+  "fix_status": "Source fix realigns pane viewport after resize/offset; added exact camera/clipping regression and corrected stale native fixtures. Not in366; no replacement application assembled yet."
+}

@@ -1,0 +1,4 @@
+Changes	V061_BUGFIX	Show mixed-scale ratios in player units	Convert fixed-point numerator and denominator scales only when formatting a ratio, preserving raw calculations and ordering.
+Testing	ICON_CHECKED	Check mixed and matching ratio scales	Retain both scale directions, a same-scale control, compact text and unchanged raw aggregate values.
+Infrastructure	V061_PAGE	Preserve verified TEST206 staging evidence	Keep the private no-publication staging workflow and lunch preparation that reuse the exact verified TEST206 artifact.
+Development	V061_PAGE	Record TEST206 and ratio-review evidence	Retain verification, completed-work, build-request and bounded research records without claiming phone acceptance.

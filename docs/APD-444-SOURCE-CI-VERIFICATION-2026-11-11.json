@@ -1,0 +1,34 @@
+{
+  "recorded_utc": "2026-11-11T15:56:07.230820+00:00",
+  "source_commit": "0cc99bbfd82cbbe8140180a0b8f7e64db82e660a",
+  "workflow": ".github/workflows/apd-qol-source-check.yml",
+  "run": 43052555006,
+  "job": 130633316007,
+  "status": "success",
+  "core": {
+    "suites": 465,
+    "tests": 3211,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "raw_xml_independently_downloaded_and_reparsed": true,
+  "required_compilation": [
+    "core",
+    "desktop",
+    "Android debug",
+    "Android release",
+    "Android instrumentation"
+  ],
+  "source_artifact": {
+    "id": 13870960736,
+    "bytes": 547663,
+    "sha256": "1b91ec5c9907a3ee7bdcbc9c733a69da99039d72116c79e13d113465810d4d22"
+  },
+  "job_log_sha256": "6094b6e79cd7741d4940e89db94b18f8152dacc1a48444920b61045530c5b682",
+  "native_fixture_included": true,
+  "application_apk_assembled": false,
+  "native_execution_completed": false,
+  "physical_phone_verified": false,
+  "scope": "Empowered Strike ordinary expiry text and actual-handler regression, new ordinary window captures, and render-thread Ooze capture framing. This source cutoff is later than frozen APD443 and is not included in it."
+}

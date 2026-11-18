@@ -1,0 +1,9 @@
+Bug Fixes	ICON_DATA	Large statistics	Large means and medians retain their represented values instead of overflowing display rounding.
+Bug Fixes	ICON_DATA	Statistics startup	Concurrent statistics initialization no longer deadlocks while registering built-in facts.
+Bug Fixes	ICON_DATA	Conservative rate bounds	Incomplete question rates now round outward so their displayed bounds remain conservative.
+Statistics / UIMSD	ICON_DATA	Empty recorded values	Text filters offer known empty values separately from missing recordings.
+Testing	ICON_CHECKED	Regression coverage	Added reproduced startup, large-number, rate-rounding and empty-filter cases with native Android answer and picker checks.
+Testing	ICON_CHECKED	Save-test isolation	Save regressions restore their temporary file services after execution and use names describing their verified behavior.
+Development	ITEM_ARMOR_MAIL	Armor generation study	Verified 100,000 TEST79 dungeon seeds without changing loot probabilities; generated armor and player encounters remain distinct.
+Development	ICON_INFO	Verification records	Recorded the preceding delivered APK and this batch's evidence and build checks.
+Developer Commentary	V074_SHPX	Developer Commentary	I fixed several misleading statistics displays and an initialization deadlock. Empty recorded values are now selectable without treating missing data as empty.

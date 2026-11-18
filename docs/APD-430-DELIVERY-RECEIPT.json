@@ -1,0 +1,21 @@
+{
+  "number": 430,
+  "source_commit": "2193252bf075b8b429118262fdca8cca046e149c",
+  "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-430",
+  "published_utc": "2026-11-10T16:56:53Z",
+  "delivery_workflow_run": "42859610772",
+  "downloaded_back_verified": true,
+  "rebuilt": false,
+  "core_tests": 3160,
+  "core_suites": 457,
+  "android_tests": 12,
+  "manual_frames": 76,
+  "source_manifest_files": 4820,
+  "apk_hashes": {
+    "Developer": "9cf9b6fa4097d8d92dcda40eea7c84e71196d76c940b84ecffac7ee3b44b3bb4",
+    "Alpha-Testers": "f655c36db28e7a155fc4a316d4775469300f22bd105a09ca5b965d9c134823e2"
+  },
+  "source_sha256": "a3b38764f2ff596ec892051d80194e25d1451e1dd9291350e3e14377cb054c4c",
+  "physical_phone_verified": false,
+  "verified_utc": "2026-11-10T16:56:54.028747+00:00"
+}

@@ -1,0 +1,14 @@
+# APD TEST75 candidate — October12,2026
+
+Owner approved0.5x/1x/2x playback-only game speed. Added compact APD Settings button and three native choices. Preference persists without changing save format, application ID or keys. Invalid stored values return1x. Default1x is unchanged SPD timing.
+
+Only dungeon visual groups scale their elapsed frame duration. The original frame duration is restored in a finally block before HUD siblings update. Nested visual groups scale once. No global Game.timeScale, Game.timeTotal, actor time, movement costs, enemy AI, damage, cooldowns, pathfinding, RNG, stats calculations or recording ruleset changes. Menus, long presses and UI input stay at normal speed. Sound/music tempo is not modified. Effects that deliberately use the absolute real-time clock retain their existing pacing.
+
+All changed production Java compiles locally against the existing dependencies. Eight permanent tests passed0.068seconds: actual settings-file reopening, invalid stored/set values, exactthree multipliers, nestedgroups, HUD sibling clock, exception restoration, nativeTweenercompletion at30/60/90/120/144/165FPS, unchangedActor.now/globalclock. Initial local compilation lacked libGDX/Cleric dependency classpaths; using the already available dependencies resolved it. This was a local harness setup error, not an app bug.
+
+Android fixtures strengthened without reducing existing assertions: real pointer events choose each option and reopen settings; real dungeon sprite-group Tweener completion timestamps compare slow/normal/fast and assert no consumed turns. Full current core/debug/API34 checks requested, not yet completed; no signing check/publication claim. TEST73 remains delivered playable rollback. TEST74 verification in progress for the allocation cleanup; preserve its produced compiled history independently even if later checks fail.
+
+Comprehensive UIMSD audit/redesign and physical-phone verification remain unfinished. Owner4PMEDT target is a target, not proof of completion.
+
+## TEST75 verification failure and corrected TEST76 request
+TEST75 sourceb9847fe3110e6ae200ece9b5efdf2a5b9d8ae44f/run38278018095 ran1188coretests:1187passed,1failed. All8PlaybackSpeedTest cases passed. The historical-sprite test correctly rejected nonexistent Icons.TIME; no APK or Android test success claimed. Replace history sprites with existing ChangeIcons.V023_HOURGLASS, preserve the full checks and record TEST75 as no retained APK. No gameplay code was changed to bypass this test. TEST76 compares against actual preceding produced TEST74, source92f4d372abbba2f030774d01b7b939440c75f137/run38276527256, whose actual downloaded XML1180core+21API34cases passed with zero failures/errors/skips. TEST74 is not privately delivered. TEST73 remains rollback. New TEST76 fullchecks pending.

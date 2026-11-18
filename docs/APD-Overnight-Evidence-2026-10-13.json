@@ -1,0 +1,835 @@
+{
+  "as_of_utc": "2026-10-13T08:50:00Z",
+  "timezone": "America/New_York",
+  "commits": [
+    {
+      "sha": "9a8778ee471f3b6cbdf9530e4d5db3bdaaa08b61",
+      "date": "2026-10-13T08:33:01Z",
+      "message": "Condition private TEST111 delivery on exact successful verification and install compatibility"
+    },
+    {
+      "sha": "976c1c2899d37d687f9978da02193c0f4543f5bd",
+      "date": "2026-10-13T08:31:39Z",
+      "message": "Restore quest boss classification in UIMSD and refresh obsolete row caches"
+    },
+    {
+      "sha": "f243122caee015a1dc2d15150908cef850f55507",
+      "date": "2026-10-13T08:21:54Z",
+      "message": "Keep UIMSD run identities exact and disclose omitted CSV report rows"
+    },
+    {
+      "sha": "845972359883207d3b2dea41861e25ae3610bab3",
+      "date": "2026-10-13T08:07:53Z",
+      "message": "Correct cyclic and sparse UIMSD item history; announce verified metamorphosis choices"
+    },
+    {
+      "sha": "3e3faec03135f631af6b3e019a05a2340e98ad6e",
+      "date": "2026-10-13T07:52:05Z",
+      "message": "Stage TEST108 delivery after verified native metamorphosis selection and save restoration"
+    },
+    {
+      "sha": "4b8b3488a88d68baccbfcbd7ee4280639193b00e",
+      "date": "2026-10-13T07:31:10Z",
+      "message": "Fix metamorphosis instrumentation import and preserve unsuccessful build evidence"
+    },
+    {
+      "sha": "cdd9715fac40dd1c88cd4a2ad34b23fcb9da4ea4",
+      "date": "2026-10-13T07:16:48Z",
+      "message": "Offer deterministic same-position metamorphosis choices with preserved talent data"
+    },
+    {
+      "sha": "a0323b4ae352662df9e22844e507f893afd40b94",
+      "date": "2026-10-13T07:08:56Z",
+      "message": "Stage TEST106 verified legacy-version safety delivery"
+    },
+    {
+      "sha": "015d0392f5ff607746a6db0a2879fd4bbd4c3c45",
+      "date": "2026-10-13T06:52:10Z",
+      "message": "Preserve unsupported legacy telemetry without misinterpreting cached statistics"
+    },
+    {
+      "sha": "cee5af337ab69e265956c4a4c29212ff6b01fcca",
+      "date": "2026-10-13T06:48:39Z",
+      "message": "Stage TEST105 delivery after actual native group-sheet interaction checks"
+    },
+    {
+      "sha": "c15313c6d128bcd3557ff8df0b49ffe24258c8d5",
+      "date": "2026-10-13T06:34:17Z",
+      "message": "Keep UIMSD drilldowns faithful to exact group membership"
+    },
+    {
+      "sha": "e55ed3d564c4baae657c84227a8da2d711c3b197",
+      "date": "2026-10-13T06:31:30Z",
+      "message": "Stage verified TEST104 comparison-integrity APK delivery"
+    },
+    {
+      "sha": "946704b57fac583721449fe95b4559d6716c36b2",
+      "date": "2026-10-13T06:18:06Z",
+      "message": "Preserve UIMSD item uncertainty and separate bounded comparison groups"
+    },
+    {
+      "sha": "48abe938b4510977aa298a171473b6aa58cc615c",
+      "date": "2026-10-13T06:15:03Z",
+      "message": "Stage verified TEST103 artifact delivery and exact regression evidence"
+    },
+    {
+      "sha": "3f30d631ec0fa74ba11bcc25c3411526924604a8",
+      "date": "2026-10-13T06:01:41Z",
+      "message": "Fix Arcana Spirit Form fallback preview without gameplay changes"
+    },
+    {
+      "sha": "21604cd12136ba43837577ff836aeeeb25384ab2",
+      "date": "2026-10-13T05:45:13Z",
+      "message": "Stage existing verified TEST102 history/capture artifact for private delivery"
+    },
+    {
+      "sha": "342e36936f8984f8954e5f94979735a6bb8af329",
+      "date": "2026-10-13T05:09:47Z",
+      "message": "Correct exact TEST100 history date and capture verified native frames"
+    },
+    {
+      "sha": "c621d99e53ebc179904fa5a36c7d2d259bd6614e",
+      "date": "2026-10-13T04:47:55Z",
+      "message": "Deliver existing tested TEST101 APK after signature and checksum validation"
+    },
+    {
+      "sha": "a8c8cecd1dc39acb0b70be95d9db7559e9359606",
+      "date": "2026-10-13T04:35:31Z",
+      "message": "Extract existing TEST100 history and checksum without rebuilding or publishing"
+    },
+    {
+      "sha": "d129bed4cbab2cf047a6f616dd8574e13a3b385b",
+      "date": "2026-10-13T04:33:42Z",
+      "message": "Decouple mobile quickslots, protect item restoration and optimize rollback histories"
+    },
+    {
+      "sha": "624f6991bae64c3f9437be6a5e6e16535cff374d",
+      "date": "2026-10-13T04:01:43Z",
+      "message": "Reject damaged statistics text, refresh derived caches and retain healing screenshots"
+    },
+    {
+      "sha": "91db176d323ae465ab04bb10d693f2696dfd51cd",
+      "date": "2026-10-13T03:42:55Z",
+      "message": "Use verified existing potion sprite in healing build history"
+    },
+    {
+      "sha": "44dfeaf8c21cfc2ac019d293a6e2b21b8fee954c",
+      "date": "2026-10-13T03:38:13Z",
+      "message": "Add optional identified-healing confirmation and reduce series decoding allocations"
+    },
+    {
+      "sha": "6aeea4decc841216314b4a5dc0e5b4c7c5320713",
+      "date": "2026-10-13T03:26:39Z",
+      "message": "Queue private TEST97 artifact delivery after exact full verification"
+    },
+    {
+      "sha": "a2dce9fe381b211de6a9a11733e4801219c418b2",
+      "date": "2026-10-13T03:20:16Z",
+      "message": "Include preceding delivery workflow in complete build attribution"
+    },
+    {
+      "sha": "416f560f094178da3cb23308b295cd0f2147615d",
+      "date": "2026-10-13T03:18:39Z",
+      "message": "Fix UIMSD initialization, numeric bounds and empty filters; verify armor study"
+    },
+    {
+      "sha": "e745f063eda5eb77557d46c6098fa9ba43eebad4",
+      "date": "2026-10-13T02:07:00Z",
+      "message": "Privately deliver verified TEST95 custom-question rate fixes without rebuilding"
+    },
+    {
+      "sha": "3ebdb4082adfbbb0de085cb29618da2666d3368a",
+      "date": "2026-10-13T01:47:21Z",
+      "message": "Correct incomplete custom-question rate bounds and large-rate display with native Android checks"
+    },
+    {
+      "sha": "5f8c399284c9fac06ba98034c59e586ad9816343",
+      "date": "2026-10-13T01:42:02Z",
+      "message": "Privately deliver verified TEST94 cache-integrity APK and report without rebuilding"
+    },
+    {
+      "sha": "1145e043e9e2ceb0aaf189282ede2f53a9423c8d",
+      "date": "2026-10-13T01:28:29Z",
+      "message": "Keep recorded and imported UIMSD caches separate; preserve raw logs and remove unused internals"
+    },
+    {
+      "sha": "1805c0beee8468f8ad34796c75e6eeb3bc547844",
+      "date": "2026-10-13T01:25:45Z",
+      "message": "Privately deliver verified TEST93 comparisons and UIMSD allocation fixes without rebuilding"
+    },
+    {
+      "sha": "aebb1abf66755c87c175b5663af15586a628e4d5",
+      "date": "2026-10-13T01:12:05Z",
+      "message": "Make every UIMSD comparison reachable through native pages and reduce seed-floor allocations"
+    },
+    {
+      "sha": "ffa65cfdbd43f13c676bd88401fafb68e2f9c326",
+      "date": "2026-10-13T01:07:12Z",
+      "message": "Privately deliver actual verified TEST92 APK and report without rebuilding"
+    },
+    {
+      "sha": "3e9b2e2a132cda2dc0331d62c590159b4410f388",
+      "date": "2026-10-13T00:54:46Z",
+      "message": "Request full TEST91 verification after correcting historical sprite validation"
+    },
+    {
+      "sha": "e6569698c29b1b753fb27b076a477e6f5a2570df",
+      "date": "2026-10-13T00:52:31Z",
+      "message": "Validate native item sprite references in historical coverage checks; preserve all attribution assertions"
+    },
+    {
+      "sha": "e592264b512bf25a7d4da87bc0510a4ee4f712d3",
+      "date": "2026-10-13T00:46:37Z",
+      "message": "Use native game-item sprites in APD News and Changes with Android interaction checks (TEST91)"
+    },
+    {
+      "sha": "33d4c0d4350ea060342664d3bdced9700a13bec4",
+      "date": "2026-10-13T00:34:22Z",
+      "message": "Deliver verified existing TEST90 saved-query compatibility build"
+    },
+    {
+      "sha": "2b29f52a26255bf6167def6dc5e0b25b8f5c57c2",
+      "date": "2026-10-13T00:26:07Z",
+      "message": "Measure source changes from verified SPD fork parent without rebuilding APD"
+    },
+    {
+      "sha": "21e4f7579715f42897408efe06535762014cc759",
+      "date": "2026-10-13T00:18:36Z",
+      "message": "Preserve empty-string saved query filters with legacy compatibility regressions (TEST90)"
+    },
+    {
+      "sha": "6004e9581222f35290e2da8fb256c9c193b611cc",
+      "date": "2026-10-13T00:10:38Z",
+      "message": "Record actual TEST89 private APK delivery and verified evidence"
+    },
+    {
+      "sha": "fa2281644074e9b55c43a22307c529b271a48f90",
+      "date": "2026-10-13T00:01:06Z",
+      "message": "Deliver existing TEST89 only after full Android, signing and checksum gates pass"
+    },
+    {
+      "sha": "b529832d07a1a2ba30453427edbd346dbf8b4124",
+      "date": "2026-10-12T23:56:26Z",
+      "message": "Preserve original generation RNG while correcting crystal rewards and refresh reviewed fingerprints (TEST89)"
+    },
+    {
+      "sha": "f1c4862db991231d261008315b9481067d7e6347",
+      "date": "2026-10-12T23:47:08Z",
+      "message": "Record combined TEST88 checks and pending Android verification accurately"
+    },
+    {
+      "sha": "9e4dc5d9ff555a65ef7b3a784b6a6be95b49ac4d",
+      "date": "2026-10-12T23:45:27Z",
+      "message": "Expand crystal reward coverage and fix UIMSD signed-boundary formatting for TEST88"
+    },
+    {
+      "sha": "eb83de162190f1030d34f006dd7f68b91942137d",
+      "date": "2026-10-12T23:40:00Z",
+      "message": "Guarantee both standard two-key crystal-path rewards with seeded regressions (TEST88)"
+    },
+    {
+      "sha": "e70f49dbeb3f6fba9becbc015c96027f099a5867",
+      "date": "2026-10-12T23:10:47Z",
+      "message": "Document TEST79 armor source audit and 10000 seeded generation measurements without changing loot"
+    },
+    {
+      "sha": "9d3ce21bfc4209d5a54c0fd6c7c54409aed9f936",
+      "date": "2026-10-12T22:44:16Z",
+      "message": "Privately deliver verified existing TEST87 without rebuilding application"
+    },
+    {
+      "sha": "f2dc6a54836171acc3c2f9872fa5617da7bbf496",
+      "date": "2026-10-12T22:29:50Z",
+      "message": "Detect valid-looking derived fact cache corruption and preserve raw history (TEST87)"
+    },
+    {
+      "sha": "95e36e6d80581bb28e38bc219aa2849aadbe5036",
+      "date": "2026-10-12T22:20:57Z",
+      "message": "Record actual TEST86 delivery and unfinished approved backlog"
+    },
+    {
+      "sha": "9a7c31996bab3532ae963eb0b8d46b108cbbf44f",
+      "date": "2026-10-12T22:18:10Z",
+      "message": "Privately deliver verified TEST86 Blacksmith reward UI APK and evidence"
+    },
+    {
+      "sha": "beefe620896ca1f29ecb67e039817f97ba4e1854",
+      "date": "2026-10-12T22:04:58Z",
+      "message": "Show actual Blacksmith reward upgrade levels without identifying other properties (TEST86)"
+    },
+    {
+      "sha": "17e9a5834c985bb03dd47ee398daed2a249ee3fb",
+      "date": "2026-10-12T22:03:20Z",
+      "message": "Privately deliver already verified TEST85 stair and Chalice APK"
+    },
+    {
+      "sha": "610d4061a153bc7e6774ce14e713b51516737646",
+      "date": "2026-10-12T21:51:41Z",
+      "message": "Preview current Chalice damage and verify stair discoverability (TEST85)"
+    },
+    {
+      "sha": "cf2a2bca7a83c0f70bb984b25de413740d1dbe1d",
+      "date": "2026-10-12T21:31:50Z",
+      "message": "Show stair shortcut by default and test unset native preference (TEST84)"
+    },
+    {
+      "sha": "f056eec38608d916e3e3b4b3b78f62b304a3b9a0",
+      "date": "2026-10-12T21:17:26Z",
+      "message": "Detect row-cache bit corruption with compatible raw-history rebuilds"
+    },
+    {
+      "sha": "b43316b5c60d9b605ae07e8e6bfc5d43ac847ad2",
+      "date": "2026-10-12T21:01:14Z",
+      "message": "Remove unused sort-key array that crashes larger saved queries"
+    },
+    {
+      "sha": "1d369cff8c047e6ba1ec072785a048873e7a2214",
+      "date": "2026-10-12T20:46:51Z",
+      "message": "Keep uncommon text values reachable in native statistics filters"
+    }
+  ],
+  "runs": [
+    {
+      "id": 38313251401,
+      "number": 85,
+      "source": "610d4061a153bc7e6774ce14e713b51516737646",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-12T21:51:44Z",
+      "end": "2026-10-12T22:01:06Z"
+    },
+    {
+      "id": 38314568910,
+      "number": 86,
+      "source": "beefe620896ca1f29ecb67e039817f97ba4e1854",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-12T22:05:01Z",
+      "end": "2026-10-12T22:16:07Z"
+    },
+    {
+      "id": 38316987461,
+      "number": 87,
+      "source": "f2dc6a54836171acc3c2f9872fa5617da7bbf496",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-12T22:29:53Z",
+      "end": "2026-10-12T22:41:39Z"
+    },
+    {
+      "id": 38361669114,
+      "number": 107,
+      "source": "cdd9715fac40dd1c88cd4a2ad34b23fcb9da4ea4",
+      "status": "completed",
+      "conclusion": "failure",
+      "start": "2026-10-13T07:16:52Z",
+      "end": "2026-10-13T07:23:27Z"
+    },
+    {
+      "id": 38363169333,
+      "number": 108,
+      "source": "4b8b3488a88d68baccbfcbd7ee4280639193b00e",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-13T07:31:14Z",
+      "end": "2026-10-13T07:42:47Z"
+    },
+    {
+      "id": 38367192732,
+      "number": 109,
+      "source": "845972359883207d3b2dea41861e25ae3610bab3",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-13T08:07:58Z",
+      "end": "2026-10-13T08:19:04Z"
+    },
+    {
+      "id": 38368759449,
+      "number": 110,
+      "source": "f243122caee015a1dc2d15150908cef850f55507",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-13T08:21:57Z",
+      "end": "2026-10-13T08:32:40Z"
+    },
+    {
+      "id": 38369863635,
+      "number": 111,
+      "source": "976c1c2899d37d687f9978da02193c0f4543f5bd",
+      "status": "completed",
+      "conclusion": "success",
+      "start": "2026-10-13T08:31:43Z",
+      "end": "2026-10-13T08:44:34Z"
+    }
+  ],
+  "releases": [
+    {
+      "tag": "apd-codex-test-97",
+      "published": "2026-10-13T03:33:12Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-97.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-97/ADHD-Pixel-Dungeon-CODEX-TEST-97.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-97.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-97/ADHD-Pixel-Dungeon-CODEX-TEST-97.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST97.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-97/APD-Bug-Fixes-2026-10-12-TEST97.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-97/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST97-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-97/TEST97-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-95",
+      "published": "2026-10-13T02:07:56Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-95.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-95/ADHD-Pixel-Dungeon-CODEX-TEST-95.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-95.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-95/ADHD-Pixel-Dungeon-CODEX-TEST-95.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST95.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-95/APD-Bug-Fixes-2026-10-12-TEST95.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-95/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST95-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-95/TEST95-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-94",
+      "published": "2026-10-13T01:42:53Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-94.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-94/ADHD-Pixel-Dungeon-CODEX-TEST-94.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-94.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-94/ADHD-Pixel-Dungeon-CODEX-TEST-94.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST94.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-94/APD-Bug-Fixes-2026-10-12-TEST94.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-94/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST94-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-94/TEST94-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-93",
+      "published": "2026-10-13T01:26:28Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-93.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-93/ADHD-Pixel-Dungeon-CODEX-TEST-93.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-93.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-93/ADHD-Pixel-Dungeon-CODEX-TEST-93.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST93.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-93/APD-Bug-Fixes-2026-10-12-TEST93.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-93/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST93-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-93/TEST93-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-92",
+      "published": "2026-10-13T01:07:57Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-92.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-92/ADHD-Pixel-Dungeon-CODEX-TEST-92.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-92.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-92/ADHD-Pixel-Dungeon-CODEX-TEST-92.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST92.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-92/APD-Bug-Fixes-2026-10-12-TEST92.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-92/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST92-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-92/TEST92-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-90",
+      "published": "2026-10-13T00:35:23Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-90.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-90/ADHD-Pixel-Dungeon-CODEX-TEST-90.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-90.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-90/ADHD-Pixel-Dungeon-CODEX-TEST-90.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST90.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-90/APD-Bug-Fixes-2026-10-12-TEST90.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-90/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST90-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-90/TEST90-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-89",
+      "published": "2026-10-13T00:09:13Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-89.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/ADHD-Pixel-Dungeon-CODEX-TEST-89.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-89.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/ADHD-Pixel-Dungeon-CODEX-TEST-89.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST89.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/APD-Bug-Fixes-2026-10-12-TEST89.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST89-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-89/TEST89-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-108",
+      "published": "2026-10-13T07:53:01Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-108.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-108/ADHD-Pixel-Dungeon-CODEX-TEST-108.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-108.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-108/ADHD-Pixel-Dungeon-CODEX-TEST-108.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST108.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-108/APD-Bug-Fixes-2026-10-13-TEST108.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-108/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST108-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-108/TEST108-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-106",
+      "published": "2026-10-13T07:09:42Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-106.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-106/ADHD-Pixel-Dungeon-CODEX-TEST-106.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-106.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-106/ADHD-Pixel-Dungeon-CODEX-TEST-106.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST106.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-106/APD-Bug-Fixes-2026-10-13-TEST106.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-106/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST106-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-106/TEST106-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-105",
+      "published": "2026-10-13T06:49:22Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-105.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-105/ADHD-Pixel-Dungeon-CODEX-TEST-105.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-105.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-105/ADHD-Pixel-Dungeon-CODEX-TEST-105.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST105.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-105/APD-Bug-Fixes-2026-10-13-TEST105.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-105/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST105-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-105/TEST105-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-104",
+      "published": "2026-10-13T06:32:20Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-104.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-104/ADHD-Pixel-Dungeon-CODEX-TEST-104.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-104.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-104/ADHD-Pixel-Dungeon-CODEX-TEST-104.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST104.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-104/APD-Bug-Fixes-2026-10-13-TEST104.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-104/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST104-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-104/TEST104-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-103",
+      "published": "2026-10-13T06:15:50Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-103.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-103/ADHD-Pixel-Dungeon-CODEX-TEST-103.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-103.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-103/ADHD-Pixel-Dungeon-CODEX-TEST-103.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST103.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-103/APD-Bug-Fixes-2026-10-13-TEST103.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-103/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST103-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-103/TEST103-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-102",
+      "published": "2026-10-13T05:46:17Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-102.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-102/ADHD-Pixel-Dungeon-CODEX-TEST-102.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-102.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-102/ADHD-Pixel-Dungeon-CODEX-TEST-102.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST102.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-102/APD-Bug-Fixes-2026-10-13-TEST102.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-102/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST102-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-102/TEST102-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-101",
+      "published": "2026-10-13T04:48:40Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-101.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-101/ADHD-Pixel-Dungeon-CODEX-TEST-101.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-101.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-101/ADHD-Pixel-Dungeon-CODEX-TEST-101.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST101.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-101/APD-Bug-Fixes-2026-10-13-TEST101.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-101/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST101-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-101/TEST101-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-87",
+      "published": "2026-10-12T22:45:07Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-87.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-87/ADHD-Pixel-Dungeon-CODEX-TEST-87.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-87.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-87/ADHD-Pixel-Dungeon-CODEX-TEST-87.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST87.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-87/APD-Bug-Fixes-2026-10-12-TEST87.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-87/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST87-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-87/TEST87-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-86",
+      "published": "2026-10-12T22:19:03Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-86.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/ADHD-Pixel-Dungeon-CODEX-TEST-86.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-86.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/ADHD-Pixel-Dungeon-CODEX-TEST-86.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST86.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/APD-Bug-Fixes-2026-10-12-TEST86.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST86-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-86/TEST86-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-85",
+      "published": "2026-10-12T22:04:16Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-85.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-85/ADHD-Pixel-Dungeon-CODEX-TEST-85.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-85.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-85/ADHD-Pixel-Dungeon-CODEX-TEST-85.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-12-TEST85.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-85/APD-Bug-Fixes-2026-10-12-TEST85.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-85/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST85-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-85/TEST85-Verification.json"
+        }
+      ]
+    },
+    {
+      "tag": "apd-codex-test-111",
+      "published": "2026-10-13T08:45:26Z",
+      "assets": [
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-111.apk",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-111/ADHD-Pixel-Dungeon-CODEX-TEST-111.apk"
+        },
+        {
+          "name": "ADHD-Pixel-Dungeon-CODEX-TEST-111.apk.sha256",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-111/ADHD-Pixel-Dungeon-CODEX-TEST-111.apk.sha256"
+        },
+        {
+          "name": "APD-Bug-Fixes-2026-10-13-TEST111.pdf",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-111/APD-Bug-Fixes-2026-10-13-TEST111.pdf"
+        },
+        {
+          "name": "APD-Source-Line-Counts.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-111/APD-Source-Line-Counts.json"
+        },
+        {
+          "name": "TEST111-Verification.json",
+          "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-codex-test-111/TEST111-Verification.json"
+        }
+      ]
+    }
+  ]
+}

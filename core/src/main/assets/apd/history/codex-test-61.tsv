@@ -1,0 +1,19 @@
+Testing	ICON_INFO	About Device Test	Updated Android checks and fixtures for about device. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Screens Device Test	Updated Android checks and fixtures for statistics screens device. These are development checks, not a gameplay feature.
+Quality of Life	ICON_INFO	APD Text Scene	Attached information popups to the owning scene instead of inside the clicked button.
+Testing	ICON_BACKPACK	Inventory Pickup Test 1	Added a test covering vorpal Axe Collects Into Last Available Backpack Slot. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 2	Added a test covering full Backpack Rejects Without Consuming Or Changing Axe. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 3	Added a test covering empty Specialized Containers Cannot Accept Melee Weapon Or Expand Backpack. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 4	Added a test covering secondary Weapon Still Consumes One Backpack Slot. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 5	Added a test covering pasty Collects Into Available Slot And Stacks When Full. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 6	Added a test covering lost Inventory Blocks New Axe Even With Empty Backpack. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 7	Added a test covering lost Inventory Is Persistent Not A Timed Debuff And Detach Restores Existing Items. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 8	Added a test covering save Roundtrip Keeps Lost Inventory And Items Then Allows Recovery. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 9	Added a test covering empty Backpack And Pouch Reject All Three Under Lost Inventory Then Recover. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 10	Added a test covering pouch Accepts Sungrass Even When Root Backpack Is Full. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 11	Added a test covering challenge Flags Do Not Reject Available Weapon Food Or Seed Slots. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Inventory Pickup Test 12	Added a test covering serialized Save Keeps Pouch Ownership And Cleared Effect Does Not Return. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Updated apd-next-build-history accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Attached information popups to the owning scene instead of inside the clicked button.

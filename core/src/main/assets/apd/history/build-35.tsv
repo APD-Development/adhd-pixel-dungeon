@@ -1,0 +1,13 @@
+Infrastructure	ICON_INFO	android-tests	Updated the android-tests development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Raised the minimum supported Android version to Android 8.0 (API 26).
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Statistics / UIMSD	ICON_INFO	Archive Importer	Rejected archive streams that stop making progress.
+Statistics / UIMSD	ICON_INFO	Progress Guard Input Stream	Added wraps the raw source of an import (a file picker's stream, a file).
+Testing	ICON_CHECKED	Archive Hostile Test	Updated automated checks and fixtures for archive hostile. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Isolation Test	Updated automated checks and fixtures for recorder isolation. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Contract Tests	Updated automated checks and fixtures for contract tests. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-MIN-ANDROID	Added apd-min-android accompanying this build.
+Development	ICON_STATS	APD-STATS-ARCHIVE	Updated apd-stats-archive accompanying this build.
+Development	ICON_STATS	APD-STATS-RECORDER	Updated apd-stats-recorder accompanying this build.
+Development	ICON_STATS	APD-STATS-STORAGE	Updated apd-stats-storage accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Rejected archive streams that stop making progress.

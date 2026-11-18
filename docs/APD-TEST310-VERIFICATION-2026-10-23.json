@@ -1,0 +1,80 @@
+{
+  "build": 310,
+  "status": "fully_emulator_verified_private_pair",
+  "source": "413732834f2f0325ce206ad9e554747558c00a1c",
+  "request_source": "413732834f2f0325ce206ad9e554747558c00a1c",
+  "verified_at": "2026-10-23T14:01:13Z",
+  "developer_run": 39933072344,
+  "player_run": 39933072302,
+  "developer_apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-310.apk",
+    "bytes": 38741018,
+    "sha256": "0a934e47140eac2e79059094ab6153888d1b34d1972ae71628abb35fd2c3cd39",
+    "artifact_id": 12492203655
+  },
+  "player_apk": {
+    "name": "APD-Player-TEST310.apk",
+    "bytes": 38740841,
+    "sha256": "f887be79bebda9c439730f86350223c880e228f3304abf3a48413b25f954455b",
+    "artifact_id": 12492837431
+  },
+  "core": {
+    "methods": 2056,
+    "suites": 398,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "run": 39933072344,
+    "job": 120347391060,
+    "methods": 53,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "evidence_artifact_id": 12493102352,
+    "evidence_zip_sha256": "1ecff7545bf4173f9b7ce333e5695601cdd52ef51e3ba73d1c395acd8eb5044f"
+  },
+  "screenshots": {
+    "count": 79,
+    "width": 320,
+    "height": 640,
+    "contact_sheets_reviewed": 4,
+    "blank_or_corrupt": 0,
+    "obvious_clipping_regressions": 0
+  },
+  "supplemental": {
+    "display_run": 39933072322,
+    "hotbar_run": 39933072463,
+    "death_order_run": 39933072325,
+    "death_order_initial_failure": "HTTP 503 while downloading a pre-test artifact; failed job reran on identical source and passed"
+  },
+  "history": {
+    "predecessor": "TEST309",
+    "predecessor_records_preserved": 336,
+    "added_record": "codex-test-310.tsv",
+    "indexed_records": 337,
+    "total_tsv_assets_including_index": 338,
+    "developer_player_identical": true
+  },
+  "application_id_preserved": true,
+  "signing_certificate_preserved": true,
+  "latest_actual_owner_publication": {
+    "build": 262,
+    "receipt": "docs/APD-TEST262-OWNER-DELIVERY-2026-10-16.json"
+  },
+  "fallbacks": [
+    "TEST309",
+    "TEST306",
+    "TEST304",
+    "TEST303",
+    "TEST262"
+  ],
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "automatic_tester_distribution": false,
+  "public_release": false,
+  "unresolved": [
+    "Intermittent Android edge-Back lag is not phone-reproduced or fixed; collect callback, queue, handler and disappearance timing on a real occurrence."
+  ]
+}

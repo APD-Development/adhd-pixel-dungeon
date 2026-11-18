@@ -1,0 +1,54 @@
+{
+  "application_source": "37a8f6d16cd497e13ed581e887ed9d4858fe97aa",
+  "application_run": 38914965700,
+  "build_number": 249,
+  "core": {
+    "tests": 1729,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "api": 34,
+    "tests": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "screenshots": {
+    "count": 44,
+    "width": 320,
+    "height": 640,
+    "contact_sheet_reviewed": true,
+    "critical_scoring_windows_reviewed_full_resolution": true
+  },
+  "apk_sha256": "dcda79a5c6c83b1ac88e5294b3b134c8e1483109929b3a8da5365e7eadc8536e",
+  "apk_bytes": 38608287,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC249-TEST",
+  "version_code": 920,
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "staging_run": 38914965883,
+  "staged_artifact": 12052344817,
+  "staged_evidence_artifact": 12052693358,
+  "owner_draft": {
+    "release_id": 415070992,
+    "tag": "apd-alpha-preview-249",
+    "draft": true,
+    "published_at": null,
+    "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/untagged-02c51bf6d97c3e579059",
+    "apk_asset_id": 647633624,
+    "apk_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/untagged-02c51bf6d97c3e579059/ADHD-Pixel-Dungeon-Alpha-Preview-249.apk",
+    "creation_run": 38918379865,
+    "creation_readback_failed_after_upload": true,
+    "corrected_readback_run": 38918857771,
+    "corrected_readback_success": true
+  },
+  "lookup_version": "apd-experimental-v2.6R-isolated-product-v1",
+  "lookup_positions": 357,
+  "sliders": 18,
+  "original_SPD_score_routine_unchanged": true,
+  "physical_phone_tested": false,
+  "automatic_tester_distribution": false,
+  "noon_publication_hold": true
+}

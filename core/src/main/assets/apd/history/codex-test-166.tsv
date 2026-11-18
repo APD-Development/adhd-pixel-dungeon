@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Boss phase damage ownership	Apply the actual boss creator once to Tengu bombs and delayed fields, DM-300 rocks, Dwarf King summon collisions and Yog death rays while preserving mitigation, sources, turns and RNG.
+Changes	V061_BUGFIX	Class and boss acceptance regressions	Retain all-six-class and five-boss ownership checks plus Tengu saved-field, historical legacy-environment, mitigation-order and self-damage guards.
+Changes	V061_PAGE	TEST165/166 evidence and handoff	Record the verified TEST164 baseline, TEST165 core failures, bounded correction, pending TEST166 checks and disabled-slider checkpoint.

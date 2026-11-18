@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-10-18T04:39:16Z",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/Report.java",
+    "blob": "ea9feddaa65e670ece45f5b60c63844652502135",
+    "lines": 129,
+    "complete": true,
+    "new_production_defect_confirmed": false
+  },
+  "reviewed_paths": [
+    "constructor and nullable display normalization",
+    "heading level bounds",
+    "facts and table provenance discovery",
+    "first table selection",
+    "cell-state collection for the exact report legend"
+  ],
+  "retained_test": {
+    "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportModelTest.java",
+    "blob": "342d09436795efaade59014fda6d9758803a6998",
+    "commit": "c64f90cda7a970ea340a62813e0893c2b065acb5",
+    "methods": 3,
+    "method_names": [
+      "constructorsKeepDisplayDefaultsAndHeadingBounds",
+      "provenanceAndFirstTableInspectionTraverseOnlyDataBlocks",
+      "statesUsedIncludesFactsAndTablesButIgnoresSectionsNullsAndInvalidStates"
+    ]
+  },
+  "verification": {
+    "run_id": 39097690640,
+    "conclusion": "success",
+    "started_at": "2026-10-18T04:36:40Z",
+    "completed_at": "2026-10-18T04:39:16Z",
+    "tests": 1809,
+    "suites": 357,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 3,
+    "focused_seconds": 0,
+    "artifact_id": 12125321600,
+    "artifact_bytes": 845476,
+    "artifact_digest": "sha256:8a795ee806c13cf4e3a40fcacaf46899597de9134344b691684be3dcb31a4821",
+    "downloaded_zip_digest_match": true
+  },
+  "application_source_changed": false,
+  "apk_rebuild_needed": false,
+  "build_request_changed": false,
+  "latest_verified_private_candidate": 277,
+  "latest_published_owner_build": 262,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

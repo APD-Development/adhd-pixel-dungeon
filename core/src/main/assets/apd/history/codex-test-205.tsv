@@ -1,0 +1,4 @@
+Changes	V061_BUGFIX	Show scaled averages and medians in the right units	Display fixed-point statistics such as2.5 as2.5 instead of250 or2500.
+Changes	V061_BUGFIX	Keep custom-question totals and rates in player units	Use the column's displayed units for answer numbers and per-run rates while preserving raw records and query calculations.
+Testing	ICON_CHECKED	Verify scaled statistics from recorded events	Test both scales through saved synthetic logs, averages, medians, totals, rates and unknown/provenance states.
+Development	V061_PAGE	Retain private Cleric delivery and audit evidence	Record verified TEST204 delivery, reviewed components and the separate statistics presentation correction.

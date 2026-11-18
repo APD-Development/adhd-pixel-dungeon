@@ -1,0 +1,182 @@
+name: Deliver verified existing APD TEST204
+
+# Delivery only: reuse the already tested APK; no Gradle or app rebuild.
+# Accept verified SDK signer labels; retain compatibility refusal diagnostics.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-existing-apk-delivery.yml]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-existing-test204-delivery
+  cancel-in-progress: false
+
+env:
+  APD_SOURCE_SHA: 245b21b7064a03b916e68f1992f94ca017f22fc0
+  APD_SOURCE_RUN: '38747671347'
+  APD_TEST_NUMBER: '204'
+  APD_CORE_TEST_COUNT: '1631'
+  APD_ANDROID_TEST_COUNT: '28'
+  APD_ROLLBACK_NUMBER: '198'
+  APD_ROLLBACK_SHA256: '6dd8a5e16e13670e6dfb6abd12783dd7225ef8ed936b12b57f1192b51618936d'
+  APD_REQUIRED_ANDROID_METHODS: 'menusSurviveSceneRecreationAndNarrowActionsStayInsideTheirWindow,aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded,aWonRunIsRecordedAsWonAndSealed,difficultyIsChosenOnTheCharacterScreenAndNotInSettings,communityMenuOpensEveryPreviewAndReturnsWithoutStackingWindows,adultHumorControlWorksWithoutAnAgeProviderAndReopensWithSavedChoice,textAndGuideScrollSurviveRepeatedResetsAndClampAfterResize,validationEmptyHistoryGroupedAndReportMessagesSurviveWithoutRepeatingActions,tourChoicesSurviveWithoutStartingATourOrRepeatingTheOffer,heroButtonsStayAboveNavigationBarAndRemainSelectable,navigationOverlapReservesVisibleBarsEvenWithFullscreenRequested,clericQuickCastsPersistAndKeepNormalCostsAndTargeting,arcanaItemDescriptionsRequireKnownEquippedRingsAndFitWindows,demoUnlockKeepsTenRunNoticeVisibleOnTitle,offlineNewsCardsOpenDatedSpritePopups,everyAboutPopupOpensScrollsAndCloses,everyUimsdScreenAndDialogCanBeBuilt,replacingHomeContentsDisposesPreviouslyDrawnImages,categoriesUseSpdColumnsAndEveryIconOpensItsExactBuildPopup,largeAndNamedHistoricalBuildsKeepAllIconsInScrollableNativeSections,tileVisibilityAndStairNavigationKeepNormalTurnsFogAndControls,clericLoreFirstRunPopupIsVisibleAndBackContinuesExactlyOnce'
+
+jobs:
+  validate-and-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 245b21b7064a03b916e68f1992f94ca017f22fc0
+      - uses: actions/checkout@v4
+        with:
+          path: lunch-preparation
+      - name: Wait for exact TEST204 verification and resolve actual artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, time
+          repo=os.environ['GITHUB_REPOSITORY']
+          run=os.environ['APD_SOURCE_RUN']
+          deadline=time.monotonic()+1800
+          while True:
+              data=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run}']))
+              assert data['head_sha']==os.environ['APD_SOURCE_SHA']
+              if data['status']=='completed':
+                  assert data['conclusion']=='success', 'Source verification failed: no publication'
+                  break
+              if time.monotonic()>=deadline:
+                  raise SystemExit('Source verification still pending: no publication')
+              time.sleep(20)
+          data=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run}/artifacts']))['artifacts']
+          names=('apd-codex-core-tests','apd-codex-private-test-apk','apd-codex-android-checks')
+          result={}
+          for name in names:
+              matches=[a for a in data if a['name']==name and not a['expired']]
+              assert len(matches)==1
+              result[name]=matches[0]['id']
+          with open(os.environ['GITHUB_ENV'],'a') as target:
+              target.write('APD_SOURCE_ARTIFACTS_JSON='+json.dumps(result)+'\n')
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: core-reports
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: android-reports
+      - name: Retrieve rollback APK for direct compatibility comparison
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download apd-codex-test-198 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-CODEX-TEST-198.apk --dir rollback
+      - name: Check source, tests, checksum, signing and application ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m unittest discover -s tools -p test_apd_existing_build_evidence.py
+          GITHUB_SHA="$APD_SOURCE_SHA" python3 tools/apd_existing_build_evidence.py
+      - name: Verify the delivered APK enables the owner's Cleric lore
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          apks=list(Path('delivery').glob('*.apk'))
+          assert len(apks)==1
+          with zipfile.ZipFile(apks[0]) as z:
+              flags=set(z.read('assets/apd/features.txt').decode('utf-8').splitlines())
+          assert {'testBuild','grudge','clericPlayable'}.issubset(flags)
+          print('Actual delivered APK explicitly enables private Cleric lore and Cleric play.')
+          PY
+      - name: Stage the thirty-eight verified Android screenshots
+        run: |
+          mkdir -p delivery/screenshots
+          cp android-reports/codex-visual-evidence/*.png delivery/screenshots/
+          test "$(find delivery/screenshots -name '*.png' | wc -l)" -eq 38
+          sha256sum delivery/screenshots/*.png > delivery/Android-Screenshot-Checksums.sha256
+      - name: Count exact verified source for owner chat breakdown
+        run: |
+          git fetch --no-tags --depth=1 origin "$APD_SOURCE_SHA"
+          python3 tools/apd_source_line_counts.py "$APD_SOURCE_SHA" delivery
+          git archive --format=zip --output=delivery/APD-Verified-Source.zip "$APD_SOURCE_SHA" SPD-classes/src/main/java core/src/main/java core/src/test/java android/src/main/java android/src/androidTest/java
+          sha256sum delivery/APD-Verified-Source.zip > delivery/APD-Verified-Source.zip.sha256
+      - name: Produce today's report from verified evidence
+        run: |
+          python3 -m pip install reportlab==4.2.5
+          python3 -m unittest discover -s tools -p test_apd_bug_report_pdf.py
+          python3 tools/apd_bug_report_pdf.py lunch-preparation/docs/APD-CLERIC-CORRECTIONS-DELIVERY-2026-10-15.md delivery/APD-Bug-Fixes-2026-10-15-TEST204.pdf --verification delivery/verification.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-test204-delivery
+          path: delivery/
+          retention-days: 7
+
+# Owner requested the verified Blacksmith, stair and Chalice development deliverable; separate lunch schedules are unchanged.
+# Separate daily lunch schedules are unchanged. No app rebuild in this delivery workflow.
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-test204-evidence
+          path: |
+            delivery/*.json
+            delivery/*.txt
+            delivery/*.pdf
+            delivery/*.csv
+            delivery/*.md
+            delivery/*.sha256
+            delivery/screenshots/
+            delivery/APD-Verified-Source.zip
+          retention-days: 7
+
+  private-publication:
+    needs: validate-and-stage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-test204-delivery
+          path: delivery
+      - name: Publish owner-requested private verified APK and report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          repo = os.environ['GITHUB_REPOSITORY']
+          number = int(os.environ['APD_TEST_NUMBER'])
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          tag = f'apd-codex-test-{number}'
+          existing = subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True)
+          if existing.returncode == 0:
+              raise SystemExit('Existing assets preserved: refusing to overwrite release.')
+          with open('delivery/verification.txt','a') as notes:
+              notes.write('\n\nRelease tag identifies the delivery workflow commit, not the compiled application source. The APK source remains '+os.environ['APD_SOURCE_SHA']+'. Later branch changes are not included in this APK.\n')
+          subprocess.run(['gh','release','create',tag,'--repo',repo,
+              '--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false',
+              '--title',f'APD PRIVATE CODEX TEST {number}','--notes-file','delivery/verification.txt',
+              f'delivery/ADHD-Pixel-Dungeon-CODEX-TEST-{number}.apk',
+              f'delivery/ADHD-Pixel-Dungeon-CODEX-TEST-{number}.apk.sha256',
+              'delivery/APD-Bug-Fixes-2026-10-15-TEST204.pdf',
+              'delivery/TEST204-Verification.json',
+              'delivery/APD-Source-Line-Counts.json'],check=True)
+          PY

@@ -1,0 +1,89 @@
+{
+  "test": "TEST240",
+  "recorded_at_utc": "2026-10-16T11:03:00Z",
+  "source": "7f18ca8bcbabc07f159b6e3acfc9689c1ae6f28b",
+  "source_parent": "e45f23f67ce45e5585eaa26dd1381c493b973488",
+  "full_run": {
+    "id": 38889483083,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/38889483083",
+    "attempts": 1,
+    "conclusion": "success",
+    "created_at_utc": "2026-10-16T10:46:55Z",
+    "completed_at_utc": "2026-10-16T11:00:18Z"
+  },
+  "targeted_run": {
+    "id": 38889483125,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/38889483125",
+    "conclusion": "success",
+    "started_at_utc": "2026-10-16T10:46:56Z",
+    "completed_at_utc": "2026-10-16T10:50:10Z",
+    "original_source": "6182b042b1d93b64341f41a516a49ef3d12c93ee",
+    "expected_failures": [
+      "lowerBoundDistinctKeysAreNotTreatedAsExactIdentities",
+      "rowsWithNoValueToShareAreNotMergedByTheDistinctRule"
+    ]
+  },
+  "corrected_core": {
+    "tests": 1707,
+    "suites": 335,
+    "unique_methods": 1707,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "debug_assembly": "passed",
+  "history": {
+    "previous_label": "Codex TEST 239",
+    "previous_source": "6182b042b1d93b64341f41a516a49ef3d12c93ee",
+    "previous_run": 38881765134,
+    "complete": true,
+    "reviewed_categories": 2,
+    "history_tsv_files": 286,
+    "prior_history_files_unchanged": 285
+  },
+  "android": {
+    "api": 34,
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12042111015,
+    "artifact_zip_sha256": "d95ce848a1b8e72fb221acdcc7a41493063eca1b1d7a9400e8b95a74283152cb",
+    "screenshots": 42,
+    "dimensions": "320x640",
+    "accepted": true,
+    "app_crash_signatures": 0,
+    "reviewed": "complete 42-image contact sheet and full-resolution UIMSD text-entry view"
+  },
+  "apk": {
+    "artifact_id": 12040799585,
+    "artifact_zip_sha256": "5f551fe1fb8f1f0453d5f0a9c2a1181839acc35a79ecb809accc036b072da7e5",
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-240.apk",
+    "bytes": 38589474,
+    "sha256": "46666aaad0a2a21a859ba57156eb8789ba704b93df67775f5448797091c28f3a",
+    "version": "4.0.8-apd-INDEV-bC240-TEST",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "v2_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "identity_matches_test239": true
+  },
+  "artifacts": {
+    "targeted": {
+      "id": 12040539281,
+      "zip_sha256": "a7008bdd5e4966eb464d3be4bdb5065b7ebedc294bbebd874c8944970c73a57c"
+    },
+    "core": {
+      "id": 12041590231,
+      "zip_sha256": "29cec783f0c0be0c443cdc1f217b3523277b25455bfe51b2261d6f0ff9143002"
+    }
+  },
+  "publication": false,
+  "tester_distribution": false,
+  "physical_phone": false,
+  "owner_install_over": false,
+  "latest_delivered": "TEST231",
+  "open": [
+    "broad UIMSD audit",
+    "audio acceptance",
+    "unconfirmed armor/sentry acceptance"
+  ]
+}

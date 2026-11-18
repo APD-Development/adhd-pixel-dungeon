@@ -1,0 +1,39 @@
+{
+  "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+  "build": "TEST79",
+  "fresh_core_engine_source_files": 1558,
+  "runs": 100000,
+  "floor_generations": 2200000,
+  "seed_first": 202610120000,
+  "seed_last": 202610219999,
+  "hero_class": "WARRIOR",
+  "difficulty": 3,
+  "challenges": 0,
+  "exotic_setting": 0,
+  "heap_armor_tier_counts": [
+    0,
+    0,
+    209205,
+    336336,
+    370576,
+    263864
+  ],
+  "no_above_leather_in_any_heap": 0,
+  "no_above_leather_excluding_shops": 0,
+  "no_above_leather_restricted_geometric_reachability": 1770,
+  "restricted_frequency": 0.0177,
+  "wall_seconds": 2885.705460907,
+  "exit_code": 0,
+  "raw_result": "RESULT n=100000 noHigh=0 noFreeHigh=0 noReachableFreeHigh=1770 tiers=[0, 0, 209205, 336336, 370576, 263864] noByDepth=[0, 85755, 68539, 56604, 46124, 46124, 28577, 15690, 9149, 4882, 4882, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] seconds=2885.705460907",
+  "raw_output_sha256": "2666075dcf988baaa92ee8910439177d0efce198174aa864340752543f733a2d",
+  "approx_one_sided_95percent_upper_frequency_for_zero_observations": 2.9956874019427958e-05,
+  "limits": [
+    "Dungeon-generation sequence, not survival/player AI or actual encounter simulation.",
+    "Counts main-depth ground heaps; excludes held statue armor, NPC quest rewards, side branches and loot generated only on future kills. Extra sources cannot increase the observed zero lack-of-higher-armor outcome.",
+    "Restricted reachability is map flood fill from entrance using passable or avoid cells, excluding FOR_SALE and LOCKED/CRYSTAL chest armor; it uses full geometry, not player exploration history, and is not a safety guarantee.",
+    "Owner seed, difficulty, challenges, class and shop visits not fully supplied.",
+    "100000 cohort includes the earlier10000 seed range; never report110000 independent sequences.",
+    "No loot probability or game source changes.",
+    "Zero-event binomial upper bound assumes representative independently behaving seeds; not a guarantee for every possible seed."
+  ]
+}

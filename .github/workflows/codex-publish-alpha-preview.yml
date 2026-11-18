@@ -1,0 +1,113 @@
+name: Deliver verified APD alpha preview to owner
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-publish-alpha-preview.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-publish-alpha-preview231
+  cancel-in-progress: false
+jobs:
+  publish-existing-private-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Resolve only successful exact-source evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          for run_id,source in [('38837749762','5134ef6438f9562a37b3f8db727d5d004fa93527'),('38839714168','f83b90b78de1560fbd0f19a85a711bf5377be473')]:
+              run=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run_id}']))
+              assert run['status']=='completed' and run['conclusion']=='success' and run['head_sha']==source
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: staged-alpha-preview231
+          run-id: '38839714168'
+          github-token: ${{ github.token }}
+          path: delivery
+      - name: Recheck compatibility, source and payload before private publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download apd-alpha-preview-226 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-Alpha-Preview-226.apk --dir rollback
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs,certificates
+          repo=os.environ['GITHUB_REPOSITORY'];root=pathlib.Path('delivery')
+          evidence=json.loads((root/'TEST231-Verification.json').read_text())
+          source='5134ef6438f9562a37b3f8db727d5d004fa93527';expected='20f1d87ab58afd21cd37ae4027e6ebb79c01fcf802d0869801e6ffa03943bff9'
+          assert evidence['source']==source and evidence['apk_sha256']==expected
+          for name,count in [('core',1693),('android',33)]:
+              data=evidence[name];assert data['tests']==len(data['cases'])==len({(c['classname'],c['name']) for c in data['cases']})==count
+              assert data['failures']==data['errors']==data['skipped']==0
+          assert any(c['name']=='nativeTouchSwitchesHistoryModesAndSystemBackReturnsToAboutWithoutLosingRecords' for c in evidence['android']['cases'])
+          trees=[]
+          for sha in (source,os.environ['GITHUB_SHA']):
+              tree=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/git/trees/{sha}?recursive=1']))
+              assert not tree.get('truncated',False);trees.append(application_inputs(tree['tree']))
+          assert trees[0]==trees[1], 'Publication wrapper changed application inputs'
+          apk=root/'ADHD-Pixel-Dungeon-CODEX-TEST-231.apk';old=pathlib.Path('rollback/ADHD-Pixel-Dungeon-Alpha-Preview-226.apk')
+          assert hashlib.sha256(apk.read_bytes()).hexdigest()==expected
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=='9a93691ca9417b4f3dd63c3724ba4702d5df10cca747f3db03dd67841fee3bd6'
+          tools=pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools';signer=sorted(tools.glob('*/apksigner'))[-1];aapt=signer.parent/'aapt'
+          cert=[certificates(subprocess.check_output([str(signer),'verify','--print-certs',str(path)],text=True)) for path in (apk,old)]
+          assert cert[0]==cert[1]==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          package=[re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']+)'",subprocess.check_output([str(aapt),'dump','badging',str(path)],text=True)).groups() for path in (apk,old)]
+          assert package[0][0]==package[1][0]=='com.charltonchris29.adhdpixeldungeon.indev' and int(package[0][1])>=int(package[1][1])
+          assert package[0][2]=='4.0.8-apd-INDEV-bC231-TEST'
+          pdf=root/'APD-Alpha-Preview-231.pdf';assert hashlib.sha256(pdf.read_bytes()).hexdigest()=='0f7c14511ef8eeb93a5d7516eafc8ceec26200bbecb2bf80c654636c989c5183'
+          download=root/'ADHD-Pixel-Dungeon-Alpha-Preview-231.apk';apk.rename(download)
+          pathlib.Path(str(download)+'.sha256').write_text(expected+'  '+download.name+'\n')
+          receipt={'application_source':source,'application_verification_run':38837749762,'staging_run':38839714168,'publication_commit':os.environ['GITHUB_SHA'],'publication_application_tree_matches_source':True,'download_name':download.name,'original_internal_name':apk.name,'apk_sha256':expected,'certificate_sha256':cert[0],'package':package[0],'core_methods':1693,'main_api34_methods':33,'physical_device_tested':False,'tester_distribution_approved':False,'application_rebuilt':False}
+          (root/'APD-Preview-Delivery.json').write_text(json.dumps(receipt,indent=2))
+          notes='Private owner preview for early-alpha preparation; not a public release or automatic distribution to testers.\n\n'
+          notes+='Preserves damaged Cleric collection ledgers, restores tables with obsolete saved column layouts, retains incomplete-data warnings, and keeps readable combat statistics when optional hidden details are damaged. Raw histories, saves, gameplay and original scoring remain unchanged. Individual internal builds retain their own technical history.\n\n'
+          notes+='Verification: 1,693 core methods and 33 API34 methods passed; all42 screenshots were independently reviewed, including native touch/Back/version-picker checks. Signing certificate matches TEST226. This is emulator evidence, not physical-phone acceptance.\n\n'
+          notes+='Compiled application source: '+source+'. The tag identifies the real publication wrapper; its application inputs match the tested source. No APK rebuild.\n\n'
+          notes+='Install over existing APD. Never uninstall or clear data. SHA-256: '+expected+'.\n'
+          (root/'owner-release-notes.txt').write_text(notes)
+          PY
+      - name: Publish to the private repository without replacing existing releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-alpha-preview-231';root=pathlib.Path('delivery')
+          assert json.loads(subprocess.check_output(['gh','api','repos/'+repo]))['private']
+          assert subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True).returncode!=0,'Preserve existing release and assets'
+          names=['ADHD-Pixel-Dungeon-Alpha-Preview-231.apk','ADHD-Pixel-Dungeon-Alpha-Preview-231.apk.sha256','APD-Alpha-Preview-231.pdf','TEST231-Verification.json','APD-Preview-Delivery.json','APD-Verified-Source.zip','APD-Verified-Source.zip.sha256']
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD Alpha Preview — private owner test','--notes-file',str(root/'owner-release-notes.txt')]+[str(root/name) for name in names],check=True)
+          release=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/releases/tags/{tag}']))
+          assert release['prerelease'] and not release['draft']
+          actual=[a for a in release['assets'] if a['name']==names[0]];assert len(actual)==1
+          expected='20f1d87ab58afd21cd37ae4027e6ebb79c01fcf802d0869801e6ffa03943bff9'
+          assert actual[0]['digest']=='sha256:'+expected and actual[0]['size']==(root/names[0]).stat().st_size
+          pathlib.Path('publication-result.json').write_text(json.dumps({'release_url':release['html_url'],'published_at':release['published_at'],'apk_url':actual[0]['browser_download_url'],'apk_sha256':expected,'private_repository':True,'public_release':False,'tester_distribution':False,'application_rebuilt':False},indent=2))
+          print(pathlib.Path('publication-result.json').read_text())
+          PY
+      - name: Retain publication receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-alpha-preview231-publication
+          path: |
+            publication-result.json
+            delivery/APD-Preview-Delivery.json
+            delivery/owner-release-notes.txt
+          if-no-files-found: warn
+          retention-days: 7
+

@@ -1,0 +1,83 @@
+{
+  "number": 444,
+  "recorded_utc": "2026-11-11T15:50:54.115715+00:00",
+  "scope": "Instrumentation-only repair of the retained off-camera, mid-fade Ooze capture.",
+  "baseline_source": "a2960688e02468817914f006ff4c563b844c80c5",
+  "baseline_sha256": "1ec6de5e38ffb5e335ecfd2c816de850f304d5a32359fb26ff1142c35a9229ba",
+  "updated_sha256": "9595559f114a434b2bef7a97a5fd281b6b8db591d35572cbd031608f62945dc4",
+  "patch_sha256": "52d5500494c3fbcd1f4c56c9f753cc47ada400236b9b253832fde8f304194739",
+  "source_evidence": [
+    "PixelScene.Fader has an actual one-second normal fade and clears INSTANCE from update after completion.",
+    "The former capture ran after a fixed 500 ms without recentering the synthetic arena.",
+    "The accepted442 original shows the previous dim room; it does not itself visibly establish the trap effect."
+  ],
+  "change": "Wait on render-thread observations for the real fade and sprite motion to finish, center the actual affected hero, and require Ooze, visible on-screen sprite and unchanged HP/action time before the existing screenshot.",
+  "preserved": [
+    "Three original test methods, all movement/trap assertions and all existing capture names.",
+    "Normal fade and actual effect execution; no fade removal, effect removal, time spend, actor advancement or gameplay source edit.",
+    "Subsequent Seer Shot and Liquid Agility fixtures and their assertions."
+  ],
+  "independent_review": {
+    "schema": 1,
+    "recorded_at_utc": "2026-11-11T15:49:36.084280+00:00",
+    "scope": "Independent read-only review of the instrumentation-only captureActualOoze correction against the exact supplied APD443 baseline. No source edits by reviewer.",
+    "result": "no_concrete_blocker",
+    "baseline": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-ooze-capture/TrapDiscoveryDeviceTest.baseline.java",
+      "sha256": "1ec6de5e38ffb5e335ecfd2c816de850f304d5a32359fb26ff1142c35a9229ba"
+    },
+    "reviewed_source": {
+      "path": "/workspace/scratch/db82734c9c44/apd/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TrapDiscoveryDeviceTest.java",
+      "sha256": "9595559f114a434b2bef7a97a5fd281b6b8db591d35572cbd031608f62945dc4"
+    },
+    "bounded_diff_sha256": "3bae88b3fd97ed7d3020c515a7c1d337e153d2230cee684bb1d39989309135d3",
+    "unchanged_tests": [
+      "a_controlWritesEnabledPreference",
+      "b_freshProcessReadsEnabledAndCanDisable",
+      "c_runtimeDiscoveryRouteAndActualTrapEffect"
+    ],
+    "unchanged_literal_screenshot_names": [
+      "trap-discovery-runtime-actual-ooze.png",
+      "trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "trap-discovery-seer-shot-side-branch-before.png",
+      "trap-discovery-seer-shot-side-branch-revealed.png",
+      "trap-discovery-setting-off.png",
+      "trap-discovery-setting-on.png",
+      "trap-discovery-setting-restarted.png"
+    ],
+    "findings": [
+      {
+        "topic": "Fade API and thread visibility",
+        "result": "Class.forName(PixelScene.class.getName()+\"$Fader\").getDeclaredField(\"INSTANCE\") matches the actual protected nested class and private static field. setAccessible enables reflective read. All INSTANCE and sprite-movement reads execute through TopScoresDeviceTest.render and its latch, on the render thread. PixelScene.Fader.update clears INSTANCE after its real one-second fade completes. The helper does not kill, remove or shorten the fade."
+      },
+      {
+        "topic": "Camera and framebuffer timing",
+        "result": "Camera.main.snapTo(PointF) accepts hero.sprite.center(), updates scroll immediately and stops camera pan/follow. The subsequent 200ms wait and second render-thread verification allow the reframed view to draw before UiAutomation captures. GameScene.updateFog is the existing visual refresh API. The hero center is checked against actual Game.width/height."
+      },
+      {
+        "topic": "Effect and gameplay time",
+        "result": "Ooze must exist before and after framing; hero.sprite.visible is asserted. The helper checks unchanged hero.cooldown and HP across framing. It contains no Actor.next, spend, damage, effect detach or scheduler mutation. Hero.onMotionComplete only checks held keys; the prior direct getCloser fixture leaves its actor paused, so waiting for movement/fade does not itself drain that existing movement debt."
+      },
+      {
+        "topic": "Retained fixture behavior",
+        "result": "Only the prior500ms screenshot tail is replaced. The actual trap assertions, all3 test methods and all7 exact literal capture filenames remain. Subsequent Seer Shot and Liquid Agility helpers position their own cameras, and the enclosing disposable arena is deleted after the case."
+      }
+    ],
+    "inspected_apis": {
+      "/workspace/scratch/db82734c9c44/apd/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/PixelScene.java": "07fc6ad69deb815b1739cebebbeab9c993f89a42f9e8c8379690ca1562f71dd7",
+      "/workspace/scratch/db82734c9c44/apd/SPD-classes/src/main/java/com/watabou/noosa/Camera.java": "fd03072f9f0cf66181027b301920e1feea7103a4d333394214ce35eedf94ecd5",
+      "/workspace/scratch/db82734c9c44/apd/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java": "b9cc70a15c3b4128e2df83a18bba09b03f0c968f7fbb7d3a886d0a306de0224a",
+      "/workspace/scratch/db82734c9c44/apd/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/Char.java": "33bcd148dd3b5007fb42f19f1fb37fa886c5b9f691d9a16b1546b91a81286813",
+      "/workspace/scratch/db82734c9c44/apd/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TopScoresDeviceTest.java": "79b24e60d3c2e64db823cf5ec03f05aefc24b19cb74510054837bd309dab1505"
+    },
+    "limitations": [
+      "Read-only source/API review only; no new Android compilation, instrumentation run or screenshot acceptance was performed.",
+      "The clock assertion measures hero.cooldown before and after framing; it does not independently assert absolute Actor.now. Source inspection confirms this helper does not resume or spend an action.",
+      "The viewport assertion establishes the hero center is on screen; actual rendered framing, Ooze visibility and absence of a residual fade still require the next native screenshot review.",
+      "Previously frozen APD442/APD443 screenshots are not changed or retroactively accepted by this source correction."
+    ]
+  },
+  "android_compilation_completed": false,
+  "native_capture_verified": false,
+  "required_next_step": "Compile and run on the next frozen pair, then inspect the original Ooze frame; do not claim the visual limit fixed before that review."
+}

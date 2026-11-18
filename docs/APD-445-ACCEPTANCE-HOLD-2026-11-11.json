@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-11-11T18:03:05.504523+00:00",
+  "status": "candidate_not_accepted_not_deliverable",
+  "build": 445,
+  "source_commit": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "producing_run": 43072342086,
+  "run_attempt": 1,
+  "authority": "Root instruction, confirmed by the seed implementation/independent-review agent; no repeated investigation by this monitor.",
+  "reason": "An exact seed present in available unfinished/crash-log history is incorrectly classified UNKNOWN_IMPORTED. The approved scope is available history, not only completed/failed runs.",
+  "effect": "Any later successful mechanical/native jobs are evidence only and do not establish overall APD445 acceptance or authorize delivery.",
+  "preservation": "Continue the original immutable APD445 run and retain every resulting log/artifact. No application rebuild, signing change, workflow retry or publication.",
+  "next_source_work": "Root coordinates the intended correction and added unfinished-history regression/fixture for APD446.",
+  "hold_resolved": false,
+  "apk_delivery_authorized_by_this_receipt": false
+}

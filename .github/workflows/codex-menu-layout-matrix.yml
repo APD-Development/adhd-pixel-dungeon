@@ -1,0 +1,122 @@
+name: Verify responsive title menu on Android display configurations
+# Owner-circled partial corner ends are unmarked; straight edges, bottom lip and memory release remain verified.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - docs/APD-CODEX-BUILD-REQUEST.txt
+permissions:
+  contents: read
+  actions: read
+jobs:
+  title-display:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: m53-representative, size: 1080x2408, density: 420}
+          - {name: compact-virtual, size: 360x560, density: 160}
+          - {name: small-virtual, size: 320x480, density: 160}
+          - {name: square-virtual, size: 720x720, density: 320}
+          - {name: short-landscape, size: 960x320, density: 160}
+          - {name: redmagic-representative-api36, size: 1216x2688, density: 442, api: 36, target: google_apis, mode: scale}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Find the exact application producer without building another APK
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,time,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];sha=os.environ['GITHUB_SHA'];branch=os.environ['GITHUB_REF_NAME']
+          def api(p):
+              for attempt in range(4):
+                  result=subprocess.run(['gh','api',p],text=True,capture_output=True)
+                  if result.returncode==0:return json.loads(result.stdout)
+                  if attempt<3 and any(code in result.stderr for code in ('HTTP 502','HTTP 503','HTTP 504','HTTP 429')):time.sleep(2**attempt)
+                  else:raise RuntimeError(result.stderr)
+          current_tree=api(f'repos/{repo}/git/trees/{sha}?recursive=1')
+          assert not current_tree.get('truncated')
+          current_inputs=application_inputs(current_tree['tree'])
+          deadline=time.monotonic()+720
+          while True:
+              runs=api(f'repos/{repo}/actions/workflows/codex-sprint-check.yml/runs?branch={branch}&per_page=20')['workflow_runs']
+              selected=None
+              for run in runs:
+                  if run['status']=='queued' or run['head_sha']!=sha:continue
+                  # A successful producing job is sufficient; native verification may still be running.
+                  jobs=api(f'repos/{repo}/actions/runs/{run["id"]}/jobs')['jobs']
+                  if not any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs):continue
+                  source_tree=api(f'repos/{repo}/git/trees/{run["head_sha"]}?recursive=1')
+                  assert not source_tree.get('truncated')
+                  if application_inputs(source_tree['tree'])!=current_inputs:continue
+                  artifacts=api(f'repos/{repo}/actions/runs/{run["id"]}/artifacts')['artifacts']
+                  item=next((a for a in artifacts if a['name']=='apd-codex-private-test-apk' and not a['expired']),None)
+                  if item:
+                      selected=(run,item)
+                      break
+              if selected is not None:break
+              assert time.monotonic()<deadline,'No successful protected-input-identical application artifact within 12 minutes'
+              time.sleep(20)
+          run,item=selected
+          with open('application.zip','wb') as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{item["id"]}/zip'],stdout=out,check=True)
+          assert hashlib.sha256(pathlib.Path('application.zip').read_bytes()).hexdigest()==item['digest'].removeprefix('sha256:')
+          with zipfile.ZipFile('application.zip')as z:z.extractall('application')
+          apk=next(pathlib.Path('application').glob('*.apk'));digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert next(pathlib.Path('application').glob('*.apk.sha256')).read_text().split()[0]==digest
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':run['head_sha'],'application_run':run['id'],'application_sha256':digest,'protected_application_inputs_identical':True,'application_rebuilt':False,'test_source':sha,'supersedes_failed_lookup_run':40888337192},indent=2))
+          with open(os.environ['GITHUB_ENV'],'a')as out:out.write('APD_BUILD='+str(run['run_number'])+'\n')
+          PY
+      - name: Compile only instrumentation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild "-PapdBuild=C$APD_BUILD"
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Free disposable runner caches before the API36 image creates its minimum partition
+        if: matrix.api == 36
+        run: |
+          ./gradlew --stop
+          apd_gradle_cache="${GRADLE_USER_HOME:-$HOME/.gradle}"
+          du -sm "$apd_gradle_cache/caches" "$apd_gradle_cache/wrapper/dists" || true
+          rm -rf "$apd_gradle_cache/caches" "$apd_gradle_cache/wrapper/dists"
+          sudo rm -rf /usr/share/dotnet
+          df -Pm "$HOME"
+          python3 - <<'PY'
+          import pathlib,shutil
+          free=shutil.disk_usage(pathlib.Path.home()).free
+          print('API36 pre-image free bytes:',free)
+          assert free>=10*1024**3,'Insufficient room for API36 image download and mandatory 7.4GB userdata partition'
+          PY
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise actual touchscreen and capture this display
+        env: {APD_ENFORCE_DISPLAY: 'true'}
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api || 34 }}
+          arch: x86_64
+          target: ${{ matrix.target || 'default' }}
+          profile: pixel_7
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: adb shell settings put global hide_error_dialogs 1 && adb shell settings put secure immersive_mode_confirmations confirmed && bash tools/run-title-display-check.sh '${{ matrix.size }}' '${{ matrix.density }}' '${{ matrix.mode || 'title' }}'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-title-display-${{ matrix.name }}
+          path: |
+            title-evidence/
+            title-instrumentation.txt
+            title-logcat.txt
+          retention-days: 7

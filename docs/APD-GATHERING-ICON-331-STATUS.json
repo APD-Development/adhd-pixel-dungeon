@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-29",
+  "application_source": "168e49778c18dd6a2c82bea48aa41028d513f60a",
+  "build": 331,
+  "icon_implemented": true,
+  "android_icon_visually_verified": true,
+  "production_changes": [
+    "Dedicated SCROLL_GATHERING sprite316 in unused atlas cell",
+    "Gathering reset retains fixed sprite and removes borrowed Teleportation badge"
+  ],
+  "save_migration": false,
+  "gameplay_changed": false,
+  "forwarding_changed": false,
+  "atlas_sha256": "44b248cc4192ba6035c89b8e90fd1fd18114a9b78bd5addd9bbbdd26e174c279",
+  "atlas_pixel_change_count": 167,
+  "unchanged_pixels_outside_reserved_cell": true,
+  "local_scroll_tests": {
+    "tests": 7,
+    "failures": 0,
+    "coverage": "all six classes; real Bundle reload; reset; identification; acquisition/crafting unchanged"
+  },
+  "core": {
+    "run": 40929924852,
+    "job": 123645332475,
+    "tests": 2192,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact": 12921299464,
+    "artifact_sha256": "46dcb6fe55469ceb8cb13626f872f415599a18c4966d9dcd1375bcbcd4287a74"
+  },
+  "original_android": {
+    "job": 123646794271,
+    "tests": 65,
+    "passed": 64,
+    "failed": 1,
+    "artifact": 12923621603,
+    "failure": "warmUimsdTapDrawsTheComplete72RunHomeTwiceWithin250ms: opening1=322ms, unchanged250ms limit",
+    "create_ms": 100.086691,
+    "rebuild_ms": 91.572114,
+    "draw_ms": 126.629362,
+    "valid_pngs": 88,
+    "new_icon_capture": "loot-scroll-gather-description.png"
+  },
+  "player_run": 40929925038,
+  "player_run_conclusion": "success",
+  "developer_apk_artifact": 12922003238,
+  "developer_apk_artifact_zip_sha256": "e47decf62de6c8ff9cfbdf41e37ffb5fbc8a36b1d895559621b8936b3f31fbdf",
+  "actual_apk_signature_checks_completed": false,
+  "display": {
+    "initial_failed_lookup_run": 40929924967,
+    "retry_run": 40930579280,
+    "api34_profiles_passed": 5,
+    "m53_transient_failure": "GitHub HTTP502 reading tree; rerun passed",
+    "api36_failed_jobs": [
+      123647608121,
+      123652076397
+    ],
+    "api36_failure": "Different render-callback timeouts in combined methods; not attributed to icon",
+    "isolated_run": 40933481613,
+    "isolated_failure": "TitleMenuLayoutDeviceTest: native Changes tap did not produce APDTextScene at line106",
+    "isolated_scale_and_stale_input_methods": "both passed"
+  },
+  "performance_retests": [
+    {
+      "run": 40933078470,
+      "elapsed_ms": 1006,
+      "status": "failed",
+      "configuration": "Mistaken1080x2400 Pixel7/software; differs from original suite. Corrected without changing test or budget."
+    },
+    {
+      "run": 40934504653,
+      "elapsed_ms": 262,
+      "status": "failed",
+      "configuration": "Original320x640/160dpi/default renderer; unchanged250ms budget"
+    }
+  ],
+  "other_original_runs": [
+    {
+      "id": 40929924852,
+      "name": "Codex APD sprint verification",
+      "conclusion": "failure"
+    },
+    {
+      "id": 40929924896,
+      "name": "APD actual death cleanup before-after Android regression",
+      "conclusion": "failure"
+    },
+    {
+      "id": 40929924967,
+      "name": "Verify responsive title menu on Android display configurations",
+      "conclusion": "failure"
+    },
+    {
+      "id": 40929925004,
+      "name": "APD hotbar cold restart and player settings acceptance",
+      "conclusion": "failure"
+    },
+    {
+      "id": 40929924935,
+      "name": "Stage verified APD alpha preview candidate",
+      "conclusion": "failure"
+    },
+    {
+      "id": 40929925038,
+      "name": "APD paired regular-player APK",
+      "conclusion": "success"
+    }
+  ],
+  "publication": "NOT PUBLISHED. All publication attempts failed closed; do not deliver331 as verified.",
+  "last_verified_release": "apd-alpha-preview-330",
+  "fallback_developer": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-330/APD-Developer-330.apk",
+  "fallback_testers": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-330/APD-Alpha-Testers-330.apk",
+  "pending": [
+    "UIMSD opening performance remains unresolved; no performance fix implemented",
+    "Android16 menu-navigation verification remains failed",
+    "331 actual APK signature/package/checksum publication checks not reached",
+    "Physical-device acceptance unverified"
+  ]
+}

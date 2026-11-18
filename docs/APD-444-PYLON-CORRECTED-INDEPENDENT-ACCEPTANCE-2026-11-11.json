@@ -1,0 +1,591 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-11T17:09:11.651454+00:00",
+  "result": "Corrected supplemental acceptance passed: both native cases, all 10 original screenshots, matching preference capture/restore values and no recurrence of the prior preference exception.",
+  "supplemental_native_accepted": true,
+  "full_fixture_acceptance": true,
+  "manual_visual_review_complete": true,
+  "instrumentation_source": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+  "instrumentation_run": 43063913542,
+  "instrumentation_attempt": 1,
+  "original_application_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_application_run": 43057716359,
+  "original_application_hashes": {
+    "Developer": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+    "Alpha-Testers": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162"
+  },
+  "original_instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+  "new_instrumentation_sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+  "fixture_path": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+  "fixture_sha256": "ff81cc756822f727bcba560e6962272789e197f12e0e19a5dcf255701d877034",
+  "ready_plan_sha256": "c448aae4a688c98703bd7e3f27b3169812a41f2c86f43010c7859b0dda2a56a0",
+  "class": "com.shatteredpixel.shatteredpixeldungeon.android.BossPylonTargetingDeviceTest",
+  "method": "nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons",
+  "compiled_acceptance": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/corrected-native-acceptance/compiled-acceptance.json",
+    "sha256": "710771ddbc3ddcfd38e800a39f7385f95ff922be471da516aca2fbaeaf87afc8"
+  },
+  "terminal_github_metadata": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/snapshot-2026-11-11T17-07-39-967Z.json",
+    "sha256": "1d51ee507d2aa368a69aceba32d06017cf7b9ebbf7e2ddc38017b6a5a07b8b5d",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": {
+      "instrument": {
+        "job_id": 130673613026,
+        "conclusion": "success",
+        "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/instrument-job-130673613026.log",
+        "log_sha256": "02d3f076ce16f26860bc873469aec4bc12f73ecd9ebf1dd0111a2f57e49bc4f5",
+        "logged_interval": [
+          "2026-11-11T17:00:45.4057021Z",
+          "2026-11-11T17:02:48.7956709Z"
+        ],
+        "artifact_created_within_successful_producer_log_interval": true,
+        "exact_upload_digest_line": "2026-11-11T17:02:47.6434791Z SHA256 digest of uploaded artifact zip is ad87165255953829200d5bdab4b77f1f105fabd1be3a05fe99b12c17bcc3767d",
+        "github_started_at": "2026-11-11T17:00:44Z",
+        "github_completed_at": "2026-11-11T17:02:52Z",
+        "github_run_attempt": 1,
+        "github_head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+        "artifact_created_within_exact_github_producer_interval": true
+      },
+      "native (Developer)": {
+        "job_id": 130674898651,
+        "conclusion": "success",
+        "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/native-Developer-job-130674898651.log",
+        "log_sha256": "ed3eaace0845d4bf11afad35724cae9f91f52b2e3c32e8d3cc1eb43222a7b99a",
+        "logged_interval": [
+          "2026-11-11T17:02:55.9146738Z",
+          "2026-11-11T17:05:20.0441964Z"
+        ],
+        "artifact_created_within_successful_producer_log_interval": true,
+        "exact_upload_digest_line": "2026-11-11T17:05:18.7247386Z SHA256 digest of uploaded artifact zip is 6c27c7cecdb06cea10ae4e1506c3c695a91daa13f40e2dab53d27f93336abf37",
+        "github_started_at": "2026-11-11T17:02:55Z",
+        "github_completed_at": "2026-11-11T17:05:21Z",
+        "github_run_attempt": 1,
+        "github_head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+        "artifact_created_within_exact_github_producer_interval": true
+      },
+      "native (Alpha-Testers)": {
+        "job_id": 130674898652,
+        "conclusion": "success",
+        "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/native-Alpha-Testers-job-130674898652.log",
+        "log_sha256": "b22bc59d80d7d1c288aad5d1b3289052db6ce75d5fb1432639e559e511f44edb",
+        "logged_interval": [
+          "2026-11-11T17:02:55.7505605Z",
+          "2026-11-11T17:05:40.6782683Z"
+        ],
+        "artifact_created_within_successful_producer_log_interval": true,
+        "exact_upload_digest_line": "2026-11-11T17:05:39.6191957Z SHA256 digest of uploaded artifact zip is 6fac3ba7365e5e9c9419466440d040498d3708a38be73326902633a06268f71f",
+        "github_started_at": "2026-11-11T17:02:55Z",
+        "github_completed_at": "2026-11-11T17:05:41Z",
+        "github_run_attempt": 1,
+        "github_head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+        "artifact_created_within_exact_github_producer_interval": true
+      },
+      "supplemental-evidence": {
+        "job_id": 130676589898,
+        "conclusion": "success",
+        "log_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/supplemental-evidence-job-130676589898.log",
+        "log_sha256": "8cb113b2c66a396ef7d050cbb74e85f9861c232ddbe7e45f5b2291b93323d584",
+        "logged_interval": [
+          "2026-11-11T17:05:45.0678542Z",
+          "2026-11-11T17:06:20.8890384Z"
+        ],
+        "artifact_created_within_successful_producer_log_interval": true,
+        "exact_upload_digest_line": "2026-11-11T17:06:19.5526099Z SHA256 digest of uploaded artifact zip is 2e197c55fb9a2b8fd72dd47544284de5e75dc333e4f063c3acae1e0e224be271",
+        "github_started_at": "2026-11-11T17:05:44Z",
+        "github_completed_at": "2026-11-11T17:06:22Z",
+        "github_run_attempt": 1,
+        "github_head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57",
+        "artifact_created_within_exact_github_producer_interval": true
+      }
+    },
+    "full_job_metadata_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-ci/terminal-jobs-full.json",
+    "full_job_metadata_sha256": "696e1d81f9d535d3c3d8be9379f8c81eef8abf07f0e67700d30a186db9e0b296"
+  },
+  "artifact_archive_member_counts": {
+    "instrumentation": 9,
+    "Developer": 10,
+    "Alpha-Testers": 10,
+    "supplemental-evidence": 23
+  },
+  "all4_archives_match_retained_metadata_and_extracted_bytes": true,
+  "same_source_run_attempt_and_successful_producers_verified": true,
+  "scope_matches_compiled_fixture_and_zero_application_delta": true,
+  "final_package": {
+    "artifact": {
+      "id": 13874877525,
+      "name": "apd444-pylon-supplemental-evidence-attempt-1",
+      "size_in_bytes": 791155,
+      "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13874877525",
+      "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13874877525/zip",
+      "expired": false,
+      "created_at": "2026-11-11T17:06:19Z",
+      "expires_at": "2026-12-11T17:06:18Z",
+      "updated_at": "2026-11-11T17:06:19Z",
+      "digest": "sha256:2e197c55fb9a2b8fd72dd47544284de5e75dc333e4f063c3acae1e0e224be271",
+      "workflow_run": {
+        "id": 43063913542,
+        "repository_id": 1402541795,
+        "head_repository_id": 1402541795,
+        "head_branch": "codex/apd-phone-fixes-2026-10-09",
+        "head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57"
+      },
+      "local_archive": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-supplemental-evidence-attempt-1.zip",
+      "local_sha256": "2e197c55fb9a2b8fd72dd47544284de5e75dc333e4f063c3acae1e0e224be271",
+      "local_bytes": 791155
+    },
+    "root": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-supplemental-evidence-attempt-1/pylon444-supplemental",
+    "receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-supplemental-evidence-attempt-1/pylon444-supplemental/supplemental-verification.json",
+    "receipt_sha256": "d8346585ed2457c325af0d056799af6ea9b1fc8ec8a3f579589d0acb46c2dac1",
+    "embedded_native_archives_and_extracted_files_match_original_downloads": true
+  },
+  "targeted_tests": 2,
+  "individual_original_images_viewed": 10,
+  "variants": {
+    "Developer": {
+      "targeted_tests": 1,
+      "seconds": 10.274,
+      "native_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/native-verification.json",
+        "sha256": "67ed60038f280c0117250ee4275b6ead82c3fc0a88d28edb8a45558d6fddf246"
+      },
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/pylon.txt",
+        "sha256": "d60a2a4eecb9785139b4ae1973c1656ed68fb5dadd65c00b51045a38fe3023f2",
+        "exact_case_passed": true
+      },
+      "log": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/native-logcat.txt",
+        "sha256": "a79f819c0bd788807ce845ee09c5126f3c3deb429fb110d80e32ee86af5dbabe",
+        "target_markers": [
+          "11-11 17:05:05.829 I/System.out( 2296): NATIVE_PYLON_TARGET stage=inactive-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=false quick=DM300 melee=DM300 activeActorIsHero=true",
+          "11-11 17:05:06.847 I/System.out( 2296): NATIVE_PYLON_TARGET stage=active-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=Pylon activeActorIsHero=true",
+          "11-11 17:05:07.306 I/System.out( 2296): NATIVE_PYLON_TARGET stage=manual-rat-preserved actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Rat melee=Rat activeActorIsHero=true",
+          "11-11 17:05:07.780 I/System.out( 2296): NATIVE_PYLON_TARGET stage=ranged-pylon-melee-boss actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=DM300 activeActorIsHero=true",
+          "11-11 17:05:08.525 I/System.out( 2296): NATIVE_PYLON_TARGET stage=hidden-pylon-excluded actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=false pylonEnemy=true quick=DM300 melee=DM300 activeActorIsHero=true"
+        ],
+        "parsed_target_markers": [
+          {
+            "stage": "inactive-visible",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "false",
+            "quick": "DM300",
+            "melee": "DM300",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "active-visible",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "true",
+            "quick": "Pylon",
+            "melee": "Pylon",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "manual-rat-preserved",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "true",
+            "quick": "Rat",
+            "melee": "Rat",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "ranged-pylon-melee-boss",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "true",
+            "quick": "Pylon",
+            "melee": "DM300",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "hidden-pylon-excluded",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "false",
+            "pylonEnemy": "true",
+            "quick": "DM300",
+            "melee": "DM300",
+            "activeActorIsHero": "true"
+          }
+        ],
+        "preference_markers": [
+          "11-11 17:05:01.506 I/System.out( 2296): NATIVE_PYLON_PREFERENCE stage=captured intro=true stored=false",
+          "11-11 17:05:09.648 I/System.out( 2296): NATIVE_PYLON_PREFERENCE stage=restored intro=true"
+        ],
+        "parsed_preference_markers": [
+          {
+            "stage": "captured",
+            "intro": "true",
+            "stored": "false"
+          },
+          {
+            "stage": "restored",
+            "intro": "true"
+          }
+        ],
+        "capture_precedes_all_targets_and_restore_follows": true,
+        "captured_value_equals_restored_value": true,
+        "old_prelaunch_preference_exception_absent": true,
+        "fixture_System_err_stack_lines": [],
+        "all_NullPointerException_line_count": 0
+      },
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/pylon-transfer.json",
+        "sha256": "ae29e9c1e8daf2e11dfa3c1e5f171dc12b714573c25ef736ae39656d29f1bcfd",
+        "remote_manifest_matches_all5_images": true
+      },
+      "native_artifact": {
+        "id": 13874288955,
+        "name": "apd444-pylon-native-Developer-attempt-1",
+        "size_in_bytes": 189065,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13874288955",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13874288955/zip",
+        "expired": false,
+        "created_at": "2026-11-11T17:05:19Z",
+        "expires_at": "2026-12-11T17:05:18Z",
+        "updated_at": "2026-11-11T17:05:19Z",
+        "digest": "sha256:6c27c7cecdb06cea10ae4e1506c3c695a91daa13f40e2dab53d27f93336abf37",
+        "workflow_run": {
+          "id": 43063913542,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57"
+        },
+        "local_archive": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1.zip",
+        "local_sha256": "6c27c7cecdb06cea10ae4e1506c3c695a91daa13f40e2dab53d27f93336abf37",
+        "local_bytes": 189065
+      },
+      "application_sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "supplemental_instrumentation_sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+      "original_instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+      "images": {
+        "pylon-native-active-visible.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-active-visible.png",
+          "sha256": "2db4231295f1ab0ab06641af5c24ac827fb61691b313b170a3b36ff16a331c18",
+          "bytes": 24634,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "Activated reachable pylon has the green target health bar and the attack control displays its pylon portrait. The enemy indicator reads 3. Hero, rat, boss and pylon remain visible.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-hidden-excluded.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-hidden-excluded.png",
+          "sha256": "560b9678e606e1ce88b170a8a71d0a0560cc2a70a5c0e8564f2f33b7fb7ebd99",
+          "bytes": 30802,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "The pylon is absent behind the opaque wall and dark target patch. DM300 has both the target health bar and attack portrait, and the enemy indicator returns to 2. No hidden-pylon health bar or attack portrait is displayed.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-inactive-visible.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-inactive-visible.png",
+          "sha256": "f2170d546e33f4fdfcaaa131645b55b056b947b311754771961099268cf19384",
+          "bytes": 24839,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "Inactive pylon is visible above the hero. The green target health bar is on DM300 and the actual bottom-right attack portrait depicts DM300. The enemy indicator reads 2. All fixture actors and the attack control are within the frame.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-manual-rat-preserved.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-manual-rat-preserved.png",
+          "sha256": "8d922698bf1b5be5b25630605c6f378652c3250f0ccc1cf8df1ee45579d6c3a3",
+          "bytes": 24789,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "The manually selected rat retains the green target health bar and rat attack portrait although the active pylon is visible. The enemy indicator remains 3; no control clipping is observed.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-ranged-pylon-melee-boss.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Developer-attempt-1/visuals/pylon-native-ranged-pylon-melee-boss.png",
+          "sha256": "faaf09313cb69cf69838bde2ceb7c58f7d4592fa5d01500c968b7717c1189553",
+          "bytes": 25413,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "The pylon is visibly farther above the hero and holds the green target health bar. The attack portrait stays on DM300. This visibly separates the ranged/health selection from the melee selection.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        }
+      },
+      "visual_result": "Passed all five original screenshots. Target health bars, actual attack portraits, scene framing and hidden-pylon exclusion match the real-callsite assertions.",
+      "actor_clock_and_hp_unchanged": true
+    },
+    "Alpha-Testers": {
+      "targeted_tests": 1,
+      "seconds": 8.066,
+      "native_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/native-verification.json",
+        "sha256": "83b998e9a805d0500c2ba387065d06beb6d4b4423c128836d82aaeeafa25e6d8"
+      },
+      "report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/pylon.txt",
+        "sha256": "e167607a98ecd2087ed8f6f2a898aa413a6c9e192c56d7e2e63974fda0fceb8e",
+        "exact_case_passed": true
+      },
+      "log": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/native-logcat.txt",
+        "sha256": "a643571066783bbbeef66bd36bcc668d5b496bb95a45d1d869fe887f8c84b707",
+        "target_markers": [
+          "11-11 17:05:32.088 I/System.out( 2290): NATIVE_PYLON_TARGET stage=inactive-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=false quick=DM300 melee=DM300 activeActorIsHero=true",
+          "11-11 17:05:33.037 I/System.out( 2290): NATIVE_PYLON_TARGET stage=active-visible actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=Pylon activeActorIsHero=true",
+          "11-11 17:05:33.579 I/System.out( 2290): NATIVE_PYLON_TARGET stage=manual-rat-preserved actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Rat melee=Rat activeActorIsHero=true",
+          "11-11 17:05:34.070 I/System.out( 2290): NATIVE_PYLON_TARGET stage=ranged-pylon-melee-boss actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=true pylonEnemy=true quick=Pylon melee=DM300 activeActorIsHero=true",
+          "11-11 17:05:34.611 I/System.out( 2290): NATIVE_PYLON_TARGET stage=hidden-pylon-excluded actorTime=0.0 heroTime=0.0 heroHp=20 bossHp=300 pylonHp=50 pylonVisible=false pylonEnemy=true quick=DM300 melee=DM300 activeActorIsHero=true"
+        ],
+        "parsed_target_markers": [
+          {
+            "stage": "inactive-visible",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "false",
+            "quick": "DM300",
+            "melee": "DM300",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "active-visible",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "true",
+            "quick": "Pylon",
+            "melee": "Pylon",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "manual-rat-preserved",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "true",
+            "quick": "Rat",
+            "melee": "Rat",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "ranged-pylon-melee-boss",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "true",
+            "pylonEnemy": "true",
+            "quick": "Pylon",
+            "melee": "DM300",
+            "activeActorIsHero": "true"
+          },
+          {
+            "stage": "hidden-pylon-excluded",
+            "actorTime": "0.0",
+            "heroTime": "0.0",
+            "heroHp": "20",
+            "bossHp": "300",
+            "pylonHp": "50",
+            "pylonVisible": "false",
+            "pylonEnemy": "true",
+            "quick": "DM300",
+            "melee": "DM300",
+            "activeActorIsHero": "true"
+          }
+        ],
+        "preference_markers": [
+          "11-11 17:05:28.615 I/System.out( 2290): NATIVE_PYLON_PREFERENCE stage=captured intro=true stored=false",
+          "11-11 17:05:35.572 I/System.out( 2290): NATIVE_PYLON_PREFERENCE stage=restored intro=true"
+        ],
+        "parsed_preference_markers": [
+          {
+            "stage": "captured",
+            "intro": "true",
+            "stored": "false"
+          },
+          {
+            "stage": "restored",
+            "intro": "true"
+          }
+        ],
+        "capture_precedes_all_targets_and_restore_follows": true,
+        "captured_value_equals_restored_value": true,
+        "old_prelaunch_preference_exception_absent": true,
+        "fixture_System_err_stack_lines": [],
+        "all_NullPointerException_line_count": 0
+      },
+      "transfer": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/pylon-transfer.json",
+        "sha256": "b7e8c70448d3e4a0c32ce1ba04bafc78e495a3c54cad404f44e066dbf935dffc",
+        "remote_manifest_matches_all5_images": true
+      },
+      "native_artifact": {
+        "id": 13875836115,
+        "name": "apd444-pylon-native-Alpha-Testers-attempt-1",
+        "size_in_bytes": 204983,
+        "url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13875836115",
+        "archive_download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/artifacts/13875836115/zip",
+        "expired": false,
+        "created_at": "2026-11-11T17:05:39Z",
+        "expires_at": "2026-12-11T17:05:39Z",
+        "updated_at": "2026-11-11T17:05:39Z",
+        "digest": "sha256:6fac3ba7365e5e9c9419466440d040498d3708a38be73326902633a06268f71f",
+        "workflow_run": {
+          "id": 43063913542,
+          "repository_id": 1402541795,
+          "head_repository_id": 1402541795,
+          "head_branch": "codex/apd-phone-fixes-2026-10-09",
+          "head_sha": "b5ba1c00ef01238624265d62d7c65af1fa34ef57"
+        },
+        "local_archive": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1.zip",
+        "local_sha256": "6fac3ba7365e5e9c9419466440d040498d3708a38be73326902633a06268f71f",
+        "local_bytes": 204983
+      },
+      "application_sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "supplemental_instrumentation_sha256": "4b2cd6c7842a9c6439b305d2650ae1f1be95e9311d3443d833a48f9feabed083",
+      "original_instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+      "images": {
+        "pylon-native-active-visible.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-active-visible.png",
+          "sha256": "21f6a72c9e5d583121eb1c68139a372d91003b894cf2e3b7f922847c6483da43",
+          "bytes": 26145,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "Activated reachable pylon has the green target health bar and the attack control displays its pylon portrait. The enemy indicator reads 3. Hero, rat, boss and pylon remain visible.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-hidden-excluded.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-hidden-excluded.png",
+          "sha256": "cb38e64c73e08ce4c43fb9cb806ec715ca458fa3979469c5fca2db534e43c656",
+          "bytes": 30840,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "The pylon is absent behind the opaque wall and dark target patch. DM300 has both the target health bar and attack portrait, and the enemy indicator returns to 2. No hidden-pylon health bar or attack portrait is displayed.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-inactive-visible.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-inactive-visible.png",
+          "sha256": "2acf1767008eff9441a38d13d1c1b628e55e72ce670ee4b4338fc8072eb0962f",
+          "bytes": 26473,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "Inactive pylon is visible above the hero. The green target health bar is on DM300 and the actual bottom-right attack portrait depicts DM300. The enemy indicator reads 2. All fixture actors and the attack control are within the frame.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-manual-rat-preserved.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-manual-rat-preserved.png",
+          "sha256": "53f263a787c08679bd57d889ff2b9f539c745edec1d3ad4009a56deace4635a4",
+          "bytes": 26175,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "The manually selected rat retains the green target health bar and rat attack portrait although the active pylon is visible. The enemy indicator remains 3; no control clipping is observed.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        },
+        "pylon-native-ranged-pylon-melee-boss.png": {
+          "path": "/workspace/scratch/db82734c9c44/recovery/apd444-pylon-corrected-native-Alpha-Testers-attempt-1/visuals/pylon-native-ranged-pylon-melee-boss.png",
+          "sha256": "7447d26047fec8f7a1c88357d71e35341440a3f140994d5a92698e7b7ce7055c",
+          "bytes": 26473,
+          "dimensions": [
+            320,
+            640
+          ],
+          "individually_displayed_at_original_size": true,
+          "observations": "The pylon is visibly farther above the hero and holds the green target health bar. The attack portrait stays on DM300. This visibly separates the ranged/health selection from the melee selection.",
+          "matches_receipt_transfer_native_archive_and_final_package": true
+        }
+      },
+      "visual_result": "Passed all five original screenshots. Target health bars, actual attack portraits, scene framing and hidden-pylon exclusion match the real-callsite assertions.",
+      "actor_clock_and_hp_unchanged": true
+    }
+  },
+  "preserved_first_run": {
+    "qualified_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/supplemental-native-independent-acceptance.json",
+    "qualified_receipt_sha256": "3c3d5fcc07d0ba7d84705758d80fe9f21f2d273192a056938553c762ee06ee2b",
+    "four_archives_unchanged_sha256": {
+      "apd444-pylon-instrumentation-attempt-1.zip": "c600a375acf11c30f62565cba21608838948eef573568f86d0997baea81aa86f",
+      "apd444-pylon-native-Developer-attempt-1.zip": "52af15e3609081e0b1e0feeb101dcde76524aeb8ad03b6358d780356b815d8ec",
+      "apd444-pylon-native-Alpha-Testers-attempt-1.zip": "22ae3677781cb5af5951191ee93831bf7e1a1ab031824cb0ccb60b8435c787cc",
+      "apd444-pylon-supplemental-evidence-attempt-1.zip": "60e092045fb05babda90b4f178e8bd22311cfa95c495012529bd7ccd341dc735"
+    },
+    "first_supplemental_test_apk_sha256": "19390a659fffbd07bb4242e2b60d22806b449b28e94e00616ebfe4f5c11a362a",
+    "known_preference_issue_remains_disclosed": true
+  },
+  "scope_limits": [
+    "The fixture uses a synthetic disposable live GameScene with actual DM300/Pylon/Rat sprites and actual targeting/FOV/indicator call sites. It is not a naturally reached boss encounter.",
+    "Manual selection uses the public target API. No touch-input dispatch, attack/projectile execution, damage, boss progression, balance or save-format change is claimed.",
+    "There are two native test executions, one per variant, with five state captures each. The ten screenshots are not ten separate test methods.",
+    "Quick-slot/inventory identity, held actor/hero clocks and unchanged HP are established by actual assertions and logs. Screenshots directly show scene framing, target health bars, attack portraits and hidden-pylon exclusion.",
+    "Both corrected native runs observed effective intro=true with stored=false, then restored true. Persisted-false restoration was tested by the separate three-method real HeadlessPreferences local check, not by a seeded native false-setting run.",
+    "Both original game APKs and the original and first supplemental instrumentation bytes remain unchanged. This workflow produced one corrected test APK and no new game APK.",
+    "Signing/package/runner compatibility was verified in the successful bound CI stage. This local acceptance did not invoke unavailable SDK signing tools.",
+    "Primary APD444 delivery acceptance remains separate. No physical-phone, install-over, audio, release publication or new core test run is claimed."
+  ],
+  "failures": {
+    "corrected_native_test_failures": 0,
+    "previous_fixture_exception_recurrence": false,
+    "first_run_failure_evidence_overwritten": false
+  },
+  "reviewer_actions": {
+    "repository_edits": false,
+    "remote_mutations": false,
+    "builds_run": 0,
+    "native_reruns": 0,
+    "local_evidence_validation_and_actual_image_review_only": true
+  }
+}

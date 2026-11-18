@@ -1,0 +1,26 @@
+{
+  "branch": "codex/apd-description-followup-20261109T1933",
+  "not_in_apks": [
+    426,
+    427,
+    428
+  ],
+  "core_tests": 3160,
+  "core_suites": 457,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_scope": [
+    "SpellExplanation displayedShield5/4timer",
+    "AbilityExplanation summon armorcharge clarity",
+    "EnglishPriest/Poison/Bleeding text and missing dormantSpeed labels",
+    "Actual spellcast regression and unchanged-action-speed test extended",
+    "BountyHunter concisepercent-of-baseloot;24actualtier/rank/Wealth combos, no-loot/absentguards"
+  ],
+  "new_features_or_gameplay_changes": false,
+  "native_verification": "pending; do not claim published",
+  "english_entries": 5355,
+  "new_label_keys": 2,
+  "fixture_failure_preserved": "Added test initially leaked twoactors/itemcontext, fixedtestcleanup; fullstrictsuite passes. Inventoryexpected5353corrected5355fornewkeys, no checks skipped.",
+  "android_latest_head": "pending; prior02060b4ff3159compiledsuccess42685979663"
+}

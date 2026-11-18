@@ -1,0 +1,20 @@
+Testing	ICON_STATS	Statistics Device Timing Test	Updated Android checks and fixtures for statistics device timing. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Statistics / UIMSD	ICON_STATS	Cell Formatter	Displayed hero class names as readable words.
+Statistics / UIMSD	ICON_STATS	Column Def	Added class-name formatting metadata.
+Statistics / UIMSD	ICON_STATS	Dataset Store	Included difficulty context in the available ruleset list.
+Statistics / UIMSD	ICON_STATS	Datasets	Used player-friendly character and difficulty labels.
+Statistics / UIMSD	ICON_STATS	Status Text	Named difficulty in the active rules description.
+Statistics / UIMSD	ICON_STATS	Statistics Guide	Explained reports, seed reconstruction and difficulty in the Guide.
+Statistics / UIMSD	ICON_STATS	Statistics Home	Added difficulty summaries and readable character names to Home.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Carried readable rules and difficulty descriptions through navigation.
+Statistics / UIMSD	ICON_STATS	Statistics Tutorial	Updated tour wording for the new report and difficulty topics.
+Statistics / UIMSD	ICON_INFO	Report Builder	Included rules and difficulty context in generated reports.
+Quality of Life	ICON_STATS	Statistics screen	Displayed readable rules and difficulty context.
+Quality of Life	ICON_STATS	Statistics Report	Included the current rules when opening reports.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test	Updated automated checks and fixtures for difficulty. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test	Updated automated checks and fixtures for statistics home tour. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wording Test	Added a test covering no Internal Vocabulary Or Sloppy Text Reaches The Player. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-UIMSD	Updated apd-stats-uimsd accompanying this build.
+Development	ICON_STATS	APD-UIMSD-HOME-GUIDE	Updated apd-uimsd-home-guide accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Displayed hero class names as readable words.

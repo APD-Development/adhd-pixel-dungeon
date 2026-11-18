@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T16:44:55.600012+00:00",
+  "result": "root_review_accepted_for_supplemental_android_compile_and_execution",
+  "original_game_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_run": 43057716359,
+  "fixture_sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+  "reviewed_pipeline_sha256": "f516af1ed5c2b6db00465c2e9c352384b71bb2e22cc1cbd24cd2ef48ebf3b558",
+  "reviewed_fixture_root_receipt_sha256": "b824566bf5d0d729f09658f77a63748880dec8844a4bc2d0e04082d84d06531c",
+  "reviewed_behavior": [
+    "Only the standalone Android test is added; source-delta guard rejects production, unrelated tests and existing helper edits.",
+    "Only assembleDebugAndroidTest is requested, with game packaging and assembly excluded; original pair and original instrumentation remain separately stored and hash-bound.",
+    "Original signer, application ID, test target, exact method/class and new DEX presence are checked before native execution.",
+    "Producer jobs, run, attempt, artifact name, hash, creation time and fixture/plan are bound across job boundaries.",
+    "The unchanged JSON ABI gate follows compilation, and its exact log hash travels with the supplemental test artifact.",
+    "Each variant selects exactly one native case and transfers exactly five decoded, hashed captures. Failure logs and partial frames remain preserved.",
+    "Primary APD444 delivery stays independent of this supplemental test."
+  ],
+  "files_sha256": {
+    "tools/apd444_pylon_native.py": "79397ec9b12576b971abaf564331c8392de927491ae9e16065bb43b58782f46f",
+    "tools/apd444_pylon_native_guards.py": "9c3903502204cfb1d652255211f762c000ccf31910389e2e7895b2ee1856307b",
+    ".github/workflows/apd-pylon-native-444.yml": "968cd06371903c126a3cc5b6c0bdd473ca14ef729eee010b1a1d5dc5d43f7661",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+    "docs/APD-444-PYLON-NATIVE-PLAN.json": "d98254b5d631523c16ac0913632961bb87ef62d1f5ebf44b3021a721fdd71550",
+    "docs/APD-444-PYLON-NATIVE-REQUEST.txt": "933b751ac76f2be88d11fd35b1ae7f454b65ed18783cef341161f950bc11ed9a",
+    "docs/APD-444-PYLON-NATIVE-FIXTURE-REVIEW-2026-11-11.json": "b824566bf5d0d729f09658f77a63748880dec8844a4bc2d0e04082d84d06531c",
+    "docs/APD-444-PYLON-NATIVE-FIXTURE-LOCAL-VERIFICATION-2026-11-11.json": "3b70f3bcfdbc5db89eb953c7a102237a0802be7302322475ef8eb89bc4d2f110",
+    "docs/APD-444-PYLON-NATIVE-PIPELINE-LOCAL-VERIFICATION-2026-11-11.json": "f516af1ed5c2b6db00465c2e9c352384b71bb2e22cc1cbd24cd2ef48ebf3b558"
+  },
+  "android_compilation_completed": false,
+  "native_execution_completed": false,
+  "new_game_apks_created": 0,
+  "original_apks_overwritten": false,
+  "limits": [
+    "Source and pipeline review plus offline guards are not Android compilation or execution evidence.",
+    "No full boss fight, actual touch, attack, projectile, natural phase transition, physical phone or audio claim."
+  ]
+}

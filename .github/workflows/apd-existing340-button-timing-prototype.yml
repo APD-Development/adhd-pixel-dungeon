@@ -1,0 +1,121 @@
+name: Verify exact TEST340 Button timing prototype
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-existing340-button-timing-prototype.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  button-timing-api36:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Download exact APK and restore frozen production inputs for instrumentation
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          repo=os.environ['GITHUB_REPOSITORY'];source='f45313cc27db0f754778e264e1bfc990110af1ee';run_id=40969096256
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          trees=[api(f'repos/{repo}/git/trees/{s}?recursive=1') for s in (source,os.environ['GITHUB_SHA'])]
+          assert all(not t.get('truncated') for t in trees)
+          expected=application_inputs(trees[0]['tree']);current=application_inputs(trees[1]['tree'])
+          changed=sorted(p for p in expected.keys()|current.keys() if expected.get(p)!=current.get(p))
+          if changed:
+              subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True)
+              restore=[p for p in changed if p in expected]
+              if restore:subprocess.run(['git','checkout',source,'--',*restore],check=True)
+              for p in changed:
+                  if p not in expected:pathlib.Path(p).unlink()
+          for p,sha in expected.items():
+              assert pathlib.Path(p).is_file(),p
+              assert subprocess.check_output(['git','hash-object','--',p],text=True).strip()==sha,p
+          assert not any(pathlib.Path(p).exists() for p in current.keys()-expected.keys())
+          run=api(f'repos/{repo}/actions/runs/{run_id}');assert run['head_sha']==source
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in api(f'repos/{repo}/actions/runs/{run_id}/jobs')['jobs'])
+          a,=[a for a in api(f'repos/{repo}/actions/runs/{run_id}/artifacts')['artifacts'] if a['name']=='apd-codex-private-test-apk' and not a['expired']]
+          with open('exact340.zip','wb') as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{a["id"]}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('exact340.zip').read_bytes()).hexdigest()==a['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('exact340.zip') as z:
+              apk,=[n for n in z.namelist() if n.endswith('.apk')]
+              data=z.read(apk);digest=hashlib.sha256(data).hexdigest()
+              checksum,=[n for n in z.namelist() if n.endswith('.apk.sha256')]
+              assert z.read(checksum).decode().split()[0]==digest
+              pathlib.Path('application/exact340.apk').write_bytes(data)
+          print('EXACT_TEST340_APK_SHA256',digest)
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':run_id,'application_sha256':digest,'compilation_application_source':source,'production_inputs_restored_in_disposable_runner':changed,'protected_compilation_inputs_verified':True,'candidate_press_timing_injected':True,'input_handler_replaced':False,'application_rebuilt':False,'test_source':os.environ['GITHUB_SHA'],'purpose':'Candidate pre-DOWN timing observer injected by instrumentation into frozen340; prototype evidence only; no app rebuild'},indent=2))
+          PY
+      - name: Generate the same native assertions with correctly timed short taps
+        run: |
+          python3 - <<'PY'
+          import pathlib,hashlib,json
+          src=pathlib.Path('android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TitleMenuLayoutDeviceTest.java')
+          original=src.read_text()
+          needle='getUiAutomation().injectInputEvent(e,true)'
+          assert original.count(needle)==1
+          corrected=original.replace('TitleMenuLayoutDeviceTest','TitleMenuTapTimingDeviceTest').replace(needle,'getUiAutomation().injectInputEvent(e,action==MotionEvent.ACTION_UP)')
+          dst=src.with_name('TitleMenuTapTimingDeviceTest.java');dst.write_text(corrected)
+          pathlib.Path('native-fixture-source.json').write_text(json.dumps({'original_sha256':hashlib.sha256(original.encode()).hexdigest(),'generated_sha256':hashlib.sha256(corrected.encode()).hexdigest(),'changes':['class name only','DOWN queued without synchronous acknowledgement; UP still waits for dispatch'],'all_original_assertions_preserved':True},indent=2))
+          PY
+      - name: Compile instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C340
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Free disposable runner caches before the API36 image creates its minimum partition
+        run: |
+          ./gradlew --stop
+          apd_gradle_cache="${GRADLE_USER_HOME:-$HOME/.gradle}"
+          du -sm "$apd_gradle_cache/caches" "$apd_gradle_cache/wrapper/dists" || true
+          rm -rf "$apd_gradle_cache/caches" "$apd_gradle_cache/wrapper/dists"
+          sudo rm -rf /usr/share/dotnet
+          df -Pm "$HOME"
+          python3 - <<'PY'
+          import pathlib,shutil
+          free=shutil.disk_usage(pathlib.Path.home()).free
+          print('API36 pre-image free bytes:',free)
+          assert free>=10*1024**3,'Insufficient room for API36 image download and mandatory 7.4GB userdata partition'
+          PY
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Exercise pre-DOWN timing correction on the exact existing APK
+        env: {APD_ENFORCE_DISPLAY: 'true'}
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 36
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          emulator-options: -no-window -gpu software -no-snapshot -noaudio -no-boot-anim
+          emulator-boot-timeout: 300
+          disable-animations: true
+          script: bash tools/run-existing340-button-timing-prototype.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-existing340-button-timing-prototype
+          path: |
+            acceptance-source.json
+            native-fixture-source.json
+            android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TitleMenuTapTimingDeviceTest.java
+            button-timing-prototype/
+          retention-days: 7
+# Fixture callback accepts checked reflection failures; APK and assertions unchanged.
+
+# Same-scene first draw preserves accepted Button timing; detailed edge logs retained.
+
+# Passive observer preserves the original backend registration and true native tap timing.

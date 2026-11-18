@@ -1,0 +1,11 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Infrastructure	ICON_DATA	Submission Queue	Preserved a newer queued replacement when an earlier send completes.
+Testing	ICON_DATA	Submission Queue Test	Updated automated checks and fixtures for submission queue. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-TEST-OUTPUT-2026-10-09	Updated apd-sprint-test-output-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the codex-sprint-check development workflow; it is not gameplay content. Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.

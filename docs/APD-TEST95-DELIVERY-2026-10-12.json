@@ -1,0 +1,12 @@
+{
+  "source": "3ebdb4082adfbbb0de085cb29618da2666d3368a",
+  "checks": 38333801539,
+  "delivery": 38335353959,
+  "sha256": "2a9b1544ebdb713787a6709a55ace802da50a3e8fc74cf0db21332c81582e8ca",
+  "core": 1255,
+  "android": 21,
+  "screenshots": 18,
+  "published": "2026-10-13T02:07:56Z",
+  "signer": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev"
+}

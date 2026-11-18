@@ -1,0 +1,5 @@
+Quality of Life	ICON_INFO	Clean About text when Adult Humor is off	The founding statement and Why APD Exists popup now follow Adult Humor while retaining their original adult wording.
+Quality of Life	ICON_INFO	Apply clean authored-language alternatives	Adult Humor off uses clean badge, dialogue, journal, news and history wording; original adult text remains available without changing player-entered text. Shared text policy stays separate from the isolated Cleric humor subsystem.
+Testing	ICON_CHECKED	Verify language variants and persistence	Check every English resource, all 23 language lookups, all 50 lore entries, actual preference reload and preservation of adult originals and player text.
+Testing	ICON_CHECKED	Read inherited slider fields in Android checks	Inspect inherited native slider fields so the Healing-only setting acceptance checks reach their assertions correctly.
+Development	V061_PAGE	Retain authored-text and private-delivery evidence	Collect exact authored resources without gameplay changes, document verified alternatives and retain private APK verification before publication.

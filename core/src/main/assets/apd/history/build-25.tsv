@@ -1,0 +1,8 @@
+Infrastructure	ICON_INFO	build	Updated the build development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Included the APK build number in the installed version name.
+Quality of Life	ICON_STATS	Statistics screen	Displayed the installed build number in UIMSD.
+Testing	ICON_CHECKED	Title Button Wiring Test 1	Added a test covering the Uimsd Buttons Handler Asks For The Uimsd Screen. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Button Wiring Test 2	Added a test covering no Compiled Title Code Reaches The Old Rankings Screen. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Button Wiring Test 3	Added a test covering the Game Can Actually Create The Uimsd Screen. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Button Wiring Test 4	Added a test covering opening From The Title Makes Back Return To The Title. These are development checks, not a gameplay feature.
+Developer Commentary	V074_SHPX	Developer Commentary	Displayed the installed build number in UIMSD.

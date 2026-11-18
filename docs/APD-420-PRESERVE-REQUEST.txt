@@ -1,0 +1,1 @@
+Preserve exact original420 pair and raw native failure evidence in private draft only, source55d8e9ad run42650360251. Both QoL failed a Might expected-string highlight mismatch; actual5of5 value present. No production defect claim; no publication.

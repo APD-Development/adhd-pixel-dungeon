@@ -1,0 +1,13 @@
+{
+  "scope": "Local full core suite before final scene-construction null guard; exact-source CI also required",
+  "base_commit": "c82b0562f30dad1944911c0e4ba332797f204738",
+  "suites": 429,
+  "tests": 2279,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "new_tests": 47,
+  "physical_phone_tested": false,
+  "apk_created": false,
+  "marker_sha256": "fc404b8d6f4eb9d75aa323d62581a0f0fe9aacddecfaec267c0328226bca0b37"
+}

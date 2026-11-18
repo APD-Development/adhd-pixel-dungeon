@@ -1,0 +1,17 @@
+Infrastructure	ICON_INFO	codex-simulator-check	Updated the codex-simulator-check development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_PREFS	Apd Settings Click Device Test	Updated Android checks and fixtures for apd settings click device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Community Preview	Added informational local preview only.
+Quality of Life	ICON_INFO	Community Scene	Added separate from UIMSD and its unlock gate; reuse the game's wrapped, scrolling list UI.
+Quality of Life	ICON_INFO	Main menu	Added the separate Community main-menu entry.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Wiring Test	Updated automated checks and fixtures for statistics wiring. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Community Preview Test 1	Added a test covering every Destination Has Unique Readable Content And Explicit Offline Availability. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Community Preview Test 2	Added a test covering undecided Rules And Creator Reservations Are Not Presented As Finalized. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Community Preview Test 3	Added a test covering comments Are Threaded Author Participating And Never Votes. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Community Preview Test 4	Added a test covering navigation Has No Unlock Queue Or Network Dependency. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-COMMUNITY-ALPHA-DESIGN	Added apd-community-alpha-design accompanying this build.
+Development	ICON_INFO	APD-WORKFLOW-AUDIT-2026-10-10	Added apd-workflow-audit-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added informational local preview only. Added separate from UIMSD and its unlock gate; reuse the game's wrapped, scrolling list UI.

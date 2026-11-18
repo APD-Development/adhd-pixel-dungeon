@@ -1,0 +1,44 @@
+{
+  "source": "0211f03e26ef0b63365e11fe874f8932192fe530",
+  "build_run": 42632353378,
+  "stage_run": 42635402951,
+  "independent_review": {
+    "number": 416,
+    "source_commit": "0211f03e26ef0b63365e11fe874f8932192fe530",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4616,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": true,
+    "manual_visual_capture_count": 47,
+    "manual_acceptance": false,
+    "manual_rejection": "Drowsy ordinary window says 1 turns at a legitimate remaining-duration state. Full43status/6shield native checks and3136core passed; copy quality rejected. Full original screenshots/source/APKs preserved privately.",
+    "manual_visual_scope": "12 new status types ordinary/expanded/bottom;7 earlier ordinary status windows;2 shield frames;2 ordinary talent frames. Window-focused crops reviewed; full originals retained."
+  },
+  "verification": {
+    "prepared_eastern": "2026-11-09T09:30:55.002765-05:00",
+    "source_commit": "0211f03e26ef0b63365e11fe874f8932192fe530",
+    "number": 416,
+    "tag": "apd-alpha-preview-416",
+    "core_tests": 3136,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "d65057f725bd56e1cfc13eaaa44e0486788bde0a101d7f16c93c720250831d92",
+      "Alpha-Testers": "3152eca0dce128135fcd1d9c13d726aa3ad5ca408fba197f9084a8617902b5d4"
+    },
+    "source_sha256": "b9248b071c623acee2cbf55d1f4802e37c6b7ea9a912418c95efd0d98a17df96",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "generic_item_panel_removal_preserved": true,
+    "existing_mechanic_panels_pending_owner_review": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-09T14:30:55.101011+00:00",
+    "workflow_run": "42632353378",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "held_utc": "2026-11-09T14:48:58.380133+00:00",
+  "not_published": true
+}

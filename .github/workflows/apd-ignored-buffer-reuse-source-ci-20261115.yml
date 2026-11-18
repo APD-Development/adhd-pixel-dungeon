@@ -1,0 +1,66 @@
+name: APD ignored ZIP buffer reuse exact-source verification
+on:
+  push:
+    branches: [chatgpt/apd-import-ignored-buffer-reuse-20261115-1900]
+    paths:
+      - .github/workflows/apd-ignored-buffer-reuse-source-ci-20261115.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporter.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporterIgnoredEntryDetailsTest.java
+permissions: {contents: read}
+concurrency:
+  group: apd-ignored-zip-buffer-reuse-20261115
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Assert one shared scratch buffer and regression cases
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporter.java').read_text()
+          tests=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ArchiveImporterIgnoredEntryDetailsTest.java').read_text()
+          assert src.count('byte[] ignoredBuffer = null;') == 1
+          assert src.count('if (ignoredBuffer == null) ignoredBuffer = new byte[16 * 1024];') == 1
+          assert 'byte[] ignoredBuffer = new byte[16 * 1024];' not in src
+          for name in ('largeIgnoredPayloadsDrainBeforeNextLegitimateHistoryLog',
+                       'smallArchiveStillReportsEveryIgnoredExtraByName',
+                       'manyExtraEntriesKeepValidImportAndBoundDiagnosticMemory'):
+              assert 'void '+name+'(' in tests, name
+          print('Single lazily allocated scratch buffer and tests found')
+          PY
+      - name: Complete core tests and desktop/Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require all core reports green and history regressions present
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports, 'Missing JUnit reports'
+          totals={k:sum(int(r.get(k, 0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests'] >= 3511, totals
+          assert all(totals[k] == 0 for k in ('failures','errors','skipped')), totals
+          names={c.get('name') for r in reports for c in r.findall('testcase')}
+          for name in ('largeIgnoredPayloadsDrainBeforeNextLegitimateHistoryLog',
+                       'smallArchiveStillReportsEveryIgnoredExtraByName',
+                       'manyExtraEntriesKeepValidImportAndBoundDiagnosticMemory',
+                       'repeatedManifestPathKeepsFirstMatchAndNeverOverwritesHistory',
+                       'rejectedLongPathZipPreservesExistingHistoryBytes'):
+              assert name in names, name
+          print('JUnit:', totals, 'suites:', len(reports))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-ignored-buffer-reuse-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

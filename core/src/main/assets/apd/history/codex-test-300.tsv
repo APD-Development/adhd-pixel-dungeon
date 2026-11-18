@@ -1,0 +1,2 @@
+Bug Fixes	ICON_INFO	APD Settings opens with its scroll camera initialized	Attach the settings scroll host to its window before layout. Preserve the new focused categories and every existing setting, alongside saved hotbar assignment fixes.
+Testing	ICON_INFO	Exact APK cold restart and complete Android regression evidence	Retain the full native suite, actual pointer checks, small-screen coverage and old/new saved-run comparisons. An upgrade preserves the actual recorded old layout; manual edits never saved by TEST285 cannot be invented.

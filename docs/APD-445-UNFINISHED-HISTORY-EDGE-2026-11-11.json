@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "recorded_at_utc": "2026-11-11T17:59:51.086012+00:00",
+  "status": "concrete_source_level_requirement_gap",
+  "producing_source": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+  "question": "Does exact known seed evidence in valid unfinished/crashed canonical history become UNKNOWN_IMPORTED?",
+  "answer": true,
+  "evidence": [
+    "SeedHistory.read accepts real canonical run IDs with a numeric RANDOM/CUSTOM seed without requiring RUN_END.",
+    "SeedHistory.finish adds a nonterminal logical identity to open and excludes it from counted finished attempts; linked old terminal copies cannot override an open identity.",
+    "Final kind depends only on attempts > 0. With only an eligible open record, attempts=0, kind=UNKNOWN_IMPORTED, deepestFloor=-1.",
+    "The existing exactLogicalSegmentsAndCopiedLogsCountOnceAndLatestOpenSegmentIsNotFinished test asserts attempts becomes 0 after latest open segment, but does not assert kind.",
+    "The unknown English notice says no matching completed or failed attempt was found, which narrows the user requirement beyond all available persistent history.",
+    "RunFactsBuilder records a known seed from canonical RUN_START without an end. A nonterminal run may record DEEPEST_ENTERED; SeedHistory currently reads only terminal DEEPEST.",
+    "HeroSelect retains its independent active generated-save duplicate rejection before lookup. It does not reject active custom-seed history or an orphaned crash log. WndRanking Copy invokes the shared lookup directly."
+  ],
+  "recommended_narrow_scope_before_any_edit": [
+    "Separate eligible matching-history evidence from finished-attempt count.",
+    "An open match must not imply completion, failure, locally generated origin, or creator identity.",
+    "Keep exact-ID and ranking-ID deduplication, canonical rollback/latest-segment precedence, conflict checks, redaction/replay/demo exclusions and missing-history behavior.",
+    "Keep active-generated-save duplicate safeguards unchanged.",
+    "Clarify completed/unfinished counts and observed depth without substituting an older terminal result for a newer open segment; no scoring activation.",
+    "Add a focused canonical unfinished-only classification regression and an open-plus-finished/multiple-segment control after parent approves scope."
+  ],
+  "source_sha256": {
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java": "551d180381d65943640ae2afd9dc603195c9869cef5c4f15654bd7accb164ea8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunFactsBuilder.java": "4d37efe3aebf39df7c5de09477ad50577dc0c887f22bfd237401b8d8d7a80ff7",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java": "781b9200f64bdaa7fa2fc6c157b9a78a0c9fae7b266015ac370226eedca397c0",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java": "7978d508173dba557e83b70896bc0cd628f18cb34571ae2eec20c99bd4d61265",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndRanking.java": "04e580f84d7e3645946a30a105682a2a2eb659c25873e384f91d3e8f694be699",
+    "core/src/main/assets/messages/scenes/scenes.properties": "6c22a98ea1eb62af5a0bd70518ba6cf2d6626671af9a3dd17209fffee98aca1f",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/SeedHistoryTest.java": "19cdaa6e54a9482c7b87d00ed5d5580ea61c11f258045c3d0fdb7748de40f28a"
+  },
+  "source_edits": false,
+  "tests_run_for_this_review": false,
+  "rebuild_requested": false,
+  "remote_mutations": false
+}

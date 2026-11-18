@@ -1,0 +1,173 @@
+{
+  "release": {
+    "assets": [
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726661820",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T07:51:31Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_q8",
+        "label": "",
+        "name": "APD-400-Complete-Test-Evidence.zip",
+        "size": 54194873,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:33Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-400-Complete-Test-Evidence.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726661933",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T07:51:34Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_st",
+        "label": "",
+        "name": "APD-400-Native-Visuals.zip",
+        "size": 52041293,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:36Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-400-Native-Visuals.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662059",
+        "contentType": "application/vnd.android.package-archive",
+        "createdAt": "2026-11-09T07:51:37Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_ur",
+        "label": "",
+        "name": "APD-Alpha-Testers-400.apk",
+        "size": 39191515,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:39Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Alpha-Testers-400.apk"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662139",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T07:51:41Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_v7",
+        "label": "",
+        "name": "APD-Alpha-Testers-400.apk.sha256",
+        "size": 92,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:41Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Alpha-Testers-400.apk.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662163",
+        "contentType": "application/vnd.android.package-archive",
+        "createdAt": "2026-11-09T07:51:42Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_wT",
+        "label": "",
+        "name": "APD-Developer-400.apk",
+        "size": 39191543,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:44Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Developer-400.apk"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662279",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T07:51:45Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_yH",
+        "label": "",
+        "name": "APD-Developer-400.apk.sha256",
+        "size": 88,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:45Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Developer-400.apk.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662345",
+        "contentType": "application/json",
+        "createdAt": "2026-11-09T07:51:46Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_zJ",
+        "label": "",
+        "name": "APD-Preview-400-Verification.json",
+        "size": 1263,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:47Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Preview-400-Verification.json"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662400",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T07:51:48Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_0A",
+        "label": "",
+        "name": "APD-Source-400.zip",
+        "size": 76723128,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:51Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Source-400.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662503",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T07:51:52Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_1n",
+        "label": "",
+        "name": "APD-Source-400.zip.sha256",
+        "size": 85,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:52Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Source-400.zip.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/726662546",
+        "contentType": "application/json",
+        "createdAt": "2026-11-09T07:51:53Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rT_2S",
+        "label": "",
+        "name": "APD-Source-Scan.json",
+        "size": 36563,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T07:51:53Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-400/APD-Source-Scan.json"
+      }
+    ],
+    "isDraft": false,
+    "publishedAt": "2026-11-09T07:53:37Z",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-400"
+  },
+  "verification": {
+    "source_commit": "56ee1e8f9b3c04288af3e5b2093b5a032f467c7b",
+    "number": 400,
+    "tag": "apd-alpha-preview-400",
+    "core_tests": 3103,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "bd296663ba78b5af02ebd92c6739f9968ee46db416d1213245137acea1ae36c7",
+      "Alpha-Testers": "95803c50f66eb90b1ab32423ce3591fc974d19c0d729b581c53103b5462db03c"
+    },
+    "source_sha256": "6cb6578570d4e82865363119804520ac7c18bc400297e7c37a53bd88245a880d",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-09T07:50:17.880328+00:00",
+    "workflow_run": "42580333970",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "build_run": 42580333970,
+  "stage_run": 42580378706,
+  "apk_and_source_hashes_independently_checked": true,
+  "source_scan_supplemental_checked": true,
+  "manual_captures_reviewed": [
+    "Developer Warding+3 existing expanded detail",
+    "Alpha Regrowth+3 existing expanded detail",
+    "Developer Regrowth+10 existing expanded detail"
+  ],
+  "whole_audit_complete": false,
+  "later_source_not_in_apk": "Ten trinket details, Censer/Shard unknown labels, Lunge restrictions and Cape/Chalice/Horn retained details. End-of-scroll captures prepared for401, not400."
+}

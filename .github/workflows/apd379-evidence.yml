@@ -1,0 +1,36 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Report379 real Android audio endpoint measurements
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-379-EVIDENCE-REQUEST.txt]
+permissions: {contents: read, actions: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: {name: apd379-audio-endpoint-evidence, run-id: 42529880268, github-token: '${{ github.token }}', path: evidence}
+      - name: Report measured queue and endpoint durations with explicit limits
+        run: |
+          python3 - <<'PYREPORT'
+          import pathlib,json
+          d=json.loads(pathlib.Path('evidence/audio-real-endpoint.json').read_text());assert d['real_android_soundpool'];assert not d['injected_worker_stall'];assert not d['actual_encounter_played'];assert not d['acoustic_onset_measured'];assert not d['physical_phone_verified']
+          print('Actual Android SoundPool; no injected stall, natural encounter, acoustic or phone verification.')
+          for s in d['scenarios']:print(json.dumps(s,sort_keys=True))
+          print('Recorded request count:',len(d['events']))
+          PYREPORT

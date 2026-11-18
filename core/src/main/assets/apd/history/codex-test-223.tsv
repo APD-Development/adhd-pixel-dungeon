@@ -1,0 +1,6 @@
+Quality of Life	ICON_INFO	Clean localized Imp conversations	Adult Humor off now uses clean alternatives in the remaining translated Imp quest conversations and reminders.
+Quality of Life	ICON_INFO	Clean translated journal entries	The Warden and King journal entries use reviewed clean translations while preserving every original adult version.
+Quality of Life	ICON_INFO	Clean Blacksmith reminder	Remove profanity from the Traditional Chinese Blacksmith reminder when Adult Humor is off without changing the quest.
+Quality of Life	ICON_INFO	Clean Gnoll Exile description	The Hungarian Gnoll Exile description keeps its original meaning with a clean alternative when Adult Humor is off.
+Testing	ICON_CHECKED	Guard future translated wording	Scan localized resources for reviewed profanity, require exact clean English fallbacks and preserve innocent words, formatting and player text.
+Development	V061_PAGE	Record translation and owner-delivery evidence	Retain the localized audit, failed-gate corrections and independently verified owner APK delivery conditions.

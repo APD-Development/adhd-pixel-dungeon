@@ -1,0 +1,3 @@
+Bug Fixes	V061_BUGFIX	Derived cache source identity	Invalidate derived statistics when a raw run or legacy log is replaced by different valid content with the same filename and byte length.
+Testing	V061_PAGE	Equal-length replacement regression	Retain a valid-log replacement case that requires stale-cache rebuild, replacement facts and subsequent cache reuse.
+Changes	V061_PAGE	TEST169 evidence and TEST170 handoff	Preserve verified TEST169 evidence and record the pending DerivedStore source-identity verification checkpoint.

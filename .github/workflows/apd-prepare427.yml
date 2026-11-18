@@ -1,0 +1,178 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Build and verify APD427 clearer spell effects and live Arcana percentages pair for private owner delivery
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-427-BUILD-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd427-preparation, cancel-in-progress: false}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Preserve fallback and embed complete existing history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 tools/apd_owner_delivery_policy.py
+          python3 - <<'PY'
+          import json,subprocess,pathlib,sys
+          sys.path.insert(0,'tools')
+          from apd_build_history import merge_previous_apk,embed
+          repo='APD-Development/ShieldingShouldHaveWorked'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]));assert api('repos/'+repo)['private']
+          pathlib.Path('evidence').mkdir();pathlib.Path('fallback').mkdir()
+          artifact=api('repos/'+repo+'/actions/artifacts/13700836890');assert artifact['name']=='apd426-built-pair' and artifact.get('digest')=='sha256:06cc796a1a5f96b778223843c86be0220b951b12a8936c486425a9edc145cdd4';assert artifact['workflow_run']['id']==42676677970
+          pathlib.Path('evidence/previous-compiled426-artifact.json').write_text(json.dumps(artifact,indent=2))
+          subprocess.run(['gh','run','download','42676677970','--repo',repo,'--name','apd426-built-pair','--dir','fallback'],check=True)
+          matches=list(pathlib.Path('fallback').rglob('APD-Developer-426.apk'));assert len(matches)==1
+          pathlib.Path('evidence/previous-compiled426-apk.sha256').write_text(__import__('hashlib').sha256(matches[0].read_bytes()).hexdigest()+'  '+matches[0].name+'\n')
+          merge_previous_apk(pathlib.Path.cwd(),matches[0],'Codex TEST 426')
+          expected_paths=[".github/workflows/apd-prepare427.yml", ".github/workflows/apd-qol-source-check.yml", ".github/workflows/apd-retry426.yml", ".github/workflows/apd-stage426.yml", "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java", "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/mechanics/MechanicsDetails.java", "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java", "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/difficulty/OffensiveAttackIntegrationTest.java", "docs/APD-426-RETRY-REQUEST.txt", "docs/APD-426-STAGE-REQUEST.json", "docs/APD-427-BUILD-REQUEST.txt", "docs/APD-CURRENT-STATE-2026-11-09.json", "docs/APD-PLAYER-DESCRIPTION-AUDIT.json", "docs/APD-QOL-SOURCE-VERIFY-REQUEST.txt", "docs/evidence/APD-426-stale-HolyWeapon-native-red.zip", "docs/evidence/APD-427-buff-copy-assertion-red.zip", "docs/evidence/APD-427-concise-buff-wrappers-accepted.zip", "tools/apd426-native-fixture.patch", "tools/apd_prepare427.py"]
+          actual_paths=subprocess.check_output(['git','diff','--name-only','1bd96affecc830ade14346d60842bcf3c9489e0e','HEAD'],text=True).splitlines();assert actual_paths==expected_paths,(actual_paths,expected_paths)
+          generated=['core/src/main/assets/apd/history/index.tsv']+[f'core/src/main/assets/apd/history/codex-test-{n}.tsv' for n in (420,421,422,423,424,425,426,427)]
+          ledger={'date':'2026-11-09','changes':[{'category':'Bug Fixes','sprite':'ICON_PREFS','title':'concise existing buff and talent details','text':'Existing buff and talent details now explain practical effects and live values concisely, preserving formulas, limits, turn costs, save compatibility and panel availability. Actual shield generation and existing damage, charge, decay and save regressions are covered; no new interface or gameplay change','paths':expected_paths+generated}]}
+          embed(pathlib.Path.cwd(),ledger,427)
+          index=pathlib.Path('core/src/main/assets/apd/history/index.tsv').read_text().splitlines();assert index[0].split('\t')[1]=='Codex TEST 427'
+          for number in (420,421,422,423,424,425,426):assert any(line.split('\t')[1]==f'Codex TEST {number}' for line in index if len(line.split('\t'))==4)
+          PY
+      - name: Full core and required compilation; build exactly one pair
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          mkdir -p owner-delivery
+          ./gradlew :core:test :desktop:classes :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac -PapdTestBuild -PapdBuild=C427
+          ./gradlew :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C427
+          cp android/build/outputs/apk/debug/android-debug.apk owner-delivery/APD-Developer-427.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk evidence/instrumentation.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P427
+          cp android/build/outputs/apk/debug/android-debug.apk owner-delivery/APD-Alpha-Testers-427.apk
+          python3 tools/check_android_json_abi.py
+          ./gradlew --stop
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd427-built-pair
+          path: |
+            owner-delivery/
+            android/build/outputs/apk/
+            evidence/
+            core/build/test-results/test/
+          retention-days: 14
+  native:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix: {variant: [Developer, Alpha-Testers]}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: apd427-built-pair}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Verify actual APK without rebuilding
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > evidence/${{ matrix.variant }}-native-logcat.txt &
+            adb install -r owner-delivery/APD-${{ matrix.variant }}-427.apk
+            adb install -r evidence/instrumentation.apk
+            if test '${{ matrix.variant }}' = Developer; then echo developer > case-label.txt; else echo alpha > case-label.txt; fi
+            timeout 900 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-qol.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-qol.txt grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.WallGeometryDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-wall.txt
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#a_controlWritesEnabledPreference com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-seed.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-seed.txt a_controlWritesEnabledPreference
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#b_freshProcessReadsEnabledAndCanDisable com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-restart.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-restart.txt b_freshProcessReadsEnabledAndCanDisable
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 180 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.TrapDiscoveryDeviceTest#c_runtimeDiscoveryRouteAndActualTrapEffect com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-gameplay.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-gameplay.txt c_runtimeDiscoveryRouteAndActualTrapEffect
+            adb shell am force-stop com.charltonchris29.adhdpixeldungeon.indev
+            timeout 240 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/$(cat case-label.txt)-freeze.txt
+            python3 tools/apd_check_single_instrumentation.py evidence/$(cat case-label.txt)-freeze.txt cancelledGhoulAttackReleasesQueueButLiveAttackStaysPending com.shatteredpixel.shatteredpixeldungeon.android.RemovedActorStallDeviceTest
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd427-native-${{ matrix.variant }}
+          path: evidence/
+          retention-days: 14
+  prepare:
+    needs: [build, native]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: apd427-built-pair}
+      - uses: actions/download-artifact@v4
+        with: {name: apd427-native-Developer, path: evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: apd427-native-Alpha-Testers, path: evidence}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify exact identities, completed tests and corresponding source
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: python3 tools/apd_prepare427.py
+      - name: Scan key-free source and full reachable history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          if ! curl --connect-timeout 20 -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz; then
+            gh api repos/gitleaks/gitleaks/releases/assets/378332058 -H 'Accept: application/octet-stream' > /tmp/apd-gitleaks.tar.gz
+          fi
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd427-prepared-owner-pair
+          path: owner-delivery/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd427-source-and-native-evidence
+          path: |
+            evidence/
+            core/build/test-results/test/
+            docs/APD-427-DELIVERY-SPEC.json
+          retention-days: 14

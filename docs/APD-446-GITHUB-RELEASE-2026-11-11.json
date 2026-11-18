@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "number": 446,
+  "recorded_utc": "2026-11-11T20:07:37Z",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-446",
+  "tag": "apd-446",
+  "prerelease": true,
+  "draft": false,
+  "stable_release_modified": false,
+  "release_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "publication_workflow_commit": "9a24618bb9289c3dbd56cb828b83a1f5b257cf2c",
+  "publication_workflow_run": 43093359267,
+  "publication_workflow_conclusion": "success",
+  "accepted_game_producing_run": 43077773970,
+  "accepted_recovery_run": 43084695484,
+  "assets": [
+    {
+      "name": "APD-Developer-446.apk",
+      "bytes": 39223428,
+      "sha256": "f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3"
+    },
+    {
+      "name": "APD-Alpha-Testers-446.apk",
+      "bytes": 39223400,
+      "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69"
+    },
+    {
+      "name": "APD-Source-446.zip",
+      "bytes": 111038215,
+      "sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5"
+    }
+  ],
+  "verification": "GitHub release API names, sizes and digests matched approved delivery receipt; publication job successfully downloaded release assets and verified SHA-256 readback.",
+  "application_source_changed": false,
+  "gameplay_scoring_changed": false,
+  "pending_owner_decisions": [
+    "Exact imported-seed multiplier",
+    "Numerical personal replay/depth and new-depth reward formula"
+  ]
+}

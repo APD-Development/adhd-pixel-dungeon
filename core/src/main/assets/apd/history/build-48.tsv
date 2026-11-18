@@ -1,0 +1,6 @@
+Changes	ICON_INFO	Random	Isolated replay randomness from the rendering thread’s random draws.
+Statistics / UIMSD	ICON_STAIRS	Replay Context	Isolated replay randomness from the rendering thread’s random draws.
+Testing	ICON_STAIRS	Floor Replay Test	Updated automated checks and fixtures for floor replay. These are development checks, not a gameplay feature.
+Development	ICON_STAIRS	APD-FLOOR-REPLAY	Updated apd-floor-replay accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Isolated replay randomness from the rendering thread’s random draws. Isolated replay randomness from the rendering thread’s random draws.

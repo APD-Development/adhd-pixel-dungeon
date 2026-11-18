@@ -1,0 +1,14 @@
+Infrastructure	ICON_INFO	codex-pdf-report	Updated the codex-pdf-report development workflow; it is not gameplay content.
+Changes	ICON_INFO	Imp	Cleared absent optional Imp quest fields so loading another save cannot inherit them.
+Testing	ICON_JOURNAL	Imp Quest Persistence Test 1	Added a test covering loading Save Without Quest Cannot Inherit Completed Quest. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Imp Quest Persistence Test 2	Added a test covering unspawned Save Clears Previous Quest And Rewards. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Imp Quest Persistence Test 3	Added a test covering reset Clears Rewards And Legacy State Without Changing Loaded Legacy Save. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-PDF-UPDATE	Updated apd-pdf-update accompanying this build.
+Development	ICON_INFO	APD-POST-TEST10-VERIFICATION	Updated apd-post-test10-verification accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	KNOWN-ISSUES-AND-SOURCE-GUIDE	Updated known-issues-and-source-guide accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Cleared absent optional Imp quest fields so loading another save cannot inherit them.

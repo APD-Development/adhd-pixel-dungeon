@@ -1,0 +1,6 @@
+{
+  "run_id": 42678990749,
+  "source_commit": "1bd96affecc830ade14346d60842bcf3c9489e0e",
+  "purpose": "Only test-only retry of immutable original426 appbytes; full12 strict cases and exact original3155core. Stage afterpassed, leaveprivatepending independent/manualacceptance.",
+  "requested_utc": "2026-11-09T19:02:26.772577+00:00"
+}

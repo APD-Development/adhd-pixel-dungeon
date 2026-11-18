@@ -1,0 +1,9 @@
+Development	PD_RAT	Custom enemy health	Ordinary enemy health now follows locked custom settings once, including saved and later-spawned enemies.
+Development	V075_ALBINO_RAT	Custom enemy supply	Custom spawn frequency changes ordinary initial density and respawn intervals while preserving existing rewards.
+Bug Fixes	PD_RAT	Crowded custom floors	Custom generation stops searching when the requested enemy density exceeds available legal spawn cells.
+Development	V060_RATION	Custom hunger rate	Hunger depletion and negative hunger costs follow the selected rate without changing food restoration.
+Development	V065_ARMOR_KIT	Custom defense rolls	Player and enemy defense settings scale the existing complete defensive roll once without changing shields or immunities.
+Changes	V073_ARCANE_ARMOR	Chalice preview consistency	The Chalice damage preview now matches custom defense settings without consuming random numbers.
+Testing	ICON_CHECKED	Custom rules regression coverage	Added health persistence, hunger, combined generation, crowded-floor and defensive-roll regression tests.
+Development	ICON_INFO	Verification records	Recorded TEST116's successful checks and this candidate's tested scope, failures and remaining alpha work.
+Developer Commentary	V074_SHPX	Developer Commentary	I added enemy health, spawn frequency, hunger and defense effects while preserving neutral behavior. Offensive attribution and the remaining sliders are still in development.

@@ -1,0 +1,8 @@
+Changes	ICON_INFO	Title Geometry	Added title screen arithmetic with no game or graphics classes in it, so it can be tested on any screen size.
+Quality of Life	ICON_INFO	Main menu	Enlarged and outlined the UIMSD annotation with a pulsing arrow.
+Testing	ICON_CHECKED	Title Geometry Test 1	Added a test covering portrait Phones Of Many Sizes. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Geometry Test 2	Added a test covering landscape Phones Of Many Sizes. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Geometry Test 3	Added a test covering tall Screens Keep The Original Button Sizes. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Title Geometry Test 4	Added a test covering the Arrow Is Big And Outlined. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Developer Commentary	V074_SHPX	Developer Commentary	Added title screen arithmetic with no game or graphics classes in it, so it can be tested on any screen size. Enlarged and outlined the UIMSD annotation with a pulsing arrow.

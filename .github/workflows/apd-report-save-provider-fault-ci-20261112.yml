@@ -1,0 +1,53 @@
+name: Verify APD report-save provider failure handling
+on:
+  push:
+    branches: [chatgpt/apd-report-save-provider-failure-20261112-1508]
+    paths: [.github/workflows/apd-report-save-provider-fault-ci-20261112.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify narrow provider failure change and all three regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportExport.java').read_text()
+          test=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportSaveProviderFailureTest.java').read_text()
+          assert 'catch (IOException | RuntimeException e)' in src, 'Unchecked provider failure is not caught'
+          for name in ('uncheckedWriteFailureStillClosesAndReportsFailure', 'uncheckedCloseFailureOverridesPrematureSuccessMessage', 'normalProviderStillSavesAndClosesExactlyOnce'):
+              assert name in test, name
+          print('Verified bounded export error handling and three regression source cases')
+          PY
+      - name: Run entire core suite and desktop and Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require full green JUnit results and all provider regression methods
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          files=list(Path('core/build/test-results/test').glob('TEST-*.xml'))
+          assert files, 'Missing full core test suite'
+          roots=[ET.parse(p).getroot() for p in files]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3309, totals
+          assert all(totals[k]==0 for k in ('failures','errors','skipped')),totals
+          cases={c.get('name') for r in roots for c in r.findall('testcase')}
+          expected={'uncheckedWriteFailureStillClosesAndReportsFailure', 'uncheckedCloseFailureOverridesPrematureSuccessMessage', 'normalProviderStillSavesAndClosesExactlyOnce'}
+          assert expected<=cases, expected-cases
+          print('Verified report-save stream failure and success regressions', totals, 'suites',len(roots))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-report-save-provider-fault-core-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

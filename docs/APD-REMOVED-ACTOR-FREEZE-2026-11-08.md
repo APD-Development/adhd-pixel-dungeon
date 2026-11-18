@@ -1,0 +1,13 @@
+# Removed-actor turn-queue freeze investigation — 2026-11-08
+
+Owner observed APD376 unresponsive for about ten minutes, with disabled controls and a dwarven-ghoul defeat in the screenshot. No diagnostic stack trace or affected save has been supplied. The exact cause of that phone incident is NOT confirmed.
+
+A separate reproducible scheduler defect was found: Actor.remove removed the current actor from the registry but left Actor.current pointing to it. Replacing an in-flight attack with a death animation cancels its completion callback, so next() is never called. GameScene sees Actor.processing() forever and does not wake the waiting actor thread. This can leave controls unavailable. The reproduction uses the real Actor.process scheduler, a Ghoul subclass that starts an attack, and real CharSprite/MovieClip attack-to-death animation replacement. It deliberately controls removal timing; it does not recreate the owner's combat, Ghoul life-link behavior or phone environment.
+
+Actor.remove now releases only the exact actor being removed if it is current. It does not complete a cancelled attack, charge another action, modify damage, add a timeout, advance time, move the player or change saves. Live actors' pending animations stay pending; normal scheduler timing remains responsible for the next turn.
+
+Three regressions cover cancelled ghoul attack/removal and next input at its original timestamp; null/unrelated removal preserving live attack and callback; removal and idempotent re-registration at its scheduled time. A late next() from the removed actor cannot release the next actor. Before the fix, two of three tests failed with the stale-current assertion; the live-attack control passed. After the fix, all three pass. Full local core suite: 2,972 tests, 453 suites, zero failures/errors/skips. No Android build, emulator execution, physical-phone test or APK publication was performed for this change. No claim of fixing the owner's exact incident yet.
+
+Changed source: core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/Actor.java. Regression: core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/RemovedActorStallTest.java. Existing uncommitted description-audit changes were preserved; full-suite evidence covers that working tree as well, not only this patch. Current delivered APK remains APD376; it does not contain this change.
+
+Evidence in /workspace/apd-freeze-investigation-evidence: reproduction.log, focused-fixed.log, full-core.log and full-core-junit.tar.gz. No player save was accessed, altered or deleted. This source fix cannot retroactively release an already frozen APD376 process.

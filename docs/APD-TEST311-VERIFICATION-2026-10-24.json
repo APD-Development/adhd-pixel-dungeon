@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-24",
+  "status": "rejected_candidate_native_test_harness_failure",
+  "source": "47a73c4be2bfb8586d8996069bcd0e780c773cdf",
+  "application_source": "47a73c4be2bfb8586d8996069bcd0e780c773cdf",
+  "developer": {
+    "workflow_run": 40100599329,
+    "build_number": 311,
+    "artifact_id": 12562682532,
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-311.apk",
+    "bytes": 38742341,
+    "sha256": "b8c389e7f3a8cc33baf7c44e96d225327e6529b6b3712e66eeb7bca59ecd9dd2"
+  },
+  "player": {
+    "workflow_run": 40100599295,
+    "artifact_id": 12562653218,
+    "file": "APD-Player-TEST311.apk",
+    "bytes": 38742172,
+    "sha256": "4541183a9493f92d1e51634e3d7723dad668cec052dfe4332788a6bf36600be8",
+    "history_matches_developer": true,
+    "signer_and_application_id_match": true,
+    "developer_only_features_disabled": true
+  },
+  "core": {
+    "job": 120891776920,
+    "artifact_id": 12562905556,
+    "suites": 400,
+    "methods": 2064,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "api34": {
+    "job": 120892388513,
+    "artifact_id": 12563251813,
+    "methods": 54,
+    "passed": 53,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "pngs": 80,
+    "failure": "recordedDamageRecoveryWindowSurvivesReloadAndRowAction used the list-window tap helper for the final WndUimsdRow action; the successful retained analysis screenshot proves the main Research-lab route and exact 10-turn result rendered before the harness-only failure."
+  },
+  "supplemental": {
+    "display_run": 40100599255,
+    "display_final": "five profiles passed on the exact TEST311 APK",
+    "preserved_initial_failures": [
+      {
+        "job": 120891776744,
+        "profile": "960x320",
+        "reason": "emulator graphics color-buffer loss produced a non-PNG screenshot",
+        "retry_job": 120893643878,
+        "retry": "success"
+      },
+      {
+        "job": 120891776769,
+        "profile": "320x480",
+        "reason": "Android system-image download was an invalid ZIP before emulator start",
+        "retry_job": 120894946314,
+        "retry": "success"
+      }
+    ],
+    "hotbar_restart_run": 40100599365,
+    "hotbar_artifact_id": 12562717954,
+    "hotbar_restart": "success",
+    "death_order_run": 40100599273,
+    "death_artifact_id": 12562178559,
+    "death_order": "success",
+    "staging_run": 40100599331,
+    "staging": "failed closed; no publication"
+  },
+  "history": {
+    "indexed_records": 338,
+    "tsv_assets_including_index": 339,
+    "predecessor_records_compared": 337,
+    "predecessor_records_changed": 0,
+    "added": [
+      "assets/apd/history/codex-test-311.tsv"
+    ]
+  },
+  "acceptance": {
+    "accepted": false,
+    "latest_verified_private_fallback": "TEST310",
+    "latest_owner_publication": "TEST262",
+    "physical_phone_verified": false,
+    "distributed": false,
+    "published": false
+  },
+  "next_step": "Correct only the native pointer harness to touch the actual WndUimsdRow action, retain all assertions, and rerun the complete TEST312 matched private acceptance matrix."
+}

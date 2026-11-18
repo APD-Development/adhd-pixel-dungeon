@@ -1,0 +1,17 @@
+Statistics / UIMSD	ICON_STATS	Row Builders	Exposed the item-category visibility rule for verification.
+Statistics / UIMSD	ICON_STATS	Title Fit	Added fits a screen header (the UIMSD screen's full name) into the room beside the exit button: the largest text size at which the name wraps into at most two lines (a third line only on a screen so narrow that nothing smaller helps).
+Statistics / UIMSD	ICON_BACKPACK	Item Facts	Centralized item class-to-category classification for consistent visibility checks.
+Statistics / UIMSD	ICON_STATS	Run log writer	Exposed writer termination state to regression tests.
+Quality of Life	ICON_STATS	Statistics screen	Displayed the full UIMSD name with responsive title sizing.
+Testing	ICON_STATS	Title Fit Test 1	Added a test covering the Header Is The Full Name. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Title Fit Test 2	Added a test covering it Fits In Two Lines Across Portrait And Landscape Phone Widths. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Title Fit Test 3	Added a test covering wide Screens Get Larger Text And Narrow Ones Never Get Larger. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Title Fit Test 4	Added a test covering a Word Is Never Split And An Impossibly Narrow Screen Still Gives An Answer. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Title Fit Test 5	Added a test covering the Short Name Stays The Short Name Elsewhere. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Kind Visibility Test 1	Added a test covering only Potions Scrolls And Rings Hide Their Kind Until Identified. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Kind Visibility Test 2	Added a test covering no Item That Needs Identification Is Treated As Having A Visible Kind. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Kind Visibility Test 3	Added a test covering every Identification Family Is In A Category That Waits For The Kind To Be Learned. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Kind Visibility Test 4	Added a test covering the Recorder Reports When Each Identification Family Learns Its Kind. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Writer Thread Test	Updated automated checks and fixtures for writer thread. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-UIMSD	Updated apd-stats-uimsd accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Exposed the item-category visibility rule for verification. Added fits a screen header (the UIMSD screen's full name) into the room beside the exit button: the largest text size at which the name wraps into at most two lines (a third line only on a screen so narrow that nothing smaller helps).

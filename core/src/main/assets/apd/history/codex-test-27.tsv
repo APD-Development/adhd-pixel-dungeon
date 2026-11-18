@@ -1,0 +1,53 @@
+Infrastructure	ICON_INFO	codex-existing-apk-delivery	Updated the codex-existing-apk-delivery development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-simulator-check	Updated the codex-simulator-check development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-simulator-download	Added the codex-simulator-download development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-warrior-batch	Added the codex-warrior-batch development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Warrior Simulation Device Test	Updated Android checks and fixtures for warrior simulation device. These are development checks, not a gameplay feature.
+Quality of Life	ICON_STATS	Statistics Options	Restored statistics status and queue-preview choices with scrollable messages.
+Quality of Life	ICON_STATS	Statistics Row	Restored pending run actions after scene recreation.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds	Added automated checks and fixtures for audited sewers melee bounds. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 1	Added a test covering optional Statues Use Actual Weapon And Augment Without Rolling Damage. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 2	Added a test covering ebony Mimic Surprise Damage Is Not Mistaken For Normal Damage. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 3	Added a test covering every Standard And Rare Early Sewers Rotation Has An Audited Bound. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 4	Added a test covering inherited Rare Enemy Rolls Use Audited Parent Without Guessing Unknown Subclasses. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 5	Added a test covering actual Wraith Roll Bounds Track Its Stored Level Rather Than Current Floor. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 6	Added a test covering observing Bounds Does Not Roll Damage Or Advance Random Generator. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Audited Sewers Melee Bounds Test 7	Added a test covering mimic Variants Use Actual Stored Level And Inherited Rolls. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation	Added automated checks and fixtures for normal warrior preparation. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation Test 1	Added a test covering no Talent Before Level Up And Never Overfills A Talent. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation Test 2	Added a test covering hidden Equipment And Hidden Upgrades Never Drive Selection. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation Test 3	Added a test covering known Usable Upgrades Are Selected But Heavy And Cursed Items Are Not. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation Test 4	Added a test covering equipped Curses Prevent Impossible Replacement. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation Test 5	Added a test covering throwables Respect Actual Known Strength And Retain Inventory. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Normal Warrior Preparation Test 6	Added a test covering selection Does Not Spend Turns Consume Items Heal Or Roll Rng. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Navigation	Added automated checks and fixtures for simulation navigation. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Navigation Test 1	Added a test covering visible Npc And Enemies Block Movement But Unseen Occupants Do Not Leak. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Navigation Test 2	Added a test covering excludes Unknown Terrain Pits And Known Active Traps But Not Secret Traps. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Navigation Test 3	Added a test covering exploration Avoids Npc Interaction Instead Of Repeatedly Choosing An Occupied Tile. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Navigation Test 4	Added a test covering inspecting Movement Does Not Consume Gameplay Randomness. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Seed Plan	Added automated checks and fixtures for simulation seed plan. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Seed Plan Test 1	Added a test covering default Plan Preserves Existing Contiguous Seeds. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Seed Plan Test 2	Added a test covering recovery List Preserves Only Requested Seed Order. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Seed Plan Test 3	Added a test covering missing Duplicate Malformed And Wrong Counts Are Rejected. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Simulation Seed Plan Test 4	Added a test covering contiguous Overflow Does Not Silently Wrap To Another Seed. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-DAILY-PREPARATION-2026-10-10	Updated apd-daily-preparation-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SIMULATOR-2026-10-10	Updated apd-simulator-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SIMULATOR-BUG-LOG-2026-10-10	Added apd-simulator-bug-log-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SIMULATOR-ORIGINAL-SUMMARY-2026-10-10	Added apd-simulator-original-summary-2026-10-10 accompanying this build.
+Development	ICON_INFO	APD-SIMULATOR-USER-GUIDE	Added apd-simulator-user-guide accompanying this build.
+Development	ICON_INFO	APD-TEST26-REPORT-2026-10-10	Added apd-test26-report-2026-10-10 accompanying this build.
+Development	ICON_STATS	APD-UIMSD-STATUS-RESTORE-2026-10-10	Added apd-uimsd-status-restore-2026-10-10 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Infrastructure	ICON_INFO	apd existing build evidence	Updated the apd existing build evidence development tool.
+Infrastructure	ICON_INFO	run-warrior-instrumentation	Updated the run-warrior-instrumentation development tool.
+Infrastructure	ICON_INFO	run-warrior-simulation	Updated the run-warrior-simulation development tool.
+Infrastructure	ICON_INFO	summarize-warrior-experiment	Added the summarize-warrior-experiment development tool.
+Infrastructure	ICON_INFO	test-warrior-experiment-summary	Added the test-warrior-experiment-summary development tool.
+Infrastructure	ICON_INFO	test-warrior-instrumentation	Updated the test-warrior-instrumentation development tool.
+Infrastructure	V011_ANKH	test-warrior-trace-recovery	Updated the test-warrior-trace-recovery development tool.
+Infrastructure	ICON_INFO	test apd existing build evidence	Updated the test apd existing build evidence development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Restored statistics status and queue-preview choices with scrollable messages. Restored pending run actions after scene recreation.

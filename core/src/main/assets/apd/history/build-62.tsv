@@ -1,0 +1,21 @@
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_INFO	Run state	Fixed each run’s exotic-item setting at its start and left older unrecorded values unknown.
+Statistics / UIMSD	ICON_STATS	Datasets	Recorded item upgrade, curse and enchantment state at generation for accurate canonical comparisons.
+Statistics / UIMSD	ICON_STATS	Query Engine	Marked results combining different gameplay rules as mixed rulesets.
+Statistics / UIMSD	ICON_STAIRS	Seed Floors	Compared recorded and canonical items using their original generated state.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Restored the previous hidden-information choice after leaving seed-floor views.
+Statistics / UIMSD	ICON_STATS	Ruleset	Fixed each run’s exotic-item setting at its start and left older unrecorded values unknown.
+Quality of Life	ICON_STATS	Statistics screen	Explained that the exotic-item setting applies to new runs rather than changing the current run.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test	Updated automated checks and fixtures for difficulty. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Aggregate First Views Test	Updated automated checks and fixtures for aggregate first views. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Seed Floors Test	Updated automated checks and fixtures for seed floors. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test	Updated automated checks and fixtures for statistics home tour. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Recorder Lifecycle Test	Updated automated checks and fixtures for recorder lifecycle. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test	Updated automated checks and fixtures for floor replay. These are development checks, not a gameplay feature.
+Development	ICON_CHALLENGE_COLOR	APD-DIFFICULTY	Updated apd-difficulty accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Statistics / UIMSD	ICON_STATS	True level when generated	Added the True level when generated statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Truly cursed when generated	Added the Truly cursed when generated statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	True enchantment when generated	Added the True enchantment when generated statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Same kind, state not recorded	Added the Same kind, state not recorded statistics field; unrecorded values remain unknown.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Fixed each run’s exotic-item setting at its start and left older unrecorded values unknown.

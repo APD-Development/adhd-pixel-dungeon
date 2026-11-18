@@ -1,0 +1,7 @@
+{
+  "run_id": 42666702358,
+  "source_commit": "2a98ed3e4d050d2eaa1c34a54a2ca09facde08d9",
+  "purpose": "Stage exact unchanged original APKs after packaging-only recovery;3149core/all12native originalpassed. Corrected historyassert requires420421422. Private until independent+manual actual windowreview.",
+  "original_build_run": 42662501545,
+  "requested_utc": "2026-11-09T17:41:37.290276+00:00"
+}

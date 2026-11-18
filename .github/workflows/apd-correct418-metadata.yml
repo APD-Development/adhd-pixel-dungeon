@@ -1,0 +1,36 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+# GPL-3.0-or-later
+name: Correct418 copied retry metadata without changing original assets
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-418-METADATA-CORRECTION-REQUEST.txt]
+permissions: {contents: write}
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify original proof and actual fixture before attaching metadata erratum
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          set -euo pipefail
+          gh release download apd-alpha-preview-418 --repo "$GITHUB_REPOSITORY" --pattern APD-Preview-418-Verification.json --pattern APD-418-Complete-Test-Evidence.zip --dir original
+          python3 - <<'PY'
+          import pathlib,json,hashlib,zipfile,subprocess,os
+          repo=os.environ['GITHUB_REPOSITORY'];api=lambda p:json.loads(subprocess.check_output(['gh','api',p]));assert api('repos/'+repo)['private']
+          release=api('repos/'+repo+'/releases/tags/apd-alpha-preview-418');assert not release['draft']
+          err=json.loads(pathlib.Path('docs/APD-418-VERIFICATION-ERRATUM.json').read_text());original=pathlib.Path('original/APD-Preview-418-Verification.json').read_bytes();proof=json.loads(original)
+          assert hashlib.sha256(original).hexdigest()==err['original_verification_sha256'];assert proof['source_commit']==err['source_commit'] and proof['apk_hashes']==err['apk_hashes']
+          with zipfile.ZipFile('original/APD-418-Complete-Test-Evidence.zip') as z:
+            names=[n for n in z.namelist() if n.endswith('corrected-test-fixture.patch')];assert names
+            for name in names:assert hashlib.sha256(z.read(name)).hexdigest()==err['actual_fixture_patch_sha256']
+          name='APD-418-Verification-Erratum.json';assert name not in {a['name'] for a in release['assets']}
+          pathlib.Path(name).write_text(json.dumps(err,indent=2)+'\n');subprocess.run(['gh','release','upload','apd-alpha-preview-418',name,'--repo',repo],check=True)
+          old=release['body'];lines=[l for l in old.splitlines() if not l.startswith('Verification retry: only the expected Catalyst cost wording changed')]
+          notes='\n'.join(lines)+'\n\nMetadata erratum: the original verification JSON native_retry field and one copied notes paragraph incorrectly named Catalyst. The actual418 fixture patch changed MindVision from1tile to2tiles. Its SHA256 is '+err['actual_fixture_patch_sha256']+'. All12 cases passed on unchanged original APKs; no Catalyst change, new app APK or altered test outcome. The attached APD-418-Verification-Erratum.json corrects that label. Original proof, failure archives, APKs and source remain preserved.\n'
+          pathlib.Path('corrected-notes.md').write_text(notes);subprocess.run(['gh','release','edit','apd-alpha-preview-418','--repo',repo,'--notes-file','corrected-notes.md'],check=True)
+          after=api('repos/'+repo+'/releases/tags/apd-alpha-preview-418');assert not after['draft'];assert {a['id'] for a in release['assets']} <= {a['id'] for a in after['assets']};print('Metadata label corrected; every original asset retained.')
+          PY

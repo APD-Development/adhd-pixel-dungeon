@@ -1,0 +1,181 @@
+{
+  "number": 444,
+  "recorded_utc": "2026-11-11T15:50:54.115715+00:00",
+  "status": "local_core_verified_native_pending",
+  "previous_frozen_source": "a2960688e02468817914f006ff4c563b844c80c5",
+  "finding": "Ordinary Empowered Strike omitted the existing ten-turn readiness expiry and staff-zap refresh.",
+  "application_change": "One sentence added to the ordinary description. Existing rank damage/effect factors and all game Java handlers remain unchanged.",
+  "isolated_actual_handler_receipt": {
+    "recorded_at_utc": "2026-11-11T15:43:56.561854+00:00",
+    "scope": "Approved isolated draft for a later source cutoff than frozen APD443 a2960688e02468817914f006ff4c563b844c80c5. No current repository source edits.",
+    "finding": "Ordinary Empowered Strike omits the actual ten-turn expiry and staff-zap refresh. Prior damage/effect-power review is reused; no formula or panel change.",
+    "draft_wording_sentence": "The readied bonus lasts _10 turns_, and another staff zap refreshes it.",
+    "draft_test_method": "empoweredStrikeRealStaffZapRefreshesTenTurnsAndExpiresWithoutAStrike",
+    "runtime_result": {
+      "attempt": 1,
+      "compile_exit": 0,
+      "tests": 1,
+      "suites": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "ranks": [
+        1,
+        2,
+        3
+      ],
+      "initial_turns": 10,
+      "reapply_with_remaining_turns": 1,
+      "remaining_after_reapply": 10,
+      "last_observed_ready_relative_to_fresh_second_application": 18.75,
+      "expired_relative_to_fresh_second_application": 19,
+      "standalone_wand_negative_control_at_all_ranks": true,
+      "real_staff_proc_consumes_ready_bonus_once": true,
+      "each_real_wand_use_spends_one_charge_and_one_hero_turn": true,
+      "production_classes_reused": "recovery/current-test-classes/apd443-liquid-agility-first/main",
+      "all1718_production_source_hashes_match_that_fresh_compile": true,
+      "targeted_xml": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/attempt-1/results/TEST-com.shatteredpixel.shatteredpixeldungeon.apd.MechanicsExplanationTest.xml",
+      "xml_sha256": "2048dea9f01f8b53dcf21f6d55abf04469f7cdbce11cdc8cb8967da42ee0ecd4",
+      "log": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/attempt-1/run.log",
+      "input_provenance": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/attempt-1/input-provenance.json"
+    },
+    "patch_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/empowered-strike-expiry.patch",
+    "patch_sha256": "a6fd1c2755c9cbcd7565432e0cf02282b79b0b425bef9c47d88f21dfdad4cabe",
+    "files": {
+      "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java": {
+        "baseline_sha256": "4b3a2a93ee1b5ffdb62eaa1572cf9e2f65b0261f7cea6d52aa025f771f220ba1",
+        "draft_sha256": "a4e75aa4a1a68ad40a9483592aeaec378547fcfe288e42365975e524c2c14197",
+        "repository_still_matches_baseline": true
+      },
+      "core/src/main/assets/messages/actors/actors.properties": {
+        "baseline_sha256": "ad6020c8d1e69cd4833ff2388ab32c1461b2337f7938389cb7cb0c494df2b179",
+        "draft_sha256": "3bd96b8dc316e867fe7ed2847dc83805fa23f70cc0bcf2af48e3f9d4c65fc9cb",
+        "repository_still_matches_baseline": true
+      }
+    },
+    "preserved": [
+      "All511 existing methods remain unchanged; draft adds one meaningful real-trigger/scheduler regression.",
+      "Existing rank damage fractions and supported wand-effect power remain unchanged.",
+      "TalentExplanation and other panels untouched.",
+      "No handler, balance, save, signing, build-request, native fixture or GitHub changes."
+    ],
+    "limits": [
+      "Only the new method executed initially against existing freshly compiled production after hash verification.",
+      "Texture/animation drawing is omitted by the existing quiet sprite fixture; ordinary hero is parked outside the bounded clock interval while real Actor.process executes the real buffs.",
+      "Staff proc consumption is tested through the actual handler, not a full randomized hero attack.",
+      "This is not new full-suite, new-source CI, Android, native or APK acceptance."
+    ],
+    "pending": [
+      "Root review/adoption of the exact patch into a later cutoff.",
+      "Fresh combined full-suite and required source compilation gates after integration.",
+      "Relevant ordinary talent window capture/review on a later exact APK pair."
+    ]
+  },
+  "independent_core_review": {
+    "schema": 1,
+    "recorded_at_utc": "2026-11-11T15:49:36.084280+00:00",
+    "scope": "Brief provenance record of the earlier completed independent read-only review of the isolated Empowered Strike expiry patch. This record does not extend that review to the separately added native-window patch.",
+    "result": "no_concrete_blocker",
+    "patch_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/empowered-strike-expiry.patch",
+    "patch_sha256": "a6fd1c2755c9cbcd7565432e0cf02282b79b0b425bef9c47d88f21dfdad4cabe",
+    "verification_receipt_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/verification-receipt.json",
+    "verification_receipt_sha256": "4d97577f28c7866a13369bd2f8741da7d52fe24eb76534662528d3cbe31c84bf",
+    "reviewed_sentence": "The readied bonus lasts _10 turns_, and another staff zap refreshes it.",
+    "findings": [
+      "Wand.wandUsed grants/prolongs10f when the hero owns the charged wand outside belongings, matching the staff-imbued route; the real standalone inventory-wand negative control fails that grant condition.",
+      "Buff.prolong postpones the existing tracker to now+10 rather than adding the previous remaining turn. FlavourBuff.act detaches it through the real Actor scheduler.",
+      "The new method covers all3 ranks, one-charge and one-turn costs, real MagesStaff.proc single consumption, presence at18.75 and natural expiry at19 after refresh at9. Existing damage factors and supported on-hit formulas are unchanged.",
+      "The existing parked-hero scheduler fixture and quiet sprite limits are accurately disclosed. This proves handler and expiry behavior, not a full randomized attack or Android zap animation."
+    ],
+    "targeted_evidence": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/attempt-1/results/TEST-com.shatteredpixel.shatteredpixeldungeon.apd.MechanicsExplanationTest.xml",
+      "sha256": "2048dea9f01f8b53dcf21f6d55abf04469f7cdbce11cdc8cb8967da42ee0ecd4",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "ranks": [
+        1,
+        2,
+        3
+      ],
+      "independently_rechecked_xml": true,
+      "test_rerun_by_reviewer": false
+    },
+    "production_source_binding": {
+      "manifest_path": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd443-liquid-agility-first/compile-provenance.json",
+      "manifest_sha256": "b90e7bd026509d468d3a55a04f0eb6bd0f3c1c75f977fe1b0aed16c93b185a7f",
+      "all1718production_java_hashes_independently_verified_during_review": true
+    },
+    "baseline_state_at_earlier_review": {
+      "both_repository_test_and_actor_assets_matched_original_baseline": true,
+      "later_root_adoption_is_separate": true
+    },
+    "limitations": [
+      "The original expiry patch alone was reviewed; the later complete/native-window patches are outside this record.",
+      "Full combined suite, source CI, Android/native and next APK verification remained pending at review.",
+      "No handler, mechanics, balance, save or panel change is proposed by this patch; APD443 frozen cutoff was not changed by this review."
+    ]
+  },
+  "native_window_preparation": {
+    "recorded_at_utc": "2026-11-11T15:46:07.931865+00:00",
+    "scope": "Isolated additive ordinary Empowered Strike rank3 Mage/Battlemage capture call for later cutoff, excluded from443. No repository edit.",
+    "file": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java",
+    "baseline_sha256": "b79c5bbf20759053694616f7e20d729a9859dd19442e1d6ba4c142efe644bc4c",
+    "draft_sha256": "4debad71719b23eb288cd394dba8e0df7dc1b6437577ce9efc2dfddc59d243f4",
+    "repository_still_matches_baseline": true,
+    "new_lines": 3,
+    "added_test_methods": 0,
+    "qol_test_method_count": 1,
+    "helper_unchanged": true,
+    "call": "ordinaryTalentWindowRenders(Talent.EMPOWERED_STRIKE,3,HeroClass.MAGE,HeroSubClass.BATTLEMAGE,...)",
+    "expected_fragments": [
+      "one sixth more damage",
+      "1.5 times its normal power",
+      "one third more damage",
+      "2 times its normal power",
+      "50% more damage",
+      "2.5 times its normal power",
+      "lasts 10 turns",
+      "another staff zap refreshes it"
+    ],
+    "images": [
+      "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png"
+    ],
+    "inherited_helper_assertions": [
+      "Actual WndInfoTalent ordinary description equals talent.desc(false).",
+      "Expected damage/power/timer fragments present and no missing-message placeholder.",
+      "Top frame at scroll0 and final-line padding/reachability checked at bottom.",
+      "Hero HP/time unchanged, original class/subclass/metamorph state restored in finally."
+    ],
+    "native_patch": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/empowered-strike-native-window.patch",
+    "native_patch_sha256": "14a7df48a05ff62b07e545a28b41f7ac5ecdece78bd6b60a7ae01e713a375df9",
+    "combined_patch": "/workspace/scratch/db82734c9c44/recovery/apd-next-empowered-strike/empowered-strike-complete.patch",
+    "combined_patch_sha256": "4be3cd680adfa54af64c74faba909b8c248805d6064667fba1b2b7c61f789df9",
+    "original_two_file_patch_preserved_sha256": "a6fd1c2755c9cbcd7565432e0cf02282b79b0b425bef9c47d88f21dfdad4cabe",
+    "core_draft_independent_review": {
+      "reviewer": "/root/apd_target_review",
+      "result": "No concrete blocker; independently checked exact XML1/0, source hashes and all1718production hash bindings. No rerun or edits."
+    },
+    "validation": "All original Qol source bytes retained by removing the exact three-line addition, one existing @Test retained, and all expected fragments occur in draft ordinary text. Full Android compilation/native execution/manual review pending.",
+    "no_new_gameplay_fixture_or_panel": true,
+    "no_github_or_build_mutations": true
+  },
+  "integrated_fresh_core_result": {
+    "suites": 465,
+    "tests": 3211,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 45.36,
+    "fresh_current_source": true
+  },
+  "native_captures": [
+    "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+    "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png"
+  ],
+  "native_execution_completed": false,
+  "source_ci_completed": false,
+  "application_apks_built_for_this_change": 0
+}

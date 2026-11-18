@@ -1,0 +1,34 @@
+{
+  "release": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-383",
+  "published_at": "2026-11-08T23:59:37Z",
+  "original_build_run": 42536083963,
+  "accepted_native_retry_run": 42536990078,
+  "stage_run": 42537080304,
+  "verification": {
+    "source_commit": "728ca445fe62dffab483ec824a1c977d970f24ff",
+    "number": 383,
+    "tag": "apd-alpha-preview-383",
+    "core_tests": 3036,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "e86d4f12696d31b6c2f928e2b73c037ec8548149155839388aecd4c46bfb0704",
+      "Alpha-Testers": "8fef61169eaf25f2f48e0e1353adc628beb5d16273830888750988a5905b97ce"
+    },
+    "source_sha256": "1cc5c7e4c98cb7b105e03e01c453528a0dc229ac24eab28608a847ffa83a28dc",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-08T23:55:37.084580+00:00",
+    "workflow_run": "42536990078",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true,
+    "original_apk_build_run": 42536083963,
+    "verification_harness_source": "0bad3712e1af9958111127de462223e2d4596332",
+    "native_retry": "Fixture initializes copied Escape Crystal data and waits for a rendered frame before checking new window cameras, matching the existing ordinary-window helper. All viewport assertions retained. Full Qol rerun uses corrected instrumentation on unchanged383 APKs. Other ten native cases retained from original run. Initial failures preserved."
+  },
+  "manual_visual_review": "Reviewed actual Crossbow known and Sickle unknown augmented ability windows, Tenacity harm, unknown-ring Tomahawk and normal/cursed artifact samples; all eight383 trinket captures inspected. APK hashes/sidecars and reviewed source scan verified. All full native window assertions passed. Ordinary unidentified damage example augmentation gap discovered, disclosed in release notes and corrected in subsequent source; not claimed fixed in these APKs. Full audit incomplete; no physical-phone or audio-fix claim."
+}

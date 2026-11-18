@@ -1,0 +1,122 @@
+name: APD exact candidate mechanics and waiting touch acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-QOL-EXACT-CANDIDATE.json]
+permissions: {contents: read, actions: read}
+concurrency:
+  group: apd-qol-exact-candidate
+  cancel-in-progress: false
+jobs:
+  native-qol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Reuse the exact candidate without another application build
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,sys,time,zipfile
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import application_inputs
+          spec=json.load(open('docs/APD-QOL-EXACT-CANDIDATE.json'))
+          repo=os.environ['GITHUB_REPOSITORY'];source=spec['source'];run=spec['run']
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          assert api('repos/'+repo)['private']
+          produced=api(f'repos/{repo}/actions/runs/{run}')
+          assert produced['head_sha']==source and produced['run_number']==spec['build']
+          trees=[api(f'repos/{repo}/git/trees/{sha}?recursive=1') for sha in (source,os.environ['GITHUB_SHA'])]
+          assert all(not tree.get('truncated') for tree in trees)
+          # Later production development must not become part of this older-APK test.
+          # Compile against the exact application snapshot, overlaying instrumentation only.
+          test_source=os.environ['GITHUB_SHA']
+          subprocess.run(['git','fetch','--no-tags','--depth=1','origin',source],check=True)
+          subprocess.run(['git','checkout','--detach',source],check=True)
+          subprocess.run(['git','checkout',test_source,'--','android/src/androidTest'],check=True)
+          changed=subprocess.check_output(['git','diff','--name-only',source],text=True).splitlines()
+          assert all(path.startswith('android/src/androidTest/') for path in changed)
+          pinned=api(f'repos/{repo}/git/trees/'+subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()+'?recursive=1')
+          assert not pinned.get('truncated')
+          assert application_inputs(trees[0]['tree'])==application_inputs(pinned['tree'])
+          deadline=time.monotonic()+600
+          while True:
+              jobs=api(f'repos/{repo}/actions/runs/{run}/jobs')['jobs']
+              producer,=[job for job in jobs if job['name']=='verify-and-build']
+              if producer['conclusion']=='success':break
+              assert producer['status']!='completed','Application producer failed: '+str(producer['conclusion'])
+              assert time.monotonic()<deadline,'Timed out waiting for the exact application artifact'
+              time.sleep(20)
+          artifacts=api(f'repos/{repo}/actions/runs/{run}/artifacts')['artifacts']
+          artifact,=[item for item in artifacts if item['name']=='apd-codex-private-test-apk' and not item['expired']]
+          with open('candidate.zip','wb') as out:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{artifact["id"]}/zip'],stdout=out,check=True)
+          assert 'sha256:'+hashlib.sha256(pathlib.Path('candidate.zip').read_bytes()).hexdigest()==artifact['digest']
+          pathlib.Path('application').mkdir()
+          with zipfile.ZipFile('candidate.zip') as archive:archive.extractall('application')
+          apk,=pathlib.Path('application').glob('*.apk');sidecar,=pathlib.Path('application').glob('*.apk.sha256')
+          digest=hashlib.sha256(apk.read_bytes()).hexdigest();assert sidecar.read_text().split()[0]==digest
+          pathlib.Path('acceptance-source.json').write_text(json.dumps({'application_source':source,'application_run':run,'application_sha256':digest,'application_rebuilt':False,'application_inputs_unchanged':True,'test_source':os.environ['GITHUB_SHA'],'physical_phone_tested':False},indent=2))
+          with open(os.environ['GITHUB_ENV'],'a') as out:out.write('APD_BUILD='+str(spec['build'])+'\n')
+          PY
+      - name: Compile instrumentation only
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild "-PapdBuild=C$APD_BUILD"
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          ./gradlew --stop
+          python3 -m pip install pillow
+      - name: Verify exact application signature and package without rebuilding
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,re,subprocess
+          tools=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          apk,=pathlib.Path('application').glob('*.apk')
+          signature=subprocess.check_output([str(tools),'verify','--print-certs',str(apk)],text=True)
+          from tools.apd_existing_build_evidence import certificates
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          assert certificates(signature)==[expected]
+          metadata=subprocess.check_output([str(tools.parent/'aapt'),'dump','badging',str(apk)],text=True)
+          package,=re.findall(r"^package: (.+)$",metadata,re.M)
+          expected_version=int(re.search(r"appVersionCode\s*=\s*(\d+)",pathlib.Path("build.gradle").read_text()).group(1))
+          assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package and f"versionCode='{expected_version}'" in package,package
+          assert "-bC"+os.environ["APD_BUILD"]+"-TEST" in package,package
+          pathlib.Path('application-identity.json').write_text(json.dumps({'signature_verified':True,'certificate_sha256':expected,'package':package,'install_compatible_identity_with_365':True,'physical_phone_tested':False},indent=2))
+          PY
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Real pointer checks for mechanics panels and independent waiting controls
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            adb install -r "application/ADHD-Pixel-Dungeon-CODEX-TEST-$APD_BUILD.apk"
+            adb install -r android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk
+            adb logcat -c
+            timeout 600 adb shell am instrument -w -r -e class 'com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest,com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest#remainingApdSettingsControlsRespondToActualTouches,com.shatteredpixel.shatteredpixeldungeon.android.ApdSettingsClickDeviceTest#everyDeclaredSettingControlHasAnExplicitAcceptanceOwner' com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > qol-instrumentation.txt 2>&1
+            adb logcat -d -v time > qol-logcat.txt
+            cat qol-instrumentation.txt
+            python3 -c "import pathlib,re; text=pathlib.Path('qol-instrumentation.txt').read_text(); assert re.search(r'OK \(3 tests\)',text); assert not any(marker in text for marker in ['FAILURES!!!','INSTRUMENTATION_FAILED','Process crashed.'])"
+            mkdir -p qol-visuals
+            for name in qol-mechanics-buff-expanded.png qol-mechanics-talent-expanded.png qol-mechanics-ability-expanded.png qol-mechanics-spell-expanded.png qol-waiting-independent-stops.png qol-waiting-saved-stops.png qol-searched-wall.png qol-door-ineligible-bookshelf.png qol-door-ineligible-decoration.png; do adb exec-out cat "/sdcard/Pictures/APD-Test-Visuals/$name" > "qol-visuals/$name"; done
+            python3 tools/validate_android_visuals.py qol-visuals qol-mechanics-buff-expanded.png qol-mechanics-talent-expanded.png qol-mechanics-ability-expanded.png qol-mechanics-spell-expanded.png qol-waiting-independent-stops.png qol-waiting-saved-stops.png qol-searched-wall.png qol-door-ineligible-bookshelf.png qol-door-ineligible-decoration.png
+      - name: Preserve actual acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-qol-exact-candidate-acceptance
+          path: |
+            acceptance-source.json
+            application-identity.json
+            qol-instrumentation.txt
+            qol-logcat.txt
+            qol-visuals/
+          retention-days: 14

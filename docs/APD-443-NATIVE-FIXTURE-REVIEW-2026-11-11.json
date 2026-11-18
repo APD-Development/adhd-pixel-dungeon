@@ -1,0 +1,70 @@
+{
+  "recorded_at_utc": "2026-11-11T15:33:51.223674+00:00",
+  "source": "/workspace/scratch/db82734c9c44/apd/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TrapDiscoveryDeviceTest.java",
+  "source_sha256": "1ec6de5e38ffb5e335ecfd2c816de850f304d5a32359fb26ff1142c35a9229ba",
+  "baseline_path": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/native/TrapDiscoveryDeviceTest.apd442.java",
+  "baseline_sha256": "6e25c59fcfd26f2b012f9af7135656351120659b9c9a52a1efffdeaad81da16f",
+  "patch": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/native/TrapDiscoveryDeviceTest.patch",
+  "scope": "Additive next-pair native Liquid Agility proof in existing c_runtimeDiscoveryRouteAndActualTrapEffect; APD442 source remains frozen.",
+  "retained": {
+    "test_methods": 3,
+    "all_preexisting_lines_retained": true,
+    "literal_captures": [
+      "trap-discovery-seer-shot-side-branch-before.png",
+      "trap-discovery-seer-shot-side-branch-revealed.png",
+      "trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "trap-discovery-setting-on.png",
+      "trap-discovery-setting-restarted.png",
+      "trap-discovery-setting-off.png",
+      "trap-discovery-runtime-actual-ooze.png"
+    ]
+  },
+  "new_capture_names": [
+    "trap-discovery-liquid-agility-rank1-before.png",
+    "trap-discovery-liquid-agility-rank1-after.png",
+    "trap-discovery-liquid-agility-rank2-before.png",
+    "trap-discovery-liquid-agility-rank2-after.png",
+    "trap-discovery-liquid-agility-excluded-strength-before.png",
+    "trap-discovery-liquid-agility-excluded-strength-after.png"
+  ],
+  "proof_path": [
+    "Normal Warrior uses actual Liquid Willpower-to-Liquid Agility metamorph initialization for rank one and two.",
+    "Exact PotionOfPurity stack at each rank and exact excluded PotionOfStrength control call real Item.cast.",
+    "Native MissileSprite flight invokes production callback; test never invokes or substitutes that callback.",
+    "Temporary Rat-sprite mob at ordinary MOB_PRIO records real Hero.defenseSkill, HP, time and actual tracker deadline, then returns false to hold the real actor thread for capture.",
+    "Assert one detached item, one paid turn, unchanged hero/target HP at impact, evasion15/1000000 for eligible ranks and baseline5/no bonus for excluded Strength.",
+    "Observer spends one tick and next; actual scheduler reaches the next hero-ready boundary, where real EVA expiry is required while eligible ACC remains."
+  ],
+  "fixture_isolation": [
+    "Temporarily detach the prior tested Ooze only after its original capture; restore the same effect with its original remaining deadline.",
+    "Drain previously spent manual movement before the first cast and require ready/zero cooldown before every scenario.",
+    "Choose a five-cell clear path inside retained19x19 arena, excluding traps, plants, heaps and actors.",
+    "Restore original talents/metamorphs, item current-user/current-item context, position/HP/Strength, action/rest state, FOV/visited/mapped/mind buffers, targets and camera scroll.",
+    "Remove only temporary observer/sprite, added inventory objects and probe-created Liquid Agility buffs."
+  ],
+  "validation": {
+    "helper_api_compile_receipt": "/workspace/scratch/db82734c9c44/recovery/apd-next-liquid-agility/native/api-compile-2/receipt.json",
+    "helper_api_compile_exit": 0,
+    "full_android_compilation": "pending",
+    "native_execution": "pending",
+    "manual_image_review": "pending",
+    "independent_source_review": {
+      "reviewer": "/root/apd_target_review",
+      "result": "No concrete blocker found. Source review only, not Android compilation or native acceptance.",
+      "received_at_utc": "2026-11-11T15:35:43.458679+00:00",
+      "conclusions": [
+        "Observer retains Actor.current when act returns false; normal spend(TICK) and next releases that same current actor; GameScene wakes the existing actor thread.",
+        "EVA priority1 expires before hero priority0 at the next normal hero boundary.",
+        "Detached Ooze subtracts saved old Actor.now before attachTo adds new Actor.now, preserving its pending deadline and private remaining duration.",
+        "Exact Purity/Strength classes, real stacked detach, identity-limited cleanup, cleared path, and saved item/target/FOV state match approved scope."
+      ]
+    }
+  },
+  "limits": [
+    "Captures are ordinary map frames; defense/timing claims come from logged actual runtime assertions, not a synthetic HUD.",
+    "No real enemy attack or hit-chance distribution measurement is claimed; observer calls actual defense lookup.",
+    "No Android, APK, physical-device, audio or installation success is claimed here.",
+    "The disposable game clock advances naturally through the throws; full global state rollback is not claimed."
+  ],
+  "status": "Source ready for next cutoff. Full Android compilation, native execution and manual capture review remain pending."
+}

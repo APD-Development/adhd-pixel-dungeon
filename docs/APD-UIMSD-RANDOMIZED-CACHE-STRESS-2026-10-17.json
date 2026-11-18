@@ -1,0 +1,50 @@
+{
+  "recorded_at": "2026-10-17T23:37:43.900Z",
+  "scope": "deterministic randomized RowCodec derived-cache stress; TEST-ONLY; no application source changed",
+  "application_candidate_source": "dcdec4a936a0b159f6dcf1a60da6a8c5e663d6a1",
+  "verification_commit": "dcbcbfc905f041ed353db08efd1f3809f6d3709e",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "java_test": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowCacheRandomizedIntegrityTest.java",
+  "seed": "0x41504455494D5344",
+  "corpus": {
+    "large_cache_rows": 10000,
+    "additional_small_cache_corpora": 64,
+    "small_rows_per_corpus": "1..120",
+    "schema_projection_rows": 2048,
+    "coverage": "exact row metadata and cell kind/value/provenance, stable cache reencode, source log length/fingerprint mismatch rejection, deleted/reordered columns, checksum mismatch",
+    "caution": "These are cache rows, not 10000 distinct real completed runs. Does not prove DatasetStore end-to-end, UIMSD filter/export or device performance."
+  },
+  "core_ci": {
+    "run_id": 39079506565,
+    "job_id": 117533398164,
+    "conclusion": "success",
+    "run_created_at": "2026-10-17T23:33:47Z",
+    "run_completed_at": "2026-10-17T23:36:26Z",
+    "tests": 1795,
+    "suites": 353,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 2,
+    "xml_report_verified": true,
+    "report_artifact_id": 12118042510,
+    "report_artifact_zip_size": 837303,
+    "report_artifact_zip_digest": "sha256:96246438921345753c60782971ca22f2f54870b0fff5cb7d60371aac8208729b"
+  },
+  "apk": {
+    "rebuilt": false,
+    "build_request_edited": false,
+    "published": false,
+    "owner_delivered": false,
+    "physical_device_verification": false,
+    "latest_verified_private_candidate": "TEST275",
+    "latest_owner_publication": "TEST262"
+  },
+  "outstanding": [
+    "End-to-end stress with distinct legitimate synthetic history files, cold/warm cache counts and raw byte-for-byte integrity",
+    "QueryEngine search/filter/sort/group/export agreement under large mixed-version datasets",
+    "Device responsiveness and physical-phone lifecycle behavior not verified",
+    "Broader source audit continues; next unreviewed production blob after RowCodec"
+  ],
+  "next_safe_step": "Continue bounded UIMSD DatasetStore/query stress in core-only test batches; do not rebuild APK for test-only changes. Do not edit docs/APD-CODEX-BUILD-REQUEST.txt."
+}

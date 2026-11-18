@@ -1,0 +1,112 @@
+{
+  "recorded_at": "2026-10-17T23:10:32.827Z",
+  "candidate": {
+    "label": "Codex TEST 275",
+    "status": "verified private CI candidate",
+    "application_source": "dcdec4a936a0b159f6dcf1a60da6a8c5e663d6a1",
+    "request_commit": "909286ed86788d462f853fd47b9632cefac96691",
+    "full_run": 39076194628,
+    "started_at": "2026-10-17T22:43:03Z",
+    "completed_at": "2026-10-17T22:58:56Z"
+  },
+  "correction": {
+    "component": "UIMSD derived row cache",
+    "behavior": "reject reserved log flags, ruleset tags, non-boolean merge markers, row flags and cell kinds; rebuild derived cache from unchanged source log",
+    "raw_history_changed": false,
+    "saves_changed": false,
+    "gameplay_or_rng_changed": false,
+    "scoring_changed": false
+  },
+  "core": {
+    "tests": 1793,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_test": "RowCacheMetadataValidationTest",
+    "focused_methods": 7,
+    "artifact_id": 12117122515,
+    "artifact_bytes": 835909,
+    "artifact_zip_sha256": "396febda22fd7c25f61584ee1faccde9be3c6b285c152ecd6ef00c41cbd43026"
+  },
+  "debug_assembly": "success",
+  "history": {
+    "conclusion": "success",
+    "previous_label": "Codex TEST 273",
+    "previous_application_source": "df0c9be3b3d52bb9b82e6453491bbfdac7d90e69",
+    "previous_run": 39068952497,
+    "reviewed_paths_include_changed_history_ledger": true
+  },
+  "android": {
+    "api_level": 34,
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "evidence_artifact_id": 12117283141,
+    "evidence_artifact_bytes": 5056031,
+    "evidence_artifact_zip_sha256": "e925a01e28047e9a41ebd546f8836401ef448fbef8a0f4538feac16f90321462"
+  },
+  "visuals": {
+    "required_pngs": 57,
+    "dimensions": "320x640",
+    "decoded": 57,
+    "manually_reviewed": 57,
+    "contact_sheets": 3,
+    "blank_or_corrupt": 0,
+    "visible_clipping_regressions": 0
+  },
+  "apk": {
+    "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-275.apk",
+    "raw_bytes": 38612990,
+    "raw_sha256": "bab6b2a34e8e42021516986482ded6782a8dbe79820844d3bc1ef7c496e6bf29",
+    "artifact_id": 12116964675,
+    "artifact_zip_bytes": 36109266,
+    "artifact_zip_sha256": "b0c0e38755654ee174752f8f3b100444ba76b0bbe38328b634ffc98a3167d557",
+    "expires_at": "2026-10-24T22:46:40Z"
+  },
+  "prior_failed_candidate": {
+    "label": "Codex TEST 274",
+    "run_id": 39076067947,
+    "conclusion": "failure",
+    "reason": "history manifest said Codex TEST 273 Developer while compiled record is exactly Codex TEST 273",
+    "previous_apk_retrieved": true,
+    "compilation_started": false,
+    "apk_exists": false
+  },
+  "supplemental_display": {
+    "run_id": 39076194659,
+    "updated_at": "2026-10-17T23:08:38Z",
+    "conclusion": "failure",
+    "passed_profiles": [
+      "small-virtual",
+      "square-virtual"
+    ],
+    "failed_profiles": [
+      "short-landscape",
+      "compact-virtual",
+      "m53-representative"
+    ],
+    "passed_count": 2,
+    "total_count": 5,
+    "failure": "Native title condition did not become true",
+    "relation_to_rowcodec_change": "unrelated supplemental title check; required 57-image and API34 gates passed",
+    "rerun_scope": "M53 failed-jobs-only retry; original short/compact failures retained"
+  },
+  "staging": {
+    "run_id": 39076194626,
+    "conclusion": "failure",
+    "occurred_before_main_acceptance": true,
+    "staged": false,
+    "published": false
+  },
+  "delivery": {
+    "automatic_tester_distribution": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false,
+    "latest_published_owner_build": 262,
+    "latest_published_tag": "apd-alpha-preview-262",
+    "latest_published_at": "2026-10-16T23:14:03Z",
+    "private_fallback": "TEST273 Developer/Player pair"
+  },
+  "next_safe_step": "Continue with the next unreviewed UIMSD production blob; do not rebuild or edit the executable build request for this verification-only record."
+}

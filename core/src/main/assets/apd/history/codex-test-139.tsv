@@ -1,0 +1,12 @@
+Changes	V061_BUGFIX	Bomb creator persistence	Keep the creator of a lit bomb through saves without inventing ownership for older bombs.
+Changes	V061_BUGFIX	Explosion and armor order	Prepare attributed bomb damage once before armor while preserving neutral and environmental damage.
+Changes	V061_BUGFIX	Defused bomb ownership	Clear stored bomb attribution when its fuse is frozen, lost or recovered.
+Changes	V063_MAGICMISSILE	Blast stone creator	Carry the thrower into a blast-stone explosion.
+Changes	V063_MAGICMISSILE	Cursed explosion caster	Use the real caster for cursed-wand explosions, including boss-owned damage.
+Quality of Life	V061_BUGFIX	Original score label	Explicitly label the unmodified earned score before any future custom adjustment.
+Changes	V061_BUGFIX	Bomb regression coverage	Test actual explosions, saved fuses, armor order, neutral RNG and invalid ownership.
+Changes	V061_BUGFIX	Native scroll evidence	Require meaningful touchscreen scrolling and separate before-and-after captures.
+Changes	V061_BUGFIX	Explosion verification report	Record verified source boundaries and outstanding damage-slider coverage.
+Changes	V061_BUGFIX	Verified development handoff	Record TEST138 evidence and the next source package without claiming physical testing.
+Changes	V061_BUGFIX	Required private build checks	Require the complete core, Android and screenshot checks before verification.
+Changes	V061_BUGFIX	Exact build history	Review every changed path against the immediately preceding compiled APK.

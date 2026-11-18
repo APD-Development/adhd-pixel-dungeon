@@ -1,0 +1,66 @@
+name: Verify gated-room wall checkmark exclusion
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths:
+      - .github/workflows/apd-gated-room-marker-ci.yml
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchedWallMarkers.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/GatedRoomWallMarkerTest.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/DoorSearchEligibility.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java
+      - core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContextTest.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/SearchControlContext.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDSettings.java
+      - core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/APDSettingsPane.java
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Run complete core tests and compile desktop and Android targets
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require keyed, barricaded, fog and ordinary-room regressions
+        run: |
+          python3 - <<'PY'
+          import pathlib,xml.etree.ElementTree as ET
+          files=list(pathlib.Path('core/build/test-results/test').glob('TEST-*.xml'))
+          assert files,'Missing complete core test results'
+          roots=[ET.parse(p).getroot() for p in files]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3256,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0,totals
+          suites=[r for r in roots if r.get('name','').endswith('.GatedRoomWallMarkerTest')]
+          assert len(suites)==1,'Missing real gated-room marker test suite'
+          expected={'observedIronKeyCrystalAndBarricadedRoomsHidePerimeterChecks',
+            'unseenEntranceCannotRevealHiddenGatedRoomThroughCheckmark',
+            'ordinaryAndOpenSpecialRoomsKeepTheirExistingCheckmark',
+            'lockedRoomCheckNeverRevealsTheActualUnseenBackingTile'}
+          actual={test.get('name') for test in suites[0].findall('testcase')}
+          assert expected<=actual,(expected,actual)
+          actual_search=[r for r in roots if r.get('name','').endswith('.SearchControlContextTest')]
+          assert len(actual_search)==1,'Missing real SearchControlContextTest suite'
+          assert {'floorTwoOrdinaryRoomCenterPrefersSearchEvenWhenWideSearchReachesWall',
+              'floorOneAndCrystalRoomsNeverPrioritizeAdaptiveWallChoice',
+              'actualSearchInMiddleOfFloorTwoRoomDoesNotMakeWallCheckmarks'} <= {
+              case.get('name') for case in actual_search[0].findall('testcase')},'Missing adaptive Search regressions'
+          assert 'actualSearchFromInsideKeyedRoomDoesNotCreateCheckmarks' in {
+              case.get('name') for case in actual_search[0].findall('testcase')},'Missing in-room paid Search regression'
+          print('Accepted actual core XML:',totals,'suites:',len(files))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-gated-room-markers-core-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,24 @@
+Testing	ICON_STATS	Statistics Device Timing Test	Updated Android checks and fixtures for statistics device timing. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_PREFS	Saved settings	Saved guide and tour progress between sessions.
+Changes	ICON_INFO	Demo Data	Kept tour sample history separate from the player’s real runs.
+Statistics / UIMSD	ICON_STATS	Guide Geometry	Added where the tour's instruction panel goes: over the lower part of the screen, above the bottom buttons, unless the thing it points at is there, in which case it moves up under the header.
+Statistics / UIMSD	ICON_STATS	Statistics Guide	Added the topics of UIMSD's Guide: short plain explanations, each optionally tied to a step of the interactive tour so a player can read it or be shown it on the real screen.
+Statistics / UIMSD	ICON_STATS	Statistics Home	Added the Summary / Home page of UIMSD: a handful of cards with the numbers most players want (runs, wins, how each class does, the gear they use, what kills them, recent runs, records), each leading on to the full advanced view behind it.
+Statistics / UIMSD	ICON_STATS	Statistics Model	Added Home-summary and guide/tour navigation state.
+Statistics / UIMSD	ICON_STATS	Statistics Tutorial	Added the interactive statistics tour and optional sample-data path.
+Quality of Life	ICON_STATS	Statistics screen	Opened UIMSD on Home and connected the Guide and interactive tour.
+Quality of Life	ICON_STATS	Statistics Home Pane	Added the scrolling cards of the UIMSD Home page.
+Quality of Life	ICON_STATS	Statistics Guide	Added the UIMSD Guide: the interactive tour first, then every topic.
+Quality of Life	ICON_STATS	Statistics Topic	Added one topic of the UIMSD Guide: a title, a scrolling explanation, and buttons to be shown it on the real screen or to close.
+Testing	ICON_STATS	Statistics Home Tour Test 1	Added a test covering sample Is Marked And Small. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 2	Added a test covering home Shows The Main Cards. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 3	Added a test covering home With No Runs Is Empty Not Broken. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 4	Added a test covering guide Topics Point At Real Tour Steps. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 5	Added a test covering tour Runs On Its Own When The Player Does The Things. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 6	Added a test covering starting In The Middle Prepares The Screen. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 7	Added a test covering tour Never Changes The Real History. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Home Tour Test 8	Added a test covering panel Placement Keeps Off The Target. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Added engineering handoff accompanying this build.
+Development	ICON_STATS	APD-UIMSD-HOME-GUIDE	Added apd-uimsd-home-guide accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Saved guide and tour progress between sessions.

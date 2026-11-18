@@ -1,0 +1,4 @@
+Bug Fixes	ICON_STATS	Accurate group comparisons	Repeated statistic labels keep their own values instead of borrowing the last matching label from the other group.
+Testing	ICON_CHECKED	Retain the repeated-label regression	A controlled one-method baseline and the full gate require two same-label statistics to remain paired by definition order.
+Infrastructure	ICON_INFO	Preserve TEST254 delivery and candidate evidence	Keep exact published-source receipts, unsuccessful supplemental attempts and the TEST254 rollback while the new source is verified.
+Developer Commentary	ICON_INFO	Record the bounded UIMSD correction	Document the reproduced mismatch, exact baseline evidence, pending full verification and unchanged gameplay/scoring limits.

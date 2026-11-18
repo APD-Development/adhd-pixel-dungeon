@@ -1,0 +1,61 @@
+/*
+ * ADHD Pixel Dungeon
+ * Copyright (C) 2026 Chris Charlton
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+package com.shatteredpixel.shatteredpixeldungeon.apd.mechanics;
+
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Paralysis;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Terror;
+import com.shatteredpixel.shatteredpixeldungeon.items.Item;
+import com.shatteredpixel.shatteredpixeldungeon.items.stones.Runestone;
+import com.shatteredpixel.shatteredpixeldungeon.items.spells.Spell;
+
+/** Rune and alchemy effects without selecting a target, guessing an item or rolling a replacement. */
+public final class CraftingEffectExplanation {
+    private CraftingEffectExplanation(){}
+    public static String details(Item item){
+        if(!(item instanceof Runestone||item instanceof Spell))return "";
+        String effect;
+        switch(item.getClass().getSimpleName()){
+            case "StoneOfAggression":effect="A supported non-boss, non-miniboss target is offered Aggression for 20 game-time units. Supported monster targeting can favor this marked character; that is not direct damage, universal control of every creature or permission to attack through blocked terrain. Resistance and existing target priorities still apply.";break;
+            case "StoneOfFear":effect="Offers the affected character Terror for "+ObfuscationExplanation.number(Terror.DURATION)+" game-time units with the user recorded as the feared character. This is not a guarantee of a fixed retreat distance or immediate death. Resistance, immunity and the status's existing interruption rules remain.";break;
+            case "StoneOfDeepSleep":effect="A supported monster at the impact is offered Magical Sleep. This is a persistent sleep state with its own damage/wake rules, not a fixed turn countdown, guaranteed immunity bypass or sleep applied to every nearby creature. It does not grant the hero free healing.";break;
+            case "StoneOfClairvoyance":effect="Maps the existing rounded footprint with distance input 20 around the impact and runs its supported secret-terrain discovery path. The distance is tiles, not a search probability or a duration. Floor boundaries and the mapping rules still apply; this description does not itself reveal terrain or guarantee that every unmapped cell is empty.";break;
+            case "StoneOfFlock":effect="Attempts sheep placement in eligible unoccupied non-pit cells reachable through non-solid terrain within 2 path steps. Each sheep receives lifetime input 8 plus its ordinary random offset from −2 up to 2 game-time units. Available cells limit the actual flock size. This is not a fixed count of allies, and sheep do not become controllable attacking pets.";break;
+            case "StoneOfBlink":effect="Uses the supported projectile path and legal teleport-to-location rules. If the impact is occupied and the path permits it, the existing throw branch steps its landing request back along that path. This does not guarantee passage through walls or teleportation to any arbitrary occupied tile. Inspection does not compute or move to a destination.";break;
+            case "StoneOfIntuition":effect="Makes the player's selected type guess. A correct potion/scroll guess reveals its type under the normal item rules; a correct ring guess reveals the ring type without promising hidden upgrade or curse identification. Correctness does not change the normal use accounting: the first supported non-anonymous use records the existing use tracker, and the next consumes the stone and clears that tracker. It is not a random identification chance or a hint about which guess is correct. Inspection does not guess, identify or spend a use.";break;
+            case "StoneOfDetectMagic":effect="Examines an eligible selected item's supported positive/negative magic and curse-knowledge state. Detecting that magic is separate from identifying its upgrade level or guaranteeing a particular enchantment. It does not cleanse the item. Inspection does not inspect an unselected item's hidden properties or mark it known.";break;
+            case "StoneOfAugmentation":effect="For weapons, Speed multiplies the damage input by 0.7 and ordinary attack-time input by 2/3; Damage multiplies damage by 1.5 and time by 5/3. Whole damage points round under the weapon's existing rule. A smaller time input means faster attacks, not a universal bonus to all actions. For armor at effective level L, Evasion supplies evasion input round(2 × (2 + L)) and protection input round(−1 × (2 + L)); Defense reverses those signs. The armor's own minimum/maximum protection and evasion equations apply those inputs. These are not guaranteed blocked damage or fixed hit/dodge percentages. Augmentation changes its selected tradeoff rather than adding an upgrade or a second independent augmentation.";break;
+            case "StoneOfEnchantment":effect="Applies the existing random enchantment or glyph selection to an eligible weapon or armor. Selection rarity, trigger chance and effect strength are different quantities. Current-property exclusions and curse/eligibility rules remain; this is not a guaranteed chosen rare effect or permanent upgrade level. Inspection does not roll an effect.";break;
+            case "StoneOfBlast":effect="Uses the existing attributed conjured-bomb detonation. The base middle-biased bomb roll is 4 + scaling depth to 12 + 3 × scaling depth, currently "+(4+Dungeon.scalingDepth())+"–"+(12+3*Dungeon.scalingDepth())+" raw damage points, before its source, armor and later defense rules. Terrain, loot, the hero and allies retain their ordinary blast risks. It is not fixed final damage to every target.";break;
+            case "StoneOfShock":effect="Checks the existing non-solid path area within 2 steps of impact. Affected characters are offered 1 game-time unit of Paralysis, and the count H of affected characters is recorded. With at least one hit, the user offers 1 + H charges through the belongings' normal supported-wand charge path. Capacities and item charging rules still apply; the count is not electrical damage or a guarantee of that many free casts. Inspection does not count targets, paralyse them or charge a wand.";break;
+            case "CurseInfusion":effect="Curses the eligible selected item under its existing category rules. Supported weapons, armor and wands gain the curse-infusion level contribution 1 + integer division of base level by 6 while that infusion applies. It is a level contribution, not flat damage or an independently stacking permanent upgrade; removing the relevant curse uses the item's normal cleanup rules. Rings retain their own curse behavior rather than receiving that weapon/armor/wand contribution. Existing curse/enchantment replacement rules remain; inspection does not choose a curse or inspect hidden selected-item values.";break;
+            case "MagicalInfusion":effect="Uses the existing eligible-item upgrade/infusion selection flow. The selected item keeps the supported hardened-enchantment or glyph handling and its own upgrade statistics; it is not a universal flat damage bonus or automatic identification of every item. Confirmation, cancellation, energy and item-consumption rules remain in that flow. Inspection does not upgrade, harden or choose a property.";break;
+            case "WildEnergy":effect="Runs its existing cursed-wand effect, then offers 1 supported wand charge and 4 artifact recharge power. It also adds 8 scheduled units of wand Recharging and extends Artifact Recharging by 8 units, allowing the Horn for that source. Immediate charge, artifact power and timed progress are separate; item capacities and curses still apply. The cursed effect is not guaranteed harmless or determined by this description. Inspection does not select it or spend randomness.";break;
+            case "TelekineticGrab":effect="Collects supported loose-heap items or embedded projectiles using their existing pickup actions and capacity checks. It does not open a chest or enlarge inventory. Its accumulated pickup-time adjustment limits the supported successful collection sequence to at most one ordinary time unit; failed/unsupported targets use their own time branch. Each item still follows its ordinary pickup rules. Inspection does not enumerate unseen loot or collect anything.";break;
+            case "PhaseShift":effect="Attempts the supported character teleport. On success, the target's monster state and beckoning use the existing rules; a target that is neither boss nor miniboss is offered Paralysis for "+ObfuscationExplanation.number(Paralysis.DURATION)+" game-time units. Teleport restrictions and resistance still apply. This is not a guaranteed destination or a fixed damage effect.";break;
+            case "ReclaimTrap":effect="With no trap stored, it can disarm and record an eligible active visible trap; that capture branch spends its normal cast time without consuming a full spell use. With a stored trap, the existing next-use branch removes that record and activates a reclaimed instance at its target. Stored trap type, activation, immunity and source rules remain trap-specific. This is not a free duplicate of an undiscovered trap, and inspection does not disarm or activate anything.";break;
+            case "BeaconOfReturning":effect="Records the supported current floor, branch and position as a return point through its normal one-unit setup action. Later return uses the existing same-floor or inter-floor arrival path, including occupancy and movement restrictions. It is not an arbitrary destination picker or a guarantee of a free return through every restriction. Dropping and saved-tracker handling keep their normal rules; inspection does not set or overwrite a return point.";break;
+            case "Recycle":effect="Rerolls an eligible selected consumable through its existing category rules, preserving supported regular/exotic category handling and rejecting invalid/same outcomes under that process. It is not one uniform chance across all item classes, a permanent upgrade or a way to reveal a guaranteed result before use. Inspection does not consume or transform the item.";break;
+            case "Alchemize":effect="Offers the existing eligible-item sell-for-gold or convert-to-energy choices. The item's own value, energy value, quantities and special thrown-stack warnings determine the available result; gold and alchemy energy are different resources. It does not automatically sell carried equipment merely by opening the menu. Inspection does not select, destroy or convert an item.";break;
+            case "SummonElemental":effect="Uses the existing elemental-selection and nearby-spawn rules. Eligible open neighboring cells, ally state and source-specific elemental behavior determine the outcome; a blocked area can prevent a normal placement. It is not guaranteed immediate damage, a fixed army count or a free inventory item. Inspection does not choose or summon an elemental.";break;
+            case "UnstableSpell":effect="Selects from its existing weighted scroll-effect table, with its supported rerolls and exclusions. Outcome weights are conditional on the allowed effects rather than a uniform chance of every scroll. Each selected effect keeps its own target, damage and resource rules. Inspection does not choose the effect, identify a type or advance randomness.";break;
+            default:return "";
+        }
+        return "_Runestone or alchemy effect_\n"+effect+" Normal use and recipe costs remain unchanged; the quantities and energy in the recipe are crafting resources, not the effect's duration or damage.";
+    }
+}

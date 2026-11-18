@@ -1,0 +1,196 @@
+{
+  "recorded_at_utc": "2026-11-11T15:13:03.810903+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "parent_verified_source_commit": "69532e7422d852237fe4681a4873473c4bb8f218",
+  "scope": "Bounded ordinary Warrior/Mage follow-up while APD442 builds. Three Inscribed Power activation/source facets and one ordinary alternate Wand Preservation claim. Source comparison only, not full talent completion.",
+  "inventory_exclusions": [
+    {
+      "candidate": "Restored Willpower",
+      "decision": "Not a current talent enum or ordinary description key; no legacy behavior reconstructed."
+    },
+    {
+      "candidate": "Energizing Upgrade",
+      "decision": "Not a current talent enum or ordinary description key; no legacy behavior reconstructed."
+    },
+    {
+      "candidate": "Runic Transference",
+      "decision": "Glyph rarity and alternate upgrade-loss threshold already explicitly reviewed in APD-MECHANICS-DESCRIPTIONS-2026-11-06.md:558. Excluded."
+    },
+    {
+      "candidate": "Enraged Catalyst",
+      "decision": "Default additive-power wording already corrected and tested; APD-MECHANICS-DESCRIPTIONS-2026-11-06.md:440 and audit boundaries explicitly record this. Excluded."
+    },
+    {
+      "candidate": "Deathless Fury, Enhanced Combo, Lethal Momentum",
+      "decision": "Explicit completed recovery/Parry/finisher or attack-delay facets found, so those candidate checks were not reopened."
+    },
+    {
+      "candidate": "Prior current-session checks",
+      "decision": "Veteran, Provoked Anger, Lingering Magic, eight nearby primary numeric/counter checks, Necromancers Minions, and the Cleric alternate-use slice were excluded."
+    }
+  ],
+  "ordinary_copy": {
+    "inscribed_power.desc": {
+      "line": 1013,
+      "text": "_+1:_ When the Mage reads a scroll or uses a spell item, his _next 2 wand zaps_ get +2 levels.\\n\\n_+2:_ When the Mage reads a scroll or uses a spell item, his _next 3 wand zaps_ get +2 levels.\\n\\nThe number of enhanced wand zaps is doubled when using a scroll of upgrade, transmutation, or alchemy items that must be crafted using those scrolls.\\n\\nFor alchemy items with higher output quantities (e.g. most spells), this talent has a chance to trigger based on how many of that item is produced."
+    },
+    "wand_preservation.meta_desc": {
+      "line": 1016,
+      "text": "_If this talent is gained by a different hero_ it will instead increase the amount of arcane resin gained when putting a wand into an alchemy pot by 1 at +1, or by 2 at +2."
+    }
+  },
+  "facets": [
+    {
+      "talent": "INSCRIBED_POWER",
+      "facet": "Successful scroll/spell activation versus a generic item-use claim",
+      "result": "checked_correct_from_source",
+      "evidence": [
+        "Scroll.readAnimation calls Talent.onScrollUsed only after its existing talentChance roll, at Scroll.java:226-227.",
+        "InventorySpell.java:82-102 invokes the hook after valid non-null item selection; MagicalInfusion delegates to its separate committed useAnimation.",
+        "TargetedSpell.onSpellused at lines60-67 invokes the hook on its actual use completion path.",
+        "SummonElemental.java:113-126 invokes it after a successful summon; its no-space branch does not consume/trigger.",
+        "BeaconOfReturning.java:218-221 invokes it when a spell item is consumed for return.",
+        "UnstableSpell.java:112-118 gives the generated scroll factor/chance 1 and relies on that scroll to trigger once.",
+        "Talent.onScrollUsed at Talent.java:765-769 offers (int)(factor * (1 + rank)) uses. onRunestoneUsed does not activate Inscribed Power."
+      ],
+      "interpretation": "The ordinary scroll/spell statement matches completed eligible use paths. Cancellation, failed placement and a free non-consuming configuration action are not claimed to be triggers. The prior +2-level/max-remaining-use numerical review was reused, not repeated."
+    },
+    {
+      "talent": "INSCRIBED_POWER",
+      "facet": "Doubled number of empowered zaps for mandatory upgrade/transmutation-derived sources",
+      "result": "checked_correct_from_source",
+      "evidence": [
+        "ScrollOfUpgrade.java:53 and ScrollOfTransmutation.java:68 set talentFactor=2.",
+        "ScrollOfEnchantment.java:52 and ScrollOfMetamorphosis.java:54 also set talentFactor=2.",
+        "MagicalInfusion.java:52 sets factor2; its recipe at131-137 requires ScrollOfUpgrade and produces one item.",
+        "Recycle.java:50 sets factor2; its recipe at107-116 requires ScrollOfTransmutation and produces twelve items.",
+        "Talent.onScrollUsed multiplies the source factor by 1 + talent rank, so a fresh successful doubled source offers 4/6 uses rather than 2/3."
+      ],
+      "limits": "This compares the identified required-source families. A spell that can optionally be crafted or modified with those scrolls is not automatically a mandatory-source recipe. Existing remaining-use replacement and stronger-effect interactions were not reopened."
+    },
+    {
+      "talent": "INSCRIBED_POWER",
+      "facet": "Batch-produced spell items have a recipe-output-based chance to trigger",
+      "result": "checked_correct_from_source",
+      "batch_items": [
+        {
+          "item": "CurseInfusion",
+          "recipe_output": 4,
+          "talent_trigger_chance": "1/4",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/CurseInfusion.java"
+        },
+        {
+          "item": "Alchemize",
+          "recipe_output": 8,
+          "talent_trigger_chance": "1/8",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/Alchemize.java"
+        },
+        {
+          "item": "TelekineticGrab",
+          "recipe_output": 8,
+          "talent_trigger_chance": "1/8",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/TelekineticGrab.java"
+        },
+        {
+          "item": "ReclaimTrap",
+          "recipe_output": 5,
+          "talent_trigger_chance": "1/5",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/ReclaimTrap.java"
+        },
+        {
+          "item": "WildEnergy",
+          "recipe_output": 5,
+          "talent_trigger_chance": "1/5",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/WildEnergy.java"
+        },
+        {
+          "item": "PhaseShift",
+          "recipe_output": 6,
+          "talent_trigger_chance": "1/6",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/PhaseShift.java"
+        },
+        {
+          "item": "Recycle",
+          "recipe_output": 12,
+          "talent_trigger_chance": "1/12",
+          "talent_factor": 2,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/Recycle.java"
+        },
+        {
+          "item": "SummonElemental",
+          "recipe_output": 6,
+          "talent_trigger_chance": "1/6",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/SummonElemental.java"
+        },
+        {
+          "item": "BeaconOfReturning",
+          "recipe_output": 5,
+          "talent_trigger_chance": "1/5",
+          "talent_factor": 1,
+          "source": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/BeaconOfReturning.java"
+        }
+      ],
+      "evidence": [
+        "Each listed initializer assigns talentChance=1/(float)Recipe.OUT_QUANTITY.",
+        "InventorySpell and TargetedSpell compare Random.Float() with that chance before calling the real hook.",
+        "Alchemize.java:303-304, BeaconOfReturning.java:220-221 and SummonElemental.java:125-126 have corresponding explicit chance gates.",
+        "One-output MagicalInfusion retains the default chance1. UnstableSpell produces one item and delegates one factor1/chance1 trigger to its generated scroll."
+      ],
+      "limits": "No empirical RNG distribution or new item-use test was run. This is a direct comparison of the existing probability predicates and recipe outputs, not a whole crafted-item behavior review."
+    },
+    {
+      "talent": "WAND_PRESERVATION",
+      "facet": "Ordinary alternate description promises +1/+2 resin yield",
+      "result": "checked_correct_reusing_existing_runtime_review",
+      "evidence": [
+        "ArcaneResin.Recipe.resinQuantity at ArcaneResin.java:205-212 adds pointsInTalent(WAND_PRESERVATION) only when the hero is not a Mage.",
+        "Both actual brew and known sampleOutput use resinQuantity; hidden-level preview behavior remains unchanged.",
+        "Existing resinPreviewAndActualConversionAgreeAcrossWandTypesAndPreservationContexts at MechanicsExplanationTest.java:1595-1605 covers 1,248 actual conversion contexts, including class/rank distinction. Existing resinRecipePreviewDoesNotCleanUpOrConsumeTheInputWand covers preview purity."
+      ],
+      "interpretation": "The ordinary alternate +1/+2 claim matches the existing per-rank additive yield. The prior full resin runtime investigation was not rerun; this closes only the previously unrecorded comparison with the ordinary talent text. My earlier Wand Preservation record covered the primary staff allowance only."
+    }
+  ],
+  "outcome": "No concrete copy-versus-handler discrepancy found in these four bounded facets. No changes proposed for the frozen APD442 cutoff.",
+  "mutations": {
+    "production_files": [],
+    "test_files": [],
+    "github": []
+  },
+  "tests_run_for_this_record": [],
+  "native_or_build_acceptance_claimed": false,
+  "source_file_sha256": {
+    "core/src/main/assets/messages/actors/actors.properties": "86638ff1e8a82ef9436b5bec3aaeaa4c232cadf6a79788eda00e9c4c0b8f775b",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java": "44bc553d264d7ed28e36bbb4d5f0d44117bbfeb3dd3d2d2d8430e1439a0f9a34",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/mechanics/TalentExplanation.java": "c5799a8965e825105bcb97a2046e2768d3b1bc6b9eb978b6697c4d6ff36b4a12",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/ScrollEmpower.java": "6476be4296b5070ad1d57f168d27e80d41de5ae461cd7bdee49207464c8e8a63",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/Scroll.java": "8dd994e920c4f321c6791b445002794f0eae9b74a8112682a7c5a1cbd39d1c28",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/ScrollOfUpgrade.java": "618f90651014f40f89536ddcec7091f9c10ea0f8e1f7d3557e0882473c6d6139",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/ScrollOfTransmutation.java": "f8c20c4c39092fac1ef321150b9e1288b0f04c472d8a7ed1360ad188980d3e78",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/exotic/ScrollOfEnchantment.java": "f07d9638425925ce9f5265fc91c0dd4f2d626b25de96d4f0ce8847ea46c08be8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/exotic/ScrollOfMetamorphosis.java": "1df4f61c747b7fca8a882f44ec9e8541c95c24c3d95cc3f398ab7cc4d34058e8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/Spell.java": "0da613c35d95b3ed813cc9dd941c262960abd86cb01c25ec2db4ddf7d4d90ab8",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/InventorySpell.java": "a0ee6eebfcd7c558bce8bb36c1f217a1ade6dd7292553bdd60fbc82280ab3f50",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/TargetedSpell.java": "5dd21dd59d279bb5c0ce8e2c5d69a6dfba47e4959cd8a605170d35457a5b377e",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/MagicalInfusion.java": "fe4ea44a5d8345503c9f73676bda0e1673e17c76187640b7ee9e6d813f394736",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/UnstableSpell.java": "b48f1a2f697e7daf47e6a11a0b7429406ca53891a89afcca61067b683f6fc39f",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/ArcaneResin.java": "6d231cde18af6b31d7452e412f9c0475569a83ce75bda31cdeb72ac5c62a10df",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java": "4b3a2a93ee1b5ffdb62eaa1572cf9e2f65b0261f7cea6d52aa025f771f220ba1",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/CurseInfusion.java": "396aad97af6e12d605177b69c85a872fc7dd47fa45f1604148fa243e7bb12739",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/Alchemize.java": "661c357e58366213d8c2a6b0439657b134a896a4a7b1c0819a92180c5d5a4e9e",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/TelekineticGrab.java": "25b3d32f9a38ff4589495f2ef67ae556b3ed6ac9234ec52f4abfc81b673f30e1",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/ReclaimTrap.java": "ccb28971085e1b74f7802a1e5f83a3c6a4b25e816840e06a81846480b01ec50f",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/WildEnergy.java": "00d554cc2be3e47b7a6c7f0d4515813012013695101702853fa569540caecbee",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/PhaseShift.java": "c75b4a968cfc293c6a238f62a66d4025ecc26ef56df7cd19ad215e76e6987526",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/Recycle.java": "2d06aaac1f78ad3587e13fb3f597bc26e1c26678c2dce19b074e61b351b83bad",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/SummonElemental.java": "531f946a195851a367b691222fad6a964f5c3708a41e62a133de02d1927a1736",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/spells/BeaconOfReturning.java": "b8b1eae06fe10d742e13e5e8671765f0f83bf646d5a250b66649f47003f32266"
+  },
+  "stop_condition": "Bounded slice is complete after reporting. No additional investigation or edits by this worker are implied."
+}

@@ -1,0 +1,5 @@
+Bug Fixes	ICON_DATA	Incomplete question rates	Custom questions now show an unknown rate when both totals are incomplete, and label individual positive or negative bounds correctly.
+Bug Fixes	ICON_DATA	Large rate display	Large custom-question rates no longer shrink when their two-decimal display exceeds the integer rounding range.
+Testing	ICON_CHECKED	Rate-bound regression checks	Added exact, incomplete, negative, zero and large-rate cases, plus native Android answer-window checks.
+Development	ICON_INFO	Rate and delivery evidence	Recorded the preceding verified APK and the reproduced rate-display failures and successful targeted checks.
+Developer Commentary	V074_SHPX	Developer Commentary	I corrected misleading rate answers when recordings are incomplete. Large rates also retain their represented value instead of being clipped by display rounding.

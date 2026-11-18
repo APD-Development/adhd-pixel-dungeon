@@ -1,0 +1,5 @@
+Quality of Life	ITEM_WATERSKIN	Confirm Waterskin use	An optional, default-on confirmation protects stored dew from accidental drinking; cancel spends no dew or turn.
+Quality of Life	ICON_WARNING	Warn before known traps	An optional, default-on warning stops deliberate walking before a visible armed trap; confirming continues the normal step once.
+Bug Fixes	ICON_CHANGES	Responsive main menu	Hide UI stays separate from Changes on short or resized displays; controls get space before decorative artwork.
+Testing	ICON_CHECKED	Movement and Android touch checks	Check cancellation, single-use confirmation, pathfinding, preference persistence and main-menu touch interaction across five display configurations.
+Infrastructure	ICON_INFO	Exact build and display evidence	Reuse one application APK for display checks and retain its immediate predecessor, exact source, failures and compatible fallback.

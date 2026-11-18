@@ -1,0 +1,45 @@
+{
+  "build": 250,
+  "source_sha": "adb1bcdd420ff5639f4a65d2d9b456b0cfe08474",
+  "verification_run": 38924547882,
+  "stage_run": 38924547759,
+  "core": {
+    "tests": 1729,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "api": 34,
+    "screenshots": 44,
+    "visually_reviewed": true,
+    "phone_verified": false
+  },
+  "apk": {
+    "artifact_id": 12056336899,
+    "sha256": "06531de071cbe89a5b0c3260f5c5fb6e6368fbfdf388f8f18bb0fcd983532535",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version": "4.0.8-apd-INDEV-bC250-TEST",
+    "version_code": 920,
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e"
+  },
+  "stage": {
+    "full_artifact": 12056383707,
+    "full_zip_sha256": "d074a40393eb7a8cd17f331d2cbd9cbbdc15a6aaed172ae58f3d8f2e4e040405",
+    "evidence_artifact": 12057192100,
+    "evidence_zip_sha256": "fa0113b467a7461df59d2d0ecf49bbdebb0dee20819c5ae6a4d60016590adb2f",
+    "pdf": "APD-Alpha-Preview-250.pdf",
+    "pdf_bytes": 32477,
+    "pdf_sha256": "d232809d2a6cf30aedbddbea9932d6b173504ed1c798585afb3a1b854e60f73b"
+  },
+  "published": false,
+  "notice_only": true,
+  "all_357_values_unchanged": true,
+  "class_specific_scoring_implemented": false,
+  "ci_started_utc": "2026-10-16T15:30:50Z",
+  "ci_completed_utc": "2026-10-16T15:45:13Z"
+}

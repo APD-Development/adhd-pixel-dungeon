@@ -1,0 +1,126 @@
+{
+  "source_commit": "52e00c273064dd43ade94dde88b851369aaa0ddc",
+  "native_instrumentation_source": "038ed3e5407087e56f0733eb847ac5362d14305a",
+  "verification_run": 42492364454,
+  "native_cases": [
+    {
+      "variant": "Developer",
+      "case": "qol",
+      "sha256": "b9c3c00687059c1dd836277c718593c5387221786bc2780bdcfef7e891066d9a"
+    },
+    {
+      "variant": "Developer",
+      "case": "wall",
+      "sha256": "ba98c7b59740d59deb24cb59d4c8a5ea225e4369093cd1d05c65338fb34b3341"
+    },
+    {
+      "variant": "Developer",
+      "case": "seed",
+      "sha256": "2f8fa0fd344447d95f0fa4df65c5993c6863883e35d88d35143b372ccc156202"
+    },
+    {
+      "variant": "Developer",
+      "case": "restart",
+      "sha256": "288816932858e42c2a3fb63c0a31dd704ac624437af699ba179c9666d0bc0fdc"
+    },
+    {
+      "variant": "Developer",
+      "case": "gameplay",
+      "sha256": "8b9ca97f80610e039959902135a8508c833ac4df7a07b60e752f9a1ea0779329"
+    },
+    {
+      "variant": "Developer",
+      "case": "freeze",
+      "sha256": "ca313a4174181a7e728b398a5e2a6a64a5d91cc2b3b2da612601d5453fa3348c"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "qol",
+      "sha256": "8e745222ec6a48adcf0d03a867d94bfc4bae33e25f515842b71ca37ad2215d32"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "wall",
+      "sha256": "7918f17714cb1797b5307ad07cdfa199264daa771449e0d0be5eda520f1cf9d2"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "seed",
+      "sha256": "ec3527607c2dc9d590e3d5c460513d9b642657a376c2354d7778f43349013655"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "restart",
+      "sha256": "8e7021b88c8c59470ab3b5d1ee4aa7f2af9c4fe3f2a26f39ff80ce0fcd78f73a"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "gameplay",
+      "sha256": "a80e6b4f1c028c19992e813dd45be69bb919f95132ddc923163cca9293fed3ab"
+    },
+    {
+      "variant": "Alpha-Testers",
+      "case": "freeze",
+      "sha256": "8ffe5da8767d7ecfbecd67ee801898442057c1739107341ece61ac9edfd2f6ea"
+    }
+  ],
+  "visually_reviewed_images": [
+    {
+      "variant": "Developer",
+      "file": "qol-scale-armor-concise.png",
+      "sha256": "ddda5e2be2b9e9458c33c32fb3d87a20545e22fc20b3fd532f87190ed3bfe018",
+      "artifact_id": 13621508348
+    },
+    {
+      "variant": "Developer",
+      "file": "qol-mirror-scroll-full-text.png",
+      "sha256": "afaa2d010fe28dd098c9250824f80f42914b1f28794903877924bdc3db2396c1",
+      "artifact_id": 13621508348
+    },
+    {
+      "variant": "Developer",
+      "file": "qol-arcana-percentage.png",
+      "sha256": "0300a77542ed476b41336898886fe9a23cec688f363cc0b8de65836110c30299",
+      "artifact_id": 13621508348
+    },
+    {
+      "variant": "Developer",
+      "file": "qol-lucky-arcana-increase.png",
+      "sha256": "c9e040abf08806298e2852b3a28818ae95d9d34ae6bc74045bad6df69f1c84ab",
+      "artifact_id": 13621508348
+    },
+    {
+      "variant": "Alpha-Testers",
+      "file": "qol-scale-armor-concise.png",
+      "sha256": "ceb94a15065eca49f8c8456d5dd3e4f249973163bee579495d737773921a9629",
+      "artifact_id": 13622555309
+    },
+    {
+      "variant": "Alpha-Testers",
+      "file": "qol-mirror-scroll-full-text.png",
+      "sha256": "53b82a80a416b573cefbab7e1d8cc06fcb295e100817a2f0c986f70bce99871b",
+      "artifact_id": 13622555309
+    },
+    {
+      "variant": "Alpha-Testers",
+      "file": "qol-arcana-percentage.png",
+      "sha256": "c715e36060ac87f647d4db32a612ccbdc62546b04be184ed66135aa79173c82b",
+      "artifact_id": 13622555309
+    },
+    {
+      "variant": "Alpha-Testers",
+      "file": "qol-lucky-arcana-increase.png",
+      "sha256": "3a2afea79700e2af610bc488cf50c5e08c5ee7a8d5765b76602f7d5b45e6aa24",
+      "artifact_id": 13622555309
+    }
+  ],
+  "observations": [
+    "Scale Armor+6 shows concise flavor, actual6-32 block range,13STR and normal actions; generic tutorial absent.",
+    "Two-line Mirror Image title and complete final description sentence visible above actions.",
+    "Arcana+3 shows90.61% effect bonus without ring calculations control.",
+    "Lucky sword retains10% to19.06%,+9.06percentage-point comparison and existing relevant panel."
+  ],
+  "physical_phone_verified": false,
+  "exact_owner_freeze_reproduced": false,
+  "whole_item_audit_complete": false
+}

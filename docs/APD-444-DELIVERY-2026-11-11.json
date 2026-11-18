@@ -1,0 +1,174 @@
+{
+  "number": 444,
+  "source_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "original_run": 43057716359,
+  "artifact_id": 13873030855,
+  "artifact_sha256": "9bf2e5ecd2fc705f1d481f863c0321c7e290f062dac06e4f7ef8757abb55fb45",
+  "core": {
+    "tests": 3214,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 466,
+  "variants": {
+    "Developer": {
+      "sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "bytes": 39205618,
+      "version_name": "4.0.8-apd-INDEV-bC444-TEST"
+    },
+    "Alpha-Testers": {
+      "sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "bytes": 39205594,
+      "version_name": "4.0.8-apd-INDEV-bP444"
+    }
+  },
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "instrumentation_sha256": "c30a9832f02aa9f5923e7646bf4bb027a47af21ab6354250ecf421bdf8214b31",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "published": false,
+  "native_recovery_complete": true,
+  "android_tests": 12,
+  "manual_visual_review_complete": true,
+  "source_archive_sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076",
+  "physical_phone_verified": false,
+  "recovery_run": "43057716359",
+  "recovery_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "new_application_apks_created": 2,
+  "new_candidate_build": true,
+  "previous_source": "a2960688e02468817914f006ff4c563b844c80c5",
+  "previous_artifact_id": 13869069224,
+  "previous_artifact_sha256": "a66637fad00085c315dfce185cab4e6d2f26e4c7b90b789db84267033a2768ea",
+  "producing_run": 43057716359,
+  "scope_sha256": "cf881bb33504fa9d80deae2915185cff62701a1205634aa8f5011f4b07d4bf6a",
+  "required_affected_images": [
+    "qol-counter-ability-normal-bottom.png",
+    "qol-counter-ability-normal.png",
+    "qol-ordinary-talent-ARCANE_VISION-bottom.png",
+    "qol-ordinary-talent-ARCANE_VISION.png",
+    "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+    "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+    "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+    "qol-ordinary-talent-LINGERING_MAGIC.png",
+    "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+    "qol-ordinary-talent-LIQUID_AGILITY.png",
+    "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+    "qol-ordinary-talent-PROVOKED_ANGER.png",
+    "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+    "qol-ordinary-talent-SPEEDY_STEALTH.png",
+    "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+    "qol-ordinary-talent-VETERANS_INTUITION.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+    "trap-discovery-liquid-agility-excluded-strength-after.png",
+    "trap-discovery-liquid-agility-excluded-strength-before.png",
+    "trap-discovery-liquid-agility-rank1-after.png",
+    "trap-discovery-liquid-agility-rank1-before.png",
+    "trap-discovery-liquid-agility-rank2-after.png",
+    "trap-discovery-liquid-agility-rank2-before.png",
+    "trap-discovery-seer-shot-foreign-branch-hidden.png",
+    "trap-discovery-seer-shot-side-branch-before.png",
+    "trap-discovery-seer-shot-side-branch-revealed.png"
+  ],
+  "complete_remote_image_manifest_verified": true,
+  "source_scan_verified": true,
+  "source_scan_receipt_sha256": "981468d65518e8b43af7ef64054d5253f2534951bb74643d433a0a31e1f54b90",
+  "publication_authorized_by_this_workflow": false,
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_recorded_utc": "2026-11-11T16:54:12.840374+00:00",
+  "delivery_commentary_sent_before_this_receipt": true,
+  "delivery_method": "Direct saved-file APK and matching-source links sent immediately after completed acceptance and exact saved-download byte readback.",
+  "github_release_published": false,
+  "original_ci_verification_preserved_unchanged": true,
+  "original_ci_verification_sha256": "46ee12b4a5de1e87ff646cb111cd0b5d2c69b4fe489bef07e469c3abd884c6ce",
+  "manual_review_scope": "37 originals per variant: all29 affected,4trap,2wall and2inventory samples; root additionally viewed5Developer originals. All1437images per variant mechanically decoded/hashed, without a blanket manual review claim.",
+  "manual_review_github_file": "docs/APD-444-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+  "manual_review_sha256": "4a5f35c85685544c93834b41924bf978d4caa80c27143e1b00c8d93c76f39901",
+  "independent_acceptance_github_file": "docs/APD-444-INDEPENDENT-ACCEPTANCE-2026-11-11.json",
+  "owner_package_independent_receipt_sha256": "a91d93eac7a306c5531ecfe735438d6221a0b22c8f517939a3e96be2a7611b53",
+  "pre_native_acceptance_github_file": "docs/APD-444-PRE-NATIVE-ACCEPTANCE-2026-11-11.json",
+  "pre_native_acceptance_sha256": "06a0fca1f8d374bb23d545b5b0e3deb0895b80445a3c69b016f6da5699ff2d63",
+  "root_delivery_verification_sha256": "484551557d55a26870183f0a75eb4cbe652c1147f05797ba5fd1bb69e67b1ebe",
+  "owner_review_artifact": {
+    "id": 13873957382,
+    "sha256": "df6d77a0fcef7c510730a436fc2b884e9c3711db9afa971a37927d4f7ce354e0",
+    "bytes": 183229487
+  },
+  "source_scan_run": 43057716359,
+  "source_scan_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "source_scan_success": true,
+  "source_scan_artifact": {
+    "id": 13872975981,
+    "sha256": "a9c324f7f542ea11bc7e284c58b269b4f2483549a84db4a543cf2e0e981d4a40"
+  },
+  "source_manifest_files": 5001,
+  "source_scan_reviewed_candidates": 72,
+  "source_scan_retained_redacted_history_findings": 23,
+  "source_scan_zero_findings_claimed": false,
+  "saved_download_readback_sha256_verified": true,
+  "readback_verified_utc": "2026-11-11T16:51:10.773700+00:00",
+  "saved_readback_receipt_sha256": "3dce61fe4bff1ec1591d58b64dfeda41a235cfd0711717c50230e219c9ae1f6d",
+  "readback_hashes": {
+    "APD-Developer-444.apk": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+    "APD-Alpha-Testers-444.apk": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+    "APD-Source-444.zip": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076"
+  },
+  "files": [
+    {
+      "file_id": "file_0000000082b081f59b301463e2252ac0",
+      "library_file_id": "libfile_fde3_f-4e403fd9235081918f83651770d028f1_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Developer-444.apk",
+      "sha256": "6df0117a0614b6a8215cfc24dc6a003090bdd96d233eef4e3f3480cc19bf9ce0",
+      "bytes": 39205618,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd444-owner-review/APD-Developer-444.apk"
+    },
+    {
+      "file_id": "file_00000000606881f59bbc61032dbd0eec",
+      "library_file_id": "libfile_fde3_f-1826a09765448191bd8d3d90ad0dd24b_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Alpha-Testers-444.apk",
+      "sha256": "a3f0dedf8be706d2e21ff4e391566ed1e3b6e90eb15726c9bb60075a28481162",
+      "bytes": 39205594,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd444-owner-review/APD-Alpha-Testers-444.apk"
+    },
+    {
+      "file_id": "file_00000000dd9c81f5bde454996d1748c1",
+      "library_file_id": "libfile_fde3_f-2f3b0ed53b388191bc136b033194e2dd_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Source-444.zip",
+      "sha256": "87196a36c4425b1c65a76c3071d1ea84fd72d2eafdaab1eb63661e2f71ab1076",
+      "bytes": 110815290,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd444-owner-review/APD-Source-444.zip"
+    }
+  ],
+  "native_artifacts": {
+    "Developer": {
+      "id": 13874360295,
+      "sha256": "7c262b3b0f8bb82300508d03dfce345116475d51d14a38fc97b3537bf9969d60",
+      "images": 1437,
+      "seed_pid": 4915,
+      "restart_pid": 5113
+    },
+    "Alpha-Testers": {
+      "id": 13872558864,
+      "sha256": "e126de15ca6495af488729dd7c72f653f970e990d435b02f8a910c0e062b8474",
+      "images": 1437,
+      "seed_pid": 4952,
+      "restart_pid": 5144
+    }
+  },
+  "supplemental_pylon_run_included": false,
+  "manual_review_limits": [
+    "No physical-phone installation, existing-save install-over or acoustic verification.",
+    "Both ordinary descriptions were reviewed in their original native windows. Numeric behavior is established by actual-handler tests, not by reading screenshot pixels.",
+    "The primary pair uses its originalc30a9832instrumentation. The later separate pylon testAPK/source/run do not replace this acceptance or alter the game bytes."
+  ],
+  "notes": [
+    "Original automatic CI proof retains manual_visual_review_complete=false from packaging time. This later receipt adds completed manual review and delivery without changing that original proof.",
+    "Exactly two application APKs were created by the primary444producer. Game logic/save format stayed unchanged from443; the playable scope is the two ordinary talent explanations.",
+    "Signing was verified by Android apksigner in CI, bound to the downloaded bytes by exact artifact and APK hashes. No local SDK signature rerun is claimed."
+  ]
+}

@@ -1,0 +1,1 @@
+Retain both original379 APKs and all3027core/12native passing evidence. Source scan flagged the already-reviewed inventory5298 audit-count prose because the exact unchanged line moved from11to27. Preserve its full-line SHA256/rule/path match and unknown-finding rejection; remove only the brittle fixed line offset. Repackage/rescan without building another game APK.

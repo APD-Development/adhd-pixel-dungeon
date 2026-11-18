@@ -1,0 +1,3 @@
+Development	ICON_INFO	Preserve TEST227 verification and remaining acceptance limits	Record independently recounted core, APK, Android and visual evidence without rebuilding, publishing or claiming physical-phone acceptance.
+Statistics / UIMSD	ICON_CHANGES	Recover unusable saved column layouts	Keep valid saved columns in order, reject retired or currently hidden columns, and reopen with the view defaults instead of a blank table when none remain.
+Development	ICON_INFO	Record TEST228 candidate evidence	Retain exact reproduction, local regression counts, full-gate requirements and the boundary between emulator, delivery and physical-device evidence.

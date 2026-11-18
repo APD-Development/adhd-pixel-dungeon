@@ -1,0 +1,40 @@
+{
+  "prepared_eastern": "2026-11-09T14:18:57.163892-05:00",
+  "source_commit": "1bd96affecc830ade14346d60842bcf3c9489e0e",
+  "number": 426,
+  "tag": "apd-alpha-preview-426",
+  "core_tests": 3155,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "eea7a9b9f852bc3ceac1d7ae9f0880b19807fa49a359d22b7ef411160ab6b9fc",
+    "Alpha-Testers": "f1332496b393afb2ff509ad413bbcd16ce556c2b5aa113e97c0f6342a8adc9eb"
+  },
+  "source_sha256": "31e17216d13c83109c0254100805688ddc0b51a041d954c088767ff3b6137773",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "generic_item_panel_removal_preserved": true,
+  "existing_mechanic_panels_pending_owner_review": true,
+  "new_application_apks_created": 2,
+  "prepared_utc": "2026-11-09T19:18:57.252383+00:00",
+  "workflow_run": "42678990749",
+  "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+  "fallback_preserved": true,
+  "original_apk_build_run": 42676677970,
+  "verification_harness_source": "3eb023205def8a2d8e13a218057df81ad7558318",
+  "retry_new_application_apks_created": 0,
+  "native_retry": "Corrected only the stale Holy Weapon expected text from multiplied by weapon enchantment power and rounded to scaled by enchantment power and rounded. Exact actual production sentence and all numeric, viewport, action, identity, save and turn assertions retained. Full twelve cases rerun on immutable original426 application APKs. No application APK rebuilt.",
+  "published_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-426",
+  "stage_run": 42679510725,
+  "independent": {
+    "number": 426,
+    "source_commit": "1bd96affecc830ade14346d60842bcf3c9489e0e",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4758,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": true
+  },
+  "manual_review_file": "docs/APD-426-MANUAL-VISUAL-REVIEW.json"
+}

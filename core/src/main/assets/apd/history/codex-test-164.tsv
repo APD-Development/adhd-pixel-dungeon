@@ -1,0 +1,5 @@
+Bug Fixes	V061_BUGFIX	Harmful buff attachment ownership	Carry immutable offensive ownership while Burning, Chill and Frost attach so immediate target reactions use the correct slider exactly once.
+Bug Fixes	V061_BUGFIX	Saved freezing-field ownership	Preserve single or mixed Freezing field creators through decay and save/reload while leaving old and environmental fields unknown.
+Changes	V063_MAGICMISSILE	Fire and frost caller provenance	Prepare offensive fire, chill and frost ownership before attachment across the audited actor, ability, item and weapon callers.
+Changes	V061_BUGFIX	Harmful buff regressions	Retain player, boss, mixed-save, legacy-environment and neutral RNG/source attachment checks plus updated caller contracts.
+Changes	V061_PAGE	TEST162 evidence and handoff	Record the bounded source audit, pending exact-source checks and disabled-slider checkpoint.

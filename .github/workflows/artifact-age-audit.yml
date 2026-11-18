@@ -1,0 +1,59 @@
+name: Read-only artifact age inventory
+on:
+  issues:
+    types: [opened]
+permissions:
+  actions: read
+  contents: read
+  issues: read
+jobs:
+  inventory:
+    if: github.event.issue.title == 'Run read-only artifact age inventory' && github.event.issue.user.login == 'charltonchris29'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Compute artifact age and name family sizes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json, os, re, urllib.request
+          from collections import defaultdict
+          repo=os.environ["GITHUB_REPOSITORY"]
+          token=os.environ["GH_TOKEN"]
+          headers={"Authorization":"Bearer "+token,"Accept":"application/vnd.github+json"}
+          url="https://api.github.com/repos/"+repo+"/actions/artifacts"
+          items=[]
+          for page in range(1,501):
+              req=urllib.request.Request(url+"?per_page=100&page="+str(page),headers=headers)
+              with urllib.request.urlopen(req,timeout=45) as response: rows=json.load(response).get("artifacts",[])
+              items.extend(rows)
+              if len(rows)<100: break
+          else: raise RuntimeError("Too many artifacts for safe complete audit")
+          items=[x for x in items if not x.get("expired")]
+          items.sort(key=lambda x: (x.get("created_at",""),x["id"]), reverse=True)
+          now=dt.datetime.now(dt.timezone.utc)
+          gib=lambda xs:round(sum(int(x["size_in_bytes"]) for x in xs)/1073741824,3)
+          groups=defaultdict(list)
+          ages={"0-24h":[],"1-2d":[],"2-3d":[],"3-5d":[],"5-7d":[],"7-14d":[],"14+d":[]}
+          for x in items:
+              name=x.get("name","")
+              key=re.sub(r"[-_][a-fA-F0-9]{8,}$","-*",name)
+              key=re.sub(r"[-_][0-9]+([._-][0-9]+)*$","-*",key)
+              groups[key].append(x)
+              hours=(now-dt.datetime.fromisoformat(x["created_at"].replace("Z","+00:00"))).total_seconds()/3600
+              bucket=("0-24h" if hours<24 else "1-2d" if hours<48 else "2-3d" if hours<72 else "3-5d" if hours<120 else "5-7d" if hours<168 else "7-14d" if hours<336 else "14+d")
+              ages[bucket].append(x)
+          print("AGE_AUDIT_SUMMARY="+json.dumps({"repo":repo,"count":len(items),"total_gib":gib(items),"age":{k:{"count":len(v),"gib":gib(v)} for k,v in ages.items()},"top_groups":sorted(({"name":k,"count":len(v),"gib":gib(v),"newest":v[0]["created_at"]} for k,v in groups.items()),key=lambda z:z["gib"],reverse=True)[:35],"newest_25":[{"id":x["id"],"name":x["name"],"size_gib":gib([x]),"created_at":x["created_at"]}for x in items[:25]]},separators=(",",":")),flush=True)
+          summary=os.environ.get("GITHUB_STEP_SUMMARY")
+          if summary:
+           with open(summary,"a",encoding="utf-8") as f:
+              f.write("## Read-only age and naming inventory\n\n")
+              f.write("Current artifacts: "+str(len(items))+" ("+str(gib(items))+" GiB)\n\n")
+              f.write("| Age | Count | GiB |\n|---|---:|---:|\n")
+              for k,v in ages.items():f.write("|"+k+"|"+str(len(v))+"|"+str(gib(v))+"|\n")
+              f.write("\nNo files deleted. Details in logs.\n")
+          
+          PY

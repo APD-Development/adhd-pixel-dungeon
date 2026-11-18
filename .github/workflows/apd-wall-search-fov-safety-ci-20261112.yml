@@ -1,0 +1,59 @@
+name: Verify APD wall-search incomplete visibility safety
+on:
+  push:
+    branches: [codex/apd-wall-search-fov-safety-20261112]
+    paths: [.github/workflows/apd-wall-search-fov-safety-ci-20261112.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Confirm incomplete FOV guard and unchanged Foresight bypass
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          source=Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/WallSearchSession.java').read_text()
+          assert 'level.heroFOV != null && cell < level.heroFOV.length && level.heroFOV[cell]' in source
+          assert 'foresight || (level.heroFOV != null' in source
+          assert 'l.heroFOV==null||cell>=l.heroFOV.length||!l.heroFOV[cell]' in source
+          tests=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/qol/WallSearchSessionTest.java').read_text()
+          for name in ('missingVisibilityCannotCrashOrClearRememberedWallSearch',
+                       'truncatedVisibilityRejectsUnrepresentedCellWithoutCreatingMemory',
+                       'restoredVisibilityKeepsOriginalWallCoverageAndForesightBypass'):
+              assert name in tests,name
+          print('Both guards and three regression tests present')
+          PY
+      - name: Run full core tests and compile desktop and Android Java
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Assert full suite and all wall-search visibility regressions
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          reports=[ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports,'No core test reports'
+          totals={k:sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3287 and not any(totals[k] for k in ('failures','errors','skipped')),totals
+          suites=[r for r in reports if r.get('name','').endswith('.WallSearchSessionTest')]
+          assert len(suites)==1,'WallSearchSessionTest suite missing'
+          names={t.get('name') for t in suites[0].findall('testcase')}
+          expected={'missingVisibilityCannotCrashOrClearRememberedWallSearch',
+                    'truncatedVisibilityRejectsUnrepresentedCellWithoutCreatingMemory',
+                    'restoredVisibilityKeepsOriginalWallCoverageAndForesightBypass'}
+          assert expected<=names,expected-names
+          print('Verified',totals,'across',len(reports),'suites; all three FOV regression tests ran')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-wall-search-fov-core-results
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

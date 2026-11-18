@@ -1,0 +1,10 @@
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Statistics / UIMSD	ICON_INFO	Report Renderer	Kept carriage-return CSV values quoted after formula neutralization.
+Testing	ICON_CHECKED	Report Csv Carriage Return Test 1	Added a test covering formula Like Carriage Return Cells Remain Quoted. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Csv Carriage Return Test 2	Added a test covering ordinary Carriage Return Cells Remain Quoted. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Report Csv Carriage Return Test 3	Added a test covering numeric Signs And Escaped Quotes Remain Compatible. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	SPD-READ-ONLY-FINDINGS-2026-10-11	Added spd-read-only-findings-2026-10-11 accompanying this build.
+Infrastructure	V011_ANKH	Upstream File Utils Reproduction Test	Added the upstream file utils reproduction test development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Kept carriage-return CSV values quoted after formula neutralization.

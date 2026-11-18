@@ -1,0 +1,13 @@
+# TEST115 failed verification — October13,2026
+
+Sourcea0443763ee8c2abeca072dd36ae0645d54a4c996/run38383245554 failed fullcore suite at ApdHistoricalCoverageTest.allHistoricalPopupsUseNativeSpritesConciseTextAndNoPrivateRepositoryLinks: SCROLL_UPGRADE was not anexisting ChangeIcons enum. NoAPK orAndroidchecks, noverified/deliveredclaim. CorrectedtoexistingITEM_SCROLL_GYFU in116. Noassertionweakened. Gameplayhost41methods andall60upgradegenerationfixtures previouslypassed; fullbuildfailure remains documented.
+
+# TEST115 combat initialization correction and upgrade generation — pending verification
+
+TEST114 sourcea570c45a022b017b16dba3a268ee62b7f66dc245/run38381954625 failed the full core suite: downloaded1336methods,1335passed and1failed,0errors/skips. ExactHealingWiringTest correctly rejected a new Dungeon HP assignment without a healing classification. No114APK was built; Android0/skipped, no delivered114 claim. StartupHP initialization now belongs to Hero's existing setup/maxHP path. No guard assertions/exemptions removed or weakened. Three guard methods locally passed.
+
+Upgrade count1–60 now schedules real guaranteed scroll items through existing Level generation. Nonneutral counts are balanced across five regions/four nonboss floors per region; originalkeys/strength/quests/shops/monsterloottables untouched. Neutral15 calls the original souNeeded predicate and retains original RNG/drop ordering. Existing Forbidden Runes removes every second scheduled scroll: selected count is pre-challenge, actual available count is ceil(count/2). This is not a promise of15actualscrolls with Forbidden Runes.
+
+Three new tests passed6.190s: everycount scheduled totals, neutralpredicate/nextRNG parity for everyfloor/counter, and actual120dungeon-generation fixtures (all60counts with/withoutForbidden Runes, sixclasses cycled, 24floors each). Exactgenerated totals matched everyfixture. Terrain checked; this is generation evidence, not player survival or proof that every extreme combination is winnable. Existingnormaldrop paths retained; complete player acquisition/path objectives untested. Combinedlocal41methods passed14.348s including25difficultytests and3sourceguards. Full1339core/21API34/22PNG/debug pending.
+
+Six gameplay factors implemented in source: playermaxHP, player/enemyaccuracy/evasion andupgradeavailability. Nativecontrols and remaining12gameplayfactors incomplete. UIMSD work paused locally per owner. Originalscores unchanged; noformula coefficients/GetFuckedmechanics. FridayOctober16target retained, private candidate staging only, noautomatictesterdistribution. TEST113 build/emulator evidence succeeded but no113release receipt; TEST112 remains owner-delivered fallback.

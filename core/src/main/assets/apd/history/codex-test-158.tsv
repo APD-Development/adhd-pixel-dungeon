@@ -1,0 +1,8 @@
+Changes	V061_BUGFIX	Player ability damage provenance	Apply Player Damage exactly once to direct and delayed Elemental Blast and Elemental Strike offensive sources while preserving original mechanics.
+Changes	V061_BUGFIX	Player ability regression	Retain all-percentage, neutral, caller-completeness, delayed-capture and environmental-exclusion coverage.
+Changes	V061_BUGFIX	TEST157 evidence	Record the bounded implementation and pending verification boundary.
+Changes	V061_BUGFIX	Verified TEST156 evidence	Preserve the reviewed TEST156 verification record in compiled history.
+Changes	V061_BUGFIX	Handoff	Record the candidate, deferred harmful-buff boundary and remaining acceptance work.
+Changes	V061_BUGFIX	Completed ledger	Record exact bounded work and pending checks.
+Changes	V061_BUGFIX	Build request	Require exact-source core, Android, debug and history verification.
+Changes	V061_BUGFIX	History manifest	Compare every reviewed path against the immediate previous TEST156 APK.

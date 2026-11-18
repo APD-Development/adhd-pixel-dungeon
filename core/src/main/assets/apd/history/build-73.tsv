@@ -1,0 +1,32 @@
+Testing	ICON_CHECKED	Play Run Device Test	Added a device test covering a Run Can Be Played Saved Continued And Ended With Its History Recorded. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_INFO	Well Water	Recorded journal pages, discovered landmarks, keys, secrets and well use.
+Infrastructure	ICON_DATA	Accounts	Clarified source comments without changing runtime behavior.
+Statistics / UIMSD	ICON_STATS	Boss Classes	Added boss enemy classes, for the Bosses table.
+Statistics / UIMSD	ICON_STATS	Column Order	Clarified source comments without changing runtime behavior.
+Statistics / UIMSD	ICON_STATS	Completion Marks	Added per hero class: wins and highest difficulty won, from the Runs table.
+Statistics / UIMSD	ICON_STATS	Datasets	Added Bosses, Run Type and Modded statistics with finished-run visibility rules.
+Statistics / UIMSD	ICON_STATS	Apd Play	Recorded full-resolution hero health, shielding, hunger and journal events.
+Statistics / UIMSD	ICON_STATS	Derived Store	Rebuilt derived caches for the expanded run and journal statistics.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.9.
+Testing	ICON_CHECKED	Play Wiring Test	Updated automated checks and fixtures for play wiring. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Boss Classes Test	Added a test covering known Bosses Are Bosses And Ordinary Mobs Are Not. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Completion Marks Test 1	Added a test covering highest Difficulty Won Is Per Class And Nothing Is Invented. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Completion Marks Test 2	Added a test covering repeated Ranking Records Count Once. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Dataset Builders Test	Updated automated checks and fixtures for dataset builders. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Hero State Recording Test	Added a test covering health Shield And Hunger Are Recorded Every Turn In Order. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Journal Recording Test 1	Added a test covering landmarks And Keys Are Recorded When The Journal Changes. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Journal Recording Test 2	Added a test covering revealed Secrets Are Recorded With What They Were. These are development checks, not a gameplay feature.
+Testing	ICON_JOURNAL	Journal Recording Test 3	Added a test covering journal Pages Found And Read For The First Time Are Recorded. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Play Tracker Test	Updated automated checks and fixtures for play tracker. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Fact Storage Test	Updated automated checks and fixtures for fact storage. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	fact kind manifest	Updated automated checks and fixtures for fact kind manifest. These are development checks, not a gameplay feature.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_STATS	APD-UIMSD-UNIVERSAL	Updated apd-uimsd-universal accompanying this build.
+Development	ICON_INFO	Development handoff	Added development handoff accompanying this build.
+Statistics / UIMSD	ICON_STATS	Run type	Added the Run type statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Modded	Added the Modded statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Boss	Added the Boss statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Bosses view	Added the Bosses statistics view.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the recording-format history bundled with this APK. Recorded journal pages, discovered landmarks, keys, secrets and well use.

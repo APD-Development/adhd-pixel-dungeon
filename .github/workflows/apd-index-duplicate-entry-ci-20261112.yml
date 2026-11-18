@@ -1,0 +1,56 @@
+name: APD derived index duplicate identity gate
+on:
+  push:
+    branches: [chatgpt/apd-index-duplicate-entry-20261112-1608]
+    paths: [.github/workflows/apd-index-duplicate-entry-ci-20261112.yml]
+permissions: {contents: read}
+concurrency:
+  group: apd-index-duplicate-entry-20261112-1608
+  cancel-in-progress: false
+jobs:
+  source-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Check duplicate-identity refusal and preserved clean index controls
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s = Path('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunIndex.java').read_text()
+          t = Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/RunIndexCountValidationTest.java').read_text()
+          parser = s.split('private void readFrom( byte[] data ){',1)[1]
+          assert 'if (entries.containsKey(e.runId)) throw new FormatException("duplicate run index entry")' in parser
+          assert parser.index('entries.containsKey(e.runId)') < parser.index('entries.put(e.runId, e)')
+          for name in ('checksumValidDuplicateRunEntriesRebuildFromOriginalLogs','checksumValidUncountedTailRebuildsFromOriginalLogs','legitimateEmptyIndexRemainsValidWithoutRebuilding'):
+              assert name in t
+          print('Duplicate identity refusal and index compatibility tests present')
+          PY
+      - name: Complete core tests and desktop/Android Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Require clean full suite and index corruption/compatibility regressions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports = [ET.parse(p).getroot() for p in Path('core/build/test-results/test').glob('TEST-*.xml')]
+          assert reports, 'missing JUnit XML'
+          totals = {k: sum(int(r.get(k,0)) for r in reports) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests'] >= 3316, totals
+          assert all(totals[k] == 0 for k in ('failures','errors','skipped')), totals
+          cases = {c.get('name') for report in reports for c in report.findall('testcase')}
+          assert {'checksumValidDuplicateRunEntriesRebuildFromOriginalLogs','checksumValidUncountedTailRebuildsFromOriginalLogs','legitimateEmptyIndexRemainsValidWithoutRebuilding','unsignedCountOutsideSignedRangeRebuildsFromLogs'} <= cases
+          print('Full core suite', totals, 'suites', len(reports))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-index-duplicate-entry-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

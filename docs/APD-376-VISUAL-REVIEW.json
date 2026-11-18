@@ -1,0 +1,16 @@
+{
+  "source": "2c3f736887c92c133e2623448768ae8635054eda",
+  "run": 42429291798,
+  "reviewed": true,
+  "images": {
+    "Developer/qol-mirror-scroll-full-text.png": "9e97ad4f33c308d1c20b7748f89bc24ff6f096c508683a435bd6112c62e0984b",
+    "Developer/qol-force-weapon.png": "af745657254c827c3fa557b5a0cae18a3287d2fcc149c973d3dbf61856083ece",
+    "Developer/qol-lucky-arcana-increase.png": "38fd6fcb567a266fe997772e6213d51df6b130c19daf7909d8ecaf17c2124f86",
+    "Developer/qol-arcana-percentage.png": "ad91ab11903921cccc83e63988a53fdf9e12c59c02141b56599b3a86c2cdc995",
+    "Alpha-Testers/qol-mirror-scroll-full-text.png": "e673f152e270b0b8c42e63a968ab1626fbddbf5abbbf82a5f9354643e6641256",
+    "Alpha-Testers/qol-force-weapon.png": "f4f5e404c7ff23c2034af4e29ca23e2d13d08be88182c89e8e8946e406d56190",
+    "Alpha-Testers/qol-lucky-arcana-increase.png": "5b43a6819099c6456ab4e716480526e4e8444bd2e9b8fd02eb7389a02d47de13",
+    "Alpha-Testers/qol-arcana-percentage.png": "397e61b12cb7df668be51b242740dfd7eec096e5d9c788b90e52edd703bfae9f"
+  },
+  "finding": "Eight actual API34 screenshots inspected. Both Mirror Image x2 windows show full final line above Drop/Throw/Read; both Sword windows have concise wording; Lucky comparisons and normal Arcana percentages retained. Other screenshots not claimed manually reviewed. No physical-phone verification."
+}

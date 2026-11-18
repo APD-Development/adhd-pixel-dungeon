@@ -1,0 +1,3 @@
+Development	ICON_CHANGES	Verified owner preview preparation	Reuse the verified archive-fix APK for source, signing, checksum, screenshot and PDF checks without rebuilding or distributing to testers.
+Development	ICON_INFO	Preserve verification and delivery evidence	Record exact test results, artifacts, compatibility checks and honest remaining phone and audit limitations.
+Bug Fixes	ICON_WARNING	Preserve the private Cleric collection ledger after damaged storage	Read intact rows from a damaged local ledger for continuity, but make automatic persistence fail closed so unknown original bytes and filesystem directories are never deleted. An explicit player reset remains the only recovery action allowed to replace damaged ledger contents.

@@ -1,0 +1,36 @@
+{
+  "number": 433,
+  "source_commit": "3cc23e1b4727a2401b7f4d4efd414973bcf2bef5",
+  "source_branch": "archive/apd433-original-source",
+  "release_id": 441012398,
+  "core_tests": 3169,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "3eb0365aecbd6ad261de500836b70c33bbcc13d63e9aa1d58ceeed3564f688a9",
+    "Alpha-Testers": "0f76486de05dd0321a079ffafb4bb0d4e926a2cffa7e0ad08e0e9beef65aff38"
+  },
+  "source_sha256": "e3b9e0bd151f2cc9e8504d606b9940944a406ee3c42ec8c8cfe0b1e1b258a38a",
+  "publish": true,
+  "core_suites": 458,
+  "source_manifest_files": 4874,
+  "manual_frames": 12,
+  "run_id": 42890868062,
+  "title": "APD433: accurate Rogue talent descriptions",
+  "visual_review": "docs/APD-433-MANUAL-VISUAL-REVIEW.json",
+  "status_note": "docs/APD-433-DELIVERY-BOUNDARIES.md",
+  "artifacts": {
+    "prepared": {
+      "id": 13800367171,
+      "name": "apd433-prepared-owner-pair",
+      "sha256": "b7f46dd130056315873dbf2a7aee8561f2ad667efb07cffb026b3dad98692d96"
+    },
+    "evidence": {
+      "id": 13799803416,
+      "name": "apd433-source-and-native-evidence",
+      "sha256": "81415ddaac1a307ba3e209df3e8c80ed638b2c6d9378f136939f64b8a8f65e07"
+    }
+  }
+}

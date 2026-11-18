@@ -1,0 +1,192 @@
+{
+  "reviewed_at_utc": "2026-11-11T14:55:21.721359+00:00",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "starting_verified_commit": "31e66d6c5bb9f8602f97dd051ec6d8f45c7929f3",
+  "scope": "Bounded ordinary Warrior/Mage talent description audit and two approved actual-trigger/expiry regressions. This does not close the entire talent audit.",
+  "review_inputs": {
+    "AGENTS.md": "Read current standing requirements.",
+    "docs/WORK-COMPLETED-LEDGER.md": "Latest checkpoint is the APD439/APD440/APD441 completed entry at the top; older appended entries do not override it.",
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT.json": {
+      "git_blob_sha": "dfa122b4d30b32580836fc89acadc740e7ae9f33",
+      "units": 445,
+      "completed": 442,
+      "partial": [
+        "TalentExplanation.java",
+        "Talent.java",
+        "CursedWand.java"
+      ]
+    },
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT-PROGRESS.md": {
+      "git_blob_sha": "36fb99ed0522bcc750fabeba8c8f49bd21471f82"
+    },
+    "baseline_ordinary_descriptions": "baseline-ordinary-descriptions.json"
+  },
+  "accepted_findings": [
+    {
+      "talent": "Veterans Intuition",
+      "ordinary_key": "actors.hero.talent.veterans_intuition.desc",
+      "defect": "The baseline ordinary +1 armor description says 2.5x; actual identification progress factor is 2x.",
+      "runtime": [
+        "actors/hero/Talent.java:686-710 itemIDSpeedFactor uses 1 + rank for armor and 1 + 0.75 * rank for melee weapons.",
+        "items/armor/Armor.java:545-548 spends identification progress using that factor.",
+        "actors/hero/Talent.java:835-838 identifies armor on equip at rank 2."
+      ],
+      "coverage": "Existing intuitionDescriptionsMatchRealIdentificationFactorsAndStacking tests five talents at two ranks against five item categories, plus combined-talent stacking. It passed in the fresh 511-test run. No redundant string-only test added.",
+      "production_edit_owner": "root; this worker did not edit actors.properties"
+    },
+    {
+      "talent": "Provoked Anger",
+      "ordinary_key": "actors.hero.talent.provoked_anger.desc",
+      "defect": "Baseline ordinary description omits the expiry of the readied attack bonus.",
+      "runtime": [
+        "actors/buffs/ShieldBuff.java:109-133 invokes Buff.affect(..., 5f) only after damage breaks a positive shielding buff.",
+        "actors/buffs/Buff.java:253-256 adds the duration to the existing tracker.",
+        "actors/hero/Talent.java:873-876 adds 3 or 5 damage and detaches the tracker."
+      ],
+      "verified_timing": {
+        "ranks": [
+          1,
+          2
+        ],
+        "first_application_turns": 5,
+        "reapply_with_remaining_turns": 1,
+        "remaining_after_reapply": 6,
+        "last_observed_ready_at_original_time_plus": 9.75,
+        "expired_at_original_time_plus": 10,
+        "consumed_by_actual_attack_proc": true,
+        "unbroken_shield_does_not_trigger": true
+      },
+      "wording_guidance": "The bonus lasts 5 turns; another broken shielding buff adds 5 turns to its remaining duration. A fixed limit of 5 turns after the latest break would be inaccurate when an existing benefit is extended.",
+      "test": "provokedAngerRealShieldBreakAddsFiveTurnsAndExpiresWithoutAnAttack"
+    },
+    {
+      "talent": "Lingering Magic",
+      "ordinary_key": "actors.hero.talent.lingering_magic.desc",
+      "defect": "Baseline ordinary description omits the expiry of the readied attack bonus.",
+      "runtime": [
+        "items/wands/Wand.java:578-581 calls Buff.prolong(..., 5f) for a hero-owned wand charger.",
+        "actors/buffs/Buff.java:282-285 and actors/Actor.java:83-91 postpone expiry to at least current time + 5.",
+        "actors/hero/Talent.java:879-882 adds rank-to-2 damage and detaches the tracker."
+      ],
+      "verified_timing": {
+        "ranks": [
+          1,
+          2
+        ],
+        "wand_contexts": [
+          "standalone owned wand",
+          "imbued wand in equipped MagesStaff"
+        ],
+        "first_application_turns": 5,
+        "reapply_with_remaining_turns": 1,
+        "remaining_after_reapply": 5,
+        "last_observed_ready_at_original_time_plus": 8.75,
+        "expired_at_original_time_plus": 9,
+        "consumed_by_actual_attack_proc": true,
+        "wand_used_spends_one_charge_and_one_hero_turn": true
+      },
+      "wording_guidance": "The bonus lasts 5 turns; another wand or staff zap refreshes that duration. The duration uses game time, not a count of five further hero button presses.",
+      "test": "lingeringMagicRealWandUseRefreshesFiveTurnsAndExpiresWithoutAnAttack"
+    }
+  ],
+  "bounded_checks_without_an_additional_provable_discrepancy": [
+    {
+      "talent": "Iron Will",
+      "checked": "Ordinary +1/+2 maximum-shield increments.",
+      "runtime": "items/BrokenSeal.java:98-100 returns 3 + 2 * armor tier + rank.",
+      "result": "The checked numeric claim matches."
+    },
+    {
+      "talent": "Scholars Intuition",
+      "checked": "3x identification progress at rank 1 and identify-on-use branch at rank 2.",
+      "runtime": "actors/hero/Talent.java:700-702; items/wands/Wand.java:523-537.",
+      "result": "The checked claim matches, subject to existing passive-identification restrictions. Existing identification-factor test covers numeric ranks."
+    },
+    {
+      "talent": "Shield Battery",
+      "checked": "4%/6% maximum HP per consumed charge, rounded after the full calculation.",
+      "runtime": "items/wands/Wand.java:773-785.",
+      "result": "The checked numeric claim matches; all charges are set to zero."
+    },
+    {
+      "talent": "Backup Barrier",
+      "checked": "3/5 shield, final charge, imbued staff for Mage and highest-level owned wand alternate.",
+      "runtime": "items/wands/Wand.java:803-826.",
+      "result": "The checked trigger and amount match. This is not a complete effect-interaction audit."
+    },
+    {
+      "talent": "Liquid Willpower",
+      "checked": "Base 6.5%/10% maximum HP coefficient.",
+      "runtime": "actors/hero/Talent.java:714-719.",
+      "result": "Base amounts match. Alchemy output probabilities and every doubled-source dependency were not reopened."
+    },
+    {
+      "talent": "Arcane Vision",
+      "checked": "10/15 turn duration.",
+      "runtime": "items/wands/Wand.java:219-221.",
+      "result": "The duration matches. Every wand-specific qualifying target or ally path was not audited."
+    },
+    {
+      "talent": "Mystical Charge",
+      "checked": "0.5/1/1.5 turns of artifact recharge.",
+      "runtime": "items/weapon/melee/MagesStaff.java:171-173.",
+      "result": "The checked amount matches rank / 2f."
+    },
+    {
+      "talent": "Wand Preservation",
+      "checked": "Old wand returns at +0, used counter blocks repeated return, rank 2 clears counter on the next processed level-up.",
+      "runtime": "items/weapon/melee/MagesStaff.java:229-239; actors/hero/Hero.java:2259-2261.",
+      "result": "No concrete correction accepted. Ordinary one hero level cooldown wording is broad; the runtime is next level-up rather than an accumulated full level of XP since use. Existing expanded detail already states the level-up behavior."
+    }
+  ],
+  "excluded_completed_or_owner_decision_scope": [
+    "Completed 19 armor-ability reviews",
+    "Excess Charge and Counter Ability APD441 fixes",
+    "Completed Feigned Retreat and Expose Weakness check",
+    "Previously completed meal and Hold Fast/Barkskin/other inventory-listed branches",
+    "Cursed Wand wording decision",
+    "Mechanic-specific panel design"
+  ],
+  "worker_changes": {
+    "tracked_files": [
+      "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java"
+    ],
+    "added_junit_tests": [
+      "provokedAngerRealShieldBreakAddsFiveTurnsAndExpiresWithoutAnAttack",
+      "lingeringMagicRealWandUseRefreshesFiveTurnsAndExpiresWithoutAnAttack"
+    ],
+    "no_production_or_mechanics_changes": true,
+    "no_github_mutation": true
+  },
+  "verification": {
+    "run_directory": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-talent-timing-attempt1",
+    "compile_provenance": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-talent-timing-attempt1/compile-provenance.json",
+    "fresh_main_java_files": 1718,
+    "fresh_test_java_files": 491,
+    "external_dependency_jars": 9,
+    "historical_game_classes_used": false,
+    "historical_test_classes_used": false,
+    "historical_SPD_or_services_jar_used": false,
+    "results": {
+      "suites": 1,
+      "tests": 511,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.668,
+      "fresh_current_source": true
+    },
+    "xml": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd442-talent-timing-attempt1/targeted/TEST-com.shatteredpixel.shatteredpixeldungeon.apd.MechanicsExplanationTest.xml",
+    "xml_sha256": "90e4f6b297f09a029bff8519d1a095be5df1c78c1040e82ab466c53a0989089c",
+    "targeted_log_sha256": "add6ed393f951ef871e040c8ad74ca8c65f9b784fc81f21b88797c2cc873c238",
+    "first_execution_passed": true,
+    "original_or_probe_test_failures": [],
+    "baseline_pre_edit_suite_rerun_claimed": false,
+    "new_test_file_sha256": "4b3a2a93ee1b5ffdb62eaa1572cf9e2f65b0261f7cea6d52aa025f771f220ba1",
+    "before_snapshot_sha256": "261cdb4397c020a818b3b7002b2ac615c2cda62a6db87382fdc264993d7481ee",
+    "patch_sha256": "4842be20ead3cea85564a48302671a564077bc2f1fdd65cb221b1e4d884e5059"
+  },
+  "remaining_gates": "Root owns final ordinary copy, normal-window native captures, complete source suite, all required compilation, APK assembly, native verification, affected-image review, exact-source scan and delivery. This worker has not run or claimed those APD442 gates.",
+  "stop_condition": "This bounded Warrior/Mage slice is complete and ready for root review; no further talent investigation or production edit by this worker."
+}

@@ -1,0 +1,4 @@
+Bug Fixes	ICON_CHECKED	Already playable characters	Already-available classes no longer announce their original unlock conditions; earned badges and character availability are retained.
+Testing	ICON_CHECKED	All class unlock policies	Check all six classes, five unlock conditions, identified and unidentified equipment, restored badges, seeded runs and genuine original-policy announcements.
+Infrastructure	ICON_INFO	Verified owner delivery evidence	Retain source and signing checks, complete same-APK Android evidence, clean small-display retry and failed-attempt records without rebuilding the application.
+Infrastructure	ICON_INFO	Exact next build record	Compare against the actual preceding APK and retain delivered promotion-fix receipts, concise player notes and honest pending candidate checks.

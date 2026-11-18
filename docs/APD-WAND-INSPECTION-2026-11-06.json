@@ -1,0 +1,27 @@
+{
+  "baseline_log": "/workspace/apd-wand-description-cleanup-before.log",
+  "confirmed_issues": [
+    "Warding statsDesc called mutating level(), clearing inactive curse-infusion state and updating charge capacity",
+    "Regrowth statsDesc called chargeLimit(heroLevel), reaching the same mutating level()",
+    "Identified Regrowth statsDesc dereferenced absent Dungeon.hero.lvl and threw NullPointerException"
+  ],
+  "fix": "Description-only paths use existing previewBaseLevel and previewChargeLimit. Depletion is withheld without a hero; actual gameplay level()/chargeLimit cleanup and formulas remain unchanged.",
+  "related_context_fix": "New plant helper now withholds floor-dependent numerical results outside an active hero/floor context, retaining formulas instead of presenting stale global depth as current.",
+  "tests": {
+    "local_full": {
+      "suites": 446,
+      "tests": 2850,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "all_wands_state_comparisons": 312,
+    "comparison_axes": "13 wand types \u00d73 base levels \u00d72 resin states \u00d72 active/inactive infusion states \u00d72 knowledge states",
+    "saved_item_capacity_and_rng_preserved": true,
+    "real_gameplay_cleanup_still_performed": true,
+    "no_hero_regrowth_and_plant_formulas_verified": true
+  },
+  "raw_junit": "/workspace/apd-wand-plant-context-local-junit.zip",
+  "apk_status": "Newer source only, not368; no fourth pair. Native new-source rendering not yet executed.",
+  "root_cause_boundary": "These are separately reproduced inspection issues; not attributed as the cause of the physical UIMSD heap crash."
+}

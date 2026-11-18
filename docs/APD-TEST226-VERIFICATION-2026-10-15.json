@@ -1,0 +1,62 @@
+{
+  "application_source": "a6e2f5e9aafb370ced629db01be300f6fab3f31e",
+  "verification_run": 38827685570,
+  "core": {
+    "tests": 1683,
+    "suites": 332,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact": 12015976872,
+    "zip_sha256": "90fc906278194ed1f4b8f141c3448610449e6a9ed50a4585ba87d25ec749526c"
+  },
+  "android": {
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact": 12016326840,
+    "zip_sha256": "d03fa8ab152141159233f00517fccc15655210e436b86c2c7ddfc3209639e9f6",
+    "screenshots": 42,
+    "contact_sheet_reviewed": true,
+    "spd_reference_reviewed": true
+  },
+  "apk_sha256": "9a93691ca9417b4f3dd63c3724ba4702d5df10cca747f3db03dd67841fee3bd6",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version": "4.0.8-apd-INDEV-bC226-TEST",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "compatibility_compared_to_published": 224,
+  "stage_run": 38827870744,
+  "stage_commit": "724181c874c83d285037dc68174cb9335e987336",
+  "stage_artifacts": [
+    {
+      "id": 12016172105,
+      "sha256": "0bc02df5e011eb9c84790bd64c3df4b808953b688b20840fa7c9a69ebd610214"
+    },
+    {
+      "id": 12016526624,
+      "sha256": "1b0e5f653b6121cbd83ced45af711bbf2871e26ff5bad516a682f15ff89de093"
+    }
+  ],
+  "pdf_sha256": "4ee08d9cfc1b36dd40f9144e74ce51df399a9db1c7ba808595ba7e450eddb127",
+  "source_zip_sha256": "ce9211f89f0805c0b22d0b2e116228873482f357f129b10948dceaf65eea41a3",
+  "build_started_utc": "2026-10-16T00:07:42Z",
+  "build_completed_utc": "2026-10-16T00:23:04Z",
+  "publication": {
+    "status": "published",
+    "run": 38829450668,
+    "commit": "b71ee501f810ab2a9fce40b75d9e418a3d546d7c",
+    "published_at": "2026-10-16T00:26:30Z",
+    "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-226",
+    "apk_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-226/ADHD-Pixel-Dungeon-Alpha-Preview-226.apk",
+    "pdf_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-226/APD-Alpha-Preview-226.pdf",
+    "apk_size": 38583318,
+    "actual_github_asset_digest": "sha256:9a93691ca9417b4f3dd63c3724ba4702d5df10cca747f3db03dd67841fee3bd6",
+    "public_release": false,
+    "tester_distribution": false,
+    "application_rebuilt": false
+  },
+  "physical_device_tested": false,
+  "tester_distribution_approved": false,
+  "broad_uimsd_audit_complete": false
+}

@@ -1,0 +1,30 @@
+{
+  "source_commit": "5a8fe508d6d3f2a449c5a9b8fa9632e22f86dcb3",
+  "build_run": 42859611090,
+  "build_artifact_id": 13784282641,
+  "build_artifact_sha256": "537ef70c6a987ac6da63ef95ee0225de76321e3d5d775dea1b151d46f34602ac",
+  "core": {
+    "tests": 3164,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "variants": {
+    "Developer": {
+      "sha256": "a8d6bac9652bde976771d82fa014e2a8ecf50ab4f4933551ed5b493ca639c675",
+      "metadata": "package: name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bC431-TEST' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "prior_history_files_preserved": 434,
+      "history_index_preserved": true,
+      "combined_lethality_normal_text_present": true,
+      "signature_verified": true
+    },
+    "Alpha-Testers": {
+      "sha256": "6a330d64dd84398a21522d1585284528878e2be6fa2fd40116e75b81ae31c405",
+      "metadata": "package: name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bP431' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "prior_history_files_preserved": 434,
+      "history_index_preserved": true,
+      "combined_lethality_normal_text_present": true,
+      "signature_verified": true
+    }
+  }
+}

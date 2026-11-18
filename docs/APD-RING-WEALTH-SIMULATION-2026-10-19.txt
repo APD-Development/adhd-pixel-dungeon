@@ -1,0 +1,154 @@
+ROW_TIERS level=0 expected=[0.6, 0.30000000000000004, 0.09999999999999998] observed=[72039, 35903, 12058] potionStacks={PotionOfExperience=3630, PotionOfFrost=1951, PotionOfHaste=1291, PotionOfHealing=3896, PotionOfInvisibility=1265, PotionOfLevitation=1362, PotionOfLiquidFlame=1984, PotionOfMindVision=2641, PotionOfParalyticGas=1335, PotionOfPurity=1261, PotionOfToxicGas=1996}
+ROW_CONSUMABLE level=0 draws=120000 regularPotionStacks=22612 healingStacks=3896 healingUnits=4284 expectedHealingShare=0.1734806629834254 observedShare=0.1722978949230497 overlappingFourHealingWindows=23 expectedFourWindowProbability=9.057415537237353E-4
+ROW_TIERS level=1 expected=[0.5599999999999999, 0.32000000000000006, 0.12] observed=[67268, 38213, 14519] potionStacks={PotionOfExperience=4210, PotionOfFrost=1874, PotionOfHaste=1191, PotionOfHealing=3810, PotionOfInvisibility=1252, PotionOfLevitation=1233, PotionOfLiquidFlame=1791, PotionOfMindVision=2492, PotionOfParalyticGas=1216, PotionOfPurity=1234, PotionOfToxicGas=1863}
+ROW_CONSUMABLE level=1 draws=120000 regularPotionStacks=22166 healingStacks=3810 healingUnits=4217 expectedHealingShare=0.16749435665914222 observedShare=0.1718848687178562 overlappingFourHealingWindows=17 expectedFourWindowProbability=7.870470876655733E-4
+ROW_TIERS level=3 expected=[0.48, 0.3600000000000001, 0.15999999999999992] observed=[57794, 43173, 19033] potionStacks={PotionOfExperience=5253, PotionOfFrost=1607, PotionOfHaste=1133, PotionOfHealing=3292, PotionOfInvisibility=1114, PotionOfLevitation=1121, PotionOfLiquidFlame=1587, PotionOfMindVision=2218, PotionOfParalyticGas=1099, PotionOfPurity=1122, PotionOfToxicGas=1572}
+ROW_CONSUMABLE level=3 draws=120000 regularPotionStacks=21118 healingStacks=3292 healingUnits=3780 expectedHealingShare=0.1547169811320755 observedShare=0.15588597405057297 overlappingFourHealingWindows=4 expectedFourWindowProbability=5.729964497728342E-4
+ROW_TIERS level=5 expected=[0.39999999999999997, 0.4000000000000001, 0.19999999999999996] observed=[47908, 48139, 23953] potionStacks={PotionOfExperience=6446, PotionOfFrost=1373, PotionOfHaste=925, PotionOfHealing=2851, PotionOfInvisibility=970, PotionOfLevitation=915, PotionOfLiquidFlame=1342, PotionOfMindVision=1850, PotionOfParalyticGas=950, PotionOfPurity=927, PotionOfToxicGas=1420}
+ROW_CONSUMABLE level=5 draws=120000 regularPotionStacks=19969 healingStacks=2851 healingUnits=3383 expectedHealingShare=0.14074074074074075 observedShare=0.14277129550803747 overlappingFourHealingWindows=9 expectedFourWindowProbability=3.9235512502799E-4
+ROW_TIERS level=10 expected=[0.19999999999999996, 0.5, 0.30000000000000004] observed=[24181, 59689, 36130] potionStacks={PotionOfExperience=9303, PotionOfFrost=916, PotionOfHaste=610, PotionOfHealing=1722, PotionOfInvisibility=575, PotionOfLevitation=615, PotionOfLiquidFlame=870, PotionOfMindVision=1227, PotionOfParalyticGas=598, PotionOfPurity=613, PotionOfToxicGas=859}
+ROW_CONSUMABLE level=10 draws=120000 regularPotionStacks=17908 healingStacks=1722 healingUnits=2453 expectedHealingShare=0.09930069930069929 observedShare=0.09615814161268707 overlappingFourHealingWindows=0 expectedFourWindowProbability=9.723200194079988E-5
+ROW_TIERS level=15 expected=[0.0, 0.6000000000000001, 0.3999999999999999] observed=[0, 71985, 48015] potionStacks={PotionOfExperience=12201, PotionOfFrost=338, PotionOfHaste=235, PotionOfHealing=720, PotionOfInvisibility=245, PotionOfLevitation=242, PotionOfLiquidFlame=342, PotionOfMindVision=495, PotionOfParalyticGas=216, PotionOfPurity=246, PotionOfToxicGas=363}
+ROW_CONSUMABLE level=15 draws=120000 regularPotionStacks=15643 healingStacks=720 healingUnits=1630 expectedHealingShare=0.045161290322580656 observedShare=0.04602697692258518 overlappingFourHealingWindows=1 expectedFourWindowProbability=4.159732155522185E-6
+ROW_NORMAL level=-1 enemy=0 eligibleKills=5000 ordinaryStacks=5 healing=5 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=1 eligibleKills=5000 ordinaryStacks=7 healing=7 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=2 eligibleKills=5000 ordinaryStacks=6 healing=6 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=3 eligibleKills=5000 ordinaryStacks=2489 healing=7 otherRegularPotions=2482 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=4 eligibleKills=5000 ordinaryStacks=1199 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=5 eligibleKills=5000 ordinaryStacks=8 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=6 eligibleKills=5000 ordinaryStacks=833 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=-1 enemy=7 eligibleKills=5000 ordinaryStacks=0 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=0 eligibleKills=5000 ordinaryStacks=5 healing=5 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=1 eligibleKills=5000 ordinaryStacks=7 healing=7 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=2 eligibleKills=5000 ordinaryStacks=6 healing=6 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=3 eligibleKills=5000 ordinaryStacks=3006 healing=7 otherRegularPotions=2999 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=4 eligibleKills=5000 ordinaryStacks=1441 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=5 eligibleKills=5000 ordinaryStacks=8 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=6 eligibleKills=5000 ordinaryStacks=986 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=0 enemy=7 eligibleKills=5000 ordinaryStacks=0 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=0 eligibleKills=5000 ordinaryStacks=5 healing=5 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=1 eligibleKills=5000 ordinaryStacks=7 healing=7 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=2 eligibleKills=5000 ordinaryStacks=6 healing=6 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=3 eligibleKills=5000 ordinaryStacks=5000 healing=7 otherRegularPotions=4993 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=4 eligibleKills=5000 ordinaryStacks=2560 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=5 eligibleKills=5000 ordinaryStacks=8 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=6 eligibleKills=5000 ordinaryStacks=1687 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=3 enemy=7 eligibleKills=5000 ordinaryStacks=0 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=0 eligibleKills=5000 ordinaryStacks=5 healing=5 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=1 eligibleKills=5000 ordinaryStacks=7 healing=7 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=2 eligibleKills=5000 ordinaryStacks=6 healing=6 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=3 eligibleKills=5000 ordinaryStacks=5000 healing=7 otherRegularPotions=4993 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=4 eligibleKills=5000 ordinaryStacks=5000 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=5 eligibleKills=5000 ordinaryStacks=9 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=6 eligibleKills=5000 ordinaryStacks=5000 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_NORMAL level=10 enemy=7 eligibleKills=5000 ordinaryStacks=0 healing=0 otherRegularPotions=0 bonusSuppressedByExplicitTestCounter=true
+ROW_POTION class=PotionOfStrength weight=0.0/30 observed=0/150000
+ROW_POTION class=PotionOfHealing weight=6.0/30 observed=29864/150000
+ROW_POTION class=PotionOfMindVision weight=4.0/30 observed=20130/150000
+ROW_POTION class=PotionOfFrost weight=3.0/30 observed=14856/150000
+ROW_POTION class=PotionOfLiquidFlame weight=3.0/30 observed=15165/150000
+ROW_POTION class=PotionOfToxicGas weight=3.0/30 observed=15003/150000
+ROW_POTION class=PotionOfHaste weight=2.0/30 observed=10063/150000
+ROW_POTION class=PotionOfInvisibility weight=2.0/30 observed=9947/150000
+ROW_POTION class=PotionOfLevitation weight=2.0/30 observed=10046/150000
+ROW_POTION class=PotionOfParalyticGas weight=2.0/30 observed=10001/150000
+ROW_POTION class=PotionOfPurity weight=2.0/30 observed=9927/150000
+ROW_POTION class=PotionOfExperience weight=1.0/30 observed=4998/150000
+ROW_RULES five difficulty presets; all18 rules at both limits; 41000 exact seeded consumable draws compared
+ROW_GOO bossKills=2000 ordinaryHealing=0 bonusHealing=80 otherBonusRewards=2954 bossTryWeight=15
+ROW_BONUS level=0 depth=1 role=0 eligibleKills=4000 weightedTries=4000 rewards=404
+ROW_BONUS level=0 depth=1 role=1 eligibleKills=400 weightedTries=2000 rewards=195
+ROW_BONUS level=0 depth=1 role=2 eligibleKills=160 weightedTries=2400 rewards=242
+ROW_BONUS level=0 depth=6 role=0 eligibleKills=4000 weightedTries=4000 rewards=400
+ROW_BONUS level=0 depth=6 role=1 eligibleKills=400 weightedTries=2000 rewards=205
+ROW_BONUS level=0 depth=6 role=2 eligibleKills=160 weightedTries=2400 rewards=239
+ROW_BONUS level=0 depth=11 role=0 eligibleKills=4000 weightedTries=4000 rewards=393
+ROW_BONUS level=0 depth=11 role=1 eligibleKills=400 weightedTries=2000 rewards=192
+ROW_BONUS level=0 depth=11 role=2 eligibleKills=160 weightedTries=2400 rewards=236
+ROW_BONUS level=0 depth=16 role=0 eligibleKills=4000 weightedTries=4000 rewards=416
+ROW_BONUS level=0 depth=16 role=1 eligibleKills=400 weightedTries=2000 rewards=208
+ROW_BONUS level=0 depth=16 role=2 eligibleKills=160 weightedTries=2400 rewards=243
+ROW_BONUS level=0 depth=21 role=0 eligibleKills=4000 weightedTries=4000 rewards=404
+ROW_BONUS level=0 depth=21 role=1 eligibleKills=400 weightedTries=2000 rewards=212
+ROW_BONUS level=0 depth=21 role=2 eligibleKills=160 weightedTries=2400 rewards=235
+ROW_BONUS_TOTAL level=0 tries=42000 rewards=4224 expectedMean=4200.0
+ROW_BONUS level=1 depth=1 role=0 eligibleKills=4000 weightedTries=4000 rewards=406
+ROW_BONUS level=1 depth=1 role=1 eligibleKills=400 weightedTries=2000 rewards=196
+ROW_BONUS level=1 depth=1 role=2 eligibleKills=160 weightedTries=2400 rewards=233
+ROW_BONUS level=1 depth=6 role=0 eligibleKills=4000 weightedTries=4000 rewards=395
+ROW_BONUS level=1 depth=6 role=1 eligibleKills=400 weightedTries=2000 rewards=211
+ROW_BONUS level=1 depth=6 role=2 eligibleKills=160 weightedTries=2400 rewards=228
+ROW_BONUS level=1 depth=11 role=0 eligibleKills=4000 weightedTries=4000 rewards=404
+ROW_BONUS level=1 depth=11 role=1 eligibleKills=400 weightedTries=2000 rewards=194
+ROW_BONUS level=1 depth=11 role=2 eligibleKills=160 weightedTries=2400 rewards=235
+ROW_BONUS level=1 depth=16 role=0 eligibleKills=4000 weightedTries=4000 rewards=405
+ROW_BONUS level=1 depth=16 role=1 eligibleKills=400 weightedTries=2000 rewards=210
+ROW_BONUS level=1 depth=16 role=2 eligibleKills=160 weightedTries=2400 rewards=239
+ROW_BONUS level=1 depth=21 role=0 eligibleKills=4000 weightedTries=4000 rewards=395
+ROW_BONUS level=1 depth=21 role=1 eligibleKills=400 weightedTries=2000 rewards=214
+ROW_BONUS level=1 depth=21 role=2 eligibleKills=160 weightedTries=2400 rewards=231
+ROW_BONUS_TOTAL level=1 tries=42000 rewards=4196 expectedMean=4200.0
+ROW_BONUS level=3 depth=1 role=0 eligibleKills=4000 weightedTries=4000 rewards=412
+ROW_BONUS level=3 depth=1 role=1 eligibleKills=400 weightedTries=2000 rewards=198
+ROW_BONUS level=3 depth=1 role=2 eligibleKills=160 weightedTries=2400 rewards=242
+ROW_BONUS level=3 depth=6 role=0 eligibleKills=4000 weightedTries=4000 rewards=394
+ROW_BONUS level=3 depth=6 role=1 eligibleKills=400 weightedTries=2000 rewards=202
+ROW_BONUS level=3 depth=6 role=2 eligibleKills=160 weightedTries=2400 rewards=243
+ROW_BONUS level=3 depth=11 role=0 eligibleKills=4000 weightedTries=4000 rewards=391
+ROW_BONUS level=3 depth=11 role=1 eligibleKills=400 weightedTries=2000 rewards=192
+ROW_BONUS level=3 depth=11 role=2 eligibleKills=160 weightedTries=2400 rewards=237
+ROW_BONUS level=3 depth=16 role=0 eligibleKills=4000 weightedTries=4000 rewards=409
+ROW_BONUS level=3 depth=16 role=1 eligibleKills=400 weightedTries=2000 rewards=209
+ROW_BONUS level=3 depth=16 role=2 eligibleKills=160 weightedTries=2400 rewards=239
+ROW_BONUS level=3 depth=21 role=0 eligibleKills=4000 weightedTries=4000 rewards=390
+ROW_BONUS level=3 depth=21 role=1 eligibleKills=400 weightedTries=2000 rewards=205
+ROW_BONUS level=3 depth=21 role=2 eligibleKills=160 weightedTries=2400 rewards=236
+ROW_BONUS_TOTAL level=3 tries=42000 rewards=4199 expectedMean=4200.0
+ROW_BONUS level=5 depth=1 role=0 eligibleKills=4000 weightedTries=4000 rewards=398
+ROW_BONUS level=5 depth=1 role=1 eligibleKills=400 weightedTries=2000 rewards=196
+ROW_BONUS level=5 depth=1 role=2 eligibleKills=160 weightedTries=2400 rewards=242
+ROW_BONUS level=5 depth=6 role=0 eligibleKills=4000 weightedTries=4000 rewards=389
+ROW_BONUS level=5 depth=6 role=1 eligibleKills=400 weightedTries=2000 rewards=212
+ROW_BONUS level=5 depth=6 role=2 eligibleKills=160 weightedTries=2400 rewards=241
+ROW_BONUS level=5 depth=11 role=0 eligibleKills=4000 weightedTries=4000 rewards=403
+ROW_BONUS level=5 depth=11 role=1 eligibleKills=400 weightedTries=2000 rewards=189
+ROW_BONUS level=5 depth=11 role=2 eligibleKills=160 weightedTries=2400 rewards=239
+ROW_BONUS level=5 depth=16 role=0 eligibleKills=4000 weightedTries=4000 rewards=405
+ROW_BONUS level=5 depth=16 role=1 eligibleKills=400 weightedTries=2000 rewards=208
+ROW_BONUS level=5 depth=16 role=2 eligibleKills=160 weightedTries=2400 rewards=250
+ROW_BONUS level=5 depth=21 role=0 eligibleKills=4000 weightedTries=4000 rewards=404
+ROW_BONUS level=5 depth=21 role=1 eligibleKills=400 weightedTries=2000 rewards=202
+ROW_BONUS level=5 depth=21 role=2 eligibleKills=160 weightedTries=2400 rewards=239
+ROW_BONUS_TOTAL level=5 tries=42000 rewards=4217 expectedMean=4200.0
+ROW_BONUS level=10 depth=1 role=0 eligibleKills=4000 weightedTries=4000 rewards=412
+ROW_BONUS level=10 depth=1 role=1 eligibleKills=400 weightedTries=2000 rewards=199
+ROW_BONUS level=10 depth=1 role=2 eligibleKills=160 weightedTries=2400 rewards=240
+ROW_BONUS level=10 depth=6 role=0 eligibleKills=4000 weightedTries=4000 rewards=396
+ROW_BONUS level=10 depth=6 role=1 eligibleKills=400 weightedTries=2000 rewards=205
+ROW_BONUS level=10 depth=6 role=2 eligibleKills=160 weightedTries=2400 rewards=252
+ROW_BONUS level=10 depth=11 role=0 eligibleKills=4000 weightedTries=4000 rewards=392
+ROW_BONUS level=10 depth=11 role=1 eligibleKills=400 weightedTries=2000 rewards=193
+ROW_BONUS level=10 depth=11 role=2 eligibleKills=160 weightedTries=2400 rewards=229
+ROW_BONUS level=10 depth=16 role=0 eligibleKills=4000 weightedTries=4000 rewards=390
+ROW_BONUS level=10 depth=16 role=1 eligibleKills=400 weightedTries=2000 rewards=202
+ROW_BONUS level=10 depth=16 role=2 eligibleKills=160 weightedTries=2400 rewards=239
+ROW_BONUS level=10 depth=21 role=0 eligibleKills=4000 weightedTries=4000 rewards=394
+ROW_BONUS level=10 depth=21 role=1 eligibleKills=400 weightedTries=2000 rewards=201
+ROW_BONUS level=10 depth=21 role=2 eligibleKills=160 weightedTries=2400 rewards=235
+ROW_BONUS_TOTAL level=10 tries=42000 rewards=4179 expectedMean=4200.0
+ROW_BONUS level=15 depth=1 role=0 eligibleKills=4000 weightedTries=4000 rewards=404
+ROW_BONUS level=15 depth=1 role=1 eligibleKills=400 weightedTries=2000 rewards=199
+ROW_BONUS level=15 depth=1 role=2 eligibleKills=160 weightedTries=2400 rewards=246
+ROW_BONUS level=15 depth=6 role=0 eligibleKills=4000 weightedTries=4000 rewards=403
+ROW_BONUS level=15 depth=6 role=1 eligibleKills=400 weightedTries=2000 rewards=209
+ROW_BONUS level=15 depth=6 role=2 eligibleKills=160 weightedTries=2400 rewards=238
+ROW_BONUS level=15 depth=11 role=0 eligibleKills=4000 weightedTries=4000 rewards=408
+ROW_BONUS level=15 depth=11 role=1 eligibleKills=400 weightedTries=2000 rewards=190
+ROW_BONUS level=15 depth=11 role=2 eligibleKills=160 weightedTries=2400 rewards=232
+ROW_BONUS level=15 depth=16 role=0 eligibleKills=4000 weightedTries=4000 rewards=390
+ROW_BONUS level=15 depth=16 role=1 eligibleKills=400 weightedTries=2000 rewards=206
+ROW_BONUS level=15 depth=16 role=2 eligibleKills=160 weightedTries=2400 rewards=234
+ROW_BONUS level=15 depth=21 role=0 eligibleKills=4000 weightedTries=4000 rewards=403
+ROW_BONUS level=15 depth=21 role=1 eligibleKills=400 weightedTries=2000 rewards=200
+ROW_BONUS level=15 depth=21 role=2 eligibleKills=160 weightedTries=2400 rewards=236
+ROW_BONUS_TOTAL level=15 tries=42000 rewards=4198 expectedMean=4200.0

@@ -1,0 +1,11 @@
+# Seal shield status explanation — source only
+
+The owner APK delivery hold remains active. Delivered369 is unchanged. The whole mechanics audit is unfinished.
+
+The existing status exposes a shield reserve and cooldown number without explaining how activation, cooldown credit and the post-combat refund interact. The optional calculations panel now distinguishes temporary shield points, current activation capacity, positive cooldown time, negative saved cooldown credit and enemy-free decay progress. It explains the half-HP activation check (rounding down at odd maximum HP), non-hunger restriction, regeneration gate, Hold Fast/Combo interactions and the exact proportional refund with integer truncation.
+
+Inspection adds only read-only getters for existing serialized fields; it never calls HoldFast.buffDecayFactor, which can detach an out-of-position buff. Actual damage, activation, cooldown, refund and save formulas remain unchanged.
+
+Targeted tests passed after two fixture corrections, with original failed logs retained: `/workspace/apd-seal-status-targeted.log` assumed a new LockedFloor had no grace time, but it begins with 50 units; the corrected fixture exhausts that existing grace before asserting a paused cooldown. `/workspace/apd-seal-status-threshold.log` reached a missing native cell selector through the headless damage interruption UI; the corrected fixture uses the existing damageInterrupt=false preference while retaining real Hero.damage and Char.damage. No production mechanics or assertion was weakened to fix either fixture.
+
+Passing targeted evidence: `/workspace/apd-seal-status-targeted-corrected-fixture.log`, `/workspace/apd-seal-status-threshold-corrected-fixture.log`. Tests cover real activation/cooldown/refund, saved negative credit, paused countdown, Hold Fast, save/reload, buff/Hero/RNG inspection purity, and six real damage contexts across odd-HP threshold and hunger exclusion. Full local suite passed 2,877 tests / 446 suites, zero failures/errors/skips. Raw XML `/workspace/apd-seal-status-local-junit.zip`; full log `/workspace/apd-seal-status-full.log`. Required remote Android/desktop source compilation remains pending. Native/phone text acceptance and complete combined-shield interactions are not claimed.

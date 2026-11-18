@@ -1,0 +1,24 @@
+# APD Runic Slash / Projecting and Arcana description repair
+Reviewed 2026-10-22T02:10:49.784Z; application source checkpoint `a081b8791570ee3cfb3bc4c019e845e6f7c49ae7`. Owner report 2026-10-21.
+
+## Confirmed root cause
+`Weapon.Enchantment.genericProcChanceMultiplier` originally consumed and detached `RunicSlashTracker` (and `ElementalStrike.DirectedPowerTracker`) even when `Weapon.reachFactor` called it merely to check a target. This mutated an actual pending attack while trying to inspect reach. `RunicBlade` applied the boost before its `hero.canAttack` check. The targeting range itself was already finite through `KindOfWeapon.canReach`; at +6 the temporary enchantment boost is 3+0.5*6 = 6 (600 percent added power). Without Arcana or other modifiers, Projecting increases reach from one to eight tiles, and a ninth tile is beyond range. Do not classify legitimate eight-tile attacks as an infinite-range exploit.
+
+## Implementation
+- `Weapon.Enchantment.genericProcChanceMultiplierReadOnly` shares its power arithmetic with the actual consuming proc method but leaves one-use buffs attached during a range check. Actual combat procs still consume normally. The projecting reach calculation is bounded by the maximum possible shortest path on the finite current floor, preventing overflow without reducing a physically reachable attack.
+- Runic Blade uses one `runicSlashEnchantBoost()` formula both for temporary attack boost and its description.
+- Arcana Projecting previews distinguish melee added/total reach, ranged wall-penetration radius, separately added Runic Slash power and actual other active power modifiers. ASCII "to" replaces the invalid glyph. Identified Arcana and equipment details are required; unknown identities/upgrades remain suppressed.
+- `ArcanaInfoDisplay` provides source-specific text for the 48 built-in enchantments/curses/glyphs and calculated strength for exact effects such as Blocking, Chilling, Shocking, Venomous, Eldritch, Elastic, Blooming, Potential, Entanglement, Repulsion, Affection and Thorns. Target-dependent and randomized outcomes are explicitly qualified, not assigned invented damage/turns.
+- No gameplay damage, scoring, spawn/hunger, save format, raw UIMSD history, RNG or signing changes.
+
+## Verification
+Core run https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/39709404209: 2,046 tests /397 suites /0 failed /0 errors /0 skipped; preserved all six shared UIMSD window regressions. Earlier run39707812284: 2,044/397 with only the new English message-count fixture failure. Run39708731383: 2,045/397 passed after exact reviewed count correction. Run39709184603 did not execute JUnit due to a nonexistent test-only cleanup method, subsequently corrected at core-only run39709404209.
+
+## TEST306 acceptance
+The exact candidate/request source `26f19563edeca990ea7edd2e4bc6287c8ebb01b1` completed main run [39709967038](https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/39709967038): 2,046 core tests /397 suites and API34 53/53, all with zero failures/errors/skips. The 79 decoded API34 PNGs were reviewed in four contact sheets; release/history, rules, scoring, navigation and UIMSD captures were nonblank and showed no obvious clipping or corruption. The native Arcana item-description method passed its known-ring/privacy/window-fit checks.
+
+The developer APK is `ADHD-Pixel-Dungeon-CODEX-TEST-306.apk`, 38,735,750 bytes, SHA-256 `0d133ecb1dd86df523f05a422b0a14ab5fac9489c3bfdcead50b435acbc180c7`. The paired regular-player APK is `APD-Player-TEST306.apk`, 38,735,577 bytes, SHA-256 `ec5dbbbcf6d91fd7a8d10ec600c8e746262d03db0dbd2cfd65170980814d5851`; it omits the private feature asset. Direct extraction against actual developer TEST305 preserved all 332 predecessor build records byte-for-byte and added only the TEST306 record plus its index row. Both TEST306 variants contain the same 333 indexed records /334 history TSV assets including the index.
+
+Hotbar cold restart/player settings and actual-death cleanup passed against the exact current developer APK without clearing app data. All five display profiles passed; the display guard reused TEST305 only because protected title/display inputs were unchanged, and the short-landscape 960x320 captures were manually reviewed. Staging failed closed before any mutation because the publication commit would change application/build inputs. No release or tester distribution occurred.
+
+TEST306 is the newest emulator-verified private pair. TEST262 remains the latest actually published owner APK; TEST304 remains an earlier all-display verified fallback. Direct physical RedMagic install-over, real-save, and Runic/Arcana gameplay acceptance remain unverified. Do not publish or distribute automatically. Full receipt: `docs/APD-TEST306-VERIFICATION-2026-10-22.json`.

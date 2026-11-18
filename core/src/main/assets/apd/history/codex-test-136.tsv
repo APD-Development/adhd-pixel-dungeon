@@ -1,0 +1,53 @@
+Changes	V061_BUGFIX	Corrosive cloud ownership	Prepared persistent corrosion attribution using the existing strongest-cloud source rule.
+Changes	V063_MAGICMISSILE	Corrosion wand source	Prepared caster attribution for corrosion-wand clouds.
+Changes	V061_BUGFIX	DM-201 gas source	Prepared attacker attribution for DM-201's corrosive clouds.
+Statistics / UIMSD	V061_BUGFIX	Raw rules and score records	Keep exact custom settings, scoring authority and available adjusted scores in permanent run events.
+Statistics / UIMSD	V061_BUGFIX	Telemetry compatibility	Version the additive custom-rules records as telemetry 1.11 while retaining older histories.
+Bug Fixes	V061_BUGFIX	Rules in unfinished exports	Preserve public custom settings and scoring metadata while removing unfinished-run seeds.
+Statistics / UIMSD	V061_BUGFIX	Statistics cache refresh	Rebuild derived statistics for the new fields while preserving raw history.
+Statistics / UIMSD	V061_BUGFIX	Custom rules columns	Add custom settings, generation counts and scoring fields to filters, comparisons and exports.
+Statistics / UIMSD	V061_BUGFIX	Recorded settings and counts	Read permanent rule snapshots and count generated equipment and upgrade scrolls without duplicating items.
+Statistics / UIMSD	V061_BUGFIX	Creation-time scoring records	Record the run's frozen scoring authority and preserve its original earned score.
+Statistics / UIMSD	V061_BUGFIX	Exact custom run fields	Expose all selected rules, exact scroll availability and recorded scoring metadata in run statistics.
+Statistics / UIMSD	V061_BUGFIX	Permanent scoring status	Record neutral identity or pending calibration at run creation without awarding new multipliers.
+Statistics / UIMSD	V061_BUGFIX	Historical score provenance	Expose original imported scores without inventing historical custom settings.
+Statistics / UIMSD	V061_BUGFIX	Locked scoring authority	Save and restore each run's frozen scoring status without assigning defaults to older saves.
+Statistics / UIMSD	V061_BUGFIX	Distinct custom rulesets	Keep different custom configurations in separate ruleset scopes while retaining neutral and historical identities.
+Statistics / UIMSD	V061_BUGFIX	Run row cache compatibility	Refresh cached run rows and retain original imported score values.
+Changes	V063_MAGICMISSILE	CrystalWisp offensive source	Prepared caster-based CrystalWisp damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	HolyLance offensive source	Prepared caster-based HolyLance damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Necromancer offensive source	Prepared caster-based Necromancer damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Eye offensive source	Prepared caster-based Eye damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Judgement offensive source	Prepared caster-based Judgement damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	GuidingLight offensive source	Prepared caster-based GuidingLight damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Sunray offensive source	Prepared caster-based Sunray damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	SpectralNecromancer offensive source	Prepared caster-based SpectralNecromancer damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Warlock offensive source	Prepared caster-based Warlock damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Radiance offensive source	Prepared caster-based Radiance damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	Shaman offensive source	Prepared caster-based Shaman damage while retaining its original source type and timing.
+Changes	V063_MAGICMISSILE	DM100 offensive source	Prepared caster-based DM100 damage while retaining its original source type and timing.
+Quality of Life	V061_PAGE	Honest scoring labels	Show 1.00× only for recorded neutral authority and mark pending or unavailable scoring explicitly.
+Changes	V061_BUGFIX	Android scoring verification	Add native neutral, pending and historical score checks, touchscreen scrolling and Android Back coverage.
+Quality of Life	V061_PAGE	Custom scoring breakdown	Show custom multipliers and adjusted-score availability beneath the original challenge multiplier, with native scrolling.
+Changes	V061_BUGFIX	Shared Android evidence helpers	Reuse existing render, lookup and screenshot helpers for the added score checks.
+Quality of Life	V061_PAGE	Ranking score context	Use the selected ranking's own saved rules and score when opening its breakdown.
+Statistics / UIMSD	V061_BUGFIX	Ranking configuration snapshot	Keep each new ranking's locked custom configuration without changing its score or ordering.
+Changes	V061_BUGFIX	Attributed Corrosive Gas Integration Test	Added attributed corrosive gas integration test coverage for the updated behavior.
+Changes	V061_BUGFIX	Offensive Enemy Spell Integration Test	Added offensive enemy spell integration test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Rule Telemetry Test	Added custom rule telemetry test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Rule Query Integration Test	Added custom rule query integration test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Rule Identity Test	Added custom rule identity test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Rule Recorder Integration Test	Added custom rule recorder integration test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Rule Archive Integration Test	Added custom rule archive integration test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Rule Generation Count Test	Added custom rule generation count test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Score Presentation Test	Added custom score presentation test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Score Ranking Snapshot Test	Added custom score ranking snapshot test coverage for the updated behavior.
+Changes	V061_BUGFIX	Custom Score Snapshot Test	Added custom score snapshot test coverage for the updated behavior.
+Changes	V061_BUGFIX	Telemetry Version Test	Added telemetry version test coverage for the updated behavior.
+Changes	V061_BUGFIX	Required Android score evidence	Require the new score-popup checks and all four screenshots before accepting Android verification.
+Changes	V061_PAGE	Recorded alpha verification	Record completed ooze verification, new regression results and the remaining alpha blockers.
+Changes	V061_BUGFIX	QuestBossClassificationTest verification correction	Decode recorded rules without depending on live gameplay classes.
+Bug Fixes	V061_BUGFIX	RecordedRuleSettings verification correction	Document the custom-rules telemetry milestone alongside previous records.
+Bug Fixes	V061_BUGFIX	apd_records_history verification correction	Test frozen settings and unsupported metadata without assigning defaults.
+Changes	V061_BUGFIX	RecordedRuleSettingsTest verification correction	Record the failed TEST135 checks and the safe verification correction.
+Changes	V061_BUGFIX	APD TEST136 REPORT 2026 10 13 verification correction	Preserve the exact TEST135 source and failed-build evidence for review.

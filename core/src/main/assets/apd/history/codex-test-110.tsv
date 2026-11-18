@@ -1,0 +1,5 @@
+Statistics / UIMSD	ICON_DATA	Exact run records	Single-run reports and linked records no longer mix distinct run identifiers that differ only by letter case.
+Statistics / UIMSD	ICON_DATA	CSV report completeness	CSV reports now disclose when their existing large-table limit leaves entries out, matching the other export formats.
+Testing	ICON_CHECKED	Record links and exports	Added case-sensitive report and navigation regressions, CSV completeness checks and native Android link-touch coverage.
+Development	ICON_INFO	Verification records	Recorded the preceding APK's successful checks and the next audit corrections without changing saved player data.
+Developer Commentary	V074_SHPX	Developer Commentary	I corrected run navigation that could mix case-distinct identifiers and made incomplete CSV reports say so. Existing player text searches and recorded data remain intact.

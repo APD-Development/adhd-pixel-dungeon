@@ -1,0 +1,78 @@
+Infrastructure	ICON_INFO	run-device-tests	Updated the run-device-tests development workflow; it is not gameplay content.
+Testing	ICON_CHECKED	Archive Migration Device Test	Updated Android checks and fixtures for archive migration device. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Device Logs	Updated Android checks and fixtures for device logs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Device Timing Test	Added a device test covering uimsd Is Fast Enough On This Device. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_CHANGES	Recording format notes	Updated the recording-format history bundled with this APK.
+Changes	ICON_WELL_HEALTH	Water Of Health	Recorded exact health restored through WaterOfHealth without changing the healing effect.
+Changes	ICON_WELL_HEALTH	Healing	Recorded exact health restored through Healing without changing the healing effect.
+Changes	ICON_INFO	Magical Sleep	Recorded exact health restored through MagicalSleep without changing the healing effect.
+Changes	ICON_INFO	Regeneration	Recorded exact health restored through Regeneration without changing the healing effect.
+Changes	ICON_INFO	Well Fed	Recorded exact health restored through WellFed without changing the healing effect.
+Changes	ICON_INFO	Talent	Recorded exact health restored through Talent without changing the healing effect.
+Changes	ICON_CHALLENGE_COLOR	Challenge	Recorded exact health restored through Challenge without changing the healing effect.
+Changes	ICON_INFO	Elemental Strike	Recorded exact health restored through ElementalStrike without changing the healing effect.
+Changes	ICON_INFO	Enemy events	Recorded exact health restored through Mob without changing the healing effect.
+Changes	ICON_INFO	Demo Generator	Added exact-healing examples to fictional demo history.
+Changes	ICON_INFO	Demo Log	Encoded exact healing and its source in fictional demo logs.
+Statistics / UIMSD	ICON_STATS	Datasets	Added exact, inferred and per-source healing statistics.
+Statistics / UIMSD	ICON_STATS	Row Builders	Derived exact-healing table values from the recorded history.
+Statistics / UIMSD	ICON_TARGET	Apd Combat	Added safe hooks reporting actual restored HP and its source.
+Statistics / UIMSD	ICON_STATS	Apd Recorder	Connected exact-healing facts to the run recorder.
+Statistics / UIMSD	ICON_TARGET	Combat Tracker	Separated reported exact healing from inferred healing without double counting.
+Statistics / UIMSD	ICON_TARGET	Combat Events	Encoded exact-healing amounts, sources and visibility.
+Statistics / UIMSD	ICON_STATS	Derived Store	Invalidated derived caches for the new healing schema.
+Statistics / UIMSD	ICON_STATS	Event Types	Registered the exact healing event types with stable recording identifiers.
+Statistics / UIMSD	ICON_STATS	Fact Keys	Registered stable names for exact-healing facts.
+Statistics / UIMSD	ICON_STATS	Run Facts Builder	Calculated exact, inferred and source-specific healing totals.
+Statistics / UIMSD	ICON_STATS	Telemetry Version	Advanced the run-recording schema to version 1.6.
+Changes	ICON_BACKPACK	Dewdrop	Recorded exact health restored through Dewdrop without changing the healing effect.
+Changes	ICON_BACKPACK	Metabolism	Recorded exact health restored through Metabolism without changing the healing effect.
+Changes	ICON_BACKPACK	Chalice Of Blood	Recorded exact health restored through ChaliceOfBlood without changing the healing effect.
+Changes	ICON_BACKPACK	Frozen Carpaccio	Recorded exact health restored through FrozenCarpaccio without changing the healing effect.
+Changes	ICON_BACKPACK	Pasty	Recorded exact health restored through Pasty without changing the healing effect.
+Changes	ICON_BACKPACK	Phantom Meat	Recorded exact health restored through PhantomMeat without changing the healing effect.
+Changes	ICON_BACKPACK	Supply Ration	Recorded exact health restored through SupplyRation without changing the healing effect.
+Changes	ICON_BACKPACK	Elixir Of Aquatic Rejuvenation	Recorded exact health restored through ElixirOfAquaticRejuvenation without changing the healing effect.
+Changes	ICON_BACKPACK	Escape Crystal	Recorded exact health restored through EscapeCrystal without changing the healing effect.
+Changes	ICON_BACKPACK	Torn Page	Recorded exact health restored through TornPage without changing the healing effect.
+Changes	ICON_BACKPACK	Cursed Wand	Recorded exact health restored through CursedWand without changing the healing effect.
+Changes	ICON_BACKPACK	Wand Of Transfusion	Recorded exact health restored through WandOfTransfusion without changing the healing effect.
+Changes	ICON_TARGET	Vampiric	Recorded exact health restored through Vampiric without changing the healing effect.
+Changes	ICON_STAIRS	City Level	Recorded exact health restored through CityLevel without changing the healing effect.
+Changes	ICON_WELL_HEALTH	Sungrass	Recorded exact health restored through Sungrass without changing the healing effect.
+Testing	ICON_WELL_HEALTH	Exact Healing Wiring Test 1	Added a test covering every Line That Raises An Hp Is A Pinned Hooked Heal Or An Explained Exemption. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Wiring Test 2	Added a test covering every Hook Passes A Known Source And The Hp From Just Before The Heal. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Wiring Test 3	Added a test covering heal Keys Are Unique Categorised And All In Use. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test	Updated automated checks and fixtures for archive round trip. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Facts Test 1	Added a test covering a Run Where Every Heal Was Reported Has Exact Totals And Per Source Totals. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Facts Test 2	Added a test covering a Heal That Was Only Inferred Keeps The Total Honest And Is Counted Separately. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Facts Test 3	Added a test covering runs From Before Exact Healing Keep Their Inferred Healing And Have No Source Facts. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Facts Test 4	Added a test covering lost Events Make Every Healing Number A Lower Bound. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Facts Test 5	Added a test covering a Source From A Newer Build Counts As Other And Never Breaks The Run. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Facts Test 6	Added a test covering a Redacted Copy Keeps The Healed Amounts But Nothing About What Healed. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Healing Volume Test	Added a test covering exact Healing Costs Few Bytes Per Heal And Little Per Run. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Test Logs	Updated automated checks and fixtures for test logs. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Dataset Test 1	Added a test covering the Amounts Are Public And Every Column That Names A Source Is Hidden. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Dataset Test 2	Added a test covering a Finished Run Shows Exact Totals And Sources An Unfinished Run Shows Only The Amount. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Dataset Test 3	Added a test covering what Ever Healed An Unfinished Run Cannot Be Told From Anything The View Shows. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Dataset Test 4	Added a test covering runs From Before Exact Healing Show Unknown Sources And A Guessed Total. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Dataset Test 5	Added a test covering the Segments Of One Run Add Up Their Healing By Source. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Synthetic Log	Updated automated checks and fixtures for synthetic log. These are development checks, not a gameplay feature.
+Testing	ICON_TARGET	Combat Safety Test	Updated automated checks and fixtures for combat safety. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Test 1	Added a test covering a Reported Heal Is Exact Names Its Source In The Hidden Event And Is Not Counted Again. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Test 2	Added a test covering the Amount Is What The Game Really Applied Not What Was Asked For. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Test 3	Added a test covering a Heal The Hooks Do Not Know About Is Still Noticed And Marked Inferred Beside Exact Ones. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Test 4	Added a test covering a Heal Earlier In The Turn Is Not Swallowed By Later Damage Any More. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Test 5	Added a test covering healing Other Creatures And Heals That Change Nothing Are Not Recorded. These are development checks, not a gameplay feature.
+Testing	ICON_WELL_HEALTH	Exact Healing Test 6	Added a test covering the Games Own Healing Code Reports Through Its Hooks. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Derived Store Test	Updated automated checks and fixtures for derived store. These are development checks, not a gameplay feature.
+Testing	ICON_BACKPACK	Item Events Test	Updated automated checks and fixtures for item events. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Telemetry Version Test	Updated automated checks and fixtures for telemetry version. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	event type manifest	Updated automated checks and fixtures for event type manifest. These are development checks, not a gameplay feature.
+Development	ICON_TARGET	APD-STATS-COMBAT	Updated apd-stats-combat accompanying this build.
+Development	ICON_STATS	APD-STATS-SCHEMA	Updated apd-stats-schema accompanying this build.
+Statistics / UIMSD	ICON_STATS	Healed	Renamed the Healed (inferred) statistics field to Healed.
+Statistics / UIMSD	ICON_STATS	Healed (guessed part)	Added the Healed (guessed part) statistics field; unrecorded values remain unknown.
+Statistics / UIMSD	ICON_STATS	Healed by	Added the Healed by  statistics field; unrecorded values remain unknown.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Updated the recording-format history bundled with this APK.

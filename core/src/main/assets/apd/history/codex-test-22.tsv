@@ -1,0 +1,17 @@
+Infrastructure	ICON_DATA	Outbox Store	Rejected duplicate or malformed queued envelopes instead of silently rewriting them.
+Infrastructure	ICON_DATA	Backend Client	Preserved damaged queues and refused to send or overwrite unreadable entries.
+Infrastructure	ICON_DATA	Privacy Summary	Reported an unreadable queue as unknown rather than falsely empty.
+Statistics / UIMSD	ICON_STATS	Status Text	Distinguished genuine history counts from local settings and queued infrastructure entries.
+Testing	ICON_DATA	Outbox Store Test	Updated automated checks and fixtures for outbox store. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test	Updated automated checks and fixtures for submission queue. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Status Text Counts Test 1	Added a test covering multiple Items From One Run Are Not Presented As Multiple Runs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Status Text Counts Test 2	Added a test covering single Item Uses Singular Wording. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Combined Scope Audit Test 1	Added a test covering empty Home Explains Excluded History Without Deleting It. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Combined Scope Audit Test 2	Added a test covering scoped Filtered Sorted Reordered Views Keep Correct Rows Across Disk Reload. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_STATS	APD-UIMSD-AUDIT-2026-10-09	Added apd-uimsd-audit-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Distinguished genuine history counts from local settings and queued infrastructure entries.

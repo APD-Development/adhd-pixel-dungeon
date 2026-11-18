@@ -1,0 +1,62 @@
+{
+  "recorded_utc": "2026-11-09T19:58:50.810337+00:00",
+  "authorization_end_utc": "2026-11-09T20:00:00Z",
+  "latest_published": {
+    "number": 428,
+    "source": "28013435e236058ec9945ab5968ec258c4c380aa",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-428",
+    "core": 3158,
+    "suites": 457,
+    "native": 12,
+    "manual_new_frames": 33,
+    "source_manifest_files": 4781,
+    "receipt": "docs/APD-428-DELIVERY-RECEIPT.json"
+  },
+  "main_branch": "codex/apd-phone-fixes-2026-10-09",
+  "separate_followup": {
+    "branch": "codex/apd-description-followup-20261109T1933",
+    "head": "cb75401789010dfbd84c8e7c8bc343fdbb0e6700",
+    "core": 3160,
+    "suites": 457,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "latest_source_compile_run": 42688225690,
+    "latest_source_compile_status": "in_progress atrecording",
+    "prior_compile_passed": {
+      "commit": "02060b4ff0a5df050c8ec38c2bf974e11b90629a",
+      "core": 3159,
+      "run": 42685979663
+    },
+    "native": "Not yetverified; no newAPK; absent428",
+    "changes": [
+      "NormalPriestgrammar/Poison/Bleeding/plainSpeedlabels; twoEnglishkeys5355total",
+      "ShieldOfLightdisplayed5/4timers verifiedbyrealinstantcast/charge; testfixturecleanup corrected",
+      "Summoncommands explicitlynoarmorcharge",
+      "BountyHuntercurrent-rankpercentofbasechance; actual24tier/rank/Wealth combos/zeroloot/absentguards"
+    ]
+  },
+  "remaining": [
+    "AbilityExplanation remainingeffect branches",
+    "TalentExplanation remainingbranches",
+    "TalentnormalEnglish audit",
+    "CursedWandwordingownerdecision; keepbehavior/textpending",
+    "Broadernormalmechanicresourcewording and existingmechanicpanelreview; do notclaimwholeauditcomplete",
+    "Newfollowup actualAndroidwindows/native and eventualverifiedAPK",
+    "SPD-only acousticissue: no provedAPDfix/physicalreproduction; do notmodifyaudio speculatively"
+  ],
+  "preservation": "All source/acceptedandfailed evidence pushed.426,427,428published; earlierAPKs/releases/branches retained. Retriesusedoriginalapps,0newAPKassemblies; fullstrictnativecounts verified. No automaticpublication afterperiod.",
+  "no_new_gameplay_or_panels": true,
+  "no_background_active_development_claim": true,
+  "last_reviewed_utc": "2026-11-09T19:59:43.788095+00:00",
+  "next_individual_audit_case": {
+    "talent": "SWIFT_EQUIP",
+    "observed_source": [
+      "KindOfWeapon.java:145 attaches19f cooldown",
+      "Talent.SwiftEquipCooldown.iconFadePercent uses visualcooldown/20f",
+      "Buff.visualcooldown returns cooldown+1",
+      "TalentExplanation currently describes19-unit scheduled cooldown"
+    ],
+    "status": "Source-only wording/timer inconsistency candidate, not yet reproduced as a real equip regression; no gameplay or wording changed. Verify actual equip/second-use/cursed restrictions and saved timer before next rewrite."
+  }
+}

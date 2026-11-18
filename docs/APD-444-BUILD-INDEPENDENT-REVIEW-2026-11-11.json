@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "number": 444,
+  "recorded_at_utc": "2026-11-11T16:21:27.751733+00:00",
+  "reviewer": "apd_lineage",
+  "result": "passed_bounded_independent_infrastructure_review",
+  "blocking_findings": [],
+  "reviewed_files_sha256": {
+    "tools/apd_candidate444.py": "c0fa2e4d92ccef7c69612c764fa26f9acc889989b727250bbec1f63af01acf9c",
+    ".github/workflows/apd-candidate-444.yml": "43c28f6a6b76576aa04d1d31c68ae1b1e3f60b494cbdc84347005ab0bb189ad5",
+    "docs/APD-444-BUILD-PLAN.json": "cf881bb33504fa9d80deae2915185cff62701a1205634aa8f5011f4b07d4bf6a"
+  },
+  "accepted_baseline_commit": "69801dff65bc10b6fb45720c88f3d0cd5f7dd281",
+  "baseline_remote_verification": "Parent supplied the pushed and read-back commit; this reviewer independently hashed the local committed-receipt copies and compared their contents with the completed APD443 artifact acceptance. No additional remote call was made.",
+  "accepted_receipts_sha256": {
+    "docs/APD-443-DELIVERY-2026-11-11.json": "beb0fbdd894e67316e31fef5e8d439b0fb6d36b8e7abb4210395060d7be93080",
+    "docs/APD-443-MANUAL-VISUAL-REVIEW-2026-11-11.json": "b0f4d62a03abff8cdadd2d83918b90688679c8e5b7aad9f925d96d669275f664",
+    "docs/APD-443-INDEPENDENT-ACCEPTANCE-2026-11-11.json": "6421be6c5715a64501077e8c71d0ba959efc1ab14508d4f5c6b4c6c113b7ff9f"
+  },
+  "accepted_443_helper_sha256": "538fbfea974b1c47f2863cc2714cad1097cf30f466202d7574a63e95cf4af535",
+  "accepted_443_workflow_sha256": "50582db80b7dbecefaff7a7b33cda1049191faab3eef161685e6bba4fb3ceee1",
+  "predecessor_checks": {
+    "source": "a2960688e02468817914f006ff4c563b844c80c5",
+    "run": 43051129325,
+    "built_artifact": 13869069224,
+    "owner_artifact": 13869653810,
+    "source_scan_artifact": 13870400724,
+    "all_source_run_workflow_artifact_apk_instrumentation_and_source_zip_pins_match_actual_accepted_receipts": true,
+    "delivery_manual_and_independent_receipt_bytes_match_exact_pins": true,
+    "previous_core_registration": {
+      "tests": 3210,
+      "suites": 465
+    },
+    "previous_required_jobs": 5
+  },
+  "differential_review": {
+    "normalization": "Only standalone build-number tokens 443 to 444 and 442 to 443 were adapted for comparison; embedded numeric digest fragments were left intact.",
+    "workflow_exact_numeric_adaptation": true,
+    "unchanged_operational_functions": [
+      "application_paths",
+      "check_provenance",
+      "check_scan",
+      "configure",
+      "core",
+      "current_artifact",
+      "download_artifact",
+      "fetch",
+      "fetch_scan",
+      "finalize",
+      "freeze",
+      "history",
+      "identity",
+      "main",
+      "native",
+      "plan",
+      "require_images",
+      "source_scan",
+      "validate_artifact",
+      "validate_scan_record",
+      "verify_previous_acceptance",
+      "verify_previous_history"
+    ],
+    "operational_functions_unchanged_count": 22,
+    "changed_existing_functions": [
+      "require_previous_pins",
+      "validate_plan",
+      "register_previous",
+      "self_test"
+    ],
+    "changes_assessed": "Predecessor constants now bind completed APD443. Missing-pin checks additionally require original built/source/scan provenance. Coverage floor and predecessor registration advance to 3210/465. Self-test wrapping keeps fixture pins temporary. Operational API/build/history/native/source-scan functions are unchanged."
+  },
+  "scope": {
+    "tests": 3214,
+    "suites": 466,
+    "application_paths": [
+      "core/src/main/assets/messages/actors/actors.properties"
+    ],
+    "player_notes": [
+      {
+        "category": "Bug Fixes",
+        "sprite": "ICON_PREFS",
+        "title": "Empowered Strike description",
+        "text": "Empowered Strike's ordinary description now states that its readied bonus lasts 10 turns and another staff zap refreshes it. Its damage and wand-effect factors are unchanged."
+      },
+      {
+        "category": "Bug Fixes",
+        "sprite": "ICON_PREFS",
+        "title": "Arcane Vision description",
+        "text": "Arcane Vision's ordinary description now includes Transfusion targeting allies and wards hitting surviving targets, and explains that Frost does not trigger it against an already-frozen target. Its effects and duration are unchanged."
+      }
+    ],
+    "retained_affected_images": 25,
+    "new_ordinary_images": [
+      "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+      "qol-ordinary-talent-ARCANE_VISION.png",
+      "qol-ordinary-talent-ARCANE_VISION-bottom.png"
+    ],
+    "total_affected_images": 29,
+    "current_core_application_files_compared_with_frozen_443_source": 2114,
+    "comparison_excluded_generated_history": true,
+    "only_changed_application_file": "core/src/main/assets/messages/actors/actors.properties",
+    "only_changed_properties": [
+      "actors.hero.talent.arcane_vision.desc",
+      "actors.hero.talent.empowered_strike.desc"
+    ]
+  },
+  "reviewed_invariants": [
+    "Accepted baseline and producing-source ancestry are checked before assembly. Exact completed predecessor receipts, five successful jobs, artifact digests and original compiled history remain required.",
+    "An existing frozen APD444 built-pair artifact rejects a new assembly. Workflow concurrency does not cancel an in-progress candidate. No build request exists at review time.",
+    "The exact complete core suite, desktop compilation, Android debug/release and instrumentation compilation, and the first JSON ABI check precede assembly. The second JSON ABI check and frozen-pair verification follow it.",
+    "Only the build job assembles one Developer APK, one Alpha-Testers APK and the shared instrumentation APK. Native, source-scan and owner stages fetch and verify the frozen artifact; they contain no application assembly.",
+    "Original signer, application ID, version code, variant feature bytes, exact predecessor history and actual instrumentation digest remain verified by unchanged shared helpers. No signing configuration is changed.",
+    "Source scanning retains full reachable Git history, pinned scanner archive/version and unchanged source-review rules. The report remains bound to the exact produced source ZIP, run and artifact, with reviewed source candidates and disclosed historical findings.",
+    "All 25 affected APD443 images remain required, plus four ordinary Empowered Strike and Arcane Vision frames. Six native cases per variant and complete image transfer/hash validation are unchanged.",
+    "Owner packaging still requires build, both native variants and exact source-scan success, retains manual and physical-device limits, and does not publish a release."
+  ],
+  "existing_validation_reviewed": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd444-build-draft/draft-validation.json",
+    "sha256": "7b4ca78c9bf154600f60da73fdfe7b38ae1e4b0e5297dd5713914ccc792694ec",
+    "self_test_rejections": 45,
+    "actual_record_corruption_rejections": 8,
+    "early_blocked_operational_checks": 24,
+    "tests_rerun_by_this_reviewer": false,
+    "ready_verification_path": "/workspace/scratch/db82734c9c44/recovery/apd444-build-draft/ready-verification.json",
+    "ready_verification_sha256": "e492774eeba127cf4479c049a2e561bd116124d745aff0466f1e751ab6d287c4"
+  },
+  "remaining_gate": {
+    "source_ci_run": 43056607040,
+    "source_commit": "43c078b75b73626625369ed21d1cbf2f013e6f31",
+    "status_reported_by_parent_after_review": "success",
+    "parent_reported_raw_xml": {
+      "suites": 466,
+      "testcases": 3214,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "parent_reported_artifact_bytes": 547832,
+    "parent_reported_artifact_sha256": "e921e76971af8f350e7a8b8835bd3d72437f68c8dc7d4aaff3e67949375953d5",
+    "independent_ci_artifact_review_by_this_reviewer": false,
+    "explanation": "The parent separately confirmed exact source-CI completion and raw XML after the infrastructure review. This receipt does not substitute for the separate full source-CI proof."
+  },
+  "limitations": [
+    "This is a read-only review of finalized infrastructure and exact local evidence, not a fresh application test run, APK assembly, source scan or native execution.",
+    "The predecessor acceptance validator uses strict cached Git/API response adapters for its local checks. Real production acceptance still executes the unchanged live checks when the workflow runs.",
+    "Ready plan metadata does not mean an APD444 APK has been built, verified or delivered."
+  ],
+  "build_request_created": false,
+  "repository_files_changed": false,
+  "remote_actions": false
+}

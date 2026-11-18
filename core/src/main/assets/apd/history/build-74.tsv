@@ -1,0 +1,9 @@
+Infrastructure	ICON_DATA	Outbox	Added reading and withdrawing queued run submissions without changing history.
+Infrastructure	ICON_DATA	Privacy Summary	Added plain-language account of what APD holds on this device and what could ever leave it.
+Quality of Life	ICON_STATS	Statistics Options	Added the local Privacy summary and queued-run preview/withdraw controls.
+Testing	ICON_DATA	Backend Foundations Test	Updated automated checks and fixtures for backend foundations. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test	Updated automated checks and fixtures for submission queue. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Updated apd-backend accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added the local Privacy summary and queued-run preview/withdraw controls.

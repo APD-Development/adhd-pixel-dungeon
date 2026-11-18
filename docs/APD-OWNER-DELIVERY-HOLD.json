@@ -1,0 +1,12 @@
+{
+  "active": false,
+  "recorded_date": "2026-11-10",
+  "owner_instruction": "Push builds to me every new build you complete",
+  "scope": "Resumed previously approved APD development. Build, verify and deliver each completed Developer/Alpha-Testers pair through the existing private GitHub release route, with version and download links. No new game design or balance changes.",
+  "delivery_trigger": "Each newly completed and accepted build is sent during active work. An hourly read-only notification watch checks for subsequent published builds, as requested; no recurring development or build schedule was started.",
+  "authorization_window_end_utc": null,
+  "prior_authorization_window_end_utc": "2026-11-09T20:00:00Z",
+  "latest_verified_published_build": 432,
+  "preserve_all_previous_builds": true,
+  "verification_required": "Actual core/native results, manual affected-window review, original signing identity, source and hashes. Retain failed candidates and their evidence."
+}

@@ -1,0 +1,11 @@
+Testing	ICON_STAIRS	Floor Replay Device Test	Updated Android checks and fixtures for floor replay device. These are development checks, not a gameplay feature.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Changes	ICON_INFO	Demo Generator	Added difficulty balance-revision values to fictional demo records.
+Changes	ICON_CHALLENGE_COLOR	Difficulty	Applied the approved enemy-health, enemy-damage and ordinary-loot multipliers for difficulty levels 1–5.
+Changes	ICON_CHALLENGE_COLOR	Difficulty Hooks	Applied difficulty multipliers to ordinary enemies and ordinary floor loot.
+Quality of Life	ICON_PREFS	APD Settings Pane	Updated difficulty explanations to describe the approved balance settings.
+Testing	ICON_CHALLENGE_COLOR	Difficulty Test	Updated automated checks and fixtures for difficulty. These are development checks, not a gameplay feature.
+Testing	ICON_STAIRS	Floor Replay Test	Updated automated checks and fixtures for floor replay. These are development checks, not a gameplay feature.
+Development	ICON_CHALLENGE_COLOR	APD-DIFFICULTY	Updated apd-difficulty accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated the change descriptions bundled with this APK. Added difficulty balance-revision values to fictional demo records.

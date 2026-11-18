@@ -1,0 +1,44 @@
+name: Deliver existing APD lunch artifacts October29 without rebuild
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-lunch-delivery-2026-10-29.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-lunch-delivery-2026-10-29
+  cancel-in-progress: false
+jobs:
+  publish-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m pip install reportlab==4.2.5
+      - name: Verify source evidence and publish only the current PDF
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: python3 tools/apd_lunch_report_20261029.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-lunch-report-2026-10-29-publication
+          path: report-delivery/
+  publish-existing-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify existing APK source tests signing and checksum before private owner delivery
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: python3 tools/apd_lunch_apk_20261029.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-lunch-apk-2026-10-29-publication
+          path: |
+            apk-delivery/publication.json
+            apk-delivery/APD-330-Lunch-Verification.json
+            apk-delivery/release-notes.txt

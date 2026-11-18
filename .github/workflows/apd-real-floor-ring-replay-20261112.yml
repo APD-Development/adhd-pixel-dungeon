@@ -1,0 +1,55 @@
+name: Verify APD six-new-run real-floor ring identity
+on:
+  push:
+    branches: [chatgpt/apd-real-floor-ring-replay-20261112-1415]
+    paths: [.github/workflows/apd-real-floor-ring-replay-20261112.yml, core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/loot/SeededFloorRingReplayTest.java]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Verify real-floor ring fixture scope
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src=Path('core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/loot/SeededFloorRingReplayTest.java').read_text()
+          assert 'LevelGenerationHarness.generate(seed, 0, HeroClass.WARRIOR,' in src
+          assert 'LevelGenerationHarness.Context.RETURNING, 8);' in src
+          assert 'item instanceof Ring' in src
+          assert 'heap.pos' in src and 'item.getClass().getName()' in src
+          assert 'HeadlessTestSupport.start();' in src
+          assert 'replay < 6' in src
+          assert 'Collections.sort(found);' in src
+          print('Real Level-generation six-replay seeded ground-ring test present')
+          PY
+      - name: Run core tests and Android/desktop Java compilation
+        run: |
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          ./gradlew :core:test :desktop:classes :android:compileDebugJavaWithJavac :android:compileReleaseJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Verify exact new test and clean complete suite
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          results=list(Path('core/build/test-results/test').glob('TEST-*.xml'))
+          assert results,'missing core JUnit XML'
+          roots=[ET.parse(x).getroot() for x in results]
+          totals={k:sum(int(r.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3304,totals
+          assert totals['failures']==totals['errors']==totals['skipped']==0,totals
+          exact=[r for r in roots if 'SeededFloorRingReplayTest' in r.get('name','')]
+          assert len(exact)==1 and int(exact[0].get('tests','0'))==1, 'new real-floor test missing'
+          print('VERIFIED',totals,'suites',len(roots))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-real-floor-ring-replay-junit
+          path: core/build/test-results/test/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,3 @@
+Changes	V061_BUGFIX	Keep catalogue revocations monotonic across instances	Serialize catalogue compare-and-replace and re-check the verified on-disk sequence so a stale keeper cannot replay an older signed catalogue.
+Testing	ICON_CHECKED	Check stale replay and shared replacement	Retain deterministic regressions for stale-instance replay, cross-instance serialization, final sequence and temp-file cleanup.
+Development	V061_PAGE	Record TEST214 staging and continued reliability audit	Preserve the verified alpha staging evidence and the exact next gate without publishing or activating online services.

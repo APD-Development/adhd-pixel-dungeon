@@ -1,0 +1,7 @@
+Changes	V061_BUGFIX	Make newly enabled Cleric spell buttons tappable	Restore touch input when increasing the number of spell buttons so empty positions open their picker.
+Changes	V061_BUGFIX	Keep simultaneous statistics cache writes separate	Give each row and fact cache writer its own temporary file so overlapping writes cannot discard another completed cache.
+Testing	ICON_CHECKED	Test touches after expanding Cleric spell slots	Use real pointer taps on empty positions 2–4 after increasing from one button, and capture the picker and stack.
+Testing	ICON_CHECKED	Show Cleric selected in the lore check	Select Cleric before capturing its verified first-run message.
+Testing	ICON_CHECKED	Reproduce overlapping cache writers	Force two row-cache writers and two fact-cache writers to overlap and verify a complete cache and temporary-file cleanup.
+Development	V061_PAGE	Deliver the owner's complete lore collection PDF	Provide a verified private PDF download covering all 50 existing entries and their collection conditions.
+Development	V061_PAGE	Retain verified checkpoints and reliability evidence	Record exact build results, the touch correction and the separately reproduced cache race without claiming physical-phone verification.

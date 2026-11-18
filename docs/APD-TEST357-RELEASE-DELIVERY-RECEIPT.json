@@ -1,0 +1,121 @@
+{
+  "source_commit": "6bb2172e0cd45c9b2826625c094137097f6c40d0",
+  "tag": "apd-alpha-preview-357",
+  "number": 357,
+  "release_id": 432369723,
+  "published_at": "2026-11-03T07:08:16Z",
+  "download_verified_utc": "2026-11-03T07:08:22.824839+00:00",
+  "downloaded_back_verified": true,
+  "delivery_workflow_run": "41589812056",
+  "core_tests": 2331,
+  "android_tests": 71,
+  "tester_api34_tests": 3,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "apk_hashes": {
+    "Developer": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de",
+    "Alpha-Testers": "eb13d5bbcc293640cf8b37884868641ce37b05dd45531e3eebc09847cc723e24"
+  },
+  "source_sha256": "c25d3138f038bd7234c35fcdc69c38d879f9ad8d05c437967d040e75cf73e7fe",
+  "asset_publication": [
+    {
+      "id": 704673052,
+      "name": "APD-Alpha-Testers-357.apk",
+      "digest": "sha256:eb13d5bbcc293640cf8b37884868641ce37b05dd45531e3eebc09847cc723e24",
+      "created_at": "2026-11-03T07:08:13Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Alpha-Testers-357.apk"
+    },
+    {
+      "id": 704672891,
+      "name": "APD-Alpha-Testers-357.apk.sha256",
+      "digest": "sha256:f36a0305ac45803641b238a4cba30ebce7f42db5258addf1b046398da07958a6",
+      "created_at": "2026-11-03T07:08:09Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Alpha-Testers-357.apk.sha256"
+    },
+    {
+      "id": 704672915,
+      "name": "APD-Developer-357.apk",
+      "digest": "sha256:6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de",
+      "created_at": "2026-11-03T07:08:09Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Developer-357.apk"
+    },
+    {
+      "id": 704673038,
+      "name": "APD-Developer-357.apk.sha256",
+      "digest": "sha256:05cd6fe295ad4eed27a34449ca8c7bc455d4be3c4bac9806cd01b05d903faa34",
+      "created_at": "2026-11-03T07:08:12Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Developer-357.apk.sha256"
+    },
+    {
+      "id": 704672781,
+      "name": "APD-Source-357.zip",
+      "digest": "sha256:c25d3138f038bd7234c35fcdc69c38d879f9ad8d05c437967d040e75cf73e7fe",
+      "created_at": "2026-11-03T07:08:06Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Source-357.zip"
+    },
+    {
+      "id": 704673015,
+      "name": "APD-Source-357.zip.sha256",
+      "digest": "sha256:efafcae6ff5059663e3d468ce6a303ff172bdc8f98ea52f3511044155711ab89",
+      "created_at": "2026-11-03T07:08:11Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Source-357.zip.sha256"
+    },
+    {
+      "id": 704673127,
+      "name": "APD-Source-Scan.json",
+      "digest": "sha256:fb7db4c215c12360286abeb5eb885c92337d2c60b0798eda6cdb466b09622270",
+      "created_at": "2026-11-03T07:08:15Z",
+      "browser_download_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-357/APD-Source-Scan.json"
+    }
+  ],
+  "runs": {
+    "developer": 41588017413,
+    "player": 41588017549,
+    "display": 41588017485,
+    "native": 41588017413,
+    "tester": 41588086882
+  },
+  "profiles": {
+    "m53-representative": {
+      "artifact": 13209565103,
+      "tests": 1,
+      "application_sha256": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de"
+    },
+    "compact-virtual": {
+      "artifact": 13208847872,
+      "tests": 1,
+      "application_sha256": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de"
+    },
+    "small-virtual": {
+      "artifact": 13208738909,
+      "tests": 1,
+      "application_sha256": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de"
+    },
+    "square-virtual": {
+      "artifact": 13209359026,
+      "tests": 1,
+      "application_sha256": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de"
+    },
+    "short-landscape": {
+      "artifact": 13209271931,
+      "tests": 1,
+      "application_sha256": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de"
+    },
+    "redmagic-representative-api36": {
+      "artifact": 13209238166,
+      "tests": 6,
+      "application_sha256": "6452e25f61cc3ef3c4542b4e080f489357f8c719258feb1c6b744c7cb71037de"
+    }
+  },
+  "physical_phone_verified": false,
+  "fallback_preserved": true,
+  "delivery_trigger": "Explicit owner request to put the existing APKs on GitHub Releases; not a scheduled invocation",
+  "workflow_attempt": 2,
+  "original_workflow_attempt1_failure": "HTTP403 creating source tag; retained",
+  "resolution": "Existing authorized GitHub connection created exact source tag; repeated only verified-delivery job using original APKs. Local upload401 did not produce assets. Extra empty duplicate draft432370517 removed; no old release assets touched.",
+  "application_rebuilt_for_publication": false,
+  "all_three_release_downloads_independently_hash_verified_locally": true,
+  "fallback354_asset_ids_names_digests_unchanged": true,
+  "source_and_artifact_links_ready_for_owner_final_response": true
+}

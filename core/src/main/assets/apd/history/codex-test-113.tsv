@@ -1,0 +1,5 @@
+Development	ICON_INFO	Custom rules configuration	Added the immutable 18-setting custom-rules foundation with provisional upgrade-scroll counts from 1 to 60; gameplay sliders are not available yet.
+Development	ICON_INFO	Original score protection	Added scoring records that retain original earned scores and distinguish neutral settings, unknown historical settings and pending calibration; earned-score behavior is unchanged.
+Testing	ICON_CHECKED	Custom rules save checks	Added boundary, immutable-setting, historical-unknown and actual game-save/load tests, including every upgrade-scroll count and all six classes.
+Development	ICON_INFO	Research and verification records	Recorded the recovered scoring-research constraints, unfinished integration work and build verification requirements.
+Developer Commentary	V074_SHPX	Developer Commentary	I added the custom-rules save foundation without changing earned scores. Gameplay effects, the settings interface and complete UIMSD integration remain in development.

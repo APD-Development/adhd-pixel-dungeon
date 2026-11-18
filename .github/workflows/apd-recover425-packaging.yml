@@ -1,0 +1,62 @@
+name: Recover425 packaging only on unchanged tested APKs and original evidence
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-425-PACKAGING-RECOVERY-REQUEST.txt]
+permissions: {contents: read, actions: read}
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      APD_SOURCE_SHA: 75809609745851368fe81f2dced1b69eb63cdfdf
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, ref: 75809609745851368fe81f2dced1b69eb63cdfdf}
+      - uses: actions/download-artifact@v4
+        with: {name: apd425-built-pair, run-id: 42669136432, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd425-native-Developer, path: evidence, run-id: 42669136432, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd425-native-Alpha-Testers, path: evidence, run-id: 42669136432, github-token: '${{ github.token }}'}
+      - name: Preserve original failure and attest original APK bytes
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh run view 42669136432 --log-failed > evidence/original-packaging-failure.log
+          sha256sum owner-delivery/APD-Developer-425.apk owner-delivery/APD-Alpha-Testers-425.apk > evidence/original-application-sha256.txt
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify exact identities, completed tests and corresponding source
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 tools/apd_prepare425.py
+          python3 - <<'PYPROOF'
+          import json,pathlib,os
+          p=pathlib.Path('owner-delivery/APD-Preview-425-Verification.json');d=json.loads(p.read_text());d.update(new_application_apks_created=0,original_application_apks=2,original_build_run=42669136432,android_test_execution_run=42669136432,delivery_only_retry='Original build and all12 native cases passed, but GitHub ended the run without starting packaging. No failed-step log; failed-only retry refused. Separate packaging-only workflow reuses exact applications and native/XML evidence, without builds or repeated tests; infrastructure cause unresolved.');p.write_text(json.dumps(d,indent=2)+'\n')
+          notes=pathlib.Path('owner-delivery/release-notes.md');notes.write_text(notes.read_text()+'\nPackaging-only recovery: original42669136432 build/core3153/all12native passed. GitHub ended the run without starting packaging; no failed-step log, and failed-only retry refused. Exact original APKs and evidence are reused by a separate packaging-only workflow. Infrastructure cause unresolved. No app/instrumentation rebuild or repeated native test.\n')
+          PYPROOF
+      - name: Scan key-free source and full reachable history
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          if ! curl --connect-timeout 20 -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz; then
+            gh api repos/gitleaks/gitleaks/releases/assets/378332058 -H 'Accept: application/octet-stream' > /tmp/apd-gitleaks.tar.gz
+          fi
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd425-prepared-owner-pair
+          path: owner-delivery/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd425-source-and-native-evidence
+          path: |
+            evidence/
+            core/build/test-results/test/
+            docs/APD-425-DELIVERY-SPEC.json
+          retention-days: 14

@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-11-11T19:09:01.239812+00:00",
+  "reviewer": "/root/apd_target_review",
+  "status": "bounded_read_only_review_passed_no_remaining_concrete_blocker",
+  "reviewed_files": {
+    "tools/apd_recover446_developer.py": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/tools/apd_recover446_developer.py",
+      "sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25",
+      "bytes": 57226
+    },
+    "tools/test_apd_recover446_developer.py": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/tools/test_apd_recover446_developer.py",
+      "sha256": "6c372e9c86db6b491013df6d5b3cf9878dabaafbe3ae811a6eec1fc1fbf8d941",
+      "bytes": 9061
+    },
+    ".github/workflows/apd-recover446-developer.yml": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/.github/workflows/apd-recover446-developer.yml",
+      "sha256": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127",
+      "bytes": 3936
+    },
+    "docs/APD-446-NATIVE-RECOVERY-PLAN.json": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/docs/APD-446-NATIVE-RECOVERY-PLAN.json",
+      "sha256": "af49d6f9290639a6c5d8af30068d55834ddcfe9f3b177ab58f47cac06911cad5",
+      "bytes": 2531
+    }
+  },
+  "plan_status_at_review": "draft",
+  "plan_pending_at_review": [
+    "independent source review",
+    "bounded guard verification",
+    "root approval before request"
+  ],
+  "original_source": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "original_run": 43077773970,
+  "original_attempt": 1,
+  "fresh_launch_review": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-independent-review/fresh-launch-review.json",
+    "sha256": "778a7f37093b6d7338cc5757a502b8c7e5403b2cd0d1fac8a41111c741a8770d",
+    "bytes": 3063
+  },
+  "terminal_original_evidence": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/terminal-native-status.json",
+    "sha256": "fb81e1829455bfedb92f4e1f1b030ada48c07947a790ca07c444d0c466d3f258",
+    "bytes": 21935
+  },
+  "saved_validation_evidence_read_not_rerun": {
+    "guard_summary": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/local-validation-attempt-1/guard-summary.json",
+      "sha256": "a05f8d7e75a94986eb8819fac4c9078b2bb5eb892236f768b146fad6f275f9be",
+      "bytes": 96
+    },
+    "guard_log": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/local-validation-attempt-1/guard-tests.log",
+      "sha256": "ade22ae82a071270f7c4ce24b59b60f8cde0cb9d9e845731a0c2641aad2af7ec",
+      "bytes": 1532
+    },
+    "reported_guard_results": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "corruption_rejections": 51
+    },
+    "actual_original_cohorts": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-draft/local-validation-attempt-1/actual-original-cohort-verification.json",
+      "sha256": "be9c3616a22369bf574bbec2b9af4ec6ce297aaf1cb4ab3739f2bf806af95449",
+      "bytes": 2378
+    },
+    "observed_original_counts": {
+      "alpha_cases": 9,
+      "alpha_images": 1469,
+      "developer_accepted_cases": 7,
+      "developer_accepted_images": 1457,
+      "new_recovery_case_results_present": false,
+      "recovery_acceptance_claimed": false
+    }
+  },
+  "findings": [
+    "The exact original failed-run identity, all five original job outcomes and required successful build/source-scan/Alpha step names match the retained terminal snapshot. The original failure is retained rather than relabeled as success.",
+    "Input preparation verifies pinned original artifact names, IDs, sizes, archive digests, run/head/branch, exact APK/test/source bytes, existing source-manifest and scan receipt, prior compiled history, original core3247/468 and SDK signer/application/version/variant identities.",
+    "Verification-only source scope forbids application, instrumentation and existing-helper changes. The two-job workflow has no Gradle, compilation, assembly, signing or source-archive rebuild operation.",
+    "The recovery emulator uses the existing API34/x86_64/default image and320x640 presentation, checks English locale and absence of both packages, installs only frozen originals, copies no old application data or screenshots, and invokes only the exact seed-history and pylon methods.",
+    "The original Developer final search-context transfer binds1457 accepted images from seven cases. The six partial seed captures and original passing-but-untransferred seed report remain diagnostics only; pylon remains recorded as originally unrun.",
+    "The fresh cohort must contain exactly seven seed images after its first case and exactly twelve seed+pylon images after its second. Every accepted case has a complete cumulative device-SHA transfer; PNG decoding and final local/device equality are required independently within each cohort.",
+    "The owner stage requires nine exact logical cases per variant, all18 logical cases total, no duplicate case identity, a disjoint1457+12 Developer image union equal to Alpha1469 filenames, and all61 affected images. No original diagnostic frame is promoted.",
+    "Same-attempt artifact selection checks current workflow/head/branch/run/attempt, successful completed recover-developer job, matching required step names, attempt-specific artifact name, digest/size and creation time within that exact producer job. All selector names and paths match the workflow.",
+    "Existing fixture assertions remain inside the exact unchanged instrumentation. Original Trap seed/restart PIDs are independently required to differ; fresh seed no-write/unfinished markers and pylon target/preference/held-time/HP markers are explicitly checked.",
+    "Immutable built members and corresponding source are copied and rehashed. Every image retains its explicit evidence-cohort assignment. Manual, physical-phone, audio, install-over, saved-readback, publication and delivery flags remain false."
+  ],
+  "resolved_review_issue": {
+    "issue": "The initial aggregate receipt used complete_remote_image_manifest_verified=True despite two Developer devices.",
+    "resolution": "Aggregate field now explicitly false, with complete_device_manifests_verified_per_cohort=True, aggregate_hash_proven_image_coverage_verified=True and single_developer_device_manifest=False. Actual per-cohort completeness remains true."
+  },
+  "readiness_boundary": "Operational stages still require a ready_for_recovery plan with empty pending_review; the reviewer does not change the plan or authorize remote execution.",
+  "execution_boundary": {
+    "tests_run_by_this_reviewer": 0,
+    "pipeline_stages_executed_by_this_reviewer": 0,
+    "source_edits": 0,
+    "remote_mutations": 0,
+    "new_native_cases_observed": 0,
+    "native_images_viewed": 0
+  },
+  "limitations": [
+    "This is a source/schema review, not an actual recovery result or pair acceptance.",
+    "Fresh native reports, images, same-attempt artifacts and owner package must still be received and independently checked.",
+    "Developer69-image review remains pending actual recovery, with57 originals from the accepted original cohort and12 originals from the fresh cohort."
+  ]
+}

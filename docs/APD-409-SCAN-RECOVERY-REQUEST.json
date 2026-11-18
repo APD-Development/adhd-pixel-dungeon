@@ -1,0 +1,13 @@
+{
+  "original_source": "9fddee7ee05770375925106afe455723b6a2d93b",
+  "failed_scanner_run": 42604779534,
+  "file": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java",
+  "line": 1207,
+  "rule": "generic-api-key",
+  "full_line_sha256": "fd62b5a96913d5a7ab2c8a6ed6ddf2a011f8f2899a9799c4cd05715c6fd4d4c2",
+  "matched_text": "key.levelKnown=key.cursedKnown=true;",
+  "disposition": "Read exact original line: SkeletonKey test variable boolean identification fields, not any credential. Classification pins entire line; no path/rule blanket exclusion.",
+  "original_apks_rebuilt": false,
+  "recovery_attempt": 2,
+  "previous_packaging_failure": "42607372165: verifier omitted explicit expected class for non-trap cases; preserve strict verifier and supply each actual class."
+}

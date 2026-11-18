@@ -1,0 +1,8 @@
+Infrastructure	ICON_CHECKED	Retain verified TEST241 preparation evidence	Carry forward the reviewed exact-source staging profile, morning report, TEST241 verification receipt, real-run read-only evidence and sentry timing record.
+Testing	ICON_INFO	Record a rejected UIMSD audit candidate	Retain the actual failed-run evidence and the finding that numeric IN is not a valid query path; application source remains TEST241.
+Testing	ICON_INFO	Add early-alpha six-class Android acceptance	Reuse verified TEST241 and require every shipped class to start, expose usable controls, save and continue with its exact locked 18-rule identity on API 34; no new application APK.
+Changes	ICON_CHALLENGE_COLOR	Live provisional score multipliers	Each Custom Rules slider now previews its scoring multiplier, with a live combined product used by newly created runs.
+Testing	ICON_CHECKED	Scoring and touchscreen regression coverage	Verify all 357 supplied multipliers, frozen run scores, historical preservation, live dragging and narrow-screen displays.
+Infrastructure	ICON_INFO	Verified owner-test preparation	Prepare this exact source and its required evidence for the next private owner-test APK.
+Testing	ICON_CHECKED	Refresh disposable-cache version checks	Require the current cache version and prove older rows rebuild without changing raw history.
+Quality of Life	ICON_CHALLENGE_COLOR	Explain previews on older runs	Runs created before provisional scoring identify their displayed multipliers as new-run previews and retain their original scores.

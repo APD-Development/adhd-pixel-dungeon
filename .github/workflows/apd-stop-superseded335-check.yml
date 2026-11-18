@@ -1,0 +1,35 @@
+name: Stop superseded TEST335 acceptance after its APK was preserved
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-stop-superseded335-check.yml]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  stop-superseded-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Preserve compiled predecessor and unblock corrected TEST336
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          assert repo=='APD-Development/ShieldingShouldHaveWorked'
+          api=lambda p:json.loads(subprocess.check_output(['gh','api',p]))
+          old=api(f'repos/{repo}/actions/runs/40948894878')
+          new=api(f'repos/{repo}/actions/runs/40949692381')
+          assert old['head_sha']=='0ba7b1cbf57501b081c8e38b1bbd72e70229df50' and old['run_number']==335
+          assert new['head_sha']=='47cffd4ba9dd409907da5e9f506a215b0a15d00f' and new['run_number']==336
+          jobs=api(f'repos/{repo}/actions/runs/40948894878/jobs')['jobs']
+          assert any(j['name']=='verify-and-build' and j['conclusion']=='success' for j in jobs)
+          assets=api(f'repos/{repo}/actions/runs/40948894878/artifacts')['artifacts']
+          assert any(a['name']=='apd-codex-private-test-apk' and not a['expired'] for a in assets)
+          if old['status']!='completed' and new['status'] in ('pending','queued'):
+              subprocess.run(['gh','api','--method','POST',f'repos/{repo}/actions/runs/40948894878/cancel'],check=True)
+              print('Cancellation requested for superseded335 native acceptance; produced APK and evidence retained. Corrected336 must run its entire gate.')
+          else:
+              print('No cancellation necessary',old['status'],new['status'])
+          PY

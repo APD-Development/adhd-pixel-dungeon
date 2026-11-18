@@ -1,0 +1,35 @@
+{
+  "diagnostic_file": "APD-diagnostic-20261106-161734-UTC.txt",
+  "diagnostic_sha256": "146e76e1da7ea82501ddf5f15bd36d0cd8a2dff0f9686e2e107bf07617544fbd",
+  "reported_apk": "4.0.8-apd-INDEV-bC365-TEST",
+  "installed_apk_sha256": "961c1e632ada801428a706690b48e8337f5c9d2208a238a6293e25394bccace0",
+  "phone_evidence": "Owner physical nubia NX809J Android16/API36 report; actual Java OutOfMemoryError",
+  "heap_limit_bytes": 268435456,
+  "crash_heap_used_bytes": 267270832,
+  "open_timestamp_ms": 1793981820033,
+  "first_oom_timestamp_ms": 1793981824356,
+  "cause_boundary": "Heap exhaustion confirmed; ownership overlap and error-handling defects reproduced independently. Report lacks heap dump/source-allocation trace, so exact allocation proportions are not established.",
+  "baseline_logs": [
+    "/workspace/apd-uimsd-open-overlap-before.log",
+    "/workspace/apd-uimsd-cache-oom-before.log",
+    "/workspace/apd-uimsd-optional-oom-before.log"
+  ],
+  "local_full": {
+    "suites": 446,
+    "tests": 2835,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "constrained_256m": {
+    "suites": 12,
+    "tests": 92,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android_acceptance": "Existing native method extended with old-catalog release and cold reopen72-run assertions; not yet executed for these changes.",
+  "apk_status": "No new APK assembled or published; current365 phone failure acknowledged.",
+  "replacement_memory_guard": "Only background catalog allocation and Home preparation are serialized across models. Interactive recorder flush/freshness remains outside this guard. Cancelled generation cannot publish; replacement waits for prior working batch. Initial broader guard failed unchanged stale-open replacement test; narrowed guard restores it.",
+  "constrained_evidence": "/workspace/apd-uimsd-256m-final-junit.zip"
+}

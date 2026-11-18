@@ -1,0 +1,63 @@
+{
+  "recorded_at_utc": "2026-11-11T14:59:12.871728+00:00",
+  "scope": "Requested additive native Seer Shot branch-binding probe inside existing c_runtimeDiscoveryRouteAndActualTrapEffect after its retained Ooze capture.",
+  "changed_file": "/workspace/scratch/db82734c9c44/apd/android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TrapDiscoveryDeviceTest.java",
+  "sha256": "6e25c59fcfd26f2b012f9af7135656351120659b9c9a52a1efffdeaad81da16f",
+  "original_sha256": "3aaa7f27daa02547b7bf53aa56a4a0f7ab518c26fb746b206a896adca23551bf",
+  "preservation_check": "Removing only the new imports, private helpers and one post-Ooze invocation reproduces the original file exactly.",
+  "original_test_method_names": [
+    "a_controlWritesEnabledPreference",
+    "b_freshProcessReadsEnabledAndCanDisable",
+    "c_runtimeDiscoveryRouteAndActualTrapEffect"
+  ],
+  "current_test_method_names": [
+    "a_controlWritesEnabledPreference",
+    "b_freshProcessReadsEnabledAndCanDisable",
+    "c_runtimeDiscoveryRouteAndActualTrapEffect"
+  ],
+  "original_screenshots": [
+    "trap-discovery-setting-on.png",
+    "trap-discovery-setting-restarted.png",
+    "trap-discovery-setting-off.png",
+    "trap-discovery-runtime-actual-ooze.png"
+  ],
+  "added_screenshots": [
+    "trap-discovery-seer-shot-side-branch-before.png",
+    "trap-discovery-seer-shot-side-branch-revealed.png",
+    "trap-discovery-seer-shot-foreign-branch-hidden.png"
+  ],
+  "runtime_paths": [
+    "ThrowingKnife subclass exposes inherited MissileWeapon.onThrow",
+    "spawnedForEffect omits only Item.onThrow heap drawing for the empty target",
+    "Talent.initClassTalents uses real Hold Fast to Seer Shot replacement for a Warrior",
+    "Level.updateFieldOfView recomputes all nine target cells",
+    "Camera.main.snapTo(DungeonTilemap.tileCenterToWorld(target)) uses the same target in every frame"
+  ],
+  "native_assertions": [
+    "Whole NEIGHBOURS9 footprint is inside the cleared arena and hidden before throw",
+    "Branch 1 throw creates the actual effect at target/depth/branch with 5 turns and a 20-turn SeerShotCooldown",
+    "Whole footprint becomes visible through actual FOV",
+    "Switching only Dungeon.branch to 0 leaves the effect at branch 1 and hides every footprint cell at unchanged depth/position",
+    "Hero HP and turn cooldown remain unchanged throughout",
+    "Target is inside the visible viewport"
+  ],
+  "cleanup": "Finally restores original branch, hero class/talents/metamorphs/view distance/mind-vision list, exact original FOV/visited/mapped/heroFOV/private mind-FOV references, removes only newly introduced reveal/cooldown buffs, and restores camera scroll.",
+  "target_choice": "Known cleared 19x19 arena center plus six columns. The preceding real trap-route detour can leave hero.pos plus six at the cleared region edge.",
+  "validation_completed": [
+    "Exact preservation of all original source text except the explicit additions",
+    "Unchanged three TrapDiscoveryDeviceTest @Test method names",
+    "Four retained screenshot filenames plus exactly three additions",
+    "Source/API review against the current repository"
+  ],
+  "pending": [
+    "Android Java compilation in the mandatory remote build gate",
+    "Execution of all original and additive native assertions on both frozen APK variants",
+    "Actual review of all three new screenshots for visible hidden/reveal/foreign states"
+  ],
+  "limitations": "This is a controlled real-handler/FOV native fixture. It does not exercise touch aiming, throw animation, heap rendering, physical-phone gameplay or a real transition between branch maps. No native test, compilation or screenshot result is claimed here.",
+  "independent_source_review": {
+    "reviewer": "/root/apd_target_review",
+    "result": "No acceptance blocker found in the current helper. The arena target and nine-cell footprint, actual FOV recomputation, real talent replacement, exact timers and camera centering were checked.",
+    "camera_cleanup_limit": "The original camera scroll is restored. Previous follow target and pan intensity are not restored because this helper is the final step of a disposable native case."
+  }
+}

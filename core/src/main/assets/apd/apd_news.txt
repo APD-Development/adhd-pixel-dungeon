@@ -1,0 +1,11 @@
+ADHD Pixel Dungeon (APD)
+
+APD is a private fork of Shattered Pixel Dungeon, built on upstream v4.0.0.
+
+This is an INDEV build. Expect rough edges, and expect things to change.
+
+APD only changes what is listed on the Changes screen. Everything else is the stock game.
+
+APD now has its own title screen: a stone ADHD PIXEL DUNGEON logo with animated green flames, a dark dungeon background and a new menu. UIMSD, the Ultimate Infinite Mega Statistics Database, currently opens the stock Rankings screen while the real database is built. APD Settings has its own button.
+
+This screen and the Changes screen are plain text files stored inside the app, so they work offline. Nothing is downloaded.

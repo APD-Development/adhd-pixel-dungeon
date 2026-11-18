@@ -1,0 +1,107 @@
+{
+  "recorded_utc": "2026-11-11T16:36:59.574293+00:00",
+  "status": "isolated_draft_pending_full_android_compilation_and_native_execution",
+  "parent_reported_frozen_application_source": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+  "source_path": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java",
+  "source_sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+  "class": "com.shatteredpixel.shatteredpixeldungeon.android.BossPylonTargetingDeviceTest",
+  "method": "nativeIndicatorsPreserveManualTargetsAndExcludeHiddenOrInactivePylons",
+  "new_test_method_count": 1,
+  "required_images": [
+    "pylon-native-inactive-visible.png",
+    "pylon-native-active-visible.png",
+    "pylon-native-manual-rat-preserved.png",
+    "pylon-native-ranged-pylon-melee-boss.png",
+    "pylon-native-hidden-excluded.png"
+  ],
+  "actual_paths": [
+    "GameScene.add with concrete DM300/Pylon/Rat and normal linked sprites",
+    "Pylon.activate after normal sprite link",
+    "Dungeon.observe and Level.updateFieldOfView",
+    "AttackIndicator.target public selection API",
+    "Hero.checkVisibleMobs",
+    "AttackIndicator.updateState with actual private refresh",
+    "Actual renderer, target health bar and attack portrait"
+  ],
+  "controls": [
+    "Neutral visible pylon excluded; selected invulnerable boss preserved",
+    "Active reachable pylon replaces selected invulnerable boss at both call sites",
+    "Valid selected other Rat survives despite active reachable pylon",
+    "Visible auto-aimable pylon outside melee reach becomes ranged target while boss remains melee target",
+    "Real wall geometry hides active pylon and its sprite; boss remains selected"
+  ],
+  "invariants": [
+    "Same actual Actor.current hero throughout",
+    "Hero.ready, no curAction, not resting",
+    "Unchanged Actor.now and hero.cooldown",
+    "Unchanged hero, boss, pylon and Rat HP",
+    "No next/spend, damage, attack or actor/targeting override",
+    "No CavesBossLevel.supercharge or pylon death path"
+  ],
+  "restoration": "Normal actor/level/sprite removal; target references cleared; temporary RNG popped; Title request in cleanup finally; delete only new empty-slot disposable game; restore intro, selected slot/class and daily/replay/custom-seed flags. Disposable terrain is discarded, not retained as a player encounter.",
+  "local_validation": {
+    "recorded_utc": "2026-11-11T16:35:37.896199+00:00",
+    "scope": "Type compilation of exact extracted Probe and reflection helper only. No Android outer test compilation, APK, instrumentation execution or behavioral result.",
+    "draft_source_sha256": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+    "generated_java_sha256": "7194db5bc83a1c220b4e1f69fa51f7272f7939fa1ffe024d8793abd52a380fb2",
+    "production_source_count": 1718,
+    "all_production_source_hashes_match": true,
+    "manifest": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/compile-provenance.json",
+    "manifest_sha256": "1dc880a2c4308da303488944ef8202b0b4586758774ba46fa0e1898196f17ac3",
+    "dependency_jar_count": 9,
+    "command": [
+      "java",
+      "com.sun.tools.javac.Main",
+      "-encoding",
+      "UTF-8",
+      "-source",
+      "11",
+      "-target",
+      "11",
+      "-classpath",
+      "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/main:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-006/junit-4.13.2.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-007/gdx-backend-headless-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-008/gdx-platform-1.14.0-natives-desktop.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-009/json-20240303.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-010/gdx-controllers-core-2.2.4.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-011/gdx-freetype-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-012/gdx-1.14.0.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-013/hamcrest-core-1.3.jar:/workspace/scratch/db82734c9c44/recovery/test-kit/cp-014/gdx-jnigen-loader-2.5.2.jar",
+      "-d",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/attempt-2/classes",
+      "/workspace/scratch/db82734c9c44/recovery/apd-next-native-pylon/attempt-2/PylonProbeTypeCheck.java"
+    ],
+    "exit_code": 0,
+    "log_sha256": "1ea034f4dc1fb08054e9217ce3b9ab05ef1793f931ad7346e38747537c84a63a"
+  },
+  "first_attempt_limit": "Initial extracted Probe type-compile passed but excluded outer Android wrapper. Root found protected/private Fader direct access in that outer method; corrected via existing reflection pattern and preserved earlier source. No native or full Android compile failure is claimed.",
+  "pending": [
+    "Independent final source review",
+    "Full compileDebugAndroidTestJavaWithJavac of the new class using actual Android SDK/dependencies",
+    "Build and signature/manifest verification of a new test APK only, if root approves the separate pipeline",
+    "Native execution against exact frozen application APKs",
+    "All required screenshot transfer/hash/decode checks and bounded original-image manual review"
+  ],
+  "limits": [
+    "No actual touch selection dispatch or attack/projectile flight occurs; target is selected through the real public API.",
+    "Visible-but-blocked/mind-vision and vulnerable-boss conditions remain existing core coverage only.",
+    "No natural boss progression, physical phone, player save or acoustic acceptance claim.",
+    "No repository or remote mutation, workflow request, new application APK or frozen APK replacement by this worker."
+  ],
+  "files_sha256": {
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/BossPylonTargetingDeviceTest.java": "80082944135a2f405e2659fe7a6e65961c38941ebde9c898f4500d85939aded8",
+    "README.md": "07f398f69785c1c2ae19794fa497a79b0eff08c87848b53756861669fabc251b",
+    "typecheck_probe.py": "a4642ca7bac65304da0471c75c431cfbcfca4417ea38190f5b13901e92159c7b",
+    "attempt-1/compile-receipt.json": "2cab435212e60207c026de6999e1046e20efbbfb2ea84ae33535fe5249d86ec9",
+    "attempt-2/compile-receipt.json": "0965a61fb85e54cbf883f21fd6e6c42b8fec4c9e526d0126f9a863f57fa66e8b",
+    "superseded/BossPylonTargetingDeviceTest.before-outer-fader-review.java": "f19b11c6400478852f68637476f42b9059ee5e77f3ff4687ee23f792a4beab58"
+  },
+  "reference_source_sha256": {
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/BossPylonTargetingIntegrationTest.java": "650f63d4f0c225a0aab46673eb9886450fd48398e10a921cfbe75973181a53dd",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TopScoresDeviceTest.java": "79b24e60d3c2e64db823cf5ec03f05aefc24b19cb74510054837bd309dab1505",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/WallGeometryDeviceTest.java": "2945e0c29893c92df3683fb86c7fb21d3cc3f802ae04ec6dccadf079aba96d11",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/TrapDiscoveryDeviceTest.java": "9595559f114a434b2bef7a97a5fd281b6b8db591d35572cbd031608f62945dc4",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java": "b9cc70a15c3b4128e2df83a18bba09b03f0c968f7fbb7d3a886d0a306de0224a",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/AttackIndicator.java": "51980e057e855d46d1ac69d2c9487833edeed2a3751cc1aa0ee3c2af3a09a676",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/QuickSlotButton.java": "63742e729690ff482ce3720581615799104e1f68c7547a4a46031918de864159",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/TargetHealthIndicator.java": "19f17803cb779d9b809220863d9b3aaea273f564fab4ba6b1dc2f9c39332d7b6",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/Actor.java": "900bacfd1bc507a7148b969464cdc63c9871856f70f5731e4b2d08c6ee007ea3",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/GameScene.java": "f1e504a5becd9cf87a8d1ec1d80d8696eeb8235bc7634109797cd5fbf7daf7bc",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/PixelScene.java": "07fc6ad69deb815b1739cebebbeab9c993f89a42f9e8c8379690ca1562f71dd7",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/DM300.java": "834a0ca138f060fa5f93a33aa53ab2e32d848ba38c388ad2264e960320608316",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Pylon.java": "d0f0bb8fa3f4ca25dcf714e26ea8655f74bae9482727b9ce346566f0d39caee9"
+  }
+}

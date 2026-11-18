@@ -1,0 +1,131 @@
+{
+  "recorded_at": "2026-10-22T14:06:52Z",
+  "status": "verified_private_candidate_not_published",
+  "test": 306,
+  "target": "Runic Slash / Projecting reach preservation and source-specific Arcana descriptions",
+  "application_checkpoint": "a081b8791570ee3cfb3bc4c019e845e6f7c49ae7",
+  "request_commit": "26f19563edeca990ea7edd2e4bc6287c8ebb01b1",
+  "verification": {
+    "main_run": {
+      "id": 39709967038,
+      "started_at": "2026-10-22T02:11:07Z",
+      "completed_at": "2026-10-22T02:27:29Z",
+      "core_tests": 2046,
+      "core_suites": 397,
+      "core_failures": 0,
+      "core_errors": 0,
+      "core_skipped": 0,
+      "android_tests": 53,
+      "android_failures": 0,
+      "android_errors": 0,
+      "android_skipped": 0,
+      "decoded_pngs": 79,
+      "visual_review": "All 79 PNGs reviewed in four contact sheets; no blank, corrupt or obvious clipping regression.",
+      "core_artifact": {
+        "id": 12397030177,
+        "bytes": 961510,
+        "digest": "sha256:ed0dde335659f549e03bd6e2fe58e0ae1798ee2e046482102ecb2bd6dadb50f1"
+      },
+      "android_artifact": {
+        "id": 12396764304,
+        "bytes": 7366572,
+        "digest": "sha256:d9e41a31582fc265eefcd876323884379805c10dc99f1b8d39bf17c0fc2abfd6"
+      }
+    },
+    "developer_apk": {
+      "name": "ADHD-Pixel-Dungeon-CODEX-TEST-306.apk",
+      "bytes": 38735750,
+      "sha256": "0d133ecb1dd86df523f05a422b0a14ab5fac9489c3bfdcead50b435acbc180c7",
+      "artifact_id": 12396079884,
+      "artifact_bytes": 36235810,
+      "artifact_digest": "sha256:ab00b56a1e9d11b45d3ca5d26ac33a6ea939e9b83a92154023189bda2c88bca3"
+    },
+    "player_apk": {
+      "name": "APD-Player-TEST306.apk",
+      "bytes": 38735577,
+      "sha256": "ec5dbbbcf6d91fd7a8d10ec600c8e746262d03db0dbd2cfd65170980814d5851",
+      "run_id": 39709967087,
+      "artifact_id": 12396204954,
+      "artifact_bytes": 36641143,
+      "artifact_digest": "sha256:b4992de6029225f3dc97c6ebbee99b230de019f1bf27d788cb1ea7f393da060f",
+      "private_feature_asset_absent": true
+    },
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_and_application_id_workflow_guards_passed": true,
+    "history": {
+      "previous_test": 305,
+      "previous_source": "03989106d1bde8d2555c5193a22efc897f55b268",
+      "previous_apk_sha256": "1edf7c48d987c7867db79a35f02085bd3e4fc19e9d3551f69888a6164d2a237a",
+      "predecessor_record_files_byte_identical": 332,
+      "new_record": "codex-test-306.tsv",
+      "indexed_records": 333,
+      "history_tsv_assets_including_index": 334,
+      "developer_player_history_identical": true,
+      "strict_validation_passed": true
+    },
+    "supplemental_display": {
+      "run_id": 39709967138,
+      "application_source_reused": "03989106d1bde8d2555c5193a22efc897f55b268",
+      "test_source": "26f19563edeca990ea7edd2e4bc6287c8ebb01b1",
+      "protected_display_inputs_identical": true,
+      "application_rebuilt": false,
+      "profiles": [
+        "compact-virtual",
+        "small-virtual",
+        "short-landscape",
+        "square-virtual",
+        "m53-representative"
+      ],
+      "methods_per_profile": 1,
+      "failures": 0,
+      "short_landscape_images_reviewed": 4,
+      "short_landscape_dimensions": "960x320"
+    },
+    "hotbar_cold_restart": {
+      "run_id": 39709967145,
+      "artifact_id": 12397016235,
+      "artifact_bytes": 861290,
+      "artifact_digest": "sha256:d6774cffb71e60bd3f22797875acd9c59895c16fd45e045062676b66190375da",
+      "baseline_test285_reproduced": true,
+      "upgrade_from_test285_passed": true,
+      "old_disk_state_preserved": true,
+      "new_save_cold_restart_passed": true,
+      "regular_player_settings_passed": true,
+      "application_data_cleared": false,
+      "physical_phone_verified": false
+    },
+    "death_cleanup": {
+      "run_id": 39709967043,
+      "artifact_id": 12395909655,
+      "artifact_bytes": 151420,
+      "artifact_digest": "sha256:3acc69ca117221b28fda104366e96d46924c1e4716755358d13607777f885935",
+      "before_test287_expected_failure": "death cleanup awaits the final ranking",
+      "after_corrected_apk_passed": 1,
+      "physical_phone_verified": false
+    },
+    "staging": {
+      "run_id": 39709967025,
+      "conclusion": "failure",
+      "failure": "Publication commit changes application/build inputs",
+      "staged": false
+    }
+  },
+  "latest_actual_owner_publication": {
+    "test": 262,
+    "receipt": "docs/APD-TEST262-OWNER-DELIVERY-2026-10-16.json",
+    "published_at": "2026-10-16T23:14:03Z",
+    "apk_sha256": "5ad5beb717673a51a10a646c28b887ed54a4f78f8d25ee351834a39a29ecf8d2"
+  },
+  "fallbacks": [
+    304,
+    303,
+    262
+  ],
+  "build_request_unchanged_by_verification_commit": true,
+  "staged": false,
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false,
+  "next_safe_step": "Retain TEST306; obtain physical RedMagic install-over/direct Runic and Arcana confirmation when available, otherwise reconcile the branch and continue the separately documented individual-pile-pickup/UIMSD backlog."
+}

@@ -1,0 +1,15 @@
+Infrastructure	ICON_DATA	Evidence	Added evidence a server may ask for to verify a submitted run.
+Infrastructure	ICON_DATA	Sync Collections	Added which collections of records may be synced between a player's devices, and how conflicts are settled.
+Infrastructure	ICON_DATA	Submission Queue	Added local queue of runs the player asked to submit.
+Quality of Life	ICON_STATS	Statistics Row	Added a private-test preview of a complete run submission without sending it.
+Testing	ICON_DATA	Backend Evidence Test 1	Added a test covering evidence Is Only Provided With Consent Before The Deadline For The Same Log. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Evidence Test 2	Added a test covering the Server Checks What It Received Against The Submitted Digest. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Foundations Test	Updated automated checks and fixtures for backend foundations. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Backend Sync Collections Test	Added a test covering only Account Private Preference Data Can Sync. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test 1	Added a test covering a Finished Run Is Queued Once And Survives A Restart. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test 2	Added a test covering unfinished And Incomplete Runs Are Refused And Nothing Is Written. These are development checks, not a gameplay feature.
+Testing	ICON_DATA	Submission Queue Test 3	Added a test covering flushing Through The Offline Gateway Keeps The Queue And A Working Gateway Empties It. These are development checks, not a gameplay feature.
+Development	ICON_DATA	APD-BACKEND	Updated apd-backend accompanying this build.
+Development	ICON_INFO	APD-CLERIC-AUDIT	Added apd-cleric-audit accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added a private-test preview of a complete run submission without sending it.

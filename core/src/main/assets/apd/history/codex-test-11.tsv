@@ -1,0 +1,15 @@
+Infrastructure	ICON_INFO	codex-pdf-report	Updated the codex-pdf-report development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	codex-sprint-check	Updated the codex-sprint-check development workflow; it is not gameplay content.
+Testing	ICON_STATS	Statistics Restore Device Test	Updated Android checks and fixtures for statistics restore device. These are development checks, not a gameplay feature.
+Quality of Life	ICON_STATS	Statistics Columns	Kept the last remaining visible column selected when its removal is refused.
+Testing	ICON_CHECKED	Archive Round Trip Test	Updated automated checks and fixtures for archive round trip. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Columns Selection Test 1	Added a test covering last Column Remains Checked When Removal Is Refused. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Columns Selection Test 2	Added a test covering deselection And Reselection Match The Actual Columns Across Notes. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-BUG-FIX-REPORT-2026-10-09	Updated apd-bug-fix-report-2026-10-09 accompanying this build.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-PDF-UPDATE	Updated apd-pdf-update accompanying this build.
+Development	ICON_INFO	APD-POST-TEST10-VERIFICATION	Added apd-post-test10-verification accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	APD-SPRINT-REPORT-2026-10-09	Updated apd-sprint-report-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Kept the last remaining visible column selected when its removal is refused.

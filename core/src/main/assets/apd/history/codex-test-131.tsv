@@ -1,0 +1,13 @@
+Changes	V063_BUFFS_BURNING	Timed damage sources	Prepared persistent, ordered burning-source durations and mixed tick accounting.
+Changes	V063_BUFFS_BURNING	Fireblast damage	Prepared caster-based direct Fireblast damage and burning without changing its control effects.
+Changes	V063_MAGICMISSILE	Cursed spell damage	Prepared caster-attributed burning and remaining direct cursed-wand damage while preserving existing effects.
+Changes	V063_BUFFS_BURNING	Fire imbue attacks	Prepared attacker attribution for Fire Imbue's burning.
+Changes	V061_SPELLBOOK	Prayer extensions	Prepared caster attribution for new burning duration contributed by Mnemonic Prayer.
+Changes	V073_DART	Incendiary darts	Prepared attacker attribution for incendiary-dart burning.
+Changes	V063_BUFFS_BURNING	Elemental flames	Prepared source attribution for fire-elemental burning.
+Changes	V063_BUFFS_BURNING	Burn damage and forecasts	Prepared attributable burning ticks and incoming averages while preserving neutral damage, cached rolls and RNG.
+Changes	V080_YOG	Yog fist spells	Prepared boss-attributed fist burning, light beams and dark bolts while retaining their original source types.
+Changes	V063_BUFFS_BURNING	Blazing attacks	Prepared attacker-based burning and independent Blazing bonus damage.
+Changes	V061_BUGFIX	Burning regressions	Added real ticks, all proposed damage percentages, neutral RNG, mixed causes, save/load and incoming-average checks.
+Changes	V061_BUGFIX	Boss spell regressions	Added real Bright and Dark Fist attack checks for boss substitution, original sources and neutral RNG.
+Changes	V061_PAGE	Verified menu and damage preparation	Recorded successful Top Scores verification and the remaining damage-source checks.

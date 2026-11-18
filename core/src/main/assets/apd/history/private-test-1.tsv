@@ -1,0 +1,33 @@
+Infrastructure	ICON_INFO	private-test-apk	Added the private-test-apk development workflow; it is not gameplay content.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_INFO	cleric anytime	Updated inactive reserved-content development files.
+Changes	ICON_INFO	Run state	Enabled Cleric only in the private test ruleset while preserving all other ruleset identities.
+Changes	ICON_PREFS	Saved settings	Stored private-test feature and humor preferences between sessions.
+Changes	ICON_INFO	Shattered Pixel Dungeon	Wired the centrally disabled reserved-content hooks and settings without activating them.
+Changes	ICON_INFO	Apd Features	Added the owner's feature switches.
+Changes	ICON_STATS	Statistics Unlock	Connected the genuine-run statistics gate to the private-test feature switches.
+Statistics / UIMSD	ICON_CHANGES	Cleric History	Added how many Cleric runs the player really has on record, for the Cleric grudge's history jokes.
+Statistics / UIMSD	ICON_STATS	Ruleset	Enabled Cleric only in the private test ruleset while preserving all other ruleset identities.
+Quality of Life	ICON_INFO	Hero selection	Enabled Cleric only in the private test ruleset while preserving all other ruleset identities.
+Quality of Life	ICON_INFO	Screen restoration	Wired the centrally disabled reserved-content hooks and settings without activating them.
+Quality of Life	ICON_INFO	Reserved development content	Updated inactive reserved-content development files.
+Quality of Life	ICON_STATS	Statistics Gate	Connected the genuine-run statistics gate to the private-test feature switches.
+Testing	ICON_CHECKED	Apd Features Test 1	Added a test covering every Switch Is Off Unless The Test Build File Names It. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Apd Features Test 2	Added a test covering the File Turns On Only What It Names. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Apd Features Test 3	Added a test covering cleric Runs Have Their Own Ruleset And Everyone Else Keeps Theirs. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Reserved development content	Updated inactive reserved-content development files. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	Cleric History Test 1	Added a test covering only Finished Non Duplicate Cleric Runs Are Counted. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	Cleric History Test 2	Added a test covering no History Means Zero And Nothing Is Invented. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Unlock Test	Updated automated checks and fixtures for statistics unlock. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Statistics Gate Test	Updated automated checks and fixtures for statistics gate. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	cleric complaint ids	Added automated checks and fixtures for cleric complaint ids. These are development checks, not a gameplay feature.
+Development	ICON_INFO	APD-CLERIC-RULESET-DECISION	Added apd-cleric-ruleset-decision accompanying this build.
+Development	ICON_INFO	APD-DEMO-UNLOCK-CHECKLIST	Added apd-demo-unlock-checklist accompanying this build.
+Development	ICON_INFO	Engineering handoff	Updated engineering handoff accompanying this build.
+Development	ICON_INFO	APD-HERO-MARKERS	Added apd-hero-markers accompanying this build.
+Development	ICON_INFO	APD-PHONE-CHECKLIST-B69	Added apd-phone-checklist-b69 accompanying this build.
+Development	ICON_INFO	APD-PRIVATE-TEST-BUILD	Added apd-private-test-build accompanying this build.
+Development	ICON_INFO	Reserved development content	Updated inactive reserved-content development files.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	humor review	Added the humor review development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Updated inactive reserved-content development files. Enabled Cleric only in the private test ruleset while preserving all other ruleset identities.

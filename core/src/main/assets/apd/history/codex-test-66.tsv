@@ -1,0 +1,10 @@
+Infrastructure	ICON_STATS	codex-uimsd-resource-check	Updated the codex-uimsd-resource-check development workflow; it is not gameplay content.
+Testing	ICON_CHANGES	Changes Visual Device Test	Updated Android checks and fixtures for changes visual device. These are development checks, not a gameplay feature.
+Quality of Life	ICON_INFO	APD Text Scene	Matched SPD’s title, category colors and grey navigation, showing six separate build sections per page.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_CHANGES	APD-NEXT-BUILD-HISTORY	Updated apd-next-build-history accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Infrastructure	ICON_INFO	run-codex-android-checks	Updated the run-codex-android-checks development tool.
+Infrastructure	ICON_INFO	test validate android visuals	Added the test validate android visuals development tool.
+Infrastructure	ICON_INFO	validate android visuals	Added the validate android visuals development tool.
+Developer Commentary	V074_SHPX	Developer Commentary	Matched SPD’s title, category colors and grey navigation, showing six separate build sections per page.

@@ -1,0 +1,261 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-11T18:25:22.211919+00:00",
+  "status": "ready_for_build_request",
+  "application_source_cutoff": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+  "application_source_tree": "ab5aa5891f26106dd39097b17974d902f1f05d73",
+  "source_ci_run": 43075480141,
+  "source_ci_receipt_sha256": "2ac8ff7cf6486c480630e3f74bd4347f91832569c2bb5978f54743ca5b7e7d20",
+  "source_ci_raw_artifact": {
+    "id": 13880168842,
+    "name": "apd-qol-source-verification",
+    "size_in_bytes": 553005,
+    "sha256": "f501d10b68264598eea25ad856ff5afa4ce6523fbe48e9cddac8f00c8a378396",
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/apd446-source-artifact-artifact-13880168842.zip",
+    "extracted_root": "/workspace/scratch/db82734c9c44/recovery/apd446-source-ci/apd446-source-artifact",
+    "extracted_files": 471
+  },
+  "source_core_tests": 3247,
+  "source_core_suites": 468,
+  "source_compile_tasks": [
+    ":core:test",
+    ":desktop:classes",
+    ":android:compileDebugJavaWithJavac",
+    ":android:compileReleaseJavaWithJavac",
+    ":android:compileDebugAndroidTestJavaWithJavac"
+  ],
+  "application_change_since_source_gate": false,
+  "subsequent_instrumentation_change": {
+    "path": "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java",
+    "sha256": "45208417464da8397aea86c94953caaec30fec88a6b5b264be0098ad4f732bfd",
+    "receipt": "docs/APD-446-SEED-FIXTURE-CORRECTION-2026-11-11.json",
+    "receipt_sha256": "1d2a263dd76ee0037bfc166fad1847094bc1c614ba9393234fbce51f29970e8f",
+    "independent_review": "docs/APD-446-SEED-FIXTURE-INDEPENDENT-REVIEW-2026-11-11.json",
+    "independent_review_sha256": "2172df288b17ea677e6779f1a4c456f9ecb083bee37f7fd93ab98e862268545f",
+    "scope": "Fixture setup ordering, explicit prewarm-worker quiescence and initial entry capture stabilization only.",
+    "sdk_ci_and_native_verification": "Pending in the new exact 446 producing workflow; not covered by the preceding245310 sourceCI."
+  },
+  "pipeline_review": {
+    "schema": 1,
+    "number": 446,
+    "status": "isolated_pipeline_verified",
+    "scope_status": "ready_for_build",
+    "recorded_utc": "2026-11-11T18:25:22.186350+00:00",
+    "self_test_corruptions": 48,
+    "actual_predecessor_snapshot": "/workspace/scratch/db82734c9c44/recovery/apd445-build/snapshot-2026-11-11T18-18-05-850Z.json",
+    "actual_predecessor_snapshot_sha256": "762e505d68e856c2fa15715334e1f8f6773cacd291465094bd59b2943b41b455",
+    "actual_predecessor_terminal": true,
+    "actual_retained_evidence_guard": "passed_frozen_history_guard_only_no_native_acceptance",
+    "actual_cached_requests": [
+      "actions/runs/43057716359",
+      "actions/runs/43057716359/jobs?per_page=100",
+      "actions/artifacts/13873030855",
+      "actions/artifacts/13873957382",
+      "actions/runs/43057716359",
+      "actions/artifacts/13872975981",
+      "actions/runs/43072342086",
+      "actions/runs/43072342086/jobs?per_page=100",
+      "actions/artifacts/13880080743",
+      "actions/artifacts/13880340744"
+    ],
+    "explicit_terminal_fixture_success_and_failure_states_tested": true,
+    "fixture_states_are_not_actual_native_results": true,
+    "retained_evidence_corruptions_rejected": [
+      {
+        "case": "hold-bytes",
+        "reason": "Retained predecessor receipt changed"
+      },
+      {
+        "case": "accepted-label",
+        "reason": "APD445 must remain explicitly unaccepted and undelivered"
+      },
+      {
+        "case": "delivery-authorized",
+        "reason": "APD445 must remain explicitly unaccepted and undelivered"
+      },
+      {
+        "case": "hold-resolved",
+        "reason": "APD445 must remain explicitly unaccepted and undelivered"
+      },
+      {
+        "case": "core-count",
+        "reason": "Retained complete core evidence differs"
+      },
+      {
+        "case": "apk-hash",
+        "reason": "Retained compiled bytes differ"
+      },
+      {
+        "case": "source-zip",
+        "reason": "Retained compiled bytes differ"
+      },
+      {
+        "case": "signer",
+        "reason": "Original signer/application identity differs"
+      },
+      {
+        "case": "history-preserved",
+        "reason": "Retained source/history checks are incomplete"
+      },
+      {
+        "case": "built-artifact-digest",
+        "reason": "APD445 artifact identity differs"
+      },
+      {
+        "case": "scan-artifact-source",
+        "reason": "APD445 artifact identity differs"
+      },
+      {
+        "case": "build-failed",
+        "reason": "Retained compile/signature/source jobs did not pass"
+      },
+      {
+        "case": "scan-failed",
+        "reason": "Retained compile/signature/source jobs did not pass"
+      },
+      {
+        "case": "run-source",
+        "reason": "The retained APD445 producing identity differs; never rebuild it"
+      },
+      {
+        "case": "build-in-progress",
+        "reason": "Retained compile/signature/source jobs did not pass"
+      },
+      {
+        "case": "run-not-started",
+        "reason": "The retained APD445 producing identity differs; never rebuild it"
+      },
+      {
+        "case": "accepted-guard-hash",
+        "reason": "The accepted APD444 prerequisite guard changed"
+      },
+      {
+        "case": "accepted444-job-failed",
+        "reason": "Previous 444 gates incomplete"
+      }
+    ],
+    "unfinished_operational_stages_blocked": [
+      {
+        "state": "draft",
+        "stage": "history"
+      },
+      {
+        "state": "draft",
+        "stage": "core"
+      },
+      {
+        "state": "draft",
+        "stage": "freeze"
+      },
+      {
+        "state": "draft",
+        "stage": "fetch"
+      },
+      {
+        "state": "draft",
+        "stage": "source-scan"
+      },
+      {
+        "state": "draft",
+        "stage": "fetch-scan"
+      },
+      {
+        "state": "draft",
+        "stage": "native"
+      },
+      {
+        "state": "draft",
+        "stage": "finalize"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "history"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "core"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "freeze"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "fetch"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "source-scan"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "fetch-scan"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "native"
+      },
+      {
+        "state": "missing-receipt-commit",
+        "stage": "finalize"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "history"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "core"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "freeze"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "fetch"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "source-scan"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "fetch-scan"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "native"
+      },
+      {
+        "state": "missing-guard-hash",
+        "stage": "finalize"
+      }
+    ],
+    "accepted_delivered_owner_build": 444,
+    "held_compiled_history_build": 445,
+    "apd445_accepted": false,
+    "apd445_delivered": false,
+    "retained_affected_images": 60,
+    "new_affected_images": 1,
+    "planned_native_cases_per_variant": 9,
+    "request_absent": true,
+    "no_live_api_build_android_core_test_or_remote_mutation": true,
+    "files_sha256": {
+      "tools/apd_candidate446.py": "c40fd27913886c81df61783104057810cd13abde82c67aa12093bbb67547ed6c",
+      ".github/workflows/apd-candidate-446.yml": "f0a0ca2504c16c9fb487610dc0bed22de6eff094f0561d73fd50412d9f190f58",
+      "docs/APD-446-BUILD-PLAN.json": "6e624bdef3a151ca854a77e680f54a960903207b2e8b067cd8eb8fe48c1fc047"
+    }
+  },
+  "independent_pipeline_review_sha256": "302aa1ff38b2b21047e82da6b74a4fa45e0a9b1dc65dbc1571241194dc967f12",
+  "scope_transition": "Independent review binds the same helper and workflow. Only readiness and pending fields changed after the sourceCI and fixture reviews; final offline validation was rerun.",
+  "last_accepted_delivered_owner_build": 444,
+  "retained_compiled_predecessor": 445,
+  "predecessor445_accepted": false,
+  "predecessor445_delivered": false,
+  "predecessor445_terminal_diagnostics": "docs/APD-445-NATIVE-FAILURE-2026-11-11.json",
+  "planned_native_cases_per_variant": 9,
+  "planned_native_cases_total": 18,
+  "affected_images_required_per_variant": 61,
+  "apk_or_native_success_claimed": false
+}

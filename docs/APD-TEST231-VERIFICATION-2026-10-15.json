@@ -1,0 +1,44 @@
+{
+  "source": "5134ef6438f9562a37b3f8db727d5d004fa93527",
+  "publication_commit": "f83b90b78de1560fbd0f19a85a711bf5377be473",
+  "publication_app_tree_matches_source": true,
+  "run": "38837749762",
+  "apk_sha256": "20f1d87ab58afd21cd37ae4027e6ebb79c01fcf802d0869801e6ffa03943bff9",
+  "certificate_sha256": [
+    "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e"
+  ],
+  "package": [
+    "com.charltonchris29.adhdpixeldungeon.indev",
+    "920",
+    "4.0.8-apd-INDEV-bC231-TEST"
+  ],
+  "build_started_utc": "2026-10-16T01:55:47Z",
+  "build_completed_utc": "2026-10-16T02:11:56Z",
+  "core": {
+    "tests": 1693,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "android": {
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "screenshots": 42,
+  "physical_phone_tested": false,
+  "published": false,
+  "staging_run": 38839714168,
+  "staging_artifacts": [
+    {
+      "id": 12020511684,
+      "sha256": "f2dcef823b541d2eb38996045c05826df5b9663be3e63747045878a306574a0f"
+    },
+    {
+      "id": 12021155266,
+      "sha256": "787f1b42e5e82b36b1834a386b75cbe9c8cddae9878a4338611e772d2ac48caa"
+    }
+  ],
+  "pdf_sha256": "0f7c14511ef8eeb93a5d7516eafc8ceec26200bbecb2bf80c654636c989c5183"
+}

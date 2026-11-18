@@ -1,0 +1,1 @@
+Owner verified cadence through09:30UTC.3064core457suites pass.12targeted Androidcases must verify actual portrait/landscape windows and unchanged wand save state. Preserve392fallback/all earlier work. Draft stage only until hashes and actual captures reviewed; no full audit/phone/audio claim.

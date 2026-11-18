@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-18T06:35:50Z",
+  "component_review": {
+    "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Catalog.java",
+    "blob": "126535930994090260cc86d784085f48e0342129",
+    "lines": 80,
+    "complete": true,
+    "new_production_defect_confirmed": false
+  },
+  "reviewed_paths": [
+    "synchronized dataset and view access",
+    "detached datasets() and views() snapshots",
+    "replacement by stable dataset/view ID",
+    "LinkedHashMap insertion-order preservation",
+    "view-to-current-dataset resolution and missing IDs",
+    "existing worker/read concurrency regression"
+  ],
+  "retained_test": {
+    "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CatalogContractTest.java",
+    "blob": "d65d57880b2872337c0485007364b3cc27f26dfc",
+    "commit": "ca15ab46ea3572bc05a957f22f75970af22ff97e",
+    "methods": 3,
+    "method_names": [
+      "returnedListsAreDetachedSnapshots",
+      "replacingAnIdKeepsItsPositionAndCreatesNoDuplicate",
+      "aViewResolvesTheCurrentDatasetByIdAndMissingIdsStayMissing"
+    ]
+  },
+  "verification": {
+    "run_id": 39104441554,
+    "conclusion": "success",
+    "started_at": "2026-10-18T06:33:08Z",
+    "completed_at": "2026-10-18T06:35:50Z",
+    "tests": 1815,
+    "suites": 359,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 3,
+    "focused_seconds": 0.001,
+    "artifact_id": 12127158889,
+    "artifact_bytes": 848464,
+    "artifact_digest": "sha256:3248ed1dee990f76c05af2d3f696c7e616476fd4f0d1bfe64fb246b3569ac905",
+    "downloaded_zip_digest_match": true
+  },
+  "application_source_changed": false,
+  "apk_rebuild_needed": false,
+  "build_request_changed": false,
+  "latest_verified_private_candidate": 277,
+  "latest_published_owner_build": 262,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

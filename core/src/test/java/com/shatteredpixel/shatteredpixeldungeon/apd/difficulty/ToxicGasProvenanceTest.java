@@ -1,0 +1,32 @@
+package com.shatteredpixel.shatteredpixeldungeon.apd.difficulty;
+import com.shatteredpixel.shatteredpixeldungeon.*;
+import com.shatteredpixel.shatteredpixeldungeon.actors.*;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.ToxicGas;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.apd.HeadlessTestSupport;
+import com.shatteredpixel.shatteredpixeldungeon.levels.*;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
+import com.watabou.utils.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+public class ToxicGasProvenanceTest{
+ static class ProbeGas extends ToxicGas{int[] pendingDensity(){return off;}}
+ static class Quiet extends CharSprite{@Override public void showStatus(int c,String s,Object...a){} @Override public void showStatusWithIcon(int c,String s,int i,Object...a){}}
+ static class Target extends Char{Object source;int calls;Target(){HP=HT=1000;pos=12;sprite=new Quiet();}@Override public void damage(int d,Object s){source=s;calls++;super.damage(d,s);}}
+ Hero hero;Level level;int depth;Bundle run;
+ @Before public void setup()throws Exception{HeadlessTestSupport.start();hero=Dungeon.hero;level=Dungeon.level;depth=Dungeon.depth;run=new Bundle();Dungeon.apdStoreCustomRules(run);Dungeon.hero=new Hero();Dungeon.depth=14;Dungeon.level=new SewerLevel();java.lang.reflect.Method size=Level.class.getDeclaredMethod("setSize",int.class,int.class);size.setAccessible(true);size.invoke(Dungeon.level,5,5);java.util.Arrays.fill(Dungeon.level.map,Terrain.EMPTY);}
+ @After public void cleanup(){Dungeon.hero=hero;Dungeon.level=level;Dungeon.depth=depth;Dungeon.apdRestoreCustomRules(run);assertEquals(OffensiveDamageOrigin.UNATTRIBUTED,OffensiveEffectContext.current());}
+ void rules(int p,int e,int b){Bundle saved=new Bundle(),r=new Bundle();CustomDungeonRules.defaults().with(CustomDungeonRules.Slider.PLAYER_DAMAGE,p).with(CustomDungeonRules.Slider.ENEMY_DAMAGE,e).with(CustomDungeonRules.Slider.BOSS_DAMAGE,b).store(r);saved.put("apd_custom_rules",r);Dungeon.apdRestoreCustomRules(saved);}
+ void seed(ToxicGas gas,int cell,int amount,OffensiveDamageOrigin role){try(OffensiveEffectContext c=OffensiveEffectContext.enter(role)){gas.seed(Dungeon.level,cell,amount);}}
+ @Test public void actualGasTicksUseAllSourceRolesAndDamagePercentagesOnce(){for(OffensiveDamageOrigin role:new OffensiveDamageOrigin[]{OffensiveDamageOrigin.PLAYER,OffensiveDamageOrigin.ENEMY,OffensiveDamageOrigin.BOSS})for(int pct=25;pct<=500;pct+=25){rules(role==OffensiveDamageOrigin.PLAYER?pct:100,role==OffensiveDamageOrigin.ENEMY?pct:100,role==OffensiveDamageOrigin.BOSS?pct:100);ToxicGas gas=new ToxicGas();seed(gas,12,50,role);Target t=new Target();Actor.add(t);try{gas.act();assertEquals(1000-Math.round(3*pct/100f),t.HP);assertSame(gas,t.source);}finally{Actor.remove(t);}}}
+ @Test public void mixedSourcesShareOneDamageEventAndUnownedGasRemainsUnscaled(){rules(200,300,500);ToxicGas mixed=new ToxicGas();seed(mixed,12,50,OffensiveDamageOrigin.PLAYER);seed(mixed,12,50,OffensiveDamageOrigin.BOSS);Target t=new Target();Actor.add(t);try{mixed.act();assertEquals(989,t.HP);assertEquals(1,t.calls);assertSame(mixed,t.source);}finally{Actor.remove(t);}ToxicGas environmental=new ToxicGas();seed(environmental,12,100,OffensiveDamageOrigin.UNATTRIBUTED);Target u=new Target();Actor.add(u);try{environmental.act();assertEquals(997,u.HP);}finally{Actor.remove(u);}}
+ @Test public void neutralSourceTrackingPreservesDensityVolumeTurnsAndRng(){rules(100,100,100);ProbeGas tagged=new ProbeGas(),vanilla=new ProbeGas();seed(tagged,12,80,OffensiveDamageOrigin.PLAYER);seed(tagged,7,20,OffensiveDamageOrigin.BOSS);seed(vanilla,12,80,OffensiveDamageOrigin.UNATTRIBUTED);seed(vanilla,7,20,OffensiveDamageOrigin.UNATTRIBUTED);for(int turn=0;turn<8;turn++){long next;Random.pushGenerator(711);try{next=Random.Long();}finally{Random.popGenerator();}Random.pushGenerator(711);try{tagged.act();assertEquals(next,Random.Long());}finally{Random.popGenerator();}vanilla.act();assertArrayEquals(vanilla.cur,tagged.cur);assertArrayEquals(vanilla.pendingDensity(),tagged.pendingDensity());assertEquals(vanilla.volume,tagged.volume);assertEquals(vanilla.cooldown(),tagged.cooldown(),0);}}
+ @Test public void saveAndRestoreRetainDiffusedMixedOwnershipWhileLegacyStaysUnknown(){rules(200,300,500);ToxicGas gas=new ToxicGas();seed(gas,12,50,OffensiveDamageOrigin.PLAYER);seed(gas,12,50,OffensiveDamageOrigin.BOSS);gas.act();Bundle saved=new Bundle();gas.storeInBundle(saved);ToxicGas restored=new ToxicGas();restored.restoreFromBundle(saved);Target t=new Target();Actor.add(t);try{restored.act();assertEquals(989,t.HP);}finally{Actor.remove(t);}CellDamageOrigins.clearMetadata(saved,"apd_toxic_origins");ToxicGas legacy=new ToxicGas();legacy.restoreFromBundle(saved);Target u=new Target();Actor.add(u);try{legacy.act();assertEquals(997,u.HP);}finally{Actor.remove(u);}}
+ @Test public void clearingAndReusingGasNeverKeepsTheOldAttacker(){rules(200,300,500);ToxicGas gas=new ToxicGas();seed(gas,12,50,OffensiveDamageOrigin.BOSS);gas.clear(12);seed(gas,12,50,OffensiveDamageOrigin.UNATTRIBUTED);Target t=new Target();Actor.add(t);try{gas.act();assertEquals(997,t.HP);}finally{Actor.remove(t);}gas.fullyClear();seed(gas,12,50,OffensiveDamageOrigin.UNATTRIBUTED);Bundle b=new Bundle();gas.storeInBundle(b);assertFalse(b.contains("apd_toxic_origins_version"));}
+ @Test public void invalidMetadataIsRejectedWithoutEditingTheSavedDensity(){ToxicGas gas=new ToxicGas();seed(gas,12,50,OffensiveDamageOrigin.BOSS);Bundle b=new Bundle();gas.storeInBundle(b);int[] before=b.getIntArray("cur");b.put("apd_toxic_origins_mass",new String[]{"NaN","0","0","50"});try{new ToxicGas().restoreFromBundle(b);fail();}catch(IllegalArgumentException expected){}assertArrayEquals(before,b.getIntArray("cur"));assertEquals("NaN",b.getStringArray("apd_toxic_origins_mass")[0]);}
+ @Test public void gasSeededDuringDamageDoesNotAcquireTheAlreadyComputedDiffusion(){
+  rules(200,300,500);final ToxicGas gas=new ToxicGas();seed(gas,12,100,OffensiveDamageOrigin.PLAYER);
+  Target t=new Target(){boolean emitted;@Override public void damage(int d,Object source){super.damage(d,source);if(!emitted){emitted=true;seed(gas,12,100,OffensiveDamageOrigin.BOSS);}}};Actor.add(t);
+  try{gas.act();assertEquals(994,t.HP);gas.act();assertEquals(988,t.HP);}finally{Actor.remove(t);}
+ }
+}

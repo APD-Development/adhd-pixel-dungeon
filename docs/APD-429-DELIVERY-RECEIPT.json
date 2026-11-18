@@ -1,0 +1,39 @@
+{
+  "prepared_eastern": "2026-11-09T15:43:35.590174-05:00",
+  "source_commit": "fe077c5845b8f4c0781502c0359b827f77e46fc9",
+  "number": 429,
+  "tag": "apd-alpha-preview-429",
+  "core_tests": 3160,
+  "android_tests": 12,
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "apk_hashes": {
+    "Developer": "6c01aeee95c9be1dfebcd0dc13a1d46c28325f152823a2f904861d8884e6ae1c",
+    "Alpha-Testers": "db77692536cd91c3ada02c9c27284203f6682169bf4a5db7f9499a8aa738cc68"
+  },
+  "source_sha256": "1e0eda4c4722c7f809d86a85aa516a3084b9f137e1df9f2572922655edf0874b",
+  "physical_phone_verified": false,
+  "whole_semantic_audit_complete": false,
+  "generic_item_panel_removal_preserved": true,
+  "existing_mechanic_panels_pending_owner_review": true,
+  "new_application_apks_created": 2,
+  "prepared_utc": "2026-11-09T20:43:35.688970+00:00",
+  "workflow_run": "42692029572",
+  "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+  "fallback_preserved": true,
+  "stage_run": 42692139081,
+  "published_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-429",
+  "independent": {
+    "number": 429,
+    "source_commit": "fe077c5845b8f4c0781502c0359b827f77e46fc9",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4810,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": true,
+    "manual_full_frames": 27,
+    "source_rebuilt_independently": false
+  },
+  "manual_review_file": "docs/APD-429-MANUAL-VISUAL-REVIEW.json",
+  "published_utc": "2026-11-09T20:47:21Z"
+}

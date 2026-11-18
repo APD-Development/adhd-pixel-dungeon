@@ -1,0 +1,84 @@
+name: Deliver October 16 private lunch PDF
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-lunch-pdf-2026-10-16.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-lunch-pdf-2026-10-16
+  cancel-in-progress: false
+jobs:
+  deliver-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Verify private repository and completed source evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path):return json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          for number in (38924547882,38924547759):
+              run=api(f'repos/{repo}/actions/runs/{number}')
+              assert run['status']=='completed' and run['conclusion']=='success'
+              assert run['head_sha']=='adb1bcdd420ff5639f4a65d2d9b456b0cfe08474'
+          fallback=api(f'repos/{repo}/releases/tags/apd-alpha-preview-231')
+          assert not fallback['draft']
+          assert any(a['name']=='ADHD-Pixel-Dungeon-Alpha-Preview-231.apk' and a['digest']=='sha256:20f1d87ab58afd21cd37ae4027e6ebb79c01fcf802d0869801e6ffa03943bff9' for a in fallback['assets'])
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: staged-alpha-preview250-evidence
+          run-id: '38924547759'
+          github-token: ${{ github.token }}
+          path: report
+      - name: Publish only the prepared PDF and verify its actual download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib,subprocess,time
+          repo=os.environ['GITHUB_REPOSITORY'];root=pathlib.Path('report')
+          expected='d232809d2a6cf30aedbddbea9932d6b173504ed1c798585afb3a1b854e60f73b'
+          pdf=root/'APD-Alpha-Preview-250.pdf'
+          assert pdf.stat().st_size==32477 and pdf.read_bytes().startswith(b'%PDF-')
+          assert hashlib.sha256(pdf.read_bytes()).hexdigest()==expected
+          evidence=json.loads((root/'TEST250-Verification.json').read_text())
+          assert evidence['source']=='adb1bcdd420ff5639f4a65d2d9b456b0cfe08474'
+          for kind,count in [('core',1729),('android',34)]:
+              v=evidence[kind];assert v['tests']==count and v['failures']==v['errors']==v['skipped']==0
+          assert evidence['apk_sha256']=='06531de071cbe89a5b0c3260f5c5fb6e6368fbfdf388f8f18bb0fcd983532535'
+          def api(path):return json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          tag='apd-lunch-report-2026-10-16'
+          releases=api(f'repos/{repo}/releases?per_page=100')
+          matches=[r for r in releases if r['tag_name']==tag];assert len(matches)<=1
+          deadline=datetime.datetime(2026,10,16,15,55,tzinfo=datetime.timezone.utc)
+          while datetime.datetime.now(datetime.timezone.utc)<deadline:time.sleep(1)
+          notes=root/'release-notes.txt'
+          notes.write_text('Private owner lunch development report for October 16, 2026. Covers verified TEST250 source adb1bcdd420ff5639f4a65d2d9b456b0cfe08474, preceding scoring/UIMSD/Vault fixes, failures, risks and open physical-phone checks. 1,729 core and34 API34 methods passed;44 captures reviewed. No APK rebuilt for report delivery. This publishes only the PDF; APK delivery remains noon EDT. No automatic tester distribution. Earlier source-specific pending checkpoints remain explicitly identified in the report.\n')
+          if not matches:
+              subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD private lunch development report — October 16, 2026','--notes-file',str(notes)],check=True)
+          release=api(f'repos/{repo}/releases/tags/{tag}');assert not release['draft'] and release['prerelease']
+          assets=[a for a in release['assets'] if a['name']==pdf.name];assert len(assets)<=1
+          if not assets:subprocess.run(['gh','release','upload',tag,str(pdf),'--repo',repo],check=True)
+          release=api(f'repos/{repo}/releases/tags/{tag}')
+          assets=[a for a in release['assets'] if a['name']==pdf.name];assert len(assets)==1
+          asset=assets[0];assert asset['size']==32477 and asset['digest']=='sha256:'+expected
+          target=pathlib.Path('verified-download');target.mkdir(exist_ok=True)
+          subprocess.run(['gh','release','download',tag,'--repo',repo,'--pattern',pdf.name,'--dir',str(target)],check=True)
+          assert hashlib.sha256((target/pdf.name).read_bytes()).hexdigest()==expected
+          receipt={'pdf_url':asset['browser_download_url'],'asset_id':asset['id'],'release_id':release['id'],'published_at':release['published_at'],'verified_download_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pdf_sha256':expected,'source':evidence['source'],'source_run':38924547882,'stage_run':38924547759,'delivery_run':int(os.environ['GITHUB_RUN_ID']),'delivery_commit':os.environ['GITHUB_SHA'],'private_repository':True,'apk_published':False,'application_rebuilt':False,'physical_phone_verified':False}
+          pathlib.Path('pdf-delivery-result.json').write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-lunch-pdf-2026-10-16-delivery
+          path: pdf-delivery-result.json
+          if-no-files-found: warn

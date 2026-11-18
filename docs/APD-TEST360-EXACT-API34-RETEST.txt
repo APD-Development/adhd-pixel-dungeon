@@ -1,0 +1,5 @@
+Recheck the exact TEST360 Developer APK from producer run41661720393; do not assemble a new application APK or assign a new build number.
+The original API34 invocation ran all71 cases and passed70. The only failure was the newly strengthened categorized-settings fixture requiring the title-only View current run rules row to materialize even though production deliberately keeps that control unavailable outside GameScene.
+Correct only that fixture: eligible visited non-empty notes must materialize and remain retained; unvisited, empty, and context-ineligible notes must remain unallocated. Preserve the original failure and its incomplete screenshot evidence.
+Require application-input identity with source88b2e837e10a73290791861824542c9d8616d8e3, exact APK SHA256 bfc829fc92b950b6c13228922eb2fe4cc1f6aa802e6427be961b12f97a94a07e, instrumentation-only compilation, all71 unchanged API34 cases, and the complete screenshot allowlist.
+No publication, distribution, physical-phone claim, build-request edit, save/statistics/scoring/rules/signing/application-ID change.

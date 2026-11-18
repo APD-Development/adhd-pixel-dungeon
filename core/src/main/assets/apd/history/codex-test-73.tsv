@@ -1,0 +1,6 @@
+Changes	ICON_INFO	Honest missing-artifact labels	Historical attempts without retained APK evidence are labeled accordingly, without claiming that no temporary APK ever existed.
+Bug Fixes	ICON_CHANGES	Chronological imported builds	Importing older APK history no longer places an older build ahead of a newer failed attempt in the same numbering family.
+Testing	ICON_CHANGES	Build-order regression	Added a permanent regression check for preserving build-number order while importing missing compiled histories.
+Testing	ICON_STAIRS	Rendered highlight screenshot	The Android highlight capture now waits for a rendered frame instead of capturing the preceding frame immediately after selection.
+Development	ICON_INFO	Verified preparation record	Recorded successful TEST72 checks, owner-approved hidden-trap behavior and the corrected visual capture in the report and handoff.
+Developer Commentary	V074_SHPX	Developer Commentary	I kept missing-artifact labels precise and corrected imported build ordering. I also tightened the Android screenshot timing for the stair highlight.

@@ -1,0 +1,56 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Stage verified393 APKs and screenshots in owner draft without publishing
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-393-STAGE-REQUEST.json]
+permissions: {contents: write, actions: read}
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require completed acceptance and stage exact verified assets
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          python3 - <<'PYDATA'
+          import json,subprocess,pathlib
+          d=json.loads(pathlib.Path('docs/APD-393-STAGE-REQUEST.json').read_text());pathlib.Path('stage-run.txt').write_text(str(d['run_id']))
+          PYDATA
+          gh run watch "$(cat stage-run.txt)" --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+          gh run download "$(cat stage-run.txt)" --repo "$GITHUB_REPOSITORY" --name apd393-prepared-owner-pair --dir owner-delivery
+          gh run download "$(cat stage-run.txt)" --repo "$GITHUB_REPOSITORY" --name apd393-source-and-native-evidence --dir complete-evidence
+          python3 - <<'PYSTAGE'
+          import pathlib,json,subprocess,hashlib,zipfile
+          repo=__import__('os').environ['GITHUB_REPOSITORY'];tag='apd-alpha-preview-393';api=lambda p:json.loads(subprocess.check_output(['gh','api',p]));assert api('repos/'+repo)['private'];matches=[r for r in api('repos/'+repo+'/releases?per_page=100') if r['tag_name']==tag];assert len(matches)==1;release=matches[0];assert release['draft'];proof=json.loads(pathlib.Path('owner-delivery/APD-Preview-393-Verification.json').read_text());assert proof['source_commit']=='9d0f8db027a8cef4bf662b9f9d19ec33d1ae4bc5';assert proof['core_tests']==3064 and proof['android_tests']==12
+          for label,digest in proof['apk_hashes'].items():assert hashlib.sha256(pathlib.Path('owner-delivery/APD-'+label+'-393.apk').read_bytes()).hexdigest()==digest
+          images=list(pathlib.Path('complete-evidence').rglob('*.png'));assert images
+          with zipfile.ZipFile('owner-delivery/APD-393-Native-Visuals.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in images:z.write(p,p.relative_to('complete-evidence'))
+          with zipfile.ZipFile('owner-delivery/APD-393-Complete-Test-Evidence.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in sorted(pathlib.Path('complete-evidence').rglob('*')):
+              if p.is_file():z.write(p,p.relative_to('complete-evidence'))
+          existing={a['name']:a for a in release['assets']}
+          for p in sorted(pathlib.Path('owner-delivery').iterdir()):
+            if p.name=='release-notes.md' or not p.is_file():continue
+            digest='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
+            if p.name in existing:assert existing[p.name].get('digest')==digest
+            else:subprocess.run(['gh','release','upload',tag,str(p),'--repo',repo],check=True)
+          subprocess.run(['gh','release','edit',tag,'--repo',repo,'--draft','--prerelease','--latest=false','--title','APD393 — read-only inspection, clear costs and item restrictions','--notes-file','owner-delivery/release-notes.md'],check=True)
+          print('Verified files staged only; draft remains unpublished pending actual visual review.')
+          PYSTAGE

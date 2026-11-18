@@ -1,0 +1,6 @@
+APD443 authorized continuation build request
+Accepted APD442 baseline: b912f2b083f70de5d81f2351d32c24a0d5ac129e
+Scope: reviewed Liquid Agility occupied-throw timing repair, matching ordinary description, and additive real-flight native regression.
+Require3210 core tests /465 suites and all existing compile, ABI, signer, exact history, native, source and manual-review gates.
+Build one new immutable Developer/Alpha-Testers pair; privately deliver each verified APK immediately after exact saved-file readback.
+Date: 2026-11-11

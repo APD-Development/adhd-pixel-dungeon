@@ -1,0 +1,5 @@
+Changes	V061_BUGFIX	Corrosion damage ownership	Prepared source-aware corrosion ticks and forecasts with compatible saves and unchanged neutral behavior.
+Changes	V073_DART	Rot dart source	Prepared attacker attribution for the corrosion caused by rot darts.
+Changes	V063_MAGICMISSILE	Elemental corrosion source	Prepared caster attribution for Elemental Blast's corrosion effect.
+Changes	V061_BUGFIX	Corrosion regression coverage	Added corrosion checks for all damage settings, neutral behavior, overlapping effects and save compatibility.
+Changes	V061_PAGE	Corrosion verification records	Recorded verified burning results, corrosion checks and the remaining alpha release blockers.

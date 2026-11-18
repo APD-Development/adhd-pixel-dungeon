@@ -1,0 +1,7 @@
+APD444 single-pair build and private owner review request, 2026-11-11
+Accepted baseline: 69801dff65bc10b6fb45720c88f3d0cd5f7dd281
+Previous frozen pair: APD443, producing source a2960688e02468817914f006ff4c563b844c80c5, run 43051129325.
+Source verification: 43c078b75b73626625369ed21d1cbf2f013e6f31, successful run 43056607040; 3214 tests in 466 suites with zero failures/errors/skips and all required compilation.
+Scope: ordinary Empowered Strike duration/refresh and Arcane Vision activation wording, actual-handler regressions, four ordinary-window captures and instrumentation-only Ooze capture stabilization. No gameplay formula, save-format or detailed-panel change.
+Build the Developer and Alpha-Testers pair once, preserving the original signer and exact compiled APD443 history. Require all twelve native cases, all 29 affected image names, complete device transfers, unchanged exact-source scanning and manual review before private delivery.
+The producing source is the commit containing this request, bound by the workflow to GITHUB_SHA. Preserve every frozen pair; this request does not publish a GitHub release.

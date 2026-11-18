@@ -1,0 +1,49 @@
+{
+  "complete": false,
+  "scope_note": "Five current-hash reviews supplement prior audit; does not replace or declare the entire system reviewed.",
+  "entries": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryCodec.java",
+      "sha": "3a643d13367ca9ef51cc109667fc7bf7b52ee368",
+      "lines": 180,
+      "reviewed": true,
+      "basis": "Complete current-file review; no confirmed supported-input defect; source hash matched TEST204.",
+      "tested_source": "245b21b7064a03b916e68f1992f94ca017f22fc0"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Question.java",
+      "sha": "6074335406487d291f8958066d6df39d052a2d7b",
+      "lines": 133,
+      "reviewed": true,
+      "basis": "Complete current-file review; no confirmed supported-input defect; source hash matched TEST204.",
+      "tested_source": "245b21b7064a03b916e68f1992f94ca017f22fc0"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Questions.java",
+      "sha": "6d484613e55379efcbbff6bf30d0bc36922146c3",
+      "lines": 245,
+      "reviewed": true,
+      "basis": "Complete current-file review; no confirmed supported-input defect; source hash matched TEST204.",
+      "tested_source": "245b21b7064a03b916e68f1992f94ca017f22fc0"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/TableGeometry.java",
+      "sha": "22d28526a76de7a5c0f2144d552e94c2041b0791",
+      "lines": 113,
+      "reviewed": true,
+      "basis": "Complete current-file review; no confirmed supported-input defect; source hash matched TEST204.",
+      "tested_source": "245b21b7064a03b916e68f1992f94ca017f22fc0"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/WindowGeometry.java",
+      "sha": "8b68016d931040114c9fef07c31f78b5def020c0",
+      "lines": 96,
+      "reviewed": true,
+      "basis": "Complete current-file review; no confirmed supported-input defect; source hash matched TEST204.",
+      "tested_source": "245b21b7064a03b916e68f1992f94ca017f22fc0"
+    }
+  ],
+  "existing_targeted_tests": 33,
+  "core_total": 1631,
+  "run_id": 38747671347
+}

@@ -1,0 +1,12 @@
+{
+  "source": "0411dbb9e6dada3c91c9de930bfcc4708e3028cf",
+  "manifest_hashes_checked": 4695,
+  "selected_new_HoldFast_Barkskin_full_frames_manually_viewed": 18,
+  "new_frames_readable": true,
+  "whole_build_accepted": false,
+  "reasons": [
+    "Inherited420 Endure/SoulMark display defects",
+    "Compiled-history gap recorded separately"
+  ],
+  "published_fallback": 418
+}

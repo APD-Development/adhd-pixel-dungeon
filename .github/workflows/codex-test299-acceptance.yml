@@ -1,0 +1,95 @@
+name: APD TEST299 exact APK Android acceptance
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-test299-acceptance.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  exact-apk-hotbar-restart:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Set up Android SDK
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Get exact preceding and corrected APK artifacts without rebuilding either
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,time,zipfile
+          repo=os.environ['GITHUB_REPOSITORY']; out=pathlib.Path('hotbar-restart-evidence');out.mkdir()
+          source='d274cfce8b14b48766be2cbe1cb5aa63558f9a23';deadline=time.monotonic()+5*60
+          while True:
+              runs=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs?head_sha={source}&per_page=30']))['workflow_runs']
+              matching=[r for r in runs if r['name']=='Codex APD sprint verification' and r['head_sha']==source]
+              players=[r for r in runs if r['name']=='APD paired regular-player APK' and r['head_sha']==source]
+              if matching and players:target=max(matching,key=lambda r:r['id']);player=max(players,key=lambda r:r['id']);break
+              assert time.monotonic()<deadline,'Matching developer run not found'
+              time.sleep(10)
+          with open(os.environ['GITHUB_ENV'],'a') as env:env.write('APD_TARGET_TEST_NUMBER='+str(target['run_number'])+chr(10))
+          for label,run_id,source in [('before',39187804530,'0652d715cea86fb0242f4470cf870b3761672d0f'),('after',target['id'],source),('player',player['id'],source)]:
+              deadline=time.monotonic()+15*60
+              while True:
+                  jobs=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run_id}/jobs']))['jobs']
+                  verify=[j for j in jobs if j['name']==('build-player' if label=='player' else 'verify-and-build')]
+                  if verify and verify[0]['status']=='completed':
+                      assert verify[0]['conclusion']=='success',verify[0];break
+                  assert time.monotonic()<deadline,'Timed out waiting for corrected APK'
+                  time.sleep(10)
+              run=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run_id}']))
+              assert run['head_sha']==source
+              artifacts=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs/{run_id}/artifacts']))['artifacts']
+              artifact_name='apd-player-matching-developer' if label=='player' else 'apd-codex-private-test-apk'
+              artifact=next(a for a in artifacts if a['name']==artifact_name and not a['expired'])
+              archive=out/(label+'.zip')
+              with archive.open('wb') as f:subprocess.run(['gh','api',f'repos/{repo}/actions/artifacts/{artifact["id"]}/zip'],stdout=f,check=True)
+              with zipfile.ZipFile(archive) as z:
+                  name=next(n for n in z.namelist() if n.endswith('.apk'));data=z.read(name)
+                  expected=z.read(next(n for n in z.namelist() if n.endswith('.apk.sha256'))).decode().split()[0]
+                  assert hashlib.sha256(data).hexdigest()==expected
+                  (out/(label+'.apk')).write_bytes(data)
+              (out/(label+'-source.json')).write_text(json.dumps({'source':source,'run':run_id,'sha256':expected,'apk':name},indent=2))
+          PY
+      - name: Verify application source is identical to the produced APK
+        run: |
+          git fetch --depth=1 origin d274cfce8b14b48766be2cbe1cb5aa63558f9a23
+          test -z "$(git diff d274cfce8b14b48766be2cbe1cb5aa63558f9a23 HEAD -- core/src/main android/src/main SPD-classes/src/main)"
+      - name: Compile instrumentation without rebuilding application APKs
+        run: ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C${{ env.APD_TARGET_TEST_NUMBER }}
+      - name: Force-stop TEST285, reproduce the defect, then restore its saves with the exact corrected APK
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          script: |
+            bash tools/run-hotbar-cold-restart.sh
+            bash tools/run-test299-full-native.sh
+      - name: Keep exact APK provenance and before-after instrumentation output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-test299-exact-apk-android-acceptance
+          path: |
+            hotbar-restart-evidence/*.txt
+            hotbar-restart-evidence/*.json
+            hotbar-restart-evidence/*.png
+            test299-native-evidence/
+          if-no-files-found: error
+          retention-days: 7

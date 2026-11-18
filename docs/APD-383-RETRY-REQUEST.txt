@@ -1,0 +1,1 @@
+Full original383 item-window retry with assertions retained. Negative Tenacity case uses a known cursed +0 ring; cursed +3 is neutral under the actual existing formula and must not be assumed harmful. Existing core test covers all sign/level cases. Keep copied Escape Crystal and post-frame camera fixes. No production changes or new game APKs.

@@ -1,0 +1,58 @@
+name: APD generated-room wall search exclusion verification
+# Verify the floor-one fixture using visible geometry, not a hidden-door candidate.
+on:
+  push:
+    branches: [fix/apd466-all-generated-rooms-no-wall-search-20261115]
+    paths: [.github/workflows/apd-all-rooms-wall-search-ci-20261115.yml]
+permissions:
+  contents: read
+concurrency: {group: apd-all-rooms-wall-search-ci-20261115, cancel-in-progress: false}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Setup Android SDK
+        run: |
+          set -euo pipefail
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+      - name: Run complete core tests and compile Android
+        run: |
+          set -euo pipefail
+          ./gradlew :core:test :android:compileDebugJavaWithJavac :android:compileDebugAndroidTestJavaWithJavac
+      - name: Verify actual adaptive-search regression results
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          reports=list(Path('core/build/test-results/test').glob('TEST-*.xml'))
+          assert reports,'No test results'
+          roots=[ET.parse(p).getroot() for p in reports]
+          totals={k:sum(int(r.attrib.get(k,0)) for r in roots) for k in ('tests','failures','errors','skipped')}
+          assert totals['tests']>=3270 and totals['failures']==totals['errors']==totals['skipped']==0, totals
+          suite=next((r for r in roots if r.attrib.get('name','').endswith('.SearchControlContextTest')),None)
+          assert suite is not None
+          expected={'floorTwelveOpenRoomCenterCannotOfferOrStartWallSearch',
+                    'staleSavedFloorNeverOffersWallResumeEvenBesideCandidate',
+                    'everyGeneratedRoomTypeDisablesWallSearchButCorridorsRetainIt',
+                    'floorOneStartingRoomAllowsOrdinarySearchButNeverWallSearch',
+                    'previousFloorOrBranchMemoryNeverPrioritizesAnUnavailableWallResume',
+                    'floorTwoOrdinaryRoomCenterPrefersSearchEvenWhenWideSearchReachesWall',
+                    'actualSearchInMiddleOfFloorTwoRoomDoesNotMakeWallCheckmarks',
+                    'actualSearchFromInsideKeyedRoomDoesNotCreateCheckmarks'}
+          cases={c.attrib.get('name') for c in suite.findall('testcase')}
+          assert expected <= cases,(expected-cases)
+          print('Accepted complete core regression XML',totals)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd-all-rooms-wall-search-regression-reports
+          path: core/build/test-results/test/
+          retention-days: 14
+          if-no-files-found: warn

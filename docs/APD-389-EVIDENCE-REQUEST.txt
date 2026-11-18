@@ -1,0 +1,1 @@
+Owner requested persistent source/test/failure backup.389draftonly; attach local core and exact rejected CI XML/logs. Root release-asset upload returned401 while API/push worked; use existing authorized Actions contents token for uploads. No APK publication or new build.

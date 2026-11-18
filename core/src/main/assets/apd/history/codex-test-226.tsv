@@ -1,0 +1,11 @@
+Testing	ICON_CHECKED	Native release history navigation	Exercise release and technical history selection, version ranges, actual Android touch and system Back against the existing verified APK.
+Testing	ICON_INFO	Unobstructed cold-restart captures	Remove only the emulator's fullscreen tutorial overlay so the unchanged About preference checks also produce readable screenshots.
+Development	ICON_CHANGES	Private alpha staging	Reuse the exact verified APK for signature, checksum, source, screenshot and PDF preparation without rebuilding or distributing to testers.
+Development	ICON_INFO	Verification and acceptance records	Record independent source and visual evidence, distinguish emulator and phone checks, and preserve failed documentation-only preparation without inventing an APK.
+Developer Commentary	ICON_INFO	Developer Commentary	I kept the verified alpha APK while completing release-history navigation and evidence checks. These preparation changes do not alter gameplay, saved runs or earned scores.
+Development	ICON_CHANGES	Private owner preview delivery	Deliver the existing verified APD preview privately with neutral download names, source receipts, signing checks and native navigation evidence.
+Statistics / UIMSD	ICON_COPY	Shared run segment ordering	Choose the latest save segment consistently so quickly resumed unfinished runs stay private and completed histories export losslessly.
+Statistics / UIMSD	ICON_WARNING	Incomplete export provenance	Keep incomplete-data warnings in redacted exports when source history is damaged or a public event is unreadable.
+Testing	ICON_CHECKED	Permanent export integrity regressions	Retain exact-original failure controls, corrected archive integration checks, privacy protections and unchanged source-history assertions.
+Testing	ICON_CHECKED	Keep native history navigation in full gates	Exercise version selection and Android Back on every subsequent full Android gate, using the actual build index and retaining both navigation screenshots.
+Development	ICON_INFO	Record recovered export reliability work	Preserve original-source reproduction evidence and distinguish pending verification, published owner builds and untested physical-device acceptance.

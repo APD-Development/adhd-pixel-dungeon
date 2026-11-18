@@ -1,0 +1,47 @@
+name: Publish owner-requested TEST323 APK pair
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-owner-test323-release.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: apd-owner-test323-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: staged-alpha-preview323
+          run-id: '40744323333'
+          github-token: ${{ github.token }}
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-player-matching-developer
+          run-id: '40737013887'
+          github-token: ${{ github.token }}
+          path: player
+      - name: Verify exact artifacts and publish private prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/apd_publish_owner_test323.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test323-owner-publication-receipt
+          path: |
+            delivery/publication.json
+            delivery/owner-release-notes.txt
+          if-no-files-found: warn
+
+# Preserve exact APK hashes while parsing variant-specific package branding.
+
+# Parse package fields independently of SDK output ordering.
+
+# Tag the verified publication wrapper; retain exact compiled application source in receipt.

@@ -1,0 +1,447 @@
+{
+  "schema": 1,
+  "number": 446,
+  "status": "passed_pre_native_archive_source_and_original_build_evidence",
+  "verified_at_utc": "2026-11-11T18:34:15.524314+00:00",
+  "source_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "producing_run": 43077773970,
+  "run_attempt": 1,
+  "workflow": ".github/workflows/apd-candidate-446.yml",
+  "retained_api_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/snapshot-2026-11-11T18-33-43-555Z.json",
+    "sha256": "2b036e8d8963ebfa43fd4926f7de7d800908cafcc31e39e65759dc9a7c3adf64"
+  },
+  "run_status_at_snapshot": "in_progress",
+  "run_conclusion_at_snapshot": null,
+  "artifacts": {
+    "built_artifact": {
+      "id": 13881279010,
+      "name": "apd446-built-pair",
+      "sha256": "a726c1c09a23faa4209ef51ff743da32503098737221be5c71dcf3f25e3c23ce",
+      "bytes": 184965727,
+      "archive": "/workspace/scratch/db82734c9c44/recovery/apd446-built-artifact-13881279010.zip",
+      "extracted": "/workspace/scratch/db82734c9c44/recovery/apd446-built",
+      "transport_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/artifact-13881279010-download-verification.json",
+        "sha256": "f6559e6f3d34851768bd43fdad9d57dc52397a9930833b4b29ddcd718e56bf62"
+      },
+      "extracted_files_verified": 481
+    },
+    "source_scan_artifact": {
+      "id": 13882374338,
+      "name": "apd446-prepared-source-scan-evidence",
+      "sha256": "6bdbb9ae223b950ce0c5133774eaf03bf645624ddf9dbe7eb9196cbf67c4b1f1",
+      "bytes": 11309,
+      "archive": "/workspace/scratch/db82734c9c44/recovery/apd446-source-scan-artifact-13882374338.zip",
+      "extracted": "/workspace/scratch/db82734c9c44/recovery/apd446-source-scan",
+      "transport_receipt": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/artifact-13882374338-download-verification.json",
+        "sha256": "2213b6967e1190a3b42d92a25c5a388c18147c832d5beeb6c0aca023223db1ea"
+      },
+      "extracted_files_verified": 8
+    }
+  },
+  "existing_core_evidence": {
+    "tests": 3247,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "suites": 468,
+    "tests_rerun": false
+  },
+  "predecessor_distinction": {
+    "accepted_owner_baseline": {
+      "number": 444,
+      "source_commit": "2b8787a2fb41fc6ecacbb77617bd5f1763d902b0",
+      "producing_run": 43057716359,
+      "delivery_receipt_sha256": "cf90cc78462c1b5580df937d458d9110647db36b79fc792024849df0a4fc6470",
+      "unchanged_acceptance_guard_sha256": "81aceb908918984c192c839294baa474bdb36dca4c4743b8be74fae31a830005"
+    },
+    "retained_compiled_predecessor": {
+      "number": 445,
+      "source_commit": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+      "producing_run": 43072342086,
+      "accepted": false,
+      "delivered": false,
+      "hold_resolved": false,
+      "hold_receipt_sha256": "03a1f79c088a149a3371aa7e487aa46ef106893a4c60990b104e31717639696a",
+      "mechanical_receipt_sha256": "ccb80f0d69e5d22552685089951ff8b368191a1769309143badd7ae9a447265a",
+      "observed_run_status": "completed",
+      "observed_run_conclusion": "failure",
+      "observed_jobs": {
+        "build": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "native (Alpha-Testers)": {
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        "source-scan": {
+          "status": "completed",
+          "conclusion": "success"
+        },
+        "native (Developer)": {
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        "prepare-owner-review": {
+          "status": "completed",
+          "conclusion": "skipped"
+        }
+      },
+      "pending_native_results_required_or_reused": false
+    },
+    "producer_retained_evidence_sha256": "9766e8f8b1f85b33d5cb25a51c61e1a3ae28ebbf2793cab9ac093b2190cd37ff",
+    "previous_application_tests_sdk_or_acceptance_workflows_rerun": false
+  },
+  "native_image_contract": {
+    "accepted_444_affected_names": [
+      "qol-counter-ability-normal-bottom.png",
+      "qol-counter-ability-normal.png",
+      "qol-ordinary-talent-ARCANE_VISION-bottom.png",
+      "qol-ordinary-talent-ARCANE_VISION.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+      "qol-ordinary-talent-LINGERING_MAGIC.png",
+      "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+      "qol-ordinary-talent-LIQUID_AGILITY.png",
+      "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+      "qol-ordinary-talent-PROVOKED_ANGER.png",
+      "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+      "qol-ordinary-talent-SPEEDY_STEALTH.png",
+      "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+      "qol-ordinary-talent-VETERANS_INTUITION.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+      "trap-discovery-liquid-agility-excluded-strength-after.png",
+      "trap-discovery-liquid-agility-excluded-strength-before.png",
+      "trap-discovery-liquid-agility-rank1-after.png",
+      "trap-discovery-liquid-agility-rank1-before.png",
+      "trap-discovery-liquid-agility-rank2-after.png",
+      "trap-discovery-liquid-agility-rank2-before.png",
+      "trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "trap-discovery-seer-shot-side-branch-before.png",
+      "trap-discovery-seer-shot-side-branch-revealed.png"
+    ],
+    "retained_445_additional_names": [
+      "pylon-native-active-visible.png",
+      "pylon-native-hidden-excluded.png",
+      "pylon-native-inactive-visible.png",
+      "pylon-native-manual-rat-preserved.png",
+      "pylon-native-ranged-pylon-melee-boss.png",
+      "search-context-confirmed-wall.png",
+      "search-context-crystal-choice.png",
+      "search-context-crystal-vault.png",
+      "search-context-explicit-movement.png",
+      "search-context-explicit-search.png",
+      "search-context-explicit-wall.png",
+      "search-context-metamorph-rank1-radius.png",
+      "search-context-metamorph-rank1-rounded.png",
+      "search-context-metamorph-rank2-square.png",
+      "search-context-metamorph-unacquired.png",
+      "search-context-movement-first.png",
+      "search-context-observed-wall-first.png",
+      "search-context-open-area.png",
+      "search-context-other-floor-memory.png",
+      "search-context-rogue-rank0.png",
+      "search-context-rogue-rank1-radius.png",
+      "search-context-rogue-rank1-rounded.png",
+      "search-context-rogue-rank2-square.png",
+      "search-context-rogue-unacquired-radius.png",
+      "search-context-unseen-wall.png",
+      "seed-history-cleared-generated-selection.png",
+      "seed-history-entry.png",
+      "seed-history-latest-unknown-selection.png",
+      "seed-history-matching-records.png",
+      "seed-history-ranking-copy-confirm.png",
+      "seed-history-ranking-copy-result.png"
+    ],
+    "new_446_additional_names": [
+      "seed-history-unfinished-record.png"
+    ],
+    "required_affected_names": [
+      "pylon-native-active-visible.png",
+      "pylon-native-hidden-excluded.png",
+      "pylon-native-inactive-visible.png",
+      "pylon-native-manual-rat-preserved.png",
+      "pylon-native-ranged-pylon-melee-boss.png",
+      "qol-counter-ability-normal-bottom.png",
+      "qol-counter-ability-normal.png",
+      "qol-ordinary-talent-ARCANE_VISION-bottom.png",
+      "qol-ordinary-talent-ARCANE_VISION.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE-bottom.png",
+      "qol-ordinary-talent-EMPOWERED_STRIKE.png",
+      "qol-ordinary-talent-LINGERING_MAGIC-bottom.png",
+      "qol-ordinary-talent-LINGERING_MAGIC.png",
+      "qol-ordinary-talent-LIQUID_AGILITY-bottom.png",
+      "qol-ordinary-talent-LIQUID_AGILITY.png",
+      "qol-ordinary-talent-PROVOKED_ANGER-bottom.png",
+      "qol-ordinary-talent-PROVOKED_ANGER.png",
+      "qol-ordinary-talent-SPEEDY_STEALTH-bottom.png",
+      "qol-ordinary-talent-SPEEDY_STEALTH.png",
+      "qol-ordinary-talent-VETERANS_INTUITION-bottom.png",
+      "qol-ordinary-talent-VETERANS_INTUITION.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+      "qol-reviewed-talent-clear-EXCESS_CHARGE.png",
+      "search-context-confirmed-wall.png",
+      "search-context-crystal-choice.png",
+      "search-context-crystal-vault.png",
+      "search-context-explicit-movement.png",
+      "search-context-explicit-search.png",
+      "search-context-explicit-wall.png",
+      "search-context-metamorph-rank1-radius.png",
+      "search-context-metamorph-rank1-rounded.png",
+      "search-context-metamorph-rank2-square.png",
+      "search-context-metamorph-unacquired.png",
+      "search-context-movement-first.png",
+      "search-context-observed-wall-first.png",
+      "search-context-open-area.png",
+      "search-context-other-floor-memory.png",
+      "search-context-rogue-rank0.png",
+      "search-context-rogue-rank1-radius.png",
+      "search-context-rogue-rank1-rounded.png",
+      "search-context-rogue-rank2-square.png",
+      "search-context-rogue-unacquired-radius.png",
+      "search-context-unseen-wall.png",
+      "seed-history-cleared-generated-selection.png",
+      "seed-history-entry.png",
+      "seed-history-latest-unknown-selection.png",
+      "seed-history-matching-records.png",
+      "seed-history-ranking-copy-confirm.png",
+      "seed-history-ranking-copy-result.png",
+      "seed-history-unfinished-record.png",
+      "trap-discovery-liquid-agility-excluded-strength-after.png",
+      "trap-discovery-liquid-agility-excluded-strength-before.png",
+      "trap-discovery-liquid-agility-rank1-after.png",
+      "trap-discovery-liquid-agility-rank1-before.png",
+      "trap-discovery-liquid-agility-rank2-after.png",
+      "trap-discovery-liquid-agility-rank2-before.png",
+      "trap-discovery-seer-shot-foreign-branch-hidden.png",
+      "trap-discovery-seer-shot-side-branch-before.png",
+      "trap-discovery-seer-shot-side-branch-revealed.png"
+    ],
+    "required_affected_count": 61,
+    "additions_after_accepted_444": [
+      "pylon-native-active-visible.png",
+      "pylon-native-hidden-excluded.png",
+      "pylon-native-inactive-visible.png",
+      "pylon-native-manual-rat-preserved.png",
+      "pylon-native-ranged-pylon-melee-boss.png",
+      "search-context-confirmed-wall.png",
+      "search-context-crystal-choice.png",
+      "search-context-crystal-vault.png",
+      "search-context-explicit-movement.png",
+      "search-context-explicit-search.png",
+      "search-context-explicit-wall.png",
+      "search-context-metamorph-rank1-radius.png",
+      "search-context-metamorph-rank1-rounded.png",
+      "search-context-metamorph-rank2-square.png",
+      "search-context-metamorph-unacquired.png",
+      "search-context-movement-first.png",
+      "search-context-observed-wall-first.png",
+      "search-context-open-area.png",
+      "search-context-other-floor-memory.png",
+      "search-context-rogue-rank0.png",
+      "search-context-rogue-rank1-radius.png",
+      "search-context-rogue-rank1-rounded.png",
+      "search-context-rogue-rank2-square.png",
+      "search-context-rogue-unacquired-radius.png",
+      "search-context-unseen-wall.png",
+      "seed-history-cleared-generated-selection.png",
+      "seed-history-entry.png",
+      "seed-history-latest-unknown-selection.png",
+      "seed-history-matching-records.png",
+      "seed-history-ranking-copy-confirm.png",
+      "seed-history-ranking-copy-result.png",
+      "seed-history-unfinished-record.png"
+    ],
+    "actual_png_inventory_count_pending": true
+  },
+  "original_build_compile_and_abi_evidence": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-build/build-job-130722025099.log",
+    "sha256": "ee9b75f8b6010cc6740b196edf6cbaf635adf5783068fba72aede520a586d7f7",
+    "job_id": 130722025099,
+    "download_url": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/actions/jobs/130722025099/logs",
+    "checked_out_source_observed": "1968913a441f53ab3652cffc05e131427d0c3703",
+    "required_task_lines": {
+      ":core:test": [
+        "> Task :core:test",
+        "> Task :core:test"
+      ],
+      ":desktop:classes": [
+        "> Task :desktop:classes"
+      ],
+      ":android:compileDebugJavaWithJavac": [
+        "> Task :android:compileDebugJavaWithJavac"
+      ],
+      ":android:compileReleaseJavaWithJavac": [
+        "> Task :android:compileReleaseJavaWithJavac"
+      ],
+      ":android:compileDebugAndroidTestJavaWithJavac": [
+        "> Task :android:compileDebugAndroidTestJavaWithJavac"
+      ]
+    },
+    "successful_compile_invocations": 1,
+    "successful_variant_assembly_invocations": 2,
+    "android_json_abi": [
+      {
+        "phase": "before_assembly",
+        "production_classes": 4156,
+        "distinct_json_references": 38
+      },
+      {
+        "phase": "after_assembly",
+        "production_classes": 4156,
+        "distinct_json_references": 38
+      }
+    ],
+    "local_compilation_or_abi_rerun": false
+  },
+  "original_sdk_signer_and_identity_evidence": {
+    "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "method": "The exact successful frozen-pair check_pair result, its original signing and aapt gates, immutable artifact hashes, and approved helper/workflow bytes are bound here.",
+    "local_sdk_or_signature_verifier_invoked": false,
+    "new_signature_verification_claimed": false
+  },
+  "apk_files": {
+    "Developer": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/owner-delivery/APD-Developer-446.apk",
+      "sha256": "f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3",
+      "bytes": 39223428,
+      "version_name": "4.0.8-apd-INDEV-bC446-TEST",
+      "feature_bytes_utf8": "testBuild\ngrudge\ndemoUnlock\nclericPlayable\n",
+      "asset_count": 935,
+      "previous_apk_sha256": "03b76001cb44435f323b95665a26d2b8866f87b81d01af52e8b32bffa75eb787",
+      "previous_history_preserved": true,
+      "changed_predecessor_assets": [
+        "apd/history/index.tsv",
+        "messages/scenes/scenes.properties"
+      ],
+      "added_assets": [
+        "apd/history/codex-test-446.tsv"
+      ]
+    },
+    "Alpha-Testers": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-built/built/owner-delivery/APD-Alpha-Testers-446.apk",
+      "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69",
+      "bytes": 39223400,
+      "version_name": "4.0.8-apd-INDEV-bP446",
+      "feature_bytes_utf8": "extendedPlayback\ngrudge\n",
+      "asset_count": 935,
+      "previous_apk_sha256": "497e4ca1e2c195c43c08cd7fc32e456ca08d0ef459d9d8e637092dec61570ef9",
+      "previous_history_preserved": true,
+      "changed_predecessor_assets": [
+        "apd/history/index.tsv",
+        "messages/scenes/scenes.properties"
+      ],
+      "added_assets": [
+        "apd/history/codex-test-446.tsv"
+      ]
+    }
+  },
+  "instrumentation_sha256": "9988e7d6c26832e982dc15cee33b7b70699fc72d5d843d811cffb72ecba2ef0d",
+  "source_manifest": {
+    "manifest_file_count": 5057,
+    "manifest_sha256": "d3d1c9e456e54649d990982eeddafd9be12a04e1662980364200e13a7677d11b",
+    "source_sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5",
+    "source_commit": "1968913a441f53ab3652cffc05e131427d0c3703"
+  },
+  "common_runtime_asset_count": 934,
+  "application_scope": {
+    "reviewed_checkpoint": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+    "changed_paths": [
+      "core/src/main/assets/messages/scenes/scenes.properties",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java"
+    ],
+    "reviewed_sha256": {
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/recorder/SeedHistory.java": "b7f9313d9b8f8e6c61285c0942b3dcf24ec223217971ec8fbf4703855e13cf34",
+      "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SeedHistoryNotice.java": "c6147743ca9699446a3467589d19cbe3b52460d6029ca71c63a2c9bf17f9a4a8",
+      "core/src/main/assets/messages/scenes/scenes.properties": "9e630c9e75fb7ae49ddb53c77c3b62e9cb40526f10ec008e9debf58d24dfcb4b"
+    },
+    "exact_reviewed_production_bytes_verified": true,
+    "scoring_settings_save_and_other_application_sources_unchanged": true
+  },
+  "instrumentation_source_scope": {
+    "changed_paths": [
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java"
+    ],
+    "reviewed_sha256": {
+      "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/SeedHistoryDeviceTest.java": "45208417464da8397aea86c94953caaec30fec88a6b5b264be0098ad4f732bfd"
+    },
+    "exact_reviewed_source_bytes_verified": true,
+    "android_compilation_bound_to_original_build_log": true,
+    "native_execution_claimed": false
+  },
+  "source_scan": {
+    "receipt_sha256": "70ddb0f97d585885029d9cda8839530a4eec926a24ee8d11ebbf6e983cc41256",
+    "report_sha256": "c9f1fa8899bdd4109849e4bfbceff79356b1b818b2e06070c60f68f45e7c6fd1",
+    "scanner_version": "8.30.1",
+    "scanner_archive_sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+    "existing_scanner_script_sha256": "436dcfc230412e39e53b95e7301a7a8c78228ebb63a7db5f1afca070026c7734",
+    "source_candidate_count": 71,
+    "retained_redacted_history_candidate_count": 23,
+    "source_findings_reviewed": true,
+    "history_not_rewritten": true,
+    "scanner_rerun": false
+  },
+  "compiled_history_and_player_notes": {
+    "retained_previous_source": "a0c2755a7a668f8b2f5f4181be50a8d53f40f525",
+    "retained_previous_source_sha256": "cce08754cd7ad4ee74eeff0ff5afebe4372e4ad6810eb8d22b23b0e7d46e9ec8",
+    "both_previous_compiled_histories_preserved": true,
+    "history_tsv_count": 451,
+    "player_note_tsv_count": 2,
+    "new_build_record_rows": 1,
+    "source_notes_match_both_apks": true
+  },
+  "helpers_used": [
+    "apd_candidate446.validate_plan",
+    "apd_candidate446.check_provenance",
+    "apd_candidate446.validate_artifact",
+    "apd_candidate446.verify_previous_history",
+    "apd_candidate446.application_paths",
+    "apd_recover439_440.check_core",
+    "apd_scan_prepared_sources.safe_members",
+    "apd_scan_prepared_sources.validate_source_zip",
+    "apd_scan_prepared_sources.validate_scan_report",
+    "apd_build_history.validate_player_notes",
+    "apd_build_history.verify_compiled"
+  ],
+  "helper_sha256": {
+    "apd_candidate445.py": "81aceb908918984c192c839294baa474bdb36dca4c4743b8be74fae31a830005",
+    "apd_recover439_440.py": "18151f49436836d79edc3aa53d995272ee0c89c07c90e03b95f199bbfc010382",
+    "apd_candidate441.py": "a59674f3f55d5d79e6a19264de94e8c26c644c81b3469383fc07ab01d6719997",
+    "apd_scan_prepared_sources.py": "fc0f14dcbbfed96e8e17b4636ad19ce3df2050d512166b69bcf828fba66268fd",
+    "apd_build_history.py": "a957d5d859277a9f5f76d5bfbfb7ffdd7db8f6e8377fbd40c39e0e55171101de",
+    "apd_qol_source_scan.py": "436dcfc230412e39e53b95e7301a7a8c78228ebb63a7db5f1afca070026c7734",
+    "apd_native_screenshot_transfer.py": "bdc1312ad65ecc69e90a8614d38d4ec469bf8b92e03d4ac45c8e59a2fb8dc713",
+    "validate_android_visuals.py": "86fab85f843464f68034334dbfc73fb04c8076058565c2535190866708fbe049",
+    "check_android_json_abi.py": "53299017cefff8a37dbb04769c9feda7cc7625002101a46cb07102ac549a3896",
+    "apd_existing_build_evidence.py": "07c23a6093b0bd3eb203c0d2558df3c3d5c2e43524056bb089c444dcf504f15d",
+    "apd_candidate446.py": "c40fd27913886c81df61783104057810cd13abde82c67aa12093bbb67547ed6c"
+  },
+  "local_game_builds": 0,
+  "new_tests_executed": false,
+  "native_acceptance_claimed": false,
+  "manual_visual_acceptance_claimed": false,
+  "delivery_claimed": false,
+  "physical_phone_audio_or_install_over_acceptance_claimed": false,
+  "repository_files_written": false,
+  "remote_mutations": false,
+  "inputs": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-independent-acceptance/inputs-actual-attempt-2.json",
+    "sha256": "2b8b67f8c49110d79dca2d397f3ef4bce87c53ceab581163ee17b3d6fede9729"
+  },
+  "script": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-independent-acceptance/verify_pre_native.py",
+    "sha256": "0bd133d93b5f50f899c95c2696b284832a7580bc25e23fc4fd13bab099975151"
+  }
+}

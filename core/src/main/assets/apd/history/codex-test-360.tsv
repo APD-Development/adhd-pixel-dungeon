@@ -1,0 +1,1 @@
+Performance	ICON_CHECKED	APD Settings avoids hidden description work	Opening APD Settings now creates only the visible category screen. Explanatory text is built when its category is first opened and then retained for later visits. Every setting, saved value, note, section, touch target and scroll restoration remains available.

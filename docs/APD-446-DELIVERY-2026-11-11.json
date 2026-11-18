@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "number": 446,
+  "recorded_utc": "2026-11-11T19:22:31.604196+00:00",
+  "source_commit": "1968913a441f53ab3652cffc05e131427d0c3703",
+  "application_source_checkpoint": "245310c4d2a820bd7f220de6e7c3278cd5b119e7",
+  "producing_run": 43077773970,
+  "producing_attempt": 1,
+  "original_producing_conclusion": "failure",
+  "original_failure_preserved": true,
+  "recovery_source": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+  "branch_head_at_delivery": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_announced_after_saved_download_readback": true,
+  "saved_download_readback_sha256_verified": true,
+  "saved_download_readback_completed_utc": "2026-11-11T19:20:46.706716+00:00",
+  "saved_download_readback_receipt_sha256": "e1d04264a211954891a57fa0cad2535cc9dcb0096c30ea4764bb1f8c307764bc",
+  "files": [
+    {
+      "file_id": "file_000000007c8481f5be1d15644146067e",
+      "library_file_id": "libfile_fde3_f-2a8f588da54081919afc3828d1e4bd06_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Developer-446.apk",
+      "sha256": "f2fc48b7a657af4007ff0c4799b30f5c33625e3d921696a33d64bd8bae0fc9b3",
+      "bytes": 39223428,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Developer-446.apk",
+      "saved_download_readback_path": "/workspace/scratch/db82734c9c44/recovery/apd446-saved-readback/APD-Developer-446.apk",
+      "separate_saved_download_file": true
+    },
+    {
+      "file_id": "file_00000000209481f5b00d2339ed251164",
+      "library_file_id": "libfile_fde3_f-4fe8bd8071408191b98649859bd7bf62_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Alpha-Testers-446.apk",
+      "sha256": "9712f4ab41792a2bb6ef67ab7332ba32735a6cd214e74756bd53f762bc43cc69",
+      "bytes": 39223400,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Alpha-Testers-446.apk",
+      "saved_download_readback_path": "/workspace/scratch/db82734c9c44/recovery/apd446-saved-readback/APD-Alpha-Testers-446.apk",
+      "separate_saved_download_file": true
+    },
+    {
+      "file_id": "file_00000000a8f481f5a1b3b5d9837fae5a",
+      "library_file_id": "libfile_fde3_f-dfbfdc2e9b4081918e776f0653a772d8_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Source-446.zip",
+      "sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5",
+      "bytes": 111038215,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-Source-446.zip",
+      "saved_download_readback_path": "/workspace/scratch/db82734c9c44/recovery/apd446-saved-readback/APD-Source-446.zip",
+      "separate_saved_download_file": true
+    }
+  ],
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "version_code": 920,
+  "versions": {
+    "Developer": "4.0.8-apd-INDEV-bC446-TEST",
+    "Alpha-Testers": "4.0.8-apd-INDEV-bP446"
+  },
+  "instrumentation_sha256": "9988e7d6c26832e982dc15cee33b7b70699fc72d5d843d811cffb72ecba2ef0d",
+  "source_archive_sha256": "46468fab2fbcd598a53de3061fef3791affa9f34c56cdb73cad8b57f8b2651a5",
+  "original_application_apks_created": 2,
+  "application_apks_created_by_recovery": 0,
+  "original_application_or_instrumentation_rebuilt": false,
+  "source_archive_rebuilt": false,
+  "core": {
+    "tests": 3247,
+    "suites": 468,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "all_five_required_compile_targets_passed": true,
+  "json_abi_checks_passed": 2,
+  "source_manifest_files_verified": 5057,
+  "source_scan_reviewed_candidates": 71,
+  "retained_redacted_history_findings": 23,
+  "android_tests": 18,
+  "accepted_cases_per_variant": 9,
+  "raw_passing_native_reports_across_original_and_recovery": 19,
+  "additional_original_seed_report_diagnostic_only": true,
+  "native_recovery_complete": true,
+  "native_recovery": {
+    "source": "8d4ca1029fabe43df3a21e2362be59200d02839f",
+    "run": 43084695484,
+    "attempt": 1,
+    "workflow": ".github/workflows/apd-recover446-developer.yml",
+    "conclusion": "success",
+    "jobs": {
+      "recover-developer": "success",
+      "prepare-owner-review": "success"
+    },
+    "fresh_cases": [
+      "seed-history",
+      "pylon"
+    ],
+    "fresh_images": 12,
+    "same_original_apk_and_instrumentation_bytes": true
+  },
+  "native_artifacts": {
+    "Developer": {
+      "id": 13884437545,
+      "sha256": "230b565e0193b9aca9638abf713a9e69ae5a19ad9a2ecf915a70e4167689d334",
+      "bytes": 53797333,
+      "raw_image_files": 1463,
+      "accepted_images": 1457,
+      "accepted_cases": 7,
+      "partial_seed_images_diagnostic_only": 6,
+      "original_transport_failure_preserved": true
+    },
+    "Alpha-Testers": {
+      "id": 13885126623,
+      "sha256": "41fbb9c0be6f2e689761de883785f31b7f463e34baa4c8ba7d96d970a07c45a8",
+      "bytes": 54416927,
+      "raw_image_files": 1469,
+      "accepted_images": 1469,
+      "accepted_cases": 9
+    }
+  },
+  "recovery_native_artifact": {
+    "id": 13885533674,
+    "name": "apd446-developer-recovery-native-run-43084695484-attempt-1",
+    "sha256": "5d155facc3b1f827ea74bd94124b1a6f8d3a14e013836fb4aabd432b2a9ed2ed",
+    "bytes": 1206307,
+    "accepted_images": 12,
+    "accepted_cases": 2
+  },
+  "owner_review_artifact": {
+    "id": 13886086653,
+    "name": "apd446-developer-recovery-owner-run-43084695484-attempt-1",
+    "sha256": "86af4f555d506165ff65267021e848b74911eb96f18809f1117e55b706a02e1c",
+    "bytes": 187665366
+  },
+  "original_built_artifact_files_preserved_in_owner_archive": true,
+  "original_built_artifact_file_count": 481,
+  "owner_artifact_files": 543,
+  "single_developer_device_manifest": false,
+  "complete_device_manifests_verified_per_cohort": true,
+  "aggregate_hash_proven_image_coverage_verified": true,
+  "accepted_images_per_variant": 1469,
+  "total_accepted_pngs_decoded_and_hash_verified": 2938,
+  "developer_image_partition": {
+    "original": 1457,
+    "recovered": 12,
+    "disjoint": true
+  },
+  "manual_visual_review_complete": true,
+  "manual_original_images_per_variant": 69,
+  "manual_affected_originals_per_variant": 61,
+  "manual_controls_per_variant": 8,
+  "all_native_images_manually_viewed": false,
+  "original_ci_manual_review_flags_unchanged": true,
+  "original_ci_manual_visual_review_complete": false,
+  "mechanical_acceptance_receipt_sha256": "dd838e0e311005b586075deafbed5d7809a95e2c80630a270a19bfb967a69bd0",
+  "manual_acceptance_receipt_sha256": "da53764a5a3d25501f0276169e566d4b756d931d2f1027b5625bd1e775d1a316",
+  "source_scope_receipt_sha256": "ee43be50602cf67b2c1d88d665b60a99cb02436e468ec9397395ae3df2bbbf52",
+  "pre_native_acceptance_receipt_sha256": "9a7f8fb88bb6bea3927491cca7cf23207a24f4ccb6a184745b6e66892be5c5fe",
+  "previous_accepted_delivered_build": 444,
+  "retained_compiled_predecessor": 445,
+  "retained_predecessor_accepted": false,
+  "retained_predecessor_delivered": false,
+  "preserved_verification_failures": [
+    "Original Developer emulator disconnected after passing seed-history, before complete transfer and pylon.",
+    "First final checker rejected optional node_id presence difference. V2 keeps every other field exact and requires equal node IDs when both are present. Original dictionaries, checker and failed log are preserved."
+  ],
+  "scoring_unchanged": true,
+  "pending_owner_decisions": [
+    "Exact imported-seed multiplier; no new imported penalty activated.",
+    "Numerical personal replay/depth and new-depth reward formula, absent from the verified branch. Preserve the intended smaller early-death penalty and relative new-depth reward when approved."
+  ],
+  "physical_phone_verified": false,
+  "install_over_existing_save_verified": false,
+  "audio_verified": false,
+  "github_release_published": false,
+  "delivery_method": "Verified direct private APK and source links in the current chat.",
+  "ongoing_background_or_scheduled_development_created": false
+}

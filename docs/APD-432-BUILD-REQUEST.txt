@@ -1,0 +1,2 @@
+2026-11-10T17:08:19.090642+00:00
+Build one corrected Developer/Alpha-Testers pair. APD431 remains held for the source-confirmed singular charge/points wording defect. Preserve its exact APKs and complete compiled history. Require 3165 full core tests, Android/desktop compilation before APK assembly, all 12 native cases and actual affected-window review before publication.

@@ -1,0 +1,35 @@
+{
+  "release": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-379",
+  "published_at": "2026-11-08T22:18:31Z",
+  "build_run": 42526945257,
+  "stage_run": 42529350783,
+  "verification": {
+    "source_commit": "e439e068a232f20c6a381b522dbb7a7add3cd84e",
+    "number": 379,
+    "tag": "apd-alpha-preview-379",
+    "core_tests": 3027,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "32e38174f6ce74aa32bb292f8def14a38fa992fb59293e9a1a4bdf7f75eb73c4",
+      "Alpha-Testers": "98dd2098d25a7785c238444fbbc5fb2a309dbf17505ad84d1a72b224781e84f1"
+    },
+    "source_sha256": "bb0ba1f587db4c4a93a0fdb73f1cbfa6c00f860ce88f95f927cc692c15f1dff9",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-08T22:15:47.640396+00:00",
+    "workflow_run": "42529304781",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true,
+    "original_apk_build_run": 42526945257,
+    "native_retry_run": 42528440660,
+    "source_scan_retry": "Exact already-reviewed prose line moved from11to27; retain its existing whole-line SHA256 and file/rule binding without a brittle line number.",
+    "verification_harness_source": "a03bca726ccde57eb5913c0da192d8ef424a55d2",
+    "native_retry": "Initial Cloak text expectation was stale; ordinary-item helper incorrectly prohibited approved Arcana details. Full Qol rerun uses corrected instrumentation on unchanged379 APKs. Other ten native cases retained from original run. Initial failures preserved."
+  },
+  "limits": "Targeted Android emulator checks and reviewed captures, not owner-phone verification. Full description audit incomplete. No confirmed APD audio reproduction or production audio fix."
+}

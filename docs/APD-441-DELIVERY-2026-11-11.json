@@ -1,0 +1,144 @@
+{
+  "number": 441,
+  "source_commit": "748f9c990284b61f74b39c5111646bcb1d395183",
+  "original_run": 43026044936,
+  "artifact_id": 13860480452,
+  "artifact_sha256": "a2f9775712bbe777239ba2c220a5ee972e360e44da79a97c9f0f6d9e9950acfc",
+  "core": {
+    "tests": 3190,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "core_suites": 463,
+  "variants": {
+    "Developer": {
+      "sha256": "ca3133202969f2c2e7fe58d751fbac4a767207aaa0b96b902c05d5e7d2af0fde",
+      "bytes": 39203933,
+      "version_name": "4.0.8-apd-INDEV-bC441-TEST"
+    },
+    "Alpha-Testers": {
+      "sha256": "f4fc33b038331969729a5d0bca5c6b52bb36d1ac451e19deb877f9c5f7f66370",
+      "bytes": 39203909,
+      "version_name": "4.0.8-apd-INDEV-bP441"
+    }
+  },
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "instrumentation_sha256": "cb840ea9f690092e06e59c32a47507474ecb525b6e93299b15134660fbf186e3",
+  "application_rebuilt": false,
+  "instrumentation_rebuilt": false,
+  "published": false,
+  "native_recovery_complete": true,
+  "android_tests": 12,
+  "manual_visual_review_complete": true,
+  "source_archive_sha256": "41b4ca10a168a49c3afcf4afc4f66c2facfff53b22668444c47ab9f5c303d1d0",
+  "physical_phone_verified": false,
+  "recovery_run": "43026044936",
+  "recovery_commit": "748f9c990284b61f74b39c5111646bcb1d395183",
+  "new_application_apks_created": 2,
+  "producing_run": 43026044936,
+  "new_candidate_build": true,
+  "original_pair_reused_for_native": true,
+  "required_excess_charge_images": [
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal-bottom.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE-normal.png",
+    "qol-reviewed-talent-clear-EXCESS_CHARGE.png"
+  ],
+  "required_counter_ability_images": [
+    "qol-counter-ability-normal-bottom.png",
+    "qol-counter-ability-normal.png"
+  ],
+  "complete_remote_image_manifest_verified": true,
+  "publication_authorized_by_this_workflow": false,
+  "manual_review_scope": "Developer: 19 original-size required frames. Alpha-Testers: 19 original-size required frames plus six bounded regression samples. Root additionally viewed eight affected original-size frames per variant. All 1414 images per variant were decoded and hash-verified; no claim of full-size manual review of every image.",
+  "manual_review_limits": [
+    "No physical-phone, actual install-over, or acoustic verification.",
+    "No targeted native DM300/pylon capture; actual targeting callsites have six new headless integration regressions.",
+    "Developer runtime Ooze fixture is dark and offset; it does not clearly depict the asserted effect.",
+    "Expanded Excess Charge intermediate viewport includes a partial preceding-text fragment at the scroll edge; the final line is fully reachable and visible."
+  ],
+  "delivery_status": "delivered_in_current_chat",
+  "delivery_recorded_utc": "2026-11-11T13:47:13.086693+00:00",
+  "delivery_method": "Direct saved-file APK and source links sent after exact saved-file download readback.",
+  "github_release_published": false,
+  "owner_review_artifact": {
+    "id": 13861068719,
+    "sha256": "b16193bb202a2dbe17af4d808667576a0c11506abc0b91393669fadb7dd1ba4a",
+    "bytes": 182970645
+  },
+  "owner_package_independent_receipt_sha256": "a35f7c43cc8e92305ce3b4df95ed0332a17d364f5323fde54bf3ccc3fb05880b",
+  "source_scan_run": 43028854285,
+  "source_scan_commit": "76866517a5e6ecd043d7ac3f36fe383d2cf9aaf3",
+  "source_scan_success": true,
+  "source_scan_artifact": {
+    "id": 13859127394,
+    "sha256": "da78ecfd3b29fcce92a5a3c2b892a90e107dc5f6187852ff7a26252aec03fbf3"
+  },
+  "source_manifest_files": 4943,
+  "source_scan_reviewed_candidates": 72,
+  "source_scan_retained_redacted_history_findings": 23,
+  "source_scan_zero_findings_claimed": false,
+  "native_artifacts": {
+    "Developer": {
+      "id": 13860259144,
+      "sha256": "9c896112bb836d92b50c7d0f5ce3c25e78570a39e51db5cd530c189d42c0167d",
+      "images": 1414,
+      "seed_pid": 4926,
+      "restart_pid": 5116
+    },
+    "Alpha-Testers": {
+      "id": 13859164934,
+      "sha256": "019802f33855597c410320488ec4f6c83d703527e2b23e3320b6f04fc4f0d99a",
+      "images": 1414,
+      "seed_pid": 4883,
+      "restart_pid": 5076
+    }
+  },
+  "manual_review_receipts": {
+    "APD441-Developer-Manual-Visual-Review.json": "38756ada963c921e28eb79455863c50f8ce9bfca83a8831184dc4f447c739102",
+    "APD441-Alpha-Testers-Manual-Visual-Review.json": "7bd6d06d3aedab74b5d06a4c68fea5fde72466f9dfbec837a2f85e7e255c1973"
+  },
+  "manual_review_github_file": "docs/APD-441-MANUAL-VISUAL-REVIEW-2026-11-11.json",
+  "saved_download_readback_sha256_verified": true,
+  "readback_verified_utc": "2026-11-11T13:45:56.849545+00:00",
+  "readback_hashes": {
+    "APD-Developer-441.apk": "ca3133202969f2c2e7fe58d751fbac4a767207aaa0b96b902c05d5e7d2af0fde",
+    "APD-Alpha-Testers-441.apk": "f4fc33b038331969729a5d0bca5c6b52bb36d1ac451e19deb877f9c5f7f66370",
+    "APD-Source-441.zip": "41b4ca10a168a49c3afcf4afc4f66c2facfff53b22668444c47ab9f5c303d1d0"
+  },
+  "files": [
+    {
+      "file_id": "file_000000006a9081f59fb68eda5cc3c9a5",
+      "library_file_id": "libfile_fde3_f-fede74677fc88191b3dfacebe34575af_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Developer-441.apk",
+      "sha256": "ca3133202969f2c2e7fe58d751fbac4a767207aaa0b96b902c05d5e7d2af0fde",
+      "bytes": 39203933,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd441-owner-review/APD-Developer-441.apk"
+    },
+    {
+      "file_id": "file_00000000c41081f59c09327163398e14",
+      "library_file_id": "libfile_fde3_f-b151320edc308191b93c7c2845e3ef71_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Alpha-Testers-441.apk",
+      "sha256": "f4fc33b038331969729a5d0bca5c6b52bb36d1ac451e19deb877f9c5f7f66370",
+      "bytes": 39203909,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd441-owner-review/APD-Alpha-Testers-441.apk"
+    },
+    {
+      "file_id": "file_00000000185081f58239279b219eb155",
+      "library_file_id": "libfile_fde3_f-47d1146e2dc08191b3e593a9c6cf1b83_4aba2690a1e48191a771a2e43a4a6278",
+      "file_name": "APD-Source-441.zip",
+      "sha256": "41b4ca10a168a49c3afcf4afc4f66c2facfff53b22668444c47ab9f5c303d1d0",
+      "bytes": 110550501,
+      "sandbox_path": "/workspace/scratch/db82734c9c44/recovery/apd441-owner-review/APD-Source-441.zip"
+    }
+  ],
+  "original_ci_verification_preserved_unchanged": true,
+  "notes": [
+    "Original CI proof records manual_visual_review_complete=false at packaging time; this later receipt adds the completed manual review and delivery without editing that proof.",
+    "The first APD441 attempt 43021889179 failed the recovery prerequisite before compilation or assembly and created no APK.",
+    "Exactly two new application APKs were assembled in this session, the frozen APD441 pair. APD439 and APD440 were recovered without rebuilding."
+  ]
+}

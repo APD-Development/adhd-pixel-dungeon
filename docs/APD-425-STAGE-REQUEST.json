@@ -1,0 +1,7 @@
+{
+  "run_id": 42673560388,
+  "source_commit": "75809609745851368fe81f2dced1b69eb63cdfdf",
+  "purpose": "Stage exact unchanged original425APKs after packaging-only recovery. Originalcore3153/all12native passed, recovery42673560388passed. No rebuiltapps/native rerun. Private until independenthash/source and actualfont/spell-window review.",
+  "original_build_run": 42669136432,
+  "requested_utc": "2026-11-09T18:30:50.076186+00:00"
+}

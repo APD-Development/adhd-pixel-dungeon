@@ -1,0 +1,148 @@
+# ADHD Pixel Dungeon
+# Copyright (C) 2026 Chris Charlton
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
+name: Complete383 Android acceptance on unchanged application APKs
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-383-RETRY-REQUEST.txt]
+permissions: {contents: read, actions: read}
+concurrency: {group: apd383-native-retry, cancel-in-progress: false}
+jobs:
+  instrumentation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0, ref: 728ca445fe62dffab483ec824a1c977d970f24ff}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-built-pair, run-id: 42536083963, github-token: '${{ github.token }}'}
+      - name: Verify unchanged production source and compile instrumentation only
+        run: |
+          test "$(git rev-parse HEAD)" = 728ca445fe62dffab483ec824a1c977d970f24ff
+          git show "$GITHUB_SHA":tools/apd383-native-fixture.patch > /tmp/apd-native-fixture.patch
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          git apply --check /tmp/apd-native-fixture.patch
+          git apply /tmp/apd-native-fixture.patch
+          ./gradlew :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C383
+          test ! -f android/build/outputs/apk/debug/android-debug.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk evidence/instrumentation.apk
+          ./gradlew --stop
+      - uses: actions/upload-artifact@v4
+        with: {name: apd383-retry-inputs, path: 'evidence/instrumentation.apk', retention-days: 14}
+  native:
+    needs: instrumentation
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {variant: Developer, label: developer}
+          - {variant: Alpha-Testers, label: alpha}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-built-pair, run-id: 42536083963, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-retry-inputs, path: fresh-instrumentation}
+      - name: Enable emulator acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: default
+          disable-animations: true
+          emulator-options: -no-snapshot -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none -skin 320x640
+          script: |
+            adb logcat -c
+            adb logcat -v time > evidence/${{ matrix.label }}-qol-logcat.txt &
+            adb install -r owner-delivery/APD-${{ matrix.variant }}-383.apk
+            adb install -r fresh-instrumentation/instrumentation.apk
+            timeout 600 adb shell am instrument -w -r -e class com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest com.charltonchris29.adhdpixeldungeon.indev.test/androidx.test.runner.AndroidJUnitRunner > evidence/${{ matrix.label }}-qol.txt
+            cat evidence/${{ matrix.label }}-qol.txt
+            adb pull /sdcard/Pictures/APD-Test-Visuals/. evidence/${{ matrix.variant }}-visuals/
+            python3 tools/apd_check_single_instrumentation.py evidence/${{ matrix.label }}-qol.txt grassDewControlsRingBreakdownsSearchedWallAndOfflineLicenseRenderNatively com.shatteredpixel.shatteredpixeldungeon.android.QolItemFeedbackDeviceTest
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd383-retry-${{ matrix.variant }}
+          path: |
+            evidence/${{ matrix.label }}-qol.txt
+            evidence/${{ matrix.label }}-qol-logcat.txt
+            evidence/${{ matrix.variant }}-visuals/
+          retention-days: 14
+  prepare:
+    needs: [instrumentation, native]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-built-pair, run-id: 42536083963, github-token: '${{ github.token }}'}
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-native-Developer, run-id: 42536083963, github-token: '${{ github.token }}', path: evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-native-Alpha-Testers, run-id: 42536083963, github-token: '${{ github.token }}', path: evidence}
+      - run: |
+          mv evidence/developer-qol.txt evidence/developer-qol-initial-failed.txt
+          mv evidence/alpha-qol.txt evidence/alpha-qol-initial-failed.txt
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-retry-Developer, path: evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: apd383-retry-Alpha-Testers, path: evidence}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Verify exact identities, completed tests and corresponding source
+        env: {GH_TOKEN: '${{ github.token }}', APD_SOURCE_SHA: '728ca445fe62dffab483ec824a1c977d970f24ff'}
+        run: |
+          python3 tools/apd_prepare383.py
+          python3 - <<'PYPROOF'
+          import pathlib,json,os
+          p=pathlib.Path('owner-delivery/APD-Preview-383-Verification.json');d=json.loads(p.read_text());d['original_apk_build_run']=42536083963;d['verification_harness_source']=os.environ['GITHUB_SHA'];d['native_retry']='Fixture initializes copied Escape Crystal data and waits for a rendered frame before checking new window cameras, matching the existing ordinary-window helper. All viewport assertions retained. Full Qol rerun uses corrected instrumentation on unchanged383 APKs. Other ten native cases retained from original run. Initial failures preserved.';p.write_text(json.dumps(d,indent=2)+'\n')
+          with pathlib.Path('owner-delivery/release-notes.md').open('a') as f:f.write('\nVerification retry: initialized synthetic Escape Crystal state and synchronized camera assertions with rendered frames; full item-window checks rerun on unchanged original APKs. Initial failed checks retained; no new game APKs rebuilt.\n')
+          PYPROOF
+      - name: Scan key-free source and full reachable history
+        run: |
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz -o /tmp/apd-gitleaks.tar.gz
+          echo '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  /tmp/apd-gitleaks.tar.gz' | sha256sum -c -
+          mkdir /tmp/apd-gitleaks
+          tar -xzf /tmp/apd-gitleaks.tar.gz -C /tmp/apd-gitleaks
+          python3 tools/apd_qol_source_scan.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd383-prepared-owner-pair
+          path: owner-delivery/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apd383-source-and-native-evidence
+          path: |
+            evidence/
+            core/build/test-results/test/
+            docs/APD-383-DELIVERY-SPEC.json
+          retention-days: 14

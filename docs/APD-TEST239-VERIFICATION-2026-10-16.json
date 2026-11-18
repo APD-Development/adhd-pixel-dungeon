@@ -1,0 +1,87 @@
+{
+  "test": "TEST239",
+  "recorded_at_utc": "2026-10-16T09:52:42Z",
+  "source": "6182b042b1d93b64341f41a516a49ef3d12c93ee",
+  "source_parent": "88e9b4230c34005d89a786987003a360d2c1af1b",
+  "full_run": {
+    "id": 38881765134,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/38881765134",
+    "attempts": 1,
+    "conclusion": "success",
+    "created_at_utc": "2026-10-16T09:37:49Z",
+    "completed_at_utc": "2026-10-16T09:52:42Z"
+  },
+  "targeted_run": {
+    "id": 38881765302,
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/actions/runs/38881765302",
+    "conclusion": "success",
+    "started_at_utc": "2026-10-16T09:37:49Z",
+    "completed_at_utc": "2026-10-16T09:41:03Z",
+    "original_source": "d39de932c69c23bcb013a8ee86df930718ad39c8",
+    "expected_failures": [
+      "disablingHiddenInformationRemovesEveryHiddenAggregateDependency"
+    ]
+  },
+  "corrected_core": {
+    "tests": 1706,
+    "suites": 335,
+    "unique_methods": 1706,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "debug_assembly": "passed",
+  "history": {
+    "previous_label": "Codex TEST 238",
+    "previous_source": "d39de932c69c23bcb013a8ee86df930718ad39c8",
+    "previous_run": 38874923900,
+    "complete": true,
+    "reviewed_categories": 2,
+    "history_tsv_files": 285
+  },
+  "android": {
+    "api": 34,
+    "tests": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12038079510,
+    "artifact_zip_sha256": "cbe9be1aa815eac9533f19c4feadc4176a29459594d8b492088d2d43d14ed8ef",
+    "screenshots": 42,
+    "dimensions": "320x640",
+    "accepted": true,
+    "app_crash_signatures": 0,
+    "reviewed": "complete 42-image contact sheet"
+  },
+  "apk": {
+    "artifact_id": 12037962338,
+    "artifact_zip_sha256": "18ec1f0391a2085edbf8db967945e5d434933df512962156c5160e4035c9fda1",
+    "file": "ADHD-Pixel-Dungeon-CODEX-TEST-239.apk",
+    "bytes": 38589027,
+    "sha256": "a9d634a1b9c791e971ccf94e1c864f3864144d6e908a68e2f515ecbaf50c30bf",
+    "version": "4.0.8-apd-INDEV-bC239-TEST",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "v2_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "identity_matches_test238": true
+  },
+  "artifacts": {
+    "targeted": {
+      "id": 12037697502,
+      "zip_sha256": "482d8a7f5f60b158426b6b9929ac011766004314f6d2109b33bdafc2ef41b08b"
+    },
+    "core": {
+      "id": 12037837605,
+      "zip_sha256": "3aef277fc6c50b65eba3aad3bf9a06c667994dc730d59b6baaa49b79e7a1d48c"
+    }
+  },
+  "publication": false,
+  "tester_distribution": false,
+  "physical_phone": false,
+  "owner_install_over": false,
+  "latest_delivered": "TEST231",
+  "open": [
+    "broad UIMSD audit",
+    "audio acceptance",
+    "unconfirmed armor/sentry acceptance"
+  ]
+}

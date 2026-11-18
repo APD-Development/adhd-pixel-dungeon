@@ -1,0 +1,6 @@
+Testing	ICON_CHALLENGE_COLOR	Run Setup Difficulty Device Test	Updated Android checks and fixtures for run setup difficulty device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Android Platform Support	Reserved space above visible navigation bars so all hero buttons remain selectable.
+Quality of Life	ICON_INFO	Hero selection	Reserved space above visible navigation bars so all hero buttons remain selectable.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Reserved space above visible navigation bars so all hero buttons remain selectable. Reserved space above visible navigation bars so all hero buttons remain selectable.

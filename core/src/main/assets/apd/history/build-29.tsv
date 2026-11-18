@@ -1,0 +1,75 @@
+Testing	ICON_STATS	Apd Stats Device Test	Updated Android checks and fixtures for apd stats device. These are development checks, not a gameplay feature.
+Changes	ICON_INFO	Android File Provider	Added where the history archive is saved and read from, through Android's system file picker (the Storage Access Framework): the player chooses the file, and the app gets a stream to exactly that file and nothing else.
+Changes	ICON_INFO	Android Launcher	Installed the Android document-picker provider for history transfers.
+Infrastructure	ICON_PREFS	build	Updated build build configuration.
+Changes	ICON_CHANGES	Bundled change notes	Updated the change descriptions bundled with this APK.
+Statistics / UIMSD	ICON_INFO	Apd Files	Added how the app reaches a file the player chooses: where an archive is saved and which one is imported.
+Statistics / UIMSD	ICON_INFO	Archive Exporter	Added writes the whole raw history to one ZIP archive: every run log and every imported-record file, and a manifest with a checksum of each, enough to rebuild everything derived (the index and the caches are not exported, they are rebuilt).
+Statistics / UIMSD	ICON_INFO	Archive Importer	Added adds the history of an archive to this device's history.
+Statistics / UIMSD	ICON_INFO	Archive Manifest	Added the first entry of an APD history archive: what the archive holds and a checksum of every file, so an import can check everything before it keeps anything.
+Statistics / UIMSD	ICON_INFO	Archive Self Test	Added the device self-test for export and import: a small made-up history (one run not finished, with a hidden secret) is exported to a real file, imported into a second empty history, imported again, and a damaged copy of the archive is refused.
+Statistics / UIMSD	ICON_INFO	Log Redactor	Added makes a copy of a run log that holds only what the player could know, for the archive of a run that is NOT finished.
+Statistics / UIMSD	ICON_INFO	Size	Added a byte count in words ("1.4 MB").
+Statistics / UIMSD	ICON_INFO	Storage Meter	Added how much room the recorded history takes and whether to say something about it.
+Statistics / UIMSD	ICON_CHANGES	History Transfer	Added the player's export and import of their history, and the storage meter, joined to the recorder.
+Statistics / UIMSD	ICON_STATS	Log Header	Exposed the existing log fields needed for privacy-preserving archive export.
+Statistics / UIMSD	ICON_STATS	Positioned String Lookup	Added a StringLookup that is also told where in the payload each string reference ended, so a tool can rewrite the references (the archive renumbers the string table of a redacted log).
+Statistics / UIMSD	ICON_STATS	Run Facts Builder	Kept redacted imported history distinguishable from complete local records.
+Quality of Life	ICON_PREFS	APD Settings Pane	Added history export/import actions and storage-usage information.
+Testing	ICON_CHECKED	Ui Entry Points Test	Updated automated checks and fixtures for ui entry points. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 1	Added a test covering garbage And Empty Inputs Are Refused Without Throwing. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 2	Added a test covering a Zip Without A Manifest First Is Refused. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 3	Added a test covering a Tampered Manifest Stops Everything Before Anything Is Written. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 4	Added a test covering a Manifest That Lists A Path Outside The History Is Refused Whole. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 5	Added a test covering an Entry The Manifest Does Not List Is Ignored Even With An Innocent Name. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 6	Added a test covering a File That Does Not Match Its Checksum Is Dropped And The Others Still Import. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 7	Added a test covering a File Of The Wrong Size Is Dropped. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 8	Added a test covering a File Whose Header Names Another Run Is Dropped. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 9	Added a test covering something That Is Not A Log Is Dropped. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 10	Added a test covering a Huge Entry Is Never Buffered Or Written. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 11	Added a test covering a Truncated Archive Keeps Only What Was Complete And Verified And Leaves No Litter. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 12	Added a test covering a Newer Archive Format Is Refused. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 13	Added a test covering a Listed File That Never Arrived Is Reported. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 14	Added a test covering demo Data Is Never Exported And Never Imported. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Hostile Test 15	Added a test covering a Log Marked As Synthetic In Its Header Is Dropped Even With A Plain Name. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Manifest Test 1	Added a test covering a Manifest Round Trips. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Manifest Test 2	Added a test covering any Change To The Manifest Is Caught. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Manifest Test 3	Added a test covering a Newer Format Is Refused And Unknown Lines Are Ignored. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Manifest Test 4	Added a test covering the Totals Must Match The File List. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Manifest Test 5	Added a test covering only Plain Run And Imported Log Paths Are Ever Allowed. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 1	Added a test covering the History Moves To Another Device And Rebuilds To The Same Thing. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 2	Added a test covering the Hidden Information Of A Run In Progress Never Leaves The App. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 3	Added a test covering the Imported Redacted Run Has No Seed Not A Zero Seed. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 4	Added a test covering importing Twice Adds Nothing And Changes Nothing. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 5	Added a test covering a Different Log Already Here Is Never Replaced. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 6	Added a test covering import Merges Into A History That Already Has Other Runs. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 7	Added a test covering exporting Never Changes The History. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 8	Added a test covering export While A Run Is Being Recorded Is Consistent. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 9	Added a test covering a Run Whose Newest Segment Is Not Finished Is Redacted In Every Segment. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 10	Added a test covering the Archive Lists Everything And Its First Entry Is The Manifest. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 11	Added a test covering derived Caches Are Not Exported And The Import Rebuilds Them. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 12	Added a test covering an Empty Or Missing History Exports Nothing Safely. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 13	Added a test covering old Telemetry History Is Exported And Imported As It Is. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Round Trip Test 14	Added a test covering storage Meter Sees The Imported History. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Self Test Test	Added a test covering the Device Self Test Passes. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Archive Support	Added automated checks and fixtures for archive support. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	History Transfer Test 1	Added a test covering export And Import Through The Folder Fallback Move The History. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	History Transfer Test 2	Added a test covering cancelling Or Failing Changes Nothing And Says So. These are development checks, not a gameplay feature.
+Testing	ICON_CHANGES	History Transfer Test 3	Added a test covering with No History Set Up Nothing Is Attempted And Nothing Throws. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 1	Added a test covering nothing Hidden Is In The Redacted Copy And The Copy Is Exactly What The Player Could Know. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 2	Added a test covering the Redacted Copy Does Not Depend On Any Hidden Information. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 3	Added a test covering the Clock Of Every Kept Event Is Exactly The Originals. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 4	Added a test covering the String Table Holds Exactly The Strings The Kept Events Use. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 5	Added a test covering the Run Start Loses Only Its Seed. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 6	Added a test covering the Run Start Layout This Redactor Reads Is The One That Is Written. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 7	Added a test covering a Sealed Log Stays Sealed With The Right Count. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 8	Added a test covering every Public Event Type Is Audited And Every Internal Or Unknown One Is Left Out. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Log Redactor Test 9	Added a test covering a Damaged Log Gives Its Clean Prefix And An Unreadable File Gives Null. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Storage Meter Test 1	Added a test covering it Counts Evidence And Caches Separately And Never Touches Them. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Storage Meter Test 2	Added a test covering a No Root Or An Empty Root Is Fine. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Storage Meter Test 3	Added a test covering it Warns As The History Grows But Never Limits Anything. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Storage Meter Test 4	Added a test covering sizes Are In Words. These are development checks, not a gameplay feature.
+Testing	ICON_CHECKED	Test Logs	Added automated checks and fixtures for test logs. These are development checks, not a gameplay feature.
+Testing	ICON_STATS	Contract Tests	Updated automated checks and fixtures for contract tests. These are development checks, not a gameplay feature.
+Development	ICON_STATS	APD-STATS-ARCHIVE	Added apd-stats-archive accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Added where the history archive is saved and read from, through Android's system file picker (the Storage Access Framework): the player chooses the file, and the app gets a stream to exactly that file and nothing else. Installed the Android document-picker provider for history transfers.

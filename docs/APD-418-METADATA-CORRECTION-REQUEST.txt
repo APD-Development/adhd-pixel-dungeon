@@ -1,0 +1,1 @@
+Correct copied Catalyst retry wording in418 release notes; attach unique Verification Erratum JSON without replacing any originalasset. Check actual418 corrected fixture patch digest from CompleteTestEvidence and originalproof hash/source/APK identities before editing. Original binaries/source/tests unchanged.

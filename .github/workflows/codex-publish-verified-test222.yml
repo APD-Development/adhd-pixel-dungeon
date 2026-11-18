@@ -1,0 +1,94 @@
+name: Publish verified TEST222 without rebuilding
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/codex-publish-verified-test222.yml]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: publish-existing-test222
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-test222-delivery
+          run-id: 38809125187
+          github-token: ${{ github.token }}
+          path: delivery
+      - name: Retrieve retained install-over baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download apd-codex-test-206 --repo "$GITHUB_REPOSITORY" --pattern ADHD-Pixel-Dungeon-CODEX-TEST-206.apk --dir rollback
+      - name: Verify immutable APK and distinguish delivery tag from compiled source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,json,subprocess,hashlib,re,datetime
+          from pathlib import Path
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path):return json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private']
+          source='182155b7e2906357fa3006ae3af70a7e472bb0bb'
+          gate=api('repos/'+repo+'/actions/runs/38809007695')
+          assert gate['status']=='completed' and gate['conclusion']=='success' and gate['head_sha']==source
+          jobs=api('repos/'+repo+'/actions/runs/38809125187/jobs')['jobs']
+          required=['Check source, tests, checksum, signing and application ID','Verify the delivered APK enables the owner\'s Cleric lore','Produce today\'s report from verified evidence']
+          for name in required:assert any(s['name']==name and s['conclusion']=='success' for j in jobs for s in j['steps']),name
+          v=json.loads(Path('delivery/TEST222-Verification.json').read_text())
+          assert v['source']==source and str(v['run'])=='38809007695'
+          for kind,count in [('core',1668),('android',31)]:
+              assert v[kind]['tests']==count and len(v[kind]['cases'])==count
+              assert len({(c['classname'],c['name']) for c in v[kind]['cases']})==count
+              assert all(v[kind][k]==0 for k in ('failures','errors','skipped'))
+          apk=Path('delivery/ADHD-Pixel-Dungeon-CODEX-TEST-222.apk')
+          old=Path('rollback/ADHD-Pixel-Dungeon-CODEX-TEST-206.apk')
+          digest=hashlib.sha256(apk.read_bytes()).hexdigest()
+          assert digest=='c4fe922f32c7b07f94666ae01591a04384fa5c801afcb4f869aca9a5c0e6aea5'==v['apk_sha256']
+          assert Path(str(apk)+'.sha256').read_text().split()[0]==digest
+          assert hashlib.sha256(old.read_bytes()).hexdigest()=='566e29174c17c19f9a19f7429410d872a097c09c2aa4a1e4835548617a6c809c'
+          signer=sorted((Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          certs=[]
+          for p in (apk,old):
+              result=subprocess.check_output([str(signer),'verify','--print-certs',str(p)],text=True)
+              certs.append(sorted(set(re.findall(r'(?m)^(?:Signer #\d+|V[1234] Signer):? certificate SHA-256 digest: ([0-9a-fA-F]{64})\s*$',result))))
+          assert certs[0]==certs[1]==['067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e']
+          result=subprocess.check_output([str(signer.parent/'aapt'),'dump','badging',str(apk)],text=True)
+          assert "package: name='com.charltonchris29.adhdpixeldungeon.indev' versionCode='920' versionName='4.0.8-apd-INDEV-bC222-TEST'" in result
+          def inputs(sha):
+              tree=api('repos/'+repo+'/git/trees/'+sha+'?recursive=1');assert not tree.get('truncated')
+              return {e['path']:e['sha'] for e in tree['tree'] if e['type']!='tree' and e['path'].split('/')[0] not in ['.github','docs','tools'] and not e['path'].startswith(('core/src/test/','android/src/androidTest/'))}
+          compiled,wrapper=inputs(source),inputs(os.environ['GITHUB_SHA'])
+          changed=sorted(p for p in compiled.keys()|wrapper.keys() if compiled.get(p)!=wrapper.get(p))
+          assert set(changed).issubset({'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/text/AuthoredLanguage.java'}),changed
+          receipt={'compiled_source':source,'source_run':38809007695,'verified_staging_run':38809125187,'delivery_wrapper':os.environ['GITHUB_SHA'],'release_tag_is_delivery_wrapper':True,'wrapper_application_differences_not_in_apk':changed,'apk_sha256':digest,'certificate_sha256':certs[0],'core_tests':1668,'api34_tests':31,'physical_phone_tested':False,'rebuild':False,'verified_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          Path('delivery/TEST222-Delivery.json').write_text(json.dumps(receipt,indent=2))
+          notes=Path('delivery/verification.txt').read_text()
+          notes+='\n\nCompiled APK source: '+source+'. The release tag points to delivery wrapper '+os.environ['GITHUB_SHA']+', not the compiled source. Later translated-language changes for TEST223 are NOT included. The exact compiled source archive is attached.\n\nIncludes the Healing-to-Shielding-only slider correction and clean About/English authored text with the first 25 reviewed alternatives. The expanded game-wide localization audit remains separate; not approved for distribution to alpha testers.\n\nFailed preparation: TEST219 had one inherited-field instrumentation-helper failure; TEST220 stopped in the complete-history guard before producing an APK; TEST221 had one unchanged Cleric-isolation guard failure. TEST222 corrected these and passed the full required gate. Initial release creation targeting the older compiled commit received GitHub403; this delivery reuses the already signed-compatible verified artifact and identifies the current delivery tag honestly.\n\nInstall over existing APD; never uninstall or clear data. TEST206 and all existing releases/assets remain retained.\n'
+          Path('delivery/release-notes.txt').write_text(notes)
+          print(json.dumps(receipt,indent=2))
+          PY
+      - name: Publish private owner prerelease preserving all prior assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,subprocess
+          repo=os.environ['GITHUB_REPOSITORY'];tag='apd-codex-test-222'
+          assert subprocess.run(['gh','release','view',tag,'--repo',repo],capture_output=True).returncode!=0,'Existing release retained'
+          subprocess.run(['gh','release','create',tag,'--repo',repo,'--target',os.environ['GITHUB_SHA'],'--prerelease','--latest=false','--title','APD PRIVATE CODEX TEST222 — Healing slider and clean About','--notes-file','delivery/release-notes.txt','delivery/ADHD-Pixel-Dungeon-CODEX-TEST-222.apk','delivery/ADHD-Pixel-Dungeon-CODEX-TEST-222.apk.sha256','delivery/TEST222-Verification.json','delivery/TEST222-Delivery.json','delivery/APD-Bug-Fixes-2026-10-15-TEST222.pdf','delivery/APD-Verified-Source.zip','delivery/APD-Verified-Source.zip.sha256'],check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test222-publication-receipt
+          path: |
+            delivery/TEST222-Delivery.json
+            delivery/release-notes.txt
+          retention-days: 7

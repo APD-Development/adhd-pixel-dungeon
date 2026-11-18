@@ -1,0 +1,7 @@
+Changes	ICON_TARGET	Weapon	Displayed the existing accuracy penalty when a known Wayward curse is active.
+Testing	ICON_TARGET	Weapon Accuracy Display Test	Updated automated checks and fixtures for weapon accuracy display. These are development checks, not a gameplay feature.
+Development	ICON_JOURNAL	APD-CODEX-BUILD-REQUEST	Updated apd-codex-build-request accompanying this build.
+Development	ICON_INFO	APD-SPRINT-BUG-LOG-2026-10-09	Updated apd-sprint-bug-log-2026-10-09 accompanying this build.
+Development	ICON_INFO	Development handoff	Updated development handoff accompanying this build.
+Development	ICON_INFO	WORK-COMPLETED-LEDGER	Updated work-completed-ledger accompanying this build.
+Developer Commentary	V074_SHPX	Developer Commentary	Displayed the existing accuracy penalty when a known Wayward curse is active.

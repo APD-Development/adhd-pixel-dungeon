@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-11-09T17:02:34.998Z",
+  "build": 422,
+  "attempt": 1,
+  "workflow_run": 42660406284,
+  "job": 129310131694,
+  "source_commit": "9c76268664d8b4e3361feeb1a3177dc6753fad85",
+  "status": "failed_before_build",
+  "failure": "GitHub App token returned HTTP 403 reading private draft release 439341328.",
+  "application_apks_created": 0,
+  "artifacts_created": 0,
+  "native_jobs": "skipped",
+  "prepare_job": "skipped",
+  "retained": true,
+  "correction": "Use Actions-readable prepared artifact 13691823460 from APD420 retry run 42654395502; require artifact SHA256 3bbdad294c70fa993bce8cfb1391999b62064fb277fd9d80a7b6071bdf28706c and Developer APK SHA256 1acebe7f2cecae471ccb0b2810fc31be74ca92ecf339e22edbd2145b1a240f33.",
+  "paid_resources_added": false
+}

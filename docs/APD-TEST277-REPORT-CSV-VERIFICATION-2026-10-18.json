@@ -1,0 +1,63 @@
+{
+  "recorded_at": "2026-10-18T03:53:31Z",
+  "application_source": "10df853e6d505ea080abaecde98c793f76397e12",
+  "request_commit": "ec373bc8d52f682d12799b0b7e1d78afa83deead",
+  "run_id": 39094336421,
+  "conclusion": "success",
+  "core": {
+    "tests": 1806,
+    "suites": 356,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12124420689,
+    "artifact_bytes": 842868,
+    "digest": "sha256:604c34e94d01aacc4d671fc3216fdda8bed0d185e7c13bb2d6f36da1227442b7"
+  },
+  "android": {
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "artifact_id": 12124610620,
+    "artifact_bytes": 5093621,
+    "digest": "sha256:481cfd7a8d82760bd6d0ce71c89204dddc6149ca1da4e21fa4dd4afe5f05a253",
+    "screenshots": 57,
+    "dimensions": "320x640",
+    "reviewed": true
+  },
+  "apk": {
+    "name": "ADHD-Pixel-Dungeon-CODEX-TEST-277.apk",
+    "bytes": 38614452,
+    "sha256": "a11ebf7ac40d71afaa5b1f0ea83726501e6c108931cb9a09ac9a7e0455e2b554",
+    "artifact_id": 12124520254,
+    "artifact_bytes": 36115663,
+    "artifact_digest": "sha256:a401cb0ecbd4db203d94a3cb31cf05dec28e61d2589af1ac4a2004eaec46af6a",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_public_key_sha256": "efc113902c65a6825990ab9e496601fd9e08a55612238d0641de04e5c15ce288",
+    "matches_test276_identity": true
+  },
+  "supplemental_display": {
+    "run_id": 39094336426,
+    "passed": [
+      "m53-representative",
+      "square-virtual"
+    ],
+    "failed": {
+      "compact_virtual": "Native title condition did not become true",
+      "small_virtual": "Native title condition did not become true",
+      "short_landscape": "TitleMenuLayoutDeviceTest.java:87 assertion"
+    }
+  },
+  "staging": {
+    "run_id": 39094336403,
+    "conclusion": "failure",
+    "reason": "stale TEST268 preparation profile failed application-tree equality",
+    "staged": false
+  },
+  "published": false,
+  "distributed": false,
+  "physical_phone_tested": false,
+  "owner_save_install_over_tested": false
+}

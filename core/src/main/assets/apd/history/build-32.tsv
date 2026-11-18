@@ -1,0 +1,4 @@
+Infrastructure	ICON_INFO	run-device-tests	Added the run-device-tests development workflow; it is not gameplay content.
+Infrastructure	ICON_INFO	android-tests	Updated the android-tests development workflow; it is not gameplay content.
+Testing	ICON_CHECKED	Archive Migration Device Test	Updated Android checks and fixtures for archive migration device. These are development checks, not a gameplay feature.
+Developer Commentary	V074_SHPX	Developer Commentary	Added the run-device-tests development workflow; it is not gameplay content. Updated the android-tests development workflow; it is not gameplay content.

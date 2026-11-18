@@ -1,0 +1,61 @@
+{
+  "kind": "mechanics-memory",
+  "number": 369,
+  "source": "b8283598a43e13a2259d65cae69bf0529b7a65e2",
+  "developer": 42279158656,
+  "player": 42279158734,
+  "display": 42279158774,
+  "native": 42279158656,
+  "tester": 42280252758,
+  "tester_test_source": "0546ef74e2fdef80afce7107c48d3cca403be047",
+  "panel": 42280252440,
+  "panel_test_source": "0546ef74e2fdef80afce7107c48d3cca403be047",
+  "core_tests": 2856,
+  "android_tests": 72,
+  "tester_tests": 4,
+  "alpha_extended_playback": true,
+  "alpha_playback_visual_sha256": "4efbdc7d0d9d15cbe1bc21835e7b75cde361c1e5dc03abe40659cde590c4a4ea",
+  "title": "APD369 \u2014 statistics memory and item inspection fixes",
+  "report_path": "docs/APD-369-OWNER-REPORT.md",
+  "visual_review": {
+    "qol-dew-settings.png": "0b41499f3a51f45b813f0452fbfc112477ff892b6aa5f1e1572c11e0d0c620c6",
+    "qol-force-weapon.png": "444d8008e39722c240038b1816413346ea84fe428c7c4c7dec72819c069392dd",
+    "qol-sharpshooting-weapon.png": "e5b6d8c5ef78cce1e48eb38630febba46052e676d80552b95c74980e51ce945e",
+    "qol-searched-wall.png": "6b06d9ce5128c5582d84d8bf64c66592c45b64d73c09a31083308a1df880bd39",
+    "qol-searched-wall-color.png": "4f5490b5a55fac0867659d18d25196a5df5606f1647c8c1378eaa80758d13305",
+    "qol-offline-license.png": "656447f5d7e4761b4dd5d94294f97649c12215e84c58b93bd9a6c994b934d348"
+  },
+  "panel_visual_review": {
+    "qol-door-ineligible-bookshelf.png": "f9ad4ad31112d2b9d35eda50bb4fad6e4efe0b74de15589cde2e41b5a743bb08",
+    "qol-door-ineligible-decoration.png": "317cf13ee8c592984ececc3817267f00d7762e05a24b2987346c58dfc268f305",
+    "qol-mechanics-ability-expanded.png": "1a8cb3786fd363faf3a57d8a388a1c622c4f017055690b8b7272745823ddb322",
+    "qol-mechanics-buff-expanded.png": "e346b6158b3b586d28f6dd3d0d0fe90e5ab93f07a87b898cc4600459d7f6e71c",
+    "qol-mechanics-spell-expanded.png": "9e8203588d7709ce95eee78ed874f09a01927bfc3ec4fde60f168216c82aa1fe",
+    "qol-mechanics-talent-expanded.png": "755884916b5f0a46af5b669bf27caeac59ce86542622227ab9be4fed52fd93e8",
+    "qol-searched-wall.png": "dd3a8129444e301bb572d38331f2f2d317c4ab1abdd2aa8ac243447a789bdb79",
+    "qol-waiting-independent-stops.png": "698aa07aa561ed6ad70ff96d51ede029034832bd853866076e457195f41d98c5",
+    "qol-waiting-saved-stops.png": "698aa07aa561ed6ad70ff96d51ede029034832bd853866076e457195f41d98c5"
+  },
+  "fallback_number": 368,
+  "fallback_hashes": {
+    "Developer": "8e23c1cb147a536212142a3f23d923773f02a9857e47a28a5d64a874c016ed12",
+    "Alpha-Testers": "f3228dd0259848d756a88d063fa11a84176ac483c7dd2bd97b4d7706362f1fd8"
+  },
+  "source_only_check": 42276005902,
+  "variants": [
+    "Developer",
+    "Alpha-Testers"
+  ],
+  "version_code": 920,
+  "poison_duration_label_pending": false,
+  "retained_fixture_failure_runs": [
+    {
+      "run": 42279534057,
+      "cause": "Wrong fixture versionCode921; actualsource920. Corrected test-only, unchangedAPK."
+    },
+    {
+      "run": 42279533928,
+      "cause": "Same pre-native identity fixture assumption; retained separately from passing current exact-APK runs."
+    }
+  ]
+}

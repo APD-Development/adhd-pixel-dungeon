@@ -1,0 +1,24 @@
+package com.shatteredpixel.shatteredpixeldungeon.apd.difficulty;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Fire;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Burning;
+import com.shatteredpixel.shatteredpixeldungeon.items.bombs.Firebomb;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.watabou.noosa.Group;
+import com.watabou.utils.*;
+import org.junit.*;
+import java.nio.file.*;
+import static org.junit.Assert.*;
+public class FireCallerProvenanceTest {
+ SpecialBombDamageProvenanceTest fixture=new SpecialBombDamageProvenanceTest();java.util.Set<Actor> before;
+ @Before public void setup()throws Exception{fixture.setup();before=Actor.all();Dungeon.level.plants=new SparseArray<>();Dungeon.level.blobs=new java.util.HashMap<>();java.lang.reflect.Field sf=GameScene.class.getDeclaredField("scene");sf.setAccessible(true);Object scene=sf.get(null);for(String n:new String[]{"gases","effects"}){java.lang.reflect.Field f=GameScene.class.getDeclaredField(n);f.setAccessible(true);f.set(scene,new Group());}}
+ @After public void cleanup()throws Exception{for(Actor a:Actor.all())if(!before.contains(a))Actor.remove(a);fixture.cleanup();}
+ int burn(Fire fire)throws Exception{SpecialBombDamageProvenanceTest.Target t=new SpecialBombDamageProvenanceTest.Target(false);Actor.add(t);try{fire.act();Burning b=t.buff(Burning.class);assertNotNull(b);Bundle state=new Bundle();b.storeInBundle(state);state.put("next_dmg",4);b.restoreFromBundle(state);b.act();assertEquals(1,t.hits.size());assertSame(b,t.sources.get(0));return t.hits.get(0);}finally{Actor.remove(t);}}
+ Fire produced(){Fire f=(Fire)Dungeon.level.blobs.get(Fire.class);assertNotNull(f);return f;}
+ @Test public void realFirebombFieldsKeepEveryCreatorAndScaleOneBurningHit()throws Exception{for(OffensiveDamageOrigin role:new OffensiveDamageOrigin[]{OffensiveDamageOrigin.PLAYER,OffensiveDamageOrigin.ENEMY,OffensiveDamageOrigin.BOSS})for(int p=25;p<=500;p+=25){fixture.rules(role==OffensiveDamageOrigin.PLAYER?p:275,role==OffensiveDamageOrigin.ENEMY?p:325,role==OffensiveDamageOrigin.BOSS?p:425);new Firebomb().apdExplodeAttributed(312,role);Fire f=produced();assertEquals(Math.round(4*p/100f),burn(f));f.fullyClear();}}
+ @Test public void secondaryFirebombFieldsRetainCreatorAcrossFireSaveReload()throws Exception{fixture.rules(200,300,500);new Firebomb().apdExplodeAttributed(312,OffensiveDamageOrigin.BOSS);Fire f=produced();Bundle saved=new Bundle();f.storeInBundle(saved);Fire restored=new Fire();restored.restoreFromBundle(saved);assertEquals(20,burn(restored));}
+ @Test public void unownedFirebombRemainsEnvironmental()throws Exception{fixture.rules(500,500,500);new Firebomb().explode(312);assertEquals(4,burn(produced()));}
+ @Test public void neutralFirebombFieldsPreserveTopologyVolumeAndRng()throws Exception{fixture.rules(100,100,100);Random.pushGenerator(701);int[] density;int volume;long next;try{new Firebomb().explode(312);Fire f=produced();density=f.cur.clone();volume=f.volume;next=Random.Long();f.fullyClear();}finally{Random.popGenerator();}java.lang.reflect.Field sf=GameScene.class.getDeclaredField("scene");sf.setAccessible(true);Object scene=sf.get(null);for(String n:new String[]{"gases","emitters"}){java.lang.reflect.Field field=GameScene.class.getDeclaredField(n);field.setAccessible(true);field.set(scene,new Group());}Dungeon.level.blobs=new java.util.HashMap<>();Random.pushGenerator(701);try{new Firebomb().apdExplodeAttributed(312,OffensiveDamageOrigin.PLAYER);Fire f=produced();assertArrayEquals(density,f.cur);assertEquals(volume,f.volume);assertEquals(next,Random.Long());}finally{Random.popGenerator();}}
+ @Test public void knownHeroAndCursedCasterCallersUseExplicitIdentity()throws Exception{Path root=Paths.get(System.getProperty("apd.game.src"));String blast=Files.readString(root.resolve("actors/hero/abilities/mage/ElementalBlast.java")),strike=Files.readString(root.resolve("actors/hero/abilities/duelist/ElementalStrike.java")),cursed=Files.readString(root.resolve("items/wands/CursedWand.java"));assertTrue(blast.contains("Fire.seedAttributed( cell, 4,"));assertTrue(blast.contains("OffensiveDamageOrigin.capture(hero,null)"));assertTrue(strike.contains("Fire.seedAttributed(cell, Math.round(8 * powerMulti),"));assertTrue(strike.contains("OffensiveDamageOrigin.capture(hero,null)"));assertTrue(cursed.contains("Fire.seedAttributed(i, 4, com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveDamageOrigin.capture(user,null))"));assertTrue(cursed.contains("Fire.seedAttributed(Dungeon.level.randomDestination(null), 10, com.shatteredpixel.shatteredpixeldungeon.apd.difficulty.OffensiveDamageOrigin.capture(user,null))"));}
+}

@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-16",
+  "recorded_at_utc": "2026-10-16 19:49:53 UTC",
+  "application_build": 254,
+  "application_source": "832c1a5679a8cd216e8c57638f1bc0fe2442fdfe",
+  "application_build_run": 38949555542,
+  "staging_run": 38949555538,
+  "final_native_run": 38956379747,
+  "publication_wrapper_commit": "51bdf6b18b1abb3c861ee80186f67def72e17df5",
+  "publication_run": 38957334439,
+  "publication_postcheck": "failed after assets published: stale guard expected application source as release target; actual release target is verified publication wrapper",
+  "download_receipt_run": 38957537766,
+  "download_receipt_run_conclusion": "success",
+  "asset_published_at": "2026-10-16T19:47:02Z",
+  "apk_download_verified_at": "2026-10-16T19:48:38.800460Z",
+  "chat_links_sent": true,
+  "chat_link_sent_bounds_utc": [
+    "2026-10-16T19:48:42Z",
+    "2026-10-16T19:49:11Z"
+  ],
+  "apk_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-254/ADHD-Pixel-Dungeon-Alpha-Preview-254.apk",
+  "pdf_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-254/APD-Alpha-Preview-254.pdf",
+  "apk_sha256": "131d205b17a2c118abd794cf49631c21b52166cb3b4586fb2545cbbab3e53a72",
+  "pdf_sha256": "e7d11a9fc532e92a4402d7e8942f53158187bfa7ae518f38bf04ba2e206726d8",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "version_name": "4.0.8-apd-INDEV-bC254-TEST",
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "core": {
+    "unique_methods": 1736,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "primary_android14": {
+    "methods": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "captures": 49
+  },
+  "supplemental": {
+    "api34_class_roster_methods": 1,
+    "api36_full_selected_methods": 8,
+    "api36_final_methods": 2,
+    "unique_android_methods": 37,
+    "selected_executions": 47,
+    "total_reviewed_captures": 71,
+    "all_test254_executions": 68,
+    "all_test254_passed": 63,
+    "all_test254_failed": 5
+  },
+  "python_delivery_profile_regressions": {
+    "methods": 10,
+    "passed": 10,
+    "not_in_core_total": true
+  },
+  "physical_phone_tested": false,
+  "owner_active_save_tested": false,
+  "full_human_boss_playthroughs_tested": false,
+  "application_rebuilt_for_publication": false,
+  "private_repository": true,
+  "automatic_tester_distribution": false,
+  "all_backlog_complete": false,
+  "fallback": {
+    "build": 250,
+    "sha256": "06531de071cbe89a5b0c3260f5c5fb6e6368fbfdf388f8f18bb0fcd983532535",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-250/ADHD-Pixel-Dungeon-Alpha-Preview-250.apk"
+  },
+  "failed_or_superseded_native_runs": [
+    38950078074,
+    38952725527,
+    38953589679,
+    38954130127,
+    38955341493
+  ],
+  "cancelled_no_application_tests_run": 38956301873,
+  "remaining": [
+    "Physical phone install-over and owner active-save continuity",
+    "Full human-played boss/class strategies",
+    "Broader documented UIMSD audit/storage work",
+    "Owner armor playthrough reproduction",
+    "Inherited delayed-audio investigation",
+    "Historical build gaps not established by this package"
+  ],
+  "schedule_status": {
+    "hourly_enabled": true,
+    "preparation_enabled": true,
+    "pdf_enabled": true,
+    "apk_enabled": true,
+    "next_run_time_returned": null,
+    "actual_future_execution_not_guaranteed": true
+  }
+}

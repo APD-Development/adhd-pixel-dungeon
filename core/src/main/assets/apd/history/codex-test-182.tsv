@@ -1,0 +1,1 @@
+Changes	V061_PAGE	TEST182 UIMSD scope wording	Clarify that Rules selects finished runs by rule set, while runs still going use the separate Tables > Options switch; preserve abandoned as a finished result. TEST182 corrects only the complete comparison manifest after TEST181 stopped before compilation.

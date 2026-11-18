@@ -1,0 +1,98 @@
+# ADHD Pixel Dungeon 2026; GPL-3.0-or-later
+name: Publish verified APD438 Developer and Alpha-Testers APKs
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-438-RELEASE-REQUEST.txt]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - name: Independently verify exact successful producer and APK pair
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh run watch 42936338766 --repo "$GITHUB_REPOSITORY" --exit-status --interval 15
+          python3 tools/apd_owner_delivery_policy.py
+          python3 - <<'PY'
+          import json,subprocess,pathlib,hashlib,zipfile,xml.etree.ElementTree as E,os,sys
+          repo=os.environ['GITHUB_REPOSITORY']
+          api=lambda uri:json.loads(subprocess.check_output(['gh','api',uri]))
+          assert api('repos/'+repo)['private']
+          run=api('repos/'+repo+'/actions/runs/42936338766')
+          assert run['status']=='completed' and run['conclusion']=='success'
+          assert run['head_sha']=='92114c09957aaae0c9900aee52aac0c193b1365a'
+          assert run['path']=='.github/workflows/apd-presets-438.yml'
+          jobs=api('repos/'+repo+'/actions/runs/42936338766/jobs')['jobs']
+          assert len(jobs)==3 and all(j['conclusion']=='success' for j in jobs)
+          artifacts=api('repos/'+repo+'/actions/runs/42936338766/artifacts')['artifacts']
+          expected={'apd438-built-pair','apd438-native-Developer','apd438-native-Alpha-Testers'}
+          assert expected.issubset({a['name'] for a in artifacts if not a['expired']})
+          root=pathlib.Path('proof');root.mkdir()
+          for name in sorted(expected):
+              subprocess.run(['gh','run','download','42936338766','--repo',repo,'--name',name,'--dir',str(root/name)],check=True)
+          built=root/'apd438-built-pair'
+          xml=list(built.rglob('TEST-*.xml'))
+          suites=[E.parse(path).getroot() for path in xml]
+          totals={key:sum(int(s.get(key,0)) for s in suites) for key in ['tests','failures','errors','skipped']}
+          assert len(suites)==460 and totals==dict(tests=3177,failures=0,errors=0,skipped=0),(len(suites),totals)
+          proof=json.loads(next(built.rglob('apks.json')).read_text())
+          signer=sorted((pathlib.Path(os.environ['ANDROID_HOME'])/'build-tools').glob('*/apksigner'))[-1]
+          sys.path.insert(0,'tools')
+          from apd_existing_build_evidence import certificates
+          cert_expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          for variant in ['Developer','Alpha-Testers']:
+              apk=built/'owner-delivery'/('APD-'+variant+'-438.apk')
+              assert apk.is_file() and apk.stat().st_size>1000000
+              assert hashlib.sha256(apk.read_bytes()).hexdigest()==proof[variant]['sha256']
+              output=subprocess.check_output([str(signer),'verify','--print-certs',str(apk)],text=True)
+              assert certificates(output)==[cert_expected]
+              with zipfile.ZipFile(apk) as z:
+                  assert 'Codex TEST 438' in z.read('assets/apd/history/index.tsv').decode()
+                  f=z.read('assets/apd/features.txt').decode().splitlines()
+                  assert 'grudge' in f
+                  if variant=='Alpha-Testers':
+                      assert 'testBuild' not in f and 'demoUnlock' not in f and 'clericPlayable' not in f
+              native=root/('apd438-native-'+variant)
+              reports=list(native.rglob('*-qol.txt'))
+              assert len(reports)==1 and 'OK (1 test)' in reports[0].read_text()
+              screenshots=list(native.rglob('qol-automatic-inventory-*.png'))
+              assert len(screenshots)>=5 and all(p.stat().st_size>2000 for p in screenshots)
+          pathlib.Path('release-notes.md').write_text(
+              'APD438: Preset menu accessibility fix. The six named save/load/rename slots and five built-in quick presets '
+              'now use the existing scrollable wrapped choice list, keeping all choices reachable on smaller screens. '
+              'Empty save slots cannot overwrite the active next-run draft. No changes to difficulty rules, scoring, '
+              'combat, saves, or the all-player 0.5x to 1000x visual playback range. '
+              'Both Developer and Alpha-Testers APKs passed 3177 core tests, API34 Android emulator checks, '
+              'original signing and package verification. Physical-phone validation is not claimed. '
+              'Install over the previous signed version without uninstalling.\\n')
+          print('Exact producer, tests, APK hashes, certificate and both native tests verified')
+          PY
+      - name: Publish immutable new APD438 GitHub release and verify download-back
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view apd-alpha-preview-438 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "APD438 release already exists; refusing to overwrite"
+            exit 1
+          fi
+          gh release create apd-alpha-preview-438 --repo "$GITHUB_REPOSITORY" \
+            --target 92114c09957aaae0c9900aee52aac0c193b1365a --prerelease --latest=false \
+            --title "APD438: scrollable class preset menus" --notes-file release-notes.md \
+            proof/apd438-built-pair/owner-delivery/APD-Developer-438.apk \
+            proof/apd438-built-pair/owner-delivery/APD-Alpha-Testers-438.apk
+          mkdir -p downloaded
+          gh release download apd-alpha-preview-438 --repo "$GITHUB_REPOSITORY" --pattern 'APD-*-438.apk' --dir downloaded
+          for variant in Developer Alpha-Testers; do
+            cmp "proof/apd438-built-pair/owner-delivery/APD-${variant}-438.apk" "downloaded/APD-${variant}-438.apk"
+          done
+          gh release view apd-alpha-preview-438 --repo "$GITHUB_REPOSITORY" --json url,isDraft,assets

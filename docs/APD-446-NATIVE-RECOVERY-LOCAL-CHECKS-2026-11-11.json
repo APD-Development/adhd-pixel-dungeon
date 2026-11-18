@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "number": 446,
+  "recorded_utc": "2026-11-11T19:09:45.517999+00:00",
+  "status": "bounded_pre_execution_checks_passed",
+  "helper_sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25",
+  "guard_results": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "corruption_rejections": 51
+  },
+  "guard_log": "test_attempt_bound_names_cannot_reuse_previous_attempt (test_apd_recover446_developer.RecoveryGuards.test_attempt_bound_names_cannot_reuse_previous_attempt) ... ok\ntest_cohorts_are_disjoint_complete_and_exactly_match_alpha_names (test_apd_recover446_developer.RecoveryGuards.test_cohorts_are_disjoint_complete_and_exactly_match_alpha_names) ... ok\ntest_draft_and_pending_review_block_every_operational_stage (test_apd_recover446_developer.RecoveryGuards.test_draft_and_pending_review_block_every_operational_stage) ... ok\ntest_immutable_artifact_identity_rejects_wrong_bytes_source_and_variant (test_apd_recover446_developer.RecoveryGuards.test_immutable_artifact_identity_rejects_wrong_bytes_source_and_variant) ... ok\ntest_plan_requires_exact_original_and_narrow_scope (test_apd_recover446_developer.RecoveryGuards.test_plan_requires_exact_original_and_narrow_scope) ... ok\ntest_raw_native_parser_rejects_incomplete_wrong_or_failed_case (test_apd_recover446_developer.RecoveryGuards.test_raw_native_parser_rejects_incomplete_wrong_or_failed_case) ... ok\ntest_transfer_proofs_are_required_for_each_accepted_case (test_apd_recover446_developer.RecoveryGuards.test_transfer_proofs_are_required_for_each_accepted_case) ... ok\ntest_zero_application_and_instrumentation_delta_is_required (test_apd_recover446_developer.RecoveryGuards.test_zero_application_and_instrumentation_delta_is_required) ... ok\nAPD446_RECOVERY_GUARD_REJECTIONS=51\n\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nOK\n",
+  "actual_original_cohort_verification": {
+    "schema": 1,
+    "recorded_utc": "2026-11-11T19:08:01.853751+00:00",
+    "status": "actual_original_cohorts_and_partition_verified",
+    "original_source": "1968913a441f53ab3652cffc05e131427d0c3703",
+    "original_run": 43077773970,
+    "snapshot_sha256": "e985fd73af3d2d86f418ca8f2bb3a0c016d472eec0ca66a95329cd123cd78b68",
+    "alpha_cases": 9,
+    "alpha_images": 1469,
+    "developer_accepted_cases": 7,
+    "developer_accepted_images": 1457,
+    "original_developer_seed_diagnostics": {
+      "seed_report": {
+        "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-Developer/seed-history.txt",
+        "bytes": 1014,
+        "sha256": "74c86f9378dea41c7a52970186ee6e911cbbdebe29a7a74960d15ed6e13ebd06"
+      },
+      "partial_images": {
+        "seed-history-cleared-generated-selection.png": "5e78a4a33d71485faee665dd9db52a5c969832e91402897e13c0402d224a1fca",
+        "seed-history-entry.png": "bf73b34c54cdd62da94757e4c2003c36bc60f366a75cfd0121f12b2398445727",
+        "seed-history-latest-unknown-selection.png": "5cd63f092b1fb9be5ae5383add82281c8d911ac12c1fcb5da4e35bb9972c31ab",
+        "seed-history-matching-records.png": "390971f5b9705ae12963051db39dca1328b72a7df8703c6fde6820c8b5f5a5fa",
+        "seed-history-ranking-copy-confirm.png": "37f0665b13aa0d10ab180d76d061e10e7394147e07768fd3d622d397ce5724e3",
+        "seed-history-ranking-copy-result.png": "b62f917c73756e1d09cba51ce36ec2f6152cb9d5859621c264383b86e47e96e0"
+      },
+      "partial_image_count": 6,
+      "original_seed_case_passed_but_transfer_incomplete": true,
+      "pylon_not_run": true,
+      "used_for_acceptance": false
+    },
+    "fresh_recovery_names_required": [
+      "pylon-native-active-visible.png",
+      "pylon-native-hidden-excluded.png",
+      "pylon-native-inactive-visible.png",
+      "pylon-native-manual-rat-preserved.png",
+      "pylon-native-ranged-pylon-melee-boss.png",
+      "seed-history-cleared-generated-selection.png",
+      "seed-history-entry.png",
+      "seed-history-latest-unknown-selection.png",
+      "seed-history-matching-records.png",
+      "seed-history-ranking-copy-confirm.png",
+      "seed-history-ranking-copy-result.png",
+      "seed-history-unfinished-record.png"
+    ],
+    "new_recovery_case_results_present": false,
+    "recovery_acceptance_claimed": false,
+    "sdk_or_game_tests_rerun": false,
+    "api_or_remote_mutations": false,
+    "helper_sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25"
+  },
+  "actual_owner_mapping_verification": {
+    "recorded_utc": "2026-11-11T19:08:42.370911+00:00",
+    "status": "new_owner_mapping_exercised_against_actual_frozen_artifact",
+    "all_original_files_copied_and_hash_verified": 481,
+    "top_level_delivery_members": 3,
+    "retained_other_members": 478,
+    "original_artifact_sha256": "a726c1c09a23faa4209ef51ff743da32503098737221be5c71dcf3f25e3c23ce",
+    "mapping_sha256": "a6ebbdc894da8306a469e76d7c5fba2c85c477dc5d850eb1064a4ca46d94dfcd",
+    "temporary_copies_removed_after_verification": true,
+    "original_files_modified": false,
+    "native_or_owner_acceptance_claimed": false,
+    "sdk_or_game_tests_rerun": false,
+    "workflow_static_checks_passed": true,
+    "new_request_absent": true,
+    "helper_sha256": "faef5900de91c62f1b7da021020968719bffb3ab9088d61d045e3042dc0faf25",
+    "workflow_sha256": "ed2837ce728ed01fa0beb4eab6287215793bb890f700df5d86e79e04c42da127"
+  },
+  "fresh_native_cases_run": 0,
+  "new_pair_acceptance": false,
+  "game_or_instrumentation_rebuilt": false
+}

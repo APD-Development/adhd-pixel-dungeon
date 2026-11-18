@@ -1,0 +1,98 @@
+{
+  "status": "narrow_optional_node_id_correction_prepared_and_focused_checks_passed",
+  "utc": "2026-11-11T19:18:25.122495+00:00",
+  "original_checker_preserved": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovered-delivery-check.py",
+    "bytes": 49043,
+    "sha256": "f32cf18eab70225772886b9f1593393c570224ea35b86afb61fc3a4d4101f0e2"
+  },
+  "failed_attempt_log_preserved": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/root-delivery-check-attempt-1.log",
+    "bytes": 535,
+    "sha256": "5797fa99479c53ecfba0a21ed70af9aa2a0f85fd40ee185e03935583bae62135"
+  },
+  "new_checker": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovered-delivery-check-v2.py",
+    "bytes": 49387,
+    "sha256": "8500e97c2a04c472f3435bd4e9cac2ceb8e6d7504c7ea5b8e9db5b2f4a392828"
+  },
+  "exact_patch": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/recovered-delivery-check-v2.patch",
+    "bytes": 1691,
+    "sha256": "c44a5e2bd0bbd5aaa42d76f9f31b41acac70d210c7439ce2bd44eee445cf4a6e"
+  },
+  "actual_owner_metadata_file": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-owner-review/APD-446-Recovery-Artifact-Provenance.json",
+    "bytes": 29578,
+    "sha256": "c7ce27718ba7ae2dd1503026ea69440bab156bd3632187918e99247c5f0cc37f"
+  },
+  "actual_terminal_snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/snapshot-2026-11-11T19-15-26-662Z.json",
+    "bytes": 27783,
+    "sha256": "510c038e02f8b4125acf31345dee78a4993f2105a495b1e37642985592532050"
+  },
+  "actual_difference": {
+    "node_id": {
+      "owner_present": true,
+      "snapshot_present": false,
+      "owner": "MDg6QXJ0aWZhY3QxMzg4NTUzMzY3NA==",
+      "snapshot": null
+    }
+  },
+  "actual_artifact_id": 13885533674,
+  "actual_digest": "sha256:5d155facc3b1f827ea74bd94124b1a6f8d3a14e013836fb4aabd432b2a9ed2ed",
+  "actual_bytes": 1206307,
+  "exact_correction": "Compare all metadata fields; remove node_id from comparison only if absent in either dictionary. When present in both, node_id remains part of exact equality. No other optional field is ignored.",
+  "focused_checks": [
+    {
+      "name": "actual owner node_id with terminal API omission",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "same actual omission with argument order reversed",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "both present and equal",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "both present but conflicting node_id",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "artifact ID mutation rejected",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "archive digest mutation rejected",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "producing source mutation rejected",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ],
+  "focused_check_count": 7,
+  "passed": 7,
+  "full_checker_executed": false,
+  "game_or_native_tests_rerun": false,
+  "pipeline_rerun": false,
+  "input_mutation": false,
+  "v1_and_failed_log_unchanged": true,
+  "independent_review": "pending"
+}

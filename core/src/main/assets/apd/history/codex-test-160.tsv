@@ -1,0 +1,8 @@
+Changes	V061_BUGFIX	Offensive scroll provenance	Apply Player Damage once to Retribution and Psionic Blast enemy damage while preserving Psionic Blast self-cost.
+Changes	V061_BUGFIX	Offensive scroll regression	Retain all-percentage, neutral RNG/source, caller and self-cost coverage.
+Changes	V061_BUGFIX	TEST160 evidence	Record bounded implementation and pending verification.
+Changes	V061_BUGFIX	Verified TEST159 evidence	Preserve the reviewed TEST159 verification record in compiled history.
+Changes	V061_BUGFIX	Handoff	Record candidate and remaining acceptance work.
+Changes	V061_BUGFIX	Completed ledger	Record exact bounded work and pending checks.
+Changes	V061_BUGFIX	Build request	Require exact-source core, Android, debug and history verification.
+Changes	V061_BUGFIX	History manifest	Compare every reviewed path against the immediate previous TEST159 APK.

@@ -1,0 +1,4 @@
+Changes	V061_PAGE	Retain TEST202 and TEST203 evidence	Include every verified evidence and coverage path committed after the immediate previous compiled TEST202 APK.
+Changes	V061_PAGE	Movement command history	Record each manual step, point-to-point travel or safe stair-navigation command once without changing movement, routes or the existing per-cell step series.
+Testing	ICON_CHECKED	Movement modes and exact-once boundary	Retain step/travel/stairs classification, one-command-per-action, public payload, wiring, permanent schema and telemetry-version checks.
+Development	V061_PAGE	TEST204 evidence request	Document the reproduced old-field ambiguity, absent general auto-explore mechanic, additive telemetry boundary and complete verification request.

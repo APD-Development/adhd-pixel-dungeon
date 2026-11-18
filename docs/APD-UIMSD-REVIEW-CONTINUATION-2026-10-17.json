@@ -1,0 +1,1326 @@
+{
+  "source": "0229d9c77b8d1e235d1dac2e9972eb459f3bfa86",
+  "recorded_at": "2026-10-18T16:07:02.840Z",
+  "complete": false,
+  "prior_checkpoint_preserved": "docs/APD-UIMSD-REVIEW-CHECKPOINT-2026-10-13.json",
+  "count_note": "Current-blob reconciliation found 96 exact machine-recorded entries before this continuation. The prior twenty-seven reviewed blobs plus UimsdGuide.java bring the exact reviewed production-path count to 124; prose-only completed reviews remain separate until reconciled.",
+  "entries": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Datasets.java",
+      "sha": "2dfad3e175044300e5cfcf9cea1326a5161a1274",
+      "lines": 524,
+      "reviewed": true,
+      "basis": "Complete current-source read of the four core schemas, statistics sheets and 13 shipped views plus catalog, navigation and row-window consumers. No production defect confirmed. A missing cross-schema referential-integrity invariant is now a retained test."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/AggValue.java",
+      "sha": "634b956a2ec3d20f8c21c21afe146c42acb53dfa",
+      "lines": 74,
+      "reviewed": true,
+      "basis": "Complete current-source review with QueryEngine and CellFormatter consumers confirmed a display-provenance defect: aggregate legacy/imported flags were computed but ignored by formatting. The bounded correction preserves numeric aggregation and warning precedence while exposing imported-ranking provenance.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryEngine.java",
+          "sha": "9c072008cf5364f8be285feb66ff1aee710c3881"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellFormatter.java",
+          "sha": "a9d19d87168490baae2e9df28c75d5afbfe1d6b5"
+        }
+      ],
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/AggValueContractTest.java",
+        "sha": "8d1a9658993ccea6e85adee588f92c3513d142ad",
+        "source_commit": "4d4048f80ab150aca3bc1ce690de48b5532922a0",
+        "methods": 3
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdSelfTest.java",
+      "sha": "9c78ae1586d2659a4f57d3e13156389ffa5478b8",
+      "lines": 113,
+      "reviewed": true,
+      "basis": "Complete current-source review of the isolated device self-test and its DatasetStore, QueryEngine, CellFormatter and RunLogWriter interactions found no production defect. A retained independent two-run regression closes the prior one-sided assertion gap by proving finished internal item identity is visible while the same unfinished-run field remains hidden.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdSelfTestTest.java",
+        "sha": "083eb4402001fc617abae49eec7a175e01f989f5",
+        "source_commit": "5a69400536f44ea04efe35edfb5398aefc0e4917",
+        "methods": 3,
+        "new_method": "finishedInternalIdentityIsVisibleWhileOpenIdentityStaysHidden"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdHome.java",
+      "sha": "71fd5b3b626ccc7cf388445c34ad7d57677a86b7",
+      "lines": 446,
+      "reviewed": true,
+      "basis": "Complete current-source review of Home card construction, rules scope, finished-run filtering, records, recent runs, characters, gear, enemies and difficulty presentation found no production defect. A retained independent three-run regression closes the missing finished-run scope assertion.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdHomePresentationTest.java",
+        "sha": "ca6e89be4a598bfff816df8fbd85074b6a45a5f0",
+        "source_commit": "914586aa83175b54528b2bbf59a2db71a4663bd7",
+        "methods": 2,
+        "new_method": "homeScopeExcludesUnfinishedRunsAndCountsOtherFinishedRulesExactly"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryCodec.java",
+      "sha": "3a643d13367ca9ef51cc109667fc7bf7b52ee368",
+      "lines": 179,
+      "reviewed": true,
+      "basis": "Complete current-source review of line encoding/decoding, compatibility behavior and Query, Filter, Aggregate and SavedViews consumers found no production defect. A retained full-field regression closes missing coverage for escaped delimiters, empty-text cardinality, aggregate metadata/extreme values and stable repeated encoding.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Query.java",
+          "sha": "b97d4745b4fcc80e989110e3cf560ca16e3bcf1a"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Filter.java",
+          "sha": "c045e56a87dd5eafc154a277631da3200792dcab"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Aggregate.java",
+          "sha": "1a18f2ef823d6a0eaa351e682476c0fae4c31bff"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/SavedViews.java",
+          "sha": "5230c85986de9a5a1387289d1a4e02de445a313b"
+        }
+      ],
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryEngineTest.java",
+        "sha": "409ada58d67f4b6902060a918e3b28428efa764f",
+        "source_commit": "c2014077526dfa87b6062ab1762548d74d632290",
+        "methods": 21,
+        "new_method": "queryCodecPreservesAllEscapedFieldsAndEmptyTextCardinality"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Question.java",
+      "sha": "6074335406487d291f8958066d6df39d052a2d7b",
+      "lines": 133,
+      "reviewed": true,
+      "basis": "Complete current-source review of the immutable question schema, with-methods, complexity and Questions/QueryEngine consumers found no independent defect. Its stale internal selections exposed a transition defect in the Questions/WndUimsdAsk boundary."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Questions.java",
+      "sha": "d74a48f357482222abc0be8a095df8799c794b46",
+      "lines": 272,
+      "reviewed": true,
+      "basis": "Complete current-source review confirmed that disabling Hidden details left previously selected internal measure, group and filter parts in the displayed question while query construction rejected them. One sanitizer now removes only internal parts and the answer path uses one sanitized question for display and execution.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdAsk.java",
+          "sha": "77a5e67bb8b2e130c50e0e6ef0ba6f92e862d325"
+        }
+      ],
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QuestionsTest.java",
+        "sha": "283efcc1127e1b1b542549e409bb5ba2a0f6f8a4",
+        "source_commit": "09ba71aab8fd2cb426679add9c9d0ed2e4d72fb7",
+        "methods": 9,
+        "new_methods": [
+          "turningOffHiddenDetailsRemovesOnlyInternalQuestionParts",
+          "staleHiddenSelectionsCannotDisagreeWithTheAnswer"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowBuilders.java",
+      "sha": "bd5e435f04bf04540a207aa690c56a2fdb71fa73",
+      "lines": 821,
+      "reviewed": true,
+      "basis": "Complete current-source review of run, item, enemy, death and legacy mapping confirmed one bounded defect: lenient Calendar parsing normalized impossible Gregorian dates into false run.startMillis values. The correction validates month/day bounds, retains valid leap days and leaves raw history untouched.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetBuildersTest.java",
+        "sha": "7ccf1d0423d20d0a8315139d4b63bedf1d347f4e",
+        "source_commit": "c48ed80c538695356dbda05b8faab51aca6d456c",
+        "methods": 31,
+        "new_method": "legacyDatesRejectImpossibleCalendarDaysButKeepRealLeapDays"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowCodec.java",
+      "sha": "3fa0329c24544db53bc8f496d8a55f63c1494a93",
+      "lines": 238,
+      "reviewed": true,
+      "basis": "Complete current-source review reproduced a fail-open boundary in CRC-valid derived row caches: reserved log flags, ruleset tags, merge-key markers, row flags and cell kinds could be accepted as ordinary defaults, including silently converting unknown kind 3 into missing data. Strict metadata validation now rejects those derived caches so DatasetStore rebuilds only from unchanged source logs.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/RowCacheMetadataValidationTest.java",
+        "sha": "38afe2d456091387c8c6a1038cf114aa9ce456bf",
+        "source_commit": "dcdec4a936a0b159f6dcf1a60da6a8c5e663d6a1",
+        "methods": 7,
+        "coverage": "one exact valid fixture and six reserved-value fail-closed fixtures"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetStore.java",
+      "sha": "b96b39de60d1e72fb93245d2f71a0b616e851fa7",
+      "lines": 438,
+      "reviewed": true,
+      "basis": "Complete current-source review of raw-log discovery, source-bound cache reuse/rebuild, optional cache writes, recorded/imported assembly, run completion and ruleset resolution, inherited run facts and legacy duplicate matching found no production defect. An initial negative-segment fixture was invalid and retained as a failed attempt; the corrected valid 0/Integer.MAX_VALUE same-time boundary passes through the public DatasetStore load path.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetBuildersTest.java",
+        "sha": "8797b95016984385712f36e1d23c9ebd1c3f7d37",
+        "source_commit": "15e323e81de2ae0913269c8906d867916885ddc9",
+        "methods": 32,
+        "new_method": "equalTimestampBoundarySegmentNumbersUseNumericOrder"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryEngine.java",
+      "sha": "9c072008cf5364f8be285feb66ff1aee710c3881",
+      "lines": 539,
+      "reviewed": true,
+      "basis": "Complete current-source review of scope/privacy, filter validation and evaluation, coverage, stable row/group sorting, grouping and aggregate semantics found no new production defect. Two initial numeric-IN attempts were invalid because NUM intentionally does not offer IN; the unreachable evaluator edit was fully reverted. Retained deterministic 10,000-row stress verifies legitimate filter/sort/coverage/purity and grouped aggregate behavior against independent models.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryEngineStressTest.java",
+        "sha": "82cdd2bc75172d818114fd09ad3e18a23e4abef1",
+        "source_commit": "70493689e6261c9d71f605fa9f27a277ae05c10a",
+        "methods": 2,
+        "method_names": [
+          "tenThousandRowsFilterSortAndCoverageMatchIndependentModel",
+          "tenThousandRowsGroupedAggregatesMatchIndependentModel"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportExport.java",
+      "sha": "d65b31638b757cdad28b550657fc9b7820771345",
+      "lines": 133,
+      "reviewed": true,
+      "basis": "Complete current-source review of render dispatch, UTC/safe filenames, file-picker callbacks and asynchronous output completion, exact share-size gating, provider exception handling and player-visible outcomes found no production defect. Retained tests now cover the previously untested filename/share/picker boundaries.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ApdFiles.java",
+          "sha": "937ed1afdc5db108b6878ba7bfc8a0c9bda86950"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/Report.java",
+          "sha": "ea9feddaa65e670ece45f5b60c63844652502135"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportRenderer.java",
+          "sha": "58596bb362ba5d8761c363208c7e39e5e5d7bd9e"
+        }
+      ],
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportExportBoundaryTest.java",
+        "sha": "f934b47aac26386beddcfd4ebf21c75e2f7cdbe6",
+        "source_commit": "d41dc0b95510f6c320d8b97f8bb71130d3e8571d",
+        "methods": 3,
+        "method_names": [
+          "fileNamesUseUtcAndSafeFallbackSlugs",
+          "shareAcceptsExactLimitAndRejectsOneCharacterMore",
+          "saveReportsPickerCancellationAndFailureExactlyOnce"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportBuilder.java",
+      "sha": "cb44398221e5243cd133ad6dda59dae134939661",
+      "lines": 332,
+      "reviewed": true,
+      "basis": "Complete current-source review of lifetime, current-view, group, group comparison, run, run comparison and seed-floor report construction; hidden-data gating, provenance and omission accounting found no production defect. Valid SeedFloors assembly keeps recorded floors out of canonical item/mob rows. Retained grouped stress closes the remaining row-cap branch.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ResultTable.java",
+          "sha": "870987a9d8336747df4aeead2cd18010ef4a0ea1"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/SeedFloors.java",
+          "sha": "0b6e5a236bb48ea25eeb747f2dd2544bf73986ed"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/Report.java",
+          "sha": "ea9feddaa65e670ece45f5b60c63844652502135"
+        }
+      ],
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ReportTableTest.java",
+        "sha": "a59bf5be42d305270e2e1bf95d1a86b320f0f4c6",
+        "source_commit": "76cc107b3d663ff17f742682003ad086857fa4c3",
+        "methods": 3,
+        "new_method": "aHugeGroupedTableIsCutByGroupsAndSaysHowMuchIsMissing"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportRenderer.java",
+      "sha": "b4894f23a91fc23cc879c6a72cd900198c390bd2",
+      "lines": 332,
+      "reviewed": true,
+      "basis": "Complete review of Markdown, plain-text, self-contained HTML and CSV rendering, marks/legend/provenance, row omission accounting, escaping, UTC footer and determinism. Confirmed and fixed leading-whitespace CSV formula exposure without changing ordinary signed numbers.",
+      "confirmed_defect": "CSV formula neutralization inspected only character zero; spreadsheet whitespace trimming could expose tab/space-prefixed =,+,-,@ input.",
+      "fix_commit": "10df853e6d505ea080abaecde98c793f76397e12",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportTest.java",
+        "sha": "90bb7c5d57d780eb4ca8801197c147882a3bbfb2",
+        "method": "renderersEscapeAndQuoteSafely",
+        "assertions": [
+          "direct formula neutralized",
+          "tab-prefixed formula neutralized",
+          "space-prefixed formula neutralized",
+          "plain negative number preserved",
+          "space-prefixed negative number preserved"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/Report.java",
+      "sha": "ea9feddaa65e670ece45f5b60c63844652502135",
+      "lines": 129,
+      "reviewed": true,
+      "basis": "Complete current-source review of model construction, nullable display normalization, heading bounds, block/provenance inspection, first-table selection and state tracking found no production defect. Dedicated retained tests now cover the previously indirect boundary contracts.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportModelTest.java",
+        "sha": "342d09436795efaade59014fda6d9758803a6998",
+        "source_commit": "c64f90cda7a970ea340a62813e0893c2b065acb5",
+        "methods": 3,
+        "method_names": [
+          "constructorsKeepDisplayDefaultsAndHeadingBounds",
+          "provenanceAndFirstTableInspectionTraverseOnlyDataBlocks",
+          "statesUsedIncludesFactsAndTablesButIgnoresSectionsNullsAndInvalidStates"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ResultTable.java",
+      "sha": "870987a9d8336747df4aeead2cd18010ef4a0ea1",
+      "lines": 157,
+      "reviewed": true,
+      "basis": "Complete current-source review of ungrouped/grouped layout, coverage labels, paging clamps, sort metadata, cell/detail alignment and width estimates found no production defect. Dedicated retained tests now cover direct boundary contracts that were previously exercised only indirectly.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ResultTableBoundaryTest.java",
+        "sha": "6cfefef44f74fe5d564d0443fc028e5d375ac946",
+        "source_commit": "40ac35f382e5b4337da477cadf3ecf3339506f17",
+        "methods": 3,
+        "method_names": [
+          "directPagingClampsBothEndsAndTreatsNonpositiveSizeAsOne",
+          "anEmptyResultStillHasOneEmptyPageAndItsHeaders",
+          "groupedPagesKeepCellsDetailsAndGroupsParallel"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Catalog.java",
+      "sha": "126535930994090260cc86d784085f48e0342129",
+      "lines": 80,
+      "reviewed": true,
+      "basis": "Complete current-source review of synchronized access, detached list snapshots, replacement-by-ID semantics, insertion order and view-to-dataset resolution found no production defect. Existing UimsdModelTest concurrency coverage was retained; dedicated tests now cover the remaining direct contracts.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CatalogContractTest.java",
+        "sha": "d65d57880b2872337c0485007364b3cc27f26dfc",
+        "source_commit": "ca15ab46ea3572bc05a957f22f75970af22ff97e",
+        "methods": 3,
+        "method_names": [
+          "returnedListsAreDetachedSnapshots",
+          "replacingAnIdKeepsItsPositionAndCreatesNoDuplicate",
+          "aViewResolvesTheCurrentDatasetByIdAndMissingIdsStayMissing"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/BossClasses.java",
+      "sha": "984c3d940d95c73302cbae75fe98eae633c2b152",
+      "lines": 44,
+      "reviewed": true,
+      "basis": "Complete current-source review against every current mob source that installs Property.BOSS found no production defect. Retained coverage now ties all sixteen supported top-level/nested boss classes to their real Class names and rejects helpers/lookalikes.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/BossClassesTest.java",
+        "sha": "99500f3081c46c33ac2bff3d73d9c4a48a1eed6f",
+        "source_commit": "4c0e4f2256fe58faa5b23856eff16fc7c2b61860",
+        "methods": 2,
+        "method_names": [
+          "everyCurrentBossClassIsRecognizedByFullAndSimpleName",
+          "bossHelpersAndLookalikesAreNotBosses"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Op.java",
+      "sha": "5d9b8e177a949e430e65522a98603873ab6ac258",
+      "lines": 71,
+      "reviewed": true,
+      "basis": "Complete current-source review of per-type picker sets, ordering, value arity and internal drilldown predicates found no production defect. Direct retained tests now lock every public operator set and keep internal predicates outside ordinary filters.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/OpContractTest.java",
+        "sha": "851c0e6a0c90c14e7c24db119a2c0b799a243547",
+        "source_commit": "b48e2fa7103f13a5d9faa985a20d329de6e37e94",
+        "methods": 2,
+        "method_names": [
+          "eachColumnTypeOffersExactlyItsPublicOperatorsInPickerOrder",
+          "onlyPresenceOperatorsOmitAValueAndInternalOperatorsAreNeverOffered"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdTopicSearch.java",
+      "sha": "1e0f0a2b92192e80190ca1a7b6f58a96a318b560",
+      "lines": 88,
+      "reviewed": true,
+      "basis": "Complete current-source review of offline schema-only matching, public/internal visibility, normalization, deterministic catalog/column order, the 48-hit ceiling and Question-builder navigation found no production defect. Retained tests now lock the result prefix and stale-question reset boundaries.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdTopicSearchTest.java",
+        "sha": "4a6369517364769f0659856ce562003aaa1a4e90",
+        "source_commit": "9ed5fe49c7f50cc54443e30fded18addc03c6878",
+        "methods": 6,
+        "new_method_names": [
+          "resultLimitPreservesCatalogAndColumnOrder",
+          "datasetTopicClearsStaleQuestionPartsBeforeOpeningBuilder"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellFormatter.java",
+      "sha": "a07b2d8a66ab75398917038695ac52835aa65482",
+      "lines": 323,
+      "reviewed": true,
+      "basis": "Complete current-source review reproduced binary-double drift in fixed-point filter parsing, including 1.005 hundredths rounding down and the exact Long.MAX_VALUE hundredths boundary being rejected. Exact BigDecimal scaling now preserves the typed value and existing Math.round tie direction while rejecting out-of-long results.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellFormatterTest.java",
+        "sha": "b9a54b8d82024ea18cacd7143e925a783ca3325b",
+        "source_commit": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+        "methods": 7,
+        "new_method": "decimalFiltersUseTheTypedValueInsteadOfBinaryApproximation"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Aggregate.java",
+      "sha": "1a18f2ef823d6a0eaa351e682476c0fae4c31bff",
+      "lines": 129,
+      "reviewed": true,
+      "basis": "Complete current-source review of immutable aggregate descriptions, constructor normalization, factories, conditional/distinct refinements, stable generated ids, label-neutral equality and hash behavior plus QueryCodec, GroupBy, QueryEngine and report consumers found no production defect. Dedicated retained tests now lock the previously indirect value-object boundary contracts.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/AggregateContractTest.java",
+        "sha": "5a1d8aee8f0a4d2c3caccb44e9da93b5fef82156",
+        "source_commit": "6dd34188e6ed009e5859aab927085cdd40e16abe",
+        "methods": 3,
+        "method_names": [
+          "constructorsNormalizeNullTextAndInactiveWhereValues",
+          "factoriesAndFluentRefinementsKeepEveryMeaningfulField",
+          "identityIncludesEverySemanticRefinementButNotTheDisplayLabel"
+        ]
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellText.java",
+      "sha": "922faa2f9d4c6d7f07cea8c1b45ce36a1647cb9b",
+      "lines": 50,
+      "reviewed": true,
+      "basis": "Complete current-source review of stable display-provenance identifiers, immutable text/state/small-sample fields, constructor defaults and table, Home, detail and report consumers found no production defect. A retained direct contract now prevents state-id drift and loss of normal/small-sample semantics.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/CellTextContractTest.java",
+        "sha": "60e91ba8d87d3e75a8dc0e3bc6c6b7af34fe597b",
+        "source_commit": "b87efdc6bc4f8a62bc4828dbc1e5d4a7bc404ad5",
+        "methods": 3
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ChoicePage.java",
+      "sha": "e549f9518e69b36f15850680c1a44c089b8d89b5",
+      "lines": 16,
+      "reviewed": true,
+      "basis": "Complete current-source review of page-count arithmetic, negative/oversized page clamps, empty/exact/partial pages and WndUimsdReport comparison navigation found no production defect. Existing retained tests already cover reachability and Integer.MAX_VALUE without overflow.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdReport.java",
+          "sha": "793c93a1cf5343bbbe9bdd19dfb5b5ff600c1c13"
+        }
+      ],
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ChoicePageTest.java",
+        "sha": "7744d9210f8f62c95a8c0875d8db98c536ecf66d",
+        "methods": 3
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ClericHistory.java",
+      "sha": "fd4979eb2a148aa4a173e474f2730c2638c9397e",
+      "lines": 56,
+      "reviewed": true,
+      "basis": "Complete current-source review with the background GrudgeHooks consumer confirmed that a finished Cleric row with recorded class but missing outcome was counted as a real run, contradicting the explicit no-estimation contract. The bounded guard now requires both fields before counting.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/GrudgeHooks.java",
+          "sha": "7b51a2755ac2fa2cab9b305bbbb6b9ae3615c21a"
+        }
+      ],
+      "confirmed_defect": "The run counter incremented before the outcome-presence check.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ClericHistoryTest.java",
+        "sha": "d46d9ff2e5ea802d4eef3ce22337cf57f37b8679",
+        "source_commit": "e098f1b1fccf55137d70bf7aa176680877ce1671",
+        "fix_commit": "64beb4867feb73eb03257f6cbe1a32648e84ae10",
+        "methods": 3,
+        "new_method": "finishedRowsWithoutARecordedOutcomeAreNotInventedAsRuns",
+        "reproduction_run": 39133186514,
+        "corrected_run": 39133418875
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/TableGeometry.java",
+      "sha": "22d28526a76de7a5c0f2144d552e94c2041b0791",
+      "lines": 112,
+      "reviewed": true,
+      "basis": "Complete current-source review of proportional column sizing, wrapping, row count, ellipsis and half-open column/row touch lookup found no production defect. Retained boundary coverage now locks exact starts, excluded endpoints, negative coordinates and the final table edge.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/TableGeometryTest.java",
+        "sha": "c545d29b64848874bc64a62f5cdc8ca3e4ceacbb",
+        "source_commit": "e6c841c1ecbaf7ee75b39f13ff698953605a5890",
+        "methods": 8,
+        "new_method": "touchBoundariesUseHalfOpenCells"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/WindowGeometry.java",
+      "sha": "8b68016d931040114c9fef07c31f78b5def020c0",
+      "lines": 95,
+      "reviewed": true,
+      "basis": "Complete current-source review of responsive window width, visible list height, wrapped action rows, stacked endpoints and half-open row lookup found no production defect. Retained boundary coverage now locks empty stacks, exact row transitions and exclusion of the final endpoint.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/WindowGeometryTest.java",
+        "sha": "11af54c0c7d758c8d89370b852b28de8080baa30",
+        "source_commit": "e6c841c1ecbaf7ee75b39f13ff698953605a5890",
+        "methods": 11,
+        "new_method": "emptyAndExactRowBoundariesDoNotInventTouches"
+      }
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdGuide.java",
+      "sha": "922e0ccae03995ef672c894179d80cf65ea8ebbe",
+      "lines": 181,
+      "reviewed": true,
+      "basis": "Complete current-source review with the guide/topic windows, tutorial and retained Home/tour/wording tests found that the Asking a question topic omitted the implemented median measure. The wording now names median without changing any query or recorded-data behavior.",
+      "supporting_reads": [
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdGuide.java",
+          "sha": "ecc16d919ab5014fef68d0c1b5efbe7e38d387ba"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdTopic.java",
+          "sha": "f3765b24d7a183285d2792c4d5a414df641f87ea"
+        },
+        {
+          "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdTutorial.java",
+          "sha": "3602c87926023a2856f22e6d6acd07c33b55a0be"
+        }
+      ],
+      "confirmed_defect": "The guide omitted median from the list of question measures despite the builder and exact offline grammar supporting it.",
+      "retained_test": {
+        "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdHomeTourTest.java",
+        "sha": "766556761d6ee846aee20c302b13be968fc9466b",
+        "source_commit": "d5928c32f3482f6c4a316605e1927fbbc06a6f47",
+        "fix_commit": "0229d9c77b8d1e235d1dac2e9972eb459f3bfa86",
+        "methods": 15,
+        "new_method": "guideNamesEverySupportedQuestionMeasure",
+        "reproduction_run": 39141272953,
+        "corrected_run": 39141568092
+      }
+    }
+  ],
+  "supporting_reads": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetDef.java",
+      "sha": "a12fc0574602f4e9e0efa6f87401cd8a6c37f8f9"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ViewDef.java",
+      "sha": "17acb966caaebf7c2acac6b6571e845ead048f81"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/LinkDef.java",
+      "sha": "0da9b02d6755474a9d468ed697ecc7845a4e122f"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetStore.java",
+      "sha": "b96b39de60d1e72fb93245d2f71a0b616e851fa7"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Catalog.java",
+      "sha": "126535930994090260cc86d784085f48e0342129"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/UimsdModel.java",
+      "sha": "2ab5db93adc6a56ff6fd7e97a7de56c6f697ae7c"
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdRow.java",
+      "sha": "12fe6ab88d1845eaedb310fbf90949acec7b57f3"
+    }
+  ],
+  "retained_test": {
+    "path": "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/DatasetSchemaContractTest.java",
+    "sha": "7d195b673f7400a930b9049913d5fb9adf2f092a",
+    "source_commit": "49c58cf175e6742f5499d9e1b243847eac4aad27",
+    "methods": 2
+  },
+  "full_core_evidence": {
+    "request_commit": "909286ed86788d462f853fd47b9632cefac96691",
+    "run_id": 39076194628,
+    "artifact_id": 12117122515,
+    "artifact_bytes": 835909,
+    "artifact_digest": "sha256:396febda22fd7c25f61584ee1faccde9be3c6b285c152ecd6ef00c41cbd43026",
+    "suites": null,
+    "tests": 1793,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "confirmed_new_production_defects": 6,
+  "application_changes": true,
+  "new_apk_needed": false,
+  "latest_verified_private_candidate": 281,
+  "latest_published_owner_build": 262,
+  "latest_test_only_evidence": {
+    "source_commit": "0229d9c77b8d1e235d1dac2e9972eb459f3bfa86",
+    "request_commit": "0229d9c77b8d1e235d1dac2e9972eb459f3bfa86",
+    "run_id": 39141568092,
+    "target": "Name every implemented UIMSD question measure in the Asking a question guide",
+    "core_tests": 1835,
+    "suites": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "UimsdHomeTourTest",
+    "focused_methods": 15,
+    "new_method": "guideNamesEverySupportedQuestionMeasure",
+    "artifact_id": 12142126161,
+    "artifact_bytes": 856342,
+    "artifact_digest": "sha256:70f2046ed2869329bc95efae95e1e5975d4aff2a0277eb67fe7353dcc5ad7087",
+    "downloaded_zip_digest_matches": true,
+    "application_source_changed": true,
+    "retained_failed_run": {
+      "source_commit": "d5928c32f3482f6c4a316605e1927fbbc06a6f47",
+      "run_id": 39141272953,
+      "tests": 1835,
+      "suites": 362,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "failed_method": "guideNamesEverySupportedQuestionMeasure",
+      "artifact_id": 12141472420,
+      "artifact_bytes": 857172,
+      "artifact_digest": "sha256:cc4554fcfb057023a437781a0a856e17a1301eaf80cf27b0816c110f464ae05e"
+    }
+  },
+  "latest_application_evidence": {
+    "application_source": "0229d9c77b8d1e235d1dac2e9972eb459f3bfa86",
+    "request_commit": "3a9d86395c4b4243c853128d346f8c1d7fea002e",
+    "run_id": 39141915301,
+    "started_at": "2026-10-18T15:45:26Z",
+    "completed_at": "2026-10-18T16:01:10Z",
+    "target": "Name median as a supported exact UIMSD question measure",
+    "core_tests": 1835,
+    "core_suites": 362,
+    "core_failures": 0,
+    "core_errors": 0,
+    "core_skipped": 0,
+    "android_tests": 38,
+    "android_failures": 0,
+    "android_errors": 0,
+    "android_skipped": 0,
+    "required_images_reviewed": 57,
+    "image_dimensions": "320x640",
+    "visual_review": "All 57 decoded; three contact sheets manually inspected with no blank, corrupt or obvious clipping regression.",
+    "apk_name": "ADHD-Pixel-Dungeon-CODEX-TEST-281.apk",
+    "apk_sha256": "4ea3a5501ef9e6870f6016e94ef28623f0aefbe944091f1a282e5fe2275b21df",
+    "apk_bytes": 38617180,
+    "apk_artifact_id": 12142520025,
+    "apk_artifact_bytes": 36118969,
+    "apk_artifact_digest": "sha256:6efff9fb509284d10630937fb4c0f475ea95fde3c3f7e929854a0653a7958b59",
+    "core_artifact_id": 12142026285,
+    "core_artifact_bytes": 855951,
+    "core_artifact_digest": "sha256:640dc972cb17f278fface2008d818290a41b26dcf83defa78ec86240af1769f9",
+    "android_artifact_id": 12142745854,
+    "android_artifact_bytes": 4930118,
+    "android_artifact_digest": "sha256:2cda6a2baf700f91d7240e05ac4af6029e7f0413f49b60becb066cbc041aac0f",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_public_key_sha256": "efc113902c65a6825990ab9e496601fd9e08a55612238d0641de04e5c15ce288",
+    "signing_and_application_id_match_test280": true,
+    "history_previous_label": "Codex TEST 280",
+    "history_previous_application_source": "64beb4867feb73eb03257f6cbe1a32648e84ae10",
+    "history_previous_producer": "6a4924376df646ab8d609696553220dbd008ca2b",
+    "history_previous_run": 39134124945,
+    "history_strict_validation_passed": true,
+    "supplemental_display": {
+      "run_id": 39141915332,
+      "attempt_1": {
+        "passed": [
+          "compact-virtual",
+          "m53-representative",
+          "square-virtual",
+          "small-virtual"
+        ],
+        "failed": [
+          "short-landscape"
+        ],
+        "failed_job_id": 117717901107,
+        "failure": "Native title condition did not become true; main-title-layout captured the Android 'Quickstep isn't responding' dialog; three later captures were not valid PNGs.",
+        "artifact_id": 12142381871,
+        "artifact_bytes": 260187,
+        "artifact_digest": "sha256:e254a1c9a0c91e2c35447c32e17e69e99973d791b29233e35888c95fdd589dbf"
+      },
+      "attempt_2": {
+        "scope": "single failed short-landscape job against unchanged TEST281 APK",
+        "run_attempt": 2,
+        "started_at": "2026-10-18T16:01:36Z",
+        "completed_at": "2026-10-18T16:05:41Z",
+        "job_id": 117721433177,
+        "passed": [
+          "short-landscape"
+        ],
+        "failed": [],
+        "artifact_id": 12142297132,
+        "artifact_bytes": 887951,
+        "artifact_digest": "sha256:9ed784237c28dd93588e0ac562aa2f4595751ecd4f27b707ae43bf68cfcb91ed",
+        "reviewed_images": 5,
+        "image_dimensions": "960x320"
+      },
+      "accepted_profiles": [
+        "compact-virtual",
+        "m53-representative",
+        "square-virtual",
+        "small-virtual",
+        "short-landscape"
+      ]
+    },
+    "staging": {
+      "run_id": 39141915296,
+      "conclusion": "failure",
+      "failure": "Publication commit changes application/build inputs",
+      "staged": false
+    },
+    "published": false,
+    "distributed": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  },
+  "prior_test_only_evidence": {
+    "source_commit": "70493689e6261c9d71f605fa9f27a277ae05c10a",
+    "request_commit": "70493689e6261c9d71f605fa9f27a277ae05c10a",
+    "run_id": 39083890978,
+    "target": "Deterministic 10000-row QueryEngine valid filter/sort/coverage/purity and grouped aggregate stress",
+    "core_tests": 1798,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 2,
+    "focused_times_seconds": [
+      0.078,
+      0.051
+    ],
+    "artifact_id": 12119948081,
+    "artifact_bytes": 839372,
+    "artifact_digest": "sha256:dde746242c2b33d54eb4cea66f4571bdb09c94d10dc3a8dff34debfd5274e49b",
+    "application_source_changed": false,
+    "retained_failed_runs": [
+      {
+        "source_commit": "d2a64433abb984fb05cc38ff411d59f1cbe61e9e",
+        "run_id": 39083369571,
+        "tests": 1796,
+        "failures": 1,
+        "artifact_id": 12119897301,
+        "artifact_bytes": 838493,
+        "artifact_digest": "sha256:6907c53ea837030308c701f6371292252dd7654b5c12f52c8c2ec0e00d1cb682",
+        "actual_reason": "numeric IN is intentionally invalid and the query was rejected before evaluation"
+      },
+      {
+        "source_commit": "669110bc696144a346f31d6229a415b45134d6ed",
+        "run_id": 39083564199,
+        "tests": 1796,
+        "failures": 1,
+        "artifact_id": 12118939549,
+        "artifact_bytes": 840957,
+        "artifact_digest": "sha256:8f55ee62c050667d3fe3de9763020c7cb832af1547522054502aa347ab3083b7",
+        "actual_reason": "attempted numeric-IN evaluator correction was unreachable for legitimate NUM filters; fully reverted"
+      }
+    ]
+  },
+  "prior_application_evidence": {
+    "application_source": "dcdec4a936a0b159f6dcf1a60da6a8c5e663d6a1",
+    "request_commit": "909286ed86788d462f853fd47b9632cefac96691",
+    "run_id": 39076194628,
+    "target": "Reject reserved metadata in CRC-valid derived UIMSD row caches and rebuild from unchanged source logs",
+    "core_tests": 1793,
+    "android_tests": 38,
+    "required_images_reviewed": 57,
+    "apk_sha256": "bab6b2a34e8e42021516986482ded6782a8dbe79820844d3bc1ef7c496e6bf29",
+    "apk_bytes": 38612990,
+    "history_previous_application_source": "df0c9be3b3d52bb9b82e6453491bbfdac7d90e69",
+    "history_previous_run": 39068952497,
+    "supplemental_display": {
+      "run_id": 39076194659,
+      "updated_at": "2026-10-17T23:08:38Z",
+      "passed_profiles": [
+        "small-virtual",
+        "square-virtual"
+      ],
+      "failed_profiles": [
+        "short-landscape",
+        "compact-virtual",
+        "m53-representative"
+      ],
+      "failure": "Native title condition did not become true",
+      "accepted_required_gate": false
+    },
+    "staging": {
+      "run_id": 39076194626,
+      "conclusion": "failure",
+      "staged": false
+    },
+    "published": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  },
+  "prior_test_only_evidence_report_export": {
+    "source_commit": "d41dc0b95510f6c320d8b97f8bb71130d3e8571d",
+    "request_commit": "d41dc0b95510f6c320d8b97f8bb71130d3e8571d",
+    "run_id": 39087761072,
+    "target": "ReportExport UTC/safe filename, exact share-size cutoff and picker callback boundaries",
+    "core_tests": 1805,
+    "suites": 355,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_methods": 3,
+    "focused_time_seconds": 0.013,
+    "artifact_id": 12121437654,
+    "artifact_bytes": 842835,
+    "artifact_digest": "sha256:e45487654bb9b7d764ed6129e12a8b4a0c589e5e6cc2d46847e924115681aa98",
+    "application_source_changed": false,
+    "retained_failed_runs": [
+      {
+        "source_commit": "6efa504a096d10e856de740aefe14dac856d6621",
+        "run_id": 39087528560,
+        "tests": 1805,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0,
+        "artifact_id": 12121865024,
+        "artifact_bytes": 843814,
+        "artifact_digest": "sha256:0eb52dc5efde234289efe0f31d05a4e580fca5b7d94b2659878f2a9ed6e86e94",
+        "actual_reason": "test fixture assumed title text rendered once; plain text intentionally renders title plus equal-length underline"
+      }
+    ]
+  },
+  "prior_test_only_evidence_report_builder": {
+    "source_commit": "76cc107b3d663ff17f742682003ad086857fa4c3",
+    "request_commit": "76cc107b3d663ff17f742682003ad086857fa4c3",
+    "run_id": 39091069790,
+    "target": "ReportBuilder grouped 1,000-row cap and exact omitted-count rendering",
+    "core_tests": 1806,
+    "suites": 356,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "ReportTableTest",
+    "focused_methods": 3,
+    "focused_time_seconds": 0.02,
+    "new_method_time_seconds": 0.011,
+    "artifact_id": 12122263511,
+    "artifact_bytes": 842788,
+    "artifact_digest": "sha256:5dd3c91137ff8d2a2de20e325028b1978045010ddbe6c64e285af9ee6d0f8227",
+    "application_source_changed": false
+  },
+  "prior_application_evidence_test276": {
+    "application_source": "b6d3a8be0f4337d4bd8d1a1bbe38dc1981d99bf3",
+    "request_commit": "d44903bbc138ac653e43e58341e7b7a33de12581",
+    "run_id": 39086579292,
+    "target": "Offline schema/public-field UIMSD topic search wired into Ask without searching values or hidden columns",
+    "core_tests": 1802,
+    "core_suites": 355,
+    "android_tests": 38,
+    "required_images_reviewed": 57,
+    "image_dimensions": "320x640",
+    "apk_sha256": "6e0996d4a51d53a816ab2851556766188d72dbaf81fe3464d4512d04266b0725",
+    "apk_bytes": 38613689,
+    "apk_artifact_id": 12121081485,
+    "apk_artifact_bytes": 36114648,
+    "apk_artifact_digest": "sha256:04bb52efa85f4f05391e33186b3127a0e9d377bf0913bbd8b0377df12b50d7bc",
+    "core_artifact_id": 12120418428,
+    "core_artifact_digest": "sha256:638d2171ea3865a58b40f3496b87dd0f6b0100370aab0dff60ec5005badfe446",
+    "android_artifact_id": 12121158561,
+    "android_artifact_digest": "sha256:0434d0e4134bf76ea36a799ebf30ac4361b9e5baacd067e858829aa3c08708e5",
+    "history_previous_application_source": "dcdec4a936a0b159f6dcf1a60da6a8c5e663d6a1",
+    "history_previous_run": 39076194628,
+    "supplemental_display": {
+      "run_id": 39086579298,
+      "passed_profiles": [
+        "small-virtual",
+        "compact-virtual",
+        "square-virtual",
+        "short-landscape"
+      ],
+      "failed_profiles": [
+        "m53-representative"
+      ],
+      "failure": "Native title condition did not become true",
+      "accepted_required_gate": false
+    },
+    "staging": {
+      "run_id": 39086579303,
+      "conclusion": "failure",
+      "staged": false
+    },
+    "published": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  },
+  "prior_test_only_evidence_report_renderer": {
+    "source_commit": "10df853e6d505ea080abaecde98c793f76397e12",
+    "request_commit": "10df853e6d505ea080abaecde98c793f76397e12",
+    "run_id": 39094097064,
+    "target": "ReportRenderer leading-whitespace CSV formula neutralization and signed-number preservation",
+    "core_tests": 1806,
+    "suites": 356,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "ReportTest",
+    "focused_methods": 12,
+    "focused_time_seconds": 2.164,
+    "changed_method": "renderersEscapeAndQuoteSafely",
+    "changed_method_time_seconds": 0.175,
+    "artifact_id": 12123668362,
+    "artifact_bytes": 840952,
+    "artifact_digest": "sha256:01626ac50b8d8250d3380ff1245b41460ca1340a9d8a33d7d03edaa6fad271b7",
+    "application_source_changed": true
+  },
+  "prior_test_only_evidence_report_model": {
+    "source_commit": "c64f90cda7a970ea340a62813e0893c2b065acb5",
+    "request_commit": "c64f90cda7a970ea340a62813e0893c2b065acb5",
+    "run_id": 39097690640,
+    "target": "Report model constructor, provenance, first-table and state-tracking boundaries",
+    "core_tests": 1809,
+    "suites": 357,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "ReportModelTest",
+    "focused_methods": 3,
+    "focused_time_seconds": 0,
+    "artifact_id": 12125321600,
+    "artifact_bytes": 845476,
+    "artifact_digest": "sha256:8a795ee806c13cf4e3a40fcacaf46899597de9134344b691684be3dcb31a4821",
+    "application_source_changed": false
+  },
+  "prior_test_only_evidence_result_table": {
+    "source_commit": "40ac35f382e5b4337da477cadf3ecf3339506f17",
+    "request_commit": "40ac35f382e5b4337da477cadf3ecf3339506f17",
+    "run_id": 39100982660,
+    "target": "ResultTable paging, empty-result and grouped cell/detail boundary contracts",
+    "core_tests": 1812,
+    "suites": 358,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "ResultTableBoundaryTest",
+    "focused_methods": 3,
+    "focused_time_seconds": 0.004,
+    "method_times_seconds": [
+      0,
+      0.001,
+      0
+    ],
+    "artifact_id": 12126970320,
+    "artifact_bytes": 846785,
+    "artifact_digest": "sha256:281c282125074b382793ff949b2897156ac218310ecf3e9b9275ef9e5b16ce22",
+    "application_source_changed": false
+  },
+  "prior_test_only_evidence_catalog": {
+    "source_commit": "ca15ab46ea3572bc05a957f22f75970af22ff97e",
+    "request_commit": "ca15ab46ea3572bc05a957f22f75970af22ff97e",
+    "run_id": 39104441554,
+    "target": "Catalog snapshot, replacement ordering and view-to-dataset contracts",
+    "core_tests": 1815,
+    "suites": 359,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "CatalogContractTest",
+    "focused_methods": 3,
+    "focused_time_seconds": 0.001,
+    "artifact_id": 12127158889,
+    "artifact_bytes": 848464,
+    "artifact_digest": "sha256:3248ed1dee990f76c05af2d3f696c7e616476fd4f0d1bfe64fb246b3569ac905",
+    "application_source_changed": false
+  },
+  "prior_test_only_evidence_boss_classes": {
+    "source_commit": "4c0e4f2256fe58faa5b23856eff16fc7c2b61860",
+    "request_commit": "4c0e4f2256fe58faa5b23856eff16fc7c2b61860",
+    "run_id": 39108318966,
+    "target": "Exhaustive UIMSD boss-statistics class classification",
+    "core_tests": 1816,
+    "suites": 359,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "BossClassesTest",
+    "focused_methods": 2,
+    "focused_time_seconds": 0.001,
+    "artifact_id": 12129536691,
+    "artifact_bytes": 845652,
+    "artifact_digest": "sha256:be0f95ed46e724be16ad249611ee2984642784368e30d6d6661a1b3a58332aa9",
+    "application_source_changed": false
+  },
+  "prior_test_only_evidence_op": {
+    "source_commit": "b48e2fa7103f13a5d9faa985a20d329de6e37e94",
+    "request_commit": "b48e2fa7103f13a5d9faa985a20d329de6e37e94",
+    "run_id": 39112189166,
+    "target": "UIMSD filter operator sets, ordering, arity and internal-predicate separation",
+    "core_tests": 1818,
+    "suites": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "OpContractTest",
+    "focused_methods": 2,
+    "focused_time_seconds": 0,
+    "artifact_id": 12131275527,
+    "artifact_bytes": 847895,
+    "artifact_digest": "sha256:05b7957303afe738b49d77d7e856c85b73d623842a8ec012f7b78d18be46662e",
+    "application_source_changed": false
+  },
+  "prior_test_only_evidence_topic_search": {
+    "source_commit": "9ed5fe49c7f50cc54443e30fded18addc03c6878",
+    "request_commit": "9ed5fe49c7f50cc54443e30fded18addc03c6878",
+    "run_id": 39115923723,
+    "target": "UIMSD topic-search 48-hit ordering and dataset-navigation reset boundaries",
+    "core_tests": 1820,
+    "suites": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "UimsdTopicSearchTest",
+    "focused_methods": 6,
+    "focused_time_seconds": 0.012,
+    "artifact_id": 12132626259,
+    "artifact_bytes": 849064,
+    "artifact_digest": "sha256:407d6080d39813f960d7fbd6a6e281fb5448ca49e5751fb112ac45e66af487e7",
+    "application_source_changed": false
+  },
+  "prior_application_evidence_test277": {
+    "application_source": "10df853e6d505ea080abaecde98c793f76397e12",
+    "request_commit": "ec373bc8d52f682d12799b0b7e1d78afa83deead",
+    "run_id": 39094336421,
+    "started_at": "2026-10-18T03:38:31Z",
+    "completed_at": "2026-10-18T03:53:31Z",
+    "target": "Neutralize CSV spreadsheet formulas after leading whitespace without changing signed numeric cells",
+    "core_tests": 1806,
+    "core_suites": 356,
+    "android_tests": 38,
+    "required_images_reviewed": 57,
+    "image_dimensions": "320x640",
+    "visual_review": "three contact sheets; no blank, corrupt or obvious clipping regression",
+    "apk_sha256": "a11ebf7ac40d71afaa5b1f0ea83726501e6c108931cb9a09ac9a7e0455e2b554",
+    "apk_bytes": 38614452,
+    "apk_artifact_id": 12124520254,
+    "apk_artifact_bytes": 36115663,
+    "apk_artifact_digest": "sha256:a401cb0ecbd4db203d94a3cb31cf05dec28e61d2589af1ac4a2004eaec46af6a",
+    "core_artifact_id": 12124420689,
+    "core_artifact_bytes": 842868,
+    "core_artifact_digest": "sha256:604c34e94d01aacc4d671fc3216fdda8bed0d185e7c13bb2d6f36da1227442b7",
+    "android_artifact_id": 12124610620,
+    "android_artifact_bytes": 5093621,
+    "android_artifact_digest": "sha256:481cfd7a8d82760bd6d0ce71c89204dddc6149ca1da4e21fa4dd4afe5f05a253",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_public_key_sha256": "efc113902c65a6825990ab9e496601fd9e08a55612238d0641de04e5c15ce288",
+    "signing_and_application_id_match_test276": true,
+    "history_previous_application_source": "b6d3a8be0f4337d4bd8d1a1bbe38dc1981d99bf3",
+    "history_previous_producer": "d44903bbc138ac653e43e58341e7b7a33de12581",
+    "history_previous_run": 39086579292,
+    "supplemental_display": {
+      "run_id": 39094336426,
+      "passed_profiles": [
+        "m53-representative",
+        "square-virtual"
+      ],
+      "failed_profiles": [
+        "compact-virtual",
+        "small-virtual",
+        "short-landscape"
+      ],
+      "failures": {
+        "compact_and_small": "Native title condition did not become true",
+        "short_landscape": "TitleMenuLayoutDeviceTest.java:87 assertion"
+      },
+      "accepted_required_gate": false
+    },
+    "staging": {
+      "run_id": 39094336403,
+      "conclusion": "failure",
+      "failure": "stale TEST268 preparation profile changed application/build inputs",
+      "staged": false
+    },
+    "published": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  },
+  "prior_test_only_evidence_cell_formatter": {
+    "source_commit": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+    "request_commit": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+    "run_id": 39120107057,
+    "target": "Exact UIMSD fixed-point filter decimal parsing and long boundaries",
+    "core_tests": 1821,
+    "suites": 360,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "CellFormatterTest",
+    "focused_methods": 7,
+    "focused_time_seconds": 0.002,
+    "artifact_id": 12133164096,
+    "artifact_bytes": 849132,
+    "artifact_digest": "sha256:41cb9ac7c558ff55ec45dd57dbdfaacfb43fbc578f566413384fe822e065e635",
+    "application_source_changed": true
+  },
+  "prior_application_evidence_test278": {
+    "application_source": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+    "request_commit": "87254f62f5430e1da050fdd77108e94495e78e77",
+    "run_id": 39120394227,
+    "started_at": "2026-10-18T10:43:44Z",
+    "completed_at": "2026-10-18T10:59:19Z",
+    "target": "Exact UIMSD fixed-point filter decimal parsing and long boundaries",
+    "core_tests": 1821,
+    "core_suites": 360,
+    "core_failures": 0,
+    "core_errors": 0,
+    "core_skipped": 0,
+    "android_tests": 38,
+    "android_failures": 0,
+    "android_errors": 0,
+    "android_skipped": 0,
+    "required_images_reviewed": 57,
+    "image_dimensions": "320x640",
+    "visual_review": "three contact sheets; every required PNG decoded; no blank, corrupt or obvious clipping regression",
+    "apk_name": "ADHD-Pixel-Dungeon-CODEX-TEST-278.apk",
+    "apk_sha256": "3f7782068e1be78b9fc1f1e0e69b5ca2e880f0d9bacfc84c00a2ea0a476dbd30",
+    "apk_bytes": 38615171,
+    "apk_artifact_id": 12133194546,
+    "apk_artifact_bytes": 36116555,
+    "apk_artifact_digest": "sha256:12c196dc60657c17b18583a02d8db326c977a345202586fb4b3c8ee717509809",
+    "core_artifact_id": 12133953164,
+    "core_artifact_bytes": 851663,
+    "core_artifact_digest": "sha256:1d65bb29be0f49321f557872182b61623028d4b1b83e5839f00199c74dc129d4",
+    "android_artifact_id": 12133859780,
+    "android_artifact_bytes": 4958627,
+    "android_artifact_digest": "sha256:fa5fb60aea30d498ba5760f7e463d652f79feaceb085ac4b9c92f4c1b2e33366",
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "signing_certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "signing_public_key_sha256": "efc113902c65a6825990ab9e496601fd9e08a55612238d0641de04e5c15ce288",
+    "signing_and_application_id_match_test277": true,
+    "history_previous_application_source": "10df853e6d505ea080abaecde98c793f76397e12",
+    "history_previous_producer": "ec373bc8d52f682d12799b0b7e1d78afa83deead",
+    "history_previous_run": 39094336421,
+    "supplemental_display": {
+      "run_id": 39120394228,
+      "passed_profiles": [
+        "short-landscape",
+        "m53-representative",
+        "square-virtual",
+        "compact-virtual"
+      ],
+      "failed_profiles": [
+        "small-virtual"
+      ],
+      "failure": "Native title condition did not become true; post-failure screenshot was not a valid PNG",
+      "accepted_required_gate": false
+    },
+    "staging": {
+      "run_id": 39120394215,
+      "conclusion": "failure",
+      "preparation_source": "abbd936515873384a6d299f037ec925cc5185f51",
+      "failure": "Publication commit changes application/build inputs",
+      "staged": false
+    },
+    "published": false,
+    "distributed": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  },
+  "latest_core_evidence_cleric_history": {
+    "source_commit": "64beb4867feb73eb03257f6cbe1a32648e84ae10",
+    "run_id": 39133418875,
+    "target": "Require a recorded outcome before counting a finished Cleric history row",
+    "core_tests": 1832,
+    "suites": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_class": "ClericHistoryTest",
+    "focused_methods": 3,
+    "artifact_id": 12138877302,
+    "artifact_bytes": 851783,
+    "artifact_digest": "sha256:017cc3a013e6fc470592a70b557cab953e957b9f28d1ce8cb7c4bde66dd782eb",
+    "retained_failed_run": {
+      "source_commit": "6acf81f65100ede201a5613e2cb6fb8a80725f87",
+      "run_id": 39133186514,
+      "tests": 1832,
+      "failures": 1,
+      "artifact_id": 12139205223,
+      "artifact_bytes": 855380,
+      "artifact_digest": "sha256:685c3a5ea34f6a6146eff329d85f97a108eb4d8dc58f6c2e7e65b4e9d133d85c",
+      "failed_method": "finishedRowsWithoutARecordedOutcomeAreNotInventedAsRuns"
+    }
+  },
+  "prior_application_evidence_test279": {
+    "application_source": "2b85088c8745e4163994c84858a4dca8398f0e2d",
+    "request_commit": "3b1f29b87d5658bdaf1b7ecc1b019a48955a49d6",
+    "run_id": 39131918637,
+    "started_at": "2026-10-18T13:31:28Z",
+    "completed_at": "2026-10-18T13:46:45Z",
+    "target": "Exact offline public-schema UIMSD question grammar and native search selection",
+    "core_tests": 1831,
+    "core_suites": 362,
+    "core_failures": 0,
+    "core_errors": 0,
+    "core_skipped": 0,
+    "android_tests": 38,
+    "android_failures": 0,
+    "android_errors": 0,
+    "android_skipped": 0,
+    "required_images_reviewed": 57,
+    "image_dimensions": "320x640",
+    "visual_review": "All decoded; three contact sheets manually inspected with no blank, corrupt or obvious clipping regression.",
+    "apk_name": "ADHD-Pixel-Dungeon-CODEX-TEST-279.apk",
+    "apk_sha256": "4c49b3d43b0bd9b9969353d10df420fd77a9f688f636fee1697930ed68d6642c",
+    "apk_bytes": 38615958,
+    "apk_artifact_id": 12137843296,
+    "apk_artifact_bytes": 36118032,
+    "apk_artifact_digest": "sha256:f6485980b01134cc2c42148b6592d4dc4359f600195d3a2d4b6e8572ca08ff23",
+    "core_artifact_id": 12138138806,
+    "core_artifact_bytes": 854596,
+    "core_artifact_digest": "sha256:147cba53de452de97dfb63577d2594f980237d02c5c32a91dac035341ed69e9f",
+    "android_artifact_id": 12138707257,
+    "android_artifact_bytes": 4944355,
+    "android_artifact_digest": "sha256:e1deabb1fee2d9961151e0fda16277184e227c27c31a391b227d6878c599ee71",
+    "history_previous_application_source": "349f7976fc6a026fd4fb9dead2ca2e3a6e8c9462",
+    "history_previous_producer": "87254f62f5430e1da050fdd77108e94495e78e77",
+    "history_previous_run": 39120394227,
+    "supplemental_display": {
+      "run_id": 39131918709,
+      "attempt_1": {
+        "passed": [
+          "compact-virtual",
+          "small-virtual"
+        ],
+        "failed": [
+          "short-landscape",
+          "m53-representative",
+          "square-virtual"
+        ],
+        "failure": "Native title condition did not become true; failed captures retained."
+      },
+      "attempt_2": {
+        "scope": "failed jobs only against the unchanged TEST279 APK",
+        "passed": [
+          "short-landscape",
+          "m53-representative",
+          "square-virtual"
+        ],
+        "failed": []
+      },
+      "accepted_profiles": [
+        "compact-virtual",
+        "small-virtual",
+        "short-landscape",
+        "m53-representative",
+        "square-virtual"
+      ]
+    },
+    "staging": {
+      "run_id": 39131918699,
+      "conclusion": "failure",
+      "failure": "Publication commit changes application/build inputs",
+      "staged": false
+    },
+    "published": false,
+    "distributed": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  },
+  "prior_test_only_evidence_geometry": {
+    "source_commit": "e6c841c1ecbaf7ee75b39f13ff698953605a5890",
+    "request_commit": "e6c841c1ecbaf7ee75b39f13ff698953605a5890",
+    "run_id": 39136612959,
+    "target": "UIMSD table/window half-open touch boundaries and empty-stack geometry",
+    "core_tests": 1834,
+    "suites": 362,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "focused_classes": {
+      "TableGeometryTest": {
+        "methods": 8,
+        "new_method": "touchBoundariesUseHalfOpenCells"
+      },
+      "WindowGeometryTest": {
+        "methods": 11,
+        "new_method": "emptyAndExactRowBoundariesDoNotInventTouches"
+      }
+    },
+    "artifact_id": 12139976488,
+    "artifact_bytes": 855464,
+    "artifact_digest": "sha256:94f3b57cbc6f53eb3817a3dc6a6ea98f1929b407684d0dc2d1abf3ec9fb2667e",
+    "downloaded_zip_digest_matches": true,
+    "application_source_changed": false
+  },
+  "prior_application_evidence_test280": {
+    "application_source": "64beb4867feb73eb03257f6cbe1a32648e84ae10",
+    "request_commit": "6a4924376df646ab8d609696553220dbd008ca2b",
+    "run_id": 39134124945,
+    "completed_at": "2026-10-18T14:15:45Z",
+    "target": "Require a recorded outcome before counting a finished Cleric history row",
+    "core_tests": 1832,
+    "core_suites": 362,
+    "core_failures": 0,
+    "core_errors": 0,
+    "core_skipped": 0,
+    "android_tests": 38,
+    "android_failures": 0,
+    "android_errors": 0,
+    "android_skipped": 0,
+    "required_images_reviewed": 57,
+    "image_dimensions": "320x640",
+    "visual_review": "All decoded; three contact sheets manually inspected with no blank, corrupt or obvious clipping regression.",
+    "apk_name": "ADHD-Pixel-Dungeon-CODEX-TEST-280.apk",
+    "apk_sha256": "634d3ef1826be93ac6af73421257dae09fd2f87940c17a9f81910cde6849c410",
+    "apk_bytes": 38616605,
+    "apk_artifact_id": 12139257314,
+    "apk_artifact_bytes": 36118534,
+    "apk_artifact_digest": "sha256:07dcf9e31cc8974d8c291dd6466dd60abbad4460b45dd15acdd15f6de1acfd8e",
+    "core_artifact_id": 12139377093,
+    "core_artifact_bytes": 853874,
+    "core_artifact_digest": "sha256:616dad63403a1cea8b31c091a60310d6140334e989f3143b484531bba2e82f20",
+    "android_artifact_id": 12138529673,
+    "android_artifact_bytes": 4897516,
+    "android_artifact_digest": "sha256:8eb9b4f9c0ae0b242a54789b124cf512fee35b7e7539d72d6fde318308f0df64",
+    "history_previous_label": "Codex TEST 279",
+    "history_previous_run": 39131918637,
+    "history_strict_validation_passed": true,
+    "supplemental_display": {
+      "run_id": 39134124928,
+      "accepted_profiles": [
+        "compact-virtual",
+        "small-virtual",
+        "m53-representative",
+        "square-virtual"
+      ],
+      "unresolved_profiles": [
+        "short-landscape"
+      ]
+    },
+    "staging": {
+      "run_id": 39134124948,
+      "conclusion": "failure",
+      "failure": "Publication commit changes application/build inputs",
+      "staged": false
+    },
+    "published": false,
+    "distributed": false,
+    "physical_phone_tested": false,
+    "owner_save_install_over_tested": false
+  }
+}

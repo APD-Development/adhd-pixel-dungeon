@@ -1,0 +1,11 @@
+Statistics / UIMSD	ICON_STATS	Safe segment totals	Extremely large run-segment totals no longer wrap into false values; ordinary totals and raw history are preserved.
+Quality of Life	ICON_CHANGES	Complete historical records	Recovered individual source-backed changes for all 132 retained historical APKs, including tests and internal changes, while identifying failed attempts and the private delivery alias.
+Testing	ICON_STATS	Overflow regressions	Added six permanent checks for overflow, exact boundaries, cancellation, provenance and 1,000 independently calculated sample sequences.
+Testing	ICON_CHECKED	Historical coverage checks	Added four permanent checks for every historical number, changed-file coverage, native sprites, record fingerprints and large sections.
+Testing	ICON_CHANGES	Large Android sections	Added emulator checks and screenshots for the 275-entry Build 22 section, Build 37 and Codex TEST67 without dropping any icons.
+Infrastructure	ICON_DATA	Complete future build coverage	Build checks now require every changed source, test, resource, tool and configuration file to have reviewed change notes, including complete diffs larger than 300 files.
+Infrastructure	ICON_CHECKED	Exact compiled history	Verification now checks every compiled historical record against its reviewed contents and validates all required screenshots.
+Infrastructure	ICON_DATA	Historical APK evidence	Added a read-only APK census, inspected retained packages and corrected artifact downloads while reusing successful evidence.
+Infrastructure	ICON_REPEAT	Private delivery safeguards	Private publication now derives its tag and APK filenames from the verified build number instead of copied filenames.
+Development	ICON_INFO	Verified development records	Recorded TEST67 delivery, the protected publication failure, complete history evidence and the verification request in the development documents.
+Developer Commentary	V074_SHPX	Developer Commentary	I reconstructed each retained APK's changes from its own predecessor instead of combining builds. The history includes individual testing and internal changes, with explicit records for failed attempts and the mislabeled private delivery.

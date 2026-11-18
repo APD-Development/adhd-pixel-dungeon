@@ -1,0 +1,4 @@
+Testing	ICON_CHECKED	Touch every Custom Rules boundary	Use native API34 touchscreen input to set all 18 controls to both limits, save, reopen and prove active-run rules and earned score stay locked.
+Changes	V061_BUGFIX	Keep first-column labels in plain-text exports	Prefix every non-empty table header, including the first column, so all recorded Custom Rules fields remain identifiable outside rich table formats.
+Testing	ICON_CHECKED	Accept all recorded rule fields end to end	Exercise every numeric operator, combined filters, details, comparison and all export formats while preserving historical unknowns and original scores.
+Development	V061_PAGE	Record TEST217 and all-control evidence	Preserve verified TEST217 evidence, the separate native acceptance result and the exact TEST218 gate against the immediate previous compiled APK.

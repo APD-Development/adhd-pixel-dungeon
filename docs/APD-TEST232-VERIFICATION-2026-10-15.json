@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "label": "Codex TEST 232",
+  "status": "verified_ci_candidate_not_published",
+  "application_source_commit": "96772420c7ccdcbc294e8eae33d68b27d71abfaa",
+  "immediate_previous_produced": {
+    "label": "Codex TEST 231",
+    "application_source_commit": "5134ef6438f9562a37b3f8db727d5d004fa93527",
+    "verification_run_id": 38837749762,
+    "privately_delivered": true
+  },
+  "targeted_regression": {
+    "run_id": 38841967223,
+    "artifact_id": 12021736431,
+    "artifact_zip_sha256": "92fff2edf68bd38f1dc952d7f5efaec78825337a2e5dd92aba07fa1506b6480c",
+    "original_source_expected_failures": 1,
+    "original_source_failure_method": "malformedLifecyclePayloadCannotHideLaterRulesetState",
+    "corrected_source_passed": true
+  },
+  "full_gate": {
+    "run_id": 38841967217,
+    "started_at_utc": "2026-10-16T02:44:25Z",
+    "completed_at_utc": "2026-10-16T02:57:22Z",
+    "conclusion": "success",
+    "core": {
+      "methods": 1694,
+      "suites": 334,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact_id": 12021811183,
+      "artifact_zip_sha256": "f74cb48befc2c3b8b1c3960a7bbcc339a37364161d93deb97a379504aac5e74c"
+    },
+    "android_api34": {
+      "methods": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "emulator_only": true,
+      "artifact_id": 12022035973,
+      "artifact_zip_sha256": "684530423b222458acba31d1f93252ccc9aa01feb0fd324add0218ba5a39f80e"
+    },
+    "visual": {
+      "png_count": 42,
+      "dimensions": "320x640",
+      "complete_contact_sheet_reviewed": true,
+      "full_resolution_views_reviewed": [
+        "uimsd-home.png",
+        "uimsd-sort-keys.png"
+      ]
+    },
+    "debug_assembly_passed": true,
+    "complete_immediate_previous_history_passed": true
+  },
+  "apk": {
+    "artifact_id": 12021910160,
+    "artifact_zip_sha256": "f39a41ec02674b6a30c7d9ce5cac990c34da5175c8b5352a3f33be10f36b5432",
+    "filename": "ADHD-Pixel-Dungeon-CODEX-TEST-232.apk",
+    "size_bytes": 38585886,
+    "sha256": "e6e303276713e6521f84c8b3dc9e393d03c09f3edc7841fe4c9c018d6ff7045f",
+    "ui_version_observed": "4.0.8-apd-INDEV-bC232-TEST",
+    "application_id_check": {
+      "status": "not_independently_rechecked_this_run",
+      "expected_from_unchanged_configuration": "com.charltonchris29.adhdpixeldungeon.indev"
+    },
+    "signing_certificate_check": {
+      "status": "not_independently_rechecked_this_run",
+      "expected_previous_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e"
+    }
+  },
+  "publication": {
+    "published": false,
+    "tester_distribution": false,
+    "physical_phone_tested": false,
+    "owner_install_over_save_acceptance": false
+  },
+  "latest_privately_delivered_fallback": "Codex TEST 231",
+  "notes": [
+    "Raw histories, saves, scores, gameplay, all 18 rules, turns, RNG, lore and opt-out behavior were unchanged.",
+    "Unmeasured durations remain unknown; workflow wall time is not developer-active time.",
+    "The evidence-only documentation commit must not be treated as new application source or trigger an unchanged rebuild."
+  ]
+}

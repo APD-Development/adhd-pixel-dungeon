@@ -1,0 +1,12 @@
+# TEST129 Android Top Scores preparation
+
+Only production change is TitleScene's existing btnQuit: DeviceCompat.isAndroid selects Top Scores label and native Icons.RANKINGS, routes to original RankingsScene via normal scene navigation. Same button instance/grid slot/size; no added button. Desktop keeps Quit/finish; iOS retains prior hidden Quit. UIMSD and lower buttons unchanged. Rankings.java/RankingsScene/WndRanking/score calculations and player files are untouched.
+
+Local changed production compiles. New actual Android SOURCE_TOUCHSCREEN test presses button, asserts slot and UIMSD label, reaches original scene, renders memory-only victory/death/abandoned-style fixtures in existing row components, verifies descending normal-run comparator order, presses OS Back and checks stored rankings bytes are unchanged. Fixtures restore original memory references/counts and never save. Required main-menu and Rankings PNGs added to existing runner. No physical-device or Android-passed claim until actual CI evidence.
+
+Stock seeded/daily ranking policy is preserved; standard runs retain original descending score order. Death/victory entry paths and full score/detail windows are untouched. Original APD abandonment is recorded through UIMSD when slot deletion occurs; this UI task does not manufacture a new abandoned ranking. Existing historical data remains accessible as before.
+
+Required1416core/25API34/29PNG/debug/compiledhistory pending. Previous actualAPK128/source69204aed4333b7b79db420a582acb2c920b08dac/run38455928308 exists as11843056104; core/build/history job passed, Android pending at this preparation. Last fully checked1271408core/24API34/27PNG; delivered signed-compatible123 fallback preserved. Critical damage integration continues, three controls still pending. No scoring/range changes, online activation, public release or app identity/signing changes.
+
+## Actual verification failure
+Run38456544041/source9e956a4d242bd99bfd189acbc0630acf5c9d3d93:1416core,1414passed,2failed. Obsolete TitleButtonWiringTest forbids all title Rankings references; UimsdWiringTest frozen hash allows only older approved edits. These conflict with the newly approved Android button replacement. Build/Android skipped, no129APK. Corrected tests explicitly verify compiled Android original-Rankings route, desktop finish, unchanged UIMSD route and normalize only exact approved source replacement; original frozen hash remains unchanged.10menu tests passlocally0.218s. Fullretry130 pending.

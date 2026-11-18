@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-12T14:02:38Z",
+  "status": "published_and_gated_release_verified",
+  "build": 458,
+  "repository": "APD-Development/ShieldingShouldHaveWorked",
+  "branch": "codex/apd-phone-fixes-2026-10-09",
+  "source_commit": "8c74997210585191d12603ad5e2ee398b1c54fe7",
+  "source_test_commit": "0de7c2fb134505f18d059e3055695e24253bb3ba",
+  "source_verification_run": 43231740279,
+  "source_gate": {
+    "tests": 3264,
+    "suites": 470,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "android_debug": true,
+    "android_release": true,
+    "android_instrumentation_compilation": true,
+    "desktop_compilation": true
+  },
+  "candidate_run": 43231889687,
+  "native_run": 43232032203,
+  "passed_native_cases": 6,
+  "pass_native_variant_count": 2,
+  "publisher_run": 43232110277,
+  "publisher_conclusion": "success",
+  "asset_readback_verified": true,
+  "release_tag": "apd-458",
+  "release_url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-458",
+  "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+  "version_code": 920,
+  "certificate_sha256": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+  "assets": [
+    {
+      "name": "APD-Developer-458.apk",
+      "bytes": 39211116,
+      "sha256": "689ceeb25cf36b257d0950d108dce1995b47d3cf46ec909e14208c67b6ab0f2e",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-458/APD-Developer-458.apk"
+    },
+    {
+      "name": "APD-Alpha-Testers-458.apk",
+      "bytes": 39211092,
+      "sha256": "f0dcc4b288139e14268e0773029f0c19903e71c1207e141e7735eb7c49477f9f",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-458/APD-Alpha-Testers-458.apk"
+    },
+    {
+      "name": "APD-Source-458.zip",
+      "bytes": 111153693,
+      "sha256": "b42b40637884922cbedfd3167d39fd677d2b49c952419633f668eacc28d31aab",
+      "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-458/APD-Source-458.zip"
+    }
+  ],
+  "scope": "Search chooser fixed Action[] ordering reused; new immutable-fresh-result regression tests. No gameplay balance, saved data, seed scoring, movement, talents, search cost or signer changed.",
+  "physical_phone_verified": false,
+  "native_cases": [
+    "WallGeometryDeviceTest",
+    "SearchContextDeviceTest",
+    "SeedHistoryDeviceTest"
+  ],
+  "warnings": [
+    "Emulator proof does not establish physical RedMagic install-over or audio acceptance.",
+    "APD457 remains separately published and preserved."
+  ]
+}

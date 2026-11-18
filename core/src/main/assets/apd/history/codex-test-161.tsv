@@ -1,0 +1,11 @@
+Changes	V061_BUGFIX	Corruption save integrity	Preserve fractional decay across save reload with legacy integer and missing-field compatibility.
+Changes	V061_BUGFIX	Artifact-derived damage	Apply Player Damage once to Guiding Light artifact procs and Cape of Thorns retaliation while preserving incoming deflection.
+Changes	V061_BUGFIX	Artifact damage regression	Retain all-percentage, neutral RNG/source, ordering and non-damaging Skeleton Key coverage.
+Changes	V061_BUGFIX	Existing APK delivery workflow	Preserve the concurrent private existing-artifact delivery correction.
+Changes	V061_BUGFIX	Lunch handoff	Preserve the concurrent TEST159 lunch preparation record.
+Changes	V061_BUGFIX	TEST161 evidence	Record bounded implementation and pending verification.
+Changes	V061_BUGFIX	Verified TEST160 evidence	Preserve the reviewed TEST160 verification record.
+Changes	V061_BUGFIX	Handoff	Record concurrent save correction, verified TEST160 and TEST161 candidate.
+Changes	V061_BUGFIX	Completed ledger	Record exact bounded work and verification evidence.
+Changes	V061_BUGFIX	Build request	Require exact-source core, Android, debug and history verification.
+Changes	V061_BUGFIX	History manifest	Compare every reviewed path against the immediate previous TEST160 APK.

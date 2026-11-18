@@ -1,0 +1,15 @@
+Changes	V061_BUGFIX	DM200	Retain the robot that emitted DM200 toxic gas.
+Changes	V063_MAGICMISSILE	ToxicGas	Prepare toxic-gas source scaling without changing its diffusion or defenses.
+Changes	V063_MAGICMISSILE	CursedWand	Keep the actual caster of cursed-wand toxic gas.
+Changes	V061_BUGFIX	DM300	Capture DM300 ownership before scheduling delayed gas.
+Changes	V063_MAGICMISSILE	ChaoticCenser	Preserve Censer ownership through delayed and saved gas effects.
+Changes	V061_BUGFIX	RotHeart	Retain the creature that releases rot-heart gas.
+Changes	V061_BUGFIX	CellDamageOrigins	Preserve overlapping gas contributions through diffusion, clearing and saves.
+Changes	V063_MAGICMISSILE	Stench	Use the actual armor wearer as the source of Stench gas.
+Changes	V061_BUGFIX	YogFist	Treat Rotting Fist toxic clouds as boss-attributed attacks.
+Changes	V061_BUGFIX	ToxicGasProvenanceTest	Test mixed ownership, neutral RNG, saved gas and damage-callback ordering.
+Changes	V061_BUGFIX	ToxicGasCallerIntegrationTest	Exercise actual emitting monsters, bosses, curses and restored Censer effects.
+Changes	V061_BUGFIX	APD TEST140 TOXIC SOURCE 2026 10 13	Record toxic-source verification and outstanding coverage.
+Changes	V061_BUGFIX	HANDOFF	Preserve the verified TEST139 source and next development checkpoint.
+Changes	V061_BUGFIX	APD CODEX BUILD REQUEST	Require complete current-source, Android and visual checks.
+Changes	V061_BUGFIX	Exact build history	Review the complete changes against the immediately preceding compiled APK.

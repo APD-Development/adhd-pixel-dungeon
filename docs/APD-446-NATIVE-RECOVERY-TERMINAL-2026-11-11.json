@@ -1,0 +1,86 @@
+{
+  "status": "terminal_recovery_success_and_both_artifacts_transported_for_root_acceptance",
+  "utc": "2026-11-11T19:16:09.390450+00:00",
+  "snapshot": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/snapshot-2026-11-11T19-15-26-662Z.json",
+    "bytes": 27783,
+    "sha256": "510c038e02f8b4125acf31345dee78a4993f2105a495b1e37642985592532050"
+  },
+  "jobs": [
+    {
+      "id": 130745915426,
+      "name": "recover-developer",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-11T19:10:30Z",
+      "completed_at": "2026-11-11T19:13:43Z"
+    },
+    {
+      "id": 130747702717,
+      "name": "prepare-owner-review",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-11T19:13:46Z",
+      "completed_at": "2026-11-11T19:14:48Z"
+    }
+  ],
+  "logs": [
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/recover-developer-job-130745915426.log",
+      "bytes": 65811,
+      "sha256": "8383f7dbd4d3fca3f9a1ad10278cab83076d0c5202fa82f2dff8cf2ce23525ae"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/prepare-owner-review-job-130747702717.log",
+      "bytes": 42898,
+      "sha256": "047f451f1f2411c5835e812afde0ce722caeb088a8e705b3b02a2999fa273826"
+    }
+  ],
+  "transport_receipts": [
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/artifact-13885533674-download-verification.json",
+      "bytes": 1407,
+      "sha256": "a5496a36f5cf3f2d174c180114184d6526fc7e90d9dbeb01eae0d9ccba361eac"
+    },
+    {
+      "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/artifact-13886086653-download-verification.json",
+      "bytes": 1382,
+      "sha256": "e80c06139db3d3938fb9acb7e8d6209b6cf7d7b69ab06e8a23641d8c05168fe5"
+    }
+  ],
+  "fresh_native_handoff": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-native-recovery-build/fresh-native-handoff.json",
+    "bytes": 3208,
+    "sha256": "4353a5daaa89687f648da5a26432bb04421bdcc417067af2a71784e0df863d27"
+  },
+  "checker": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd446-recovered-delivery-check.py",
+    "bytes": 49043,
+    "sha256": "f32cf18eab70225772886b9f1593393c570224ea35b86afb61fc3a4d4101f0e2"
+  },
+  "root_checker_argv_not_executed_by_this_agent": [
+    "python",
+    "recovery/apd446-recovered-delivery-check.py",
+    "--recovery-snapshot",
+    "recovery/apd446-native-recovery-build/snapshot-2026-11-11T19-15-26-662Z.json",
+    "--recovery-source",
+    "8d4ca1029fabe43df3a21e2362be59200d02839f",
+    "--recovery-run",
+    "43084695484",
+    "--recovery-native",
+    "recovery/apd446-recovery-native-Developer",
+    "--recovery-native-archive",
+    "recovery/apd446-recovery-native-Developer-artifact-13885533674.zip",
+    "--owner",
+    "recovery/apd446-owner-review",
+    "--owner-archive",
+    "recovery/apd446-owner-review-artifact-13886086653.zip"
+  ],
+  "root_checker_cwd": "/workspace/scratch/db82734c9c44",
+  "overall_pair_acceptance_claimed": false,
+  "manual_review_and_owner_mechanical_acceptance_pending": true,
+  "application_or_instrumentation_rebuilt": false,
+  "remote_mutations": false,
+  "retry_performed": false,
+  "original_failure_preserved": true
+}

@@ -1,0 +1,27 @@
+{
+  "received": [
+    "APD_Custom_Dungeon_Scoring_Phase_4.md",
+    "APD_Custom_Dungeon_Scoring_Phase_3(1).md"
+  ],
+  "reviewedSections": "Phase4 mechanics, conditional objectives, classes, food, scoring architecture, eligibility, records and approval decisions; Phase3 formula, coefficients, score UI and record contract. Not a claim that all research appendices were reproduced.",
+  "missingReports": [
+    "Phase1",
+    "Phase2",
+    "Phase5 findings"
+  ],
+  "researchCandidate": "Z=ln(P_neutral)-ln(P_custom); M=exp(Z) if Z<=0, else exp(asinh(Z)). Not approved for earned scores.",
+  "criticalConstraints": [
+    "Same objective/class/difficulty/revision/challenges and legal policy context",
+    "Carry resources and state between stages; compress once",
+    "No epsilon for zero or unsupported probabilities",
+    "Preserve original categories/challenge/victory multipliers without double application",
+    "Neutral identity1.00; unsupported nonneutral unrated; historical unknown not neutral",
+    "No whole-dungeon production calibration; local benchmark points not rewards",
+    "Research hidden mechanics not exposed publicly"
+  ],
+  "implementation": {
+    "new": "Immutable score-preservation record, neutral identity, pending-calibration/unknown states and Bundle fields",
+    "tests": "10 total targeted methods passed, zero failures/skips, 0.036 seconds; 3 new score methods",
+    "limitations": "Not wired into gameplay/UIMSD/Score Breakdown or file-based run saves. No Android/full-suite/build verification. No new APK. Original scoring unchanged. FridayOct16 target retained."
+  }
+}

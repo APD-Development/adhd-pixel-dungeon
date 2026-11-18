@@ -1,0 +1,99 @@
+# Candidate build only. Does not publish, accept or overwrite prior APD releases.
+name: Build isolated APD447 candidate from verified seed fix
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-candidate447-build.yml]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: apd447-single-candidate-build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21'}
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Require successful full source verification and exact application cutoff
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,subprocess,time
+          source='05e499fd31ecf9d805a05174eea5b3defa480941'
+          for attempt in range(60):
+              run=json.loads(subprocess.check_output(['gh','api','repos/APD-Development/ShieldingShouldHaveWorked/actions/runs/43094730536']))
+              assert run['head_sha']==source, 'Source verification bound to another commit'
+              if run['status']=='completed':
+                  assert run['conclusion']=='success','Source verification did not succeed'
+                  break
+              time.sleep(10)
+          else: raise RuntimeError('Source verification not terminal')
+          subprocess.run(['git','merge-base','--is-ancestor',source,'HEAD'],check=True)
+          changed=subprocess.check_output(['git','diff','--name-only',source,'HEAD'],text=True).splitlines()
+          assert changed==['.github/workflows/apd-candidate447-build.yml'], ('Unverified source change',changed)
+          subprocess.run(['git','checkout','--detach',source],check=True)
+          PY
+      - name: Assemble exactly one Developer and one Alpha-Testers candidate
+        run: |
+          set -euo pipefail
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36"
+          mkdir -p candidate447
+          ./gradlew :android:assembleDebug :android:assembleDebugAndroidTest -PapdTestBuild -PapdBuild=C447
+          cp android/build/outputs/apk/debug/android-debug.apk candidate447/APD-Developer-447.apk
+          cp android/build/outputs/apk/androidTest/debug/android-debug-androidTest.apk candidate447/APD-Instrumentation-447.apk
+          ./gradlew :android:assembleDebug -PapdBuild=P447
+          cp android/build/outputs/apk/debug/android-debug.apk candidate447/APD-Alpha-Testers-447.apk
+          test -s candidate447/APD-Developer-447.apk
+          test -s candidate447/APD-Alpha-Testers-447.apk
+          test -s candidate447/APD-Instrumentation-447.apk
+      - name: Verify original signing certificate and frozen variant package identities
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess
+          build_tools=sorted(pathlib.Path(os.environ['ANDROID_HOME']).joinpath('build-tools').glob('*/apksigner'))[-1].parent
+          expected='067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e'
+          result={}
+          for kind in ['Developer','Alpha-Testers']:
+              path=pathlib.Path('candidate447/APD-'+kind+'-447.apk')
+              cert=subprocess.check_output([str(build_tools/'apksigner'),'verify','--print-certs',str(path)],text=True)
+              normalized=re.sub('[^0-9a-f]','',cert.split('SHA-256 digest:')[-1].splitlines()[0].lower())
+              assert normalized==expected,(kind,normalized)
+              badging=subprocess.check_output([str(build_tools/'aapt'),'dump','badging',str(path)],text=True)
+              package=next(line for line in badging.splitlines() if line.startswith('package:'))
+              assert "name='com.charltonchris29.adhdpixeldungeon.indev'" in package
+              assert "versionCode='920'" in package
+              assert ('-bC447-TEST' if kind=='Developer' else '-bP447') in package
+              result[kind]={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'bytes':path.stat().st_size,'package':package}
+          for name in ('APD-Instrumentation-447.apk',):
+              f=pathlib.Path('candidate447')/name
+              result['Instrumentation']={'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'bytes':f.stat().st_size}
+          pathlib.Path('candidate447/build-evidence.json').write_text(json.dumps({'source':'05e499fd31ecf9d805a05174eea5b3defa480941','build':447,'status':'candidate_only_not_native_accepted_or_delivered','physical_device_verified':False,'files':result},indent=2)+'\n')
+          PY
+      - name: Preserve exact candidate APKs and immutable source as separate outputs
+        run: |
+          set -euo pipefail
+          git archive --format=zip --output=candidate447/APD-Source-447.zip HEAD
+          sha256sum candidate447/*.apk candidate447/APD-Source-447.zip > candidate447/sha256sums.txt
+          python3 -m json.tool candidate447/build-evidence.json > /dev/null
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apd447-unaccepted-candidate
+          path: candidate447/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: apd447-build-failure-evidence
+          path: candidate447/
+          if-no-files-found: warn
+          retention-days: 30

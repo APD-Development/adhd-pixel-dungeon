@@ -1,0 +1,29 @@
+name: Deliver verified Gathering icon APK pair
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-gathering331-delivery.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  verify-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify existing paired APKs and publish privately
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/apd_publish_gathering331.py
+      - name: Retain verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apd-gathering331-delivery-evidence
+          path: gathering-delivery/
+          if-no-files-found: warn
+          retention-days: 7
+# Retry uses exact TEST331; original premature display lookup remains recorded.
+# Composite native evidence retains322ms failure and all unchanged isolated retries.
+# Exact original benchmark display/renderer corrected;1006ms mismatched run preserved.

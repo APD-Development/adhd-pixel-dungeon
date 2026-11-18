@@ -1,0 +1,1 @@
+Bug Fixes	ICON_CHECKED	Healing confirmation has a real On/Off button	Tap Off to turn healing confirmation On immediately, then tap On to turn it Off. On asks before every identified Healing-potion drink without requiring a slider. The state updates in place and stays saved; optional HP thresholds remain available. Canceling a drink spends no potion or turn.

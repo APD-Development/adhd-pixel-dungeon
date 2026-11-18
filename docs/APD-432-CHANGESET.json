@@ -1,0 +1,39 @@
+{
+  "previous_build_source": "5a8fe508d6d3f2a449c5a9b8fa9632e22f86dcb3",
+  "expected_paths": [
+    ".github/workflows/apd-prepare432.yml",
+    ".github/workflows/apd-qol-source-check.yml",
+    "AGENTS.md",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java",
+    "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/mechanics/TalentExplanation.java",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/MechanicsExplanationTest.java",
+    "docs/APD-430-DELIVERY-RECEIPT.json",
+    "docs/APD-431-HELD-WORDING.json",
+    "docs/APD-431-INDEPENDENT-BUILD-CHECK.json",
+    "docs/APD-432-BUILD-REQUEST.txt",
+    "docs/APD-432-CHANGESET.json",
+    "docs/APD-CURRENT-STATE-2026-11-10.json",
+    "docs/APD-PLAYER-DESCRIPTION-AUDIT.json",
+    "docs/evidence/APD-20261110-source-check-green.zip",
+    "docs/evidence/APD-432-charge-wording-core-green.zip",
+    "docs/evidence/APD-432-intermediate-wording-assertions-red.zip",
+    "docs/evidence/APD-432-one-charge-grammar-red.zip",
+    "tools/apd_prepare432.py"
+  ],
+  "pre_assembly_gate": "3165 full core tests plus Android release/instrumentation and desktop compilation; application assembly occurs only after successful compilation.",
+  "local_core": {
+    "tests": 3165,
+    "suites": 457,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "changes": [
+    "Fix one-charge singular wording for Focused Meal and Enlightening Meal; use damage for the alternate Focused Meal bonus.",
+    "Add an exact copy regression and three precise native assertions with explicit level-one context and state restoration.",
+    "Preserve APD431 as a held candidate and retain its complete compiled history.",
+    "Record APD430 successful delivery, independent APD431 build checks, and full passing source/core evidence."
+  ],
+  "gameplay_or_balance_changes": false,
+  "whole_audit_complete": false
+}

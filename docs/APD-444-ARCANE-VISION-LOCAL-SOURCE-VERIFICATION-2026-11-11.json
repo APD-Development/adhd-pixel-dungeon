@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "number": 444,
+  "recorded_utc": "2026-11-11T16:14:51.141068+00:00",
+  "phase": "Independent readback of freshly compiled integrated local core evidence; source CI and Android verification pending.",
+  "parent_source_commit": "c12a24360ed6d5b7d5cad5d98ccd7d9f9ea9626c",
+  "main_java_files": 1718,
+  "test_java_files": 494,
+  "external_dependency_jars": 9,
+  "core_runtime_asset_files": 902,
+  "full": {
+    "suites": 466,
+    "tests": 3214,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 47.008,
+    "fresh_current_source": true
+  },
+  "all_raw_xml_independently_reparsed": true,
+  "raw_xml_files": 466,
+  "actual_testcase_elements": 3214,
+  "new_arcane_methods_present": [
+    "autonomousWardAttackTracksASurvivorWithoutAnotherHeroZap",
+    "frostImpactRequiresANonFrozenTargetToGrantActualAwareness",
+    "transfusionHealingTracksAnAllyBeyondOrdinarySight"
+  ],
+  "all_current_manifest_source_asset_dependency_hashes_match": true,
+  "exact_current_source_and_asset_inventories_match": true,
+  "historical_game_test_spd_services_classes_excluded": true,
+  "production_main_java_unchanged_from_previous_verified_compile": true,
+  "compile_provenance_sha256": "1dc880a2c4308da303488944ef8202b0b4586758774ba46fa0e1898196f17ac3",
+  "full_log_sha256": "975cfeeb80c44e368ff332ddb8f1fcb6ed63115a697faa30688da3f1c22e4d8e",
+  "raw_xml_inventory_sha256": "d525bbcac0650eb07846eaaa576fde342f7b33c93f043a7a2a801bb0a1acb4f3",
+  "compile_logs": {
+    "main": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/main-compile.log",
+      "sha256": "8db6848afb8622b250337646b7d725f18975d37ec80a6b56bdf2f08f99f0db42",
+      "bytes": 308,
+      "errors_observed": 0,
+      "warning_summary_lines": [
+        "1 warning"
+      ]
+    },
+    "test": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/test-compile.log",
+      "sha256": "f9be07e6724b78dbcf0961fbb20f7b354f5b0d9e6cced399a18caa9f89773826",
+      "bytes": 4997,
+      "errors_observed": 0,
+      "warning_summary_lines": [
+        "12 warnings"
+      ]
+    },
+    "runner": {
+      "path": "/workspace/scratch/db82734c9c44/recovery/current-test-classes/apd444-arcane-vision/runner-compile.log",
+      "sha256": "1ea034f4dc1fb08054e9217ce3b9ab05ef1793f931ad7346e38747537c84a63a",
+      "bytes": 88,
+      "errors_observed": 0,
+      "warning_summary_lines": [
+        "1 warning"
+      ]
+    }
+  },
+  "source_hashes": {
+    "core/src/main/assets/messages/actors/actors.properties": "5a5e626e82b8ea163959fdc9cc33b66459db38bcc4e099123534b3cc816de10c",
+    "core/src/test/java/com/shatteredpixel/shatteredpixeldungeon/apd/ArcaneVisionActivationTest.java": "5be2d1a330619330561a8287346ae288568cd94bf917775a049fae736902a33a",
+    "android/src/androidTest/java/com/shatteredpixel/shatteredpixeldungeon/android/QolItemFeedbackDeviceTest.java": "edc08e7720d5eadf5de4b0315ddae3999b8fd5c3bff288813f95bb41f477674e"
+  },
+  "local_verification_receipt": {
+    "path": "/workspace/scratch/db82734c9c44/recovery/apd-next-arcane-vision-activation/full-local-verification.json",
+    "sha256": "c98b2f8c99518cf25357ae65a6e569d4fbe9e2eb8598696dbfba5a0960e4a300",
+    "bytes": 15523
+  },
+  "arcane_review_document": {
+    "path": "docs/APD-444-ARCANE-VISION-REVIEW-2026-11-11.json",
+    "sha256": "2a96fcb640d719a0565862fbc812a40ed073d1e8eedf1abec90bb48c7cda9ef8"
+  },
+  "tests_rerun_by_verifier": false,
+  "source_ci_completed_for_this_cutoff": false,
+  "android_compile_completed_for_this_cutoff": false,
+  "android_native_completed": false,
+  "application_apk_assembled": false,
+  "hash_and_execution_limits": [
+    "This is independent readback of existing fresh local evidence, not another compilation or test execution.",
+    "The compile manifest covers current main/test Java source, core runtime assets and the nine external JARs. It does not record Android instrumentation sources, test-resource bytes, the Java executable/version or compiled class bytes at compilation time.",
+    "Current Android test-source hashes are recorded separately for the intended next CI cutoff; they do not claim Android compilation or native execution.",
+    "The supplied manifest, logs, XML and source inventories establish the checks stated here; they are not a signed reproducible-build attestation.",
+    "No APK assembly, signing check, Android/native acceptance, physical-device or acoustic result is claimed by this local verification."
+  ]
+}

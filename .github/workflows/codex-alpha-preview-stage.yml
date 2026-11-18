@@ -1,0 +1,176 @@
+name: Stage verified APD alpha preview candidate
+
+# Delivery only: reuse the already tested APK; no Gradle or app rebuild.
+# Accept verified SDK signer labels; retain compatibility refusal diagnostics.
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [docs/APD-ALPHA-PREPARATION.json]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: apd-alpha-preview-stage
+  cancel-in-progress: false
+
+env:
+  APD_SOURCE_SHA: ${{ github.sha }}
+  APD_REQUIRED_ANDROID_METHODS: 'menusSurviveSceneRecreationAndNarrowActionsStayInsideTheirWindow,validationEmptyHistoryGroupedAndReportMessagesSurviveWithoutRepeatingActions,arcanaItemDescriptionsRequireKnownEquippedRingsAndFitWindows,textAndGuideScrollSurviveRepeatedResetsAndClampAfterResize,tourChoicesSurviveWithoutStartingATourOrRepeatingTheOffer,demoUnlockKeepsTenRunNoticeVisibleOnTitle,backWalksBackwardsOneStepPerPress,aRunCanBePlayedSavedContinuedAndEndedWithItsHistoryRecorded,tileVisibilityAndStairNavigationKeepNormalTurnsFogAndControls,aWonRunIsRecordedAsWonAndSealed,clericQuickCastsPersistAndKeepNormalCostsAndTargeting,difficultyIsChosenOnTheCharacterScreenAndNotInSettings,heroButtonsStayAboveNavigationBarAndRemainSelectable,clericLoreFirstRunPopupIsVisibleAndBackContinuesExactlyOnce,navigationOverlapReservesVisibleBarsEvenWithFullscreenRequested,communityMenuOpensEveryPreviewAndReturnsWithoutStackingWindows,adultHumorControlWorksWithoutAnAgeProviderAndReopensWithSavedChoice,grudgeControlsRespondToActualTouches,offlineNewsCardsOpenDatedSpritePopups,everyAboutPopupOpensScrollsAndCloses,aboutFoundingStatementAndPopupFollowAdultHumorOnEveryOpening,everyUimsdScreenAndDialogCanBeBuilt,replacingHomeContentsDisposesPreviouslyDrawnImages,categoriesUseSpdColumnsAndEveryIconOpensItsExactBuildPopup,largeAndNamedHistoricalBuildsKeepAllIconsInScrollableNativeSections,noticeStaysAboveUsableControlsAndDoesNotChangeLockedRunOrScores,equipmentControlAcceptsTouchAndSavesOnlyNextRunPreferences,touchscreenSliderGesturesLockDirectionAndPreserveDraftAndSavedRules,allEighteenControlsAcceptNativeTouchSaveAndReopenWithoutChangingActiveRun,healingConversionSettingExplainsItsExactScopeWithoutChangingSavedValue,androidTopScoresOpensOriginalRankingsAndBackPreservesStoredHistory,nativeScorePopupsShowRecordedNeutralPendingAndUnknownThenCloseWithAndroidBack,playerReleaseNotesAreCompactBrandedAndEveryChangeOpens,nativeTouchSwitchesHistoryModesAndSystemBackReturnsToAboutWithoutLosingRecords,liveMultipliersMatchEveryPositionAndUpdateDuringNativeDragBeforeRelease,scoringVisionPopupOpensScrollsAndBackPreservesDraftOnSmallScreens,dailyCalendarShowsFrozenLongEarnedScoreWithoutOverlappingDates'
+
+jobs:
+  validate-and-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/checkout@v4
+        with:
+          path: lunch-preparation
+      - name: Verify preparation profile selection and evidence refusals
+        run: python3 -m unittest discover -s tools -p test_apd_staging_profile.py
+      - name: Resolve this commit's successful explicit build and preparation profile
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,re,subprocess,time
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path): return json.loads(subprocess.check_output(['gh','api',path]))
+          assert api('repos/'+repo)['private'], 'Private repository required'
+          config=json.loads(pathlib.Path('docs/APD-ALPHA-PREPARATION.json').read_text())
+          source=config.get('source_sha',os.environ['GITHUB_SHA'])
+          assert re.fullmatch(r'[0-9a-f]{40}',source),'Invalid application source'
+          for key in ('core_tests','android_tests','screenshots','rollback_number'):
+              assert type(config[key]) is int and config[key]>0,key
+          assert re.fullmatch(r'[0-9a-f]{64}',config['rollback_sha256'])
+          assert re.fullmatch(r'[A-Za-z0-9._-]+',config['rollback_tag'])
+          assert re.fullmatch(r'[A-Za-z0-9._-]+\.apk',config['rollback_asset'])
+          assert config['reports']
+          for name in config['reports']:
+              path=pathlib.PurePosixPath(name)
+              assert not path.is_absolute() and '..' not in path.parts and path.parts[0]=='docs'
+              assert pathlib.Path(name).is_file(),name
+          workflow=api(f'repos/{repo}/actions/workflows/codex-sprint-check.yml')['id']
+          deadline=time.monotonic()+1800
+          while True:
+              runs=api(f'repos/{repo}/actions/runs?head_sha={source}&per_page=30')['workflow_runs']
+              matches=[r for r in runs if r['head_sha']==source and r['workflow_id']==workflow and r['head_branch']=='codex/apd-phone-fixes-2026-10-09']
+              assert len(matches)<=1,'Ambiguous source verification'
+              if matches and matches[0]['status']=='completed':
+                  run=matches[0];assert run['conclusion']=='success','Source verification failed; retain published fallback'
+                  break
+              if time.monotonic()>=deadline: raise SystemExit('Exact source verification still pending; retain fallback')
+              time.sleep(20)
+          artifacts=api(f"repos/{repo}/actions/runs/{run['id']}/artifacts")['artifacts'];selected={}
+          for name in ('apd-codex-core-tests','apd-codex-private-test-apk','apd-codex-android-checks'):
+              found=[a for a in artifacts if a['name']==name and not a['expired']]
+              assert len(found)==1,name
+              assert found[0]['workflow_run']['head_sha']==source
+              selected[name]=found[0]['id']
+          exports={'APD_SOURCE_SHA':source,'APD_SOURCE_RUN':str(run['id']),'APD_TEST_NUMBER':str(run['run_number']),
+                   'APD_CORE_TEST_COUNT':str(config['core_tests']),'APD_ANDROID_TEST_COUNT':str(config['android_tests']),
+                   'APD_SCREENSHOT_COUNT':str(config['screenshots']),'APD_ROLLBACK_NUMBER':str(config['rollback_number']),
+                   'APD_ROLLBACK_SHA256':config['rollback_sha256'],'APD_ROLLBACK_TAG':config['rollback_tag'],
+                   'APD_ROLLBACK_ASSET':config['rollback_asset'],'APD_SOURCE_ARTIFACTS_JSON':json.dumps(selected)}
+          with open(os.environ['GITHUB_ENV'],'a') as target:
+              for key,value in exports.items():
+                  assert '\n' not in value and '\r' not in value
+                  target.write(key+'='+value+'\n')
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-private-test-apk
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: delivery
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-core-tests
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: core-reports
+      - uses: actions/download-artifact@v4
+        with:
+          name: apd-codex-android-checks
+          run-id: ${{ env.APD_SOURCE_RUN }}
+          github-token: ${{ github.token }}
+          path: android-reports
+      - name: Retrieve rollback APK for direct compatibility comparison
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$APD_ROLLBACK_TAG" --repo "$GITHUB_REPOSITORY" --pattern "$APD_ROLLBACK_ASSET" --dir rollback
+          mv "rollback/$APD_ROLLBACK_ASSET" "rollback/ADHD-Pixel-Dungeon-CODEX-TEST-$APD_ROLLBACK_NUMBER.apk"
+      - name: Check source, tests, checksum, signing and application ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m unittest discover -s tools -p test_apd_existing_build_evidence.py
+          python3 tools/apd_existing_build_evidence.py
+      - name: Verify the delivered APK enables the owner's Cleric lore
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          apks=list(Path('delivery').glob('*.apk'))
+          assert len(apks)==1
+          with zipfile.ZipFile(apks[0]) as z:
+              flags=set(z.read('assets/apd/features.txt').decode('utf-8').splitlines())
+          assert {'testBuild','grudge','clericPlayable'}.issubset(flags)
+          print('Actual delivered APK explicitly enables private Cleric lore and Cleric play.')
+          PY
+      - name: Stage exactly the required verified Android screenshots
+        run: |
+          mkdir -p delivery/screenshots
+          cp android-reports/codex-visual-evidence/*.png delivery/screenshots/
+          test "$(find delivery/screenshots -name '*.png' | wc -l)" -eq "$APD_SCREENSHOT_COUNT"
+          sha256sum delivery/screenshots/*.png > delivery/Android-Screenshot-Checksums.sha256
+      - name: Archive verified source and reference file inventory
+        run: |
+          git fetch --no-tags --depth=1 origin "$APD_SOURCE_SHA"
+          python3 tools/apd_source_line_counts.py "$APD_SOURCE_SHA" delivery
+          git archive --format=zip --output=delivery/APD-Verified-Source.zip "$APD_SOURCE_SHA" SPD-classes/src/main/java core/src/main/java core/src/test/java core/src/test/resources android/src/main/java android/src/androidTest/java core/src/main/assets/apd/releases core/src/main/assets/apd/history docs/APD-NEXT-BUILD-HISTORY.json tools/apd_build_history.py
+          sha256sum delivery/APD-Verified-Source.zip > delivery/APD-Verified-Source.zip.sha256
+      - name: Produce today's report from verified evidence
+        run: |
+          python3 -m pip install reportlab==4.2.5
+          python3 -m unittest discover -s tools -p test_apd_bug_report_pdf.py
+          python3 - <<'PY'
+          import json,pathlib
+          profile=json.loads(pathlib.Path('docs/APD-ALPHA-PREPARATION.json').read_text())
+          pathlib.Path('delivery/current-report.md').write_text('\n\n'.join(pathlib.Path(name).read_text() for name in profile['reports']))
+          PY
+          python3 tools/apd_bug_report_pdf.py delivery/current-report.md "delivery/APD-Alpha-Preview-$APD_TEST_NUMBER.pdf" --verification delivery/verification.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staged-alpha-preview${{ env.APD_TEST_NUMBER }}
+          path: delivery/
+          retention-days: 7
+
+# Private alpha preparation reuses exact verified artifacts; no automatic tester distribution.
+# Separate daily lunch schedules are unchanged. No app rebuild or publication in this staging workflow.
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staged-alpha-preview${{ env.APD_TEST_NUMBER }}-evidence
+          path: |
+            delivery/*.json
+            delivery/*.txt
+            delivery/*.pdf
+            delivery/*.csv
+            delivery/*.md
+            delivery/*.sha256
+            delivery/screenshots/
+            delivery/APD-Verified-Source.zip
+          retention-days: 7
+
+
+
+
+# Documentation-only lunch refresh: use the pinned verified TEST249 APK; do not rebuild application source.
+
+# Final lunch report refresh: preparation-session timing; preserve existing verified APK and fallback.

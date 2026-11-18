@@ -1,0 +1,165 @@
+{
+  "reviewed_source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+  "scope": "Complete reads of listed components only; whole UIMSD audit unfinished. Records may overlap previous reviews.",
+  "files": [
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/QueryCodec.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "f98def4bad9a7399f38fd05113c088567c402840",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/Op.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "5c3b46d736d8ef2c50a81ebec6d9f8af8a469508",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/query/ColumnOrder.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "3551f0e27899328639a9c100888e3b99ea3379a1",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdColumns.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "762c601f53d244cf09099aef22a4b6d423dbe1bf",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdSort.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "51665754885ab3e6474d80b43b1f31c8bd09e5cd",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdStatus.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "186dc4ad3d65d41398a19d179259f00a56ede913",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdFilter.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "f186c962734efef3d59a4be6a227733ae9b400e3",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndUimsdList.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "7ac64adb99f89e33f73704f7fb408cbb721f6a6f",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/Report.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "ea9feddaa65e670ece45f5b60c63844652502135",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/report/ReportExport.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "d65b31638b757cdad28b550657fc9b7820771345",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/StorageMeter.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "7f9f976b72f230ad497fa021aa4c2b8d4bf4f2fd",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/Size.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "57e4bdf3b2f7073d6e9e2884f8df43a8417c8da5",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    },
+    {
+      "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/archive/ProgressGuardInputStream.java",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "blob": "c111e5fca9eebcd1ae097be8532247cb02c6b125",
+      "review_scope": "complete source read",
+      "notes": "Sort nine-key crash reproduced; text-IN typing accessibility corrected in candidate81. Other reviewed components unchanged, not a claim of exhaustive system acceptance."
+    }
+  ],
+  "findings": [
+    {
+      "component": "DerivedStore",
+      "line": 270,
+      "reproduction": "Malformed UTF8 cache accepted; 2-case baseline1failed, corrected39targeted passed",
+      "fixed_source": "ee750f30687eccb89096ed858a12cc54cec3e299",
+      "checks": "1202core+21API34passed; notdelivered"
+    },
+    {
+      "component": "WndUimsdFilter",
+      "lines": [
+        46,
+        187,
+        206
+      ],
+      "reproduction": "70valuesactualmodelprobe excludes69from60suggestions; UIprovided no INtyping. Corrected native UI opensinput and applies6-valuequery",
+      "fixed_source": "1d369cff8c047e6ba1ec072785a048873e7a2214",
+      "checks": "1202core+21API34passed,14PNGs; notdelivered"
+    },
+    {
+      "component": "WndUimsdSort",
+      "lines": [
+        63,
+        72
+      ],
+      "reproduction": "Actual encoded/decoded9-keyquery openingexactoldmenu throwsArrayIndexOutOfBoundsException index8length8",
+      "correction": "Removeunusedarray/writes; native9-distinct-keyregressionpendingTEST82"
+    },
+    {
+      "component": "RowCodec",
+      "source": "a611c841e64a8bca592831d3200a5a65e1735b61",
+      "reproduction": "Valid ASCII bit flips accepted and reused; exact baseline4casesfail0.167s (includes newmigrationexpectation)",
+      "correction": "Cache-only format2 CRC32, raw-preserving legacycache rebuild and no-extra-copy ByteSink helper",
+      "targeted": "75passed1.319s",
+      "full_checks": "Pending TEST83",
+      "remaining": "DerivedStore textcache checksum and rawsource same-length identity require further audit"
+    }
+  ],
+  "limitations": [
+    "Not exhaustive system audit",
+    "No physical phone or actual TEST50save validation",
+    "No uninterrupted Codex execution demonstrated"
+  ],
+  "derived_fact_cache_follow_up": {
+    "baseline_source": "beefe620896ca1f29ecb67e039817f97ba4e1854",
+    "file": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/apd/stats/DerivedStore.java",
+    "baseline_blob": "a11e4bf8c21824e1742f6a2671566987db4cc629",
+    "baseline_tests": {
+      "tests": 5,
+      "failures": 4,
+      "seconds": 0.236,
+      "notes": "Three actual cache-corruption regressions plus new migration policy; Unicode large-cache control passes."
+    },
+    "fixed_targeted": {
+      "tests": 66,
+      "failures": 0,
+      "seconds": 2.591,
+      "cache_read_ms": 10,
+      "rebuild_ms": 317,
+      "cache_kib": 81
+    },
+    "raw_history": "Byte-for-byte preservation checked; raw saves/logs and derivation version unchanged.",
+    "limits": [
+      "Full application/Android checks pending",
+      "Same-length raw-source fingerprint blind spot not fixed",
+      "No physical phone/performance or complete UIMSD audit claim"
+    ]
+  }
+}

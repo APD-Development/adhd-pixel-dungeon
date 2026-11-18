@@ -1,0 +1,2 @@
+2026-11-09T18:59:13.743610+00:00
+Original426 core3155/build passed; both nativeQoL failed on stale HolyWeapon wording assertion. Exact test-only patch changes one expected phrase to actual sentence; no appsource/APK changes. Retain original failures and rerun all12 on original appbytes. No publication until all evidence and manual review.

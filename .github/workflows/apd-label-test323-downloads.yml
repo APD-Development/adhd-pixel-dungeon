@@ -1,0 +1,46 @@
+name: Label TEST323 developer and alpha tester downloads
+on:
+  push:
+    branches: [codex/apd-phone-fixes-2026-10-09]
+    paths: [.github/workflows/apd-label-test323-downloads.yml]
+permissions:
+  contents: write
+concurrency:
+  group: apd-test323-asset-labels
+  cancel-in-progress: false
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Rename exact existing APKs without rebuilding or changing bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,pathlib,subprocess
+          repo=os.environ['GITHUB_REPOSITORY']
+          def api(path,*args):return json.loads(subprocess.check_output(['gh','api',path,*args]))
+          assert api('repos/'+repo)['private']
+          release=api('repos/'+repo+'/releases/tags/apd-alpha-preview-323')
+          pairs=[
+            ('ADHD-Pixel-Dungeon-CODEX-TEST-323.apk','APD-Developer-323.apk','Developer build','f599e05202277cc2056255e1e6c8ca915eca68a8849af4959e633b678e515467'),
+            ('APD-Player-TEST323.apk','APD-Alpha-Testers-323.apk','Alpha testers build','ad5a2febbccc6460c5644fdd7fbc8c7f35d4cc26ed917c0730b09ed815b14d24')]
+          files=[]
+          for old,new,label,digest in pairs:
+              matches=[a for a in release['assets'] if a['name'] in (old,new)]
+              assert len(matches)==1
+              a=matches[0];assert a['state']=='uploaded' and a['digest']=='sha256:'+digest
+              renamed=api(f'repos/{repo}/releases/assets/{a["id"]}','--method','PATCH','-f','name='+new,'-f','label='+label)
+              assert renamed['name']==new and renamed['digest']=='sha256:'+digest
+              side=pathlib.Path(new+'.sha256')
+              side.write_text(digest+'  '+new+'\n')
+              if not any(x['name']==side.name for x in release['assets']):files.append(str(side))
+          if files:subprocess.run(['gh','release','upload','apd-alpha-preview-323','--repo',repo]+files,check=True)
+          updated=api('repos/'+repo+'/releases/tags/apd-alpha-preview-323')
+          for old,new,label,digest in pairs:
+              a=next(a for a in updated['assets'] if a['name']==new)
+              assert a['state']=='uploaded' and a['digest']=='sha256:'+digest
+              assert any(x['name']==new+'.sha256' for x in updated['assets'])
+              print(a['browser_download_url'])
+          PY

@@ -1,0 +1,173 @@
+{
+  "release": {
+    "assets": [
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727447665",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T12:41:55Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_hx",
+        "label": "",
+        "name": "APD-413-Complete-Test-Evidence.zip",
+        "size": 68208660,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:41:58Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-413-Complete-Test-Evidence.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727447922",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T12:41:59Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_ly",
+        "label": "",
+        "name": "APD-413-Native-Visuals.zip",
+        "size": 66047446,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:02Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-413-Native-Visuals.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448084",
+        "contentType": "application/vnd.android.package-archive",
+        "createdAt": "2026-11-09T12:42:03Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_oU",
+        "label": "",
+        "name": "APD-Alpha-Testers-413.apk",
+        "size": 39194658,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:04Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Alpha-Testers-413.apk"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448231",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T12:42:05Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_qn",
+        "label": "",
+        "name": "APD-Alpha-Testers-413.apk.sha256",
+        "size": 92,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:06Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Alpha-Testers-413.apk.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448269",
+        "contentType": "application/vnd.android.package-archive",
+        "createdAt": "2026-11-09T12:42:07Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_rN",
+        "label": "",
+        "name": "APD-Developer-413.apk",
+        "size": 39194690,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:08Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Developer-413.apk"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448405",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T12:42:09Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_tV",
+        "label": "",
+        "name": "APD-Developer-413.apk.sha256",
+        "size": 88,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:09Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Developer-413.apk.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448472",
+        "contentType": "application/json",
+        "createdAt": "2026-11-09T12:42:11Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_uY",
+        "label": "",
+        "name": "APD-Preview-413-Verification.json",
+        "size": 1321,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:11Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Preview-413-Verification.json"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448505",
+        "contentType": "application/zip",
+        "createdAt": "2026-11-09T12:42:12Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_u5",
+        "label": "",
+        "name": "APD-Source-413.zip",
+        "size": 92353507,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:16Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Source-413.zip"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448779",
+        "contentType": "application/octet-stream",
+        "createdAt": "2026-11-09T12:42:17Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_zL",
+        "label": "",
+        "name": "APD-Source-413.zip.sha256",
+        "size": 85,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:18Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Source-413.zip.sha256"
+      },
+      {
+        "apiUrl": "https://api.github.com/repos/APD-Development/ShieldingShouldHaveWorked/releases/assets/727448866",
+        "contentType": "application/json",
+        "createdAt": "2026-11-09T12:42:19Z",
+        "downloadCount": 0,
+        "id": "RA_kwDOU5kW484rW_0i",
+        "label": "",
+        "name": "APD-Source-Scan.json",
+        "size": 39382,
+        "state": "uploaded",
+        "updatedAt": "2026-11-09T12:42:19Z",
+        "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/download/apd-alpha-preview-413/APD-Source-Scan.json"
+      }
+    ],
+    "isDraft": false,
+    "publishedAt": "2026-11-09T12:52:57Z",
+    "url": "https://github.com/APD-Development/ShieldingShouldHaveWorked/releases/tag/apd-alpha-preview-413"
+  },
+  "verification": {
+    "prepared_eastern": "2026-11-09T07:41:01.358575-05:00",
+    "source_commit": "a0c2f60ec856cb3bb250b77a16bfcc2208973284",
+    "number": 413,
+    "tag": "apd-alpha-preview-413",
+    "core_tests": 3135,
+    "android_tests": 12,
+    "application_id": "com.charltonchris29.adhdpixeldungeon.indev",
+    "version_code": 920,
+    "signing_certificate": "067688b3ab6bd5820a67f4c1ba7d5859db578173771cf31d3252b3e4e012246e",
+    "apk_hashes": {
+      "Developer": "731132c898763de08f7d0b3b60fb7be3ea887cc178b1400d31db0f317594fc11",
+      "Alpha-Testers": "2cc1c856361ffb102f6ef2022e8dc16414b5fc56c3b9bcdac22a05358fa380fe"
+    },
+    "source_sha256": "53b78740d190b7467b762fd9e5c9c8e437eaa6b9d0bd0a422848bc519c71055e",
+    "physical_phone_verified": false,
+    "whole_semantic_audit_complete": false,
+    "selective_calculations_scope_corrected": true,
+    "new_application_apks_created": 2,
+    "prepared_utc": "2026-11-09T12:41:01.456277+00:00",
+    "workflow_run": "42616639575",
+    "native_scope": "API34: actual automatic inventory slots, stack quantities, holster tier/upgrade/wand order and movement after identification; preserved item/armor/Arcana UI, real GhoulSprite scheduler, wall layers and three trap-setting/persistence/movement cases per variant. Twelve targeted cases; not a full Android suite or physical-phone test.",
+    "fallback_preserved": true
+  },
+  "independent_review": {
+    "number": 413,
+    "source_commit": "a0c2f60ec856cb3bb250b77a16bfcc2208973284",
+    "apk_and_source_hashes_checked": true,
+    "all_source_manifest_files_checked": 4569,
+    "source_scan_supplemental_checked": true,
+    "manual_visual_review": true,
+    "manual_visual_capture_count": 40,
+    "manual_visual_scope": "Thirty normal/Warden plant windows with actual species sprites, empty Mage staff top/bottom, and Elastic/Lucky/Projecting/Vorpal Spirit Bow top/bottom; reviewed contact sheets0\u20139."
+  }
+}
